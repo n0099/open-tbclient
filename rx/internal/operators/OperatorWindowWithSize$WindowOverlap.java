@@ -17,16 +17,16 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.subjects.UnicastSubject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final j<? super d<T>> f62514i;
+    public final j<? super d<T>> f62559i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f62515j;
+    public final int f62560j;
     public final int k;
     public final AtomicInteger l;
     public final ArrayDeque<i.t.d<T, T>> m;
@@ -38,7 +38,7 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implemen
     public int s;
     public int t;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class WindowOverlapProducer extends AtomicBoolean implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4625807964358024108L;
@@ -73,7 +73,7 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implemen
                 } else if (i2 != 0) {
                     OperatorWindowWithSize$WindowOverlap operatorWindowWithSize$WindowOverlap = this.this$0;
                     if (!get() && compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowOverlap.e(i.o.a.a.a(i.o.a.a.c(operatorWindowWithSize$WindowOverlap.k, j2 - 1), operatorWindowWithSize$WindowOverlap.f62515j));
+                        operatorWindowWithSize$WindowOverlap.e(i.o.a.a.a(i.o.a.a.c(operatorWindowWithSize$WindowOverlap.k, j2 - 1), operatorWindowWithSize$WindowOverlap.f62560j));
                     } else {
                         this.this$0.e(i.o.a.a.c(operatorWindowWithSize$WindowOverlap.k, j2));
                     }
@@ -128,7 +128,7 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implemen
             if (atomicInteger.getAndIncrement() != 0) {
                 return;
             }
-            j<? super d<T>> jVar = this.f62514i;
+            j<? super d<T>> jVar = this.f62559i;
             Queue<i.t.d<T, T>> queue = this.p;
             int i3 = 1;
             do {
@@ -197,7 +197,7 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implemen
         if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
             int i2 = this.s;
             ArrayDeque<i.t.d<T, T>> arrayDeque = this.m;
-            if (i2 == 0 && !this.f62514i.isUnsubscribed()) {
+            if (i2 == 0 && !this.f62559i.isUnsubscribed()) {
                 this.l.getAndIncrement();
                 UnicastSubject F = UnicastSubject.F(16, this);
                 arrayDeque.offer(F);
@@ -209,7 +209,7 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implemen
                 it.next().onNext(t);
             }
             int i3 = this.t + 1;
-            if (i3 == this.f62515j) {
+            if (i3 == this.f62560j) {
                 this.t = i3 - this.k;
                 i.t.d<T, T> poll = arrayDeque.poll();
                 if (poll != null) {

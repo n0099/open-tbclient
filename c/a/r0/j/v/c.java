@@ -15,19 +15,19 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11270b;
+    public int f11412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f11271c;
+    public boolean f11413c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f11272d;
+    public boolean f11414d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11273e;
+    public int f11415e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11274f;
+    public String f11416f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class c {
             }
         }
         this.a = "";
-        this.f11270b = Integer.MAX_VALUE;
-        this.f11271c = false;
-        this.f11272d = false;
+        this.f11412b = Integer.MAX_VALUE;
+        this.f11413c = false;
+        this.f11414d = false;
     }
 
     public boolean a(c.a.r0.a.y.b.a aVar) throws JSTypeMismatchException {
@@ -54,9 +54,9 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             try {
                 this.a = aVar.B("defaultValue");
-                this.f11270b = aVar.q("maxLength");
-                this.f11271c = aVar.l("multiple");
-                this.f11272d = aVar.l("confirmHold");
+                this.f11412b = aVar.q("maxLength");
+                this.f11413c = aVar.l("multiple");
+                this.f11414d = aVar.l("confirmHold");
                 String B = aVar.B("confirmType");
                 char c2 = 65535;
                 switch (B.hashCode()) {
@@ -92,23 +92,23 @@ public class c {
                         break;
                 }
                 if (c2 == 0) {
-                    this.f11273e = 6;
-                    this.f11274f = "done";
+                    this.f11415e = 6;
+                    this.f11416f = "done";
                 } else if (c2 == 1) {
-                    this.f11273e = 5;
-                    this.f11274f = "next";
+                    this.f11415e = 5;
+                    this.f11416f = "next";
                 } else if (c2 == 2) {
-                    this.f11273e = 3;
-                    this.f11274f = "search";
+                    this.f11415e = 3;
+                    this.f11416f = "search";
                 } else if (c2 == 3) {
-                    this.f11273e = 2;
-                    this.f11274f = ReturnKeyType.GO;
+                    this.f11415e = 2;
+                    this.f11416f = ReturnKeyType.GO;
                 } else if (c2 != 4) {
-                    this.f11273e = 6;
-                    this.f11274f = "done";
+                    this.f11415e = 6;
+                    this.f11416f = "done";
                 } else {
-                    this.f11273e = 4;
-                    this.f11274f = ReturnKeyType.SEND;
+                    this.f11415e = 4;
+                    this.f11416f = ReturnKeyType.SEND;
                 }
                 return true;
             } catch (Exception unused) {

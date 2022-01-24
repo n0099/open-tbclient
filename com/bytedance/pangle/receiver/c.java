@@ -21,15 +21,15 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f53103d;
+    public static c f53148d;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<PluginBroadcastReceiver, BroadcastReceiver> f53104b;
+    public final Map<PluginBroadcastReceiver, BroadcastReceiver> f53149b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<Integer> f53105c;
+    public final Set<Integer> f53150c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -45,22 +45,22 @@ public final class c {
             }
         }
         this.a = new ConcurrentHashMap();
-        this.f53104b = new ConcurrentHashMap();
-        this.f53105c = new CopyOnWriteArraySet();
+        this.f53149b = new ConcurrentHashMap();
+        this.f53150c = new CopyOnWriteArraySet();
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f53103d == null) {
+            if (f53148d == null) {
                 synchronized (com.bytedance.pangle.service.a.a.class) {
-                    if (f53103d == null) {
-                        f53103d = new c();
+                    if (f53148d == null) {
+                        f53148d = new c();
                     }
                 }
             }
-            return f53103d;
+            return f53148d;
         }
         return (c) invokeV.objValue;
     }
@@ -72,7 +72,7 @@ public final class c {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Set<PluginBroadcastReceiver> f53106b;
+        public final Set<PluginBroadcastReceiver> f53151b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public final class c {
                     return;
                 }
             }
-            this.f53106b = new CopyOnWriteArraySet();
+            this.f53151b = new CopyOnWriteArraySet();
         }
 
         public final void a(PluginBroadcastReceiver pluginBroadcastReceiver) {
@@ -96,16 +96,16 @@ public final class c {
                 return;
             }
             ZeusLogger.i(ZeusLogger.TAG_RECEIVER, "plugin-receiver:" + pluginBroadcastReceiver.getClass().getSimpleName() + ",action=" + this.a + "[注册完成]");
-            this.f53106b.add(pluginBroadcastReceiver);
+            this.f53151b.add(pluginBroadcastReceiver);
         }
 
         public final void a(Context context, Intent intent) {
             Set<PluginBroadcastReceiver> set;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || (set = this.f53106b) == null || set.size() <= 0) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || (set = this.f53151b) == null || set.size() <= 0) {
                 return;
             }
-            for (PluginBroadcastReceiver pluginBroadcastReceiver : this.f53106b) {
+            for (PluginBroadcastReceiver pluginBroadcastReceiver : this.f53151b) {
                 if (pluginBroadcastReceiver != null) {
                     try {
                         pluginBroadcastReceiver.onReceive(context, intent);

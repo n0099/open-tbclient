@@ -130,7 +130,7 @@ public class b {
                             c.a.r0.q.i.e eVar = (c.a.r0.q.i.e) c.a.r0.q.p.f.j(jSONObject2, new c.a.r0.q.i.e());
                             if (eVar != null) {
                                 b(eVar, gVar);
-                                aVar.f11630b = eVar;
+                                aVar.f11772b = eVar;
                             }
                         } else if (c2 == 1) {
                             c.a.r0.q.i.e eVar2 = (c.a.r0.q.i.e) c.a.r0.q.p.f.j(jSONObject2, new c.a.r0.q.i.e());
@@ -142,22 +142,22 @@ public class b {
                             c.a.r0.q.i.c cVar = (c.a.r0.q.i.c) c.a.r0.q.p.f.j(jSONObject2, new c.a.r0.q.i.c());
                             if (cVar != null) {
                                 b(cVar, gVar);
-                                aVar.f11631c = cVar;
+                                aVar.f11773c = cVar;
                             }
                         } else if (c2 == 3) {
                             c.a.r0.q.i.c cVar2 = (c.a.r0.q.i.c) c.a.r0.q.p.f.j(jSONObject2, new c.a.r0.q.i.c());
                             if (cVar2 != null) {
                                 b(cVar2, gVar2);
-                                aVar2.f11631c = cVar2;
+                                aVar2.f11773c = cVar2;
                             }
                         } else if (c2 != 4) {
                             if (c2 == 5) {
-                                if (aVar3.f11633e == null) {
-                                    aVar3.f11633e = new ArrayList();
+                                if (aVar3.f11775e == null) {
+                                    aVar3.f11775e = new ArrayList();
                                 }
                                 c.a.r0.q.i.i iVar4 = (c.a.r0.q.i.i) c.a.r0.q.p.f.j(jSONObject2, new c.a.r0.q.i.i());
                                 b(iVar4, gVar3);
-                                aVar3.f11633e.add(iVar4);
+                                aVar3.f11775e.add(iVar4);
                             }
                         } else if (x != null) {
                             x.l(jSONObject2);

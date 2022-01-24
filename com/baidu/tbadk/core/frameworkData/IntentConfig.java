@@ -158,7 +158,7 @@ public class IntentConfig extends OrmObject {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f40247e;
+        public final /* synthetic */ IntentConfig f40275e;
 
         public a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -175,7 +175,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f40247e = intentConfig;
+            this.f40275e = intentConfig;
         }
 
         @Override // android.content.ServiceConnection
@@ -184,17 +184,17 @@ public class IntentConfig extends OrmObject {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) || iBinder == null) {
                 return;
             }
-            this.f40247e.mReplyMessenger = new Messenger(iBinder);
-            if (this.f40247e.mReplyMessenger != null) {
+            this.f40275e.mReplyMessenger = new Messenger(iBinder);
+            if (this.f40275e.mReplyMessenger != null) {
                 Message obtain = Message.obtain();
                 Bundle bundle = new Bundle();
-                if (this.f40247e.mComponentClass != null) {
-                    bundle.putString(DealIntentService.KEY_CLASS, this.f40247e.mComponentClass.getName());
+                if (this.f40275e.mComponentClass != null) {
+                    bundle.putString(DealIntentService.KEY_CLASS, this.f40275e.mComponentClass.getName());
                 }
                 obtain.setData(bundle);
-                obtain.replyTo = this.f40247e.mClientMessenger;
+                obtain.replyTo = this.f40275e.mClientMessenger;
                 try {
-                    this.f40247e.mReplyMessenger.send(obtain);
+                    this.f40275e.mReplyMessenger.send(obtain);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }

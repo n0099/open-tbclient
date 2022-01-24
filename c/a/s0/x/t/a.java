@@ -33,10 +33,10 @@ public class a extends m {
             }
         }
         int i5 = R.drawable.pic_more_connect64;
-        this.f14191d = i5;
-        this.f14193f = i5;
-        this.f14196i = false;
-        this.f14194g = false;
+        this.f14331d = i5;
+        this.f14333f = i5;
+        this.f14336i = false;
+        this.f14334g = false;
         this.n = new int[]{61};
     }
 }

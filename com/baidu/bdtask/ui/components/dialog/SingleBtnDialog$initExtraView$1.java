@@ -59,7 +59,7 @@ public final class SingleBtnDialog$initExtraView$1 extends Lambda implements Fun
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             c.a.j.j.d.a v = BDPTask.m.v();
             if (v != null && (d3 = v.d()) != null) {
-                d3.b(this.$data.getTaskInfoSingleKey(), b.f3892c.a());
+                d3.b(this.$data.getTaskInfoSingleKey(), b.f4033c.a());
             }
             c.a.j.j.d.a v2 = BDPTask.m.v();
             if (v2 != null && (d2 = v2.d()) != null) {

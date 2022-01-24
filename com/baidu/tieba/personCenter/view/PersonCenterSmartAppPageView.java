@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
-import c.a.t0.v2.d.c;
+import c.a.t0.w2.d.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,13 +22,13 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c> f47093e;
+    public List<c> f47121e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<PersonCenterSmartAppItemView> f47094f;
+    public List<PersonCenterSmartAppItemView> f47122f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47095g;
+    public int f47123g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PersonCenterSmartAppPageView(Context context) {
@@ -53,11 +53,11 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
 
     public void addSmartApp(c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || this.f47093e.size() == this.f47095g) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || this.f47121e.size() == this.f47123g) {
             return;
         }
-        this.f47093e.add(cVar);
-        PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) ListUtils.getItem(this.f47094f, this.f47093e.size() - 1);
+        this.f47121e.add(cVar);
+        PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) ListUtils.getItem(this.f47122f, this.f47121e.size() - 1);
         personCenterSmartAppItemView.bindData(cVar);
         personCenterSmartAppItemView.setVisibility(0);
     }
@@ -65,13 +65,13 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
     public boolean isCanAddMoreSmartApp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47093e.size() < this.f47095g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47121e.size() < this.f47123g : invokeV.booleanValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (PersonCenterSmartAppItemView personCenterSmartAppItemView : this.f47094f) {
+            for (PersonCenterSmartAppItemView personCenterSmartAppItemView : this.f47122f) {
                 if (personCenterSmartAppItemView != null) {
                     personCenterSmartAppItemView.onChangeSkinType();
                 }
@@ -119,19 +119,19 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
                 return;
             }
         }
-        this.f47095g = 4;
+        this.f47123g = 4;
         ViewGroup.LayoutParams layoutParams = new ViewPager.LayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -2;
         setLayoutParams(layoutParams);
         setOrientation(0);
-        this.f47093e = new ArrayList();
-        this.f47094f = new ArrayList();
-        for (int i5 = 0; i5 < this.f47095g; i5++) {
+        this.f47121e = new ArrayList();
+        this.f47122f = new ArrayList();
+        for (int i5 = 0; i5 < this.f47123g; i5++) {
             PersonCenterSmartAppItemView personCenterSmartAppItemView = new PersonCenterSmartAppItemView(getContext());
             addView(personCenterSmartAppItemView, new LinearLayout.LayoutParams(0, -1, 1.0f));
             personCenterSmartAppItemView.setVisibility(4);
-            this.f47094f.add(personCenterSmartAppItemView);
+            this.f47122f.add(personCenterSmartAppItemView);
         }
         onChangeSkinType();
     }

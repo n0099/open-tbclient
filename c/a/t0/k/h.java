@@ -15,10 +15,10 @@ public class h {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ForumManageModel f18633b;
+    public ForumManageModel f18614b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e2 f18634c;
+    public e2 f18615c;
 
     public h(int i2, ForumManageModel forumManageModel, e2 e2Var) {
         Interceptable interceptable = $ic;
@@ -36,20 +36,20 @@ public class h {
             }
         }
         this.a = i2;
-        this.f18633b = forumManageModel;
-        this.f18634c = e2Var;
+        this.f18614b = forumManageModel;
+        this.f18615c = e2Var;
     }
 
     public ForumManageModel a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18633b : (ForumManageModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18614b : (ForumManageModel) invokeV.objValue;
     }
 
     public e2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18634c : (e2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18615c : (e2) invokeV.objValue;
     }
 
     public int getType() {

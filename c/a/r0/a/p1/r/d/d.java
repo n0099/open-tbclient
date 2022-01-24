@@ -17,15 +17,15 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f8329d;
+    public static final boolean f8471d;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8330b;
+    public long f8472b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f8331c;
+    public long f8473c;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class d {
                 return;
             }
         }
-        f8329d = k.a;
+        f8471d = k.a;
     }
 
     public d(String str) {
@@ -59,7 +59,7 @@ public class d {
             }
         }
         this.a = str;
-        if (f8329d) {
+        if (f8471d) {
             String str2 = "new model, scope id - " + str;
         }
     }
@@ -67,20 +67,20 @@ public class d {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f8330b = j2;
+            this.f8472b = j2;
         }
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8330b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8472b : invokeV.longValue;
     }
 
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f8331c = j2;
+            this.f8473c = j2;
         }
     }
 
@@ -91,14 +91,14 @@ public class d {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("scope_id", this.a);
-                jSONObject.put("begin_ts", this.f8330b);
-                jSONObject.put("end_ts", this.f8331c);
+                jSONObject.put("begin_ts", this.f8472b);
+                jSONObject.put("end_ts", this.f8473c);
             } catch (JSONException e2) {
-                if (f8329d) {
+                if (f8471d) {
                     e2.printStackTrace();
                 }
             }
-            if (f8329d) {
+            if (f8471d) {
                 jSONObject.toString();
             }
             return jSONObject;

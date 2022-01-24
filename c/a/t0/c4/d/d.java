@@ -28,20 +28,20 @@ public class d extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f15500i = 16;
+    public static int f15648i = 16;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AvatarPendantActivity f15501e;
+    public AvatarPendantActivity f15649e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<c.a.t0.c4.d.a> f15502f;
+    public List<c.a.t0.c4.d.a> f15650f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.t0.c4.d.b f15503g;
+    public c.a.t0.c4.d.b f15651g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a f15504h;
+    public c.a f15652h;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -56,10 +56,10 @@ public class d extends BaseAdapter {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public WholeDisplayGridView f15505b;
+        public WholeDisplayGridView f15653b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f15506c;
+        public View f15654c;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class d extends BaseAdapter {
                 return;
             }
         }
-        this.f15501e = avatarPendantActivity;
+        this.f15649e = avatarPendantActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -122,11 +122,11 @@ public class d extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<c.a.t0.c4.d.a> list = this.f15502f;
+            List<c.a.t0.c4.d.a> list = this.f15650f;
             if (list == null || list.size() <= 0 || i2 < 0 || i2 >= getCount()) {
                 return null;
             }
-            return this.f15502f.get(i2);
+            return this.f15650f.get(i2);
         }
         return (c.a.t0.c4.d.a) invokeI.objValue;
     }
@@ -134,14 +134,14 @@ public class d extends BaseAdapter {
     public void b(c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f15504h = aVar;
+            this.f15652h = aVar;
         }
     }
 
     public void c(List<c.a.t0.c4.d.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f15502f = list;
+            this.f15650f = list;
         }
     }
 
@@ -150,7 +150,7 @@ public class d extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<c.a.t0.c4.d.a> list = this.f15502f;
+            List<c.a.t0.c4.d.a> list = this.f15650f;
             if (list != null) {
                 return list.size();
             }
@@ -178,11 +178,11 @@ public class d extends BaseAdapter {
             if (view != null && (view.getTag() instanceof b)) {
                 bVar = (b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f15501e.getActivity()).inflate(R.layout.avatar_pendant_listiew_item, viewGroup, false);
+                view = LayoutInflater.from(this.f15649e.getActivity()).inflate(R.layout.avatar_pendant_listiew_item, viewGroup, false);
                 bVar = new b(this, null);
                 bVar.a = (TextView) view.findViewById(R.id.category_name);
-                bVar.f15505b = (WholeDisplayGridView) view.findViewById(R.id.avatar_pedant_gridview);
-                bVar.f15506c = view.findViewById(R.id.line_divider);
+                bVar.f15653b = (WholeDisplayGridView) view.findViewById(R.id.avatar_pedant_gridview);
+                bVar.f15654c = view.findViewById(R.id.line_divider);
                 view.setTag(bVar);
             }
             c.a.t0.c4.d.a item = getItem(i2);
@@ -190,21 +190,21 @@ public class d extends BaseAdapter {
                 bVar.a.setVisibility(8);
             } else {
                 bVar.a.setVisibility(0);
-                bVar.a.setText(m.cutString(item.a(), f15500i));
+                bVar.a.setText(m.cutString(item.a(), f15648i));
             }
             if (item != null && !ListUtils.isEmpty(item.b())) {
-                c.a.t0.c4.d.b bVar2 = new c.a.t0.c4.d.b(this.f15501e);
-                this.f15503g = bVar2;
+                c.a.t0.c4.d.b bVar2 = new c.a.t0.c4.d.b(this.f15649e);
+                this.f15651g = bVar2;
                 bVar2.d(item.b());
-                bVar.f15505b.setAdapter((ListAdapter) this.f15503g);
-                this.f15503g.c(this.f15504h);
+                bVar.f15653b.setAdapter((ListAdapter) this.f15651g);
+                this.f15651g.c(this.f15652h);
             }
             if (i2 == getCount() - 1) {
-                bVar.f15506c.setVisibility(8);
+                bVar.f15654c.setVisibility(8);
             } else {
-                bVar.f15506c.setVisibility(0);
+                bVar.f15654c.setVisibility(0);
             }
-            SkinManager.setBackgroundColor(bVar.f15506c, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(bVar.f15654c, R.color.CAM_X0204);
             SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0109);
             return view;
         }

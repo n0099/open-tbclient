@@ -12,14 +12,14 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8245b;
+    public long f8387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8246c;
+    public String f8388c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8247d;
+    public String f8389d;
 
     public a() {
         Interceptable interceptable = $ic;

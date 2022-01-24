@@ -13,19 +13,19 @@ public class m {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f26482b;
+    public boolean f26510b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26483c;
+    public int f26511c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f26484d;
+    public boolean f26512d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f26485e;
+    public int f26513e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f26486f;
+    public String f26514f;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -41,11 +41,11 @@ public class m {
             }
         }
         this.a = true;
-        this.f26482b = false;
-        this.f26483c = 60;
-        this.f26484d = true;
-        this.f26485e = 0;
-        this.f26486f = "99999";
+        this.f26510b = false;
+        this.f26511c = 60;
+        this.f26512d = true;
+        this.f26513e = 0;
+        this.f26514f = "99999";
     }
 
     public static boolean a(String str) {
@@ -70,13 +70,13 @@ public class m {
             }
         }
         this.a = true;
-        this.f26482b = false;
-        this.f26483c = 60;
-        this.f26484d = true;
-        this.f26485e = 0;
-        this.f26486f = "99999";
+        this.f26510b = false;
+        this.f26511c = 60;
+        this.f26512d = true;
+        this.f26513e = 0;
+        this.f26514f = "99999";
         if (!TextUtils.isEmpty(str)) {
-            this.f26486f = str;
+            this.f26514f = str;
             return;
         }
         throw new IllegalArgumentException("eventId is empty");

@@ -22,22 +22,22 @@ public class e extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14341e;
+    public int f14481e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14342f;
+    public String f14482f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14343g;
+    public String f14483g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e2 f14344h;
+    public e2 f14484h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14345i;
+    public int f14485i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f14346j;
+    public boolean f14486j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -80,10 +80,10 @@ public class e extends BaseCardInfo {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e2Var)) == null) {
-            if (e2Var == null || e2Var.o1() == null) {
+            if (e2Var == null || e2Var.p1() == null) {
                 return -1L;
             }
-            return e2Var.o1().live_id;
+            return e2Var.p1().live_id;
         }
         return invokeL.longValue;
     }
@@ -91,7 +91,7 @@ public class e extends BaseCardInfo {
     public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14344h : (e2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14484h : (e2) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
@@ -118,9 +118,9 @@ public class e extends BaseCardInfo {
             if (threadData == null) {
                 return null;
             }
-            StatisticItem param = new StatisticItem(str).param("obj_id", g(threadData)).param("obj_type", i()).param("obj_param1", threadData.a1).param("obj_source", threadData.Z0).param("obj_locate", this.f14345i).param("ab_tag", threadData.b1).param(TiebaStatic.Params.OBJ_PARAM3, (threadData.o1() == null || StringUtils.isNull(threadData.o1().appId)) ? "" : threadData.o1().appId);
+            StatisticItem param = new StatisticItem(str).param("obj_id", g(threadData)).param("obj_type", i()).param("obj_param1", threadData.a1).param("obj_source", threadData.Z0).param("obj_locate", this.f14485i).param("ab_tag", threadData.b1).param(TiebaStatic.Params.OBJ_PARAM3, (threadData.p1() == null || StringUtils.isNull(threadData.p1().appId)) ? "" : threadData.p1().appId);
             if (z) {
-                param.param(TiebaStatic.Params.OBJ_PARAM2, threadData.o0() > 0 ? "0" : "1");
+                param.param(TiebaStatic.Params.OBJ_PARAM2, threadData.p0() > 0 ? "0" : "1");
             }
             return param;
         }
@@ -131,10 +131,10 @@ public class e extends BaseCardInfo {
     public void o(ThreadInfo threadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, threadInfo) == null) {
-            if (this.f14344h == null) {
-                this.f14344h = new e2();
+            if (this.f14484h == null) {
+                this.f14484h = new e2();
             }
-            this.f14344h.c3(threadInfo);
+            this.f14484h.d3(threadInfo);
         }
     }
 }

@@ -32,10 +32,10 @@ public class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TBAlertConfig.a f13643e;
+        public final /* synthetic */ TBAlertConfig.a f13830e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f13644f;
+        public final /* synthetic */ View.OnClickListener f13831f;
 
         public a(TBAlertConfig.a aVar, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -52,19 +52,19 @@ public class n {
                     return;
                 }
             }
-            this.f13643e = aVar;
-            this.f13644f = onClickListener;
+            this.f13830e = aVar;
+            this.f13831f = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                View.OnClickListener onClickListener = this.f13643e.f40196c;
+                View.OnClickListener onClickListener = this.f13830e.f40224c;
                 if (onClickListener != null) {
                     onClickListener.onClick(view);
                 }
-                View.OnClickListener onClickListener2 = this.f13644f;
+                View.OnClickListener onClickListener2 = this.f13831f;
                 if (onClickListener2 != null) {
                     onClickListener2.onClick(view);
                 }
@@ -78,7 +78,7 @@ public class n {
         public static final /* synthetic */ int[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13645b;
+        public static final /* synthetic */ int[] f13832b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -95,21 +95,21 @@ public class n {
                 }
             }
             int[] iArr = new int[TBAlertConfig.OperateBtnStyle.values().length];
-            f13645b = iArr;
+            f13832b = iArr;
             try {
                 iArr[TBAlertConfig.OperateBtnStyle.MAIN.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f13645b[TBAlertConfig.OperateBtnStyle.ALERT.ordinal()] = 2;
+                f13832b[TBAlertConfig.OperateBtnStyle.ALERT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f13645b[TBAlertConfig.OperateBtnStyle.FORCE.ordinal()] = 3;
+                f13832b[TBAlertConfig.OperateBtnStyle.FORCE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f13645b[TBAlertConfig.OperateBtnStyle.SECONDARY.ordinal()] = 4;
+                f13832b[TBAlertConfig.OperateBtnStyle.SECONDARY.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             int[] iArr2 = new int[TBAlertConfig.OperateType.values().length];
@@ -254,7 +254,7 @@ public class n {
         TextView f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, aVar, onClickListener, Boolean.valueOf(z)})) == null) {
-            int i2 = b.f13645b[aVar.f40195b.ordinal()];
+            int i2 = b.f13832b[aVar.f40223b.ordinal()];
             if (i2 == 1) {
                 f2 = f(context);
             } else if (i2 == 2) {
@@ -286,36 +286,36 @@ public class n {
             if (i2 == 1) {
                 linearLayout.setOrientation(0);
                 linearLayout.setWeightSum(837.0f);
-                View g2 = g(context, bVar.f40197b, onClickListener);
+                View g2 = g(context, bVar.f40225b, onClickListener);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, a);
                 layoutParams.weight = 494.0f;
                 linearLayout.addView(g2, layoutParams);
             } else if (i2 == 2) {
                 linearLayout.setOrientation(0);
-                if (bVar.f40197b.a.length() <= 6 && bVar.f40198c.a.length() <= 6) {
+                if (bVar.f40225b.a.length() <= 6 && bVar.f40226c.a.length() <= 6) {
                     z = false;
                 }
-                View h2 = h(context, bVar.f40197b, onClickListener, z);
+                View h2 = h(context, bVar.f40225b, onClickListener, z);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, a);
                 layoutParams2.setMargins(c.a.d.f.p.n.f(context, R.dimen.M_W_X012), 0, c.a.d.f.p.n.f(context, R.dimen.M_W_X006) / 2, 0);
                 layoutParams2.weight = 1.0f;
                 linearLayout.addView(h2, layoutParams2);
-                View h3 = h(context, bVar.f40198c, onClickListener, z);
+                View h3 = h(context, bVar.f40226c, onClickListener, z);
                 LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(0, a);
                 layoutParams3.setMargins(c.a.d.f.p.n.f(context, R.dimen.M_W_X006) / 2, 0, c.a.d.f.p.n.f(context, R.dimen.M_W_X012), 0);
                 layoutParams3.weight = 1.0f;
                 linearLayout.addView(h3, layoutParams3);
             } else if (i2 == 3) {
                 linearLayout.setOrientation(1);
-                View g3 = g(context, bVar.f40197b, onClickListener);
+                View g3 = g(context, bVar.f40225b, onClickListener);
                 LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-1, a);
                 layoutParams4.setMargins(c.a.d.f.p.n.f(context, R.dimen.M_W_X012), 0, c.a.d.f.p.n.f(context, R.dimen.M_W_X012), c.a.d.f.p.n.f(context, R.dimen.M_H_X005));
                 linearLayout.addView(g3, layoutParams4);
-                View g4 = g(context, bVar.f40198c, onClickListener);
+                View g4 = g(context, bVar.f40226c, onClickListener);
                 LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(-1, a);
                 layoutParams5.setMargins(c.a.d.f.p.n.f(context, R.dimen.M_W_X012), 0, c.a.d.f.p.n.f(context, R.dimen.M_W_X012), c.a.d.f.p.n.f(context, R.dimen.M_H_X005));
                 linearLayout.addView(g4, layoutParams5);
-                View g5 = g(context, bVar.f40199d, onClickListener);
+                View g5 = g(context, bVar.f40227d, onClickListener);
                 LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(-1, a);
                 layoutParams6.setMargins(c.a.d.f.p.n.f(context, R.dimen.M_W_X012), 0, c.a.d.f.p.n.f(context, R.dimen.M_W_X012), 0);
                 linearLayout.addView(g5, layoutParams6);

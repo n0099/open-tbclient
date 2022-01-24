@@ -245,7 +245,7 @@ public class f extends c.a.c0.k0.z.b {
         InterceptResult invokeLL;
         c.a.c0.s.c cVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, adBaseModel)) == null) ? (aVar == null || adBaseModel == null || (cVar = adBaseModel.f37021i) == null || !TextUtils.equals(aVar.f1955g, cVar.f2221b) || !TextUtils.equals(aVar.d(), cVar.f2222c)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, adBaseModel)) == null) ? (aVar == null || adBaseModel == null || (cVar = adBaseModel.f37049i) == null || !TextUtils.equals(aVar.f1955g, cVar.f2221b) || !TextUtils.equals(aVar.d(), cVar.f2222c)) ? false : true : invokeLL.booleanValue;
     }
 
     public final void o(AdBaseModel adBaseModel) {
@@ -253,7 +253,7 @@ public class f extends c.a.c0.k0.z.b {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || this.f2186f == null) {
             return;
         }
-        this.f2186f.setTextColor(getResources().getColor(adBaseModel.f37014b ? c.a.c0.d.b.NAD_FC4 : c.a.c0.d.b.NAD_FC1));
+        this.f2186f.setTextColor(getResources().getColor(adBaseModel.f37042b ? c.a.c0.d.b.NAD_FC4 : c.a.c0.d.b.NAD_FC1));
     }
 
     @Override // c.a.c0.k0.z.b
@@ -262,14 +262,14 @@ public class f extends c.a.c0.k0.z.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, adBaseModel, nadExpressNaBaseView) == null) {
             super.update(adBaseModel, nadExpressNaBaseView);
-            if (c.a.c0.k0.z.b.c(adBaseModel) && adBaseModel.f37018f != null) {
+            if (c.a.c0.k0.z.b.c(adBaseModel) && adBaseModel.f37046f != null) {
                 m();
-                String str = adBaseModel.f37018f.f37023b.a;
+                String str = adBaseModel.f37046f.f37051b.a;
                 if (!TextUtils.isEmpty(str) && (textView = this.f2186f) != null) {
                     textView.setText(str);
                     o(adBaseModel);
                 }
-                if (TextUtils.isEmpty(adBaseModel.f37016d.f2233b)) {
+                if (TextUtils.isEmpty(adBaseModel.f37044d.f2233b)) {
                     return;
                 }
                 this.f2189i = new c.a.c0.j.f.d(c.a.c0.j.d.a.b(adBaseModel), this.f2188h);

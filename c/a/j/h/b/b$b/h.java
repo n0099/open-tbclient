@@ -15,7 +15,7 @@ public final class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.j.h.b.b$f.b f3918b;
+    public c.a.j.h.b.b$f.b f4059b;
 
     public h(String str, c.a.j.h.b.b$f.b bVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class h {
             }
         }
         this.a = str;
-        this.f3918b = bVar;
+        this.f4059b = bVar;
     }
 
     public final String a() {
@@ -45,7 +45,7 @@ public final class h {
     public final c.a.j.h.b.b$f.b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3918b : (c.a.j.h.b.b$f.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4059b : (c.a.j.h.b.b$f.b) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -55,7 +55,7 @@ public final class h {
             if (this != obj) {
                 if (obj instanceof h) {
                     h hVar = (h) obj;
-                    return Intrinsics.areEqual(this.a, hVar.a) && Intrinsics.areEqual(this.f3918b, hVar.f3918b);
+                    return Intrinsics.areEqual(this.a, hVar.a) && Intrinsics.areEqual(this.f4059b, hVar.f4059b);
                 }
                 return false;
             }
@@ -70,7 +70,7 @@ public final class h {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String str = this.a;
             int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            c.a.j.h.b.b$f.b bVar = this.f3918b;
+            c.a.j.h.b.b$f.b bVar = this.f4059b;
             return hashCode + (bVar != null ? bVar.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -80,7 +80,7 @@ public final class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "BdtlsRequestParams(requestData=" + this.a + ", bdtlsRequest=" + this.f3918b + SmallTailInfo.EMOTION_SUFFIX;
+            return "BdtlsRequestParams(requestData=" + this.a + ", bdtlsRequest=" + this.f4059b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

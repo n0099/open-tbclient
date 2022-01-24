@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.j0.t.b;
+import c.a.s0.s.k0.t.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
     public boolean s;
     public boolean t;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface a {
         void a(View view);
     }
@@ -50,7 +50,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.s0.s.j0.t.b
+    @Override // c.a.s0.s.k0.t.b
     public void bindOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
@@ -65,7 +65,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.s0.s.j0.t.b
+    @Override // c.a.s0.s.k0.t.b
     public void onClickEvent(View view) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.s0.s.j0.t.b
+    @Override // c.a.s0.s.k0.t.b
     public void updateFansNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
@@ -108,13 +108,13 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (this.t) {
                 if (z) {
-                    c.a.s0.s.j0.n.b bVar = new c.a.s0.s.j0.n.b();
+                    c.a.s0.s.k0.n.b bVar = new c.a.s0.s.k0.n.b();
                     bVar.q();
                     setConfig(bVar);
                     setClickable(true);
                     setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
                 } else {
-                    c.a.s0.s.j0.n.b bVar2 = new c.a.s0.s.j0.n.b();
+                    c.a.s0.s.k0.n.b bVar2 = new c.a.s0.s.k0.n.b();
                     bVar2.t(R.color.CAM_X0105);
                     bVar2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
                     bVar2.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
@@ -124,13 +124,13 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
                     setText(TbadkCoreApplication.getInst().getString(R.string.attention));
                 }
             } else if (z) {
-                c.a.s0.s.j0.n.b bVar3 = new c.a.s0.s.j0.n.b();
+                c.a.s0.s.k0.n.b bVar3 = new c.a.s0.s.k0.n.b();
                 bVar3.s(R.color.CAM_X0109);
                 setConfig(bVar3);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                c.a.s0.s.j0.n.b bVar4 = new c.a.s0.s.j0.n.b();
+                c.a.s0.s.k0.n.b bVar4 = new c.a.s0.s.k0.n.b();
                 bVar4.r(R.color.CAM_X0302);
                 if (this.s) {
                     bVar4.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
@@ -184,7 +184,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
                 return;
             }
         }
-        c.a.s0.s.j0.n.b bVar = new c.a.s0.s.j0.n.b();
+        c.a.s0.s.k0.n.b bVar = new c.a.s0.s.k0.n.b();
         bVar.r(R.color.CAM_X0302);
         setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));
@@ -201,7 +201,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.s0.s.j0.t.b
+    @Override // c.a.s0.s.k0.t.b
     public void updateLikeStatus(boolean z, int i2, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {

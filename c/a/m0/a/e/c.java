@@ -82,7 +82,7 @@ public class c extends c.a.m0.a.e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f4419e;
+        public final /* synthetic */ c f4560e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -99,26 +99,26 @@ public class c extends c.a.m0.a.e.a {
                     return;
                 }
             }
-            this.f4419e = cVar;
+            this.f4560e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f4419e.F();
+                this.f4560e.F();
             }
         }
     }
 
     /* renamed from: c.a.m0.a.e.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0208c implements c.a.m0.a.f.a {
+    public class C0217c implements c.a.m0.a.f.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
 
-        public C0208c(c cVar) {
+        public C0217c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -188,17 +188,17 @@ public class c extends c.a.m0.a.e.a {
         RelativeLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f4397f != 2) {
+            if (this.f4538f != 2) {
                 try {
                     layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-                    ImageView imageView = new ImageView(this.f4396e);
+                    ImageView imageView = new ImageView(this.f4537e);
                     this.c0 = imageView;
                     imageView.setVisibility(0);
                     this.c0.setOnClickListener(new b(this));
                     this.c0.setLayoutParams(layoutParams);
                     U();
                 } catch (Exception e2) {
-                    this.f4401j.c(c.a.m0.a.e.a.b0, e2);
+                    this.f4542j.c(c.a.m0.a.e.a.b0, e2);
                     G(c.a.m0.a.e.a.b0 + " exception=" + Log.getStackTraceString(e2));
                 }
                 if (this.d0 == null) {
@@ -214,7 +214,7 @@ public class c extends c.a.m0.a.e.a {
                 J();
                 return;
             }
-            this.f4401j.a("XPureStaticImageAdContainer: ad state is stopped, so can not show ad");
+            this.f4542j.a("XPureStaticImageAdContainer: ad state is stopped, so can not show ad");
         }
     }
 
@@ -223,10 +223,10 @@ public class c extends c.a.m0.a.e.a {
         AdView adView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f4401j.j(c.a.m0.a.e.a.b0, "doStopOnUIThread");
+            this.f4542j.j(c.a.m0.a.e.a.b0, "doStopOnUIThread");
             ImageView imageView = this.c0;
             if (imageView != null && (adView = this.p) != null && adView.indexOfChild(imageView) >= 0) {
-                this.f4401j.j(c.a.m0.a.e.a.b0, "doStopOnUIThread release imageView");
+                this.f4542j.j(c.a.m0.a.e.a.b0, "doStopOnUIThread release imageView");
                 if (this.c0.getDrawingCache() != null) {
                     this.c0.getDrawingCache().recycle();
                 }
@@ -236,7 +236,7 @@ public class c extends c.a.m0.a.e.a {
             if (bitmap == null || bitmap.isRecycled()) {
                 return;
             }
-            c.a.m0.a.l.b bVar = this.f4401j;
+            c.a.m0.a.l.b bVar = this.f4542j;
             String str = c.a.m0.a.e.a.b0;
             bVar.j(str, "doStopOnUIThread release newBitmap->" + this.d0.toString());
             this.d0.recycle();
@@ -254,7 +254,7 @@ public class c extends c.a.m0.a.e.a {
             if (this.d0 != null) {
                 return;
             }
-            this.d0 = this.m.a(this.y, new C0208c(this));
+            this.d0 = this.m.a(this.y, new C0217c(this));
         }
     }
 
@@ -299,7 +299,7 @@ public class c extends c.a.m0.a.e.a {
                 return;
             }
             try {
-                MaterialLoader.k(this.f4396e).f(this.y, new a(this));
+                MaterialLoader.k(this.f4537e).f(this.y, new a(this));
             } catch (Exception e2) {
                 G("StaticImage,Exception: " + e2.toString());
             }

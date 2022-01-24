@@ -16,12 +16,12 @@ public class b implements c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6848c;
+    public static final boolean f6990c;
     public transient /* synthetic */ FieldHolder $fh;
     public final c.a.r0.a.h0.q.c.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f6849b;
+    public final int f6991b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public class b implements c {
                 return;
             }
         }
-        f6848c = k.a;
+        f6990c = k.a;
     }
 
     public b() {
@@ -53,7 +53,7 @@ public class b implements c {
             }
         }
         this.a = new c.a.r0.a.h0.q.c.c();
-        this.f6849b = 30;
+        this.f6991b = 30;
     }
 
     @Override // c.a.r0.a.h0.q.d.c
@@ -78,28 +78,28 @@ public class b implements c {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
-            if (f6848c) {
+            if (f6990c) {
                 String str4 = "prefetchId - " + str;
                 String str5 = "appId - " + str2;
                 String str6 = "url - " + str3;
             }
             c.a.r0.a.h0.q.c.b a = this.a.a(str2, str3);
             if (a == null) {
-                boolean z = f6848c;
+                boolean z = f6990c;
                 return true;
             } else if (!TextUtils.isEmpty(str)) {
-                boolean z2 = f6848c;
+                boolean z2 = f6990c;
                 return false;
             } else {
                 String curProcessName = ProcessUtils.getCurProcessName();
                 if (!TextUtils.equals(curProcessName, a.a)) {
-                    if (f6848c) {
+                    if (f6990c) {
                         String str7 = "process not match, current - " + curProcessName + ", record - " + a.a;
                     }
                     return true;
                 }
-                boolean z3 = System.currentTimeMillis() - a.f6845b >= ((long) (this.f6849b * 1000));
-                if (f6848c) {
+                boolean z3 = System.currentTimeMillis() - a.f6987b >= ((long) (this.f6991b * 1000));
+                if (f6990c) {
                     String str8 = "url in recorder, time is out - " + z3;
                 }
                 return z3;

@@ -65,7 +65,7 @@ public class cg {
         public Random f187a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f60948b;
+        public String f60993b;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class cg {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048582, this, ceVar, context) == null) {
                 this.f183a = ceVar;
-                this.f60948b = ceVar.a();
+                this.f60993b = ceVar.a();
                 this.f186a = new WeakReference<>(context);
             }
         }
@@ -151,7 +151,7 @@ public class cg {
         public boolean m281a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f183a == null || TextUtils.isEmpty(this.f60948b) || this.f186a == null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f183a == null || TextUtils.isEmpty(this.f60993b) || this.f186a == null : invokeV.booleanValue;
         }
 
         public void b(Context context) {
@@ -189,16 +189,16 @@ public class cg {
         public String[] f190a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<T> f60949b;
+        public List<T> f60994b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f60950c;
+        public String f60995c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f60951d;
+        public String f60996d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f60952e;
+        public String f60997e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i2) {
@@ -218,13 +218,13 @@ public class cg {
                     return;
                 }
             }
-            this.f60949b = new ArrayList();
+            this.f60994b = new ArrayList();
             this.f189a = list;
             this.f188a = str2;
             this.f190a = strArr;
-            this.f60950c = str3;
-            this.f60951d = str4;
-            this.f60952e = str5;
+            this.f60995c = str3;
+            this.f60996d = str4;
+            this.f60997e = str5;
             this.a = i2;
         }
 
@@ -242,7 +242,7 @@ public class cg {
             String[] strArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, sQLiteDatabase) == null) {
-                this.f60949b.clear();
+                this.f60994b.clear();
                 List<String> list = this.f189a;
                 if (list == null || list.size() <= 0) {
                     strArr = null;
@@ -252,17 +252,17 @@ public class cg {
                     strArr = strArr2;
                 }
                 int i2 = this.a;
-                Cursor query = sQLiteDatabase.query(super.f60948b, strArr, this.f188a, this.f190a, this.f60950c, this.f60951d, this.f60952e, i2 > 0 ? String.valueOf(i2) : null);
+                Cursor query = sQLiteDatabase.query(super.f60993b, strArr, this.f188a, this.f190a, this.f60995c, this.f60996d, this.f60997e, i2 > 0 ? String.valueOf(i2) : null);
                 if (query != null && query.moveToFirst()) {
                     do {
                         T a = a(context, query);
                         if (a != null) {
-                            this.f60949b.add(a);
+                            this.f60994b.add(a);
                         }
                     } while (query.moveToNext());
                     query.close();
                 }
-                a(context, (List) this.f60949b);
+                a(context, (List) this.f60994b);
             }
         }
 
@@ -363,7 +363,7 @@ public class cg {
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, sQLiteDatabase) == null) {
-                sQLiteDatabase.delete(this.f60948b, this.a, this.f191a);
+                sQLiteDatabase.delete(this.f60993b, this.a, this.f191a);
             }
         }
     }
@@ -399,7 +399,7 @@ public class cg {
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, sQLiteDatabase) == null) {
-                sQLiteDatabase.insert(this.f60948b, null, this.a);
+                sQLiteDatabase.insert(this.f60993b, null, this.a);
             }
         }
     }

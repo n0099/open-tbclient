@@ -15,24 +15,24 @@ public class f<K, V> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Object[] f11750h;
+    public static Object[] f11892h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f11751i;
+    public static int f11893i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static Object[] f11752j;
+    public static Object[] f11894j;
     public static int k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int[] f11753e;
+    public int[] f11895e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Object[] f11754f;
+    public Object[] f11896f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11755g;
+    public int f11897g;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class f<K, V> {
                 return;
             }
         }
-        this.f11753e = b.a;
-        this.f11754f = b.f11733b;
-        this.f11755g = 0;
+        this.f11895e = b.a;
+        this.f11896f = b.f11875b;
+        this.f11897g = 0;
     }
 
     public static void c(int[] iArr, Object[] objArr, int i2) {
@@ -58,25 +58,25 @@ public class f<K, V> {
             if (iArr.length == 8) {
                 synchronized (a.class) {
                     if (k < 10) {
-                        objArr[0] = f11752j;
+                        objArr[0] = f11894j;
                         objArr[1] = iArr;
                         for (int i3 = (i2 << 1) - 1; i3 >= 2; i3--) {
                             objArr[i3] = null;
                         }
-                        f11752j = objArr;
+                        f11894j = objArr;
                         k++;
                     }
                 }
             } else if (iArr.length == 4) {
                 synchronized (a.class) {
-                    if (f11751i < 10) {
-                        objArr[0] = f11750h;
+                    if (f11893i < 10) {
+                        objArr[0] = f11892h;
                         objArr[1] = iArr;
                         for (int i4 = (i2 << 1) - 1; i4 >= 2; i4--) {
                             objArr[i4] = null;
                         }
-                        f11750h = objArr;
-                        f11751i++;
+                        f11892h = objArr;
+                        f11893i++;
                     }
                 }
             }
@@ -88,11 +88,11 @@ public class f<K, V> {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 == 8) {
                 synchronized (a.class) {
-                    if (f11752j != null) {
-                        Object[] objArr = f11752j;
-                        this.f11754f = objArr;
-                        f11752j = (Object[]) objArr[0];
-                        this.f11753e = (int[]) objArr[1];
+                    if (f11894j != null) {
+                        Object[] objArr = f11894j;
+                        this.f11896f = objArr;
+                        f11894j = (Object[]) objArr[0];
+                        this.f11895e = (int[]) objArr[1];
                         objArr[1] = null;
                         objArr[0] = null;
                         k--;
@@ -101,36 +101,36 @@ public class f<K, V> {
                 }
             } else if (i2 == 4) {
                 synchronized (a.class) {
-                    if (f11750h != null) {
-                        Object[] objArr2 = f11750h;
-                        this.f11754f = objArr2;
-                        f11750h = (Object[]) objArr2[0];
-                        this.f11753e = (int[]) objArr2[1];
+                    if (f11892h != null) {
+                        Object[] objArr2 = f11892h;
+                        this.f11896f = objArr2;
+                        f11892h = (Object[]) objArr2[0];
+                        this.f11895e = (int[]) objArr2[1];
                         objArr2[1] = null;
                         objArr2[0] = null;
-                        f11751i--;
+                        f11893i--;
                         return;
                     }
                 }
             }
-            this.f11753e = new int[i2];
-            this.f11754f = new Object[i2 << 1];
+            this.f11895e = new int[i2];
+            this.f11896f = new Object[i2 << 1];
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            int[] iArr = this.f11753e;
+            int[] iArr = this.f11895e;
             if (iArr.length < i2) {
-                Object[] objArr = this.f11754f;
+                Object[] objArr = this.f11896f;
                 a(i2);
-                int i3 = this.f11755g;
+                int i3 = this.f11897g;
                 if (i3 > 0) {
-                    System.arraycopy(iArr, 0, this.f11753e, 0, i3);
-                    System.arraycopy(objArr, 0, this.f11754f, 0, this.f11755g << 1);
+                    System.arraycopy(iArr, 0, this.f11895e, 0, i3);
+                    System.arraycopy(objArr, 0, this.f11896f, 0, this.f11897g << 1);
                 }
-                c(iArr, objArr, this.f11755g);
+                c(iArr, objArr, this.f11897g);
             }
         }
     }
@@ -138,13 +138,13 @@ public class f<K, V> {
     public void clear() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (i2 = this.f11755g) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (i2 = this.f11897g) == 0) {
             return;
         }
-        c(this.f11753e, this.f11754f, i2);
-        this.f11753e = b.a;
-        this.f11754f = b.f11733b;
-        this.f11755g = 0;
+        c(this.f11895e, this.f11896f, i2);
+        this.f11895e = b.a;
+        this.f11896f = b.f11875b;
+        this.f11897g = 0;
     }
 
     public boolean containsKey(Object obj) {
@@ -163,21 +163,21 @@ public class f<K, V> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, obj, i2)) == null) {
-            int i3 = this.f11755g;
+            int i3 = this.f11897g;
             if (i3 == 0) {
                 return -1;
             }
-            int a = b.a(this.f11753e, i3, i2);
-            if (a >= 0 && !obj.equals(this.f11754f[a << 1])) {
+            int a = b.a(this.f11895e, i3, i2);
+            if (a >= 0 && !obj.equals(this.f11896f[a << 1])) {
                 int i4 = a + 1;
-                while (i4 < i3 && this.f11753e[i4] == i2) {
-                    if (obj.equals(this.f11754f[i4 << 1])) {
+                while (i4 < i3 && this.f11895e[i4] == i2) {
+                    if (obj.equals(this.f11896f[i4 << 1])) {
                         return i4;
                     }
                     i4++;
                 }
-                for (int i5 = a - 1; i5 >= 0 && this.f11753e[i5] == i2; i5--) {
-                    if (obj.equals(this.f11754f[i5 << 1])) {
+                for (int i5 = a - 1; i5 >= 0 && this.f11895e[i5] == i2; i5--) {
+                    if (obj.equals(this.f11896f[i5 << 1])) {
                         return i5;
                     }
                 }
@@ -206,7 +206,7 @@ public class f<K, V> {
                 if (size() != map.size()) {
                     return false;
                 }
-                for (int i2 = 0; i2 < this.f11755g; i2++) {
+                for (int i2 = 0; i2 < this.f11897g; i2++) {
                     try {
                         K h2 = h(i2);
                         V k2 = k(i2);
@@ -232,21 +232,21 @@ public class f<K, V> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i2 = this.f11755g;
+            int i2 = this.f11897g;
             if (i2 == 0) {
                 return -1;
             }
-            int a = b.a(this.f11753e, i2, 0);
-            if (a >= 0 && this.f11754f[a << 1] != null) {
+            int a = b.a(this.f11895e, i2, 0);
+            if (a >= 0 && this.f11896f[a << 1] != null) {
                 int i3 = a + 1;
-                while (i3 < i2 && this.f11753e[i3] == 0) {
-                    if (this.f11754f[i3 << 1] == null) {
+                while (i3 < i2 && this.f11895e[i3] == 0) {
+                    if (this.f11896f[i3 << 1] == null) {
                         return i3;
                     }
                     i3++;
                 }
-                for (int i4 = a - 1; i4 >= 0 && this.f11753e[i4] == 0; i4--) {
-                    if (this.f11754f[i4 << 1] == null) {
+                for (int i4 = a - 1; i4 >= 0 && this.f11895e[i4] == 0; i4--) {
+                    if (this.f11896f[i4 << 1] == null) {
                         return i4;
                     }
                 }
@@ -261,8 +261,8 @@ public class f<K, V> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
-            int i2 = this.f11755g * 2;
-            Object[] objArr = this.f11754f;
+            int i2 = this.f11897g * 2;
+            Object[] objArr = this.f11896f;
             if (obj == null) {
                 for (int i3 = 1; i3 < i2; i3 += 2) {
                     if (objArr[i3] == null) {
@@ -287,7 +287,7 @@ public class f<K, V> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
             int e2 = e(obj);
             if (e2 >= 0) {
-                return (V) this.f11754f[(e2 << 1) + 1];
+                return (V) this.f11896f[(e2 << 1) + 1];
             }
             return null;
         }
@@ -297,16 +297,16 @@ public class f<K, V> {
     public K h(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) ? (K) this.f11754f[i2 << 1] : (K) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) ? (K) this.f11896f[i2 << 1] : (K) invokeI.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int[] iArr = this.f11753e;
-            Object[] objArr = this.f11754f;
-            int i2 = this.f11755g;
+            int[] iArr = this.f11895e;
+            Object[] objArr = this.f11896f;
+            int i2 = this.f11897g;
             int i3 = 1;
             int i4 = 0;
             int i5 = 0;
@@ -325,45 +325,45 @@ public class f<K, V> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            Object[] objArr = this.f11754f;
+            Object[] objArr = this.f11896f;
             int i3 = i2 << 1;
             V v = (V) objArr[i3 + 1];
-            int i4 = this.f11755g;
+            int i4 = this.f11897g;
             if (i4 <= 1) {
-                c(this.f11753e, objArr, i4);
-                this.f11753e = b.a;
-                this.f11754f = b.f11733b;
-                this.f11755g = 0;
+                c(this.f11895e, objArr, i4);
+                this.f11895e = b.a;
+                this.f11896f = b.f11875b;
+                this.f11897g = 0;
             } else {
-                int[] iArr = this.f11753e;
+                int[] iArr = this.f11895e;
                 if (iArr.length > 8 && i4 < iArr.length / 3) {
                     int i5 = i4 > 8 ? i4 + (i4 >> 1) : 8;
-                    int[] iArr2 = this.f11753e;
-                    Object[] objArr2 = this.f11754f;
+                    int[] iArr2 = this.f11895e;
+                    Object[] objArr2 = this.f11896f;
                     a(i5);
-                    this.f11755g--;
+                    this.f11897g--;
                     if (i2 > 0) {
-                        System.arraycopy(iArr2, 0, this.f11753e, 0, i2);
-                        System.arraycopy(objArr2, 0, this.f11754f, 0, i3);
+                        System.arraycopy(iArr2, 0, this.f11895e, 0, i2);
+                        System.arraycopy(objArr2, 0, this.f11896f, 0, i3);
                     }
-                    int i6 = this.f11755g;
+                    int i6 = this.f11897g;
                     if (i2 < i6) {
                         int i7 = i2 + 1;
-                        System.arraycopy(iArr2, i7, this.f11753e, i2, i6 - i2);
-                        System.arraycopy(objArr2, i7 << 1, this.f11754f, i3, (this.f11755g - i2) << 1);
+                        System.arraycopy(iArr2, i7, this.f11895e, i2, i6 - i2);
+                        System.arraycopy(objArr2, i7 << 1, this.f11896f, i3, (this.f11897g - i2) << 1);
                     }
                 } else {
-                    int i8 = this.f11755g - 1;
-                    this.f11755g = i8;
+                    int i8 = this.f11897g - 1;
+                    this.f11897g = i8;
                     if (i2 < i8) {
-                        int[] iArr3 = this.f11753e;
+                        int[] iArr3 = this.f11895e;
                         int i9 = i2 + 1;
                         System.arraycopy(iArr3, i9, iArr3, i2, i8 - i2);
-                        Object[] objArr3 = this.f11754f;
-                        System.arraycopy(objArr3, i9 << 1, objArr3, i3, (this.f11755g - i2) << 1);
+                        Object[] objArr3 = this.f11896f;
+                        System.arraycopy(objArr3, i9 << 1, objArr3, i3, (this.f11897g - i2) << 1);
                     }
-                    Object[] objArr4 = this.f11754f;
-                    int i10 = this.f11755g;
+                    Object[] objArr4 = this.f11896f;
+                    int i10 = this.f11897g;
                     objArr4[i10 << 1] = null;
                     objArr4[(i10 << 1) + 1] = null;
                 }
@@ -376,7 +376,7 @@ public class f<K, V> {
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f11755g <= 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f11897g <= 0 : invokeV.booleanValue;
     }
 
     public V j(int i2, V v) {
@@ -384,7 +384,7 @@ public class f<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i2, v)) == null) {
             int i3 = (i2 << 1) + 1;
-            Object[] objArr = this.f11754f;
+            Object[] objArr = this.f11896f;
             V v2 = (V) objArr[i3];
             objArr[i3] = v;
             return v2;
@@ -395,7 +395,7 @@ public class f<K, V> {
     public V k(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) ? (V) this.f11754f[(i2 << 1) + 1] : (V) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) ? (V) this.f11896f[(i2 << 1) + 1] : (V) invokeI.objValue;
     }
 
     public V put(K k2, V v) {
@@ -414,44 +414,44 @@ public class f<K, V> {
             }
             if (d2 >= 0) {
                 int i3 = (d2 << 1) + 1;
-                Object[] objArr = this.f11754f;
+                Object[] objArr = this.f11896f;
                 V v2 = (V) objArr[i3];
                 objArr[i3] = v;
                 return v2;
             }
             int i4 = ~d2;
-            int i5 = this.f11755g;
-            if (i5 >= this.f11753e.length) {
+            int i5 = this.f11897g;
+            if (i5 >= this.f11895e.length) {
                 int i6 = 4;
                 if (i5 >= 8) {
                     i6 = (i5 >> 1) + i5;
                 } else if (i5 >= 4) {
                     i6 = 8;
                 }
-                int[] iArr = this.f11753e;
-                Object[] objArr2 = this.f11754f;
+                int[] iArr = this.f11895e;
+                Object[] objArr2 = this.f11896f;
                 a(i6);
-                int[] iArr2 = this.f11753e;
+                int[] iArr2 = this.f11895e;
                 if (iArr2.length > 0) {
                     System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
-                    System.arraycopy(objArr2, 0, this.f11754f, 0, objArr2.length);
+                    System.arraycopy(objArr2, 0, this.f11896f, 0, objArr2.length);
                 }
-                c(iArr, objArr2, this.f11755g);
+                c(iArr, objArr2, this.f11897g);
             }
-            int i7 = this.f11755g;
+            int i7 = this.f11897g;
             if (i4 < i7) {
-                int[] iArr3 = this.f11753e;
+                int[] iArr3 = this.f11895e;
                 int i8 = i4 + 1;
                 System.arraycopy(iArr3, i4, iArr3, i8, i7 - i4);
-                Object[] objArr3 = this.f11754f;
-                System.arraycopy(objArr3, i4 << 1, objArr3, i8 << 1, (this.f11755g - i4) << 1);
+                Object[] objArr3 = this.f11896f;
+                System.arraycopy(objArr3, i4 << 1, objArr3, i8 << 1, (this.f11897g - i4) << 1);
             }
-            this.f11753e[i4] = i2;
-            Object[] objArr4 = this.f11754f;
+            this.f11895e[i4] = i2;
+            Object[] objArr4 = this.f11896f;
             int i9 = i4 << 1;
             objArr4[i9] = k2;
             objArr4[i9 + 1] = v;
-            this.f11755g++;
+            this.f11897g++;
             return null;
         }
         return (V) invokeLL.objValue;
@@ -473,7 +473,7 @@ public class f<K, V> {
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f11755g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f11897g : invokeV.intValue;
     }
 
     public String toString() {
@@ -483,9 +483,9 @@ public class f<K, V> {
             if (isEmpty()) {
                 return StringUtil.EMPTY_ARRAY;
             }
-            StringBuilder sb = new StringBuilder(this.f11755g * 28);
+            StringBuilder sb = new StringBuilder(this.f11897g * 28);
             sb.append(ExtendedMessageFormat.START_FE);
-            for (int i2 = 0; i2 < this.f11755g; i2++) {
+            for (int i2 = 0; i2 < this.f11897g; i2++) {
                 if (i2 > 0) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
@@ -495,7 +495,7 @@ public class f<K, V> {
                 } else {
                     sb.append("(this Map)");
                 }
-                sb.append(com.alipay.sdk.encrypt.a.f30865h);
+                sb.append(com.alipay.sdk.encrypt.a.f30893h);
                 V k2 = k(i2);
                 if (k2 != this) {
                     sb.append(k2);

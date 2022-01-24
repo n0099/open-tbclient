@@ -17,46 +17,46 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11449b;
+    public String f11591b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f11450c;
+    public Map<String, String> f11592c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RequestBody f11451d;
+    public RequestBody f11593d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ResponseCallback f11452e;
+    public ResponseCallback f11594e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f11453f;
+    public boolean f11595f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f11454g;
+    public boolean f11596g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f11455h;
+    public boolean f11597h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Object f11456i;
+    public Object f11598i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f11457j;
+    public int f11599j;
     public int k;
-    public C0791a l;
+    public C0800a l;
 
     /* renamed from: c.a.r0.p.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0791a {
+    public static class C0800a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f11458b;
+        public int f11600b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f11459c;
+        public int f11601c;
     }
 
     public a() {
@@ -72,11 +72,11 @@ public class a {
                 return;
             }
         }
-        this.f11449b = "GET";
-        this.f11453f = false;
-        this.f11454g = false;
-        this.f11455h = false;
-        this.f11457j = 6;
+        this.f11591b = "GET";
+        this.f11595f = false;
+        this.f11596g = false;
+        this.f11597h = false;
+        this.f11599j = 6;
         this.k = 0;
     }
 
@@ -85,17 +85,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaType, str)) == null) {
             if (mediaType != null && str != null) {
-                this.f11451d = RequestBody.create(mediaType, str);
+                this.f11593d = RequestBody.create(mediaType, str);
             }
             return this;
         }
         return (a) invokeLL.objValue;
     }
 
-    public C0791a b() {
+    public C0800a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (C0791a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (C0800a) invokeV.objValue;
     }
 
     public a(String str, ResponseCallback responseCallback) {
@@ -113,14 +113,14 @@ public class a {
                 return;
             }
         }
-        this.f11449b = "GET";
-        this.f11453f = false;
-        this.f11454g = false;
-        this.f11455h = false;
-        this.f11457j = 6;
+        this.f11591b = "GET";
+        this.f11595f = false;
+        this.f11596g = false;
+        this.f11597h = false;
+        this.f11599j = 6;
         this.k = 0;
         this.a = str;
-        this.f11452e = responseCallback;
+        this.f11594e = responseCallback;
     }
 
     public a(String str, RequestBody requestBody, ResponseCallback responseCallback) {
@@ -138,14 +138,14 @@ public class a {
                 return;
             }
         }
-        this.f11449b = "GET";
-        this.f11453f = false;
-        this.f11454g = false;
-        this.f11455h = false;
-        this.f11457j = 6;
+        this.f11591b = "GET";
+        this.f11595f = false;
+        this.f11596g = false;
+        this.f11597h = false;
+        this.f11599j = 6;
         this.k = 0;
         this.a = str;
-        this.f11451d = requestBody;
-        this.f11452e = responseCallback;
+        this.f11593d = requestBody;
+        this.f11594e = responseCallback;
     }
 }

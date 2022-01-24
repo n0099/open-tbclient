@@ -25,15 +25,15 @@ public interface c extends IInterface {
 
         /* renamed from: com.bytedance.pangle.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C2033a implements c {
+        public static class C2039a implements c {
             public static /* synthetic */ Interceptable $ic;
             public static c a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f52975b;
+            public IBinder f53020b;
 
-            public C2033a(IBinder iBinder) {
+            public C2039a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +48,7 @@ public interface c extends IInterface {
                         return;
                     }
                 }
-                this.f52975b = iBinder;
+                this.f53020b = iBinder;
             }
 
             @Override // com.bytedance.pangle.c
@@ -61,7 +61,7 @@ public interface c extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.bytedance.pangle.IPackageManager");
                         obtain.writeString(str);
-                        if (!this.f52975b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f53020b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(str);
                         }
                         obtain2.readException();
@@ -78,7 +78,7 @@ public interface c extends IInterface {
             public final IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52975b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53020b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.pangle.c
@@ -91,7 +91,7 @@ public interface c extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.bytedance.pangle.IPackageManager");
                         obtain.writeString(str);
-                        if (!this.f52975b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f53020b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().b(str);
                         }
                         obtain2.readException();
@@ -114,7 +114,7 @@ public interface c extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.bytedance.pangle.IPackageManager");
                         obtain.writeString(str);
-                        if (!this.f52975b.transact(3, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f53020b.transact(3, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().c(str);
                         }
                         obtain2.readException();
@@ -155,7 +155,7 @@ public interface c extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                     return (c) queryLocalInterface;
                 }
-                return new C2033a(iBinder);
+                return new C2039a(iBinder);
             }
             return (c) invokeL.objValue;
         }
@@ -204,7 +204,7 @@ public interface c extends IInterface {
         public static c a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2033a.a : (c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2039a.a : (c) invokeV.objValue;
         }
     }
 }

@@ -38,10 +38,10 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c.a.t0.s1.i.a.b.b> f44943b;
+    public List<c.a.t0.t1.i.a.b.b> f44971b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f<c.a.t0.s1.i.a.b.b> f44944c;
+    public f<c.a.t0.t1.i.a.b.b> f44972c;
 
     /* loaded from: classes12.dex */
     public static class FroumBroadMajorHistoryItemViewHolder extends RecyclerView.ViewHolder {
@@ -50,31 +50,31 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f44945b;
+        public TextView f44973b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f44946c;
+        public TextView f44974c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f44947d;
+        public TextView f44975d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f44948e;
+        public TextView f44976e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f44949f;
+        public TextView f44977f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f44950g;
+        public TextView f44978g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f44951h;
+        public TextView f44979h;
 
         /* renamed from: i  reason: collision with root package name */
-        public TextView f44952i;
+        public TextView f44980i;
 
         /* renamed from: j  reason: collision with root package name */
-        public LinearLayout f44953j;
+        public LinearLayout f44981j;
         public LinearLayout k;
         public LinearLayout l;
         public LinearLayout m;
@@ -105,23 +105,23 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
                 }
             }
             this.a = (TextView) view.findViewById(R.id.bcast_time);
-            this.f44945b = (TextView) view.findViewById(R.id.forum_name);
-            this.f44946c = (TextView) view.findViewById(R.id.bcast_title);
-            this.f44947d = (TextView) view.findViewById(R.id.bcast_content);
-            this.f44948e = (TextView) view.findViewById(R.id.publish_number);
-            this.f44949f = (TextView) view.findViewById(R.id.pv_number);
-            this.f44950g = (TextView) view.findViewById(R.id.ctr_number);
-            this.f44953j = (LinearLayout) view.findViewById(R.id.bcast_item_ll);
+            this.f44973b = (TextView) view.findViewById(R.id.forum_name);
+            this.f44974c = (TextView) view.findViewById(R.id.bcast_title);
+            this.f44975d = (TextView) view.findViewById(R.id.bcast_content);
+            this.f44976e = (TextView) view.findViewById(R.id.publish_number);
+            this.f44977f = (TextView) view.findViewById(R.id.pv_number);
+            this.f44978g = (TextView) view.findViewById(R.id.ctr_number);
+            this.f44981j = (LinearLayout) view.findViewById(R.id.bcast_item_ll);
             this.k = (LinearLayout) view.findViewById(R.id.bcast_main);
             this.n = (BarImageView) view.findViewById(R.id.forum_avatar);
             this.o = (TbImageView) view.findViewById(R.id.iv_imageView);
             this.p = view.findViewById(R.id.forum_bg_line);
             this.l = (LinearLayout) view.findViewById(R.id.forum_bcast_status_ll);
-            this.f44951h = (TextView) view.findViewById(R.id.forum_bcast_status);
+            this.f44979h = (TextView) view.findViewById(R.id.forum_bcast_status);
             this.s = (TBSpecificationBtn) view.findViewById(R.id.forum_fail_edit);
             this.m = (LinearLayout) view.findViewById(R.id.forum_pv_uv_item_ll);
             this.t = (RelativeLayout) view.findViewById(R.id.container_image);
-            this.f44952i = (TextView) view.findViewById(R.id.bcast_no_image_title);
+            this.f44980i = (TextView) view.findViewById(R.id.bcast_no_image_title);
             this.r = view.findViewById(R.id.bg_item_mian_view);
             this.q = view.findViewById(R.id.gradient_cover);
         }
@@ -133,15 +133,15 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.s1.i.a.b.b f44954e;
+        public final /* synthetic */ c.a.t0.t1.i.a.b.b f44982e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f44955f;
+        public final /* synthetic */ int f44983f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ FroumBroadMajorHistoryAdapter f44956g;
+        public final /* synthetic */ FroumBroadMajorHistoryAdapter f44984g;
 
-        public a(FroumBroadMajorHistoryAdapter froumBroadMajorHistoryAdapter, c.a.t0.s1.i.a.b.b bVar, int i2) {
+        public a(FroumBroadMajorHistoryAdapter froumBroadMajorHistoryAdapter, c.a.t0.t1.i.a.b.b bVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,20 +156,20 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
                     return;
                 }
             }
-            this.f44956g = froumBroadMajorHistoryAdapter;
-            this.f44954e = bVar;
-            this.f44955f = i2;
+            this.f44984g = froumBroadMajorHistoryAdapter;
+            this.f44982e = bVar;
+            this.f44983f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44956g.f44944c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44984g.f44972c == null) {
                 return;
             }
-            f fVar = this.f44956g.f44944c;
-            c.a.t0.s1.i.a.b.b bVar = this.f44954e;
-            int i2 = this.f44955f;
+            f fVar = this.f44984g.f44972c;
+            c.a.t0.t1.i.a.b.b bVar = this.f44982e;
+            int i2 = this.f44983f;
             fVar.a(view, bVar, i2, i2);
         }
     }
@@ -180,15 +180,15 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.s1.i.a.b.b f44957e;
+        public final /* synthetic */ c.a.t0.t1.i.a.b.b f44985e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f44958f;
+        public final /* synthetic */ int f44986f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ FroumBroadMajorHistoryAdapter f44959g;
+        public final /* synthetic */ FroumBroadMajorHistoryAdapter f44987g;
 
-        public b(FroumBroadMajorHistoryAdapter froumBroadMajorHistoryAdapter, c.a.t0.s1.i.a.b.b bVar, int i2) {
+        public b(FroumBroadMajorHistoryAdapter froumBroadMajorHistoryAdapter, c.a.t0.t1.i.a.b.b bVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -203,20 +203,20 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
                     return;
                 }
             }
-            this.f44959g = froumBroadMajorHistoryAdapter;
-            this.f44957e = bVar;
-            this.f44958f = i2;
+            this.f44987g = froumBroadMajorHistoryAdapter;
+            this.f44985e = bVar;
+            this.f44986f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44959g.f44944c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44987g.f44972c == null) {
                 return;
             }
-            f fVar = this.f44959g.f44944c;
-            c.a.t0.s1.i.a.b.b bVar = this.f44957e;
-            int i2 = this.f44958f;
+            f fVar = this.f44987g.f44972c;
+            c.a.t0.t1.i.a.b.b bVar = this.f44985e;
+            int i2 = this.f44986f;
             fVar.a(view, bVar, i2, i2);
         }
     }
@@ -237,21 +237,21 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
             }
         }
         this.a = context;
-        this.f44943b = new ArrayList();
+        this.f44971b = new ArrayList();
     }
 
-    public final void b(FroumBroadMajorHistoryItemViewHolder froumBroadMajorHistoryItemViewHolder, c.a.t0.s1.i.a.b.b bVar, int i2) {
+    public final void b(FroumBroadMajorHistoryItemViewHolder froumBroadMajorHistoryItemViewHolder, c.a.t0.t1.i.a.b.b bVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, froumBroadMajorHistoryItemViewHolder, bVar, i2) == null) {
             SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.a, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44945b, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44946c, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44947d, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44948e, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44949f, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44950g, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44973b, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44974c, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44975d, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44976e, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44977f, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44978g, R.color.CAM_X0107);
             SkinManager.setBackgroundColor(froumBroadMajorHistoryItemViewHolder.p, R.color.CAM_X0203);
-            SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44952i, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44980i, R.color.CAM_X0105);
             TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606).blRadius(n.f(this.a, R.dimen.tbds21)).brRadius(n.f(this.a, R.dimen.tbds21)).into(froumBroadMajorHistoryItemViewHolder.q);
             if (TbadkCoreApplication.getInst().getSkinType() != 0) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) froumBroadMajorHistoryItemViewHolder.k.getLayoutParams();
@@ -273,13 +273,13 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
                 TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0205).setShapeRadius(n.f(this.a, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.ALL).setShadowRadius(n.f(this.a, R.dimen.tbds10)).setOffsetX(0).setOffsetY(n.f(this.a, R.dimen.tbds5)).into(froumBroadMajorHistoryItemViewHolder.r);
             }
             if (bVar.j() == null) {
-                SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44951h, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44979h, R.color.CAM_X0109);
             } else if (bVar.j().is_deleted.intValue() == 1) {
-                SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44951h, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44979h, R.color.CAM_X0109);
             } else if (bVar.a() == 1) {
-                SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44951h, R.color.CAM_X0107);
+                SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44979h, R.color.CAM_X0107);
             } else if (bVar.a() == 6) {
-                SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44951h, R.color.CAM_X0301);
+                SkinManager.setViewTextColor(froumBroadMajorHistoryItemViewHolder.f44979h, R.color.CAM_X0301);
             }
         }
     }
@@ -289,7 +289,7 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<c.a.t0.s1.i.a.b.b> list = this.f44943b;
+            List<c.a.t0.t1.i.a.b.b> list = this.f44971b;
             if (list != null) {
                 return list.size();
             }
@@ -298,28 +298,28 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
         return invokeV.intValue;
     }
 
-    public void setContentOnClickListener(f<c.a.t0.s1.i.a.b.b> fVar) {
+    public void setContentOnClickListener(f<c.a.t0.t1.i.a.b.b> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, fVar) == null) {
-            this.f44944c = fVar;
+            this.f44972c = fVar;
         }
     }
 
-    public void setFoumListData(List<c.a.t0.s1.i.a.b.b> list) {
+    public void setFoumListData(List<c.a.t0.t1.i.a.b.b> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || list == null) {
             return;
         }
-        this.f44943b = list;
+        this.f44971b = list;
         notifyDataSetChanged();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull FroumBroadMajorHistoryItemViewHolder froumBroadMajorHistoryItemViewHolder, int i2) {
-        c.a.t0.s1.i.a.b.b bVar;
+        c.a.t0.t1.i.a.b.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, froumBroadMajorHistoryItemViewHolder, i2) == null) || (bVar = this.f44943b.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, froumBroadMajorHistoryItemViewHolder, i2) == null) || (bVar = this.f44971b.get(i2)) == null) {
             return;
         }
         if (i2 == 0) {
@@ -334,12 +334,12 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
         }
         if (StringUtils.isNull(bVar.f())) {
             froumBroadMajorHistoryItemViewHolder.t.setVisibility(8);
-            froumBroadMajorHistoryItemViewHolder.f44952i.setVisibility(0);
-            froumBroadMajorHistoryItemViewHolder.f44952i.setText(bVar.k());
+            froumBroadMajorHistoryItemViewHolder.f44980i.setVisibility(0);
+            froumBroadMajorHistoryItemViewHolder.f44980i.setText(bVar.k());
         } else {
             froumBroadMajorHistoryItemViewHolder.t.setVisibility(0);
-            froumBroadMajorHistoryItemViewHolder.f44952i.setVisibility(8);
-            froumBroadMajorHistoryItemViewHolder.f44946c.setText(bVar.k());
+            froumBroadMajorHistoryItemViewHolder.f44980i.setVisibility(8);
+            froumBroadMajorHistoryItemViewHolder.f44974c.setText(bVar.k());
             froumBroadMajorHistoryItemViewHolder.o.setConrers(15);
             froumBroadMajorHistoryItemViewHolder.o.setRadius(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds21));
             froumBroadMajorHistoryItemViewHolder.o.setDrawCorner(true);
@@ -348,12 +348,12 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
             froumBroadMajorHistoryItemViewHolder.o.setGifIconSupport(false);
         }
         if (StringUtils.isNull(bVar.c())) {
-            froumBroadMajorHistoryItemViewHolder.f44947d.setVisibility(8);
+            froumBroadMajorHistoryItemViewHolder.f44975d.setVisibility(8);
         } else {
-            froumBroadMajorHistoryItemViewHolder.f44947d.setVisibility(0);
-            froumBroadMajorHistoryItemViewHolder.f44947d.setText(bVar.c());
+            froumBroadMajorHistoryItemViewHolder.f44975d.setVisibility(0);
+            froumBroadMajorHistoryItemViewHolder.f44975d.setText(bVar.c());
         }
-        froumBroadMajorHistoryItemViewHolder.f44945b.setText(bVar.e().forum_name);
+        froumBroadMajorHistoryItemViewHolder.f44973b.setText(bVar.e().forum_name);
         froumBroadMajorHistoryItemViewHolder.n.setShowOval(true);
         froumBroadMajorHistoryItemViewHolder.n.setAutoChangeStyle(true);
         froumBroadMajorHistoryItemViewHolder.n.setStrokeWith(n.f(this.a, R.dimen.tbds1));
@@ -362,8 +362,8 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
         froumBroadMajorHistoryItemViewHolder.n.setShowInnerBorder(true);
         froumBroadMajorHistoryItemViewHolder.n.setPlaceHolder(1);
         froumBroadMajorHistoryItemViewHolder.n.startLoad(bVar.e().avatar, 10, false);
-        froumBroadMajorHistoryItemViewHolder.f44948e.setText(this.a.getString(R.string.forum_broadcast_major_history_reacht_number, StringHelper.numberUniformFormatExtraWithRoundVote(bVar.h())));
-        froumBroadMajorHistoryItemViewHolder.f44949f.setText(this.a.getString(R.string.forum_broadcast_major_history_read_number, StringHelper.numberUniformFormatExtraWithRoundVote(bVar.i())));
+        froumBroadMajorHistoryItemViewHolder.f44976e.setText(this.a.getString(R.string.forum_broadcast_major_history_reacht_number, StringHelper.numberUniformFormatExtraWithRoundVote(bVar.h())));
+        froumBroadMajorHistoryItemViewHolder.f44977f.setText(this.a.getString(R.string.forum_broadcast_major_history_read_number, StringHelper.numberUniformFormatExtraWithRoundVote(bVar.i())));
         int parseFloat = (int) (Float.parseFloat(bVar.d()) * 100.0f);
         if (parseFloat < 0) {
             parseFloat = 0;
@@ -371,14 +371,14 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
             parseFloat = 100;
         }
         if (!StringUtils.isNull(bVar.d())) {
-            froumBroadMajorHistoryItemViewHolder.f44950g.setText(this.a.getString(R.string.forum_broadcast_major_history_ctr_number, Integer.valueOf(parseFloat), "%"));
+            froumBroadMajorHistoryItemViewHolder.f44978g.setText(this.a.getString(R.string.forum_broadcast_major_history_ctr_number, Integer.valueOf(parseFloat), "%"));
         } else {
-            froumBroadMajorHistoryItemViewHolder.f44950g.setText("0%");
+            froumBroadMajorHistoryItemViewHolder.f44978g.setText("0%");
         }
         if (bVar.j() == null) {
             froumBroadMajorHistoryItemViewHolder.l.setVisibility(0);
             froumBroadMajorHistoryItemViewHolder.s.setVisibility(8);
-            froumBroadMajorHistoryItemViewHolder.f44951h.setText(this.a.getString(R.string.forum_broadcast_major_history_pb_deleted));
+            froumBroadMajorHistoryItemViewHolder.f44979h.setText(this.a.getString(R.string.forum_broadcast_major_history_pb_deleted));
             if (bVar.a() == 1 || bVar.a() == 6) {
                 froumBroadMajorHistoryItemViewHolder.m.setVisibility(8);
                 froumBroadMajorHistoryItemViewHolder.p.setVisibility(8);
@@ -389,7 +389,7 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
         } else if (bVar.j().is_deleted.intValue() == 1) {
             froumBroadMajorHistoryItemViewHolder.l.setVisibility(0);
             froumBroadMajorHistoryItemViewHolder.s.setVisibility(8);
-            froumBroadMajorHistoryItemViewHolder.f44951h.setText(this.a.getString(R.string.forum_broadcast_major_history_pb_deleted));
+            froumBroadMajorHistoryItemViewHolder.f44979h.setText(this.a.getString(R.string.forum_broadcast_major_history_pb_deleted));
             if (bVar.a() == 1 || bVar.a() == 6) {
                 froumBroadMajorHistoryItemViewHolder.m.setVisibility(8);
                 froumBroadMajorHistoryItemViewHolder.p.setVisibility(8);
@@ -402,16 +402,16 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
             froumBroadMajorHistoryItemViewHolder.p.setVisibility(8);
             froumBroadMajorHistoryItemViewHolder.l.setVisibility(0);
             froumBroadMajorHistoryItemViewHolder.s.setVisibility(8);
-            froumBroadMajorHistoryItemViewHolder.f44951h.setText(this.a.getString(R.string.video_review_state));
+            froumBroadMajorHistoryItemViewHolder.f44979h.setText(this.a.getString(R.string.video_review_state));
         } else if (bVar.a() == 6) {
             froumBroadMajorHistoryItemViewHolder.m.setVisibility(8);
             froumBroadMajorHistoryItemViewHolder.p.setVisibility(8);
             froumBroadMajorHistoryItemViewHolder.l.setVisibility(0);
             froumBroadMajorHistoryItemViewHolder.s.setVisibility(0);
-            froumBroadMajorHistoryItemViewHolder.f44951h.setText(this.a.getString(R.string.forum_broadcast_major_history_check_failed));
+            froumBroadMajorHistoryItemViewHolder.f44979h.setText(this.a.getString(R.string.forum_broadcast_major_history_check_failed));
             froumBroadMajorHistoryItemViewHolder.s.setText(this.a.getString(R.string.edit));
             froumBroadMajorHistoryItemViewHolder.s.setTextSize(R.dimen.tbds34);
-            c.a.s0.s.j0.n.b bVar2 = new c.a.s0.s.j0.n.b();
+            c.a.s0.s.k0.n.b bVar2 = new c.a.s0.s.k0.n.b();
             bVar2.r(R.color.CAM_X0302);
             froumBroadMajorHistoryItemViewHolder.s.setConfig(bVar2);
             froumBroadMajorHistoryItemViewHolder.s.setOnClickListener(new a(this, bVar, i2));

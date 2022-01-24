@@ -23,7 +23,7 @@ public class l {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f60901b;
+        public String f60946b;
 
         public a(String str, String str2) {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class l {
                 }
             }
             this.a = str;
-            this.f60901b = str2;
+            this.f60946b = str2;
         }
     }
 
@@ -60,9 +60,9 @@ public class l {
         }
         a = new HashMap<>();
         a(e.a, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
-        a(e.f60898b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
-        a(e.f60899c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
-        a(e.f60900d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
+        a(e.f60943b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
+        a(e.f60944c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
+        a(e.f60945d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
     }
 
     public static at a(e eVar) {
@@ -76,13 +76,13 @@ public class l {
                         if (i2 != 4) {
                             return null;
                         }
-                        return at.f60890f;
+                        return at.f60935f;
                     }
-                    return at.f60889e;
+                    return at.f60934e;
                 }
-                return at.f60888d;
+                return at.f60933d;
             }
-            return at.f60887c;
+            return at.f60932c;
         }
         return (at) invokeL.objValue;
     }

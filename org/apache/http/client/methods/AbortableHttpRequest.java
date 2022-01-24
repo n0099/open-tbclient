@@ -4,7 +4,7 @@ import java.io.IOException;
 import org.apache.http.conn.ClientConnectionRequest;
 import org.apache.http.conn.ConnectionReleaseTrigger;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface AbortableHttpRequest {
     void abort();
 

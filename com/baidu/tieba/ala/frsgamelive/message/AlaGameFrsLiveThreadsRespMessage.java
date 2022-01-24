@@ -64,8 +64,8 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                     if (optJSONObject2 != null) {
                         c cVar = new c();
                         e2 e2Var = new e2();
-                        e2Var.b3(optJSONObject2);
-                        cVar.f14756e = e2Var;
+                        e2Var.c3(optJSONObject2);
+                        cVar.f14896e = e2Var;
                         this.liveList.add(cVar);
                     }
                 }
@@ -78,8 +78,8 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                     if (optJSONObject3 != null) {
                         c cVar2 = new c();
                         e2 e2Var2 = new e2();
-                        e2Var2.b3(optJSONObject3);
-                        cVar2.f14756e = e2Var2;
+                        e2Var2.c3(optJSONObject3);
+                        cVar2.f14896e = e2Var2;
                         this.recommandList.add(cVar2);
                     }
                 }

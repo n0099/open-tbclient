@@ -17,17 +17,17 @@ import java.util.HashMap;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public SoftReference<Activity> a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static b a = new b();
     }
 
     public void b(long j2) {
-        com.ss.android.downloadlib.addownload.e a2 = f.a().a(com.ss.android.downloadlib.addownload.b.f.a().e(j2).f59464b.getDownloadUrl());
+        com.ss.android.downloadlib.addownload.e a2 = f.a().a(com.ss.android.downloadlib.addownload.b.f.a().e(j2).f59509b.getDownloadUrl());
         if (a2 != null) {
             a2.a(true, true);
             return;
@@ -64,9 +64,9 @@ public class b {
     public boolean a(@NonNull com.ss.android.downloadlib.addownload.b.e eVar) {
         long j2;
         long j3;
-        if (!TextUtils.isEmpty(eVar.f59464b.getLogExtra())) {
+        if (!TextUtils.isEmpty(eVar.f59509b.getLogExtra())) {
             try {
-                j2 = l.a(new JSONObject(eVar.f59464b.getLogExtra()), "convert_id");
+                j2 = l.a(new JSONObject(eVar.f59509b.getLogExtra()), "convert_id");
             } catch (Exception e2) {
                 e2.printStackTrace();
                 j2 = 0;
@@ -83,7 +83,7 @@ public class b {
         final long j4 = eVar.a;
         com.ss.android.downloadlib.addownload.b.b a2 = c.a().a(j3, j4);
         if (a2 != null) {
-            d.a().a(a2.a(), j4, a2.f59443d);
+            d.a().a(a2.a(), j4, a2.f59488d);
             a(a2.a());
             e.a("lp_app_dialog_try_show", eVar);
             return true;
@@ -93,12 +93,12 @@ public class b {
             sb.append("convert_id=");
             sb.append(j3);
         }
-        if (!TextUtils.isEmpty(eVar.f59464b.getPackageName())) {
+        if (!TextUtils.isEmpty(eVar.f59509b.getPackageName())) {
             if (sb.length() > 0) {
                 sb.append("&");
             }
             sb.append("package_name=");
-            sb.append(eVar.f59464b.getPackageName());
+            sb.append(eVar.f59509b.getPackageName());
         }
         if (sb.length() <= 0) {
             e.a(6, eVar);
@@ -149,22 +149,22 @@ public class b {
             if (optJSONObject != null && optJSONObject.length() != 0) {
                 com.ss.android.downloadlib.addownload.b.b bVar = new com.ss.android.downloadlib.addownload.b.b();
                 bVar.a = j2;
-                bVar.f59441b = j3;
-                bVar.f59443d = optJSONObject.optString("icon_url");
-                bVar.f59444e = optJSONObject.optString("app_name");
-                bVar.f59442c = optJSONObject.optString("package_name");
-                bVar.f59445f = optJSONObject.optString("version_name");
-                bVar.f59446g = optJSONObject.optString("developer_name");
-                bVar.f59448i = optJSONObject.optString("policy_url");
+                bVar.f59486b = j3;
+                bVar.f59488d = optJSONObject.optString("icon_url");
+                bVar.f59489e = optJSONObject.optString("app_name");
+                bVar.f59487c = optJSONObject.optString("package_name");
+                bVar.f59490f = optJSONObject.optString("version_name");
+                bVar.f59491g = optJSONObject.optString("developer_name");
+                bVar.f59493i = optJSONObject.optString("policy_url");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("permissions");
                 if (optJSONArray != null) {
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject jSONObject = (JSONObject) optJSONArray.get(i2);
-                        bVar.f59447h.add(new Pair<>(jSONObject.optString(IdCardActivity.RESULT_PERMISSION_KEY), jSONObject.optString("permission_desc")));
+                        bVar.f59492h.add(new Pair<>(jSONObject.optString(IdCardActivity.RESULT_PERMISSION_KEY), jSONObject.optString("permission_desc")));
                     }
                 }
                 c.a().a(bVar);
-                d.a().a(bVar.a(), j3, bVar.f59443d);
+                d.a().a(bVar.a(), j3, bVar.f59488d);
                 return true;
             }
             e.a(7, j3);

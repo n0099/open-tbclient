@@ -17,12 +17,12 @@ public class a {
 
     /* renamed from: c.a.t0.j4.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1154a implements b.a {
+    public static class C1152a implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<f> a;
 
-        public C1154a(f fVar) {
+        public C1152a(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,7 +71,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, fVar) == null) {
             c(context);
-            c.a.b0.a.b.p(new C1154a(fVar));
+            c.a.b0.a.b.p(new C1152a(fVar));
         }
     }
 

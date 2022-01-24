@@ -21,19 +21,19 @@ public class c extends c.a.d.n.e.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f14821f;
+    public Context f14961f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f14822g;
+    public View f14962g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f14823h;
+    public ImageView f14963h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f14824i;
+    public TextView f14964i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f14825j;
+    public View f14965j;
     public View k;
     public View.OnClickListener l;
 
@@ -52,7 +52,7 @@ public class c extends c.a.d.n.e.b {
                 return;
             }
         }
-        this.f14821f = context;
+        this.f14961f = context;
     }
 
     @Override // c.a.d.n.e.b
@@ -60,14 +60,14 @@ public class c extends c.a.d.n.e.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.f14821f).inflate(R.layout.ala_frs_game_more_live_layout, (ViewGroup) null);
-            this.f14822g = inflate;
-            this.f14824i = (TextView) inflate.findViewById(R.id.ala_game_frs_more_live_tip);
-            this.f14823h = (ImageView) this.f14822g.findViewById(R.id.ala_game_frs_more_live_icon);
-            this.f14825j = this.f14822g.findViewById(R.id.ala_game_frs_more_live_top_line);
-            this.k = this.f14822g.findViewById(R.id.ala_game_frs_more_live_bottom_line);
+            View inflate = LayoutInflater.from(this.f14961f).inflate(R.layout.ala_frs_game_more_live_layout, (ViewGroup) null);
+            this.f14962g = inflate;
+            this.f14964i = (TextView) inflate.findViewById(R.id.ala_game_frs_more_live_tip);
+            this.f14963h = (ImageView) this.f14962g.findViewById(R.id.ala_game_frs_more_live_icon);
+            this.f14965j = this.f14962g.findViewById(R.id.ala_game_frs_more_live_top_line);
+            this.k = this.f14962g.findViewById(R.id.ala_game_frs_more_live_bottom_line);
             d(TbadkCoreApplication.getInst().getSkinType());
-            return this.f14822g;
+            return this.f14962g;
         }
         return (View) invokeV.objValue;
     }
@@ -77,7 +77,7 @@ public class c extends c.a.d.n.e.b {
         View.OnClickListener onClickListener;
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (onClickListener = this.l) == null || (view = this.f14822g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (onClickListener = this.l) == null || (view = this.f14962g) == null) {
             return;
         }
         onClickListener.onClick(view);
@@ -86,19 +86,19 @@ public class c extends c.a.d.n.e.b {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            View view = this.f14822g;
+            View view = this.f14962g;
             if (view != null) {
                 SkinManager.setBackgroundResource(view, R.drawable.addresslist_item_bg);
             }
-            TextView textView = this.f14824i;
+            TextView textView = this.f14964i;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0304);
             }
-            ImageView imageView = this.f14823h;
+            ImageView imageView = this.f14963h;
             if (imageView != null) {
                 SkinManager.setImageResource(imageView, R.drawable.icon_inf_arrowblue_n);
             }
-            View view2 = this.f14825j;
+            View view2 = this.f14965j;
             if (view2 != null) {
                 SkinManager.setBackgroundResource(view2, R.color.CAM_X0204);
             }

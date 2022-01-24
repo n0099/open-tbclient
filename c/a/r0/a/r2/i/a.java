@@ -31,7 +31,7 @@ public class a extends z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f8659c;
+    public static final boolean f8801c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public class a extends z {
                 return;
             }
         }
-        f8659c = k.a;
+        f8801c = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -102,13 +102,13 @@ public class a extends z {
                 str = h0.i(context);
             }
             jSONObject.put("cuid", str);
-            if (f8659c) {
+            if (f8801c) {
                 jSONObject.toString();
             }
             String b2 = c.a.r0.x.d.b.b(UUID.randomUUID().toString().getBytes(), false);
             String a = o.a(b2, jSONObject.toString(), UBCEncryptor.TRANSFORMATION, "4c6579b50ff05adb");
             String d2 = o.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", b2, "RSA/ECB/PKCS1Padding");
-            if (f8659c) {
+            if (f8801c) {
                 String str2 = "aesKey=" + b2 + ", aesValue=" + a + ", rsaKey=" + d2;
             }
             JSONObject jSONObject2 = new JSONObject();

@@ -46,31 +46,31 @@ public class c {
     public DressupCenterActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f15631b;
+    public View f15779b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdListView f15632c;
+    public BdListView f15780c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f15633d;
+    public NavigationBar f15781d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f15634e;
+    public NoNetworkView f15782e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CoverFlowView<c.a.t0.c4.h.a> f15635f;
+    public CoverFlowView<c.a.t0.c4.h.a> f15783f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MemberRecommendView f15636g;
+    public MemberRecommendView f15784g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15637h;
+    public TextView f15785h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.c4.h.b f15638i;
+    public c.a.t0.c4.h.b f15786i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f15639j;
+    public int f15787j;
 
     /* loaded from: classes7.dex */
     public class a implements AdapterView.OnItemClickListener {
@@ -78,7 +78,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f15640e;
+        public final /* synthetic */ c f15788e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -95,19 +95,19 @@ public class c {
                     return;
                 }
             }
-            this.f15640e = cVar;
+            this.f15788e = cVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             c.a.t0.c4.h.d item;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (item = this.f15640e.f15638i.getItem(i2)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (item = this.f15788e.f15786i.getItem(i2)) == null) {
                 return;
             }
-            c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+            c.a.s0.s.i0.b k = c.a.s0.s.i0.b.k();
             k.x("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), item.c());
-            this.f15640e.f15638i.notifyDataSetChanged();
+            this.f15788e.f15786i.notifyDataSetChanged();
             if (StringUtils.isNull(item.getType())) {
                 return;
             }
@@ -116,19 +116,19 @@ public class c {
             CustomMessage customMessage = null;
             if (e2 == 1) {
                 TiebaStatic.log("c10263");
-                this.f15640e.k();
+                this.f15788e.k();
             } else if (e2 == 2) {
                 TiebaStatic.log("c10264");
-                customMessage = new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(this.f15640e.a.getActivity()));
+                customMessage = new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(this.f15788e.a.getActivity()));
             } else if (e2 == 3) {
-                customMessage = new CustomMessage(2002001, new BubbleGroupActivityConfig(this.f15640e.a.getActivity()));
+                customMessage = new CustomMessage(2002001, new BubbleGroupActivityConfig(this.f15788e.a.getActivity()));
             } else if (e2 == 4) {
-                customMessage = new CustomMessage(2002001, new PersonalCardCategoryActivityConfig(this.f15640e.a.getPageContext().getPageActivity()));
+                customMessage = new CustomMessage(2002001, new PersonalCardCategoryActivityConfig(this.f15788e.a.getPageContext().getPageActivity()));
             } else if (e2 != 5) {
-                UrlManager.getInstance().dealOneLink(this.f15640e.a.getPageContext(), new String[]{type});
+                UrlManager.getInstance().dealOneLink(this.f15788e.a.getPageContext(), new String[]{type});
             } else {
                 TiebaStatic.log("c11611");
-                customMessage = new CustomMessage(2002001, new AvatarPendantActivityConfig(this.f15640e.a.getActivity()));
+                customMessage = new CustomMessage(2002001, new AvatarPendantActivityConfig(this.f15788e.a.getActivity()));
             }
             if (customMessage != null) {
                 MessageManager.getInstance().sendMessage(customMessage);
@@ -168,11 +168,11 @@ public class c {
 
     /* renamed from: c.a.t0.c4.h.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1000c implements c.a.s0.s.w.a {
+    public class C1004c implements c.a.s0.s.w.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1000c(c cVar) {
+        public C1004c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -299,45 +299,45 @@ public class c {
                 return;
             }
         }
-        this.f15639j = 0;
+        this.f15787j = 0;
         this.a = dressupCenterActivity;
-        this.f15639j = n.f(dressupCenterActivity.getPageContext().getPageActivity(), R.dimen.ds120);
+        this.f15787j = n.f(dressupCenterActivity.getPageContext().getPageActivity(), R.dimen.ds120);
         View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.dressup_center_activity_layout, (ViewGroup) null);
-        this.f15631b = inflate;
+        this.f15779b = inflate;
         this.a.setContentView(inflate);
-        NavigationBar navigationBar = (NavigationBar) this.f15631b.findViewById(R.id.view_navigation_bar);
-        this.f15633d = navigationBar;
+        NavigationBar navigationBar = (NavigationBar) this.f15779b.findViewById(R.id.view_navigation_bar);
+        this.f15781d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f15633d.setCenterTextTitle(this.a.getPageContext().getString(R.string.dressup_center_title));
-        this.f15634e = (NoNetworkView) this.f15631b.findViewById(R.id.view_no_network);
-        this.f15632c = (BdListView) this.f15631b.findViewById(R.id.dress_listview);
-        this.f15635f = (CoverFlowView) this.f15631b.findViewById(R.id.dressup_center_coverflowview);
+        this.f15781d.setCenterTextTitle(this.a.getPageContext().getString(R.string.dressup_center_title));
+        this.f15782e = (NoNetworkView) this.f15779b.findViewById(R.id.view_no_network);
+        this.f15780c = (BdListView) this.f15779b.findViewById(R.id.dress_listview);
+        this.f15783f = (CoverFlowView) this.f15779b.findViewById(R.id.dressup_center_coverflowview);
         j();
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.f15631b.findViewById(R.id.dressup_center_recommend);
-        this.f15636g = memberRecommendView;
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.f15779b.findViewById(R.id.dressup_center_recommend);
+        this.f15784g = memberRecommendView;
         memberRecommendView.setFromType(1);
-        this.f15638i = new c.a.t0.c4.h.b(this.a.getPageContext());
+        this.f15786i = new c.a.t0.c4.h.b(this.a.getPageContext());
         TextView textView = new TextView(this.a.getActivity());
-        this.f15637h = textView;
+        this.f15785h = textView;
         textView.setHeight(n.f(this.a.getActivity(), R.dimen.ds30));
-        this.f15632c.setAdapter((ListAdapter) this.f15638i);
-        this.f15632c.setOnItemClickListener(new a(this));
+        this.f15780c.setAdapter((ListAdapter) this.f15786i);
+        this.f15780c.setOnItemClickListener(new a(this));
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.hideNetRefreshView(this.f15631b);
-            this.f15632c.setVisibility(0);
-            this.f15636g.setVisibility(0);
-            this.f15635f.setVisibility(0);
+            this.a.hideNetRefreshView(this.f15779b);
+            this.f15780c.setVisibility(0);
+            this.f15784g.setVisibility(0);
+            this.f15783f.setVisibility(0);
         }
     }
 
     public View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15631b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15779b : (View) invokeV.objValue;
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -346,28 +346,28 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-            this.a.getLayoutMode().j(this.f15631b);
-            NavigationBar navigationBar = this.f15633d;
+            this.a.getLayoutMode().j(this.f15779b);
+            NavigationBar navigationBar = this.f15781d;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
             }
-            NoNetworkView noNetworkView = this.f15634e;
+            NoNetworkView noNetworkView = this.f15782e;
             if (noNetworkView != null) {
                 noNetworkView.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
             }
-            CoverFlowView<c.a.t0.c4.h.a> coverFlowView = this.f15635f;
+            CoverFlowView<c.a.t0.c4.h.a> coverFlowView = this.f15783f;
             if (coverFlowView != null && coverFlowView.getVisibility() == 0) {
-                this.f15635f.onChangeSkinType();
+                this.f15783f.onChangeSkinType();
             }
-            BdListView bdListView = this.f15632c;
-            if (bdListView != null && bdListView.getVisibility() == 0 && (bVar = this.f15638i) != null) {
+            BdListView bdListView = this.f15780c;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (bVar = this.f15786i) != null) {
                 bVar.notifyDataSetChanged();
             }
-            MemberRecommendView memberRecommendView = this.f15636g;
+            MemberRecommendView memberRecommendView = this.f15784g;
             if (memberRecommendView != null && memberRecommendView.getVisibility() == 0) {
-                this.f15636g.changeSkinType();
+                this.f15784g.changeSkinType();
             }
-            SkinManager.setBackgroundColor(this.f15637h, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f15785h, R.color.CAM_X0204);
         }
     }
 
@@ -376,11 +376,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
             if (list != null && list.size() > 0) {
-                this.f15635f.setVisibility(0);
-                this.f15635f.setData(list);
+                this.f15783f.setVisibility(0);
+                this.f15783f.setData(list);
                 return true;
             }
-            this.f15635f.setVisibility(8);
+            this.f15783f.setVisibility(8);
             return false;
         }
         return invokeL.booleanValue;
@@ -391,17 +391,17 @@ public class c {
         if (interceptable == null || interceptable.invokeLZ(1048580, this, list, z) == null) {
             if (list != null && list.size() > 0) {
                 if (z) {
-                    this.f15632c.removeHeaderView(this.f15637h);
-                    this.f15632c.addHeaderView(this.f15637h);
+                    this.f15780c.removeHeaderView(this.f15785h);
+                    this.f15780c.addHeaderView(this.f15785h);
                 } else {
-                    this.f15632c.removeHeaderView(this.f15637h);
+                    this.f15780c.removeHeaderView(this.f15785h);
                 }
-                this.f15632c.setVisibility(0);
-                this.f15638i.b(list);
-                this.f15638i.notifyDataSetChanged();
+                this.f15780c.setVisibility(0);
+                this.f15786i.b(list);
+                this.f15786i.notifyDataSetChanged();
                 return;
             }
-            this.f15632c.setVisibility(8);
+            this.f15780c.setVisibility(8);
         }
     }
 
@@ -410,11 +410,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, eVar)) == null) {
             if (eVar != null && !StringUtils.isNull(eVar.c())) {
-                this.f15636g.setVisibility(0);
-                this.f15636g.fillView(eVar);
+                this.f15784g.setVisibility(0);
+                this.f15784g.fillView(eVar);
                 return true;
             }
-            this.f15636g.setVisibility(8);
+            this.f15784g.setVisibility(8);
             return false;
         }
         return invokeL.booleanValue;
@@ -423,11 +423,11 @@ public class c {
     public final void j() {
         CoverFlowView<c.a.t0.c4.h.a> coverFlowView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (coverFlowView = this.f15635f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (coverFlowView = this.f15783f) == null) {
             return;
         }
-        coverFlowView.setCoverFlowFactory(new C1000c(this));
-        this.f15635f.setCallback(new d(this));
+        coverFlowView.setCoverFlowFactory(new C1004c(this));
+        this.f15783f.setCallback(new d(this));
     }
 
     public final void k() {
@@ -443,12 +443,12 @@ public class c {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f15632c.setVisibility(8);
-            this.f15635f.setVisibility(8);
-            this.f15636g.setVisibility(8);
+            this.f15780c.setVisibility(8);
+            this.f15783f.setVisibility(8);
+            this.f15784g.setVisibility(8);
             String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
-            this.a.setNetRefreshViewTopMargin(this.f15639j);
-            this.a.showNetRefreshView(this.f15631b, string, false);
+            this.a.setNetRefreshViewTopMargin(this.f15787j);
+            this.a.showNetRefreshView(this.f15779b, string, false);
         }
     }
 

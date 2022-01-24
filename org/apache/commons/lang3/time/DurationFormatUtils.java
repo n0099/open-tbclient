@@ -16,7 +16,7 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DurationFormatUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object H;
@@ -25,7 +25,7 @@ public class DurationFormatUtils {
     public static final Object S;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f62441d;
+    public static final Object f62486d;
     public static final Object m;
     public static final Object s;
     public static final Object y;
@@ -46,7 +46,7 @@ public class DurationFormatUtils {
         }
         y = "y";
         M = "M";
-        f62441d = "d";
+        f62486d = "d";
         H = "H";
         m = "m";
         s = "s";
@@ -97,7 +97,7 @@ public class DurationFormatUtils {
                             sb.append(paddedValue(j3, z, count));
                         } else {
                             i2 = i4;
-                            if (value.equals(f62441d)) {
+                            if (value.equals(f62486d)) {
                                 sb.append(paddedValue(j4, z, count));
                             } else if (value.equals(H)) {
                                 sb.append(paddedValue(j5, z, count));
@@ -237,7 +237,7 @@ public class DurationFormatUtils {
                     } else if (charAt == 'S') {
                         obj = S;
                     } else if (charAt == 'd') {
-                        obj = f62441d;
+                        obj = f62486d;
                     } else if (charAt == 'm') {
                         obj = m;
                     } else if (charAt == 's') {
@@ -307,7 +307,7 @@ public class DurationFormatUtils {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j2), str, Boolean.valueOf(z)})) == null) {
             Validate.inclusiveBetween(0L, Long.MAX_VALUE, j2, "durationMillis must not be negative");
             Token[] lexx = lexx(str);
-            if (Token.containsTokenWithValue(lexx, f62441d)) {
+            if (Token.containsTokenWithValue(lexx, f62486d)) {
                 long j9 = j2 / 86400000;
                 j3 = j2 - (86400000 * j9);
                 j4 = j9;
@@ -419,7 +419,7 @@ public class DurationFormatUtils {
                     calendar.add(2, 1);
                 }
             }
-            if (!Token.containsTokenWithValue(lexx, f62441d)) {
+            if (!Token.containsTokenWithValue(lexx, f62486d)) {
                 i6 += i7 * 24;
                 i7 = 0;
             }
@@ -441,7 +441,7 @@ public class DurationFormatUtils {
         return (String) invokeCommon.objValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Token {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

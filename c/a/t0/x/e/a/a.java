@@ -31,27 +31,27 @@ public class a extends BaseAdapter implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static SparseArray<Integer> f25065h;
+    public static SparseArray<Integer> f24874h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static HashMap<b, Integer> f25066i;
+    public static HashMap<b, Integer> f24875i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static HashMap<b, Integer> f25067j;
+    public static HashMap<b, Integer> f24876j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public NewFriendsActivity f25068e;
+    public NewFriendsActivity f24877e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<c.a.t0.s1.g.a> f25069f;
+    public List<c.a.t0.t1.g.a> f24878f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f25070g;
+    public c f24879g;
 
     /* renamed from: c.a.t0.x.e.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class C1511a {
+    public static /* synthetic */ class C1506a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -104,7 +104,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
 
     /* loaded from: classes8.dex */
     public interface c {
-        void a(int i2, int i3, View view, c.a.t0.s1.g.a aVar);
+        void a(int i2, int i3, View view, c.a.t0.t1.g.a aVar);
     }
 
     /* loaded from: classes8.dex */
@@ -114,13 +114,13 @@ public class a extends BaseAdapter implements View.OnClickListener {
         public HeadImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f25071b;
+        public TextView f24880b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f25072c;
+        public TextView f24881c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f25073d;
+        public TextView f24882d;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -136,24 +136,24 @@ public class a extends BaseAdapter implements View.OnClickListener {
             }
         }
 
-        public void a(c.a.t0.s1.g.a aVar) {
+        public void a(c.a.t0.t1.g.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 boolean z = false;
                 this.a.startLoad(aVar.e(), 12, false);
-                this.f25071b.setText(aVar.d());
+                this.f24880b.setText(aVar.d());
                 if (!TextUtils.isEmpty(aVar.a())) {
-                    this.f25072c.setText(aVar.a());
+                    this.f24881c.setText(aVar.a());
                 } else {
-                    this.f25072c.setText("");
+                    this.f24881c.setText("");
                 }
                 int f2 = aVar.f();
-                this.f25073d.setText(((Integer) a.f25065h.get(f2)).intValue());
-                this.f25073d.setEnabled((f2 == 0 || f2 == 1) ? true : true);
+                this.f24882d.setText(((Integer) a.f24874h.get(f2)).intValue());
+                this.f24882d.setEnabled((f2 == 0 || f2 == 1) ? true : true);
             }
         }
 
-        public /* synthetic */ d(C1511a c1511a) {
+        public /* synthetic */ d(C1506a c1506a) {
             this();
         }
     }
@@ -171,18 +171,18 @@ public class a extends BaseAdapter implements View.OnClickListener {
                 return;
             }
         }
-        f25065h = new SparseArray<>();
-        f25066i = new HashMap<>();
-        f25067j = new HashMap<>();
-        f25065h.put(0, Integer.valueOf(R.string.add));
-        f25065h.put(4, Integer.valueOf(R.string.added));
-        f25065h.put(1, Integer.valueOf(R.string.pass));
-        f25065h.put(2, Integer.valueOf(R.string.passed));
-        f25065h.put(3, Integer.valueOf(R.string.waiting));
-        f25066i.put(new b(false), Integer.valueOf(R.drawable.btn_pass));
-        f25066i.put(new b(true), Integer.valueOf(R.drawable.btn_all_blue));
-        f25067j.put(new b(false), Integer.valueOf(R.color.btn_pass_text_color));
-        f25067j.put(new b(true), Integer.valueOf(R.color.btn_agree_text_color));
+        f24874h = new SparseArray<>();
+        f24875i = new HashMap<>();
+        f24876j = new HashMap<>();
+        f24874h.put(0, Integer.valueOf(R.string.add));
+        f24874h.put(4, Integer.valueOf(R.string.added));
+        f24874h.put(1, Integer.valueOf(R.string.pass));
+        f24874h.put(2, Integer.valueOf(R.string.passed));
+        f24874h.put(3, Integer.valueOf(R.string.waiting));
+        f24875i.put(new b(false), Integer.valueOf(R.drawable.btn_pass));
+        f24875i.put(new b(true), Integer.valueOf(R.drawable.btn_all_blue));
+        f24876j.put(new b(false), Integer.valueOf(R.color.btn_pass_text_color));
+        f24876j.put(new b(true), Integer.valueOf(R.color.btn_agree_text_color));
     }
 
     public a(NewFriendsActivity newFriendsActivity) {
@@ -200,18 +200,18 @@ public class a extends BaseAdapter implements View.OnClickListener {
                 return;
             }
         }
-        this.f25068e = newFriendsActivity;
+        this.f24877e = newFriendsActivity;
     }
 
     public final int b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            List<c.a.t0.s1.g.a> list = this.f25069f;
+            List<c.a.t0.t1.g.a> list = this.f24878f;
             if (list != null) {
                 int size = list.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    if (j2 == this.f25069f.get(i2).b()) {
+                    if (j2 == this.f24878f.get(i2).b()) {
                         return i2;
                     }
                 }
@@ -225,53 +225,53 @@ public class a extends BaseAdapter implements View.OnClickListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: c */
-    public c.a.t0.s1.g.a getItem(int i2) {
+    public c.a.t0.t1.g.a getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f25069f.get(i2) : (c.a.t0.s1.g.a) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f24878f.get(i2) : (c.a.t0.t1.g.a) invokeI.objValue;
     }
 
-    public synchronized void d(c.a.t0.s1.g.a aVar) {
+    public synchronized void d(c.a.t0.t1.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             synchronized (this) {
-                if (this.f25069f != null) {
-                    this.f25069f.remove(aVar);
+                if (this.f24878f != null) {
+                    this.f24878f.remove(aVar);
                 }
             }
         }
     }
 
-    public void e(List<c.a.t0.s1.g.a> list) {
+    public void e(List<c.a.t0.t1.g.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f25069f = list;
+            this.f24878f = list;
         }
     }
 
     public void f(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f25070g = cVar;
+            this.f24879g = cVar;
         }
     }
 
-    public void g(c.a.t0.s1.g.a aVar) {
+    public void g(c.a.t0.t1.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            if (this.f25069f == null) {
-                this.f25069f = new ArrayList();
+            if (this.f24878f == null) {
+                this.f24878f = new ArrayList();
             }
             if (aVar == null || aVar.b() == 0) {
                 return;
             }
             int b2 = b(aVar.b());
             if (b2 != -1) {
-                this.f25069f.remove(b2);
-                this.f25069f.add(0, aVar);
+                this.f24878f.remove(b2);
+                this.f24878f.add(0, aVar);
                 return;
             }
-            this.f25069f.add(0, aVar);
+            this.f24878f.add(0, aVar);
         }
     }
 
@@ -280,7 +280,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<c.a.t0.s1.g.a> list = this.f25069f;
+            List<c.a.t0.t1.g.a> list = this.f24878f;
             if (list == null) {
                 return 0;
             }
@@ -308,38 +308,38 @@ public class a extends BaseAdapter implements View.OnClickListener {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.add_new_friend_list_item, (ViewGroup) null);
                 dVar = new d(null);
                 dVar.a = (HeadImageView) view.findViewById(R.id.friend_icon);
-                dVar.f25071b = (TextView) view.findViewById(R.id.friend_name);
-                dVar.f25072c = (TextView) view.findViewById(R.id.friend_info);
-                dVar.f25073d = (TextView) view.findViewById(R.id.friend_add_btn);
+                dVar.f24880b = (TextView) view.findViewById(R.id.friend_name);
+                dVar.f24881c = (TextView) view.findViewById(R.id.friend_info);
+                dVar.f24882d = (TextView) view.findViewById(R.id.friend_add_btn);
                 view.setTag(dVar);
             }
-            c.a.t0.s1.g.a item = getItem(i2);
+            c.a.t0.t1.g.a item = getItem(i2);
             dVar.a(item);
-            dVar.f25073d.setTag(Integer.valueOf(i2));
-            dVar.f25073d.setOnClickListener(this);
-            this.f25068e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.f25068e.getLayoutMode().j(view);
-            Integer num = f25066i.get(new b(item.f() == 1));
+            dVar.f24882d.setTag(Integer.valueOf(i2));
+            dVar.f24882d.setOnClickListener(this);
+            this.f24877e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.f24877e.getLayoutMode().j(view);
+            Integer num = f24875i.get(new b(item.f() == 1));
             if (num != null) {
-                SkinManager.setBackgroundResource(dVar.f25073d, num.intValue());
+                SkinManager.setBackgroundResource(dVar.f24882d, num.intValue());
             }
-            Integer num2 = f25067j.get(new b(item.f() == 1));
+            Integer num2 = f24876j.get(new b(item.f() == 1));
             if (num2 != null) {
-                SkinManager.setViewTextColor(dVar.f25073d, num2.intValue(), 1);
+                SkinManager.setViewTextColor(dVar.f24882d, num2.intValue(), 1);
             }
             return view;
         }
         return (View) invokeILL.objValue;
     }
 
-    public void h(List<c.a.t0.s1.g.a> list) {
+    public void h(List<c.a.t0.t1.g.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
-            if (this.f25069f == null) {
-                this.f25069f = new ArrayList();
+            if (this.f24878f == null) {
+                this.f24878f = new ArrayList();
             }
             if (list != null) {
-                for (c.a.t0.s1.g.a aVar : list) {
+                for (c.a.t0.t1.g.a aVar : list) {
                     g(aVar);
                 }
             }
@@ -349,11 +349,11 @@ public class a extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, view) == null) || this.f25070g == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, view) == null) || this.f24879g == null) {
             return;
         }
         int id = view.getId();
         int intValue = ((Integer) view.getTag()).intValue();
-        this.f25070g.a(id, intValue, view, getItem(intValue));
+        this.f24879g.a(id, intValue, view, getItem(intValue));
     }
 }

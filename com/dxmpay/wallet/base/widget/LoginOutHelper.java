@@ -13,31 +13,31 @@ import com.dxmpay.apollon.utils.DisplayUtils;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.api.WalletLoginHelper;
 import com.dxmpay.wallet.base.datamodel.AccountManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoginOutHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IAfterDismissCallback {
         void onCancel();
 
         void onLogout();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Dialog f53813e;
+        public final /* synthetic */ Dialog f53858e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f53814f;
+        public final /* synthetic */ Context f53859f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ IAfterDismissCallback f53815g;
+        public final /* synthetic */ IAfterDismissCallback f53860g;
 
         public a(Dialog dialog, Context context, IAfterDismissCallback iAfterDismissCallback) {
             Interceptable interceptable = $ic;
@@ -54,19 +54,19 @@ public class LoginOutHelper {
                     return;
                 }
             }
-            this.f53813e = dialog;
-            this.f53814f = context;
-            this.f53815g = iAfterDismissCallback;
+            this.f53858e = dialog;
+            this.f53859f = context;
+            this.f53860g = iAfterDismissCallback;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f53813e.dismiss();
-                AccountManager.getInstance(this.f53814f.getApplicationContext()).logout();
+                this.f53858e.dismiss();
+                AccountManager.getInstance(this.f53859f.getApplicationContext()).logout();
                 WalletLoginHelper.getInstance().logout();
-                IAfterDismissCallback iAfterDismissCallback = this.f53815g;
+                IAfterDismissCallback iAfterDismissCallback = this.f53860g;
                 if (iAfterDismissCallback != null) {
                     iAfterDismissCallback.onLogout();
                 }
@@ -74,16 +74,16 @@ public class LoginOutHelper {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Dialog f53816e;
+        public final /* synthetic */ Dialog f53861e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ IAfterDismissCallback f53817f;
+        public final /* synthetic */ IAfterDismissCallback f53862f;
 
         public b(Dialog dialog, IAfterDismissCallback iAfterDismissCallback) {
             Interceptable interceptable = $ic;
@@ -100,16 +100,16 @@ public class LoginOutHelper {
                     return;
                 }
             }
-            this.f53816e = dialog;
-            this.f53817f = iAfterDismissCallback;
+            this.f53861e = dialog;
+            this.f53862f = iAfterDismissCallback;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f53816e.dismiss();
-                IAfterDismissCallback iAfterDismissCallback = this.f53817f;
+                this.f53861e.dismiss();
+                IAfterDismissCallback iAfterDismissCallback = this.f53862f;
                 if (iAfterDismissCallback != null) {
                     iAfterDismissCallback.onCancel();
                 }

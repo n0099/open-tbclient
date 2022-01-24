@@ -13,7 +13,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.w3.m0.d;
+import c.a.t0.x3.m0.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
-public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.c, View.OnLongClickListener {
+/* loaded from: classes13.dex */
+public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.x3.m0.c, View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
@@ -39,22 +39,22 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
     public Runnable K;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseAdapter f48150e;
+    public BaseAdapter f48166e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f48151f;
+    public View f48167f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48152g;
+    public int f48168g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.w3.m0.a f48153h;
+    public c.a.t0.x3.m0.a f48169h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f48154i;
+    public int f48170i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f48155j;
+    public int f48171j;
     public int k;
     public int l;
     public float m;
@@ -72,13 +72,13 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
     public int y;
     public int z;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DragHorizonScrollView f48156e;
+        public final /* synthetic */ DragHorizonScrollView f48172e;
 
         public a(DragHorizonScrollView dragHorizonScrollView) {
             Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
                     return;
                 }
             }
-            this.f48156e = dragHorizonScrollView;
+            this.f48172e = dragHorizonScrollView;
         }
 
         @Override // java.lang.Runnable
@@ -103,37 +103,37 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
             int max;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f48156e.f48154i == 0) {
-                    this.f48156e.p.forceFinished(true);
+                if (this.f48172e.f48170i == 0) {
+                    this.f48172e.p.forceFinished(true);
                     return;
                 }
-                Scroller scroller = this.f48156e.p;
+                Scroller scroller = this.f48172e.p;
                 boolean computeScrollOffset = scroller.computeScrollOffset();
                 int currX = scroller.getCurrX();
-                int i2 = this.f48156e.C - currX;
+                int i2 = this.f48172e.C - currX;
                 if (i2 > 0) {
-                    max = Math.min(((this.f48156e.getWidth() - this.f48156e.getPaddingLeft()) - this.f48156e.getPaddingRight()) - 1, i2);
+                    max = Math.min(((this.f48172e.getWidth() - this.f48172e.getPaddingLeft()) - this.f48172e.getPaddingRight()) - 1, i2);
                 } else {
-                    max = Math.max(-(((this.f48156e.getWidth() - this.f48156e.getPaddingLeft()) - this.f48156e.getPaddingRight()) - 1), i2);
+                    max = Math.max(-(((this.f48172e.getWidth() - this.f48172e.getPaddingLeft()) - this.f48172e.getPaddingRight()) - 1), i2);
                 }
-                this.f48156e.p(-max);
+                this.f48172e.p(-max);
                 if (computeScrollOffset) {
-                    this.f48156e.C = currX;
-                    this.f48156e.post(this);
+                    this.f48172e.C = currX;
+                    this.f48172e.post(this);
                     return;
                 }
-                this.f48156e.p.forceFinished(true);
+                this.f48172e.p.forceFinished(true);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DragHorizonScrollView f48157e;
+        public final /* synthetic */ DragHorizonScrollView f48173e;
 
         public b(DragHorizonScrollView dragHorizonScrollView) {
             Interceptable interceptable = $ic;
@@ -150,36 +150,36 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
                     return;
                 }
             }
-            this.f48157e = dragHorizonScrollView;
+            this.f48173e = dragHorizonScrollView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48157e.F = false;
-                int childCount = this.f48157e.getChildCount();
+                this.f48173e.F = false;
+                int childCount = this.f48173e.getChildCount();
                 for (int i2 = 0; i2 < childCount; i2++) {
-                    if (this.f48157e.getChildAt(i2) != null) {
-                        this.f48157e.getChildAt(i2).clearAnimation();
+                    if (this.f48173e.getChildAt(i2) != null) {
+                        this.f48173e.getChildAt(i2).clearAnimation();
                     }
                 }
-                if (this.f48157e.j()) {
-                    if (this.f48157e.getScrollX() > this.f48157e.k()) {
-                        DragHorizonScrollView dragHorizonScrollView = this.f48157e;
+                if (this.f48173e.j()) {
+                    if (this.f48173e.getScrollX() > this.f48173e.k()) {
+                        DragHorizonScrollView dragHorizonScrollView = this.f48173e;
                         dragHorizonScrollView.scrollTo(dragHorizonScrollView.k(), 0);
                     }
                 } else {
-                    this.f48157e.scrollTo(0, 0);
+                    this.f48173e.scrollTo(0, 0);
                 }
-                if (this.f48157e.G) {
-                    this.f48157e.requestLayout();
+                if (this.f48173e.G) {
+                    this.f48173e.requestLayout();
                 }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface c {
         void onSwapData(int i2, int i3);
     }
@@ -213,13 +213,13 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
 
     @Override // android.view.View
     public void computeScroll() {
-        c.a.t0.w3.m0.a aVar;
+        c.a.t0.x3.m0.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.o.computeScrollOffset()) {
                 scrollTo(this.o.getCurrX(), 0);
                 postInvalidateDelayed(16L);
-                if ((this.u || this.v) && (aVar = this.f48153h) != null) {
+                if ((this.u || this.v) && (aVar = this.f48169h) != null) {
                     aVar.i();
                     return;
                 }
@@ -252,7 +252,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
                 this.l -= measuredWidth;
                 this.D = true;
             }
-            this.f48154i--;
+            this.f48170i--;
             removeViewInLayout(view);
             this.E.add(view);
             int childCount = getChildCount();
@@ -285,7 +285,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
     public BaseAdapter getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48150e : (BaseAdapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48166e : (BaseAdapter) invokeV.objValue;
     }
 
     public int getMaxItemNum() {
@@ -327,8 +327,8 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
     public final void l(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.f48151f = null;
-            this.f48152g = -1;
+            this.f48167f = null;
+            this.f48168g = -1;
             ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
             this.n = viewConfiguration.getScaledTouchSlop();
             this.s = viewConfiguration.getScaledMinimumFlingVelocity();
@@ -352,7 +352,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
         }
     }
 
-    @Override // c.a.t0.w3.m0.d
+    @Override // c.a.t0.x3.m0.d
     public void moveLeft() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.u) {
@@ -364,7 +364,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
         invalidate();
     }
 
-    @Override // c.a.t0.w3.m0.d
+    @Override // c.a.t0.x3.m0.d
     public void moveRight() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.v) {
@@ -383,7 +383,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048588, this, i2, i3, i4, i5)) == null) {
             int[] iArr = new int[2];
-            if (this.f48150e == null) {
+            if (this.f48166e == null) {
                 iArr[0] = getPaddingLeft() + getPaddingRight();
                 iArr[1] = getPaddingTop() + getPaddingBottom();
                 return iArr;
@@ -391,7 +391,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
             int paddingLeft = getPaddingLeft() + getPaddingRight();
             int paddingTop = getPaddingTop() + getPaddingBottom();
             if (i3 == -1) {
-                i3 = this.f48154i - 1;
+                i3 = this.f48170i - 1;
             }
             while (i2 <= i3) {
                 View o = o(i2);
@@ -423,7 +423,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
             View remove = this.E.size() > 0 ? this.E.remove(0) : null;
-            View view = this.f48150e.getView(i2, remove, this);
+            View view = this.f48166e.getView(i2, remove, this);
             if (view != remove) {
                 this.E.add(remove);
             }
@@ -444,7 +444,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
         }
     }
 
-    @Override // c.a.t0.w3.m0.d
+    @Override // c.a.t0.x3.m0.d
     public void onDrop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
@@ -516,9 +516,9 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
             int paddingLeft = getPaddingLeft() + this.x;
             if (this.I) {
                 int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds32);
-                if (this.f48154i > 0) {
+                if (this.f48170i > 0) {
                     View o = o(0);
-                    m(o, this.f48155j, this.k);
+                    m(o, this.f48171j, this.k);
                     paddingLeft = ((getMeasuredWidth() - o.getMeasuredWidth()) + dimensionPixelSize) / 2;
                 } else if (this.B != null) {
                     int measuredWidth = ((getMeasuredWidth() - (this.x * 2)) + this.y) / 3;
@@ -529,11 +529,11 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
                     layoutParams.width = measuredWidth;
                     layoutParams.height = -1;
                     this.B.setLayoutParams(layoutParams);
-                    m(this.B, this.f48155j, this.k);
+                    m(this.B, this.f48171j, this.k);
                     paddingLeft = ((getMeasuredWidth() - this.B.getMeasuredWidth()) + dimensionPixelSize) / 2;
                 }
             }
-            for (int i7 = 0; i7 < this.f48154i; i7++) {
+            for (int i7 = 0; i7 < this.f48170i; i7++) {
                 View o2 = o(i7);
                 if (o2 != null && o2.getVisibility() != 8) {
                     ViewGroup.LayoutParams layoutParams2 = o2.getLayoutParams();
@@ -542,7 +542,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
                         o2.setLayoutParams(layoutParams2);
                     }
                     addViewInLayout(o2, -1, layoutParams2, true);
-                    m(o2, this.f48155j, this.k);
+                    m(o2, this.f48171j, this.k);
                     int paddingTop = getPaddingTop();
                     int measuredWidth2 = o2.getMeasuredWidth() + paddingLeft;
                     o2.layout(paddingLeft, paddingTop, measuredWidth2, o2.getMeasuredHeight() + paddingTop);
@@ -561,11 +561,11 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
                     layoutParams3.height = -1;
                     this.B.setLayoutParams(layoutParams3);
                 }
-                m(this.B, this.f48155j, this.k);
+                m(this.B, this.f48171j, this.k);
                 int paddingTop2 = getPaddingTop();
                 int measuredWidth4 = this.B.getMeasuredWidth() + paddingLeft;
                 this.B.layout(paddingLeft, paddingTop2, measuredWidth4, this.B.getMeasuredHeight() + paddingTop2);
-                if (this.f48154i == this.z) {
+                if (this.f48170i == this.z) {
                     paddingLeft = measuredWidth4 - this.B.getMeasuredWidth();
                     this.D = false;
                 } else {
@@ -599,9 +599,9 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
                     getChildAt(i2).clearAnimation();
                 }
             }
-            this.f48153h.h(view, null);
-            this.f48151f = view;
-            this.f48152g = indexOfChild(view);
+            this.f48169h.h(view, null);
+            this.f48167f = view;
+            this.f48168g = indexOfChild(view);
             return true;
         }
         return invokeL.booleanValue;
@@ -617,11 +617,11 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
             int mode2 = View.MeasureSpec.getMode(i3);
             int size = View.MeasureSpec.getSize(i2);
             int size2 = View.MeasureSpec.getSize(i3);
-            BaseAdapter baseAdapter = this.f48150e;
+            BaseAdapter baseAdapter = this.f48166e;
             int count = baseAdapter == null ? 0 : baseAdapter.getCount();
-            this.f48154i = count;
+            this.f48170i = count;
             int min = Math.min(this.z, count);
-            this.f48154i = min;
+            this.f48170i = min;
             if (min <= 0 || !(mode == 0 || mode2 == 0)) {
                 i4 = 0;
                 i5 = 0;
@@ -648,25 +648,25 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
                 }
             }
             setMeasuredDimension(size, size2);
-            this.f48155j = i2;
+            this.f48171j = i2;
             this.k = i3;
         }
     }
 
-    @Override // c.a.t0.w3.m0.d
+    @Override // c.a.t0.x3.m0.d
     public void onSwap(Rect rect) {
         View childAt;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, rect) == null) {
             int childCount = getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
-                if (i2 != this.f48152g && (childAt = getChildAt(i2)) != this.B) {
+                if (i2 != this.f48168g && (childAt = getChildAt(i2)) != this.B) {
                     childAt.getHitRect(this.q);
                     if (this.q.contains((rect.left + rect.right) / 2, (rect.top + rect.bottom) / 2)) {
-                        int i3 = this.f48152g;
+                        int i3 = this.f48168g;
                         t(i3, i2);
                         s(i3, i2);
-                        this.f48152g = i2;
+                        this.f48168g = i2;
                         return;
                     }
                 }
@@ -749,12 +749,12 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
             removeCallbacks(this.K);
             this.o.forceFinished(true);
             this.p.forceFinished(true);
-            View view = this.f48151f;
+            View view = this.f48167f;
             if (view != null) {
                 view.setVisibility(0);
-                this.f48151f = null;
+                this.f48167f = null;
             }
-            this.f48152g = -1;
+            this.f48168g = -1;
             this.u = false;
             this.v = false;
             int childCount = getChildCount();
@@ -779,7 +779,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
     public void setAdapter(BaseAdapter baseAdapter, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048603, this, baseAdapter, z) == null) {
-            this.f48150e = baseAdapter;
+            this.f48166e = baseAdapter;
             this.o.forceFinished(true);
             this.p.forceFinished(true);
             if (!this.A && z) {
@@ -803,11 +803,11 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
         }
     }
 
-    @Override // c.a.t0.w3.m0.c
-    public void setDragController(c.a.t0.w3.m0.a aVar) {
+    @Override // c.a.t0.x3.m0.c
+    public void setDragController(c.a.t0.x3.m0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, aVar) == null) {
-            this.f48153h = aVar;
+            this.f48169h = aVar;
         }
     }
 
@@ -846,7 +846,7 @@ public class DragHorizonScrollView extends ViewGroup implements d, c.a.t0.w3.m0.
         }
     }
 
-    @Override // c.a.t0.w3.m0.d
+    @Override // c.a.t0.x3.m0.d
     public void stopMove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {

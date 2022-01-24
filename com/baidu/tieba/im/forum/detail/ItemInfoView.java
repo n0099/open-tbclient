@@ -31,7 +31,7 @@ public class ItemInfoView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f45014e;
+    public TextView f45042e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ItemInfoView(Context context) {
@@ -89,14 +89,14 @@ public class ItemInfoView extends LinearLayout {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.forum_detail_info, (ViewGroup) this, true);
             setVisibility(8);
-            this.f45014e = (TextView) findViewById(R.id.info_brief_content);
+            this.f45042e = (TextView) findViewById(R.id.info_brief_content);
         }
     }
 
     public void onChangeSkinType(ForumDetailActivity forumDetailActivity, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, forumDetailActivity, i2) == null) {
-            SkinManager.setViewTextColor(this.f45014e, R.color.common_color_10177, 1);
+            SkinManager.setViewTextColor(this.f45042e, R.color.common_color_10177, 1);
             forumDetailActivity.getLayoutMode().k(i2 == 1);
             forumDetailActivity.getLayoutMode().j(this);
         }
@@ -107,9 +107,9 @@ public class ItemInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, recommendForumInfo) == null) {
             if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !m.isEmpty(recommendForumInfo.slogan))) {
-                this.f45014e.setText(a(recommendForumInfo.content, recommendForumInfo.slogan));
+                this.f45042e.setText(a(recommendForumInfo.content, recommendForumInfo.slogan));
             } else {
-                this.f45014e.setText(getResources().getString(R.string.forum_detail_info_no_brief));
+                this.f45042e.setText(getResources().getString(R.string.forum_detail_info_no_brief));
             }
             setVisibility(0);
         }

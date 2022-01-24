@@ -29,16 +29,16 @@ public class b extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8191e;
+        public final /* synthetic */ CallbackHandler f8333e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f8192f;
+        public final /* synthetic */ UnitedSchemeEntity f8334f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f8193g;
+        public final /* synthetic */ Context f8335g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8194h;
+        public final /* synthetic */ JSONObject f8336h;
 
         public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -55,10 +55,10 @@ public class b extends z {
                     return;
                 }
             }
-            this.f8191e = callbackHandler;
-            this.f8192f = unitedSchemeEntity;
-            this.f8193g = context;
-            this.f8194h = jSONObject;
+            this.f8333e = callbackHandler;
+            this.f8334f = unitedSchemeEntity;
+            this.f8335g = context;
+            this.f8336h = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,16 +69,16 @@ public class b extends z {
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
                     try {
-                        b.l(this.f8193g, this.f8194h);
-                        UnitedSchemeUtility.callCallback(this.f8191e, this.f8192f, UnitedSchemeUtility.wrapCallbackParams(this.f8194h, 0));
+                        b.l(this.f8335g, this.f8336h);
+                        UnitedSchemeUtility.callCallback(this.f8333e, this.f8334f, UnitedSchemeUtility.wrapCallbackParams(this.f8336h, 0));
                         return;
                     } catch (JSONException e2) {
                         e2.printStackTrace();
-                        this.f8192f.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
+                        this.f8334f.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
                         return;
                     }
                 }
-                c.a.r0.a.h2.c.d.p(iVar, this.f8191e, this.f8192f);
+                c.a.r0.a.h2.c.d.p(iVar, this.f8333e, this.f8334f);
             }
         }
     }
@@ -117,7 +117,7 @@ public class b extends z {
     }
 
     /* JADX WARN: Type inference failed for: r1v14 */
-    /* JADX WARN: Type inference failed for: r1v15, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r1v15, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r1v51 */
     public static void l(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
@@ -203,7 +203,7 @@ public class b extends z {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, unitedSchemeEntity, callbackHandler)) == null) {
             JSONObject jSONObject = new JSONObject();
             c.a.r0.a.e0.d.i("getDebugConfig", "swangame getDebugConfig");
-            if (!z.f6201b) {
+            if (!z.f6343b) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
                 return false;
             }

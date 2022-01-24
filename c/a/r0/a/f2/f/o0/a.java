@@ -36,14 +36,14 @@ public final class a {
 
     /* renamed from: c.a.r0.a.f2.f.o0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0333a implements Runnable {
+    public static class RunnableC0342a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6061e;
+        public final /* synthetic */ String f6203e;
 
-        public RunnableC0333a(String str) {
+        public RunnableC0342a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +58,7 @@ public final class a {
                     return;
                 }
             }
-            this.f6061e = str;
+            this.f6203e = str;
         }
 
         @Override // java.lang.Runnable
@@ -68,7 +68,7 @@ public final class a {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (V = c.a.r0.a.g1.f.U().V()) == null) {
                 return;
             }
-            g.b i2 = V.i(this.f6061e);
+            g.b i2 = V.i(this.f6203e);
             i2.f();
             i2.b();
             c.a.r0.a.e0.d.k("ActionUtils", "popAllFragment: finish");
@@ -95,35 +95,35 @@ public final class a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, bVar, bVar2, str)) == null) {
-            c.a.r0.a.d2.n.g f2 = c.a.r0.a.g1.f.U().f(bVar2.f7675h);
+            c.a.r0.a.d2.n.g f2 = c.a.r0.a.g1.f.U().f(bVar2.f7817h);
             c.a.r0.a.h0.u.d dVar = new c.a.r0.a.h0.u.d();
-            dVar.f6921i = bVar.L();
-            dVar.a = bVar2.f7674g;
+            dVar.f7063i = bVar.L();
+            dVar.a = bVar2.f7816g;
             if (c.a.r0.a.d2.e.L() != null) {
-                dVar.f6915c = c.a.r0.a.d2.e.L().c0(bVar2.f7675h);
+                dVar.f7057c = c.a.r0.a.d2.e.L().c0(bVar2.f7817h);
             }
-            dVar.k = c.a.r0.a.h0.u.a.c(c.a.r0.a.d2.e.L(), bVar2.f7672e);
-            dVar.f6914b = c.a.r0.a.m1.b.b(bVar2);
-            dVar.f6916d = f2.f5579g;
-            dVar.f6917e = String.valueOf(c.a.r0.a.e0.a.a());
+            dVar.k = c.a.r0.a.h0.u.a.c(c.a.r0.a.d2.e.L(), bVar2.f7814e);
+            dVar.f7056b = c.a.r0.a.m1.b.b(bVar2);
+            dVar.f7058d = f2.f5721g;
+            dVar.f7059e = String.valueOf(c.a.r0.a.e0.a.a());
             if (c.a.r0.a.d2.e.L() != null) {
-                String W = c.a.r0.a.d2.e.L().W(bVar2.f7675h);
+                String W = c.a.r0.a.d2.e.L().W(bVar2.f7817h);
                 if (!TextUtils.isEmpty(W)) {
                     if (a) {
                         String str2 = "add initData: " + W;
                     }
-                    dVar.f6918f = W;
+                    dVar.f7060f = W;
                 }
             }
-            dVar.f6919g = a || c.a.r0.a.g1.f.U().N();
-            dVar.f6920h = str;
+            dVar.f7061g = a || c.a.r0.a.g1.f.U().N();
+            dVar.f7062h = str;
             if (c.a.r0.a.x1.a.a.H()) {
-                dVar.f6922j = c.a.r0.a.e0.f.b.d();
+                dVar.f7064j = c.a.r0.a.e0.f.b.d();
             }
             if (a) {
                 String str3 = "buildPageEvent: " + Arrays.toString(new Exception().getStackTrace());
             }
-            c.a.r0.a.r2.f.a.b(dVar.a, dVar.f6914b);
+            c.a.r0.a.r2.f.a.b(dVar.a, dVar.f7056b);
             return dVar;
         }
         return (c.a.r0.a.h0.u.d) invokeLLL.objValue;
@@ -200,19 +200,19 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, bVar, bVar2, str) == null) {
             c.a.r0.a.u1.g.a(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, "createAndLoadPage start.");
-            String a2 = q0.a(bVar2.f7674g, bVar2.f7672e, bVar2.f7673f);
+            String a2 = q0.a(bVar2.f7816g, bVar2.f7814e, bVar2.f7815f);
             c.a.r0.a.h0.u.d a3 = a(bVar, bVar2, str);
             c.a.r0.a.u1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str).F(new UbcFlowEvent("slave_dispatch_start"));
             d0.d();
             bVar.t().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, bVar2.f());
-            bVar.T(a3.f6914b);
+            bVar.T(a3.f7056b);
             c.a.r0.a.g1.f.U().m(bVar.c(), c.a.r0.a.h0.u.d.a(a3));
             if (c.a.r0.a.h0.u.e.b()) {
                 c.a.r0.a.h0.u.e eVar = new c.a.r0.a.h0.u.e();
                 eVar.a = bVar.c();
                 c.a.r0.a.g1.f.U().u(c.a.r0.a.h0.u.e.a(eVar));
             }
-            c.a.r0.a.n2.e.F(bVar.c(), a3.f6914b);
+            c.a.r0.a.n2.e.F(bVar.c(), a3.f7056b);
             c.a.r0.a.h0.t.a.o(a2, bVar);
             c.a.r0.a.u1.g.a(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, "createAndLoadPage end.");
         }
@@ -244,7 +244,7 @@ public final class a {
         c.a.r0.a.h0.g.d j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, gVar)) == null) {
-            if (gVar != null && gVar.k() >= c.a.r0.a.u.e.j.c.f9138g && (j2 = gVar.j(0)) != null && (j2 instanceof c.a.r0.a.h0.g.f)) {
+            if (gVar != null && gVar.k() >= c.a.r0.a.u.e.j.c.f9280g && (j2 = gVar.j(0)) != null && (j2 instanceof c.a.r0.a.h0.g.f)) {
                 return ((c.a.r0.a.h0.g.f) j2).o3();
             }
             return null;
@@ -361,7 +361,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
             c.a.r0.a.e0.d.k("ActionUtils", "popAllFragment: routeType=" + str);
-            q0.e0(new RunnableC0333a(str));
+            q0.e0(new RunnableC0342a(str));
         }
     }
 }

@@ -18,15 +18,15 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f10327d;
+    public static final String[] f10469d;
     public transient /* synthetic */ FieldHolder $fh;
     public Method a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f10328b;
+    public Method f10470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f10329c;
+    public Object f10471c;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class b {
                 return;
             }
         }
-        f10327d = new String[]{"android.util.BoostFramework", "com.qualcomm.qti.Performance", "org.codeaurora.Performance"};
+        f10469d = new String[]{"android.util.BoostFramework", "com.qualcomm.qti.Performance", "org.codeaurora.Performance"};
     }
 
     public b(Class<?> cls, Context context) {
@@ -63,14 +63,14 @@ public class b {
             return;
         }
         try {
-            this.f10329c = a(context, cls);
+            this.f10471c = a(context, cls);
             Method i4 = c.a.r0.k.a.a.c.a.i(cls, "perfLockAcquire", Integer.TYPE, int[].class);
             this.a = i4;
             if (i4 != null) {
                 i4.setAccessible(true);
             }
             Method i5 = c.a.r0.k.a.a.c.a.i(cls, "perfLockRelease", new Class[0]);
-            this.f10328b = i5;
+            this.f10470b = i5;
             if (i5 != null) {
                 i5.setAccessible(true);
             }
@@ -101,7 +101,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String[] strArr = f10327d;
+            String[] strArr = f10469d;
             for (int i2 = 0; i2 < strArr.length; i2++) {
                 try {
                     return c.a.r0.k.a.a.c.a.a(strArr[i2]);
@@ -140,7 +140,7 @@ public class b {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f10329c == null || this.a == null || this.f10328b == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f10471c == null || this.a == null || this.f10470b == null) ? false : true : invokeV.booleanValue;
     }
 
     public int e(int i2, int... iArr) {
@@ -149,7 +149,7 @@ public class b {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, iArr)) == null) {
             if (c()) {
                 try {
-                    Object invoke = this.a.invoke(this.f10329c, Integer.valueOf(i2), iArr);
+                    Object invoke = this.a.invoke(this.f10471c, Integer.valueOf(i2), iArr);
                     if (invoke == null) {
                         return -1;
                     }
@@ -169,7 +169,7 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (c()) {
                 try {
-                    Object invoke = this.f10328b.invoke(this.f10329c, new Object[0]);
+                    Object invoke = this.f10470b.invoke(this.f10471c, new Object[0]);
                     if (invoke == null) {
                         return -1;
                     }

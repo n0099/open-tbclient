@@ -24,18 +24,18 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f10866e;
+    public static final boolean f11008e;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.j.z.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10867b;
+    public String f11009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10868c;
+    public String f11010c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.j.c.i.a f10869d;
+    public c.a.r0.j.c.i.a f11011d;
 
     /* loaded from: classes6.dex */
     public class a implements Callback {
@@ -65,12 +65,12 @@ public class c {
         public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (c.f10866e) {
-                    String str = this.a.f10867b + " load failed";
+                if (c.f11008e) {
+                    String str = this.a.f11009b + " load failed";
                     iOException.printStackTrace();
                 }
-                if (this.a.f10869d != null) {
-                    this.a.f10869d.fail(-1, this.a.f10867b);
+                if (this.a.f11011d != null) {
+                    this.a.f11011d.fail(-1, this.a.f11009b);
                 }
             }
         }
@@ -87,8 +87,8 @@ public class c {
                     InputStream byteStream = response.body().byteStream();
                     try {
                         try {
-                            String d2 = f.d(this.a.f10867b);
-                            String str = this.a.f10868c + d2.substring(0, d2.lastIndexOf("/"));
+                            String d2 = f.d(this.a.f11009b);
+                            String str = this.a.f11010c + d2.substring(0, d2.lastIndexOf("/"));
                             File file2 = new File(str);
                             if (!file2.exists() || !file2.isDirectory()) {
                                 file2.mkdirs();
@@ -107,14 +107,14 @@ public class c {
                                     } catch (Exception unused) {
                                         inputStream = byteStream;
                                         try {
-                                            if (c.f10866e) {
-                                                String str2 = this.a.f10867b + " load failed";
+                                            if (c.f11008e) {
+                                                String str2 = this.a.f11009b + " load failed";
                                             }
                                             if (file != null) {
                                                 file.delete();
                                             }
-                                            if (this.a.f10869d != null) {
-                                                this.a.f10869d.fail(-1, this.a.f10867b);
+                                            if (this.a.f11011d != null) {
+                                                this.a.f11011d.fail(-1, this.a.f11009b);
                                             }
                                             d.d(inputStream);
                                             d.d(fileOutputStream);
@@ -142,19 +142,19 @@ public class c {
                                 }
                                 String absolutePath = file3.getAbsolutePath();
                                 if (file.renameTo(file3)) {
-                                    if (c.f10866e) {
-                                        String str3 = this.a.f10867b + " load rename success path = " + absolutePath;
+                                    if (c.f11008e) {
+                                        String str3 = this.a.f11009b + " load rename success path = " + absolutePath;
                                     }
-                                    if (this.a.f10869d != null) {
-                                        this.a.f10869d.a(this.a.f10867b, absolutePath);
+                                    if (this.a.f11011d != null) {
+                                        this.a.f11011d.a(this.a.f11009b, absolutePath);
                                     }
                                 } else {
-                                    if (c.f10866e) {
-                                        String str4 = this.a.f10867b + " load rename error path = " + absolutePath;
+                                    if (c.f11008e) {
+                                        String str4 = this.a.f11009b + " load rename error path = " + absolutePath;
                                     }
                                     file.delete();
-                                    if (this.a.f10869d != null) {
-                                        this.a.f10869d.fail(-1, absolutePath);
+                                    if (this.a.f11011d != null) {
+                                        this.a.f11011d.fail(-1, absolutePath);
                                     }
                                 }
                                 d.d(byteStream);
@@ -195,7 +195,7 @@ public class c {
                 return;
             }
         }
-        f10866e = k.a;
+        f11008e = k.a;
     }
 
     public c(c.a.r0.j.z.b bVar, String str, String str2, c.a.r0.j.c.i.a aVar) {
@@ -213,18 +213,18 @@ public class c {
                 return;
             }
         }
-        this.f10867b = "";
-        this.f10868c = "";
+        this.f11009b = "";
+        this.f11010c = "";
         this.a = bVar;
-        this.f10868c = str;
-        this.f10867b = str2;
-        this.f10869d = aVar;
+        this.f11010c = str;
+        this.f11009b = str2;
+        this.f11011d = aVar;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.call(new Request.Builder().url(this.f10867b).build(), new a(this));
+            this.a.call(new Request.Builder().url(this.f11009b).build(), new a(this));
         }
     }
 }

@@ -456,7 +456,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
     /* JADX WARN: Removed duplicated region for block: B:113:0x0217  */
     /* JADX WARN: Removed duplicated region for block: B:61:0x0129  */
     /* JADX WARN: Type inference failed for: r17v0 */
-    /* JADX WARN: Type inference failed for: r17v1, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r17v1, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r17v3 */
     /* JADX WARN: Type inference failed for: r17v4 */
     /*
@@ -2219,7 +2219,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                         objArr = objArr2;
                                     }
                                     if (this.beanInfo.creatorConstructor != null) {
-                                        if (this.beanInfo.f30634kotlin) {
+                                        if (this.beanInfo.f30662kotlin) {
                                             int i20 = 0;
                                             while (true) {
                                                 if (i20 >= objArr.length) {
@@ -2654,7 +2654,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             }
             JavaBeanInfo javaBeanInfo2 = this.beanInfo;
             if (javaBeanInfo2.creatorConstructor != null) {
-                if (javaBeanInfo2.f30634kotlin) {
+                if (javaBeanInfo2.f30662kotlin) {
                     z = false;
                     for (int i3 = 0; i3 < length; i3++) {
                         Object obj = objArr[i3];

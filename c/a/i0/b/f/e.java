@@ -38,10 +38,10 @@ public class e {
     public static d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<g> f3771b;
+    public static List<g> f3912b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static g f3772c;
+    public static g f3913c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -50,25 +50,25 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ File f3773e;
+        public final /* synthetic */ File f3914e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f3774f;
+        public final /* synthetic */ String f3915f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f3775g;
+        public final /* synthetic */ String f3916g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ File f3776h;
+        public final /* synthetic */ File f3917h;
 
         /* renamed from: c.a.i0.b.f.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0158a implements e.b {
+        public class C0167a implements e.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0158a(a aVar) {
+            public C0167a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,12 +90,12 @@ public class e {
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (f.i() && !TextUtils.isEmpty(this.a.f3775g) && !TextUtils.equals(c.a.i0.a.c.f.b(this.a.f3773e), this.a.f3775g)) {
-                        this.a.f3773e.delete();
+                    if (f.i() && !TextUtils.isEmpty(this.a.f3916g) && !TextUtils.equals(c.a.i0.a.c.f.b(this.a.f3914e), this.a.f3916g)) {
+                        this.a.f3914e.delete();
                         return;
                     }
                     a aVar = this.a;
-                    e.w(aVar.f3773e, aVar.f3776h);
+                    e.w(aVar.f3914e, aVar.f3917h);
                 }
             }
         }
@@ -115,10 +115,10 @@ public class e {
                     return;
                 }
             }
-            this.f3773e = file;
-            this.f3774f = str;
-            this.f3775g = str2;
-            this.f3776h = file2;
+            this.f3914e = file;
+            this.f3915f = str;
+            this.f3916g = str2;
+            this.f3917h = file2;
         }
 
         @Override // java.lang.Runnable
@@ -126,7 +126,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    c.a.i0.a.c.e.b(this.f3773e, this.f3774f, new C0158a(this));
+                    c.a.i0.a.c.e.b(this.f3914e, this.f3915f, new C0167a(this));
                 } catch (Exception unused) {
                 }
             }
@@ -139,7 +139,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f3777e;
+        public final /* synthetic */ g f3918e;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -156,14 +156,14 @@ public class e {
                     return;
                 }
             }
-            this.f3777e = gVar;
+            this.f3918e = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.y(this.f3777e);
+                e.y(this.f3918e);
             }
         }
     }
@@ -174,7 +174,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f3778e;
+        public final /* synthetic */ List f3919e;
 
         public c(List list) {
             Interceptable interceptable = $ic;
@@ -191,7 +191,7 @@ public class e {
                     return;
                 }
             }
-            this.f3778e = list;
+            this.f3919e = list;
         }
 
         @Override // java.lang.Runnable
@@ -199,11 +199,11 @@ public class e {
             List list;
             g gVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f3778e) == null || list.size() == 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f3919e) == null || list.size() == 0) {
                 return;
             }
             ArrayList arrayList = new ArrayList(3);
-            Iterator it = this.f3778e.iterator();
+            Iterator it = this.f3919e.iterator();
             while (it.hasNext() && (gVar = (g) it.next()) != null) {
                 if (e.s(gVar.v)) {
                     e.h(gVar);
@@ -292,7 +292,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65536, null, list) == null) || list == null || list.size() == 0) {
             return;
         }
-        f3771b = Collections.synchronizedList(list);
+        f3912b = Collections.synchronizedList(list);
         v(list, n());
     }
 
@@ -323,7 +323,7 @@ public class e {
             if (currentTimeMillis - a2 < gVar.t * 60000) {
                 i2 |= 16;
             }
-            File o = o(gVar.f3786g);
+            File o = o(gVar.f3927g);
             return (o == null || !o.exists()) ? i2 | 4 : i2;
         }
         return invokeLZ.intValue;
@@ -340,16 +340,16 @@ public class e {
                 ArrayList arrayList = new ArrayList(list.size());
                 for (g gVar : list) {
                     if (gVar != null) {
-                        arrayList.add(k(gVar.f3786g));
+                        arrayList.add(k(gVar.f3927g));
                         arrayList.add(k(gVar.y));
                         arrayList.add(k(gVar.G));
                     }
                 }
-                g gVar2 = f3772c;
+                g gVar2 = f3913c;
                 if (gVar2 != null) {
-                    arrayList.add(k(gVar2.f3786g));
-                    arrayList.add(k(f3772c.y));
-                    arrayList.add(k(f3772c.G));
+                    arrayList.add(k(gVar2.f3927g));
+                    arrayList.add(k(f3913c.y));
+                    arrayList.add(k(f3913c.G));
                 }
                 for (File file : listFiles) {
                     if (!arrayList.contains(file.getName())) {
@@ -364,8 +364,8 @@ public class e {
 
     public static void h(g gVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, gVar) == null) && URLUtil.isNetworkUrl(gVar.f3786g)) {
-            i(gVar.f3786g, gVar.f3789j);
+        if ((interceptable == null || interceptable.invokeL(65544, null, gVar) == null) && URLUtil.isNetworkUrl(gVar.f3927g)) {
+            i(gVar.f3927g, gVar.f3930j);
             if (!TextUtils.isEmpty(gVar.y)) {
                 i(gVar.y, "");
             }
@@ -510,22 +510,22 @@ public class e {
         String j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            List<g> list = f3771b;
+            List<g> list = f3912b;
             if (list != null) {
                 return list;
             }
-            f3771b = new CopyOnWriteArrayList();
+            f3912b = new CopyOnWriteArrayList();
             File n = n();
             if (n.exists() && (j2 = j(n)) != null) {
                 try {
                     JSONArray jSONArray = new JSONArray(j2);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        f3771b.add(g.b(jSONArray.optJSONObject(i2)));
+                        f3912b.add(g.b(jSONArray.optJSONObject(i2)));
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                return f3771b;
+                return f3912b;
             }
             return null;
         }
@@ -543,7 +543,7 @@ public class e {
                     JSONArray jSONArray = new JSONArray(j(n));
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         g b2 = g.b((JSONObject) jSONArray.get(i2));
-                        hashMap.put(b2.f3781b, b2);
+                        hashMap.put(b2.f3922b, b2);
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
@@ -596,7 +596,7 @@ public class e {
                     } else {
                         i2 |= f2;
                         try {
-                            jSONObject.put(gVar.f3782c, f2);
+                            jSONObject.put(gVar.f3923c, f2);
                         } catch (JSONException unused) {
                         }
                     }
@@ -707,7 +707,7 @@ public class e {
             }
             for (int i2 = 0; i2 < p.size(); i2++) {
                 g gVar2 = p.get(i2);
-                if (TextUtils.equals(gVar.f3781b, gVar2.f3781b)) {
+                if (TextUtils.equals(gVar.f3922b, gVar2.f3922b)) {
                     g.l(gVar2, gVar);
                     arrayList.add(gVar2);
                 } else {

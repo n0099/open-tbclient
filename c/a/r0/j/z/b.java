@@ -92,7 +92,7 @@ public class b extends HttpManager {
             int i2 = 60000;
             if (aVar2 != null && (aVar = aVar2.a) != null) {
                 i2 = aVar.a;
-                newBuilder.connectTimeout(aVar.f5569b, TimeUnit.MILLISECONDS);
+                newBuilder.connectTimeout(aVar.f5711b, TimeUnit.MILLISECONDS);
                 newBuilder.addNetworkInterceptor(new d());
             }
             long j2 = i2;

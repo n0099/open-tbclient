@@ -33,7 +33,7 @@ public final class c {
     public static final File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f8182b;
+    public static final byte[] f8324b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -43,10 +43,10 @@ public final class c {
         public final /* synthetic */ CallbackHandler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f8183b;
+        public final /* synthetic */ String f8325b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f8184c;
+        public final /* synthetic */ String f8326c;
 
         public a(CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -64,19 +64,19 @@ public final class c {
                 }
             }
             this.a = callbackHandler;
-            this.f8183b = str;
-            this.f8184c = str2;
+            this.f8325b = str;
+            this.f8326c = str2;
         }
 
         @Override // c.a.r0.a.a1.d.c
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.e0.d.k("DebugDynamicLibControl", "debug动态库下载失败 url=" + this.f8184c);
-                if (this.a == null || TextUtils.isEmpty(this.f8183b)) {
+                c.a.r0.a.e0.d.k("DebugDynamicLibControl", "debug动态库下载失败 url=" + this.f8326c);
+                if (this.a == null || TextUtils.isEmpty(this.f8325b)) {
                     return;
                 }
-                this.a.handleSchemeDispatchCallback(this.f8183b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+                this.a.handleSchemeDispatchCallback(this.f8325b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
             }
         }
 
@@ -91,25 +91,25 @@ public final class c {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a != null && !TextUtils.isEmpty(this.f8183b)) {
+                if (this.a != null && !TextUtils.isEmpty(this.f8325b)) {
                     File j2 = c.j();
                     c.a.r0.a.e0.d.k("DebugDynamicLibControl", "debug动态库下载成功 file=" + j2.getAbsolutePath());
                     Pair g2 = c.g(j2);
                     if (!((Boolean) g2.first).booleanValue()) {
                         c.a.r0.a.e0.d.k("DebugDynamicLibControl", "debug动态库解密失败 file=" + j2.getAbsolutePath());
-                        this.a.handleSchemeDispatchCallback(this.f8183b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解密失败").toString());
+                        this.a.handleSchemeDispatchCallback(this.f8325b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解密失败").toString());
                         return;
                     } else if (((Boolean) c.s((File) g2.second).first).booleanValue()) {
                         c.r(true);
-                        this.a.handleSchemeDispatchCallback(this.f8183b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                        this.a.handleSchemeDispatchCallback(this.f8325b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                         return;
                     } else {
                         c.a.r0.a.e0.d.k("DebugDynamicLibControl", "debug动态库解压失败 file=" + j2.getAbsolutePath());
-                        this.a.handleSchemeDispatchCallback(this.f8183b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解压失败").toString());
+                        this.a.handleSchemeDispatchCallback(this.f8325b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解压失败").toString());
                         return;
                     }
                 }
-                c.a.r0.a.e0.d.k("DebugDynamicLibControl", "debug动态库下载成功，但是 handler=" + this.a + " cb=" + this.f8183b);
+                c.a.r0.a.e0.d.k("DebugDynamicLibControl", "debug动态库下载成功，但是 handler=" + this.a + " cb=" + this.f8325b);
             }
         }
     }
@@ -128,7 +128,7 @@ public final class c {
             }
         }
         a = c.a.r0.a.a1.d.q();
-        f8182b = "rMzurs3ur83vsM7vss/vtNHwt9LwuNPx".getBytes(StandardCharsets.UTF_8);
+        f8324b = "rMzurs3ur83vsM7vss/vtNHwt9LwuNPx".getBytes(StandardCharsets.UTF_8);
     }
 
     public static File d(String str) {
@@ -185,7 +185,7 @@ public final class c {
                     file2.deleteOnExit();
                     file2.createNewFile();
                     IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr);
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(f8182b, "AES");
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(f8324b, "AES");
                     Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                     cipher.init(2, secretKeySpec, ivParameterSpec);
                     fileOutputStream.write(cipher.doFinal(bArr2));

@@ -56,7 +56,7 @@ public class ft extends XMPushService.i {
             if (!this.f418a.m391c() || this.f418a.a(this.a)) {
                 return;
             }
-            this.f418a.f61090b.a(22, (Exception) null);
+            this.f418a.f61135b.a(22, (Exception) null);
         }
     }
 }

@@ -14,10 +14,10 @@ public class g {
     public List<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<MediaFileInfo> f12467b;
+    public List<MediaFileInfo> f12614b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<VideoFileInfo> f12468c;
+    public List<VideoFileInfo> f12615c;
 
     public g() {
         Interceptable interceptable = $ic;

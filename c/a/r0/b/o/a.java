@@ -23,7 +23,7 @@ public class a extends h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10103b;
+    public static final boolean f10245b;
     public transient /* synthetic */ FieldHolder $fh;
     public CookieManager a;
 
@@ -40,7 +40,7 @@ public class a extends h {
                 return;
             }
         }
-        f10103b = k.a;
+        f10245b = k.a;
     }
 
     public a() {
@@ -84,7 +84,7 @@ public class a extends h {
             DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a(str, "", 4));
             if (callOnMainWithContentProvider.isOk()) {
                 String string = callOnMainWithContentProvider.mResult.getString("result");
-                if (f10103b) {
+                if (f10245b) {
                     String str2 = "getCookie cookie : " + string;
                 }
                 return string;
@@ -141,7 +141,7 @@ public class a extends h {
             bundle.putString("param1", str);
             bundle.putStringArrayList("param2", (ArrayList) list);
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, bundle);
-            if (f10103b) {
+            if (f10245b) {
                 String str2 = "set cookies for " + str;
             }
         }

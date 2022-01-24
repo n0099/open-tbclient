@@ -8,10 +8,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.t0.q1.b;
-import c.a.t0.q1.c;
-import c.a.t0.q1.e;
-import c.a.t0.q1.f;
+import c.a.t0.r1.b;
+import c.a.t0.r1.c;
+import c.a.t0.r1.e;
+import c.a.t0.r1.f;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -28,22 +28,22 @@ public class ShareCardView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f44721e;
+    public LinearLayout f44749e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditText f44722f;
+    public EditText f44750f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f44723g;
+    public TbImageView f44751g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44724h;
+    public TextView f44752h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f44725i;
+    public TextView f44753i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ShareFromTopicMsgData f44726j;
+    public ShareFromTopicMsgData f44754j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareCardView(Context context, AttributeSet attributeSet) {
@@ -72,16 +72,16 @@ public class ShareCardView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(f.thread_to_group_share_view, this);
             setOrientation(1);
-            this.f44721e = (LinearLayout) findViewById(e.share_content);
-            this.f44725i = (TextView) findViewById(e.share_title_view);
-            this.f44722f = (EditText) findViewById(e.chat_msg);
-            this.f44723g = (TbImageView) findViewById(e.chat_group_img);
-            this.f44724h = (TextView) findViewById(e.chat_group_desc);
-            SkinManager.setViewTextColor(this.f44725i, b.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.f44722f, b.CAM_X0105, 2);
-            SkinManager.setViewTextColor(this.f44724h, b.CAM_X0106, 1);
-            this.f44722f.setHintTextColor(SkinManager.getColor(b.CAM_X0110));
-            this.f44722f.setPadding(context.getResources().getDimensionPixelSize(c.ds20), 0, 0, 0);
+            this.f44749e = (LinearLayout) findViewById(e.share_content);
+            this.f44753i = (TextView) findViewById(e.share_title_view);
+            this.f44750f = (EditText) findViewById(e.chat_msg);
+            this.f44751g = (TbImageView) findViewById(e.chat_group_img);
+            this.f44752h = (TextView) findViewById(e.chat_group_desc);
+            SkinManager.setViewTextColor(this.f44753i, b.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.f44750f, b.CAM_X0105, 2);
+            SkinManager.setViewTextColor(this.f44752h, b.CAM_X0106, 1);
+            this.f44750f.setHintTextColor(SkinManager.getColor(b.CAM_X0110));
+            this.f44750f.setPadding(context.getResources().getDimensionPixelSize(c.ds20), 0, 0, 0);
             hideEditTextCursor();
         }
     }
@@ -89,25 +89,25 @@ public class ShareCardView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f44725i.setText(this.f44726j.getTitle());
-            BdLog.e("mData.getImageUrl()的图片URL" + this.f44726j.getImageUrl());
-            this.f44723g.setTag(this.f44726j.getImageUrl());
-            BdLog.e("mData.getContent()的Content" + this.f44726j.getContent());
-            this.f44724h.setText(this.f44726j.getContent());
+            this.f44753i.setText(this.f44754j.getTitle());
+            BdLog.e("mData.getImageUrl()的图片URL" + this.f44754j.getImageUrl());
+            this.f44751g.setTag(this.f44754j.getImageUrl());
+            BdLog.e("mData.getContent()的Content" + this.f44754j.getContent());
+            this.f44752h.setText(this.f44754j.getContent());
         }
     }
 
     public EditText getChatMsgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f44722f : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f44750f : (EditText) invokeV.objValue;
     }
 
     public String getLeaveMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            EditText editText = this.f44722f;
+            EditText editText = this.f44750f;
             if (editText != null) {
                 return m.charSequence2String(editText.getText(), null);
             }
@@ -119,16 +119,16 @@ public class ShareCardView extends LinearLayout {
     public void hideEditTextCursor() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f44721e.setFocusable(true);
-            this.f44721e.setFocusableInTouchMode(true);
-            this.f44721e.requestFocus();
+            this.f44749e.setFocusable(true);
+            this.f44749e.setFocusableInTouchMode(true);
+            this.f44749e.requestFocus();
         }
     }
 
     public void loadImageIcon(String str, boolean z) {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) || (tbImageView = this.f44723g) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) || (tbImageView = this.f44751g) == null) {
             return;
         }
         tbImageView.startLoad(str, z ? 17 : 18, false);
@@ -137,7 +137,7 @@ public class ShareCardView extends LinearLayout {
     public void setData(ShareFromTopicMsgData shareFromTopicMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareFromTopicMsgData) == null) {
-            this.f44726j = shareFromTopicMsgData;
+            this.f44754j = shareFromTopicMsgData;
             b();
         }
     }

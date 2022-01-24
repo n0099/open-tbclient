@@ -22,22 +22,22 @@ public class hq implements iq<hq, Object>, Serializable, Cloneable {
     public static final jg f515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f61213b;
+    public static final iy f61258b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f61214c;
+    public static final iy f61259c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f61215d;
+    public static final iy f61260d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f61216e;
+    public static final iy f61261e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f61217f;
+    public static final iy f61262f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f61218g;
+    public static final iy f61263g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -79,12 +79,12 @@ public class hq implements iq<hq, Object>, Serializable, Cloneable {
         }
         f515a = new jg("OnlineConfigItem");
         a = new iy("", (byte) 8, (short) 1);
-        f61213b = new iy("", (byte) 8, (short) 2);
-        f61214c = new iy("", (byte) 2, (short) 3);
-        f61215d = new iy("", (byte) 8, (short) 4);
-        f61216e = new iy("", (byte) 10, (short) 5);
-        f61217f = new iy("", (byte) 11, (short) 6);
-        f61218g = new iy("", (byte) 2, (short) 7);
+        f61258b = new iy("", (byte) 8, (short) 2);
+        f61259c = new iy("", (byte) 2, (short) 3);
+        f61260d = new iy("", (byte) 8, (short) 4);
+        f61261e = new iy("", (byte) 10, (short) 5);
+        f61262f = new iy("", (byte) 11, (short) 6);
+        f61263g = new iy("", (byte) 2, (short) 7);
     }
 
     public hq() {
@@ -358,32 +358,32 @@ public class hq implements iq<hq, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (m461b()) {
-                jbVar.a(f61213b);
+                jbVar.a(f61258b);
                 jbVar.a(this.f521b);
                 jbVar.b();
             }
             if (m462c()) {
-                jbVar.a(f61214c);
+                jbVar.a(f61259c);
                 jbVar.a(this.f520a);
                 jbVar.b();
             }
             if (d()) {
-                jbVar.a(f61215d);
+                jbVar.a(f61260d);
                 jbVar.a(this.f523c);
                 jbVar.b();
             }
             if (e()) {
-                jbVar.a(f61216e);
+                jbVar.a(f61261e);
                 jbVar.a(this.f517a);
                 jbVar.b();
             }
             if (this.f518a != null && f()) {
-                jbVar.a(f61217f);
+                jbVar.a(f61262f);
                 jbVar.a(this.f518a);
                 jbVar.b();
             }
             if (h()) {
-                jbVar.a(f61218g);
+                jbVar.a(f61263g);
                 jbVar.a(this.f522b);
                 jbVar.b();
             }

@@ -13,21 +13,21 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile e f3603f;
+    public static volatile e f3744f;
     public transient /* synthetic */ FieldHolder $fh;
     public HandlerThread a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f3604b;
+    public Handler f3745b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3605c;
+    public int f3746c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3606d;
+    public int f3747d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f3607e;
+    public Runnable f3748e;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -35,7 +35,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f3608e;
+        public final /* synthetic */ e f3749e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class e {
                     return;
                 }
             }
-            this.f3608e = eVar;
+            this.f3749e = eVar;
         }
 
         @Override // java.lang.Runnable
@@ -62,21 +62,21 @@ public class e {
                 h.g("开始重试");
                 if (f.n()) {
                     h.g("重试成功");
-                    this.f3608e.f3605c = 0;
-                    this.f3608e.a.quitSafely();
-                    this.f3608e.f3604b.removeCallbacks(this);
+                    this.f3749e.f3746c = 0;
+                    this.f3749e.a.quitSafely();
+                    this.f3749e.f3745b.removeCallbacks(this);
                     return;
                 }
-                e.c(this.f3608e);
-                if (this.f3608e.f3605c >= 3) {
-                    this.f3608e.f3605c = 0;
+                e.c(this.f3749e);
+                if (this.f3749e.f3746c >= 3) {
+                    this.f3749e.f3746c = 0;
                     h.g("重试三次结束重试");
-                    this.f3608e.a.quitSafely();
-                    this.f3608e.f3604b.removeCallbacks(this);
+                    this.f3749e.a.quitSafely();
+                    this.f3749e.f3745b.removeCallbacks(this);
                     return;
                 }
                 h.g("重试失败继续重试");
-                this.f3608e.f3604b.postDelayed(this, this.f3608e.f3606d);
+                this.f3749e.f3745b.postDelayed(this, this.f3749e.f3747d);
             }
         }
     }
@@ -94,13 +94,13 @@ public class e {
                 return;
             }
         }
-        this.f3606d = 10000;
-        this.f3607e = new a(this);
+        this.f3747d = 10000;
+        this.f3748e = new a(this);
     }
 
     public static /* synthetic */ int c(e eVar) {
-        int i2 = eVar.f3605c;
-        eVar.f3605c = i2 + 1;
+        int i2 = eVar.f3746c;
+        eVar.f3746c = i2 + 1;
         return i2;
     }
 
@@ -108,14 +108,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f3603f == null) {
+            if (f3744f == null) {
                 synchronized (e.class) {
-                    if (f3603f == null) {
-                        f3603f = new e();
+                    if (f3744f == null) {
+                        f3744f = new e();
                     }
                 }
             }
-            return f3603f;
+            return f3744f;
         }
         return (e) invokeV.objValue;
     }
@@ -128,8 +128,8 @@ public class e {
             this.a = handlerThread;
             handlerThread.start();
             Handler handler = new Handler(this.a.getLooper());
-            this.f3604b = handler;
-            handler.postDelayed(this.f3607e, this.f3606d);
+            this.f3745b = handler;
+            handler.postDelayed(this.f3748e, this.f3747d);
         }
     }
 }

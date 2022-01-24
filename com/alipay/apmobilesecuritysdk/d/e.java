@@ -17,7 +17,7 @@ public final class e {
     public static Map<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f30700b;
+    public static final String[] f30728b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public final class e {
                 return;
             }
         }
-        f30700b = new String[]{"AD1", "AD2", "AD3", "AD8", "AD9", "AD10", "AD11", "AD12", "AD14", "AD15", "AD16", "AD18", "AD20", "AD21", "AD23", "AD24", "AD26", "AD27", "AD28", "AD29", "AD30", "AD31", "AD34", "AA1", "AA2", "AA3", "AA4", "AC4", "AC10", "AE1", "AE2", "AE3", "AE4", "AE5", "AE6", "AE7", "AE8", "AE9", "AE10", "AE11", "AE12", "AE13", "AE14", "AE15"};
+        f30728b = new String[]{"AD1", "AD2", "AD3", "AD8", "AD9", "AD10", "AD11", "AD12", "AD14", "AD15", "AD16", "AD18", "AD20", "AD21", "AD23", "AD24", "AD26", "AD27", "AD28", "AD29", "AD30", "AD31", "AD34", "AA1", "AA2", "AA3", "AA4", "AC4", "AC10", "AE1", "AE2", "AE3", "AE4", "AE5", "AE6", "AE7", "AE8", "AE9", "AE10", "AE11", "AE12", "AE13", "AE14", "AE15"};
     }
 
     public static String a(Map<String, String> map) {
@@ -100,7 +100,7 @@ public final class e {
             synchronized (e.class) {
                 a(context, map);
                 TreeMap treeMap = new TreeMap();
-                for (String str : f30700b) {
+                for (String str : f30728b) {
                     if (a.containsKey(str)) {
                         treeMap.put(str, a.get(str));
                     }

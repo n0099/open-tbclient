@@ -19,10 +19,10 @@ public class y {
     public ArrayList<b0> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13539b;
+    public String f13726b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f13540c;
+    public d f13727c;
 
     public y() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class y {
     public d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13540c : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13727c : (d) invokeV.objValue;
     }
 
     public ArrayList<b0> b() {
@@ -55,7 +55,7 @@ public class y {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13539b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13726b : (String) invokeV.objValue;
     }
 
     public void d(ActivityHead activityHead, long j2) {
@@ -73,20 +73,20 @@ public class y {
         if (size2 != null) {
             size2.height.intValue();
         }
-        this.f13539b = activityHead.obj_id;
+        this.f13726b = activityHead.obj_id;
         f(activityHead.head_imgs);
         d dVar = new d();
         dVar.a = activityHead.pull_down_pic_android;
-        dVar.f13333b = activityHead.pull_down_url;
-        dVar.f13334c = activityHead.pull_down_interval.intValue();
-        dVar.f13335d = activityHead.pull_down_exposure_url;
-        dVar.f13336e = activityHead.pull_down_click_url;
-        dVar.f13337f = activityHead.pull_down_schema;
-        dVar.f13338g = activityHead.pull_down_package_name;
-        dVar.f13339h = activityHead.is_ad.booleanValue();
-        dVar.f13340i = activityHead.obj_id;
-        dVar.f13341j = j2;
-        this.f13540c = dVar;
+        dVar.f13519b = activityHead.pull_down_url;
+        dVar.f13520c = activityHead.pull_down_interval.intValue();
+        dVar.f13521d = activityHead.pull_down_exposure_url;
+        dVar.f13522e = activityHead.pull_down_click_url;
+        dVar.f13523f = activityHead.pull_down_schema;
+        dVar.f13524g = activityHead.pull_down_package_name;
+        dVar.f13525h = activityHead.is_ad.booleanValue();
+        dVar.f13526i = activityHead.obj_id;
+        dVar.f13527j = j2;
+        this.f13727c = dVar;
     }
 
     public void e(HeadImgs headImgs) {

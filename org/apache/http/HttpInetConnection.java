@@ -2,7 +2,7 @@ package org.apache.http;
 
 import java.net.InetAddress;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface HttpInetConnection extends HttpConnection {
     InetAddress getLocalAddress();
 

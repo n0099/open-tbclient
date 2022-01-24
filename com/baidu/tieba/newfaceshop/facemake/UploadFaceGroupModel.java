@@ -1,7 +1,7 @@
 package com.baidu.tieba.newfaceshop.facemake;
 
 import android.text.TextUtils;
-import c.a.t0.n2.g.e;
+import c.a.t0.o2.g.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -32,7 +32,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f46201e;
+    public final HttpMessageListener f46229e;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -136,12 +136,12 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f46201e = new a(this, CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
+        this.f46229e = new a(this, CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f46201e.setTag(getUniqueId());
-        this.f46201e.setSelfListener(true);
-        registerListener(this.f46201e);
+        this.f46229e.setTag(getUniqueId());
+        this.f46229e.setSelfListener(true);
+        registerListener(this.f46229e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -149,7 +149,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f46201e);
+            MessageManager.getInstance().unRegisterListener(this.f46229e);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
             return true;
         }

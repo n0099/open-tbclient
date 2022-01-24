@@ -1,76 +1,46 @@
 package c.a.t0.x2;
 
-import android.view.View;
-import c.a.s0.s.q.e2;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.HistorySwan.DataRes;
+import tbclient.SmartApp;
 /* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<SmartApp> a;
 
-    public static void a(View view, c.a.s0.s.q.a aVar, int i2) {
+    public a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65536, null, view, aVar, i2) == null) || view == null || aVar == null || aVar.getThreadData() == null || StringUtils.isNull(aVar.getThreadData().v1())) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
-        statisticItem.param("obj_source", 3);
-        e2 threadData = aVar.getThreadData();
-        if (threadData.P1()) {
-            statisticItem.param("obj_type", 1);
-        } else if (threadData.S1()) {
-            statisticItem.param("obj_type", 2);
-        } else if (threadData.Q1()) {
-            statisticItem.param("obj_type", 3);
-        } else if (threadData.R1()) {
-            statisticItem.param("obj_type", 4);
-        } else if (threadData.d0 == 0) {
-            statisticItem.param("obj_type", 5);
-        } else if (threadData.H2()) {
-            statisticItem.param("obj_type", 6);
-        }
-        if (aVar.getThreadData().J() != null) {
-            statisticItem.param("uid", aVar.getThreadData().J().getUserId());
-        }
-        if (threadData.L() != null) {
-            statisticItem.param("obj_id", threadData.L().oriUgcNid);
-        } else {
-            statisticItem.param("obj_id", threadData.v1());
-        }
-        statisticItem.param("obj_locate", i2);
-        TiebaStatic.log(statisticItem);
     }
 
-    public static void b(c.a.s0.s.q.a aVar) {
+    public List<SmartApp> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_SHOW);
-            e2 threadData = aVar.getThreadData();
-            if (threadData.P1()) {
-                statisticItem.param("obj_type", 1);
-            } else if (threadData.S1()) {
-                statisticItem.param("obj_type", 2);
-            } else if (threadData.Q1()) {
-                statisticItem.param("obj_type", 3);
-            } else if (threadData.R1()) {
-                statisticItem.param("obj_type", 4);
-            } else if (threadData.d0 == 0) {
-                statisticItem.param("obj_type", 5);
-            } else if (threadData.H2()) {
-                statisticItem.param("obj_type", 6);
-            }
-            if (threadData.L() != null) {
-                statisticItem.param("obj_id", threadData.L().oriUgcNid);
-            } else {
-                statisticItem.param("obj_id", threadData.v1());
-            }
-            statisticItem.param("uid", threadData.J().getUserId());
-            TiebaStatic.log(statisticItem);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public void b(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
+            return;
         }
+        this.a = new ArrayList(dataRes.swan_list);
     }
 }

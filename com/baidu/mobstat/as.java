@@ -17,18 +17,18 @@ public class as {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final as f36430e;
+    public static final as f36458e;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f36431b;
+    public float f36459b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f36432c;
+    public long f36460c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f36433d;
+    public volatile boolean f36461d;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class as {
                 return;
             }
         }
-        f36430e = new as();
+        f36458e = new as();
     }
 
     public as() {
@@ -60,14 +60,14 @@ public class as {
             }
         }
         this.a = false;
-        this.f36431b = 50.0f;
-        this.f36432c = 500L;
+        this.f36459b = 50.0f;
+        this.f36460c = 500L;
     }
 
     public static as a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36430e : (as) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36458e : (as) invokeV.objValue;
     }
 
     public boolean b() {
@@ -80,7 +80,7 @@ public class as {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            float f2 = this.f36431b;
+            float f2 = this.f36459b;
             if (f2 < 0.0f) {
                 f2 = 0.0f;
             } else if (f2 > 100.0f) {
@@ -94,7 +94,7 @@ public class as {
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36432c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36460c : invokeV.longValue;
     }
 
     public void a(String str) {
@@ -111,16 +111,16 @@ public class as {
                 this.a = optInt != 0;
                 if (!TextUtils.isEmpty(optString)) {
                     try {
-                        this.f36431b = Float.valueOf(optString).floatValue();
+                        this.f36459b = Float.valueOf(optString).floatValue();
                     } catch (Exception unused) {
                     }
                 }
                 if (!TextUtils.isEmpty(optString2)) {
-                    this.f36432c = Long.valueOf(optString2).longValue();
+                    this.f36460c = Long.valueOf(optString2).longValue();
                 }
             }
         } catch (Exception unused2) {
         }
-        this.f36433d = true;
+        this.f36461d = true;
     }
 }

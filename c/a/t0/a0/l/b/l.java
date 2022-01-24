@@ -32,10 +32,10 @@ public class l extends c.a.d.n.e.a<o, CardViewHolder<c.a.t0.a0.l.h.a>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f14909e;
+        public final /* synthetic */ o f15049e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ l f14910f;
+        public final /* synthetic */ l f15050f;
 
         public a(l lVar, o oVar) {
             Interceptable interceptable = $ic;
@@ -52,22 +52,22 @@ public class l extends c.a.d.n.e.a<o, CardViewHolder<c.a.t0.a0.l.h.a>> {
                     return;
                 }
             }
-            this.f14910f = lVar;
-            this.f14909e = oVar;
+            this.f15050f = lVar;
+            this.f15049e = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f14910f.b0(this.f14909e);
+                this.f15050f.b0(this.f15049e);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(TbPageContext tbPageContext, c.a.t0.a0.l.e.a aVar) {
-        super(tbPageContext.getPageActivity(), o.f14941f);
+        super(tbPageContext.getPageActivity(), o.f15081f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,19 +95,19 @@ public class l extends c.a.d.n.e.a<o, CardViewHolder<c.a.t0.a0.l.h.a>> {
             return;
         }
         aVar.v(0);
-        aVar.w(this.f3258e.getResources().getString(R.string.ala_person_live_real_authen));
+        aVar.w(this.f3360e.getResources().getString(R.string.ala_person_live_real_authen));
         int i2 = g2.b().certify_status;
         if (i2 == 0) {
-            aVar.t(this.f3258e.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
+            aVar.t(this.f3360e.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
             aVar.u(0);
         } else if (1 == i2) {
-            aVar.t(this.f3258e.getResources().getString(R.string.ala_person_live_real_authen_in_review));
+            aVar.t(this.f3360e.getResources().getString(R.string.ala_person_live_real_authen_in_review));
             aVar.u(4);
         } else if (2 == i2) {
-            aVar.t(this.f3258e.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
+            aVar.t(this.f3360e.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
             aVar.u(4);
         } else if (3 == i2) {
-            aVar.t(this.f3258e.getResources().getString(R.string.ala_person_live_real_authen_denied));
+            aVar.t(this.f3360e.getResources().getString(R.string.ala_person_live_real_authen_denied));
             aVar.u(0);
         }
         aVar.l(this.m, TbadkCoreApplication.getInst().getSkinType());
@@ -120,7 +120,7 @@ public class l extends c.a.d.n.e.a<o, CardViewHolder<c.a.t0.a0.l.h.a>> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, oVar) == null) || oVar == null || oVar.g() == null || oVar.g().b() == null || 1 == (i2 = (b2 = oVar.g().b()).certify_status) || 2 == i2) {
             return;
         }
-        Context context = this.f3258e;
+        Context context = this.f3360e;
         String str = b2.user_id;
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterRealAuthenConfig(context, str, b2.certify_status + "")));
         c.a.t0.a0.l.e.a aVar = this.n;

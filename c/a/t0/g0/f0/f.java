@@ -47,7 +47,7 @@ public class f extends k {
                 return;
             }
         }
-        this.f17778e = e2Var;
+        this.f17600e = e2Var;
     }
 
     public static boolean b0(e2 e2Var) {
@@ -57,7 +57,7 @@ public class f extends k {
             if (e2Var == null) {
                 return false;
             }
-            return e2Var.Q1();
+            return e2Var.R1();
         }
         return invokeL.booleanValue;
     }
@@ -66,7 +66,7 @@ public class f extends k {
     public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17778e : (e2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17600e : (e2) invokeV.objValue;
     }
 
     @Override // c.a.t0.g0.f0.k, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n

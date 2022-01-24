@@ -24,7 +24,7 @@ public final class d extends c.a.r0.a.h0.m.q.a implements g, c.a.r0.a.z2.g1.c<i.
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f6711f;
+    public static final boolean f6853f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -99,10 +99,10 @@ public final class d extends c.a.r0.a.h0.m.q.a implements g, c.a.r0.a.z2.g1.c<i.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6712e;
+        public final /* synthetic */ String f6854e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f6713f;
+        public final /* synthetic */ d f6855f;
 
         public c(d dVar, String str) {
             Interceptable interceptable = $ic;
@@ -119,15 +119,15 @@ public final class d extends c.a.r0.a.h0.m.q.a implements g, c.a.r0.a.z2.g1.c<i.
                     return;
                 }
             }
-            this.f6713f = dVar;
-            this.f6712e = str;
+            this.f6855f = dVar;
+            this.f6854e = str;
         }
 
         @Override // c.a.r0.q.j.g.a
         public void a(String str, String str2, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-                this.f6713f.O(this.f6712e, "pms_http_with_ipc_action_stat_record", new c.a().z("pms_http_with_ipc_key_url", str).z("pms_http_with_ipc_key_response", str2).z("pms_http_with_ipc_key_stat_record", jSONObject.toString()));
+                this.f6855f.O(this.f6854e, "pms_http_with_ipc_action_stat_record", new c.a().z("pms_http_with_ipc_key_url", str).z("pms_http_with_ipc_key_response", str2).z("pms_http_with_ipc_key_stat_record", jSONObject.toString()));
             }
         }
 
@@ -135,7 +135,7 @@ public final class d extends c.a.r0.a.h0.m.q.a implements g, c.a.r0.a.z2.g1.c<i.
         public void b(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
-                this.f6713f.O(this.f6712e, "pms_http_with_ipc_action_success", new c.a().z("pms_http_with_ipc_key_response", str).w("pms_http_with_ipc_key_status_code", i2));
+                this.f6855f.O(this.f6854e, "pms_http_with_ipc_action_success", new c.a().z("pms_http_with_ipc_key_response", str).w("pms_http_with_ipc_key_status_code", i2));
             }
         }
 
@@ -143,10 +143,10 @@ public final class d extends c.a.r0.a.h0.m.q.a implements g, c.a.r0.a.z2.g1.c<i.
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                d dVar = this.f6713f;
-                String str = this.f6712e;
+                d dVar = this.f6855f;
+                String str = this.f6854e;
                 dVar.P(str, "http: " + exc);
-                if (d.f6711f) {
+                if (d.f6853f) {
                     exc.printStackTrace();
                 }
             }
@@ -156,30 +156,30 @@ public final class d extends c.a.r0.a.h0.m.q.a implements g, c.a.r0.a.z2.g1.c<i.
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f6713f.O(this.f6712e, "pms_http_with_ipc_action_on_start", null);
+                this.f6855f.O(this.f6854e, "pms_http_with_ipc_action_on_start", null);
             }
         }
     }
 
     /* renamed from: c.a.r0.a.h0.m.q.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0388d implements Runnable {
+    public class RunnableC0397d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6714e;
+        public final /* synthetic */ String f6856e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f6715f;
+        public final /* synthetic */ String f6857f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a f6716g;
+        public final /* synthetic */ c.a f6858g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f6717h;
+        public final /* synthetic */ d f6859h;
 
-        public RunnableC0388d(d dVar, String str, String str2, c.a aVar) {
+        public RunnableC0397d(d dVar, String str, String str2, c.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -194,30 +194,30 @@ public final class d extends c.a.r0.a.h0.m.q.a implements g, c.a.r0.a.z2.g1.c<i.
                     return;
                 }
             }
-            this.f6717h = dVar;
-            this.f6714e = str;
-            this.f6715f = str2;
-            this.f6716g = aVar;
+            this.f6859h = dVar;
+            this.f6856e = str;
+            this.f6857f = str2;
+            this.f6858g = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!c.a.r0.a.y1.b.d.J(this.f6714e, "pms_http_with_ipc")) {
-                    if (d.f6711f) {
-                        this.f6717h.S("callbackIpcSession", "return by topic pms_http_with_ipc");
+                if (!c.a.r0.a.y1.b.d.J(this.f6856e, "pms_http_with_ipc")) {
+                    if (d.f6853f) {
+                        this.f6859h.S("callbackIpcSession", "return by topic pms_http_with_ipc");
                         return;
                     }
                     return;
                 }
-                c.a.r0.a.y1.b.c z = c.a.r0.a.y1.b.d.Z(this.f6714e).z("pms_http_with_ipc_key_action", this.f6715f);
-                c.a aVar = this.f6716g;
+                c.a.r0.a.y1.b.c z = c.a.r0.a.y1.b.d.Z(this.f6856e).z("pms_http_with_ipc_key_action", this.f6857f);
+                c.a aVar = this.f6858g;
                 if (aVar != null) {
                     z.s(aVar.D());
                 }
-                if (d.f6711f) {
-                    d dVar = this.f6717h;
+                if (d.f6853f) {
+                    d dVar = this.f6859h;
                     dVar.S("callbackIpcSession", "ipcSession= " + z);
                 }
                 z.call();
@@ -243,7 +243,7 @@ public final class d extends c.a.r0.a.h0.m.q.a implements g, c.a.r0.a.z2.g1.c<i.
                 return;
             }
         }
-        f6711f = k.a;
+        f6853f = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -272,7 +272,7 @@ public final class d extends c.a.r0.a.h0.m.q.a implements g, c.a.r0.a.z2.g1.c<i.
     public final void N(String str, @NonNull i.a aVar, @NonNull e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, aVar, eVar) == null) {
-            if (f6711f) {
+            if (f6853f) {
                 S("buildRequestForIpc", "session=" + str + " msg=" + aVar + " adapter=" + eVar);
             }
             if (c.a.r0.a.y1.b.d.J(str, "pms_http_with_ipc")) {
@@ -286,7 +286,7 @@ public final class d extends c.a.r0.a.h0.m.q.a implements g, c.a.r0.a.z2.g1.c<i.
                         jSONObject = new JSONObject(n2);
                     }
                 } catch (JSONException e2) {
-                    if (f6711f) {
+                    if (f6853f) {
                         e2.printStackTrace();
                     }
                 }
@@ -294,7 +294,7 @@ public final class d extends c.a.r0.a.h0.m.q.a implements g, c.a.r0.a.z2.g1.c<i.
                     eVar.a(n, H, H2, jSONObject, new c(this, str));
                 } catch (Exception e3) {
                     P(str, "catch: " + e3);
-                    if (f6711f) {
+                    if (f6853f) {
                         e3.printStackTrace();
                     }
                 }
@@ -305,13 +305,13 @@ public final class d extends c.a.r0.a.h0.m.q.a implements g, c.a.r0.a.z2.g1.c<i.
     public final void O(String str, String str2, c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, aVar) == null) {
-            if (f6711f) {
+            if (f6853f) {
                 S("callbackIpcSession", "session=" + str + " action=" + str2 + " msg=" + aVar);
             }
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            q0.e0(new RunnableC0388d(this, str, str2, aVar));
+            q0.e0(new RunnableC0397d(this, str, str2, aVar));
         }
     }
 
@@ -325,21 +325,21 @@ public final class d extends c.a.r0.a.h0.m.q.a implements g, c.a.r0.a.z2.g1.c<i.
     public final void Q(i.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (f6711f) {
+            if (f6853f) {
                 S("handleIpcMsg", "msg=" + aVar);
             }
             if (aVar == null || !c.a.r0.a.y1.b.d.I(aVar.D(), "pms_http_with_ipc")) {
                 return;
             }
             String n = aVar.n("ipc_session_id");
-            if (f6711f) {
+            if (f6853f) {
                 S("handleIpcMsg", "session=" + n);
             }
             if (TextUtils.isEmpty(n)) {
                 return;
             }
             String n2 = aVar.n("pms_http_with_ipc_key_action");
-            if (f6711f) {
+            if (f6853f) {
                 S("handleIpcMsg", "action=" + n2);
             }
             if (TextUtils.isEmpty(n2)) {
@@ -368,7 +368,7 @@ public final class d extends c.a.r0.a.h0.m.q.a implements g, c.a.r0.a.z2.g1.c<i.
     public final void R(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            boolean z = f6711f;
+            boolean z = f6853f;
         }
     }
 

@@ -18,31 +18,31 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15464b;
+    public String f15612b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f15465c;
+    public String f15613c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f15466d;
+    public String f15614d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f15467e;
+    public String f15615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15468f;
+    public String f15616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15469g;
+    public int f15617g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15470h;
+    public int f15618h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15471i;
+    public int f15619i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f15472j;
+    public int f15620j;
 
     static {
         InterceptResult invokeClinit;
@@ -72,7 +72,7 @@ public class a {
                 return;
             }
         }
-        this.f15472j = 0;
+        this.f15620j = 0;
     }
 
     public long a() {
@@ -84,55 +84,55 @@ public class a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15468f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15616f : (String) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15472j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15620j : invokeV.intValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15465c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15613c : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15466d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15614d : (String) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15470h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15618h : invokeV.intValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15469g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15617g : invokeV.intValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f15471i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f15619i : invokeV.intValue;
     }
 
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f15467e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f15615e : (String) invokeV.objValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f15464b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f15612b : (String) invokeV.objValue;
     }
 
     public void k(ThemeCardPropMain themeCardPropMain) {
@@ -141,15 +141,15 @@ public class a {
             return;
         }
         this.a = themeCardPropMain.props_id.longValue();
-        this.f15464b = themeCardPropMain.title;
-        this.f15465c = themeCardPropMain.description;
-        this.f15466d = themeCardPropMain.example_url;
-        this.f15467e = themeCardPropMain.permission;
-        this.f15468f = themeCardPropMain.props_state_img;
-        this.f15469g = themeCardPropMain.in_use.intValue();
-        this.f15470h = themeCardPropMain.free_user_level.intValue();
+        this.f15612b = themeCardPropMain.title;
+        this.f15613c = themeCardPropMain.description;
+        this.f15614d = themeCardPropMain.example_url;
+        this.f15615e = themeCardPropMain.permission;
+        this.f15616f = themeCardPropMain.props_state_img;
+        this.f15617g = themeCardPropMain.in_use.intValue();
+        this.f15618h = themeCardPropMain.free_user_level.intValue();
         String str = themeCardPropMain.activity_url;
-        this.f15471i = themeCardPropMain.is_finished.intValue();
+        this.f15619i = themeCardPropMain.is_finished.intValue();
     }
 
     public void l(String str) {
@@ -168,63 +168,63 @@ public class a {
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f15468f = str;
+            this.f15616f = str;
         }
     }
 
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f15472j = i2;
+            this.f15620j = i2;
         }
     }
 
     public void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f15465c = str;
+            this.f15613c = str;
         }
     }
 
     public void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f15466d = str;
+            this.f15614d = str;
         }
     }
 
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f15470h = i2;
+            this.f15618h = i2;
         }
     }
 
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f15469g = i2;
+            this.f15617g = i2;
         }
     }
 
     public void t(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f15471i = i2;
+            this.f15619i = i2;
         }
     }
 
     public void u(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f15467e = str;
+            this.f15615e = str;
         }
     }
 
     public void v(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.f15464b = str;
+            this.f15612b = str;
         }
     }
 }

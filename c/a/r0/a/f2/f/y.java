@@ -35,22 +35,22 @@ public class y extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f6187e;
+        public final /* synthetic */ JSONObject f6329e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f6188f;
+        public final /* synthetic */ Context f6330f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f6189g;
+        public final /* synthetic */ String f6331g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6190h;
+        public final /* synthetic */ CallbackHandler f6332h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f6191i;
+        public final /* synthetic */ c.a.r0.a.d2.e f6333i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ y f6192j;
+        public final /* synthetic */ y f6334j;
 
         public a(y yVar, JSONObject jSONObject, Context context, String str, CallbackHandler callbackHandler, c.a.r0.a.d2.e eVar) {
             Interceptable interceptable = $ic;
@@ -67,12 +67,12 @@ public class y extends z {
                     return;
                 }
             }
-            this.f6192j = yVar;
-            this.f6187e = jSONObject;
-            this.f6188f = context;
-            this.f6189g = str;
-            this.f6190h = callbackHandler;
-            this.f6191i = eVar;
+            this.f6334j = yVar;
+            this.f6329e = jSONObject;
+            this.f6330f = context;
+            this.f6331g = str;
+            this.f6332h = callbackHandler;
+            this.f6333i = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,19 +81,19 @@ public class y extends z {
         public void onCallback(c.a.r0.a.h2.c.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                if (c.a.r0.a.b3.c.f(this.f6187e)) {
-                    this.f6192j.p(this.f6192j.s(c.a.r0.a.f2.f.o0.c.e(), this.f6187e.optString("path")), this.f6188f, this.f6189g, this.f6190h, this.f6187e, this.f6191i);
+                if (c.a.r0.a.b3.c.f(this.f6329e)) {
+                    this.f6334j.p(this.f6334j.s(c.a.r0.a.f2.f.o0.c.e(), this.f6329e.optString("path")), this.f6330f, this.f6331g, this.f6332h, this.f6329e, this.f6333i);
                     return;
                 }
-                String r = this.f6192j.r(fVar, this.f6187e);
+                String r = this.f6334j.r(fVar, this.f6329e);
                 if (!q0.G() && TextUtils.isEmpty(r)) {
-                    r = c.a.r0.d.g.c.e().g(this.f6191i.N(), this.f6191i.l(), this.f6187e.optString("path"));
+                    r = c.a.r0.d.g.c.e().g(this.f6333i.N(), this.f6333i.l(), this.f6329e.optString("path"));
                 }
                 String str = r;
-                if (z.f6201b) {
+                if (z.f6343b) {
                     String str2 = "final share url is " + str;
                 }
-                this.f6192j.p(str, this.f6188f, this.f6189g, this.f6190h, this.f6187e, this.f6191i);
+                this.f6334j.p(str, this.f6330f, this.f6331g, this.f6332h, this.f6329e, this.f6333i);
             }
         }
     }
@@ -104,22 +104,22 @@ public class y extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f6193e;
+        public final /* synthetic */ Context f6335e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6194f;
+        public final /* synthetic */ CallbackHandler f6336f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f6195g;
+        public final /* synthetic */ String f6337g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f6196h;
+        public final /* synthetic */ JSONObject f6338h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f6197i;
+        public final /* synthetic */ String f6339i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ y f6198j;
+        public final /* synthetic */ y f6340j;
 
         public b(y yVar, Context context, CallbackHandler callbackHandler, String str, JSONObject jSONObject, String str2) {
             Interceptable interceptable = $ic;
@@ -136,12 +136,12 @@ public class y extends z {
                     return;
                 }
             }
-            this.f6198j = yVar;
-            this.f6193e = context;
-            this.f6194f = callbackHandler;
-            this.f6195g = str;
-            this.f6196h = jSONObject;
-            this.f6197i = str2;
+            this.f6340j = yVar;
+            this.f6335e = context;
+            this.f6336f = callbackHandler;
+            this.f6337g = str;
+            this.f6338h = jSONObject;
+            this.f6339i = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -150,7 +150,7 @@ public class y extends z {
         public void onCallback(c.a.r0.a.h2.c.i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f6198j.n(this.f6193e, this.f6194f, this.f6195g, this.f6196h, c.a.r0.a.h2.c.d.h(iVar), this.f6197i);
+                this.f6340j.n(this.f6335e, this.f6336f, this.f6337g, this.f6338h, c.a.r0.a.h2.c.d.h(iVar), this.f6339i);
             }
         }
     }
@@ -162,10 +162,10 @@ public class y extends z {
         public final /* synthetic */ CallbackHandler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f6199b;
+        public final /* synthetic */ String f6341b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ y f6200c;
+        public final /* synthetic */ y f6342c;
 
         public c(y yVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -182,16 +182,16 @@ public class y extends z {
                     return;
                 }
             }
-            this.f6200c = yVar;
+            this.f6342c = yVar;
             this.a = callbackHandler;
-            this.f6199b = str;
+            this.f6341b = str;
         }
 
         @Override // c.a.r0.a.c1.d.j.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6200c.q(this.a, this.f6199b, false);
+                this.f6342c.q(this.a, this.f6341b, false);
             }
         }
 
@@ -199,7 +199,7 @@ public class y extends z {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f6200c.q(this.a, this.f6199b, true);
+                this.f6342c.q(this.a, this.f6341b, true);
             }
         }
     }
@@ -232,7 +232,7 @@ public class y extends z {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (context != null && eVar != null) {
                 if (eVar.m0()) {
-                    boolean z = z.f6201b;
+                    boolean z = z.f6343b;
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                     return false;
                 }
@@ -251,7 +251,7 @@ public class y extends z {
                 try {
                     a2.put("iconUrl", a2.optString("imageUrl", ""));
                 } catch (JSONException e2) {
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         e2.toString();
                     }
                 }
@@ -274,7 +274,7 @@ public class y extends z {
             if (a0 == null) {
                 return null;
             }
-            return c.a.r0.a.o2.b.M(str, a0.f5537f);
+            return c.a.r0.a.o2.b.M(str, a0.f5679f);
         }
         return (String) invokeL.objValue;
     }
@@ -296,7 +296,7 @@ public class y extends z {
                     jSONObject.put("pannel", optJSONArray);
                 }
             } catch (JSONException e2) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     e2.toString();
                 }
             }
@@ -324,7 +324,7 @@ public class y extends z {
                 try {
                     jSONObject.putOpt("imageUrl", t0.a(c.a.r0.a.g1.f.U().getActivity(), new File(m2)).toString());
                 } catch (JSONException e2) {
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         e2.printStackTrace();
                     }
                 }
@@ -344,7 +344,7 @@ public class y extends z {
                     optJSONObject2.putOpt("info", optJSONObject);
                     jSONObject.putOpt("command", optJSONObject2);
                 } catch (JSONException e3) {
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         e3.printStackTrace();
                     }
                 }
@@ -358,7 +358,7 @@ public class y extends z {
                 optJSONObject2.putOpt("info", optJSONObject);
                 jSONObject.putOpt("command", optJSONObject2);
             } catch (JSONException e4) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     e4.printStackTrace();
                 }
             }
@@ -380,7 +380,7 @@ public class y extends z {
                             jSONObject.put("pannel", optJSONArray2);
                         }
                     } catch (JSONException e2) {
-                        if (z.f6201b) {
+                        if (z.f6343b) {
                             e2.toString();
                         }
                     }
@@ -415,7 +415,7 @@ public class y extends z {
         try {
             jSONObject.put("result", z);
         } catch (JSONException e2) {
-            if (z.f6201b) {
+            if (z.f6343b) {
                 e2.toString();
             }
         }
@@ -427,7 +427,7 @@ public class y extends z {
     public String r(c.a.r0.a.h2.c.f fVar, JSONObject jSONObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, fVar, jSONObject)) == null) ? (fVar == null || fVar.f7125d || fVar.f7131j != 1 || TextUtils.isEmpty(fVar.o.optString("web_url"))) ? "" : s(fVar.o.optString("web_url"), jSONObject.optString("path")) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, fVar, jSONObject)) == null) ? (fVar == null || fVar.f7267d || fVar.f7273j != 1 || TextUtils.isEmpty(fVar.o.optString("web_url"))) ? "" : s(fVar.o.optString("web_url"), jSONObject.optString("path")) : (String) invokeLL.objValue;
     }
 
     public String s(String str, String str2) {

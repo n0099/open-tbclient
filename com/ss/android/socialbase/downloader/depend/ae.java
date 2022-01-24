@@ -6,7 +6,7 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ae extends IInterface {
     boolean a(DownloadInfo downloadInfo) throws RemoteException;
 
@@ -14,19 +14,19 @@ public interface ae extends IInterface {
 
     boolean c(DownloadInfo downloadInfo) throws RemoteException;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a extends Binder implements ae {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ae$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public static class C2201a implements ae {
+        /* loaded from: classes4.dex */
+        public static class C2207a implements ae {
             public static ae a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f59927b;
+            public IBinder f59972b;
 
-            public C2201a(IBinder iBinder) {
-                this.f59927b = iBinder;
+            public C2207a(IBinder iBinder) {
+                this.f59972b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ae
@@ -41,7 +41,7 @@ public interface ae extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f59927b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f59972b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(downloadInfo);
                     }
                     obtain2.readException();
@@ -54,7 +54,7 @@ public interface ae extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f59927b;
+                return this.f59972b;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ae
@@ -69,7 +69,7 @@ public interface ae extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f59927b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f59972b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().b(downloadInfo);
                     }
                     obtain2.readException();
@@ -92,7 +92,7 @@ public interface ae extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f59927b.transact(3, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f59972b.transact(3, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().c(downloadInfo);
                     }
                     obtain2.readException();
@@ -116,7 +116,7 @@ public interface ae extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ae)) {
                 return (ae) queryLocalInterface;
             }
-            return new C2201a(iBinder);
+            return new C2207a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -154,7 +154,7 @@ public interface ae extends IInterface {
         }
 
         public static ae a() {
-            return C2201a.a;
+            return C2207a.a;
         }
     }
 }

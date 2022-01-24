@@ -21,17 +21,17 @@ public class ImageTextView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f37180h;
+    public static final int f37208h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37181e;
+    public int f37209e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f37182f;
+    public ImageView f37210f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f37183g;
+    public TextView f37211g;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class ImageTextView extends LinearLayout {
                 return;
             }
         }
-        f37180h = b.a(4.0f);
+        f37208h = b.a(4.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,23 +76,23 @@ public class ImageTextView extends LinearLayout {
             setOrientation(1);
             setGravity(17);
             ImageView imageView = new ImageView(getContext());
-            this.f37182f = imageView;
+            this.f37210f = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            addView(this.f37182f, new LinearLayout.LayoutParams(-2, -2));
+            addView(this.f37210f, new LinearLayout.LayoutParams(-2, -2));
             TextView textView = new TextView(getContext());
-            this.f37183g = textView;
+            this.f37211g = textView;
             textView.setTextColor(-1);
-            this.f37183g.setTextSize(12.0f);
+            this.f37211g.setTextSize(12.0f);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, f37180h, 0, 0);
-            addView(this.f37183g, layoutParams);
+            layoutParams.setMargins(0, f37208h, 0, 0);
+            addView(this.f37211g, layoutParams);
         }
     }
 
     public void clearTitle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f37183g.setText((CharSequence) null);
+            this.f37211g.setText((CharSequence) null);
         }
     }
 
@@ -100,8 +100,8 @@ public class ImageTextView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, drawable)) == null) {
-            this.f37182f.setImageDrawable(drawable);
-            this.f37182f.setVisibility(0);
+            this.f37210f.setImageDrawable(drawable);
+            this.f37210f.setVisibility(0);
             return this;
         }
         return (ImageTextView) invokeL.objValue;
@@ -111,22 +111,22 @@ public class ImageTextView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             if (i2 != 0) {
-                if (this.f37181e != i2) {
-                    this.f37182f.setImageResource(i2);
-                    this.f37182f.setVisibility(0);
-                    this.f37181e = i2;
+                if (this.f37209e != i2) {
+                    this.f37210f.setImageResource(i2);
+                    this.f37210f.setVisibility(0);
+                    this.f37209e = i2;
                 }
             } else {
-                this.f37182f.setImageDrawable(null);
-                this.f37182f.setVisibility(8);
+                this.f37210f.setImageDrawable(null);
+                this.f37210f.setVisibility(8);
             }
             if (i3 != 0) {
-                this.f37183g.setText(i3);
-                this.f37183g.setVisibility(0);
+                this.f37211g.setText(i3);
+                this.f37211g.setVisibility(0);
                 return;
             }
-            this.f37183g.setText((CharSequence) null);
-            this.f37183g.setVisibility(8);
+            this.f37211g.setText((CharSequence) null);
+            this.f37211g.setVisibility(8);
         }
     }
 
@@ -134,8 +134,8 @@ public class ImageTextView extends LinearLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.f37182f.setBackgroundResource(i2);
-            this.f37182f.setVisibility(0);
+            this.f37210f.setBackgroundResource(i2);
+            this.f37210f.setVisibility(0);
             return this;
         }
         return (ImageTextView) invokeI.objValue;
@@ -145,7 +145,7 @@ public class ImageTextView extends LinearLayout {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048582, this, i2, i3)) == null) {
-            this.f37182f.setLayoutParams(new LinearLayout.LayoutParams(i2, i3));
+            this.f37210f.setLayoutParams(new LinearLayout.LayoutParams(i2, i3));
             return this;
         }
         return (ImageTextView) invokeII.objValue;
@@ -155,7 +155,7 @@ public class ImageTextView extends LinearLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            this.f37183g.setTextColor(getResources().getColorStateList(i2));
+            this.f37211g.setTextColor(getResources().getColorStateList(i2));
             return this;
         }
         return (ImageTextView) invokeI.objValue;
@@ -172,11 +172,11 @@ public class ImageTextView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
             if (str != null) {
-                this.f37183g.setText(str);
-                this.f37183g.setVisibility(0);
+                this.f37211g.setText(str);
+                this.f37211g.setVisibility(0);
             } else {
-                this.f37183g.setText((CharSequence) null);
-                this.f37183g.setVisibility(8);
+                this.f37211g.setText((CharSequence) null);
+                this.f37211g.setVisibility(8);
             }
             return this;
         }
@@ -209,8 +209,8 @@ public class ImageTextView extends LinearLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.f37182f.setImageResource(i2);
-            this.f37182f.setVisibility(0);
+            this.f37210f.setImageResource(i2);
+            this.f37210f.setVisibility(0);
             return this;
         }
         return (ImageTextView) invokeI.objValue;

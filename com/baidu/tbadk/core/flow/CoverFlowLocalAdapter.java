@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import c.a.s0.s.w.b.a;
-import c.a.t0.d1.h;
+import c.a.t0.e1.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -27,19 +27,19 @@ public class CoverFlowLocalAdapter<T extends a> extends PagerAdapter {
     public ArrayList<ImageView> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<T> f40226b;
+    public ArrayList<T> f40254b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f40227c;
+    public Context f40255c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f40228d;
+    public View.OnClickListener f40256d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f40229e;
+    public boolean f40257e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<RelativeLayout> f40230f;
+    public ArrayList<RelativeLayout> f40258f;
 
     public CoverFlowLocalAdapter(Context context) {
         Interceptable interceptable = $ic;
@@ -57,16 +57,16 @@ public class CoverFlowLocalAdapter<T extends a> extends PagerAdapter {
             }
         }
         this.a = new ArrayList<>();
-        this.f40226b = new ArrayList<>();
+        this.f40254b = new ArrayList<>();
         new ArrayList();
-        this.f40230f = new ArrayList<>();
-        this.f40227c = context;
+        this.f40258f = new ArrayList<>();
+        this.f40255c = context;
     }
 
     public final void a(ArrayList<T> arrayList) {
         int size;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) || arrayList == null || (size = arrayList.size()) <= 1 || !this.f40229e) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) || arrayList == null || (size = arrayList.size()) <= 1 || !this.f40257e) {
             return;
         }
         arrayList.add(0, arrayList.get(size - 1));
@@ -105,11 +105,11 @@ public class CoverFlowLocalAdapter<T extends a> extends PagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            ArrayList<T> arrayList = this.f40226b;
-            if (arrayList == null || arrayList.isEmpty() || i2 < 0 || i2 >= this.f40226b.size()) {
+            ArrayList<T> arrayList = this.f40254b;
+            if (arrayList == null || arrayList.isEmpty() || i2 < 0 || i2 >= this.f40254b.size()) {
                 return null;
             }
-            return this.f40226b.get(i2);
+            return this.f40254b.get(i2);
         }
         return (T) invokeI.objValue;
     }
@@ -168,7 +168,7 @@ public class CoverFlowLocalAdapter<T extends a> extends PagerAdapter {
     public void setCanRepeat(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f40229e = z;
+            this.f40257e = z;
         }
     }
 
@@ -178,35 +178,35 @@ public class CoverFlowLocalAdapter<T extends a> extends PagerAdapter {
         if (!(interceptable == null || interceptable.invokeLL(1048586, this, list, aVar) == null) || list == null || list.isEmpty()) {
             return;
         }
-        this.f40226b.clear();
-        this.f40226b.addAll(list);
-        a(this.f40226b);
+        this.f40254b.clear();
+        this.f40254b.addAll(list);
+        a(this.f40254b);
         int size = this.a.size();
-        int size2 = this.f40226b.size();
+        int size2 = this.f40254b.size();
         for (int i2 = 0; i2 < size2; i2++) {
             if (i2 >= size) {
-                imageView = new ImageView(this.f40227c);
+                imageView = new ImageView(this.f40255c);
                 this.a.add(imageView);
-                this.f40230f.add(new RelativeLayout(this.f40227c));
+                this.f40258f.add(new RelativeLayout(this.f40255c));
             } else {
                 imageView = this.a.get(i2);
-                this.f40230f.get(i2);
+                this.f40258f.get(i2);
             }
-            if (this.f40226b.get(i2) != null && imageView != null) {
-                if (this.f40226b.get(i2) instanceof h) {
-                    imageView.setImageDrawable(SkinManager.getDrawable(imageView.getResources(), Integer.valueOf(this.f40226b.get(i2).a()).intValue()));
+            if (this.f40254b.get(i2) != null && imageView != null) {
+                if (this.f40254b.get(i2) instanceof h) {
+                    imageView.setImageDrawable(SkinManager.getDrawable(imageView.getResources(), Integer.valueOf(this.f40254b.get(i2).a()).intValue()));
                 }
-                imageView.setOnClickListener(this.f40228d);
+                imageView.setOnClickListener(this.f40256d);
             }
         }
-        int count = ListUtils.getCount(this.f40226b);
+        int count = ListUtils.getCount(this.f40254b);
         int count2 = ListUtils.getCount(this.a);
         if (count2 > count) {
             ListUtils.removeSubList(this.a, count, count2);
         }
-        int count3 = ListUtils.getCount(this.f40230f);
+        int count3 = ListUtils.getCount(this.f40258f);
         if (count3 > count) {
-            ListUtils.removeSubList(this.f40230f, count, count3);
+            ListUtils.removeSubList(this.f40258f, count, count3);
         }
         notifyDataSetChanged();
     }
@@ -214,7 +214,7 @@ public class CoverFlowLocalAdapter<T extends a> extends PagerAdapter {
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
-            this.f40228d = onClickListener;
+            this.f40256d = onClickListener;
         }
     }
 }

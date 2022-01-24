@@ -12,31 +12,31 @@ public class b {
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f26219b;
+    public long f26247b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26220c;
+    public int f26248c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26221d;
+    public String f26249d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f26222e;
+    public boolean f26250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f26223f;
+    public byte[] f26251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f26224g;
+    public long f26252g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f26225h;
+    public long f26253h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f26226i;
+    public long f26254i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f26227j;
+    public int f26255j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -57,15 +57,15 @@ public class b {
             }
         }
         this.a = new byte[0];
-        this.f26219b = 15000L;
-        this.f26220c = -1;
-        this.f26221d = "";
-        this.f26222e = false;
-        this.f26223f = new byte[0];
-        this.f26224g = 60000L;
-        this.f26225h = -1L;
-        this.f26226i = -1L;
-        this.f26227j = -1;
+        this.f26247b = 15000L;
+        this.f26248c = -1;
+        this.f26249d = "";
+        this.f26250e = false;
+        this.f26251f = new byte[0];
+        this.f26252g = 60000L;
+        this.f26253h = -1L;
+        this.f26254i = -1L;
+        this.f26255j = -1;
         this.k = false;
         this.l = false;
         this.m = false;
@@ -78,9 +78,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.m) {
-                return "Request correlationId :" + this.n + ", serviceId :" + this.f26225h + ", methodId :" + this.f26226i + ", connectState :" + this.f26227j + ", isNotify :" + this.f26222e + ", bodySize :" + this.a.length;
+                return "Request correlationId :" + this.n + ", serviceId :" + this.f26253h + ", methodId :" + this.f26254i + ", connectState :" + this.f26255j + ", isNotify :" + this.f26250e + ", bodySize :" + this.a.length;
             }
-            return "Response correlationId " + this.n + ", serviceId :" + this.f26225h + ", methodId :" + this.f26226i + ", errorCode :" + this.f26220c + ", errorMsg :" + this.f26221d + ", intervalMs :" + this.f26224g + ", isNotify :" + this.f26222e + ", bodySize :" + this.f26223f.length;
+            return "Response correlationId " + this.n + ", serviceId :" + this.f26253h + ", methodId :" + this.f26254i + ", errorCode :" + this.f26248c + ", errorMsg :" + this.f26249d + ", intervalMs :" + this.f26252g + ", isNotify :" + this.f26250e + ", bodySize :" + this.f26251f.length;
         }
         return (String) invokeV.objValue;
     }

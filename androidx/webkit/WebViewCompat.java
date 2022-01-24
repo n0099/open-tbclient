@@ -60,7 +60,7 @@ public class WebViewCompat {
                 return;
             }
         }
-        WILDCARD_URI = Uri.parse(ProxyConfig.MATCH_ALL_SCHEMES);
+        WILDCARD_URI = Uri.parse("*");
         EMPTY_URI = Uri.parse("");
     }
 

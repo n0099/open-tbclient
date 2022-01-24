@@ -13,7 +13,7 @@ public class i extends h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final WeakReference<View> f26149f;
+    public final WeakReference<View> f26176f;
 
     public i(View view, int i2) {
         Interceptable interceptable = $ic;
@@ -30,15 +30,15 @@ public class i extends h {
                 return;
             }
         }
-        this.f26149f = new WeakReference<>(view);
-        this.f26148e = i2;
+        this.f26176f = new WeakReference<>(view);
+        this.f26175e = i2;
     }
 
     @Override // c.a.t0.z3.h
     public void b() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f26149f.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f26176f.get()) == null) {
             return;
         }
         view.setVisibility(0);
@@ -48,7 +48,7 @@ public class i extends h {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d.a = Math.max(d.a, this.f26148e + 1);
+            d.a = Math.max(d.a, this.f26175e + 1);
         }
     }
 
@@ -56,7 +56,7 @@ public class i extends h {
     public void d() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (view = this.f26149f.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (view = this.f26176f.get()) == null) {
             return;
         }
         view.setVisibility(8);

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-import c.a.s0.s.j0.t.b;
+import c.a.s0.s.k0.t.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a r;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface a {
         void a(View view);
     }
@@ -45,7 +45,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.s0.s.j0.t.b
+    @Override // c.a.s0.s.k0.t.b
     public void bindOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
@@ -60,7 +60,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.s0.s.j0.t.b
+    @Override // c.a.s0.s.k0.t.b
     public void onClickEvent(View view) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.s0.s.j0.t.b
+    @Override // c.a.s0.s.k0.t.b
     public void updateFansNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
@@ -88,13 +88,13 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             if (z) {
-                c.a.s0.s.j0.n.b bVar = new c.a.s0.s.j0.n.b();
+                c.a.s0.s.k0.n.b bVar = new c.a.s0.s.k0.n.b();
                 bVar.p(R.color.CAM_X0613, R.color.CAM_X0103);
                 setConfig(bVar);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                c.a.s0.s.j0.n.b bVar2 = new c.a.s0.s.j0.n.b();
+                c.a.s0.s.k0.n.b bVar2 = new c.a.s0.s.k0.n.b();
                 bVar2.p(R.color.CAM_X0302, R.color.CAM_X0101);
                 setConfig(bVar2);
                 setClickable(true);
@@ -144,13 +144,13 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
                 return;
             }
         }
-        c.a.s0.s.j0.n.b bVar = new c.a.s0.s.j0.n.b();
+        c.a.s0.s.k0.n.b bVar = new c.a.s0.s.k0.n.b();
         bVar.p(R.color.CAM_X0302, R.color.CAM_X0101);
         setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));
     }
 
-    @Override // c.a.s0.s.j0.t.b
+    @Override // c.a.s0.s.k0.t.b
     public void updateLikeStatus(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
@@ -162,7 +162,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // c.a.s0.s.j0.t.b
+    @Override // c.a.s0.s.k0.t.b
     public void updateLikeStatus(boolean z, int i2, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {

@@ -12,7 +12,7 @@ public class c {
     public e2 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14373b;
+    public int f14513b;
 
     public c() {
         Interceptable interceptable = $ic;

@@ -17,10 +17,10 @@ public class d {
     public static Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f26281b;
+    public static d f26309b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static File f26282c;
+    public static File f26310c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public d() {
@@ -85,15 +85,15 @@ public class d {
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (a == null || f26281b == null || (file = f26282c) == null || !file.exists()) {
+            if (a == null || f26309b == null || (file = f26310c) == null || !file.exists()) {
                 a = context;
-                f26281b = new d();
-                f26282c = a();
+                f26309b = new d();
+                f26310c = a();
                 e("imsdkversion:" + b());
                 e("lcpsdkversion:" + d());
-                String str = "LogFilePath is: " + f26282c.getPath();
+                String str = "LogFilePath is: " + f26310c.getPath();
             }
-            return f26281b;
+            return f26309b;
         }
         return (d) invokeL.objValue;
     }
@@ -107,12 +107,12 @@ public class d {
     public static void e(Object obj) {
         File file;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, obj) == null) || a == null || f26281b == null || (file = f26282c) == null || !file.exists()) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, obj) == null) || a == null || f26309b == null || (file = f26310c) == null || !file.exists()) {
             return;
         }
         String str = System.currentTimeMillis() + ":" + obj.toString();
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(f26282c, true));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(f26310c, true));
             bufferedWriter.write(str);
             bufferedWriter.write("\r\n");
             bufferedWriter.flush();

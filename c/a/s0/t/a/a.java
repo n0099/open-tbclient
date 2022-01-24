@@ -18,10 +18,10 @@ public class a {
     public static Domain a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f13783b;
+    public static boolean f13928b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f13784c;
+    public static b f13929c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,48 +38,48 @@ public class a {
             }
         }
         a = Domain.DOMAIN_ONLINE;
-        f13783b = true;
-        f13784c = null;
+        f13928b = true;
+        f13929c = null;
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             if (TbConfig.USE_OLD_LOGIN) {
-                f13783b = true;
+                f13928b = true;
                 return;
             }
             if (Build.VERSION.SDK_INT < 9) {
                 if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
-                    f13783b = false;
+                    f13928b = false;
                 } else {
-                    f13783b = true;
+                    f13928b = true;
                 }
             } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
-                f13783b = false;
+                f13928b = false;
             } else {
-                f13783b = true;
+                f13928b = true;
             }
-            if (Build.VERSION.SDK_INT > 10 || f13783b || !UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
+            if (Build.VERSION.SDK_INT > 10 || f13928b || !UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
                 return;
             }
             TbadkCoreApplication.getInst().incPassportV6CrashCount();
-            f13783b = true;
+            f13928b = true;
         }
     }
 
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f13784c : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f13929c : (b) invokeV.objValue;
     }
 
     public static void c() {
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f13784c != null || (runTask = MessageManager.getInstance().runTask(2001268, b.class)) == null || runTask.getData() == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f13929c != null || (runTask = MessageManager.getInstance().runTask(2001268, b.class)) == null || runTask.getData() == null) {
             return;
         }
-        f13784c = (b) runTask.getData();
+        f13929c = (b) runTask.getData();
     }
 }

@@ -13,7 +13,7 @@ public final class u extends v {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60653b;
+    public int f60698b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u() {
@@ -40,7 +40,7 @@ public final class u extends v {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
             aVar.a("undo_msg_v1", this.a);
-            aVar.a("undo_msg_type_v1", this.f60653b);
+            aVar.a("undo_msg_type_v1", this.f60698b);
         }
     }
 
@@ -76,7 +76,7 @@ public final class u extends v {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
             this.a = aVar.b("undo_msg_v1", this.a);
-            this.f60653b = aVar.b("undo_msg_type_v1", 0);
+            this.f60698b = aVar.b("undo_msg_type_v1", 0);
         }
     }
 }

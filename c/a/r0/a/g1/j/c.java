@@ -25,23 +25,23 @@ public class c implements c.a.r0.a.g1.j.a {
     public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f6245b;
+    public final boolean f6387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f6246c;
+    public long f6388c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f6247d;
+    public volatile boolean f6389d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<c.a.r0.a.g1.j.a> f6248e;
+    public final List<c.a.r0.a.g1.j.a> f6390e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Runnable f6249f;
+    public final Runnable f6391f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Runnable f6250g;
+    public final Runnable f6392g;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -49,7 +49,7 @@ public class c implements c.a.r0.a.g1.j.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f6251e;
+        public final /* synthetic */ c f6393e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -66,14 +66,14 @@ public class c implements c.a.r0.a.g1.j.a {
                     return;
                 }
             }
-            this.f6251e = cVar;
+            this.f6393e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6251e.d();
+                this.f6393e.d();
             }
         }
     }
@@ -84,7 +84,7 @@ public class c implements c.a.r0.a.g1.j.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f6252e;
+        public final /* synthetic */ c f6394e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -101,21 +101,21 @@ public class c implements c.a.r0.a.g1.j.a {
                     return;
                 }
             }
-            this.f6252e = cVar;
+            this.f6394e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6252e.e();
+                this.f6394e.e();
             }
         }
     }
 
     /* renamed from: c.a.r0.a.g1.j.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0345c {
+    public static class C0354c {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,21 +144,21 @@ public class c implements c.a.r0.a.g1.j.a {
     public static c.a.r0.a.g1.j.a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C0345c.a : (c.a.r0.a.g1.j.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C0354c.a : (c.a.r0.a.g1.j.a) invokeV.objValue;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.f6246c;
-            boolean z = this.f6245b && !this.f6247d && ProcessUtils.isSwanProcess() && n0.C(true);
+            long currentTimeMillis = System.currentTimeMillis() - this.f6388c;
+            boolean z = this.f6387b && !this.f6389d && ProcessUtils.isSwanProcess() && n0.C(true);
             c.a.r0.a.e0.d.i("SwanBackStageManager", "performPause: shouldPerform=" + z + " for " + currentTimeMillis + "/" + this.a);
             if (z) {
-                for (c.a.r0.a.g1.j.a aVar : this.f6248e) {
+                for (c.a.r0.a.g1.j.a aVar : this.f6390e) {
                     c.a.r0.a.e0.d.i("SwanBackStageManager", "performPause for strategy=" + aVar);
                     aVar.onPause();
                 }
-                this.f6247d = true;
+                this.f6389d = true;
             }
         }
     }
@@ -166,13 +166,13 @@ public class c implements c.a.r0.a.g1.j.a {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            boolean z = this.f6245b && this.f6247d;
+            boolean z = this.f6387b && this.f6389d;
             c.a.r0.a.e0.d.i("SwanBackStageManager", "performResume: shouldPerform=" + z);
-            for (c.a.r0.a.g1.j.a aVar : this.f6248e) {
+            for (c.a.r0.a.g1.j.a aVar : this.f6390e) {
                 c.a.r0.a.e0.d.i("SwanBackStageManager", "performResume for strategy=" + aVar);
                 aVar.onResume();
             }
-            this.f6247d = false;
+            this.f6389d = false;
         }
     }
 
@@ -181,13 +181,13 @@ public class c implements c.a.r0.a.g1.j.a {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.r0.a.e0.d.i("SwanBackStageManager", "onPause: enable=" + this.f6245b + " delay=" + this.a);
-            if (this.f6245b) {
-                this.f6246c = System.currentTimeMillis();
+            c.a.r0.a.e0.d.i("SwanBackStageManager", "onPause: enable=" + this.f6387b + " delay=" + this.a);
+            if (this.f6387b) {
+                this.f6388c = System.currentTimeMillis();
                 Handler L = c.a.r0.a.d2.d.L();
-                L.removeCallbacks(this.f6249f);
-                L.removeCallbacks(this.f6250g);
-                L.postDelayed(this.f6249f, this.a);
+                L.removeCallbacks(this.f6391f);
+                L.removeCallbacks(this.f6392g);
+                L.postDelayed(this.f6391f, this.a);
             }
         }
     }
@@ -197,12 +197,12 @@ public class c implements c.a.r0.a.g1.j.a {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.r0.a.e0.d.i("SwanBackStageManager", "onResume: enable=" + this.f6245b);
-            if (this.f6245b) {
+            c.a.r0.a.e0.d.i("SwanBackStageManager", "onResume: enable=" + this.f6387b);
+            if (this.f6387b) {
                 Handler L = c.a.r0.a.d2.d.L();
-                L.removeCallbacks(this.f6249f);
-                L.removeCallbacks(this.f6250g);
-                q0.e0(this.f6250g);
+                L.removeCallbacks(this.f6391f);
+                L.removeCallbacks(this.f6392g);
+                q0.e0(this.f6392g);
             }
         }
     }
@@ -220,23 +220,23 @@ public class c implements c.a.r0.a.g1.j.a {
                 return;
             }
         }
-        long millis = TimeUnit.SECONDS.toMillis(c.a.r0.a.g1.j.f.c.f6255b.a());
+        long millis = TimeUnit.SECONDS.toMillis(c.a.r0.a.g1.j.f.c.f6397b.a());
         this.a = millis;
-        this.f6245b = millis >= 0 && c.a.r0.a.g1.j.f.c.f6255b.e();
-        this.f6246c = 0L;
-        this.f6247d = false;
-        this.f6249f = new a(this);
-        this.f6250g = new b(this);
-        this.f6248e = new ArrayList();
-        if (c.a.r0.a.g1.j.f.c.f6255b.e()) {
-            if (c.a.r0.a.g1.j.f.c.f6255b.d()) {
-                this.f6248e.add(new d());
+        this.f6387b = millis >= 0 && c.a.r0.a.g1.j.f.c.f6397b.e();
+        this.f6388c = 0L;
+        this.f6389d = false;
+        this.f6391f = new a(this);
+        this.f6392g = new b(this);
+        this.f6390e = new ArrayList();
+        if (c.a.r0.a.g1.j.f.c.f6397b.e()) {
+            if (c.a.r0.a.g1.j.f.c.f6397b.d()) {
+                this.f6390e.add(new d());
             }
-            if (c.a.r0.a.g1.j.f.c.f6255b.b()) {
-                this.f6248e.add(new e());
+            if (c.a.r0.a.g1.j.f.c.f6397b.b()) {
+                this.f6390e.add(new e());
             }
-            if (c.a.r0.a.g1.j.f.c.f6255b.c()) {
-                this.f6248e.add(new c.a.r0.a.g1.j.b());
+            if (c.a.r0.a.g1.j.f.c.f6397b.c()) {
+                this.f6390e.add(new c.a.r0.a.g1.j.b());
             }
         }
     }

@@ -28,7 +28,7 @@ public class PBError {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60801b;
+    public String f60846b;
 
     static {
         InterceptResult invokeClinit;
@@ -73,7 +73,7 @@ public class PBError {
             }
         }
         this.a = i2;
-        this.f60801b = str;
+        this.f60846b = str;
     }
 
     public int getCode() {
@@ -85,7 +85,7 @@ public class PBError {
     public String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60801b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60846b : (String) invokeV.objValue;
     }
 
     public void setCode(int i2) {
@@ -98,7 +98,7 @@ public class PBError {
     public void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f60801b = str;
+            this.f60846b = str;
         }
     }
 
@@ -106,7 +106,7 @@ public class PBError {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "PBError{code=" + this.a + ", msg='" + this.f60801b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PBError{code=" + this.a + ", msg='" + this.f60846b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

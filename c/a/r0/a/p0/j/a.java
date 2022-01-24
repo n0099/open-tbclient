@@ -33,11 +33,11 @@ public class a {
 
     /* renamed from: c.a.r0.a.p0.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0507a implements FilenameFilter {
+    public static class C0516a implements FilenameFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0507a() {
+        public C0516a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -181,7 +181,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, file, i2)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (i2 <= 0 || file == null || !file.exists() || !file.isDirectory() || (listFiles = file.listFiles(new C0507a())) == null) {
+            if (i2 <= 0 || file == null || !file.exists() || !file.isDirectory() || (listFiles = file.listFiles(new C0516a())) == null) {
                 return arrayList;
             }
             Arrays.sort(listFiles, new b());

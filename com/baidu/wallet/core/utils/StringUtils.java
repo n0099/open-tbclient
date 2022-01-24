@@ -2,7 +2,6 @@ package com.baidu.wallet.core.utils;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,10 +35,10 @@ public final class StringUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
-            if (!TextUtils.isEmpty(charSequence) && charSequence.toString().contains(ProxyConfig.MATCH_ALL_SCHEMES)) {
-                int indexOf = charSequence.toString().indexOf(ProxyConfig.MATCH_ALL_SCHEMES);
+            if (!TextUtils.isEmpty(charSequence) && charSequence.toString().contains("*")) {
+                int indexOf = charSequence.toString().indexOf("*");
                 StringBuffer stringBuffer = new StringBuffer(charSequence);
-                stringBuffer.insert(charSequence.toString().lastIndexOf(ProxyConfig.MATCH_ALL_SCHEMES) + 1, ' ');
+                stringBuffer.insert(charSequence.toString().lastIndexOf("*") + 1, ' ');
                 stringBuffer.insert(indexOf, ' ');
                 return stringBuffer.toString();
             }
@@ -169,7 +168,7 @@ public final class StringUtils {
             if (TextUtils.isEmpty(charSequence)) {
                 return charSequence;
             }
-            if (!charSequence.toString().contains(ProxyConfig.MATCH_ALL_SCHEMES) && isPhoneNumber(charSequence.toString())) {
+            if (!charSequence.toString().contains("*") && isPhoneNumber(charSequence.toString())) {
                 charSequence = ((Object) charSequence.subSequence(0, 3)) + "*****" + ((Object) charSequence.subSequence(8, 11));
             }
             return a(charSequence);

@@ -16,10 +16,10 @@ public class b {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f5508b;
+    public View f5650b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f5509c;
+    public Context f5651c;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class b {
                 return;
             }
         }
-        this.f5508b = null;
-        this.f5509c = context;
+        this.f5650b = null;
+        this.f5651c = context;
     }
 
     public b a(View view, View view2) {
@@ -48,13 +48,13 @@ public class b {
             if (view != null && (view.getParent() instanceof ViewGroup)) {
                 ViewGroup viewGroup = (ViewGroup) this.a.getParent();
                 int indexOfChild = viewGroup.indexOfChild(this.a);
-                View view3 = this.f5508b;
+                View view3 = this.f5650b;
                 if (view3 != null) {
                     viewGroup.removeView(view3);
                 }
-                this.f5508b = view2;
+                this.f5650b = view2;
                 view2.setLayoutParams(this.a.getLayoutParams());
-                viewGroup.addView(this.f5508b, indexOfChild);
+                viewGroup.addView(this.f5650b, indexOfChild);
                 if (viewGroup instanceof RelativeLayout) {
                     this.a.setVisibility(4);
                 } else {

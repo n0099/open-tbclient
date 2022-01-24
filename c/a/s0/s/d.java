@@ -15,7 +15,7 @@ public class d {
     public NetWork a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NewErrorData f13008b;
+    public NewErrorData f13194b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class d {
             }
         }
         this.a = null;
-        this.f13008b = null;
+        this.f13194b = null;
         this.a = new NetWork();
     }
 
@@ -70,7 +70,7 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String postNetData = this.a.postNetData();
             NewErrorData newErrorData = new NewErrorData();
-            this.f13008b = newErrorData;
+            this.f13194b = newErrorData;
             newErrorData.parserJson(postNetData);
             return postNetData;
         }

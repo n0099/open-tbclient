@@ -28,7 +28,7 @@ public /* synthetic */ class l {
         int[] iArr = new int[SearchType.values().length];
         a = iArr;
         try {
-            iArr[SearchType.f37700j.ordinal()] = 1;
+            iArr[SearchType.f37728j.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {

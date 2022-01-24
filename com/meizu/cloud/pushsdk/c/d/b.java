@@ -8,17 +8,17 @@ public class b extends SQLiteOpenHelper {
     public static final String a = b.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f58723b;
+    public static b f58768b;
 
     public b(Context context, String str) {
         super(context, str, (SQLiteDatabase.CursorFactory) null, 1);
     }
 
     public static b a(Context context, String str) {
-        if (f58723b == null) {
-            f58723b = new b(context.getApplicationContext(), str);
+        if (f58768b == null) {
+            f58768b = new b(context.getApplicationContext(), str);
         }
-        return f58723b;
+        return f58768b;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

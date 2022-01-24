@@ -22,10 +22,10 @@ public final class f {
     public static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f4093b;
+    public static b f4234b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f4094c;
+    public static volatile boolean f4235c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -48,7 +48,7 @@ public final class f {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
                 f.d();
-                f.f4093b.sendEmptyMessageDelayed(0, 15000L);
+                f.f4234b.sendEmptyMessageDelayed(0, 15000L);
             }
         }
 
@@ -87,9 +87,9 @@ public final class f {
             }
         }
         a = new ConcurrentHashMap<>();
-        f4094c = false;
+        f4235c = false;
         b bVar = new b(c.a.k.a.o.b.a("PreferenceQueue").getLooper(), null);
-        f4093b = bVar;
+        f4234b = bVar;
         bVar.sendEmptyMessageDelayed(0, 15000L);
     }
 
@@ -125,10 +125,10 @@ public final class f {
     public static void d() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f4094c) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f4235c) {
             return;
         }
-        f4094c = true;
+        f4235c = true;
         try {
             try {
                 Context baseContext = c.a.k.a.b.a().getBaseContext();
@@ -170,7 +170,7 @@ public final class f {
                 e2.printStackTrace();
             }
         } finally {
-            f4094c = false;
+            f4235c = false;
         }
     }
 
@@ -185,16 +185,16 @@ public final class f {
 
     public static void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || f4093b.hasMessages(0)) {
+        if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || f4234b.hasMessages(0)) {
             return;
         }
-        f4093b.sendEmptyMessageDelayed(0, 15000L);
+        f4234b.sendEmptyMessageDelayed(0, 15000L);
     }
 
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            f4093b.removeMessages(0);
+            f4234b.removeMessages(0);
             d();
             f();
         }

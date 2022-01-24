@@ -21,24 +21,24 @@ public class a implements b, c.a.r0.a.n0.j.d.a {
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public l f7783b;
+    public l f7925b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile c.a.r0.a.n0.j.d.a[] f7784c;
+    public volatile c.a.r0.a.n0.j.d.a[] f7926c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.a.n0.j.f.a f7785d;
+    public c.a.r0.a.n0.j.f.a f7927d;
 
     /* renamed from: c.a.r0.a.n0.j.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0468a implements Runnable {
+    public class RunnableC0477a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f7786e;
+        public final /* synthetic */ a f7928e;
 
-        public RunnableC0468a(a aVar) {
+        public RunnableC0477a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,14 +53,14 @@ public class a implements b, c.a.r0.a.n0.j.d.a {
                     return;
                 }
             }
-            this.f7786e = aVar;
+            this.f7928e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7786e.e();
+                this.f7928e.e();
             }
         }
     }
@@ -81,9 +81,9 @@ public class a implements b, c.a.r0.a.n0.j.d.a {
             }
         }
         this.a = new g();
-        this.f7783b = c.a.r0.a.c1.b.m();
-        this.f7784c = new c.a.r0.a.n0.j.d.a[]{new c.a.r0.a.n0.j.d.e(), new c.a.r0.a.n0.j.d.c(), new c.a.r0.a.n0.j.d.b(), new c.a.r0.a.n0.j.d.d()};
-        this.f7785d = aVar;
+        this.f7925b = c.a.r0.a.c1.b.m();
+        this.f7926c = new c.a.r0.a.n0.j.d.a[]{new c.a.r0.a.n0.j.d.e(), new c.a.r0.a.n0.j.d.c(), new c.a.r0.a.n0.j.d.b(), new c.a.r0.a.n0.j.d.d()};
+        this.f7927d = aVar;
     }
 
     @Override // c.a.r0.a.n0.j.d.a
@@ -95,7 +95,7 @@ public class a implements b, c.a.r0.a.n0.j.d.a {
             synchronized (this) {
                 c.a.r0.a.e0.d.k("RecoveryPolicy", "renameAllPlatformFiles start");
                 arraySet = new ArraySet<>();
-                for (c.a.r0.a.n0.j.d.a aVar : this.f7784c) {
+                for (c.a.r0.a.n0.j.d.a aVar : this.f7926c) {
                     arraySet.addAll((ArraySet<? extends String>) aVar.a());
                 }
                 c.a.r0.a.e0.d.k("RecoveryPolicy", "renameAllPlatformFiles end");
@@ -109,7 +109,7 @@ public class a implements b, c.a.r0.a.n0.j.d.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            q.k(new RunnableC0468a(this), "performRecovery");
+            q.k(new RunnableC0477a(this), "performRecovery");
         }
     }
 

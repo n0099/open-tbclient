@@ -1,7 +1,7 @@
 package com.baidu.tieba.forbidden.fans;
 
 import c.a.s0.s.q.b1;
-import c.a.t0.a1.a.a;
+import c.a.t0.b1.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

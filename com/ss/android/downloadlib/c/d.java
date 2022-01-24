@@ -10,7 +10,7 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
     @Override // com.ss.android.socialbase.downloader.depend.k
     public void a() {

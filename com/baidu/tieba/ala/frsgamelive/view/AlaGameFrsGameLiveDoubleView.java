@@ -115,8 +115,8 @@ public class AlaGameFrsGameLiveDoubleView extends b<a> {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.m.d(aVar.f14848e);
-        this.n.d(aVar.f14849f);
+        this.m.d(aVar.f14988e);
+        this.n.d(aVar.f14989f);
     }
 
     public void s(String str) {

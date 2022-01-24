@@ -31,28 +31,28 @@ public class EnterForumAdView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f42691e;
+    public Drawable f42712e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f42692f;
+    public Drawable f42713f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f42693g;
+    public Drawable f42714g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Drawable f42694h;
+    public Drawable f42715h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f42695i;
+    public boolean f42716i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbImageView f42696j;
+    public TbImageView f42717j;
     public ViewEventCenter k;
     public BdUniqueId l;
     public int m;
     public boolean n;
     public boolean o;
-    public c.a.t0.u0.d.b p;
+    public c.a.t0.v0.d.b p;
     public c q;
 
     /* loaded from: classes12.dex */
@@ -61,7 +61,7 @@ public class EnterForumAdView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EnterForumAdView f42697e;
+        public final /* synthetic */ EnterForumAdView f42718e;
 
         public a(EnterForumAdView enterForumAdView) {
             Interceptable interceptable = $ic;
@@ -78,14 +78,14 @@ public class EnterForumAdView extends FrameLayout {
                     return;
                 }
             }
-            this.f42697e = enterForumAdView;
+            this.f42718e = enterForumAdView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                EnterForumAdView.clickAd(this.f42697e.l, this.f42697e.getContext());
+                EnterForumAdView.clickAd(this.f42718e.l, this.f42718e.getContext());
             }
         }
     }
@@ -118,7 +118,7 @@ public class EnterForumAdView extends FrameLayout {
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z) {
-                this.a.f42695i = false;
+                this.a.f42716i = false;
                 this.a.invalidate();
             }
         }
@@ -154,40 +154,40 @@ public class EnterForumAdView extends FrameLayout {
                 return;
             }
         }
-        this.f42695i = false;
+        this.f42716i = false;
         this.n = false;
         this.o = false;
         c(context);
     }
 
     public static final void clickAd(BdUniqueId bdUniqueId, Context context) {
-        c.a.t0.u0.d.b B;
+        c.a.t0.v0.d.b B;
         StatisticItem l;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, bdUniqueId, context) == null) || (B = EnterForumDelegateStatic.f42550c.B()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, bdUniqueId, context) == null) || (B = EnterForumDelegateStatic.f42571c.B()) == null) {
             return;
         }
-        String str = EnterForumDelegateStatic.f42550c.B().a;
+        String str = EnterForumDelegateStatic.f42571c.B().a;
         if (TextUtils.isEmpty(str)) {
             return;
         }
         if (context != null) {
             c.a.s0.m.a.m(context, str);
         }
-        if (bdUniqueId == null || (l = c.a.t0.v3.a.l(true, "a025", "common_click", 3, 1, true, String.valueOf(B.f23954b), String.valueOf(B.f23954b), 5)) == null) {
+        if (bdUniqueId == null || (l = c.a.t0.w3.a.l(true, "a025", "common_click", 3, 1, true, String.valueOf(B.f24243b), String.valueOf(B.f24243b), 5)) == null) {
             return;
         }
-        c.a.t0.v3.c.g().c(bdUniqueId, l);
+        c.a.t0.w3.c.g().c(bdUniqueId, l);
     }
 
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setClipChildren(true);
-            this.f42694h = new ColorDrawable(1241513984);
-            this.f42691e = context.getResources().getDrawable(R.drawable.enter_forum_ad_top_shader);
-            this.f42692f = context.getResources().getDrawable(R.drawable.enter_forum_ad_bottom_shader2);
-            this.f42693g = context.getResources().getDrawable(R.drawable.enter_forum_ad_bottom_shader2_1);
+            this.f42715h = new ColorDrawable(1241513984);
+            this.f42712e = context.getResources().getDrawable(R.drawable.enter_forum_ad_top_shader);
+            this.f42713f = context.getResources().getDrawable(R.drawable.enter_forum_ad_bottom_shader2);
+            this.f42714g = context.getResources().getDrawable(R.drawable.enter_forum_ad_bottom_shader2_1);
             setOnClickListener(new a(this));
         }
     }
@@ -196,41 +196,41 @@ public class EnterForumAdView extends FrameLayout {
         StatisticItem l;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f42696j == null) {
+            if (this.f42717j == null) {
                 TbImageView tbImageView = (TbImageView) findViewById(R.id.enter_forum_ad_image);
-                this.f42696j = tbImageView;
+                this.f42717j = tbImageView;
                 tbImageView.setPlaceHolder(3);
-                this.f42696j.setEvent(new b(this));
+                this.f42717j.setEvent(new b(this));
             }
-            c.a.t0.u0.d.b B = EnterForumDelegateStatic.f42550c.B();
+            c.a.t0.v0.d.b B = EnterForumDelegateStatic.f42571c.B();
             if (B != null && B.a()) {
-                this.f42695i = true;
-                this.f42696j.startLoad(B.f23955c, 38, false);
+                this.f42716i = true;
+                this.f42717j.startLoad(B.f24244c, 38, false);
                 invalidate();
                 if (this.k != null) {
-                    c.a.t0.u0.d.c cVar = new c.a.t0.u0.d.c();
+                    c.a.t0.v0.d.c cVar = new c.a.t0.v0.d.c();
                     cVar.a = true;
-                    cVar.f23956b = false;
-                    cVar.f23957c = getBottom();
-                    cVar.f23958d = this.m;
+                    cVar.f24245b = false;
+                    cVar.f24246c = getBottom();
+                    cVar.f24247d = this.m;
                     c.a.s0.l0.c.b bVar = new c.a.s0.l0.c.b(16, null, null, null);
                     bVar.h(cVar);
                     this.k.dispatchMvcEvent(bVar);
                 }
                 setVisibility(0);
-                if (this.p != B && (l = c.a.t0.v3.a.l(false, "a025", "common_exp", 0, 1, true, String.valueOf(B.f23954b), String.valueOf(B.f23954b), 5)) != null) {
-                    c.a.t0.v3.c g2 = c.a.t0.v3.c.g();
+                if (this.p != B && (l = c.a.t0.w3.a.l(false, "a025", "common_exp", 0, 1, true, String.valueOf(B.f24243b), String.valueOf(B.f24243b), 5)) != null) {
+                    c.a.t0.w3.c g2 = c.a.t0.w3.c.g();
                     BdUniqueId bdUniqueId = this.l;
-                    g2.d(bdUniqueId, c.a.t0.v3.a.a("" + B.f23954b), l);
-                    c.a.t0.v3.c.g().h(this.l, false);
+                    g2.d(bdUniqueId, c.a.t0.w3.a.a("" + B.f24243b), l);
+                    c.a.t0.w3.c.g().h(this.l, false);
                 }
             } else {
                 if (this.k != null) {
-                    c.a.t0.u0.d.c cVar2 = new c.a.t0.u0.d.c();
+                    c.a.t0.v0.d.c cVar2 = new c.a.t0.v0.d.c();
                     cVar2.a = false;
-                    cVar2.f23956b = false;
-                    cVar2.f23957c = getBottom();
-                    cVar2.f23958d = this.m;
+                    cVar2.f24245b = false;
+                    cVar2.f24246c = getBottom();
+                    cVar2.f24247d = this.m;
                     c.a.s0.l0.c.b bVar2 = new c.a.s0.l0.c.b(16, null, null, null);
                     bVar2.h(cVar2);
                     this.k.dispatchMvcEvent(bVar2);
@@ -246,10 +246,10 @@ public class EnterForumAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            if (this.f42695i) {
-                this.f42694h.draw(canvas);
+            if (this.f42716i) {
+                this.f42715h.draw(canvas);
             }
-            this.f42691e.draw(canvas);
+            this.f42712e.draw(canvas);
         }
     }
 
@@ -271,7 +271,7 @@ public class EnterForumAdView extends FrameLayout {
     public View getAdImageView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42696j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42717j : (View) invokeV.objValue;
     }
 
     public boolean isRecentlyExtend() {
@@ -292,15 +292,15 @@ public class EnterForumAdView extends FrameLayout {
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             int i6 = -i3;
-            this.f42691e.setBounds(0, i6, getMeasuredWidth(), getResources().getDimensionPixelOffset(R.dimen.tbds260) + i6);
-            if (!z || EnterForumDelegateStatic.f42550c.B() == null || this.k == null) {
+            this.f42712e.setBounds(0, i6, getMeasuredWidth(), getResources().getDimensionPixelOffset(R.dimen.tbds260) + i6);
+            if (!z || EnterForumDelegateStatic.f42571c.B() == null || this.k == null) {
                 return;
             }
-            c.a.t0.u0.d.c cVar = new c.a.t0.u0.d.c();
+            c.a.t0.v0.d.c cVar = new c.a.t0.v0.d.c();
             cVar.a = true;
-            cVar.f23956b = false;
-            cVar.f23957c = i5;
-            cVar.f23958d = this.m;
+            cVar.f24245b = false;
+            cVar.f24246c = i5;
+            cVar.f24247d = this.m;
             c.a.s0.l0.c.b bVar = new c.a.s0.l0.c.b(16, null, null, null);
             bVar.h(cVar);
             this.k.dispatchMvcEvent(bVar);
@@ -312,11 +312,11 @@ public class EnterForumAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            this.f42694h.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
-            this.f42691e.setBounds(0, 0, getMeasuredWidth(), getResources().getDimensionPixelOffset(R.dimen.tbds260));
+            this.f42715h.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
+            this.f42712e.setBounds(0, 0, getMeasuredWidth(), getResources().getDimensionPixelOffset(R.dimen.tbds260));
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.tbds240);
-            this.f42692f.setBounds(0, getMeasuredHeight() - dimensionPixelOffset, getMeasuredWidth(), getMeasuredHeight());
-            this.f42693g.setBounds(0, getMeasuredHeight() - dimensionPixelOffset, getMeasuredWidth(), getMeasuredHeight());
+            this.f42713f.setBounds(0, getMeasuredHeight() - dimensionPixelOffset, getMeasuredWidth(), getMeasuredHeight());
+            this.f42714g.setBounds(0, getMeasuredHeight() - dimensionPixelOffset, getMeasuredWidth(), getMeasuredHeight());
         }
     }
 
@@ -328,9 +328,9 @@ public class EnterForumAdView extends FrameLayout {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             layoutParams.height = getRootView().getHeight();
             setLayoutParams(layoutParams);
-            ViewGroup.LayoutParams layoutParams2 = this.f42696j.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams2 = this.f42717j.getLayoutParams();
             layoutParams2.height = getRootView().getHeight();
-            this.f42696j.setLayoutParams(layoutParams2);
+            this.f42717j.setLayoutParams(layoutParams2);
         }
     }
 
@@ -405,7 +405,7 @@ public class EnterForumAdView extends FrameLayout {
                 return;
             }
         }
-        this.f42695i = false;
+        this.f42716i = false;
         this.n = false;
         this.o = false;
         c(context);
@@ -430,7 +430,7 @@ public class EnterForumAdView extends FrameLayout {
                 return;
             }
         }
-        this.f42695i = false;
+        this.f42716i = false;
         this.n = false;
         this.o = false;
         c(context);

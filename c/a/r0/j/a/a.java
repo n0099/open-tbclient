@@ -53,7 +53,7 @@ public class a implements g {
             c.a.r0.a.m1.b e2 = c.a.r0.a.m1.b.e(str, str);
             e2.i(jSONObject.toString());
             g.b i2 = V.i("adLanding");
-            i2.n(c.a.r0.a.h0.g.g.f6399g, c.a.r0.a.h0.g.g.f6401i);
+            i2.n(c.a.r0.a.h0.g.g.f6541g, c.a.r0.a.h0.g.g.f6543i);
             i2.k("adLanding", e2).b();
         }
     }

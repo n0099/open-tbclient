@@ -53,7 +53,7 @@ public class d extends f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 d dVar = this.f2181b;
-                dVar.q(ClogBuilder.LogType.FREE_CLICK.type, dVar.f2176c, str, this.a.f37016d.f2233b);
+                dVar.q(ClogBuilder.LogType.FREE_CLICK.type, dVar.f2176c, str, this.a.f37044d.f2233b);
             }
         }
     }

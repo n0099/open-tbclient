@@ -24,16 +24,16 @@ public class i extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8233e;
+        public final /* synthetic */ CallbackHandler f8375e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f8234f;
+        public final /* synthetic */ UnitedSchemeEntity f8376f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8235g;
+        public final /* synthetic */ JSONObject f8377g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f8236h;
+        public final /* synthetic */ Context f8378h;
 
         public a(i iVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
             Interceptable interceptable = $ic;
@@ -50,10 +50,10 @@ public class i extends z {
                     return;
                 }
             }
-            this.f8233e = callbackHandler;
-            this.f8234f = unitedSchemeEntity;
-            this.f8235g = jSONObject;
-            this.f8236h = context;
+            this.f8375e = callbackHandler;
+            this.f8376f = unitedSchemeEntity;
+            this.f8377g = jSONObject;
+            this.f8378h = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,25 +63,25 @@ public class i extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.p(iVar, this.f8233e, this.f8234f);
+                    c.a.r0.a.h2.c.d.p(iVar, this.f8375e, this.f8376f);
                     return;
                 }
-                if (c.a.r0.a.p0.f.a.b(this.f8235g.optInt("emitReplaceDynamicLib"))) {
+                if (c.a.r0.a.p0.f.a.b(this.f8377g.optInt("emitReplaceDynamicLib"))) {
                     if (c.a.r0.a.p0.f.c.n().isEmpty()) {
-                        Context context = this.f8236h;
+                        Context context = this.f8378h;
                         if (context == null) {
                             context = c.a.r0.a.c1.a.c();
                         }
                         String string = context.getResources().getString(c.a.r0.a.h.aiapps_debug_no_dynamic_lib);
                         c.a.r0.a.c2.b.f.e.g(context, string).G();
-                        this.f8234f.result = UnitedSchemeUtility.wrapCallbackParams(1001, string);
+                        this.f8376f.result = UnitedSchemeUtility.wrapCallbackParams(1001, string);
                         return;
                     }
                     c.a.r0.a.p0.f.c.p();
                 } else {
                     c.a.r0.a.p0.f.c.f();
                 }
-                UnitedSchemeUtility.callCallback(this.f8233e, this.f8234f, UnitedSchemeUtility.wrapCallbackParams(0));
+                UnitedSchemeUtility.callCallback(this.f8375e, this.f8376f, UnitedSchemeUtility.wrapCallbackParams(0));
                 c.a.r0.a.x1.a.a.Z();
             }
         }

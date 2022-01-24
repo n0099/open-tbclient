@@ -13,25 +13,25 @@ public class d extends h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11571d;
+    public String f11713d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f11572e;
+    public long f11714e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11573f;
+    public String f11715f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f11574g;
+    public long f11716g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f11575h;
+    public String f11717h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f11576i;
+    public String f11718i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f11577j;
+    public long f11719j;
     public long k;
     public long l;
 
@@ -53,23 +53,23 @@ public class d extends h {
                 return;
             }
         }
-        this.f11572e = -1L;
-        this.f11574g = -1L;
-        this.f11577j = -1L;
+        this.f11714e = -1L;
+        this.f11716g = -1L;
+        this.f11719j = -1L;
         this.k = 0L;
-        this.f11571d = str;
+        this.f11713d = str;
     }
 
     public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11574g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11716g : invokeV.longValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11571d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11713d : (String) invokeV.objValue;
     }
 
     public long h() {
@@ -81,31 +81,31 @@ public class d extends h {
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11577j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11719j : invokeV.longValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11575h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11717h : (String) invokeV.objValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11573f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11715f : (String) invokeV.objValue;
     }
 
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f11576i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f11718i : (String) invokeV.objValue;
     }
 
     public long m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f11572e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f11714e : invokeV.longValue;
     }
 
     public long n() {
@@ -118,7 +118,7 @@ public class d extends h {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
-            this.f11574g = j2;
+            this.f11716g = j2;
             return this;
         }
         return (d) invokeJ.objValue;
@@ -135,7 +135,7 @@ public class d extends h {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
-            this.f11577j = j2;
+            this.f11719j = j2;
             return this;
         }
         return (d) invokeJ.objValue;
@@ -145,7 +145,7 @@ public class d extends h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.f11575h = str;
+            this.f11717h = str;
             return this;
         }
         return (d) invokeL.objValue;
@@ -155,7 +155,7 @@ public class d extends h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.f11573f = str;
+            this.f11715f = str;
             return this;
         }
         return (d) invokeL.objValue;
@@ -165,7 +165,7 @@ public class d extends h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.f11576i = str;
+            this.f11718i = str;
             return this;
         }
         return (d) invokeL.objValue;
@@ -175,7 +175,7 @@ public class d extends h {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j2)) == null) {
-            this.f11572e = j2;
+            this.f11714e = j2;
             return this;
         }
         return (d) invokeJ.objValue;

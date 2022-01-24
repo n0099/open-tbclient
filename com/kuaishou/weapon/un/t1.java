@@ -14,13 +14,13 @@ public class t1 {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final t1 f55257b;
+    public static final t1 f55302b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f55258c = 1;
+    public static final int f55303c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f55259d = 1;
+    public static final int f55304d = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService a;
 
@@ -37,7 +37,7 @@ public class t1 {
                 return;
             }
         }
-        f55257b = new t1();
+        f55302b = new t1();
     }
 
     public t1() {
@@ -59,7 +59,7 @@ public class t1 {
     public static t1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f55257b : (t1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f55302b : (t1) invokeV.objValue;
     }
 
     public void a(Runnable runnable) {

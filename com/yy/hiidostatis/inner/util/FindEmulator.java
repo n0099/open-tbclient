@@ -283,7 +283,7 @@ public class FindEmulator {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, s.f55242c)) {
+            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, s.f55287c)) {
                 String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
                 for (String str : known_device_ids) {
                     if (str.equalsIgnoreCase(deviceId)) {
@@ -300,7 +300,7 @@ public class FindEmulator {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, s.f55242c)) {
+            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, s.f55287c)) {
                 String subscriberId = ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
                 for (String str : known_imsi_ids) {
                     if (str.equalsIgnoreCase(subscriberId)) {

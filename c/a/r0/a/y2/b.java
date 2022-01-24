@@ -20,18 +20,18 @@ import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b extends d implements a.InterfaceC0639a {
+public class b extends d implements a.InterfaceC0648a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f9750h;
+    public static final boolean f9892h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9751f;
+    public String f9893f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f9752g;
+    public String f9894g;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -39,10 +39,10 @@ public class b extends d implements a.InterfaceC0639a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.k1.e.a f9753e;
+        public final /* synthetic */ c.a.r0.a.k1.e.a f9895e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f9754f;
+        public final /* synthetic */ b f9896f;
 
         public a(b bVar, c.a.r0.a.k1.e.a aVar) {
             Interceptable interceptable = $ic;
@@ -59,20 +59,20 @@ public class b extends d implements a.InterfaceC0639a {
                     return;
                 }
             }
-            this.f9754f = bVar;
-            this.f9753e = aVar;
+            this.f9896f = bVar;
+            this.f9895e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (c.a.r0.a.c1.a.h().a(this.f9754f.f9751f, this.f9753e)) {
-                    this.f9754f.A(this.f9753e);
+                if (c.a.r0.a.c1.a.h().a(this.f9896f.f9893f, this.f9895e)) {
+                    this.f9896f.A(this.f9895e);
                     return;
                 }
-                b bVar = this.f9754f;
-                bVar.d(bVar.f9752g, new c.a.r0.a.u.h.b(2003, "upload fail"));
+                b bVar = this.f9896f;
+                bVar.d(bVar.f9894g, new c.a.r0.a.u.h.b(2003, "upload fail"));
             }
         }
     }
@@ -90,7 +90,7 @@ public class b extends d implements a.InterfaceC0639a {
                 return;
             }
         }
-        f9750h = k.a;
+        f9892h = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -118,13 +118,13 @@ public class b extends d implements a.InterfaceC0639a {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("bosUrl", aVar.f7582e);
-                d(this.f9752g, new c.a.r0.a.u.h.b(0, jSONObject));
+                jSONObject.put("bosUrl", aVar.f7724e);
+                d(this.f9894g, new c.a.r0.a.u.h.b(0, jSONObject));
             } catch (JSONException e2) {
-                if (f9750h) {
+                if (f9892h) {
                     e2.printStackTrace();
                 }
-                d(this.f9752g, new c.a.r0.a.u.h.b(2003, "upload fail"));
+                d(this.f9894g, new c.a.r0.a.u.h.b(2003, "upload fail"));
             }
         }
     }
@@ -140,7 +140,7 @@ public class b extends d implements a.InterfaceC0639a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             q("#uploadBosFile", false);
-            if (f9750h) {
+            if (f9892h) {
                 String str2 = "#uploadBosFile params=" + str;
             }
             Pair<c.a.r0.a.u.h.b, JSONObject> s = s(str);
@@ -148,7 +148,7 @@ public class b extends d implements a.InterfaceC0639a {
             if (bVar.isSuccess()) {
                 JSONObject jSONObject = (JSONObject) s.second;
                 String optString = jSONObject.optString("cb");
-                this.f9752g = optString;
+                this.f9894g = optString;
                 if (TextUtils.isEmpty(optString)) {
                     return new c.a.r0.a.u.h.b(202);
                 }
@@ -158,11 +158,11 @@ public class b extends d implements a.InterfaceC0639a {
                 }
                 f U = f.U();
                 String i2 = U.G().i(optString2);
-                this.f9751f = i2;
+                this.f9893f = i2;
                 if (TextUtils.isEmpty(i2)) {
                     return new c.a.r0.a.u.h.b(2001, "file not found");
                 }
-                File file = new File(this.f9751f);
+                File file = new File(this.f9893f);
                 if (file.exists() && file.isFile()) {
                     if (B(file)) {
                         return new c.a.r0.a.u.h.b(2002, "file over size");
@@ -170,7 +170,7 @@ public class b extends d implements a.InterfaceC0639a {
                     if (!c.a.r0.a.d2.d.J().r().M().e(U.getActivity())) {
                         return new c.a.r0.a.u.h.b(10004, "user not logged in");
                     }
-                    c.a.r0.a.c1.a.h().b(U.getActivity(), this.f9751f, this);
+                    c.a.r0.a.c1.a.h().b(U.getActivity(), this.f9893f, this);
                     return c.a.r0.a.u.h.b.f();
                 }
                 return new c.a.r0.a.u.h.b(2001, "file not found");
@@ -180,31 +180,31 @@ public class b extends d implements a.InterfaceC0639a {
         return (c.a.r0.a.u.h.b) invokeL.objValue;
     }
 
-    @Override // c.a.r0.a.y2.a.InterfaceC0639a
+    @Override // c.a.r0.a.y2.a.InterfaceC0648a
     public void c(JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, str) == null) {
             if (jSONObject == null) {
-                d(this.f9752g, new c.a.r0.a.u.h.b(2003, "upload fail"));
+                d(this.f9894g, new c.a.r0.a.u.h.b(2003, "upload fail"));
                 return;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
-                d(this.f9752g, new c.a.r0.a.u.h.b(2003, "upload fail"));
+                d(this.f9894g, new c.a.r0.a.u.h.b(2003, "upload fail"));
                 return;
             }
             String optString = jSONObject.optString("errno");
             if (!TextUtils.isEmpty(optString) && TextUtils.equals(optString, "0")) {
                 c.a.r0.a.k1.e.a a2 = c.a.r0.a.k1.e.a.a(optJSONObject, str);
-                if (TextUtils.isEmpty(a2.f7582e)) {
-                    d(this.f9752g, new c.a.r0.a.u.h.b(2003, "upload fail"));
+                if (TextUtils.isEmpty(a2.f7724e)) {
+                    d(this.f9894g, new c.a.r0.a.u.h.b(2003, "upload fail"));
                     return;
                 } else {
                     ExecutorUtilsExt.postOnElastic(new a(this, a2), "doBosUpload", 2);
                     return;
                 }
             }
-            d(this.f9752g, new c.a.r0.a.u.h.b(2003, "upload fail"));
+            d(this.f9894g, new c.a.r0.a.u.h.b(2003, "upload fail"));
         }
     }
 

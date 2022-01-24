@@ -26,11 +26,11 @@ public class a extends z {
 
     /* renamed from: c.a.r0.j.m.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0754a implements d.c {
+    public class C0763a implements d.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0754a(a aVar) {
+        public C0763a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public class a extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6201b) {
+            if (z.f6343b) {
                 JSONObject a = z.a(unitedSchemeEntity, "params");
                 if (a == null) {
                     Toast.makeText(context, g.aiapps_debug_game_core_params_empty, 1).show();
@@ -113,7 +113,7 @@ public class a extends z {
                     Toast.makeText(context, g.aiapps_debug_game_core_url_empty, 1).show();
                     return false;
                 }
-                c.a.r0.j.t.a.f(optString, new C0754a(this));
+                c.a.r0.j.t.a.f(optString, new C0763a(this));
                 return false;
             }
             return false;

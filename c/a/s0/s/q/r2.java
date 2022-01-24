@@ -17,7 +17,7 @@ public class r2 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13489b;
+    public String f13675b;
 
     public r2() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class r2 {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13489b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13675b : (String) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -56,7 +56,7 @@ public class r2 {
             this.a = jSONObject.optString("activity_banner");
             jSONObject.optString("activity_url");
             jSONObject.optString("activity_desc");
-            this.f13489b = jSONObject.optString("activity_button");
+            this.f13675b = jSONObject.optString("activity_button");
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }
@@ -78,6 +78,6 @@ public class r2 {
         this.a = yulePostActivity.activity_banner;
         String str = yulePostActivity.activity_url;
         String str2 = yulePostActivity.activity_desc;
-        this.f13489b = yulePostActivity.activity_button;
+        this.f13675b = yulePostActivity.activity_button;
     }
 }

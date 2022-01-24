@@ -16,31 +16,31 @@ public class o {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11436b;
+    public int f11578b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11437c;
+    public int f11579c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11438d;
+    public String f11580d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f11439e;
+    public Drawable f11581e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f11440f;
+    public boolean f11582f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f11441g;
+    public boolean f11583g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f11442h;
+    public int f11584h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11443i;
+    public int f11585i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f11444j;
+    public long f11586j;
     public e k;
     public c.a.r0.n.r.b l;
 
@@ -59,17 +59,17 @@ public class o {
                 return;
             }
         }
-        this.f11436b = -1;
-        this.f11437c = -1;
-        this.f11440f = true;
-        this.f11441g = true;
-        this.f11442h = 0;
-        this.f11443i = 0;
-        this.f11444j = 0L;
+        this.f11578b = -1;
+        this.f11579c = -1;
+        this.f11582f = true;
+        this.f11583g = true;
+        this.f11584h = 0;
+        this.f11585i = 0;
+        this.f11586j = 0L;
         this.a = i2;
-        this.f11436b = i3;
-        this.f11437c = i4;
-        this.f11441g = z;
+        this.f11578b = i3;
+        this.f11579c = i4;
+        this.f11583g = z;
     }
 
     public static o k(o oVar) {
@@ -79,7 +79,7 @@ public class o {
             if (oVar == null) {
                 return null;
             }
-            return new o(oVar.a, oVar.f11436b, oVar.f11437c, oVar.f11441g);
+            return new o(oVar.a, oVar.f11578b, oVar.f11579c, oVar.f11583g);
         }
         return (o) invokeL.objValue;
     }
@@ -91,7 +91,7 @@ public class o {
             if (oVar == null) {
                 return null;
             }
-            return new o(oVar.a, oVar.f11436b, oVar.f11437c, z);
+            return new o(oVar.a, oVar.f11578b, oVar.f11579c, z);
         }
         return (o) invokeLZ.objValue;
     }
@@ -100,14 +100,14 @@ public class o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            Drawable drawable = this.f11439e;
+            Drawable drawable = this.f11581e;
             if (drawable != null) {
                 return drawable;
             }
-            if (this.f11437c <= 0) {
+            if (this.f11579c <= 0) {
                 return null;
             }
-            return context.getResources().getDrawable(this.f11437c);
+            return context.getResources().getDrawable(this.f11579c);
         }
         return (Drawable) invokeL.objValue;
     }
@@ -115,7 +115,7 @@ public class o {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11442h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11584h : invokeV.intValue;
     }
 
     public int c() {
@@ -133,13 +133,13 @@ public class o {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11444j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11586j : invokeV.longValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11443i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11585i : invokeV.intValue;
     }
 
     public e g() {
@@ -152,14 +152,14 @@ public class o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            String str = this.f11438d;
+            String str = this.f11580d;
             if (str != null) {
                 return str;
             }
-            if (this.f11436b <= 0) {
+            if (this.f11578b <= 0) {
                 return null;
             }
-            return context.getResources().getString(this.f11436b);
+            return context.getResources().getString(this.f11578b);
         }
         return (String) invokeL.objValue;
     }
@@ -167,33 +167,33 @@ public class o {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f11441g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f11583g : invokeV.booleanValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f11440f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f11582f : invokeV.booleanValue;
     }
 
     public void m(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f11437c = i2;
+            this.f11579c = i2;
         }
     }
 
     public void n(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.f11444j = j2;
+            this.f11586j = j2;
         }
     }
 
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f11443i = i2;
+            this.f11585i = i2;
         }
     }
 
@@ -207,7 +207,7 @@ public class o {
     public void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f11436b = i2;
+            this.f11578b = i2;
         }
     }
 }

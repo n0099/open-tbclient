@@ -17,7 +17,7 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Dialog f50811b;
+    public Dialog f50856b;
     public DialogInterface.OnCancelListener mOnCancleListener;
 
     public DelegateOnCancleListener(DialogInterface.OnCancelListener onCancelListener, Dialog dialog) {
@@ -36,7 +36,7 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
             }
         }
         this.mOnCancleListener = onCancelListener;
-        this.f50811b = dialog;
+        this.f50856b = dialog;
         if (Build.VERSION.SDK_INT >= 12) {
             dialog.getWindow().getDecorView().addOnAttachStateChangeListener(new View.OnAttachStateChangeListener(this) { // from class: com.baidu.wallet.base.widget.dialog.listener.DelegateOnCancleListener.1
                 public static /* synthetic */ Interceptable $ic;
@@ -78,7 +78,7 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
                 }
             });
         }
-        this.f50811b.setOnDismissListener(new DialogInterface.OnDismissListener(this) { // from class: com.baidu.wallet.base.widget.dialog.listener.DelegateOnCancleListener.2
+        this.f50856b.setOnDismissListener(new DialogInterface.OnDismissListener(this) { // from class: com.baidu.wallet.base.widget.dialog.listener.DelegateOnCancleListener.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DelegateOnCancleListener a;
@@ -106,7 +106,7 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
                     LogUtil.d(DelegateOnCancleListener.a, "Dialog.onDismiss");
-                    this.a.f50811b = null;
+                    this.a.f50856b = null;
                     this.a.mOnCancleListener = null;
                 }
             }

@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
 import com.baidu.walletsdk.pay.R;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class b extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GetCardInfoResponse.ProtocolPlatformItem[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f52477b;
+    public Context f52522b;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class b extends BaseAdapter {
             }
         }
         this.a = protocolPlatformItemArr;
-        this.f52477b = context.getApplicationContext();
+        this.f52522b = context.getApplicationContext();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -95,7 +95,7 @@ public class b extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 aVar = new a();
-                view2 = LayoutInflater.from(this.f52477b).inflate(R.layout.wallet_cashdesk_bind_card_protocol_list_item_view, viewGroup, false);
+                view2 = LayoutInflater.from(this.f52522b).inflate(R.layout.wallet_cashdesk_bind_card_protocol_list_item_view, viewGroup, false);
                 aVar.a = (TextView) view2.findViewById(R.id.tv_protocol_name);
                 view2.setTag(aVar);
             } else {

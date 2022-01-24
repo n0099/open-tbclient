@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class b {
-    public Set<InterfaceC2133b> a;
+    public Set<InterfaceC2139b> a;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -13,7 +13,7 @@ public class b {
 
     /* renamed from: com.kwad.sdk.reward.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC2133b {
+    public interface InterfaceC2139b {
         void onPageClose();
     }
 
@@ -25,9 +25,9 @@ public class b {
         return a.a;
     }
 
-    public void a(InterfaceC2133b interfaceC2133b) {
-        if (interfaceC2133b != null) {
-            this.a.add(interfaceC2133b);
+    public void a(InterfaceC2139b interfaceC2139b) {
+        if (interfaceC2139b != null) {
+            this.a.add(interfaceC2139b);
         }
     }
 
@@ -35,12 +35,12 @@ public class b {
         if (this.a.size() == 0) {
             return;
         }
-        for (InterfaceC2133b interfaceC2133b : this.a) {
-            interfaceC2133b.onPageClose();
+        for (InterfaceC2139b interfaceC2139b : this.a) {
+            interfaceC2139b.onPageClose();
         }
     }
 
-    public void b(InterfaceC2133b interfaceC2133b) {
-        this.a.remove(interfaceC2133b);
+    public void b(InterfaceC2139b interfaceC2139b) {
+        this.a.remove(interfaceC2139b);
     }
 }

@@ -30,29 +30,29 @@ public class a implements e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f11333c;
+    public static final boolean f11475c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long f11334d;
+    public static final long f11476d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c f11335e;
+    public static final c f11477e;
     public transient /* synthetic */ FieldHolder $fh;
     public LocationClient a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LocationClientOption f11336b;
+    public LocationClientOption f11478b;
 
     /* renamed from: c.a.r0.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0783a implements Runnable {
+    public class RunnableC0792a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11337e;
+        public final /* synthetic */ a f11479e;
 
-        public RunnableC0783a(a aVar) {
+        public RunnableC0792a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,14 +67,14 @@ public class a implements e {
                     return;
                 }
             }
-            this.f11337e = aVar;
+            this.f11479e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11337e.a.requestLocation();
+                this.f11479e.a.requestLocation();
             }
         }
     }
@@ -103,7 +103,7 @@ public class a implements e {
         @Override // c.a.r0.a.c1.d.e.a
         public void a(c.a.r0.a.f2.f.j0.b bVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && a.f11333c) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && a.f11475c) {
                 String str = "onWarmUpSuccess::= result=" + bVar;
             }
         }
@@ -111,7 +111,7 @@ public class a implements e {
         @Override // c.a.r0.a.c1.d.e.a
         public void onFailed(int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && a.f11333c) {
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && a.f11475c) {
                 String str = "onWarmUpFailed:: errCode=" + i2;
             }
         }
@@ -124,13 +124,13 @@ public class a implements e {
         public LocationClient a;
 
         /* renamed from: b  reason: collision with root package name */
-        public e.a f11339b;
+        public e.a f11481b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f11340c;
+        public String f11482c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f11341d;
+        public boolean f11483d;
 
         public d(LocationClient locationClient, e.a aVar, String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -148,9 +148,9 @@ public class a implements e {
                 }
             }
             this.a = locationClient;
-            this.f11339b = aVar;
-            this.f11340c = str;
-            this.f11341d = z;
+            this.f11481b = aVar;
+            this.f11482c = str;
+            this.f11483d = z;
         }
 
         @Override // com.baidu.location.BDAbstractLocationListener
@@ -160,14 +160,14 @@ public class a implements e {
                 this.a.unRegisterLocationListener(this);
                 int locType = bDLocation.getLocType();
                 if (a.q(locType)) {
-                    a.f11335e.update(bDLocation);
-                    if (this.f11341d) {
+                    a.f11477e.update(bDLocation);
+                    if (this.f11483d) {
                         return;
                     }
-                    this.f11339b.a(a.o(bDLocation, this.f11340c));
-                } else if (this.f11341d) {
+                    this.f11481b.a(a.o(bDLocation, this.f11482c));
+                } else if (this.f11483d) {
                 } else {
-                    this.f11339b.onFailed(locType);
+                    this.f11481b.onFailed(locType);
                 }
             }
         }
@@ -186,9 +186,9 @@ public class a implements e {
                 return;
             }
         }
-        f11333c = k.a;
-        f11334d = TimeUnit.MINUTES.toMillis(3L);
-        f11335e = new c(null);
+        f11475c = k.a;
+        f11476d = TimeUnit.MINUTES.toMillis(3L);
+        f11477e = new c(null);
     }
 
     public a() {
@@ -259,7 +259,7 @@ public class a implements e {
     public void b(String str, boolean z, boolean z2, e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), aVar}) == null) {
-            BDLocation c2 = f11335e.c(p());
+            BDLocation c2 = f11477e.c(p());
             boolean z3 = c2 != null;
             if (z3) {
                 aVar.a(o(c2, str));
@@ -272,13 +272,13 @@ public class a implements e {
                 locationClientOption.setIgnoreKillProcess(true);
                 locationClientOption.setIsNeedAddress(true);
                 this.a.setLocOption(locationClientOption);
-                this.f11336b = locationClientOption;
+                this.f11478b = locationClientOption;
                 this.a.start();
             }
             this.a.registerLocationListener(new d(this.a, aVar, str, z3));
-            this.f11336b.setIsNeedAltitude(z2);
-            this.a.setLocOption(this.f11336b);
-            q0.a0(new RunnableC0783a(this));
+            this.f11478b.setIsNeedAltitude(z2);
+            this.a.setLocOption(this.f11478b);
+            q0.a0(new RunnableC0792a(this));
         }
     }
 
@@ -294,8 +294,8 @@ public class a implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             long p = p();
-            if (f11335e.f11338b == null || (p > 0 && !f11335e.d(p))) {
-                boolean z = f11333c;
+            if (f11477e.f11480b == null || (p > 0 && !f11477e.d(p))) {
+                boolean z = f11475c;
                 b("gcj02", false, true, new b(this));
             }
         }
@@ -319,7 +319,7 @@ public class a implements e {
     public double[] g(@NonNull c.a.r0.a.f2.f.j0.b bVar, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bVar, str)) == null) ? n(bVar.f6036b, bVar.f6037c, bVar.a, str) : (double[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bVar, str)) == null) ? n(bVar.f6178b, bVar.f6179c, bVar.a, str) : (double[]) invokeLL.objValue;
     }
 
     @Override // c.a.r0.a.c1.d.e
@@ -327,7 +327,7 @@ public class a implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            BDLocation bDLocation = f11335e.f11338b;
+            BDLocation bDLocation = f11477e.f11480b;
             if (bDLocation == null) {
                 return null;
             }
@@ -364,7 +364,7 @@ public class a implements e {
     public final long p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? f11334d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? f11476d : invokeV.longValue;
     }
 
     /* loaded from: classes6.dex */
@@ -374,7 +374,7 @@ public class a implements e {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BDLocation f11338b;
+        public BDLocation f11480b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -397,7 +397,7 @@ public class a implements e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bDLocation) == null) {
                 synchronized (this) {
-                    this.f11338b = bDLocation;
+                    this.f11480b = bDLocation;
                     this.a = System.currentTimeMillis();
                 }
             }
@@ -409,7 +409,7 @@ public class a implements e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
                 synchronized (this) {
-                    bDLocation = d(j2) ? this.f11338b : null;
+                    bDLocation = d(j2) ? this.f11480b : null;
                 }
                 return bDLocation;
             }
@@ -423,10 +423,10 @@ public class a implements e {
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
                 synchronized (this) {
                     long currentTimeMillis = System.currentTimeMillis() - this.a;
-                    boolean z2 = this.f11338b != null;
+                    boolean z2 = this.f11480b != null;
                     boolean z3 = currentTimeMillis < j2;
                     z = z2 && z3;
-                    if (a.f11333c) {
+                    if (a.f11475c) {
                         String.format("hitCache[%b] hasInfo[%b] isAgeOk[%b] cacheAge[%d] timeout[%d]", Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Long.valueOf(currentTimeMillis), Long.valueOf(j2));
                     }
                 }
@@ -435,7 +435,7 @@ public class a implements e {
             return invokeJ.booleanValue;
         }
 
-        public /* synthetic */ c(RunnableC0783a runnableC0783a) {
+        public /* synthetic */ c(RunnableC0792a runnableC0792a) {
             this();
         }
     }

@@ -4,28 +4,28 @@ public final class b {
     public static final Boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f55439b;
+    public static final Boolean f55484b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Boolean f55440c;
+    public static final Boolean f55485c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Boolean f55441d;
+    public static final Boolean f55486d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Boolean f55442e;
+    public static final Boolean f55487e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Boolean f55443f;
+    public static final Boolean f55488f;
 
     static {
         Boolean bool = Boolean.TRUE;
         a = bool;
-        f55439b = bool;
+        f55484b = bool;
         Boolean bool2 = Boolean.FALSE;
-        f55440c = bool2;
-        f55441d = bool2;
-        f55442e = bool2;
-        f55443f = bool2;
+        f55485c = bool2;
+        f55486d = bool2;
+        f55487e = bool2;
+        f55488f = bool2;
     }
 }

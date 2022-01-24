@@ -17,7 +17,7 @@ public class b {
     public UnitedSchemeEntity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CallbackHandler f7204b;
+    public CallbackHandler f7346b;
 
     public b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class b {
             }
         }
         this.a = unitedSchemeEntity;
-        this.f7204b = callbackHandler;
+        this.f7346b = callbackHandler;
     }
 
     public static b a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -47,14 +47,14 @@ public class b {
     public void b(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
-            UnitedSchemeUtility.safeCallback(this.f7204b, this.a, UnitedSchemeUtility.wrapCallbackParams(i2, str2).toString(), str);
+            UnitedSchemeUtility.safeCallback(this.f7346b, this.a, UnitedSchemeUtility.wrapCallbackParams(i2, str2).toString(), str);
         }
     }
 
     public void c(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            UnitedSchemeUtility.safeCallback(this.f7204b, this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+            UnitedSchemeUtility.safeCallback(this.f7346b, this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
         }
     }
 
@@ -69,7 +69,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
             UnitedSchemeEntity unitedSchemeEntity = this.a;
-            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(this.f7204b, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(this.f7346b, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
         }
     }
 }

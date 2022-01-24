@@ -26,35 +26,35 @@ public class a implements c.a.r0.a.y0.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f12001e;
+    public static final boolean f12143e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.InterfaceC0622a f12002b;
+    public a.InterfaceC0631a f12144b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CyberExtractor f12003c;
+    public CyberExtractor f12145c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f12004d;
+    public volatile boolean f12146d;
 
     /* renamed from: c.a.r0.y.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0815a implements Runnable {
+    public class RunnableC0824a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12005e;
+        public final /* synthetic */ String f12147e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Map f12006f;
+        public final /* synthetic */ Map f12148f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f12007g;
+        public final /* synthetic */ a f12149g;
 
-        public RunnableC0815a(a aVar, String str, Map map) {
+        public RunnableC0824a(a aVar, String str, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,23 +69,23 @@ public class a implements c.a.r0.a.y0.f.a {
                     return;
                 }
             }
-            this.f12007g = aVar;
-            this.f12005e = str;
-            this.f12006f = map;
+            this.f12149g = aVar;
+            this.f12147e = str;
+            this.f12148f = map;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f12007g.f12004d) {
-                    boolean unused = a.f12001e;
+                if (this.f12149g.f12146d) {
+                    boolean unused = a.f12143e;
                     return;
                 }
-                this.f12007g.f12003c.setDataSource(this.f12007g.getContext(), Uri.parse(c.a.r0.a.y0.j.a.a(this.f12005e)), this.f12006f);
-                Bundle metaData = this.f12007g.f12003c.getMetaData();
-                if (this.f12007g.f12002b != null) {
-                    this.f12007g.f12002b.a(metaData);
+                this.f12149g.f12145c.setDataSource(this.f12149g.getContext(), Uri.parse(c.a.r0.a.y0.j.a.a(this.f12147e)), this.f12148f);
+                Bundle metaData = this.f12149g.f12145c.getMetaData();
+                if (this.f12149g.f12144b != null) {
+                    this.f12149g.f12144b.a(metaData);
                 }
             }
         }
@@ -104,7 +104,7 @@ public class a implements c.a.r0.a.y0.f.a {
                 return;
             }
         }
-        f12001e = k.a;
+        f12143e = k.a;
     }
 
     public a(ZeusPluginFactory.Invoker invoker, String str) {
@@ -123,14 +123,14 @@ public class a implements c.a.r0.a.y0.f.a {
             }
         }
         this.a = str;
-        this.f12004d = false;
+        this.f12146d = false;
     }
 
     @Override // c.a.r0.a.y0.d
     public void A(@NonNull d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f12003c = new CyberExtractor(true);
+            this.f12145c = new CyberExtractor(true);
             aVar.a(true);
         }
     }
@@ -155,7 +155,7 @@ public class a implements c.a.r0.a.y0.f.a {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, map) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        q.j(new RunnableC0815a(this, str, map), "loadMetadata");
+        q.j(new RunnableC0824a(this, str, map), "loadMetadata");
     }
 
     @Override // c.a.r0.a.y0.d
@@ -173,25 +173,25 @@ public class a implements c.a.r0.a.y0.f.a {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f12004d = true;
-            CyberExtractor cyberExtractor = this.f12003c;
+            this.f12146d = true;
+            CyberExtractor cyberExtractor = this.f12145c;
             if (cyberExtractor != null) {
                 cyberExtractor.release();
             }
-            this.f12003c = null;
-            a.InterfaceC0622a interfaceC0622a = this.f12002b;
-            if (interfaceC0622a != null) {
-                interfaceC0622a.onRelease();
+            this.f12145c = null;
+            a.InterfaceC0631a interfaceC0631a = this.f12144b;
+            if (interfaceC0631a != null) {
+                interfaceC0631a.onRelease();
             }
-            this.f12002b = null;
+            this.f12144b = null;
         }
     }
 
     @Override // c.a.r0.a.y0.f.a
-    public void w(a.InterfaceC0622a interfaceC0622a) {
+    public void w(a.InterfaceC0631a interfaceC0631a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0622a) == null) {
-            this.f12002b = interfaceC0622a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0631a) == null) {
+            this.f12144b = interfaceC0631a;
         }
     }
 }

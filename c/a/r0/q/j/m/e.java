@@ -12,13 +12,13 @@ public class e extends h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11578d;
+    public String f11720d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11579e;
+    public String f11721e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f11580f;
+    public long f11722f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(String str, String str2, long j2, int i2) {
@@ -38,34 +38,34 @@ public class e extends h {
                 return;
             }
         }
-        this.f11578d = str;
-        this.f11579e = str2;
-        this.f11580f = j2;
+        this.f11720d = str;
+        this.f11721e = str2;
+        this.f11722f = j2;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11578d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11720d : (String) invokeV.objValue;
     }
 
     public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11580f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11722f : invokeV.longValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11579e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11721e : (String) invokeV.objValue;
     }
 
     public e i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f11579e = str;
+            this.f11721e = str;
             return this;
         }
         return (e) invokeL.objValue;

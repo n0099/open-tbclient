@@ -6,20 +6,22 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.h.b;
 import c.a.d.a.h;
 import c.a.d.f.p.f;
 import c.a.d.h.c;
 import c.a.k0.b.a.e;
-import c.a.s0.e1.z;
+import c.a.s0.d1.z;
+import c.a.s0.s.i0.b;
 import c.a.s0.s0.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.NPSHookManager;
 import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.performance.speed.SpeedRuntime;
 import com.baidu.searchbox.performance.speed.SpeedStats;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule;
 import com.baidu.searchbox.taskmanager.ApplicationTaskPool;
@@ -33,6 +35,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.HashSet;
 /* loaded from: classes12.dex */
 public class TiebaBaseApplication extends TbadkApplication {
     public static /* synthetic */ Interceptable $ic;
@@ -90,6 +94,7 @@ public class TiebaBaseApplication extends TbadkApplication {
 
     private void initAndStartLaunchTaskSchedule() {
         int i2;
+        String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             if (isMainProcess(false)) {
@@ -99,7 +104,14 @@ public class TiebaBaseApplication extends TbadkApplication {
             } else {
                 i2 = isYunPushProcess() ? 256 : 268435456;
             }
-            LaunchTaskSchedule.getInstance().init(i2, new ApplicationTaskPool());
+            HashSet<String> hashSet = new HashSet<>();
+            if (SpeedRuntime.getSpeedContext().isMainProcess()) {
+                String q = b.k().q("key_sync_task_switch", "");
+                if (!StringUtils.isNull(q) && (split = q.split("_")) != null && split.length > 0) {
+                    Collections.addAll(hashSet, split);
+                }
+            }
+            LaunchTaskSchedule.getInstance().init(i2, new ApplicationTaskPool(), hashSet);
             if (!LaunchUpSpeedSwitch.getIsOn()) {
                 LaunchTaskSchedule.getInstance().startTask(1);
                 LaunchTaskSchedule.getInstance().startTask(2);
@@ -168,9 +180,6 @@ public class TiebaBaseApplication extends TbadkApplication {
             SpeedStatsManager.getInstance().addStatsTimeStamp(1002);
             super.attachBaseContext(context);
             this.mContext = context;
-            NPSHookManager.init(this);
-            c.e().g(this);
-            TitanIniter.init(this);
             AppConfig.init(false, false, false, false);
             fixOppoTimeout();
             SpeedStatsManager.getInstance().addStatsTimeStamp(1003);
@@ -178,7 +187,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             AppRuntimeInit.onApplicationattachBaseContext(this);
             e.b(this);
             if (isMainProcess(false, context)) {
-                c.a.s0.s.y.a.b(context);
+                c.a.s0.s.z.a.b(context);
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(1004);
             NPSHookManager.init(this);
@@ -187,12 +196,12 @@ public class TiebaBaseApplication extends TbadkApplication {
             TitanIniter.init(this);
             LoaderManager.getInstance().load();
             SpeedStatsManager.getInstance().addStatsTimeStamp(1012);
-            b.b(this);
+            c.a.c0.h.b.b(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(1010);
         }
     }
 
-    @Override // com.baidu.tbadk.TbadkApplication, com.baidu.tbadk.core.TbadkCoreApplication, android.app.Application
+    @Override // com.baidu.tbadk.TbadkApplication, com.baidu.tbadk.core.TbadkCoreApplication, com.baidu.adp.base.BdBaseApplication, android.app.Application
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -201,12 +210,12 @@ public class TiebaBaseApplication extends TbadkApplication {
             SpeedStatsManager.getInstance().addStatsTimeStamp(2000);
             TbadkApplication.sApp = this;
             if (isMainProcess(false)) {
-                c.a.s0.s.y.a.a();
+                c.a.s0.s.z.a.a();
             }
             this.mAppInitHandler = new a(this, Looper.getMainLooper());
             h.a().c(super.getResources());
             initBdBaseApp(this);
-            super.onCreate(this);
+            super.onCreate();
             SpeedStatsManager.getInstance().addStatsTimeStamp(2001);
             initIdleLaunchTaskManager();
             SpeedStatsManager.getInstance().addStatsTimeStamp(2002);
@@ -218,7 +227,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             }
             l.b().G(System.currentTimeMillis());
             if (isMainProcess(false)) {
-                c.a.s0.s.y.a.h();
+                c.a.s0.s.z.a.h();
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(2004);
             SpeedStats.getInstance().onAppCreateEnd();

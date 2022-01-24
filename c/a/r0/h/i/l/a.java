@@ -15,31 +15,31 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10496b;
+    public String f10638b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10497c;
+    public String f10639c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f10498d;
+    public String f10640d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f10499e;
+    public String f10641e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10500f;
+    public String f10642f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f10501g;
+    public String f10643g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f10502h;
+    public String f10644h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f10503i;
+    public String f10645i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f10504j;
+    public String f10646j;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -62,23 +62,23 @@ public class a {
         try {
             JSONObject jSONObject = new JSONObject(str).getJSONObject("data");
             this.a = jSONObject.optString("download_state", "");
-            this.f10504j = jSONObject.optString("download_hint", "");
+            this.f10646j = jSONObject.optString("download_hint", "");
             JSONObject optJSONObject = jSONObject.optJSONObject("app_info");
             if (optJSONObject != null) {
-                this.f10496b = optJSONObject.optString("app_name", "");
-                this.f10497c = optJSONObject.optString("developer_name", "");
-                this.f10498d = optJSONObject.optString("app_icon", "");
+                this.f10638b = optJSONObject.optString("app_name", "");
+                this.f10639c = optJSONObject.optString("developer_name", "");
+                this.f10640d = optJSONObject.optString("app_icon", "");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("privacy");
                 if (optJSONObject2 != null) {
-                    this.f10500f = optJSONObject2.optString("cmd", "");
+                    this.f10642f = optJSONObject2.optString("cmd", "");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("permission");
                 if (optJSONObject3 != null) {
-                    this.f10501g = optJSONObject3.optString("cmd", "");
+                    this.f10643g = optJSONObject3.optString("cmd", "");
                 }
-                this.f10502h = optJSONObject.optString("apk_url", "");
-                this.f10499e = optJSONObject.optString("version", "");
-                this.f10503i = optJSONObject.optString("apk_size", "");
+                this.f10644h = optJSONObject.optString("apk_url", "");
+                this.f10641e = optJSONObject.optString("version", "");
+                this.f10645i = optJSONObject.optString("apk_size", "");
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -88,31 +88,31 @@ public class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10503i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10645i : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10502h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10644h : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10496b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10638b : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f10497c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f10639c : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f10504j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f10646j : (String) invokeV.objValue;
     }
 
     public String f() {
@@ -124,24 +124,24 @@ public class a {
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f10498d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f10640d : (String) invokeV.objValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f10501g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f10643g : (String) invokeV.objValue;
     }
 
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f10500f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f10642f : (String) invokeV.objValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f10499e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f10641e : (String) invokeV.objValue;
     }
 }

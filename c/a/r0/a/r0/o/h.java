@@ -14,7 +14,7 @@ public class h {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8603b;
+    public int f8745b;
     @V8JavascriptField
     public String errMsg;
     @V8JavascriptField
@@ -35,14 +35,14 @@ public class h {
         }
         this.a = 0;
         this.a = 0 + 1;
-        this.f8603b = 0;
+        this.f8745b = 0;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "StatCallBack" + this.f8603b;
+            return "StatCallBack" + this.f8745b;
         }
         return (String) invokeV.objValue;
     }

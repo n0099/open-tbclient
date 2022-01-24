@@ -11,7 +11,7 @@ public class b extends Presenter {
     public com.kwad.sdk.splashscreen.g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsLogoView f57765b;
+    public KsLogoView f57810b;
 
     private void a(ViewGroup viewGroup) {
         DisplayMetrics displayMetrics = viewGroup.getContext().getResources().getDisplayMetrics();
@@ -31,18 +31,18 @@ public class b extends Presenter {
         super.a();
         com.kwad.sdk.splashscreen.g gVar = (com.kwad.sdk.splashscreen.g) p();
         this.a = gVar;
-        KsLogoView ksLogoView = (KsLogoView) gVar.f57876e.findViewById(R.id.ksad_splash_logo_container);
-        this.f57765b = ksLogoView;
+        KsLogoView ksLogoView = (KsLogoView) gVar.f57921e.findViewById(R.id.ksad_splash_logo_container);
+        this.f57810b = ksLogoView;
         a((ViewGroup) ksLogoView);
-        if (this.a.f57875d.adInfoList.isEmpty() || (adSplashInfo = this.a.f57875d.adInfoList.get(0).adSplashInfo) == null) {
+        if (this.a.f57920d.adInfoList.isEmpty() || (adSplashInfo = this.a.f57920d.adInfoList.get(0).adSplashInfo) == null) {
             return;
         }
         if (adSplashInfo.logoPosition == 0) {
-            this.f57765b.setVisibility(8);
+            this.f57810b.setVisibility(8);
             return;
         }
-        this.f57765b.setVisibility(0);
-        this.f57765b.a(this.a.f57875d);
+        this.f57810b.setVisibility(0);
+        this.f57810b.a(this.a.f57920d);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

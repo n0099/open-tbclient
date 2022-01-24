@@ -13,31 +13,31 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f10445b;
+    public boolean f10587b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10446c;
+    public String f10588c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f10447d;
+    public int f10589d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f10448e;
+    public int f10590e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f10449f;
+    public boolean f10591f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f10450g;
+    public boolean f10592g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f10451h;
+    public String f10593h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f10452i;
+    public int f10594i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f10453j;
+    public boolean f10595j;
     public String k;
     public String l;
     public boolean m;
@@ -69,14 +69,14 @@ public class a {
             }
         }
         this.a = "";
-        this.f10445b = false;
-        this.f10446c = "";
-        this.f10447d = 0;
-        this.f10448e = 0;
-        this.f10449f = false;
-        this.f10450g = false;
-        this.f10451h = "";
-        this.f10452i = 0;
+        this.f10587b = false;
+        this.f10588c = "";
+        this.f10589d = 0;
+        this.f10590e = 0;
+        this.f10591f = false;
+        this.f10592g = false;
+        this.f10593h = "";
+        this.f10594i = 0;
         this.k = "";
         this.l = "";
         this.m = false;
@@ -96,7 +96,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "VideoPlayerParams{mPlayerId='" + this.a + ExtendedMessageFormat.QUOTE + ", mMute=" + this.f10445b + ", mPoster='" + this.f10446c + ExtendedMessageFormat.QUOTE + ", mInitialTime=" + this.f10447d + ", duration=" + this.f10448e + ", mAutoPlay=" + this.f10449f + ", mLoop=" + this.f10450g + ", mObjectFit='" + this.f10451h + ExtendedMessageFormat.QUOTE + ", mPos=" + this.f10452i + ", mFullScreen=" + this.f10453j + ", mDanmu='" + this.k + ExtendedMessageFormat.QUOTE + ", mDanmuList='" + this.l + ExtendedMessageFormat.QUOTE + ", mEnableDanmu=" + this.m + ", mShowDanmuBtn=" + this.n + ", mShowControlPanel=" + this.o + ", mSrc='" + this.p + ExtendedMessageFormat.QUOTE + ", mSanId='" + this.q + ExtendedMessageFormat.QUOTE + ", mShowPlayBtn=" + this.r + ", mShowMuteBtn=" + this.s + ", mShowCenterPlayBtn=" + this.t + ", mPageGesture=" + this.u + ", mShowProgress=" + this.v + ", mDirection=" + this.w + ", mShowFullscreenBtn=" + this.x + ", mEnableProgressGesture=" + this.y + ", mIsRemoteFile=" + this.z + ExtendedMessageFormat.END_FE;
+            return "VideoPlayerParams{mPlayerId='" + this.a + ExtendedMessageFormat.QUOTE + ", mMute=" + this.f10587b + ", mPoster='" + this.f10588c + ExtendedMessageFormat.QUOTE + ", mInitialTime=" + this.f10589d + ", duration=" + this.f10590e + ", mAutoPlay=" + this.f10591f + ", mLoop=" + this.f10592g + ", mObjectFit='" + this.f10593h + ExtendedMessageFormat.QUOTE + ", mPos=" + this.f10594i + ", mFullScreen=" + this.f10595j + ", mDanmu='" + this.k + ExtendedMessageFormat.QUOTE + ", mDanmuList='" + this.l + ExtendedMessageFormat.QUOTE + ", mEnableDanmu=" + this.m + ", mShowDanmuBtn=" + this.n + ", mShowControlPanel=" + this.o + ", mSrc='" + this.p + ExtendedMessageFormat.QUOTE + ", mSanId='" + this.q + ExtendedMessageFormat.QUOTE + ", mShowPlayBtn=" + this.r + ", mShowMuteBtn=" + this.s + ", mShowCenterPlayBtn=" + this.t + ", mPageGesture=" + this.u + ", mShowProgress=" + this.v + ", mDirection=" + this.w + ", mShowFullscreenBtn=" + this.x + ", mEnableProgressGesture=" + this.y + ", mIsRemoteFile=" + this.z + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

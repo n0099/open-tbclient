@@ -1,6 +1,6 @@
 package com.baidu.tieba.newfaceshop;
 
-import c.a.t0.n2.d;
+import c.a.t0.o2.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;

@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StatHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BANK_CODE = "bank_code";
@@ -56,14 +56,14 @@ public class StatHelper {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f54050b = false;
+    public static boolean f54095b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f54051c = "";
+    public static String f54096c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Key {
         public static final /* synthetic */ Key[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -228,7 +228,7 @@ public class StatHelper {
         if (a) {
             hashMap.put(PAY_BANKSIGN, "1");
         }
-        if (f54050b) {
+        if (f54095b) {
             hashMap.put(PAY_CATEGORY, "1");
         }
         if ("4".equals(getPayFrom())) {
@@ -460,7 +460,7 @@ public class StatHelper {
     public static void clearProcesssId() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65566, null) == null) {
-            f54051c = null;
+            f54096c = null;
         }
     }
 
@@ -486,7 +486,7 @@ public class StatHelper {
             a.c(Key.alipayVersion.name(), null);
             a.c(Key.signChannel.name(), null);
             a = false;
-            f54050b = false;
+            f54095b = false;
         }
     }
 
@@ -646,11 +646,11 @@ public class StatHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65590, null)) == null) {
-            if (!TextUtils.isEmpty(f54051c)) {
-                return f54051c;
+            if (!TextUtils.isEmpty(f54096c)) {
+                return f54096c;
             }
             String a2 = a();
-            f54051c = a2;
+            f54096c = a2;
             return a2;
         }
         return (String) invokeV.objValue;
@@ -760,7 +760,7 @@ public class StatHelper {
     public static void setDowngrade(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65602, null, z) == null) {
-            f54050b = z;
+            f54095b = z;
         }
     }
 

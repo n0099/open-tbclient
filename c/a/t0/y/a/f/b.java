@@ -22,11 +22,11 @@ public class b extends c.a.k0.b.b.a<c.a.c0.h.f> {
 
         /* renamed from: c.a.t0.y.a.f.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C1548a implements g {
+        public class C1528a implements g {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1548a(a aVar) {
+            public C1528a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,7 +191,7 @@ public class b extends c.a.k0.b.b.a<c.a.c0.h.f> {
         public g a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1548a(this) : (g) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1528a(this) : (g) invokeV.objValue;
         }
     }
 

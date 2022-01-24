@@ -26,7 +26,7 @@ public final class d {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f6267b;
+    public static c f6409b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -66,7 +66,7 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.d f6268e;
+        public final /* synthetic */ e.d f6410e;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -74,7 +74,7 @@ public final class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f6269e;
+            public final /* synthetic */ b f6411e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public final class d {
                         return;
                     }
                 }
-                this.f6269e = bVar;
+                this.f6411e = bVar;
             }
 
             @Override // java.lang.Runnable
@@ -100,9 +100,9 @@ public final class d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (c.a.r0.a.z2.d.a()) {
-                        decodeFile = u.e(this.f6269e.f6268e.f6285b);
+                        decodeFile = u.e(this.f6411e.f6410e.f6427b);
                     } else {
-                        decodeFile = BitmapFactory.decodeFile(this.f6269e.f6268e.a);
+                        decodeFile = BitmapFactory.decodeFile(this.f6411e.f6410e.a);
                     }
                     File k = u.k("screenshot.jpg");
                     if (decodeFile != null) {
@@ -135,7 +135,7 @@ public final class d {
                     return;
                 }
             }
-            this.f6268e = dVar;
+            this.f6410e = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -194,10 +194,10 @@ public final class d {
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             e.s(c.a.r0.a.c1.a.c());
             boolean z = a;
-            if (f6267b == null) {
-                f6267b = new a();
+            if (f6409b == null) {
+                f6409b = new a();
             }
-            e.r(f6267b);
+            e.r(f6409b);
         }
     }
 
@@ -214,17 +214,17 @@ public final class d {
         if (!(interceptable == null || interceptable.invokeL(65545, null, dVar) == null) || (activity = f.U().getActivity()) == null) {
             return;
         }
-        c.a.r0.a.c1.a.f0().b(activity, dVar.a, dVar.f6285b);
+        c.a.r0.a.c1.a.f0().b(activity, dVar.a, dVar.f6427b);
     }
 
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
             boolean z = a;
-            c cVar = f6267b;
+            c cVar = f6409b;
             if (cVar != null) {
                 e.u(cVar);
-                f6267b = null;
+                f6409b = null;
             }
         }
     }

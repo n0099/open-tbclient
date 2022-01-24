@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.w3.p0.d;
-import c.a.t0.x1.i;
-import c.a.t0.x1.o.f;
+import c.a.t0.x3.p0.d;
+import c.a.t0.y1.i;
+import c.a.t0.y1.o.f;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -33,19 +33,19 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f45578f;
+    public ViewGroup f45606f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f45579g;
+    public TbImageView f45607g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LineCountNotifyTextView f45580h;
+    public LineCountNotifyTextView f45608h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f45581i;
+    public TextView f45609i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f45582j;
+    public TextView f45610j;
     public LinearLayout k;
     public TbImageView l;
     public TextView m;
@@ -62,7 +62,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         public final /* synthetic */ OnePicInfoCard a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ OnePicInfoCardView f45583b;
+        public final /* synthetic */ OnePicInfoCardView f45611b;
 
         public a(OnePicInfoCardView onePicInfoCardView, OnePicInfoCard onePicInfoCard) {
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
                     return;
                 }
             }
-            this.f45583b = onePicInfoCardView;
+            this.f45611b = onePicInfoCardView;
             this.a = onePicInfoCard;
         }
 
@@ -87,16 +87,16 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int lineCount = this.f45583b.f45580h.getLineCount();
-                if (this.f45583b.r != lineCount) {
+                int lineCount = this.f45611b.f45608h.getLineCount();
+                if (this.f45611b.r != lineCount) {
                     if (lineCount == 1) {
-                        this.f45583b.f45581i.setMaxLines(2);
+                        this.f45611b.f45609i.setMaxLines(2);
                     } else {
-                        this.f45583b.f45581i.setMaxLines(1);
+                        this.f45611b.f45609i.setMaxLines(1);
                     }
                 }
-                this.f45583b.r = lineCount;
-                this.f45583b.f45581i.setText(this.a.getDesc());
+                this.f45611b.r = lineCount;
+                this.f45611b.f45609i.setText(this.a.getDesc());
             }
         }
     }
@@ -107,10 +107,10 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OnePicInfoCard f45584e;
+        public final /* synthetic */ OnePicInfoCard f45612e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ OnePicInfoCardView f45585f;
+        public final /* synthetic */ OnePicInfoCardView f45613f;
 
         public b(OnePicInfoCardView onePicInfoCardView, OnePicInfoCard onePicInfoCard) {
             Interceptable interceptable = $ic;
@@ -127,15 +127,15 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
                     return;
                 }
             }
-            this.f45585f = onePicInfoCardView;
-            this.f45584e = onePicInfoCard;
+            this.f45613f = onePicInfoCardView;
+            this.f45612e = onePicInfoCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f45585f.handleClickEvent(this.f45584e);
+                this.f45613f.handleClickEvent(this.f45612e);
             }
         }
     }
@@ -164,32 +164,32 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
 
     private void setTagBg(OnePicInfoCard onePicInfoCard) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, onePicInfoCard) == null) || this.f45582j == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, onePicInfoCard) == null) || this.f45610j == null) {
             return;
         }
-        if (onePicInfoCard != null && !c.a.t0.x1.o.k.b.a(onePicInfoCard.gettBgColor()) && !c.a.t0.x1.o.k.b.a(onePicInfoCard.gettBgColorN())) {
-            this.f45582j.setBackgroundColor(isNightMode() ? onePicInfoCard.gettBgColorN() : onePicInfoCard.gettBgColor());
+        if (onePicInfoCard != null && !c.a.t0.y1.o.k.b.a(onePicInfoCard.gettBgColor()) && !c.a.t0.y1.o.k.b.a(onePicInfoCard.gettBgColorN())) {
+            this.f45610j.setBackgroundColor(isNightMode() ? onePicInfoCard.gettBgColorN() : onePicInfoCard.gettBgColor());
         } else {
-            SkinManager.setBackgroundResource(this.f45582j, R.drawable.label_bg_tie_n);
+            SkinManager.setBackgroundResource(this.f45610j, R.drawable.label_bg_tie_n);
         }
     }
 
-    public final void g(TextView textView, TbImageView tbImageView, c.a.t0.x1.o.j.b bVar) {
+    public final void g(TextView textView, TbImageView tbImageView, c.a.t0.y1.o.j.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, textView, tbImageView, bVar) == null) {
-            String str = isNightMode() ? bVar.f25174b : bVar.a;
+            String str = isNightMode() ? bVar.f25455b : bVar.a;
             if (!TextUtils.isEmpty(str)) {
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 tbImageView.setVisibility(0);
                 tbImageView.startLoad(str, 10, false);
             } else {
                 tbImageView.setVisibility(8);
-                textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(f.a(bVar.f25175c)), (Drawable) null, (Drawable) null, (Drawable) null);
+                textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(f.a(bVar.f25456c)), (Drawable) null, (Drawable) null, (Drawable) null);
             }
             try {
-                textView.setText(StringHelper.numberUniformFormat(Long.parseLong(bVar.f25176d)));
+                textView.setText(StringHelper.numberUniformFormat(Long.parseLong(bVar.f25457d)));
             } catch (NumberFormatException unused) {
-                textView.setText(bVar.f25176d);
+                textView.setText(bVar.f25457d);
             }
         }
     }
@@ -200,19 +200,19 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.card_one_pic_info, (ViewGroup) null);
-            this.f45578f = viewGroup;
-            this.f45579g = (TbImageView) findViewById(viewGroup, R.id.img);
-            this.f45580h = (LineCountNotifyTextView) findViewById(this.f45578f, R.id.one_title);
-            this.f45581i = (TextView) findViewById(this.f45578f, R.id.discription);
-            View view = (View) findViewById(this.f45578f, R.id.hot_thread_comment);
-            this.f45582j = (TextView) findViewById(view, R.id.hot_thread_line_tag);
+            this.f45606f = viewGroup;
+            this.f45607g = (TbImageView) findViewById(viewGroup, R.id.img);
+            this.f45608h = (LineCountNotifyTextView) findViewById(this.f45606f, R.id.one_title);
+            this.f45609i = (TextView) findViewById(this.f45606f, R.id.discription);
+            View view = (View) findViewById(this.f45606f, R.id.hot_thread_comment);
+            this.f45610j = (TextView) findViewById(view, R.id.hot_thread_line_tag);
             this.k = (LinearLayout) findViewById(view, R.id.ll_left);
             this.l = (TbImageView) findViewById(view, R.id.iconLeft);
             this.m = (TextView) findViewById(view, R.id.textLeft);
             this.n = (LinearLayout) findViewById(view, R.id.ll_right);
             this.o = (TbImageView) findViewById(view, R.id.iconRight);
             this.p = (TextView) findViewById(view, R.id.textRight);
-            return this.f45578f;
+            return this.f45606f;
         }
         return (View) invokeV.objValue;
     }
@@ -224,13 +224,13 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, onePicInfoCard, i2) == null) {
             c.a.s0.x0.a.a(this.mContext, getRootView());
-            SkinManager.setBackgroundResource(this.f45578f, R.drawable.addresslist_item_bg);
+            SkinManager.setBackgroundResource(this.f45606f, R.drawable.addresslist_item_bg);
             setTagBg(onePicInfoCard);
-            SkinManager.setViewTextColor(this.f45582j, R.color.CAM_X0111);
+            SkinManager.setViewTextColor(this.f45610j, R.color.CAM_X0111);
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0110);
             SkinManager.setViewTextColor(this.p, R.color.CAM_X0110);
             int i3 = this.q;
-            if (i3 == 0 || (lineCountNotifyTextView = this.f45580h) == null) {
+            if (i3 == 0 || (lineCountNotifyTextView = this.f45608h) == null) {
                 return;
             }
             SkinManager.setViewTextColor(lineCountNotifyTextView, i3, 1);
@@ -252,17 +252,17 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     public void onUpdateCardView(OnePicInfoCard onePicInfoCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onePicInfoCard) == null) {
-            this.f45579g.startLoad(!TextUtils.isEmpty(onePicInfoCard.getPic()) ? onePicInfoCard.getPic() : null, 10, false);
+            this.f45607g.startLoad(!TextUtils.isEmpty(onePicInfoCard.getPic()) ? onePicInfoCard.getPic() : null, 10, false);
             if (!StringUtils.isNull(onePicInfoCard.getCardTitle())) {
-                this.f45580h.setText(onePicInfoCard.getCardTitle());
-                this.f45580h.setGetLineCountCallback(new a(this, onePicInfoCard));
+                this.f45608h.setText(onePicInfoCard.getCardTitle());
+                this.f45608h.setGetLineCountCallback(new a(this, onePicInfoCard));
             }
             if (StringUtils.isNull(onePicInfoCard.getTag())) {
-                this.f45582j.setVisibility(8);
+                this.f45610j.setVisibility(8);
             } else {
-                this.f45582j.setVisibility(0);
+                this.f45610j.setVisibility(0);
                 setTagBg(onePicInfoCard);
-                this.f45582j.setText(onePicInfoCard.getTag());
+                this.f45610j.setText(onePicInfoCard.getTag());
             }
             if (onePicInfoCard.getIconList() != null) {
                 this.k.setVisibility(8);
@@ -285,7 +285,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
             } else {
                 this.q = R.color.CAM_X0105;
             }
-            SkinManager.setViewTextColor(this.f45580h, this.q, 1);
+            SkinManager.setViewTextColor(this.f45608h, this.q, 1);
             setCardOnClickListener(new b(this, onePicInfoCard));
         }
     }

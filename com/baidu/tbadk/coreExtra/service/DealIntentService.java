@@ -76,7 +76,7 @@ public class DealIntentService extends BdBaseService {
         public Intent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ DealIntentService f40761b;
+        public final /* synthetic */ DealIntentService f40789b;
 
         public a(DealIntentService dealIntentService, Intent intent) {
             Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public class DealIntentService extends BdBaseService {
                     return;
                 }
             }
-            this.f40761b = dealIntentService;
+            this.f40789b = dealIntentService;
             this.a = null;
             this.a = intent;
         }
@@ -108,11 +108,11 @@ public class DealIntentService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 if (i2 == 6) {
-                    TiebaStatic.eventStat(this.f40761b, "notify_to_pk_before", "click");
+                    TiebaStatic.eventStat(this.f40789b, "notify_to_pk_before", "click");
                 } else if (i2 == 7) {
-                    TiebaStatic.eventStat(this.f40761b, "notify_to_pk_end", "click");
+                    TiebaStatic.eventStat(this.f40789b, "notify_to_pk_end", "click");
                 } else if (i2 == 8) {
-                    TiebaStatic.eventStat(this.f40761b, "notify_to_vote_list", "click");
+                    TiebaStatic.eventStat(this.f40789b, "notify_to_vote_list", "click");
                 } else if (i2 != 14) {
                 } else {
                     TiebaStatic.log(TbadkCoreStatisticKey.NOTIFY_GROUP_EVENT_CLICK);
@@ -199,7 +199,7 @@ public class DealIntentService extends BdBaseService {
                 }
                 if (b.f().b() != null) {
                     if (5 == this.a.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                        if (b.f().b().getClass().getName().equalsIgnoreCase(c.a.s0.s.d0.b.c())) {
+                        if (b.f().b().getClass().getName().equalsIgnoreCase(c.a.s0.s.e0.b.c())) {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 5);
                         } else {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 21);
@@ -210,7 +210,7 @@ public class DealIntentService extends BdBaseService {
                     return DealIntentService.ACTION_ON_POST_EXSIT;
                 }
                 if (i2 == 27) {
-                    TiebaStatic.eventStat(this.f40761b, "open_push", "start", 1, new Object[0]);
+                    TiebaStatic.eventStat(this.f40789b, "open_push", "start", 1, new Object[0]);
                 }
                 if (this.a.getExtras().getBoolean("is_notify", false)) {
                     b(i2);
@@ -228,7 +228,7 @@ public class DealIntentService extends BdBaseService {
                 if (str != null) {
                     if (!str.equals(DealIntentService.ACTION_ON_POST_EXSIT)) {
                         if (str.equals(DealIntentService.ACTION_ON_POST_START)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(this.f40761b, this.a)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(this.f40789b, this.a)));
                         }
                     } else {
                         this.a.addFlags(268435456);
@@ -237,7 +237,7 @@ public class DealIntentService extends BdBaseService {
                         MessageManager.getInstance().sendMessage(customMessage);
                     }
                 }
-                this.f40761b.stopSelf();
+                this.f40789b.stopSelf();
             }
         }
     }

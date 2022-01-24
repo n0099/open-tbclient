@@ -131,7 +131,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         WriteData writeData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65547, this) == null) && (writeData = this.mWriteData) != null && writeData.getType() == 3) {
-            c.a.s0.s.d0.b.g(getPageContext().getPageActivity(), 200, false);
+            c.a.s0.s.e0.b.g(getPageContext().getPageActivity(), 200, false);
         }
     }
 

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class a extends BaseCardInfo implements c.a.s0.b.f.n {
+public abstract class a extends BaseCardInfo implements c.a.s0.b.f.o {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BIG_IMG = 2;
     public static final int CONTENT = 1;
@@ -102,7 +102,7 @@ public abstract class a extends BaseCardInfo implements c.a.s0.b.f.n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ThreadCardUtils.isSelf(getThreadData()) : invokeV.booleanValue;
     }
 
-    @Override // c.a.s0.b.f.n
+    @Override // c.a.s0.b.f.o
     public void setABTest(BdUniqueId bdUniqueId, c.a.s0.b.e eVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, bdUniqueId, eVar) == null) || bdUniqueId == null) {
@@ -132,7 +132,7 @@ public abstract class a extends BaseCardInfo implements c.a.s0.b.f.n {
             if (threadData == null) {
                 return false;
             }
-            return threadData.b2 || threadData.e2 || threadData.M2();
+            return threadData.b2 || threadData.e2 || threadData.N2();
         }
         return invokeV.booleanValue;
     }
@@ -158,12 +158,12 @@ public abstract class a extends BaseCardInfo implements c.a.s0.b.f.n {
             if (threadData == null || threadData.J() == null || threadData.i2 || ThreadCardUtils.isSelf(threadData)) {
                 return false;
             }
-            boolean z = threadData.U1() || threadData.P1() || threadData.S1();
-            if ((!threadData.a2 || (!z && !threadData.M2())) && ((!threadData.c2 || (!z && !threadData.M2())) && (!threadData.isFromFrs() || (!z && !threadData.M2())))) {
+            boolean z = threadData.V1() || threadData.Q1() || threadData.T1();
+            if ((!threadData.a2 || (!z && !threadData.N2())) && ((!threadData.c2 || (!z && !threadData.N2())) && (!threadData.isFromFrs() || (!z && !threadData.N2())))) {
                 if (!threadData.d2) {
                     return false;
                 }
-                if (!z && !threadData.M2()) {
+                if (!z && !threadData.N2()) {
                     return false;
                 }
             }
@@ -175,13 +175,13 @@ public abstract class a extends BaseCardInfo implements c.a.s0.b.f.n {
     public boolean showNewPicCut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? c.a.s0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.s0.b.f.l.f12230c), "11_7_index_b") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? c.a.s0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.s0.b.f.m.f12376c), "11_7_index_b") : invokeV.booleanValue;
     }
 
     public boolean showNewUI() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? c.a.s0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.s0.b.f.l.f12230c), "11_7_index_a") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? c.a.s0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.s0.b.f.m.f12376c), "11_7_index_a") : invokeV.booleanValue;
     }
 
     public boolean showNoName() {
@@ -196,7 +196,7 @@ public abstract class a extends BaseCardInfo implements c.a.s0.b.f.n {
     public boolean showNoReadState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? c.a.s0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.s0.b.f.l.f12230c), "11_7_index_e") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? c.a.s0.b.d.d(getCurUsbAbTestSwitchByKey(c.a.s0.b.f.m.f12376c), "11_7_index_e") : invokeV.booleanValue;
     }
 
     public boolean showWeakenName() {

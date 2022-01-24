@@ -47,7 +47,7 @@ public class h {
                 c.a.r0.q.i.f fVar = (c.a.r0.q.i.f) t;
                 return a(eVar, t, fVar.l, fVar.n);
             } else if (t instanceof b.a) {
-                c.a.r0.q.i.g gVar = ((b.a) t).f11553d;
+                c.a.r0.q.i.g gVar = ((b.a) t).f11695d;
                 return a(eVar, t, gVar.l, gVar.n);
             } else {
                 return false;
@@ -104,7 +104,7 @@ public class h {
             ArrayList arrayList = new ArrayList();
             if (iVar != null && list != null && list.size() > 0) {
                 for (b.a aVar : list) {
-                    c.a.r0.q.i.g gVar = aVar.f11553d;
+                    c.a.r0.q.i.g gVar = aVar.f11695d;
                     if (gVar != null && b(aVar, iVar.w())) {
                         arrayList.add(new f(new e(gVar), aVar, new c(iVar.w())));
                     }

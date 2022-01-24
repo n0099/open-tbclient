@@ -76,9 +76,9 @@ public final class f {
     public static final int notification_template_icon_group = 2131560012;
     public static final int notification_template_part_chronometer = 2131560016;
     public static final int notification_template_part_time = 2131560017;
-    public static final int select_dialog_item_material = 2131560321;
-    public static final int select_dialog_multichoice_material = 2131560322;
-    public static final int select_dialog_singlechoice_material = 2131560323;
+    public static final int select_dialog_item_material = 2131560322;
+    public static final int select_dialog_multichoice_material = 2131560323;
+    public static final int select_dialog_singlechoice_material = 2131560324;
     public static final int support_simple_spinner_dropdown_item = 2131560412;
     public transient /* synthetic */ FieldHolder $fh;
 }

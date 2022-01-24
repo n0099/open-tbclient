@@ -25,16 +25,16 @@ public class WalletHomeMenuView extends LinearLayout implements BdMenu.OnMenuSet
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public HomeCfgResponse.TitleItemData[] f51156b;
+    public HomeCfgResponse.TitleItemData[] f51201b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f51157c;
+    public boolean f51202c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WalletMenuLayout f51158d;
+    public WalletMenuLayout f51203d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WalletMenuLayout.a f51159e;
+    public WalletMenuLayout.a f51204e;
 
     static {
         InterceptResult invokeClinit;
@@ -72,7 +72,7 @@ public class WalletHomeMenuView extends LinearLayout implements BdMenu.OnMenuSet
                 return;
             }
         }
-        this.f51157c = false;
+        this.f51202c = false;
         a();
     }
 
@@ -102,11 +102,11 @@ public class WalletHomeMenuView extends LinearLayout implements BdMenu.OnMenuSet
 
     public void layoutMenu(String str, HomeCfgResponse.TitleItemData[] titleItemDataArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, titleItemDataArr) == null) || this.f51157c) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, titleItemDataArr) == null) || this.f51202c) {
             return;
         }
-        this.f51156b = titleItemDataArr;
-        this.f51158d.setData(getContext(), str, titleItemDataArr, new WalletMenuLayout.a(this) { // from class: com.baidu.wallet.home.ui.widget.WalletHomeMenuView.1
+        this.f51201b = titleItemDataArr;
+        this.f51203d.setData(getContext(), str, titleItemDataArr, new WalletMenuLayout.a(this) { // from class: com.baidu.wallet.home.ui.widget.WalletHomeMenuView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WalletHomeMenuView a;
@@ -132,13 +132,13 @@ public class WalletHomeMenuView extends LinearLayout implements BdMenu.OnMenuSet
             @Override // com.baidu.wallet.home.ui.widget.WalletMenuLayout.a
             public void a(HomeCfgResponse.TitleItemData titleItemData) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, titleItemData) == null) || this.a.f51159e == null || this.a.f51156b == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, titleItemData) == null) || this.a.f51204e == null || this.a.f51201b == null) {
                     return;
                 }
-                this.a.f51159e.a(titleItemData);
+                this.a.f51204e.a(titleItemData);
             }
         });
-        this.f51157c = true;
+        this.f51202c = true;
     }
 
     @Override // com.baidu.wallet.base.widget.BdMenu.OnMenuSetChangedListener
@@ -152,14 +152,14 @@ public class WalletHomeMenuView extends LinearLayout implements BdMenu.OnMenuSet
     public void onMenuSetChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f51157c = false;
+            this.f51202c = false;
         }
     }
 
     public void setMenuSelectListener(WalletMenuLayout.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f51159e = aVar;
+            this.f51204e = aVar;
         }
     }
 
@@ -168,7 +168,7 @@ public class WalletHomeMenuView extends LinearLayout implements BdMenu.OnMenuSet
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_menu_view"), this);
             WalletMenuLayout walletMenuLayout = (WalletMenuLayout) findViewById(ResUtils.id(getContext(), "listview"));
-            this.f51158d = walletMenuLayout;
+            this.f51203d = walletMenuLayout;
             walletMenuLayout.setBackgroundResource(ResUtils.drawable(getContext(), getBackgroundResId()));
             setFocusableInTouchMode(true);
         }
@@ -193,7 +193,7 @@ public class WalletHomeMenuView extends LinearLayout implements BdMenu.OnMenuSet
                 return;
             }
         }
-        this.f51157c = false;
+        this.f51202c = false;
         a();
     }
 
@@ -215,7 +215,7 @@ public class WalletHomeMenuView extends LinearLayout implements BdMenu.OnMenuSet
                 return;
             }
         }
-        this.f51157c = false;
+        this.f51202c = false;
         a();
     }
 }

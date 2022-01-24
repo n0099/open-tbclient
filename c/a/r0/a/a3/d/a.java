@@ -16,26 +16,26 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5187b;
+    public int f5329b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f5188c;
+    public boolean f5330c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f5189d;
+    public boolean f5331d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f5190e;
+    public boolean f5332e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f5191f;
+    public boolean f5333f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5192g;
+    public boolean f5334g;
 
     /* renamed from: c.a.r0.a.a3.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0265a {
+    public static /* synthetic */ class C0274a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -47,22 +47,22 @@ public class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f5193b;
+        public int f5335b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f5194c;
+        public boolean f5336c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f5195d;
+        public boolean f5337d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f5196e;
+        public boolean f5338e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f5197f;
+        public boolean f5339f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f5198g;
+        public boolean f5340g;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -77,11 +77,11 @@ public class a {
                     return;
                 }
             }
-            this.f5194c = true;
-            this.f5195d = true;
-            this.f5196e = true;
-            this.f5197f = false;
-            this.f5198g = true;
+            this.f5336c = true;
+            this.f5337d = true;
+            this.f5338e = true;
+            this.f5339f = false;
+            this.f5340g = true;
         }
 
         public static b b() {
@@ -95,13 +95,13 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 a aVar = new a(null);
-                aVar.f5187b = this.f5193b;
-                aVar.f5188c = this.f5194c;
-                aVar.f5190e = this.f5196e;
-                aVar.f5189d = this.f5195d;
+                aVar.f5329b = this.f5335b;
+                aVar.f5330c = this.f5336c;
+                aVar.f5332e = this.f5338e;
+                aVar.f5331d = this.f5337d;
                 aVar.a = this.a;
-                aVar.f5191f = this.f5197f;
-                aVar.f5192g = this.f5198g;
+                aVar.f5333f = this.f5339f;
+                aVar.f5334g = this.f5340g;
                 return aVar;
             }
             return (a) invokeV.objValue;
@@ -111,7 +111,7 @@ public class a {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.f5197f = z;
+                this.f5339f = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -121,7 +121,7 @@ public class a {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f5198g = z;
+                this.f5340g = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -131,7 +131,7 @@ public class a {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                this.f5193b = i2;
+                this.f5335b = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -151,7 +151,7 @@ public class a {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.f5194c = z;
+                this.f5336c = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -161,7 +161,7 @@ public class a {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.f5196e = z;
+                this.f5338e = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -171,7 +171,7 @@ public class a {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.f5195d = z;
+                this.f5337d = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -194,7 +194,7 @@ public class a {
         boolean z = k.a;
     }
 
-    public /* synthetic */ a(C0265a c0265a) {
+    public /* synthetic */ a(C0274a c0274a) {
         this();
     }
 
@@ -211,6 +211,6 @@ public class a {
                 return;
             }
         }
-        this.f5192g = true;
+        this.f5334g = true;
     }
 }

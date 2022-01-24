@@ -60,31 +60,31 @@ public final class FunAdConfig {
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f54056b;
+        public String f54101b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f54057c;
+        public String f54102c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f54058d;
+        public boolean f54103d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f54059e;
+        public int f54104e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f54060f;
+        public int f54105f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f54061g;
+        public int f54106g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f54062h;
+        public boolean f54107h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f54063i;
+        public boolean f54108i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f54064j;
+        public boolean f54109j;
         public boolean k;
         public boolean l;
         public boolean m;
@@ -111,13 +111,13 @@ public final class FunAdConfig {
                     return;
                 }
             }
-            this.f54058d = false;
-            this.f54059e = -1;
-            this.f54060f = 1;
-            this.f54061g = 0;
-            this.f54062h = false;
-            this.f54063i = false;
-            this.f54064j = false;
+            this.f54103d = false;
+            this.f54104e = -1;
+            this.f54105f = 1;
+            this.f54106g = 0;
+            this.f54107h = false;
+            this.f54108i = false;
+            this.f54109j = false;
             this.k = true;
             this.m = false;
             this.n = null;
@@ -149,7 +149,7 @@ public final class FunAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f54057c = str;
+                this.f54102c = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -159,7 +159,7 @@ public final class FunAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f54056b = str;
+                this.f54101b = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -169,7 +169,7 @@ public final class FunAdConfig {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.f54061g = i2;
+                this.f54106g = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -229,7 +229,7 @@ public final class FunAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-                this.f54064j = z;
+                this.f54109j = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -239,7 +239,7 @@ public final class FunAdConfig {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-                this.f54060f = i2;
+                this.f54105f = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -269,7 +269,7 @@ public final class FunAdConfig {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-                this.f54059e = i2;
+                this.f54104e = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -289,7 +289,7 @@ public final class FunAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
-                this.f54058d = z;
+                this.f54103d = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -309,7 +309,7 @@ public final class FunAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
-                this.f54063i = z;
+                this.f54108i = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -319,7 +319,7 @@ public final class FunAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048595, this, z)) == null) {
-                this.f54062h = z;
+                this.f54107h = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -342,15 +342,15 @@ public final class FunAdConfig {
             }
         }
         this.appContext = builder.a;
-        this.appName = builder.f54056b;
-        this.appId = builder.f54057c;
-        this.isUseTextureView = builder.f54058d;
-        this.titleBarTheme = builder.f54059e;
-        this.splashButtonType = builder.f54060f;
-        this.downLoadType = builder.f54061g;
-        this.isVideoSoundEnable = builder.f54062h;
-        this.isVideoDataFlowAutoStart = builder.f54063i;
-        this.logEnabled = builder.f54064j;
+        this.appName = builder.f54101b;
+        this.appId = builder.f54102c;
+        this.isUseTextureView = builder.f54103d;
+        this.titleBarTheme = builder.f54104e;
+        this.splashButtonType = builder.f54105f;
+        this.downLoadType = builder.f54106g;
+        this.isVideoSoundEnable = builder.f54107h;
+        this.isVideoDataFlowAutoStart = builder.f54108i;
+        this.logEnabled = builder.f54109j;
         this.isUseCloudAdConfiguration = builder.k;
         this.isFilterDeepLinkAd = builder.m;
         this.userId = builder.p;

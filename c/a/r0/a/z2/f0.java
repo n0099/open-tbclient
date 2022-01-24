@@ -31,19 +31,19 @@ public class f0 {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9979b;
+    public static final String f10121b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f9980c;
+    public static final String f10122c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f9981d;
+    public static boolean f10123d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f9982e;
+    public static String f10124e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f9983f;
+    public static String f10125f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,61 +60,61 @@ public class f0 {
             }
         }
         a = c.a.r0.a.k.a;
-        f9979b = c.a.r0.a.z2.c1.a.f9949b;
-        f9980c = c.a.r0.a.z2.c1.a.f9950c;
-        f9981d = false;
+        f10121b = c.a.r0.a.z2.c1.a.f10091b;
+        f10122c = c.a.r0.a.z2.c1.a.f10092c;
+        f10123d = false;
     }
 
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = f9982e;
+            String str2 = f10124e;
             if (str2 != null) {
                 return str2.equals(str);
             }
             String g2 = g("ro.miui.ui.version.name");
-            f9983f = g2;
+            f10125f = g2;
             if (!TextUtils.isEmpty(g2)) {
-                f9982e = "MIUI";
+                f10124e = "MIUI";
             } else {
                 String g3 = g("ro.build.version.emui");
-                f9983f = g3;
+                f10125f = g3;
                 if (!TextUtils.isEmpty(g3)) {
-                    f9982e = "EMUI";
+                    f10124e = "EMUI";
                 } else {
-                    String g4 = g(f9980c);
-                    f9983f = g4;
+                    String g4 = g(f10122c);
+                    f10125f = g4;
                     if (!TextUtils.isEmpty(g4)) {
-                        f9982e = f9979b;
+                        f10124e = f10121b;
                     } else {
                         String g5 = g("ro.vivo.os.version");
-                        f9983f = g5;
+                        f10125f = g5;
                         if (!TextUtils.isEmpty(g5)) {
-                            f9982e = "VIVO";
+                            f10124e = "VIVO";
                         } else {
                             String g6 = g("ro.smartisan.version");
-                            f9983f = g6;
+                            f10125f = g6;
                             if (!TextUtils.isEmpty(g6)) {
-                                f9982e = "SMARTISAN";
+                                f10124e = "SMARTISAN";
                             } else {
                                 String g7 = g(RomUtils.KEY_VERSION_GIONEE);
-                                f9983f = g7;
+                                f10125f = g7;
                                 if (!TextUtils.isEmpty(g7)) {
-                                    f9982e = "SMARTISAN";
+                                    f10124e = "SMARTISAN";
                                 } else {
                                     String g8 = g(RomUtils.KEY_VERSION_NUBIA);
-                                    f9983f = g8;
+                                    f10125f = g8;
                                     if (!TextUtils.isEmpty(g8)) {
-                                        f9982e = RomUtils.ROM_NUBIA;
+                                        f10124e = RomUtils.ROM_NUBIA;
                                     } else {
                                         String str3 = Build.DISPLAY;
-                                        f9983f = str3;
+                                        f10125f = str3;
                                         if (str3.toUpperCase().contains("FLYME")) {
-                                            f9982e = "FLYME";
+                                            f10124e = "FLYME";
                                         } else {
-                                            f9983f = "unknown";
-                                            f9982e = Build.MANUFACTURER.toUpperCase();
+                                            f10125f = "unknown";
+                                            f10124e = Build.MANUFACTURER.toUpperCase();
                                         }
                                     }
                                 }
@@ -123,7 +123,7 @@ public class f0 {
                     }
                 }
             }
-            return f9982e.equals(str);
+            return f10124e.equals(str);
         }
         return invokeL.booleanValue;
     }
@@ -159,7 +159,7 @@ public class f0 {
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f9981d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f10123d : invokeV.booleanValue;
     }
 
     public static int e(Context context) {
@@ -334,7 +334,7 @@ public class f0 {
     public static boolean k(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? context.getPackageManager().hasSystemFeature(c.a.r0.a.z2.c1.a.f9951d) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? context.getPackageManager().hasSystemFeature(c.a.r0.a.z2.c1.a.f10093d) : invokeL.booleanValue;
     }
 
     @SuppressLint({"PrivateApi"})
@@ -371,7 +371,7 @@ public class f0 {
     public static boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? a(f9979b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? a(f10121b) : invokeV.booleanValue;
     }
 
     public static boolean p(Activity activity) {
@@ -400,13 +400,13 @@ public class f0 {
                 int i8 = iArr[1];
                 int i9 = iArr[1] + height;
                 if (((i9 <= i5 && i9 > i4) || (i8 < i5 && i8 >= i4)) && ((i7 > i2 && i7 <= i3) || ((i6 >= i2 && i7 <= i3) || ((i6 >= i2 && i6 < i3) || (i6 < i2 && i7 > i3))))) {
-                    f9981d = true;
+                    f10123d = true;
                     return true;
                 } else if (((i6 >= i2 && i6 < i3) || (i7 > i2 && i7 <= i3)) && ((i9 > i4 && i9 <= i5) || ((i8 >= i4 && i9 <= i5) || ((i8 >= i4 && i8 < i5) || (i8 < i4 && i9 > i5))))) {
-                    f9981d = true;
+                    f10123d = true;
                     return true;
                 } else if (i6 <= i2 && i7 >= i3 && i8 <= i4 && i9 >= i5) {
-                    f9981d = true;
+                    f10123d = true;
                     return true;
                 }
             }

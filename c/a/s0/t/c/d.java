@@ -20,31 +20,31 @@ public class d {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public k f13807b;
+    public k f13952b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13808c;
+    public int f13953c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f13809d;
+    public long f13954d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f13810e;
+    public long f13955e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13811f;
+    public String f13956f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13812g;
+    public int f13957g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13813h;
+    public int f13958h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13814i;
+    public int f13959i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f13815j;
+    public int f13960j;
     public int k;
     public String l;
     public int m;
@@ -68,27 +68,27 @@ public class d {
             }
         }
         this.a = 1;
-        this.f13812g = 0;
-        this.f13813h = 0;
-        this.f13814i = 0;
-        this.f13815j = 300;
+        this.f13957g = 0;
+        this.f13958h = 0;
+        this.f13959i = 0;
+        this.f13960j = 300;
         this.k = 1;
         this.m = 4;
         this.n = 4;
         this.o = 7;
-        this.f13807b = new k();
+        this.f13952b = new k();
     }
 
     public k a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13807b : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13952b : (k) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13815j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13960j : invokeV.intValue;
     }
 
     public String c() {
@@ -106,22 +106,22 @@ public class d {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13812g == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13957g == 1 : invokeV.booleanValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13813h == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13958h == 0 : invokeV.booleanValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f13808c == 1) {
+            if (this.f13953c == 1) {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
-                return this.f13809d < currentTimeMillis && currentTimeMillis < this.f13810e;
+                return this.f13954d < currentTimeMillis && currentTimeMillis < this.f13955e;
             }
             return false;
         }
@@ -131,13 +131,13 @@ public class d {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13814i == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13959i == 1 : invokeV.booleanValue;
     }
 
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f13811f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f13956f : (String) invokeV.objValue;
     }
 
     public void j(JSONObject jSONObject) throws JSONException {
@@ -148,23 +148,23 @@ public class d {
         this.a = jSONObject.optInt("als_control", 1);
         jSONObject.optInt("not_use_lego_patch", 0);
         jSONObject.optInt("ad_video_not_autoplay", 1);
-        this.f13814i = jSONObject.optInt("lp_video_not_autoplay", 0);
-        this.f13807b.a(jSONObject);
+        this.f13959i = jSONObject.optInt("lp_video_not_autoplay", 0);
+        this.f13952b.a(jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
         if (optJSONObject != null) {
-            this.f13808c = optJSONObject.optInt("log_feed_switch", 0);
-            this.f13809d = optJSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, -1L);
-            this.f13810e = optJSONObject.optLong("end_time", -1L);
-            this.f13811f = optJSONObject.optString("ext_info");
+            this.f13953c = optJSONObject.optInt("log_feed_switch", 0);
+            this.f13954d = optJSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, -1L);
+            this.f13955e = optJSONObject.optLong("end_time", -1L);
+            this.f13956f = optJSONObject.optString("ext_info");
         }
-        this.f13812g = jSONObject.optInt("ad_collect_switch", 0);
+        this.f13957g = jSONObject.optInt("ad_collect_switch", 0);
         JSONObject optJSONObject2 = jSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH);
         if (optJSONObject2 != null) {
-            this.f13815j = optJSONObject2.optInt("interval", 300);
+            this.f13960j = optJSONObject2.optInt("interval", 300);
         }
         this.k = jSONObject.optInt("video_page_style", 1);
-        c.a.s0.s.h0.b.k().w("video_page_style", this.k);
-        this.f13813h = jSONObject.optInt("ad_download_lib", 0);
+        c.a.s0.s.i0.b.k().w("video_page_style", this.k);
+        this.f13958h = jSONObject.optInt("ad_download_lib", 0);
         JSONObject optJSONObject3 = jSONObject.optJSONObject("afd_sync_config");
         if (optJSONObject3 != null) {
             this.m = optJSONObject3.optInt("first_floor");
@@ -184,9 +184,9 @@ public class d {
         if (optJSONObject5 != null) {
             String optString = optJSONObject5.optString("os_type2_iadex_url");
             this.r = optString;
-            c.a.s0.e1.h.i(optString);
+            c.a.s0.d1.h.i(optString);
             return;
         }
-        c.a.s0.e1.h.i(null);
+        c.a.s0.d1.h.i(null);
     }
 }

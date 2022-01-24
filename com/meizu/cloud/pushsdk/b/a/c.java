@@ -6,19 +6,19 @@ public class c<T> {
     public final T a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.meizu.cloud.pushsdk.b.b.a f58507b;
+    public final com.meizu.cloud.pushsdk.b.b.a f58552b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f58508c;
+    public k f58553c;
 
     public c(com.meizu.cloud.pushsdk.b.b.a aVar) {
         this.a = null;
-        this.f58507b = aVar;
+        this.f58552b = aVar;
     }
 
     public c(T t) {
         this.a = t;
-        this.f58507b = null;
+        this.f58552b = null;
     }
 
     public static <T> c<T> a(com.meizu.cloud.pushsdk.b.b.a aVar) {
@@ -34,14 +34,14 @@ public class c<T> {
     }
 
     public void a(k kVar) {
-        this.f58508c = kVar;
+        this.f58553c = kVar;
     }
 
     public boolean b() {
-        return this.f58507b == null;
+        return this.f58552b == null;
     }
 
     public com.meizu.cloud.pushsdk.b.b.a c() {
-        return this.f58507b;
+        return this.f58552b;
     }
 }

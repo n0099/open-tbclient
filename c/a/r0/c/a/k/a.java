@@ -17,19 +17,19 @@ public class a<T> extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f10260d;
+    public String f10402d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f10261e;
+    public String f10403e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.c f10262f;
+    public a.c f10404f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f10263g;
+    public String f10405g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f10264h;
+    public int f10406h;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class a<T> extends c {
                 return;
             }
         }
-        this.f10260d = null;
-        this.f10261e = null;
-        this.f10262f = null;
+        this.f10402d = null;
+        this.f10403e = null;
+        this.f10404f = null;
     }
 
     @Override // c.a.r0.c.a.k.c
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10263g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10405g : (String) invokeV.objValue;
     }
 
     @Override // c.a.r0.c.a.k.c
@@ -81,14 +81,14 @@ public class a<T> extends c {
             } else {
                 hashMap.put("Bdtls-Downgrade", "1");
             }
-            this.f10262f.a(hashMap, bArr, this.f10260d);
+            this.f10404f.a(hashMap, bArr, this.f10402d);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            k(this.f10260d, this.f10261e, this.f10262f);
+            k(this.f10402d, this.f10403e, this.f10404f);
         }
     }
 
@@ -97,18 +97,18 @@ public class a<T> extends c {
         if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, cVar) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f10260d = str;
-        this.f10261e = str2;
-        this.f10262f = cVar;
+        this.f10402d = str;
+        this.f10403e = str2;
+        this.f10404f = cVar;
         if (str2 == null) {
-            this.f10263g = "GET";
+            this.f10405g = "GET";
         } else {
-            this.f10263g = "POST";
+            this.f10405g = "POST";
         }
         if (c.a.r0.c.a.a.a) {
             String str3 = "requestPost url=" + str;
             String str4 = "requestPost body=" + str2;
         }
-        a(this.f10261e);
+        a(this.f10403e);
     }
 }

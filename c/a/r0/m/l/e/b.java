@@ -66,14 +66,14 @@ public class b extends c.a.r0.m.l.a<c.a.r0.a.i1.c.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cVar, bVar, eVar, jSONObject)) == null) {
             c.a.r0.a.e0.d.i("map", "GetRegionAction start");
-            c.a.r0.a.p.e.d A = c.a.r0.a.g1.f.U().A(cVar.f5309g);
+            c.a.r0.a.p.e.d A = c.a.r0.a.g1.f.U().A(cVar.f5451g);
             if (!(A instanceof c.a.r0.a.p.e.b)) {
                 c.a.r0.a.e0.d.c("map", "WebViewManager is null");
                 return false;
             }
-            c.a.r0.m.o.c d2 = c.a.r0.m.c.b().c((c.a.r0.a.p.e.b) A).d(cVar.f5308f);
+            c.a.r0.m.o.c d2 = c.a.r0.m.c.b().c((c.a.r0.a.p.e.b) A).d(cVar.f5450f);
             if (d2 == null) {
-                c.a.r0.a.e0.d.c("map", "can not find map by id " + cVar.f5308f);
+                c.a.r0.a.e0.d.c("map", "can not find map by id " + cVar.f5450f);
                 return false;
             }
             MapStatus mapStatus = d2.l.getMap().getMapStatus();

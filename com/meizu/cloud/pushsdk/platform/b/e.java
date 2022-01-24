@@ -12,10 +12,10 @@ public class e extends c<SubTagsStatus> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f58845b;
+    public int f58890b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f58846c;
+    public String f58891c;
 
     public e(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, null, null, null, aVar, scheduledExecutorService);
@@ -28,7 +28,7 @@ public class e extends c<SubTagsStatus> {
 
     public e(Context context, String str, String str2, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         super(context, str, str2, aVar, scheduledExecutorService);
-        this.f58845b = 3;
+        this.f58890b = 3;
     }
 
     public e(Context context, String str, String str2, String str3, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
@@ -37,34 +37,34 @@ public class e extends c<SubTagsStatus> {
     }
 
     public void a(int i2) {
-        this.f58845b = i2;
+        this.f58890b = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public void a(SubTagsStatus subTagsStatus) {
-        PlatformMessageSender.a(this.f58837e, !TextUtils.isEmpty(this.f58840h) ? this.f58840h : this.f58837e.getPackageName(), subTagsStatus);
+        PlatformMessageSender.a(this.f58882e, !TextUtils.isEmpty(this.f58885h) ? this.f58885h : this.f58882e.getPackageName(), subTagsStatus);
     }
 
     public void a(String str) {
-        this.f58846c = str;
+        this.f58891c = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public boolean a() {
-        return (TextUtils.isEmpty(this.f58838f) || TextUtils.isEmpty(this.f58839g) || TextUtils.isEmpty(this.a)) ? false : true;
+        return (TextUtils.isEmpty(this.f58883f) || TextUtils.isEmpty(this.f58884g) || TextUtils.isEmpty(this.a)) ? false : true;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public Intent c() {
         Intent intent = new Intent();
-        intent.putExtra("app_id", this.f58838f);
-        intent.putExtra("app_key", this.f58839g);
-        intent.putExtra("strategy_package_name", this.f58837e.getPackageName());
+        intent.putExtra("app_id", this.f58883f);
+        intent.putExtra("app_key", this.f58884g);
+        intent.putExtra("strategy_package_name", this.f58882e.getPackageName());
         intent.putExtra("push_id", this.a);
         intent.putExtra("strategy_type", g());
-        intent.putExtra("strategy_child_type", this.f58845b);
-        intent.putExtra("strategy_params", this.f58846c);
+        intent.putExtra("strategy_child_type", this.f58890b);
+        intent.putExtra("strategy_params", this.f58891c);
         return intent;
     }
 
@@ -84,9 +84,9 @@ public class e extends c<SubTagsStatus> {
         String str;
         SubTagsStatus subTagsStatus = new SubTagsStatus();
         subTagsStatus.setCode(LightappConstants.ERRCODE_NOT_ALLOWED_BACKGROUND);
-        if (TextUtils.isEmpty(this.f58838f)) {
+        if (TextUtils.isEmpty(this.f58883f)) {
             str = "appId not empty";
-        } else if (!TextUtils.isEmpty(this.f58839g)) {
+        } else if (!TextUtils.isEmpty(this.f58884g)) {
             if (TextUtils.isEmpty(this.a)) {
                 str = "pushId not empty";
             }
@@ -105,8 +105,8 @@ public class e extends c<SubTagsStatus> {
         StringBuilder sb;
         String str;
         SubTagsStatus subTagsStatus = new SubTagsStatus();
-        int i2 = this.f58845b;
-        com.meizu.cloud.pushsdk.b.a.c e2 = i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? null : this.f58842j.e(this.f58838f, this.f58839g, this.a) : this.f58842j.d(this.f58838f, this.f58839g, this.a) : this.f58842j.b(this.f58838f, this.f58839g, this.a, this.f58846c) : this.f58842j.a(this.f58838f, this.f58839g, this.a, this.f58846c);
+        int i2 = this.f58890b;
+        com.meizu.cloud.pushsdk.b.a.c e2 = i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? null : this.f58887j.e(this.f58883f, this.f58884g, this.a) : this.f58887j.d(this.f58883f, this.f58884g, this.a) : this.f58887j.b(this.f58883f, this.f58884g, this.a, this.f58891c) : this.f58887j.a(this.f58883f, this.f58884g, this.a, this.f58891c);
         if (e2.b()) {
             subTagsStatus = new SubTagsStatus((String) e2.a());
             sb = new StringBuilder();

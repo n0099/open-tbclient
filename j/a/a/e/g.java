@@ -69,9 +69,9 @@ public final class g {
     public static final int pay_ui_layout_plugincenter_banner_item = 2131560079;
     public static final int pay_ui_layout_plugincenter_top_banner = 2131560080;
     public static final int pay_ui_pay_common_loading = 2131560081;
-    public static final int select_dialog_item_material = 2131560321;
-    public static final int select_dialog_multichoice_material = 2131560322;
-    public static final int select_dialog_singlechoice_material = 2131560323;
+    public static final int select_dialog_item_material = 2131560322;
+    public static final int select_dialog_multichoice_material = 2131560323;
+    public static final int select_dialog_singlechoice_material = 2131560324;
     public static final int support_simple_spinner_dropdown_item = 2131560412;
     public transient /* synthetic */ FieldHolder $fh;
 }

@@ -1,7 +1,6 @@
 package okhttp3.internal.tls;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -169,7 +168,7 @@ public final class OkHostnameVerifier implements HostnameVerifier {
                     str2 = str2 + '.';
                 }
                 String lowerCase = str2.toLowerCase(Locale.US);
-                if (!lowerCase.contains(ProxyConfig.MATCH_ALL_SCHEMES)) {
+                if (!lowerCase.contains("*")) {
                     return str.equals(lowerCase);
                 }
                 if (!lowerCase.startsWith(CertificatePinner.Pin.WILDCARD) || lowerCase.indexOf(42, 1) != -1 || str.length() < lowerCase.length() || CertificatePinner.Pin.WILDCARD.equals(lowerCase)) {

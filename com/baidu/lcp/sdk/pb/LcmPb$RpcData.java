@@ -78,16 +78,16 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f34645e;
+        public int f34673e;
 
         /* renamed from: f  reason: collision with root package name */
-        public LcmPb$LcmRequest f34646f;
+        public LcmPb$LcmRequest f34674f;
 
         /* renamed from: g  reason: collision with root package name */
-        public LcmPb$LcmResponse f34647g;
+        public LcmPb$LcmResponse f34675g;
 
         /* renamed from: h  reason: collision with root package name */
-        public LcmPb$LcmNotify f34648h;
+        public LcmPb$LcmNotify f34676h;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -102,9 +102,9 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
                     return;
                 }
             }
-            this.f34646f = LcmPb$LcmRequest.getDefaultInstance();
-            this.f34647g = LcmPb$LcmResponse.getDefaultInstance();
-            this.f34648h = LcmPb$LcmNotify.getDefaultInstance();
+            this.f34674f = LcmPb$LcmRequest.getDefaultInstance();
+            this.f34675g = LcmPb$LcmResponse.getDefaultInstance();
+            this.f34676h = LcmPb$LcmNotify.getDefaultInstance();
             maybeForceBuilderInitialization();
         }
 
@@ -118,14 +118,14 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lcmPb$LcmNotify)) == null) {
-                if ((this.f34645e & 4) == 4 && this.f34648h != LcmPb$LcmNotify.getDefaultInstance()) {
-                    LcmPb$LcmNotify.b newBuilder = LcmPb$LcmNotify.newBuilder(this.f34648h);
+                if ((this.f34673e & 4) == 4 && this.f34676h != LcmPb$LcmNotify.getDefaultInstance()) {
+                    LcmPb$LcmNotify.b newBuilder = LcmPb$LcmNotify.newBuilder(this.f34676h);
                     newBuilder.t(lcmPb$LcmNotify);
-                    this.f34648h = newBuilder.buildPartial();
+                    this.f34676h = newBuilder.buildPartial();
                 } else {
-                    this.f34648h = lcmPb$LcmNotify;
+                    this.f34676h = lcmPb$LcmNotify;
                 }
-                this.f34645e |= 4;
+                this.f34673e |= 4;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -135,14 +135,14 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lcmPb$LcmRequest)) == null) {
-                if ((this.f34645e & 1) == 1 && this.f34646f != LcmPb$LcmRequest.getDefaultInstance()) {
-                    LcmPb$LcmRequest.b newBuilder = LcmPb$LcmRequest.newBuilder(this.f34646f);
+                if ((this.f34673e & 1) == 1 && this.f34674f != LcmPb$LcmRequest.getDefaultInstance()) {
+                    LcmPb$LcmRequest.b newBuilder = LcmPb$LcmRequest.newBuilder(this.f34674f);
                     newBuilder.u(lcmPb$LcmRequest);
-                    this.f34646f = newBuilder.buildPartial();
+                    this.f34674f = newBuilder.buildPartial();
                 } else {
-                    this.f34646f = lcmPb$LcmRequest;
+                    this.f34674f = lcmPb$LcmRequest;
                 }
-                this.f34645e |= 1;
+                this.f34673e |= 1;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -152,14 +152,14 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lcmPb$LcmResponse)) == null) {
-                if ((this.f34645e & 2) == 2 && this.f34647g != LcmPb$LcmResponse.getDefaultInstance()) {
-                    LcmPb$LcmResponse.b newBuilder = LcmPb$LcmResponse.newBuilder(this.f34647g);
+                if ((this.f34673e & 2) == 2 && this.f34675g != LcmPb$LcmResponse.getDefaultInstance()) {
+                    LcmPb$LcmResponse.b newBuilder = LcmPb$LcmResponse.newBuilder(this.f34675g);
                     newBuilder.t(lcmPb$LcmResponse);
-                    this.f34647g = newBuilder.buildPartial();
+                    this.f34675g = newBuilder.buildPartial();
                 } else {
-                    this.f34647g = lcmPb$LcmResponse;
+                    this.f34675g = lcmPb$LcmResponse;
                 }
-                this.f34645e |= 2;
+                this.f34673e |= 2;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -170,8 +170,8 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lcmPb$LcmNotify)) == null) {
                 if (lcmPb$LcmNotify != null) {
-                    this.f34648h = lcmPb$LcmNotify;
-                    this.f34645e |= 4;
+                    this.f34676h = lcmPb$LcmNotify;
+                    this.f34673e |= 4;
                     return this;
                 }
                 throw null;
@@ -184,8 +184,8 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, lcmPb$LcmRequest)) == null) {
                 if (lcmPb$LcmRequest != null) {
-                    this.f34646f = lcmPb$LcmRequest;
-                    this.f34645e |= 1;
+                    this.f34674f = lcmPb$LcmRequest;
+                    this.f34673e |= 1;
                     return this;
                 }
                 throw null;
@@ -251,17 +251,17 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
                 LcmPb$RpcData lcmPb$RpcData = new LcmPb$RpcData(this, (c.a.u.a.e.a) null);
-                int i2 = this.f34645e;
+                int i2 = this.f34673e;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                lcmPb$RpcData.lcmRequest_ = this.f34646f;
+                lcmPb$RpcData.lcmRequest_ = this.f34674f;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                lcmPb$RpcData.lcmResponse_ = this.f34647g;
+                lcmPb$RpcData.lcmResponse_ = this.f34675g;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                lcmPb$RpcData.lcmNotify_ = this.f34648h;
+                lcmPb$RpcData.lcmNotify_ = this.f34676h;
                 lcmPb$RpcData.bitField0_ = i3;
                 return lcmPb$RpcData;
             }
@@ -273,12 +273,12 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
                 super.clear();
-                this.f34646f = LcmPb$LcmRequest.getDefaultInstance();
-                this.f34645e &= -2;
-                this.f34647g = LcmPb$LcmResponse.getDefaultInstance();
-                this.f34645e &= -3;
-                this.f34648h = LcmPb$LcmNotify.getDefaultInstance();
-                this.f34645e &= -5;
+                this.f34674f = LcmPb$LcmRequest.getDefaultInstance();
+                this.f34673e &= -2;
+                this.f34675g = LcmPb$LcmResponse.getDefaultInstance();
+                this.f34673e &= -3;
+                this.f34676h = LcmPb$LcmNotify.getDefaultInstance();
+                this.f34673e &= -5;
                 return this;
             }
             return (b) invokeV.objValue;
@@ -310,37 +310,37 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
         public LcmPb$LcmNotify s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f34648h : (LcmPb$LcmNotify) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f34676h : (LcmPb$LcmNotify) invokeV.objValue;
         }
 
         public LcmPb$LcmRequest t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f34646f : (LcmPb$LcmRequest) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f34674f : (LcmPb$LcmRequest) invokeV.objValue;
         }
 
         public LcmPb$LcmResponse u() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f34647g : (LcmPb$LcmResponse) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f34675g : (LcmPb$LcmResponse) invokeV.objValue;
         }
 
         public boolean v() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? (this.f34645e & 4) == 4 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? (this.f34673e & 4) == 4 : invokeV.booleanValue;
         }
 
         public boolean w() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? (this.f34645e & 1) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? (this.f34673e & 1) == 1 : invokeV.booleanValue;
         }
 
         public boolean x() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? (this.f34645e & 2) == 2 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? (this.f34673e & 2) == 2 : invokeV.booleanValue;
         }
 
         public b y(LcmPb$RpcData lcmPb$RpcData) {

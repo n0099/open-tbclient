@@ -40,10 +40,10 @@ public class a implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
             if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                view2 = this.a.f33928c;
+                view2 = this.a.f33956c;
                 f2 = 0.5f;
             } else {
-                view2 = this.a.f33928c;
+                view2 = this.a.f33956c;
                 f2 = 1.0f;
             }
             ViewHelper.setAlpha(view2, f2);

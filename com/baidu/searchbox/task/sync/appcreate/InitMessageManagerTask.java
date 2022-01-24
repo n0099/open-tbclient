@@ -3,14 +3,14 @@ package com.baidu.searchbox.task.sync.appcreate;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.c.f.k;
-import c.a.s0.e1.c0;
+import c.a.s0.d1.c0;
 import c.a.s0.s.q.z0;
 import c.a.s0.w0.a;
 import c.a.s0.w0.c;
 import c.a.s0.w0.e;
 import c.a.s0.w0.f;
-import c.a.t0.k1.b;
-import c.a.t0.w3.n0.d.d;
+import c.a.t0.l1.b;
+import c.a.t0.x3.n0.d.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -96,7 +96,7 @@ public class InitMessageManagerTask extends LaunchTask {
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof d)) {
                     d dVar = (d) customResponsedMessage.getData();
                     DescriptionTableInfo.setModuleSet(dVar.a);
-                    DescriptionTableInfo.setDescriptionTable(dVar.f24940b);
+                    DescriptionTableInfo.setDescriptionTable(dVar.f25199b);
                 }
             }
         };
@@ -155,7 +155,7 @@ public class InitMessageManagerTask extends LaunchTask {
             messageManager.addMessageRule(new c(0));
             messageManager.addResponsedMessageRule(new e(0));
             messageManager.addRemovedMessageRule(new c.a.s0.w0.d(0));
-            messageManager.addResponsedMessageRule(new c.a.t0.k1.c());
+            messageManager.addResponsedMessageRule(new c.a.t0.l1.c());
             messageManager.addResponsedMessageRule(new b());
             messageManager.addResponsedMessageRule(new a());
             messageManager.addResponsedMessageRule(new c.a.s0.w0.b());

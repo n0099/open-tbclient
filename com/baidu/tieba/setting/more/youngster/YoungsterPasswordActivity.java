@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import c.a.d.f.m.e;
-import c.a.t0.m3.f;
-import c.a.t0.m3.g;
+import c.a.t0.n3.f;
+import c.a.t0.n3.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
@@ -34,7 +34,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YoungsterPasswordActivity f47847e;
+        public final /* synthetic */ YoungsterPasswordActivity f47875e;
 
         public a(YoungsterPasswordActivity youngsterPasswordActivity) {
             Interceptable interceptable = $ic;
@@ -51,14 +51,14 @@ public class YoungsterPasswordActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47847e = youngsterPasswordActivity;
+            this.f47875e = youngsterPasswordActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47847e.finish();
+                this.f47875e.finish();
             }
         }
     }
@@ -130,14 +130,14 @@ public class YoungsterPasswordActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(f.activity_youngster);
-            NavigationBar navigationBar = (NavigationBar) findViewById(c.a.t0.m3.e.view_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(c.a.t0.n3.e.view_navigation_bar);
             this.mNavigationBar = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mBack = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
             YoungsterPasswordView youngsterPasswordView = new YoungsterPasswordView(getPageContext());
             this.mYoungsterPasswordView = youngsterPasswordView;
-            ((FrameLayout) findViewById(c.a.t0.m3.e.youngster_content)).addView(youngsterPasswordView);
+            ((FrameLayout) findViewById(c.a.t0.n3.e.youngster_content)).addView(youngsterPasswordView);
             Intent intent = getIntent();
             if (intent != null) {
                 int intExtra = intent.getIntExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_PAGE_TYPE, 0);

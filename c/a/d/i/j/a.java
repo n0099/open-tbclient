@@ -17,27 +17,27 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f3174d;
+    public static a f3276d;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<b> f3175b;
+    public ArrayList<b> f3277b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C0120a f3176c;
+    public C0127a f3278c;
 
     /* renamed from: c.a.d.i.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0120a extends BdAsyncTask<String, Integer, Boolean> {
+    public class C0127a extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f3177b;
+        public final /* synthetic */ a f3279b;
 
-        public C0120a(a aVar, b bVar) {
+        public C0127a(a aVar, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public class a {
                     return;
                 }
             }
-            this.f3177b = aVar;
+            this.f3279b = aVar;
             this.a = bVar;
         }
 
@@ -109,27 +109,27 @@ public class a {
         public void onPostExecute(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
-                super.onPostExecute((C0120a) bool);
-                this.f3177b.f3176c = null;
-                if (this.f3177b.f3175b.size() > 0) {
-                    Iterator it = this.f3177b.f3175b.iterator();
+                super.onPostExecute((C0127a) bool);
+                this.f3279b.f3278c = null;
+                if (this.f3279b.f3277b.size() > 0) {
+                    Iterator it = this.f3279b.f3277b.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         b bVar = (b) it.next();
-                        if (this.f3177b.g(this.a, bVar)) {
-                            this.f3177b.f3175b.remove(bVar);
+                        if (this.f3279b.g(this.a, bVar)) {
+                            this.f3279b.f3277b.remove(bVar);
                             break;
                         }
                     }
                 }
-                if (bool != null && bool.booleanValue() && this.f3177b.a != null) {
-                    c cVar = this.f3177b.a;
+                if (bool != null && bool.booleanValue() && this.f3279b.a != null) {
+                    c cVar = this.f3279b.a;
                     b bVar2 = this.a;
-                    cVar.a(bVar2.f3178b, bVar2.a);
+                    cVar.a(bVar2.f3280b, bVar2.a);
                 }
-                this.f3177b.i();
+                this.f3279b.i();
             }
         }
     }
@@ -141,7 +141,7 @@ public class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f3178b;
+        public String f3280b;
 
         public b(String str, String str2) {
             Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class a {
                     return;
                 }
             }
-            this.f3178b = str;
+            this.f3280b = str;
             this.a = str2;
         }
     }
@@ -181,21 +181,21 @@ public class a {
                 return;
             }
         }
-        this.f3175b = new ArrayList<>();
+        this.f3277b = new ArrayList<>();
     }
 
     public static a h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (f3174d == null) {
+            if (f3276d == null) {
                 synchronized (a.class) {
-                    if (f3174d == null) {
-                        f3174d = new a();
+                    if (f3276d == null) {
+                        f3276d = new a();
                     }
                 }
             }
-            return f3174d;
+            return f3276d;
         }
         return (a) invokeV.objValue;
     }
@@ -209,9 +209,9 @@ public class a {
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && !TextUtils.isEmpty(next.a) && !TextUtils.isEmpty(next.f3178b)) {
+            if (next != null && !TextUtils.isEmpty(next.a) && !TextUtils.isEmpty(next.f3280b)) {
                 boolean z = false;
-                Iterator<b> it2 = this.f3175b.iterator();
+                Iterator<b> it2 = this.f3277b.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         break;
@@ -221,7 +221,7 @@ public class a {
                     }
                 }
                 if (!z) {
-                    this.f3175b.add(next);
+                    this.f3277b.add(next);
                 }
             }
         }
@@ -231,15 +231,15 @@ public class a {
     public final boolean g(b bVar, b bVar2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, bVar2)) == null) ? (bVar == null || bVar2 == null || TextUtils.isEmpty(bVar2.a) || TextUtils.isEmpty(bVar2.f3178b) || TextUtils.isEmpty(bVar.a) || TextUtils.isEmpty(bVar.f3178b) || !bVar2.f3178b.equals(bVar.f3178b) || !bVar2.a.equals(bVar.a)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, bVar2)) == null) ? (bVar == null || bVar2 == null || TextUtils.isEmpty(bVar2.a) || TextUtils.isEmpty(bVar2.f3280b) || TextUtils.isEmpty(bVar.a) || TextUtils.isEmpty(bVar.f3280b) || !bVar2.f3280b.equals(bVar.f3280b) || !bVar2.a.equals(bVar.a)) ? false : true : invokeLL.booleanValue;
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f3175b.size() != 0 && this.f3176c == null) {
-            C0120a c0120a = new C0120a(this, this.f3175b.get(0));
-            this.f3176c = c0120a;
-            c0120a.execute(new String[0]);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f3277b.size() != 0 && this.f3278c == null) {
+            C0127a c0127a = new C0127a(this, this.f3277b.get(0));
+            this.f3278c = c0127a;
+            c0127a.execute(new String[0]);
         }
     }
 }

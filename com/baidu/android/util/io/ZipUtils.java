@@ -2,7 +2,6 @@ package com.baidu.android.util.io;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,7 +98,7 @@ public final class ZipUtils {
                 BufferedOutputStream bufferedOutputStream2 = null;
                 while (entries.hasMoreElements()) {
                     ZipEntry nextElement = entries.nextElement();
-                    if (!nextElement.getName().contains(Constants.PATH_PARENT)) {
+                    if (!nextElement.getName().contains("../")) {
                         File file = new File(str2 + "/" + nextElement.getName());
                         if (nextElement.isDirectory()) {
                             if (!file.exists()) {

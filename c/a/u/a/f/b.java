@@ -24,7 +24,7 @@ public class b extends c.a.u.a.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f26273b;
+    public a f26301b;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -49,7 +49,7 @@ public class b extends c.a.u.a.f.a {
             }
         }
         this.a = context;
-        this.f26273b = aVar;
+        this.f26301b = aVar;
     }
 
     @Override // c.a.u.a.f.c.b
@@ -107,7 +107,7 @@ public class b extends c.a.u.a.f.a {
     public void onFailure(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
-            this.f26273b.onFailure(i2, str);
+            this.f26301b.onFailure(i2, str);
         }
     }
 
@@ -133,7 +133,7 @@ public class b extends c.a.u.a.f.a {
                             f.w(this.a, jSONObject3.optString("protocol") + ":" + jSONObject3.optString("domain") + ":" + jSONObject3.optString(ClientCookie.PORT_ATTR), i2);
                         }
                         f.t(this.a, jSONObject2.optInt("ipv6_strategy", 3));
-                        this.f26273b.onResponse(optString2);
+                        this.f26301b.onResponse(optString2);
                         f.z(this.a, optString2);
                         try {
                             String optString3 = jSONObject2.optString("client_log_config", "");
@@ -151,19 +151,19 @@ public class b extends c.a.u.a.f.a {
                             }
                             return;
                         } catch (Exception e2) {
-                            a aVar = this.f26273b;
+                            a aVar = this.f26301b;
                             aVar.onFailure(10001, "Json Exception" + e2);
                             e.b("GetTokenRequest", "Json Exception");
                             return;
                         }
                     }
-                    this.f26273b.onFailure(10002, "token or protocol is empty");
+                    this.f26301b.onFailure(10002, "token or protocol is empty");
                     c.a.u.a.a.a.h(this.a).g(601110).c("flow_end_time", System.currentTimeMillis()).e();
                     return;
                 }
-                this.f26273b.onFailure(optInt, optString);
+                this.f26301b.onFailure(optInt, optString);
             } catch (JSONException e3) {
-                a aVar2 = this.f26273b;
+                a aVar2 = this.f26301b;
                 aVar2.onFailure(10001, "parse response exception ：" + e3);
             }
         }

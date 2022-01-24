@@ -12,13 +12,13 @@ public final class c extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f29976e;
+    public final Context f30004e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final m f29977f;
+    public final m f30005f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f29978g;
+    public volatile boolean f30006g;
 
     public c(Context context, m mVar) {
         Interceptable interceptable = $ic;
@@ -35,14 +35,14 @@ public final class c extends Thread {
                 return;
             }
         }
-        this.f29976e = context;
-        this.f29977f = mVar;
+        this.f30004e = context;
+        this.f30005f = mVar;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f29978g = true;
+            this.f30006g = true;
         }
     }
 
@@ -50,9 +50,9 @@ public final class c extends Thread {
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.f29978g) {
-                if (f.d().h(this.f29976e)) {
-                    this.f29977f.a(com.google.ar.core.p.f54403c);
+            while (!this.f30006g) {
+                if (f.d().h(this.f30004e)) {
+                    this.f30005f.a(com.google.ar.core.p.f54448c);
                     return;
                 }
                 try {

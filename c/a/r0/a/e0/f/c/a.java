@@ -24,7 +24,7 @@ public class a {
             File file2 = new File(b(), "app.json");
             SwanAppConfigData c2 = SwanAppConfigData.c(c.a.r0.w.d.E(file2), b());
             gVar.a = b().getPath() + File.separator;
-            gVar.f5142b = c2;
+            gVar.f5284b = c2;
             c.a.r0.a.e0.d.k("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.a);
             return gVar;
         }

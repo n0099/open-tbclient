@@ -14,7 +14,7 @@ public class c implements c.a.r.h.b.e.a {
     public BigInteger a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BigInteger f4946b;
+    public BigInteger f5088b;
 
     public c(byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public class c implements c.a.r.h.b.e.a {
             }
         }
         this.a = new BigInteger(bArr);
-        this.f4946b = new BigInteger(bArr2);
+        this.f5088b = new BigInteger(bArr2);
     }
 
     @Override // c.a.r.h.b.e.a
     public BigInteger a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4946b : (BigInteger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5088b : (BigInteger) invokeV.objValue;
     }
 
     @Override // c.a.r.h.b.e.a

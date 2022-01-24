@@ -25,16 +25,16 @@ public class MessageCardBottomView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f45324e;
+    public TextView f45352e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f45325f;
+    public ViewGroup f45353f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f45326g;
+    public ImageView f45354g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f45327h;
+    public TextView f45355h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MessageCardBottomView(Context context) {
@@ -61,25 +61,25 @@ public class MessageCardBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.message_card_bottom_layout, (ViewGroup) this, true);
-            this.f45324e = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
-            this.f45325f = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
-            this.f45326g = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
-            this.f45327h = (TextView) inflate.findViewById(R.id.message_bottom_reply);
+            this.f45352e = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
+            this.f45353f = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
+            this.f45354g = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
+            this.f45355h = (TextView) inflate.findViewById(R.id.message_bottom_reply);
         }
     }
 
     public View getReplyContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45325f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45353f : (View) invokeV.objValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.f45324e, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f45327h, R.drawable.selector_comment_and_prise_item_text_color);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f45326g, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, null);
+            SkinManager.setViewTextColor(this.f45352e, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f45355h, R.drawable.selector_comment_and_prise_item_text_color);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f45354g, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, null);
         }
     }
 
@@ -91,13 +91,13 @@ public class MessageCardBottomView extends LinearLayout {
                 return;
             }
             setVisibility(0);
-            this.f45325f.setVisibility(z ? 0 : 8);
+            this.f45353f.setVisibility(z ? 0 : 8);
             if (m.isEmpty(str)) {
-                this.f45324e.setVisibility(8);
+                this.f45352e.setVisibility(8);
                 return;
             }
-            this.f45324e.setText(UtilHelper.getForumNameWithBar(str, 5, true));
-            this.f45324e.setVisibility(0);
+            this.f45352e.setText(UtilHelper.getForumNameWithBar(str, 5, true));
+            this.f45352e.setVisibility(0);
         }
     }
 

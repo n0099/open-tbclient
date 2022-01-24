@@ -42,10 +42,10 @@ public class i extends g {
     private void a(Set<File> set) {
         com.kwai.sodler.lib.a.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, set) == null) || (bVar = this.f58419f) == null || bVar.f58374h.size() <= 0 || set == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, set) == null) || (bVar = this.f58464f) == null || bVar.f58419h.size() <= 0 || set == null) {
             return;
         }
-        HashMap<String, String> hashMap = this.f58419f.f58374h;
+        HashMap<String, String> hashMap = this.f58464f.f58419h;
         for (File file : set) {
             String f2 = com.kwai.sodler.lib.b.b.f(file);
             String str = hashMap.get(file.getName());
@@ -72,7 +72,7 @@ public class i extends g {
             a.b("Sodler.simple.SoLib", "Install plugin so libs, destDir = " + file2);
             HashSet hashSet = new HashSet();
             if (!file2.exists() || file2.list().length <= 0) {
-                File file3 = new File(file2.getParentFile(), this.f58416c.d());
+                File file3 = new File(file2.getParentFile(), this.f58461c.d());
                 com.kwai.sodler.lib.b.b.e(file3);
                 Set<String> a = com.kwai.sodler.lib.b.c.a(file, file3);
                 if (a != null) {
@@ -121,7 +121,7 @@ public class i extends g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            File file2 = new File(file.getParentFile(), this.f58416c.c());
+            File file2 = new File(file.getParentFile(), this.f58461c.c());
             com.kwai.sodler.lib.b.b.e(file2);
             return file2;
         }

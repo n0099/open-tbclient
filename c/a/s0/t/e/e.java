@@ -9,8 +9,8 @@ import c.a.s0.t.c.i;
 import c.a.s0.t.c.j;
 import c.a.s0.t.c.l0;
 import c.a.s0.t.c.o0;
-import c.a.s0.t.c.q0;
-import c.a.s0.t.c.s0;
+import c.a.s0.t.c.p0;
+import c.a.s0.t.c.r0;
 import c.a.s0.t.c.t;
 import c.a.s0.t.c.u;
 import c.a.s0.t.c.v;
@@ -51,31 +51,31 @@ public class e {
     public VersionData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public t f13988b;
+    public t f14128b;
 
     /* renamed from: c  reason: collision with root package name */
-    public u f13989c;
+    public u f14129c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13990d;
+    public String f14130d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CombineDownload f13991e;
+    public CombineDownload f14131e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e0 f13992f;
+    public e0 f14132f;
 
     /* renamed from: g  reason: collision with root package name */
-    public s0 f13993g;
+    public r0 f14133g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f13994h;
+    public i f14134h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.s0.t.c.d f13995i;
+    public c.a.s0.t.c.d f14135i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.s0.t.c.f f13996j;
+    public c.a.s0.t.c.f f14136j;
     public final c.a.s0.t.c.c k;
     public g0 l;
     public int m;
@@ -138,21 +138,21 @@ public class e {
         }
         this.n = 0;
         this.a = new VersionData();
-        this.f13988b = new t();
-        this.f13989c = new u();
-        this.f13991e = new CombineDownload();
-        this.f13992f = new e0();
-        this.f13993g = new s0();
+        this.f14128b = new t();
+        this.f14129c = new u();
+        this.f14131e = new CombineDownload();
+        this.f14132f = new e0();
+        this.f14133g = new r0();
         this.q = new v();
-        this.f13994h = new i();
-        this.f13995i = new c.a.s0.t.c.d();
+        this.f14134h = new i();
+        this.f14135i = new c.a.s0.t.c.d();
         this.k = new c.a.s0.t.c.c();
         this.r = new c.a.s0.t.c.a();
         this.l = new g0();
         this.s = new ABTestExtraData();
         this.z = new NewGodData();
         this.A = new z();
-        this.f13996j = new c.a.s0.t.c.f();
+        this.f14136j = new c.a.s0.t.c.f();
         this.B = new h();
         this.C = new y();
     }
@@ -164,30 +164,30 @@ public class e {
             return;
         }
         try {
-            TbSingleton.getInstance().setVoiceRoomConfig(q0.b(jSONObject));
+            TbSingleton.getInstance().setVoiceRoomConfig(p0.b(jSONObject));
             TbSingleton.getInstance().setUpgradePopWindowConfig(l0.j(jSONObject));
             this.A.a(x(jSONObject, "index_tab_info"));
             this.a.parserJson(jSONObject.optJSONObject("version"));
-            this.f13988b.b(jSONObject.optJSONObject("client"));
+            this.f14128b.b(jSONObject.optJSONObject("client"));
             CommonHelper.setIp(jSONObject.optString("client_ip", null));
             c.a.d.f.n.g.g(jSONObject.optString("client_ip", null));
-            this.f13989c.f(jSONObject.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
-            this.f13993g.h0(jSONObject.optJSONObject("wl_config"));
+            this.f14129c.f(jSONObject.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
+            this.f14133g.h0(jSONObject.optJSONObject("wl_config"));
             jSONObject.optJSONObject("channel_icon_config");
-            this.f13996j.c(jSONObject.optJSONObject("floating_icon"));
-            TbSingleton.getInstance().setAdFloatViewData(this.f13996j);
+            this.f14136j.c(jSONObject.optJSONObject("floating_icon"));
+            TbSingleton.getInstance().setAdFloatViewData(this.f14136j);
             String optString = jSONObject.optString("new_god_data", "");
             if (!StringUtils.isNull(optString)) {
                 this.z.parserJson(optString);
             }
             this.q.c(jSONObject.optJSONObject("consume_path"));
             TbadkCoreApplication.getInst().setConsumePathData(this.q);
-            this.f13990d = jSONObject.optString("config_version");
+            this.f14130d = jSONObject.optString("config_version");
             this.n = jSONObject.optInt("is_uninterest");
             this.o = jSONObject.optInt("first_time_motivate");
             this.p = jSONObject.optInt("needNewUserLead");
-            this.f13991e.parserJson(jSONObject.optJSONObject("combine_download"));
-            this.f13992f.a(jSONObject.optJSONObject("mainbar"));
+            this.f14131e.parserJson(jSONObject.optJSONObject("combine_download"));
+            this.f14132f.a(jSONObject.optJSONObject("mainbar"));
             jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001141, jSONObject));
             this.m = jSONObject.optInt("faceshop_version");
@@ -205,8 +205,8 @@ public class e {
             TbSingleton.getInstance().setHostWhiteList(whiteListData);
             j.c(jSONObject.optJSONArray("scheme_whitelist"));
             UrlSchemaJumpHelper.setBlackList(x(jSONObject, UrlSchemaJumpHelper.KEY_APP_JUMP_BLACK_LIST));
-            this.f13994h.a(jSONObject.optJSONObject("app_entrance"));
-            this.f13995i.j(jSONObject.optJSONObject("ad_adsense"));
+            this.f14134h.a(jSONObject.optJSONObject("app_entrance"));
+            this.f14135i.j(jSONObject.optJSONObject("ad_adsense"));
             g.d(jSONObject.optJSONObject("video_report_config"));
             this.k.b(jSONObject.optJSONObject("activity_switch"));
             this.r.b(y(jSONObject, "abtest_config"));
@@ -228,11 +228,11 @@ public class e {
             c.a.s0.s.o.a.b().f(this.v);
             this.l.d(jSONObject.optJSONObject("profile_icon"));
             TbSingleton.getInstance().setNewUser(jSONObject.optInt("recommend_userstatus", 0) == 1);
-            c.a.s0.s.h0.b.k().u("key_live_forum_enter_switch", jSONObject.optInt("ala_channel_white", 0) == 1);
+            c.a.s0.s.i0.b.k().u("key_live_forum_enter_switch", jSONObject.optInt("ala_channel_white", 0) == 1);
             TbSingleton.getInstance().setPcdnConfigData(jSONObject.optJSONObject("pcdn_config"));
             JSONArray x = x(jSONObject, "offpack");
             if (x != null && x.length() > 0 && (jSONObject2 = x.getJSONObject(0)) != null) {
-                c.a.t0.h3.d.b bVar = new c.a.t0.h3.d.b();
+                c.a.t0.i3.d.b bVar = new c.a.t0.i3.d.b();
                 bVar.e(jSONObject2.optString("mod_name"));
                 bVar.f(jSONObject2.optInt("upload_offline_web_cache") == 1);
                 bVar.d(jSONObject2.optInt("clear_offline_web_cache") == 1);
@@ -259,7 +259,7 @@ public class e {
                     TbSingleton.getInstance().setBannerText(optJSONObject2.optString(LowFlowsActivityConfig.LF_BANNER_TEXT));
                 }
             }
-            c.a.s0.s.h0.b.k().w("key_personalized_rec_switch", jSONObject.optInt("personalized_rec_switch"));
+            c.a.s0.s.i0.b.k().w("key_personalized_rec_switch", jSONObject.optInt("personalized_rec_switch"));
             JSONObject y = y(jSONObject, "homepage_interest_config");
             if (y != null && this.C != null) {
                 this.C.e(y);
@@ -270,9 +270,9 @@ public class e {
                 c.a.s0.i0.e.c.d().h(optJSONObject3);
                 c.a.d.f.m.e.a().post(new a(this));
             }
-            c.a.s0.s.h0.b.k().w("key_work_video_guide_pop", jSONObject.optInt("videoup_guide_pop", -1));
+            c.a.s0.s.i0.b.k().w("key_work_video_guide_pop", jSONObject.optInt("videoup_guide_pop", -1));
             TbSingleton.getInstance().setVideoEventsConfig(o0.e(jSONObject));
-            c.a.s0.s.h0.b.k().y("key_sync_extra_field", jSONObject.optString("extra"));
+            c.a.s0.s.i0.b.k().y("key_sync_extra_field", jSONObject.optString("extra"));
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -305,13 +305,13 @@ public class e {
     public c.a.s0.t.c.d e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13995i : (c.a.s0.t.c.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14135i : (c.a.s0.t.c.d) invokeV.objValue;
     }
 
     public c.a.s0.t.c.f f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13996j : (c.a.s0.t.c.f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f14136j : (c.a.s0.t.c.f) invokeV.objValue;
     }
 
     public h g() {
@@ -323,25 +323,25 @@ public class e {
     public i h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f13994h : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f14134h : (i) invokeV.objValue;
     }
 
     public t i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f13988b : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f14128b : (t) invokeV.objValue;
     }
 
     public CombineDownload j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f13991e : (CombineDownload) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f14131e : (CombineDownload) invokeV.objValue;
     }
 
     public u k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f13989c : (u) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f14129c : (u) invokeV.objValue;
     }
 
     public JSONObject l() {
@@ -392,10 +392,10 @@ public class e {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.a : (VersionData) invokeV.objValue;
     }
 
-    public s0 t() {
+    public r0 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f13993g : (s0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f14133g : (r0) invokeV.objValue;
     }
 
     public YYLiveConfig u() {
@@ -413,7 +413,7 @@ public class e {
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f13990d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f14130d : (String) invokeV.objValue;
     }
 
     public final JSONArray x(JSONObject jSONObject, String str) {

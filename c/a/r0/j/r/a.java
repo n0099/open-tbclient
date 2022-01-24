@@ -6,6 +6,7 @@ import c.a.r0.a.d2.e;
 import c.a.r0.a.k;
 import c.a.r0.a.o2.g.h;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,18 +22,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f11240e;
+    public static final boolean f11382e;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f11241b;
+    public boolean f11383b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f11242c;
+    public JSONObject f11384c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11243d;
+    public String f11385d;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +48,7 @@ public class a {
                 return;
             }
         }
-        f11240e = k.a;
+        f11382e = k.a;
     }
 
     public a() {
@@ -69,18 +70,18 @@ public class a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = this.f11242c;
+            JSONObject jSONObject = this.f11384c;
             boolean z2 = false;
             if (jSONObject == null) {
                 return false;
             }
             int optInt = jSONObject.optInt("bbaspg_guide_count", 3);
-            int optInt2 = this.f11242c.optInt("bbaspg_guide_interval", 72);
-            long optLong = this.f11242c.optLong("bbaspg_guide_last_time", 0L);
-            int optInt3 = this.f11242c.optInt("bbaspg_guide_shown_count", 0);
-            int optInt4 = this.f11242c.optInt("bbaspg_guide_image_index", 0);
+            int optInt2 = this.f11384c.optInt("bbaspg_guide_interval", 72);
+            long optLong = this.f11384c.optLong("bbaspg_guide_last_time", 0L);
+            int optInt3 = this.f11384c.optInt("bbaspg_guide_shown_count", 0);
+            int optInt4 = this.f11384c.optInt("bbaspg_guide_image_index", 0);
             boolean z3 = System.currentTimeMillis() - optLong > ((long) optInt2) * 3600000;
-            String optString = this.f11242c.optString("filter_channelid");
+            String optString = this.f11384c.optString("filter_channelid");
             if (TextUtils.isEmpty(optString)) {
                 z = true;
             } else {
@@ -96,11 +97,11 @@ public class a {
             if (optInt3 < optInt && z3 && z) {
                 z2 = true;
             }
-            if (f11240e) {
-                String str2 = "isShow:" + z2 + " maxCount" + optInt + " isOverInterval" + z3 + "imageUrl " + this.f11243d + "isShow" + z2;
+            if (f11382e) {
+                String str2 = "isShow:" + z2 + " maxCount" + optInt + " isOverInterval" + z3 + "imageUrl " + this.f11385d + UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY + z2;
             }
             if (z2) {
-                d(this.f11242c, optInt4, "bbaspg_guide_images");
+                d(this.f11384c, optInt4, "bbaspg_guide_images");
             }
             return z2;
         }
@@ -145,7 +146,7 @@ public class a {
             if (i2 >= optJSONArray.length()) {
                 i2 = 0;
             }
-            this.f11243d = optJSONArray.optString(i2);
+            this.f11385d = optJSONArray.optString(i2);
             return i2;
         }
         return invokeLIL.intValue;
@@ -156,15 +157,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             this.a = false;
-            this.f11241b = false;
-            this.f11243d = null;
-            this.f11242c = c();
+            this.f11383b = false;
+            this.f11385d = null;
+            this.f11384c = c();
             boolean b2 = b();
             this.a = b2;
             if (b2) {
                 return this;
             }
-            this.f11241b = a();
+            this.f11383b = a();
             return this;
         }
         return (a) invokeV.objValue;
@@ -173,6 +174,6 @@ public class a {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a || this.f11241b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a || this.f11383b : invokeV.booleanValue;
     }
 }

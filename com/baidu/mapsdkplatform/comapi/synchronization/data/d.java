@@ -21,32 +21,32 @@ public class d {
     public static final String a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f36001b = 0;
+    public static int f36029b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static g f36002c = null;
+    public static g f36030c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Thread f36003d = null;
+    public static Thread f36031d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f36004e = true;
+    public static volatile boolean f36032e = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile long f36005g = 5000;
+    public static volatile long f36033g = 5000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f36006h = 5000;
+    public static long f36034h = 5000;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile boolean f36007i = false;
+    public static volatile boolean f36035i = false;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f36008j = 1000;
+    public static int f36036j = 1000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f36009f;
+    public c f36037f;
     public boolean k;
 
     /* loaded from: classes10.dex */
@@ -100,22 +100,22 @@ public class d {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                while (!d.f36004e) {
-                    if (d.f36002c != null) {
-                        d.f36002c.a(d.f36001b, d.f36007i);
-                        boolean unused = d.f36007i = false;
+                while (!d.f36032e) {
+                    if (d.f36030c != null) {
+                        d.f36030c.a(d.f36029b, d.f36035i);
+                        boolean unused = d.f36035i = false;
                     }
                     try {
-                        Thread.sleep(d.f36005g);
+                        Thread.sleep(d.f36033g);
                     } catch (InterruptedException unused2) {
                         Thread.currentThread().interrupt();
                     }
-                    int d2 = d.f36002c != null ? d.f36002c.d() : 0;
+                    int d2 = d.f36030c != null ? d.f36030c.d() : 0;
                     if (d2 >= 3) {
                         long j2 = (d2 / 3) + 1;
-                        long unused3 = d.f36005g = d.f36006h * j2 < 60000 ? d.f36006h * j2 : 60000L;
+                        long unused3 = d.f36033g = d.f36034h * j2 < 60000 ? d.f36034h * j2 : 60000L;
                     } else {
-                        long unused4 = d.f36005g = d.f36006h;
+                        long unused4 = d.f36033g = d.f36034h;
                     }
                 }
             }
@@ -144,12 +144,12 @@ public class d {
         private void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(65537, this, i2) == null) {
-                if (d.f36008j == i2) {
-                    boolean unused = d.f36007i = false;
+                if (d.f36036j == i2) {
+                    boolean unused = d.f36035i = false;
                     return;
                 }
-                boolean unused2 = d.f36007i = true;
-                int unused3 = d.f36008j = i2;
+                boolean unused2 = d.f36035i = true;
+                int unused3 = d.f36036j = i2;
             }
         }
 
@@ -219,11 +219,11 @@ public class d {
     private void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            f36004e = true;
-            Thread thread = f36003d;
+            f36032e = true;
+            Thread thread = f36031d;
             if (thread != null) {
                 thread.interrupt();
-                f36003d = null;
+                f36031d = null;
             }
         }
     }
@@ -232,7 +232,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, null) == null) {
             synchronized (d.class) {
-                f36004e = true;
+                f36032e = true;
             }
         }
     }
@@ -241,17 +241,17 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, null) == null) {
             synchronized (d.class) {
-                if (f36003d == null) {
+                if (f36031d == null) {
                     return;
                 }
-                f36004e = false;
-                if (Thread.State.NEW == f36003d.getState()) {
-                    f36003d.start();
+                f36032e = false;
+                if (Thread.State.NEW == f36031d.getState()) {
+                    f36031d.start();
                 }
-                if (Thread.State.TERMINATED == f36003d.getState()) {
-                    f36003d = null;
+                if (Thread.State.TERMINATED == f36031d.getState()) {
+                    f36031d = null;
                     Thread thread = new Thread(new b(Thread.currentThread().getName()));
-                    f36003d = thread;
+                    f36031d = thread;
                     thread.start();
                 }
             }
@@ -264,14 +264,14 @@ public class d {
             synchronized (this) {
                 String str = a;
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(str, "The order state = " + i2);
-                f36001b = i2;
-                if (this.f36009f == null) {
+                f36029b = i2;
+                if (this.f36037f == null) {
                     com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "SyncDataRequestHandler is null");
                     return;
                 }
-                Message obtainMessage = this.f36009f.obtainMessage();
+                Message obtainMessage = this.f36037f.obtainMessage();
                 obtainMessage.what = i2;
-                this.f36009f.sendMessage(obtainMessage);
+                this.f36037f.sendMessage(obtainMessage);
             }
         }
     }
@@ -279,7 +279,7 @@ public class d {
     public void a(View view) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (gVar = f36002c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (gVar = f36030c) == null) {
             return;
         }
         gVar.a(view);
@@ -288,7 +288,7 @@ public class d {
     public void a(DisplayOptions displayOptions) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, displayOptions) == null) || (gVar = f36002c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, displayOptions) == null) || (gVar = f36030c) == null) {
             return;
         }
         gVar.a(displayOptions);
@@ -297,7 +297,7 @@ public class d {
     public void a(RoleOptions roleOptions) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, roleOptions) == null) || (gVar = f36002c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, roleOptions) == null) || (gVar = f36030c) == null) {
             return;
         }
         gVar.a(roleOptions);
@@ -307,21 +307,21 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, roleOptions, displayOptions) == null) {
             g a2 = g.a();
-            f36002c = a2;
+            f36030c = a2;
             if (a2 != null) {
                 a2.b();
-                f36002c.a(roleOptions);
-                f36002c.a(displayOptions);
+                f36030c.a(roleOptions);
+                f36030c.a(displayOptions);
             }
-            f36003d = new Thread(new b(Thread.currentThread().getName()));
-            this.f36009f = new c();
+            f36031d = new Thread(new b(Thread.currentThread().getName()));
+            this.f36037f = new c();
         }
     }
 
     public void a(k kVar) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, kVar) == null) || (gVar = f36002c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, kVar) == null) || (gVar = f36030c) == null) {
             return;
         }
         gVar.a(kVar);
@@ -342,15 +342,15 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             long j2 = i2 * 1000;
-            f36006h = j2;
-            f36005g = j2;
+            f36034h = j2;
+            f36033g = j2;
         }
     }
 
     public void b(View view) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || (gVar = f36002c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || (gVar = f36030c) == null) {
             return;
         }
         gVar.b(view);
@@ -366,7 +366,7 @@ public class d {
     public void c(View view) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, view) == null) || (gVar = f36002c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, view) == null) || (gVar = f36030c) == null) {
             return;
         }
         gVar.c(view);
@@ -376,13 +376,13 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             o();
-            this.f36009f.removeCallbacksAndMessages(null);
-            f36001b = 0;
-            f36006h = 5000L;
-            f36007i = false;
-            f36008j = 1000;
+            this.f36037f.removeCallbacksAndMessages(null);
+            f36029b = 0;
+            f36034h = 5000L;
+            f36035i = false;
+            f36036j = 1000;
             this.k = true;
-            g gVar = f36002c;
+            g gVar = f36030c;
             if (gVar != null) {
                 gVar.h();
             }

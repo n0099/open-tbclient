@@ -24,7 +24,7 @@ public class gj {
     public Map<String, Object> f443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Object> f61146b;
+    public Map<String, Object> f61191b;
 
     public gj() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class gj {
             }
         }
         this.f443a = new ConcurrentHashMap();
-        this.f61146b = new ConcurrentHashMap();
+        this.f61191b = new ConcurrentHashMap();
         m415a();
     }
 
@@ -138,14 +138,14 @@ public class gj {
                                     newPullParser.next();
                                     String nextText3 = newPullParser.nextText();
                                     String a2 = a(nextText, nextText2);
-                                    if (!this.f61146b.containsKey(a2)) {
+                                    if (!this.f61191b.containsKey(a2)) {
                                         try {
                                             Class<?> cls = Class.forName(nextText3);
                                             if (gh.class.isAssignableFrom(cls)) {
-                                                map2 = this.f61146b;
+                                                map2 = this.f61191b;
                                                 obj2 = cls.newInstance();
                                             } else if (ga.class.isAssignableFrom(cls)) {
-                                                map2 = this.f61146b;
+                                                map2 = this.f61191b;
                                                 obj2 = cls;
                                             }
                                             map2.put(a2, obj2);

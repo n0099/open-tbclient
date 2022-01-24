@@ -344,6 +344,6 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("yuelaou_locate", str3);
         getIntent().putExtra("from", str4);
         getIntent().putExtra("source_from", str5);
-        getIntent().setSourceBounds(rect);
+        getIntent().putExtra("video_cover_rect", rect);
     }
 }

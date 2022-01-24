@@ -171,7 +171,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                         public void onLoaded(a aVar, String str3, int i3) {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeLLI(1048576, this, aVar, str3, i3) == null) {
-                                                super.onLoaded((C17111) aVar, str3, i3);
+                                                super.onLoaded((C17121) aVar, str3, i3);
                                                 if (aVar != null && aVar.p() != null) {
                                                     Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
                                                     int hashCode = Long.valueOf(this.this$1.val$uid).hashCode();

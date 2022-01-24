@@ -34,22 +34,22 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f33022e;
+    public Context f33050e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DialogInterface.OnCancelListener f33023f;
+    public DialogInterface.OnCancelListener f33051f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f33024g;
+    public View.OnClickListener f33052g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f33025h;
+    public TextView f33053h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f33026i;
+    public String f33054i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f33027j;
+    public TextView f33055j;
     public TextView k;
     public String l;
     public boolean m;
@@ -88,28 +88,28 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
                 return;
             }
         }
-        this.f33022e = context;
+        this.f33050e = context;
         this.l = context.getPackageName();
     }
 
     public final void a(DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onCancelListener) == null) {
-            this.f33023f = onCancelListener;
+            this.f33051f = onCancelListener;
         }
     }
 
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f33026i = str;
+            this.f33054i = str;
         }
     }
 
     public final void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f33024g = onClickListener;
+            this.f33052g = onClickListener;
         }
     }
 
@@ -124,13 +124,13 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
-            if (view == this.f33027j) {
-                this.f33023f.onCancel(this);
-            } else if (view != this.k || this.f33022e == null) {
+            if (view == this.f33055j) {
+                this.f33051f.onCancel(this);
+            } else if (view != this.k || this.f33050e == null) {
             } else {
                 if (this.m) {
                     dismiss();
-                    View.OnClickListener onClickListener = this.f33024g;
+                    View.OnClickListener onClickListener = this.f33052g;
                     if (onClickListener != null) {
                         onClickListener.onClick(view);
                         return;
@@ -142,7 +142,7 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
                 intent.setFlags(268435456);
                 intent.setFlags(8388608);
                 intent.setFlags(1073741824);
-                this.f33022e.startActivity(intent);
+                this.f33050e.startActivity(intent);
                 dismiss();
             }
         }
@@ -157,22 +157,22 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
                 requestWindowFeature(1);
                 a.b(getWindow().getDecorView());
             }
-            View inflate = LayoutInflater.from(this.f33022e).inflate(l.core_permission_go_setting, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f33050e).inflate(l.core_permission_go_setting, (ViewGroup) null);
             TextView textView = (TextView) inflate.findViewById(k.core_permission_go_setting_message);
-            this.f33025h = textView;
-            textView.setText(this.f33026i);
+            this.f33053h = textView;
+            textView.setText(this.f33054i);
             TextView textView2 = (TextView) inflate.findViewById(k.core_permission_go_setting_cancel_button);
-            this.f33027j = textView2;
+            this.f33055j = textView2;
             textView2.setOnClickListener(this);
             TextView textView3 = (TextView) inflate.findViewById(k.core_permission_go_setting_button);
             this.k = textView3;
             textView3.setOnClickListener(this);
             if (this.m) {
-                this.k.setText(this.f33022e.getResources().getString(m.core_permission_show_permission_cycle));
+                this.k.setText(this.f33050e.getResources().getString(m.core_permission_show_permission_cycle));
             } else {
-                this.k.setText(this.f33022e.getResources().getString(m.core_permission_go_setting));
+                this.k.setText(this.f33050e.getResources().getString(m.core_permission_go_setting));
             }
-            setContentView(inflate, new ViewGroup.LayoutParams((int) this.f33022e.getResources().getDimension(j.core_permission_dialog_width), -2));
+            setContentView(inflate, new ViewGroup.LayoutParams((int) this.f33050e.getResources().getDimension(j.core_permission_dialog_width), -2));
             Window window = getWindow();
             if (window != null) {
                 WindowManager.LayoutParams attributes = window.getAttributes();
@@ -186,11 +186,11 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f33027j = null;
-            this.f33023f = null;
-            this.f33024g = null;
-            this.f33022e = null;
-            this.f33025h = null;
+            this.f33055j = null;
+            this.f33051f = null;
+            this.f33052g = null;
+            this.f33050e = null;
+            this.f33053h = null;
         }
     }
 

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(65537, null, iVar) == null) || iVar == null) {
             return;
         }
-        if (iVar.f13839b != 0) {
-            c.a.s0.s.h0.b.k().y("app_entrance_nologin", iVar.f13839b + "");
+        if (iVar.f13984b != 0) {
+            c.a.s0.s.i0.b.k().y("app_entrance_nologin", iVar.f13984b + "");
         }
         if (iVar.a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
             return;
         }
-        c.a.s0.s.h0.b.k().y("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), iVar.a + "");
+        c.a.s0.s.i0.b.k().y("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), iVar.a + "");
     }
 
     public int a() {
@@ -45,9 +45,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (TbadkCoreApplication.getCurrentAccount() == null) {
-                q = c.a.s0.s.h0.b.k().q("app_entrance_nologin", "");
+                q = c.a.s0.s.i0.b.k().q("app_entrance_nologin", "");
             } else {
-                c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+                c.a.s0.s.i0.b k = c.a.s0.s.i0.b.k();
                 q = k.q("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
             int e2 = c.a.d.f.m.b.e(q, 0);

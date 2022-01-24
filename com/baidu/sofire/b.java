@@ -16,10 +16,10 @@ public final class b {
     public static int a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ThreadLocal<StringBuilder> f38332b;
+    public static ThreadLocal<StringBuilder> f38360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f38333c;
+    public static int f38361c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public final class b {
                 return;
             }
         }
-        f38332b = new ThreadLocal<>();
+        f38360b = new ThreadLocal<>();
     }
 
     public static String a(Throwable th) {

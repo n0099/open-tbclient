@@ -96,7 +96,7 @@ public class h extends c.a.v0.a {
         public final /* synthetic */ Map a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ InputStream f26434b;
+        public final /* synthetic */ InputStream f26462b;
 
         public b(h hVar, Map map, InputStream inputStream) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class h extends c.a.v0.a {
                 }
             }
             this.a = map;
-            this.f26434b = inputStream;
+            this.f26462b = inputStream;
         }
 
         @Override // okhttp3.RequestBody
@@ -146,7 +146,7 @@ public class h extends c.a.v0.a {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
                 Source source = null;
                 try {
-                    source = Okio.source(this.f26434b);
+                    source = Okio.source(this.f26462b);
                     bufferedSink.writeAll(source);
                 } finally {
                     if (source != null) {

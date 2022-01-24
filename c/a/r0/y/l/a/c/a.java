@@ -16,24 +16,24 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f11961g;
+    public static final boolean f12103g;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11962b;
+    public int f12104b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11963c;
+    public int f12105c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f11964d;
+    public int f12106d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11965e;
+    public int f12107e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11966f;
+    public int f12108f;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public final class a {
                 return;
             }
         }
-        f11961g = k.a;
+        f12103g = k.a;
     }
 
     public a() {
@@ -73,15 +73,15 @@ public final class a {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject.put("videoBitrate", this.a);
-                jSONObject.put("audioBitrate", this.f11962b);
-                jSONObject.put("videoFPS", this.f11963c);
-                jSONObject.put("netSpeed", this.f11964d);
-                jSONObject.put("videoWidth", this.f11965e);
-                jSONObject.put("videoHeight", this.f11966f);
+                jSONObject.put("audioBitrate", this.f12104b);
+                jSONObject.put("videoFPS", this.f12105c);
+                jSONObject.put("netSpeed", this.f12106d);
+                jSONObject.put("videoWidth", this.f12107e);
+                jSONObject.put("videoHeight", this.f12108f);
                 jSONObject2.putOpt("info", jSONObject);
                 return jSONObject2.toString();
             } catch (JSONException e2) {
-                if (f11961g) {
+                if (f12103g) {
                     String str = "toJSONObject failed: " + Log.getStackTraceString(e2);
                     return null;
                 }

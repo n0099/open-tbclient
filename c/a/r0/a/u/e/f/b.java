@@ -59,7 +59,7 @@ public class b extends a {
                 return new c.a.r0.a.u.h.b(1001, "none fragmentManger");
             }
             c.a.r0.a.h0.g.d m = swanAppFragmentManager.m();
-            if (!(m instanceof a.InterfaceC0285a)) {
+            if (!(m instanceof a.InterfaceC0294a)) {
                 return new c.a.r0.a.u.h.b(1001, "fragment not support");
             }
             if (m.getContext() == null) {
@@ -100,10 +100,10 @@ public class b extends a {
                     return new c.a.r0.a.u.h.b(1001, "none fragment");
                 }
                 c.a.r0.a.h0.g.d m = swanAppFragmentManager.m();
-                if (!(m instanceof a.InterfaceC0285a)) {
+                if (!(m instanceof a.InterfaceC0294a)) {
                     return new c.a.r0.a.u.h.b(1001, "fragment not support");
                 }
-                c.a.r0.a.c2.b.c.a floatLayer = ((a.InterfaceC0285a) m).getFloatLayer();
+                c.a.r0.a.c2.b.c.a floatLayer = ((a.InterfaceC0294a) m).getFloatLayer();
                 if (floatLayer == null) {
                     return new c.a.r0.a.u.h.b(1001, "can't get floatLayer");
                 }

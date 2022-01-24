@@ -23,18 +23,18 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f7860d;
+    public static final boolean f8002d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile h f7861e;
+    public static volatile h f8003e;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7862b;
+    public boolean f8004b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.a.n1.a f7863c;
+    public c.a.r0.a.n1.a f8005c;
 
     /* loaded from: classes.dex */
     public class a implements Action<c.a.r0.a.c2.b.b.a> {
@@ -83,7 +83,7 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
                 return;
             }
         }
-        f7860d = c.a.r0.a.d2.e.z;
+        f8002d = c.a.r0.a.d2.e.z;
     }
 
     public h() {
@@ -99,8 +99,8 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
                 return;
             }
         }
-        this.f7862b = false;
-        this.f7863c = new b();
+        this.f8004b = false;
+        this.f8005c = new b();
         BdEventBus.Companion.getDefault().lazyRegister("dialog_event_tag", c.a.r0.a.c2.b.b.a.class, 0, new a(this));
     }
 
@@ -116,14 +116,14 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f7861e == null) {
+            if (f8003e == null) {
                 synchronized (h.class) {
-                    if (f7861e == null) {
-                        f7861e = new h();
+                    if (f8003e == null) {
+                        f8003e = new h();
                     }
                 }
             }
-            return f7861e;
+            return f8003e;
         }
         return (h) invokeV.objValue;
     }
@@ -132,7 +132,7 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
     public void a(c.a.r0.a.p.e.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            boolean z = f7860d;
+            boolean z = f8002d;
             f(new c.a.r0.a.n1.i.e(eVar, true));
         }
     }
@@ -141,7 +141,7 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
     public void b(c.a.r0.a.p.e.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            boolean z = f7860d;
+            boolean z = f8002d;
             f(new c.a.r0.a.n1.i.e(eVar, false));
         }
     }
@@ -149,7 +149,7 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
     public final void f(c.a.r0.a.n1.i.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f7863c.a(cVar);
+            this.f8005c.a(cVar);
         }
     }
 
@@ -163,7 +163,7 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            if (f7860d) {
+            if (f8002d) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("change to ");
                 sb.append(z ? NotificationCompat.WearableExtender.KEY_BACKGROUND : Constant.FOREGROUND);
@@ -175,7 +175,7 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
 
     public void i(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && i.f7907d) {
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && i.f8049d) {
             if (z) {
                 k();
             } else {
@@ -187,17 +187,17 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f7862b = true;
+            this.f8004b = true;
             f(new c.a.r0.a.n1.i.c(12, null, 0L, false));
-            boolean z = f7860d;
+            boolean z = f8002d;
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f7862b) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f8004b) {
             f(new c.a.r0.a.n1.i.c(13, null, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL, false));
-            if (f7860d) {
+            if (f8002d) {
                 String str = "**************** page onResume start route monitor, time=" + PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
             }
         }
@@ -210,7 +210,7 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
             if (z) {
                 g.k();
                 c.a.r0.a.n2.e.z();
-                this.f7862b = false;
+                this.f8004b = false;
             }
         }
     }
@@ -221,7 +221,7 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             long n = c.a.r0.a.c1.a.g0().n();
-            if (f7860d) {
+            if (f8002d) {
                 String str = "start page monitoring, delay: " + n;
             }
             if (this.a) {
@@ -229,7 +229,7 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
                     long currentTimeMillis = System.currentTimeMillis() - V.N();
                     n -= currentTimeMillis;
                     if (n < 0) {
-                        if (f7860d) {
+                        if (f8002d) {
                             String str2 = "WhiteScreenMonitor out of time: time=" + currentTimeMillis;
                         }
                         c.a.r0.a.u2.a aVar = new c.a.r0.a.u2.a();
@@ -246,17 +246,17 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
                 cVar = new c.a.r0.a.n1.i.c(1, null, n, true);
                 this.a = false;
                 c.a.r0.a.h0.i.g.c.g.b().e(n);
-                this.f7862b = false;
-                if (i.f7907d) {
+                this.f8004b = false;
+                if (i.f8049d) {
                     f(cVar);
                 }
             } else {
                 cVar = null;
             }
-            if (f7860d) {
+            if (f8002d) {
                 String str3 = "WhiteScreenMonitor monitortime: " + n;
             }
-            if (i.f7907d) {
+            if (i.f8049d) {
                 return;
             }
             if (cVar == null) {
@@ -276,7 +276,7 @@ public class h implements c.a.r0.a.h0.j.c, c.a.r0.a.h0.j.e {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            boolean z = f7860d;
+            boolean z = f8002d;
             f(new c.a.r0.a.n1.i.c(7));
         }
     }

@@ -24,7 +24,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d0<a> f33277e;
+    public d0<a> f33305e;
     public AppletsCellView mAppletsCellView;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -61,7 +61,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
     public d0<a> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33277e : (d0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33305e : (d0) invokeV.objValue;
     }
 
     public void setFromCDN(boolean z) {
@@ -73,7 +73,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
     public void setSubClickListener(d0<a> d0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, d0Var) == null) {
-            this.f33277e = d0Var;
+            this.f33305e = d0Var;
         }
     }
 
@@ -104,10 +104,10 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
     public void onBindDataToView(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().g1() != null) {
+            if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().h1() != null) {
                 setVisibility(0);
                 e2 threadData = aVar.getThreadData();
-                this.mAppletsCellView.setData(threadData.g1());
+                this.mAppletsCellView.setData(threadData.h1());
                 this.mAppletsCellView.setForumId(String.valueOf(threadData.U()));
                 this.mAppletsCellView.setFrom(AppletsCellView.FRS_SHARE_CARD_LITE_PROGRAM_FROM);
                 return;

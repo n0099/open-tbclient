@@ -19,19 +19,19 @@ public class c {
         public InputStream a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, String> f53249b;
+        public Map<String, String> f53294b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f53250c;
+        public int f53295c;
 
         /* renamed from: d  reason: collision with root package name */
-        public HttpURLConnection f53251d;
+        public HttpURLConnection f53296d;
 
         public a(InputStream inputStream, Map<String, String> map, int i2, HttpURLConnection httpURLConnection) {
             this.a = inputStream;
-            this.f53249b = map;
-            this.f53250c = i2;
-            this.f53251d = httpURLConnection;
+            this.f53294b = map;
+            this.f53295c = i2;
+            this.f53296d = httpURLConnection;
         }
     }
 

@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.chosen.net;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.d.l;
-import c.a.t0.s2.q.c.a;
+import c.a.t0.t2.q.c.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.pb.chosen.PbChosenActivity;
@@ -48,49 +48,49 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements a 
         }
     }
 
-    @Override // c.a.t0.s2.q.c.a
+    @Override // c.a.t0.t2.q.c.a
     public int getErroCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getError() : invokeV.intValue;
     }
 
-    @Override // c.a.t0.s2.q.c.a
+    @Override // c.a.t0.t2.q.c.a
     public String getErrorText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getErrorString() : (String) invokeV.objValue;
     }
 
-    @Override // c.a.t0.s2.q.c.a
+    @Override // c.a.t0.t2.q.c.a
     public List<Post> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.postList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.t0.s2.q.c.a
+    @Override // c.a.t0.t2.q.c.a
     public ExcellentPbThreadInfo getThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.threadInfo : (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    @Override // c.a.t0.s2.q.c.a
+    @Override // c.a.t0.t2.q.c.a
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.userInfo : (UserInfo) invokeV.objValue;
     }
 
-    @Override // c.a.t0.s2.q.c.a
+    @Override // c.a.t0.t2.q.c.a
     public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.userList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.t0.s2.q.c.a
+    @Override // c.a.t0.t2.q.c.a
     public boolean isEmpty() {
         InterceptResult invokeV;
         List<ExcContent> list;

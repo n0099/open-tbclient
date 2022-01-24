@@ -37,22 +37,22 @@ public class YYPayConfirmView extends LinearLayout implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f62961e;
+    public int f63004e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f62962f;
+    public int f63005f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a f62963g;
+    public c.a f63006g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GridView f62964h;
+    public GridView f63007h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f62965i;
+    public TextView f63008i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f62966j;
+    public View f63009j;
     public Button k;
     public TextView l;
     public PayUIKitConfig m;
@@ -66,7 +66,7 @@ public class YYPayConfirmView extends LinearLayout implements c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YYPayConfirmView f62967e;
+        public final /* synthetic */ YYPayConfirmView f63010e;
 
         public a(YYPayConfirmView yYPayConfirmView) {
             Interceptable interceptable = $ic;
@@ -83,14 +83,14 @@ public class YYPayConfirmView extends LinearLayout implements c {
                     return;
                 }
             }
-            this.f62967e = yYPayConfirmView;
+            this.f63010e = yYPayConfirmView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f62967e.d();
+                this.f63010e.d();
             }
         }
     }
@@ -114,11 +114,11 @@ public class YYPayConfirmView extends LinearLayout implements c {
             }
         }
         this.mGiftBagList = new ArrayList();
-        this.f62961e = i2;
-        this.f62962f = i3;
+        this.f63004e = i2;
+        this.f63005f = i3;
         this.m = payUIKitConfig;
         c(context);
-        b.d(this.f62961e, this.f62962f, "15", "", "", "");
+        b.d(this.f63004e, this.f63005f, "15", "", "", "");
     }
 
     public final boolean b() {
@@ -139,14 +139,14 @@ public class YYPayConfirmView extends LinearLayout implements c {
             this.k = button;
             button.setOnClickListener(new a(this));
             GridView gridView = (GridView) findViewById(f.grid_pay_gift);
-            this.f62964h = gridView;
+            this.f63007h = gridView;
             gridView.setSelector(new ColorDrawable(0));
             j.a.a.e.q.e.a aVar = new j.a.a.e.q.e.a(context, this.mGiftBagList, this.m);
             this.n = aVar;
-            this.f62964h.setAdapter((ListAdapter) aVar);
-            this.f62964h.setVisibility(b() ? 0 : 8);
-            this.f62965i = (TextView) findViewById(f.tv_desc);
-            this.f62966j = findViewById(f.rl_container);
+            this.f63007h.setAdapter((ListAdapter) aVar);
+            this.f63007h.setVisibility(b() ? 0 : 8);
+            this.f63008i = (TextView) findViewById(f.tv_desc);
+            this.f63009j = findViewById(f.rl_container);
             this.l = (TextView) findViewById(f.tv_title);
         }
     }
@@ -155,11 +155,11 @@ public class YYPayConfirmView extends LinearLayout implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             RLog.info("YYPayConfirmView", "onContinueBtnClick");
-            c.a aVar = this.f62963g;
+            c.a aVar = this.f63006g;
             if (aVar != null) {
                 aVar.a();
             }
-            b.d(this.f62961e, this.f62962f, "16", "", "", "");
+            b.d(this.f63004e, this.f63005f, "16", "", "", "");
         }
     }
 
@@ -175,11 +175,11 @@ public class YYPayConfirmView extends LinearLayout implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (TextUtils.isEmpty(this.o.giveupSubtitle)) {
-                this.f62965i.setVisibility(4);
+                this.f63008i.setVisibility(4);
                 return;
             }
-            this.f62965i.setVisibility(0);
-            this.f62965i.setText(this.o.giveupSubtitle);
+            this.f63008i.setVisibility(0);
+            this.f63008i.setText(this.o.giveupSubtitle);
         }
     }
 
@@ -221,7 +221,7 @@ public class YYPayConfirmView extends LinearLayout implements c {
                 this.mGiftBagList.clear();
                 this.mGiftBagList.addAll(this.o.giftbag);
                 this.n.notifyDataSetChanged();
-                j.a(this.mGiftBagList.size(), this.f62966j, this.f62964h);
+                j.a(this.mGiftBagList.size(), this.f63009j, this.f63007h);
                 g();
                 f();
                 e();
@@ -235,7 +235,7 @@ public class YYPayConfirmView extends LinearLayout implements c {
     public void setCallback(c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.f62963g = aVar;
+            this.f63006g = aVar;
         }
     }
 

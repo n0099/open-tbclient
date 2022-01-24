@@ -67,10 +67,20 @@ public interface ISpeedContext {
         }
 
         @Override // com.baidu.searchbox.performance.speed.ISpeedContext
+        public boolean isAgreePrivacyPolicy() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.searchbox.performance.speed.ISpeedContext
         public boolean isMainActivity(Activity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, activity)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, activity)) == null) {
                 return false;
             }
             return invokeL.booleanValue;
@@ -80,7 +90,17 @@ public interface ISpeedContext {
         public boolean isMainLine() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.searchbox.performance.speed.ISpeedContext
+        public boolean isMainProcess() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 return false;
             }
             return invokeV.booleanValue;
@@ -90,7 +110,7 @@ public interface ISpeedContext {
         public boolean isPushDispatchActivity(Activity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity)) == null) {
                 return false;
             }
             return invokeL.booleanValue;
@@ -100,7 +120,7 @@ public interface ISpeedContext {
         public boolean isSchemeDispatchActivity(Activity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, activity)) == null) {
                 return false;
             }
             return invokeL.booleanValue;
@@ -110,7 +130,7 @@ public interface ISpeedContext {
         public boolean isSplashActivity(Activity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, activity)) == null) {
                 return false;
             }
             return invokeL.booleanValue;
@@ -119,14 +139,14 @@ public interface ISpeedContext {
         @Override // com.baidu.searchbox.performance.speed.ISpeedContext
         public void launchData(HashMap<String, String> hashMap) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, hashMap) == null) {
+            if (interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.performance.speed.ISpeedContext
         public void launchTime(boolean z, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
             }
         }
     };
@@ -139,9 +159,13 @@ public interface ISpeedContext {
 
     boolean isAdShowing();
 
+    boolean isAgreePrivacyPolicy();
+
     boolean isMainActivity(Activity activity);
 
     boolean isMainLine();
+
+    boolean isMainProcess();
 
     boolean isPushDispatchActivity(Activity activity);
 

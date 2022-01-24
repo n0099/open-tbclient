@@ -18,7 +18,7 @@ public class b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2940b;
+    public String f3042b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class b {
             }
         }
         this.a = 0L;
-        this.f2940b = null;
+        this.f3042b = null;
     }
 
     public boolean a() {
@@ -52,7 +52,7 @@ public class b {
             try {
                 JSONObject jSONObject = new JSONObject(a);
                 this.a = jSONObject.getLong("time");
-                this.f2940b = jSONObject.getString("data");
+                this.f3042b = jSONObject.getString("data");
                 return true;
             } catch (JSONException e2) {
                 e2.printStackTrace();

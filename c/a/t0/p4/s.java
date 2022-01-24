@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.s0.s.s.j;
-import c.a.t0.w3.a0;
+import c.a.t0.x3.a0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -45,10 +45,10 @@ public class s {
         public final /* synthetic */ TbPageContext a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f21303b;
+        public final /* synthetic */ String f21539b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ForumWriteData f21304c;
+        public final /* synthetic */ ForumWriteData f21540c;
 
         public a(TbPageContext tbPageContext, String str, ForumWriteData forumWriteData) {
             Interceptable interceptable = $ic;
@@ -66,15 +66,15 @@ public class s {
                 }
             }
             this.a = tbPageContext;
-            this.f21303b = str;
-            this.f21304c = forumWriteData;
+            this.f21539b = str;
+            this.f21540c = forumWriteData;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
         public void onPermissionsGranted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                s.i(this.a, this.f21303b, this.f21304c);
+                s.i(this.a, this.f21539b, this.f21540c);
             }
         }
     }
@@ -85,22 +85,22 @@ public class s {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f21305e;
+        public final /* synthetic */ String f21541e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f21306f;
+        public final /* synthetic */ String f21542f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f21307g;
+        public final /* synthetic */ String f21543g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f21308h;
+        public final /* synthetic */ String f21544h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f21309i;
+        public final /* synthetic */ int f21545i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ Boolean f21310j;
+        public final /* synthetic */ Boolean f21546j;
         public final /* synthetic */ String k;
         public final /* synthetic */ String l;
         public final /* synthetic */ String m;
@@ -121,12 +121,12 @@ public class s {
                     return;
                 }
             }
-            this.f21305e = str;
-            this.f21306f = str2;
-            this.f21307g = str3;
-            this.f21308h = str4;
-            this.f21309i = i2;
-            this.f21310j = bool;
+            this.f21541e = str;
+            this.f21542f = str2;
+            this.f21543g = str3;
+            this.f21544h = str4;
+            this.f21545i = i2;
+            this.f21546j = bool;
             this.k = str5;
             this.l = str6;
             this.m = str7;
@@ -138,9 +138,9 @@ public class s {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
                 if (i2 == 0) {
-                    s.k(true, true, this.f21305e, this.f21306f, this.f21307g, this.f21308h, this.f21309i, this.f21310j, this.k, this.l, this.m);
+                    s.k(true, true, this.f21541e, this.f21542f, this.f21543g, this.f21544h, this.f21545i, this.f21546j, this.k, this.l, this.m);
                 } else if (i2 == 1) {
-                    s.k(true, false, this.f21305e, this.f21306f, this.f21307g, this.f21308h, this.f21309i, this.f21310j, this.k, this.l, this.m);
+                    s.k(true, false, this.f21541e, this.f21542f, this.f21543g, this.f21544h, this.f21545i, this.f21546j, this.k, this.l, this.m);
                 }
                 PopupDialog popupDialog = this.n;
                 if (popupDialog != null) {
@@ -188,7 +188,7 @@ public class s {
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? c.a.s0.s.h0.b.k().l("key_work_video_guide_pop", -1) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? c.a.s0.s.i0.b.k().l("key_work_video_guide_pop", -1) : invokeV.intValue;
     }
 
     public static boolean b() {

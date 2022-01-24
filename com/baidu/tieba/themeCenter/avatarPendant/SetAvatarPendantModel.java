@@ -13,31 +13,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_SET_USE = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f48404e;
+    public long f48414e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48405f;
+    public int f48415f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48406g;
+    public int f48416g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f48407h;
+    public boolean f48417h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f48408i;
+    public b f48418i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.d.c.g.a f48409j;
+    public c.a.d.c.g.a f48419j;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,24 +81,24 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
                 if (z) {
                     SetPendantHttpResponse setPendantHttpResponse = (SetPendantHttpResponse) responsedMessage;
                     this.a.C(setPendantHttpResponse.getPendantId());
-                    this.a.f48406g = setPendantHttpResponse.getFreeUseLevel();
+                    this.a.f48416g = setPendantHttpResponse.getFreeUseLevel();
                 } else if (responsedMessage instanceof SetPendantSocketResponse) {
                     SetPendantSocketResponse setPendantSocketResponse = (SetPendantSocketResponse) responsedMessage;
                     this.a.C(setPendantSocketResponse.getPendantId());
-                    this.a.f48406g = setPendantSocketResponse.getFreeUseLevel();
+                    this.a.f48416g = setPendantSocketResponse.getFreeUseLevel();
                 }
-                if (this.a.f48408i != null) {
-                    int i2 = c.f15485b;
-                    if (responsedMessage.getError() == c.f15486c) {
+                if (this.a.f48418i != null) {
+                    int i2 = c.f15633b;
+                    if (responsedMessage.getError() == c.f15634c) {
                         i2 = c.a;
                     }
-                    this.a.f48408i.onSetPendantCallback(this.a.f48407h, this.a.f48404e, this.a.f48406g, responsedMessage.getErrorString(), i2);
+                    this.a.f48418i.onSetPendantCallback(this.a.f48417h, this.a.f48414e, this.a.f48416g, responsedMessage.getErrorString(), i2);
                 }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface b {
         void onSetPendantCallback(boolean z, long j2, int i2, String str, int i3);
     }
@@ -116,11 +116,11 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
                 return;
             }
         }
-        this.f48407h = false;
-        this.f48409j = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        c.a.t0.w3.f0.a.h(309412, SetPendantSocketResponse.class, false, false);
-        c.a.t0.w3.f0.a.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
-        registerListener(this.f48409j);
+        this.f48417h = false;
+        this.f48419j = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
+        c.a.t0.x3.f0.a.h(309412, SetPendantSocketResponse.class, false, false);
+        c.a.t0.x3.f0.a.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        registerListener(this.f48419j);
     }
 
     public void B(long j2, int i2, int i3) {
@@ -137,21 +137,21 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public void C(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f48404e = j2;
+            this.f48414e = j2;
         }
     }
 
     public void D(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f48408i = bVar;
+            this.f48418i = bVar;
         }
     }
 
     public void E(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f48407h = z;
+            this.f48417h = z;
         }
     }
 
@@ -168,7 +168,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f48405f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f48415f : invokeV.intValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -184,7 +184,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f48409j);
+            MessageManager.getInstance().unRegisterListener(this.f48419j);
         }
     }
 }

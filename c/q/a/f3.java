@@ -20,13 +20,13 @@ public class f3 extends WebViewClient {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30319b;
+    public String f30347b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30320c;
+    public boolean f30348c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ j3 f30321d;
+    public final /* synthetic */ j3 f30349d;
 
     public f3(j3 j3Var) {
         Interceptable interceptable = $ic;
@@ -43,20 +43,20 @@ public class f3 extends WebViewClient {
                 return;
             }
         }
-        this.f30321d = j3Var;
+        this.f30349d = j3Var;
     }
 
     public final boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            j3 j3Var = this.f30321d;
-            if (j3Var.f30345d) {
-                j3Var.f30345d = false;
-                j3 j3Var2 = this.f30321d;
-                r rVar = j3Var2.f30343b;
+            j3 j3Var = this.f30349d;
+            if (j3Var.f30373d) {
+                j3Var.f30373d = false;
+                j3 j3Var2 = this.f30349d;
+                r rVar = j3Var2.f30371b;
                 if (rVar != null) {
-                    return rVar.a(str, j3Var2.f30346e);
+                    return rVar.a(str, j3Var2.f30374e);
                 }
             }
             return false;
@@ -69,8 +69,8 @@ public class f3 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
             super.onPageFinished(webView, str);
-            if (TextUtils.isEmpty(this.f30319b)) {
-                this.f30319b = str;
+            if (TextUtils.isEmpty(this.f30347b)) {
+                this.f30347b = str;
             }
         }
     }
@@ -80,9 +80,9 @@ public class f3 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
             super.onPageStarted(webView, str, bitmap);
-            z zVar = this.f30321d.a;
-            if (zVar != null && !this.f30320c) {
-                this.f30320c = true;
+            z zVar = this.f30349d.a;
+            if (zVar != null && !this.f30348c) {
+                this.f30348c = true;
                 zVar.onLoaded();
             }
             this.a = webView.getUrl();

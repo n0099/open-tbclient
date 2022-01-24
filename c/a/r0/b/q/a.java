@@ -6,7 +6,6 @@ import c.a.r0.a.z2.w;
 import c.a.r0.b.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.ecommerce.result.InvoiceBuildResult;
-import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
@@ -25,14 +24,14 @@ public class a extends ActivityDelegation {
 
     /* renamed from: c.a.r0.b.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0676a implements c.a.r0.a.m.a {
+    public class C0685a implements c.a.r0.a.m.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f10226e;
+        public final /* synthetic */ a f10368e;
 
-        public C0676a(a aVar) {
+        public C0685a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +46,7 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f10226e = aVar;
+            this.f10368e = aVar;
         }
 
         @Override // c.a.r0.a.m.a
@@ -55,11 +54,11 @@ public class a extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    this.f10226e.l();
+                    this.f10368e.l();
                     return;
                 }
-                this.f10226e.mResult.putString("errorMsg", "login failed");
-                this.f10226e.finish();
+                this.f10368e.mResult.putString("errorMsg", "login failed");
+                this.f10368e.finish();
             }
         }
     }
@@ -134,12 +133,20 @@ public class a extends ActivityDelegation {
             this.a = aVar;
         }
 
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.a.mResult.putString("errorMsg", exc.getMessage());
+                this.a.finish();
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i2) == null) {
                 if (jSONObject == null) {
                     this.a.mResult.putString("errorMsg", "exchange plaintext from server, but no response");
                     this.a.finish();
@@ -158,26 +165,16 @@ public class a extends ActivityDelegation {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
         public JSONObject parseResponse(Response response, int i2) throws Exception {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i2)) == null) {
                 if (response == null || response.body() == null) {
                     return null;
                 }
                 return w.d(response.body().string());
             }
             return (JSONObject) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                this.a.mResult.putString("errorMsg", exc.getMessage());
-                this.a.finish();
-            }
         }
     }
 
@@ -205,7 +202,7 @@ public class a extends ActivityDelegation {
     public static String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? String.format("%s/ma/invoice/detail", BaseUrlManager.ONLINE_URL) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? String.format("%s/ma/invoice/detail", "https://mbd.baidu.com") : (String) invokeV.objValue;
     }
 
     public final void j(String str, String str2) {
@@ -232,7 +229,7 @@ public class a extends ActivityDelegation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (!c.a.r0.b.l.a.E(getAgent())) {
-                c.a.r0.b.l.a.L(getAgent(), null, new C0676a(this));
+                c.a.r0.b.l.a.L(getAgent(), null, new C0685a(this));
                 return false;
             }
             l();

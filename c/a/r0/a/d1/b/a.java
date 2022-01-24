@@ -23,13 +23,13 @@ public class a {
     public c.a.r0.a.d1.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.d1.a f5514b;
+    public c.a.r0.a.d1.a f5656b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanAppUtilsJavaScriptInterface f5515c;
+    public SwanAppUtilsJavaScriptInterface f5657c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.a.u.a f5516d;
+    public c.a.r0.a.u.a f5658d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -52,15 +52,15 @@ public class a {
             if (aVar != null) {
                 aVar.setActivityRef(activity);
             }
-            c.a.r0.a.d1.a aVar2 = this.f5514b;
+            c.a.r0.a.d1.a aVar2 = this.f5656b;
             if (aVar2 != null) {
                 aVar2.setActivityRef(activity);
             }
-            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = this.f5515c;
+            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = this.f5657c;
             if (swanAppUtilsJavaScriptInterface != null) {
                 swanAppUtilsJavaScriptInterface.setActivity(activity);
             }
-            c.a.r0.a.u.a aVar3 = this.f5516d;
+            c.a.r0.a.u.a aVar3 = this.f5658d;
             if (aVar3 != null) {
                 aVar3.i(activity);
             }
@@ -74,7 +74,7 @@ public class a {
             this.a = swanAppGlobalJsBridge;
             aVar.addJavascriptInterface(swanAppGlobalJsBridge, SwanAppGlobalJsBridge.JAVASCRIPT_INTERFACE_NAME);
             SwanAppJsBridge swanAppJsBridge = new SwanAppJsBridge(context, unitedSchemeMainDispatcher, callbackHandler, aVar);
-            this.f5514b = swanAppJsBridge;
+            this.f5656b = swanAppJsBridge;
             aVar.addJavascriptInterface(swanAppJsBridge, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
             aVar.addJavascriptInterface(new SwanAppPreloadJsBridge(aVar), SwanAppPreloadJsBridge.JAVASCRIPT_INTERFACE_NAME);
             aVar2.b(aVar);
@@ -85,9 +85,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, aVar, context, aVar2) == null) {
             SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = new SwanAppUtilsJavaScriptInterface(context, aVar);
-            this.f5515c = swanAppUtilsJavaScriptInterface;
+            this.f5657c = swanAppUtilsJavaScriptInterface;
             swanAppUtilsJavaScriptInterface.setSource("swan_");
-            aVar.addJavascriptInterface(this.f5515c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+            aVar.addJavascriptInterface(this.f5657c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
             aVar2.a(aVar);
         }
     }
@@ -105,10 +105,10 @@ public class a {
             return;
         }
         c.a.r0.a.u.a aVar2 = new c.a.r0.a.u.a(context, callbackHandler, aVar);
-        this.f5516d = aVar2;
+        this.f5658d = aVar2;
         b(aVar, context, callbackHandler, unitedSchemeMainDispatcher, aVar2);
         if (aVar instanceof c) {
-            c(aVar, context, this.f5516d);
+            c(aVar, context, this.f5658d);
         } else {
             d(aVar);
         }
@@ -118,10 +118,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, aVar) == null) {
             SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = new SwanAppUtilsJavaScriptInterface(context, aVar);
-            this.f5515c = swanAppUtilsJavaScriptInterface;
+            this.f5657c = swanAppUtilsJavaScriptInterface;
             swanAppUtilsJavaScriptInterface.setSource("swan_");
-            aVar.addJavascriptInterface(this.f5515c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
-            this.f5515c.setForceShareLight(true);
+            aVar.addJavascriptInterface(this.f5657c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+            this.f5657c.setForceShareLight(true);
         }
     }
 }

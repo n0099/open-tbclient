@@ -40,7 +40,7 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<c.a.t0.w3.r0.a> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<c.a.t0.x3.r0.a> run(CustomMessage<Activity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001271, c.a.h.a.a.e.m()) : (CustomResponsedMessage) invokeL.objValue;

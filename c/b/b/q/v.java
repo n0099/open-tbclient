@@ -19,22 +19,22 @@ public class v<K> implements Iterable<b<K>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27504e;
+    public int f27532e;
 
     /* renamed from: f  reason: collision with root package name */
-    public K[] f27505f;
+    public K[] f27533f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int[] f27506g;
+    public int[] f27534g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f27507h;
+    public float f27535h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27508i;
+    public int f27536i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f27509j;
+    public int f27537j;
     public int k;
     public transient a l;
     public transient a m;
@@ -45,7 +45,7 @@ public class v<K> implements Iterable<b<K>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public b<K> f27510j;
+        public b<K> f27538j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(v<K> vVar) {
@@ -65,7 +65,7 @@ public class v<K> implements Iterable<b<K>> {
                     return;
                 }
             }
-            this.f27510j = new b<>();
+            this.f27538j = new b<>();
         }
 
         public a<K> d() {
@@ -81,17 +81,17 @@ public class v<K> implements Iterable<b<K>> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f27512e) {
-                    if (this.f27516i) {
-                        v<K> vVar = this.f27513f;
-                        K[] kArr = vVar.f27505f;
-                        b<K> bVar = this.f27510j;
-                        int i2 = this.f27514g;
+                if (this.f27540e) {
+                    if (this.f27544i) {
+                        v<K> vVar = this.f27541f;
+                        K[] kArr = vVar.f27533f;
+                        b<K> bVar = this.f27538j;
+                        int i2 = this.f27542g;
                         bVar.a = kArr[i2];
-                        bVar.f27511b = vVar.f27506g[i2];
-                        this.f27515h = i2;
+                        bVar.f27539b = vVar.f27534g[i2];
+                        this.f27543h = i2;
                         b();
-                        return this.f27510j;
+                        return this.f27538j;
                     }
                     throw new GdxRuntimeException("#iterator() cannot be used nested.");
                 }
@@ -105,8 +105,8 @@ public class v<K> implements Iterable<b<K>> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.f27516i) {
-                    return this.f27512e;
+                if (this.f27544i) {
+                    return this.f27540e;
                 }
                 throw new GdxRuntimeException("#iterator() cannot be used nested.");
             }
@@ -127,7 +127,7 @@ public class v<K> implements Iterable<b<K>> {
         public K a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27511b;
+        public int f27539b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -147,7 +147,7 @@ public class v<K> implements Iterable<b<K>> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a + "=" + this.f27511b;
+                return this.a + "=" + this.f27539b;
             }
             return (String) invokeV.objValue;
         }
@@ -159,19 +159,19 @@ public class v<K> implements Iterable<b<K>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f27512e;
+        public boolean f27540e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final v<K> f27513f;
+        public final v<K> f27541f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f27514g;
+        public int f27542g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f27515h;
+        public int f27543h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f27516i;
+        public boolean f27544i;
 
         public c(v<K> vVar) {
             Interceptable interceptable = $ic;
@@ -188,8 +188,8 @@ public class v<K> implements Iterable<b<K>> {
                     return;
                 }
             }
-            this.f27516i = true;
-            this.f27513f = vVar;
+            this.f27544i = true;
+            this.f27541f = vVar;
             c();
         }
 
@@ -197,25 +197,25 @@ public class v<K> implements Iterable<b<K>> {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                K[] kArr = this.f27513f.f27505f;
+                K[] kArr = this.f27541f.f27533f;
                 int length = kArr.length;
                 do {
-                    i2 = this.f27514g + 1;
-                    this.f27514g = i2;
+                    i2 = this.f27542g + 1;
+                    this.f27542g = i2;
                     if (i2 >= length) {
-                        this.f27512e = false;
+                        this.f27540e = false;
                         return;
                     }
                 } while (kArr[i2] == null);
-                this.f27512e = true;
+                this.f27540e = true;
             }
         }
 
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f27515h = -1;
-                this.f27514g = -1;
+                this.f27543h = -1;
+                this.f27542g = -1;
                 b();
             }
         }
@@ -223,11 +223,11 @@ public class v<K> implements Iterable<b<K>> {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                int i2 = this.f27515h;
+                int i2 = this.f27543h;
                 if (i2 >= 0) {
-                    v<K> vVar = this.f27513f;
-                    K[] kArr = vVar.f27505f;
-                    int[] iArr = vVar.f27506g;
+                    v<K> vVar = this.f27541f;
+                    K[] kArr = vVar.f27533f;
+                    int[] iArr = vVar.f27534g;
                     int i3 = vVar.k;
                     int i4 = i2 + 1;
                     while (true) {
@@ -236,7 +236,7 @@ public class v<K> implements Iterable<b<K>> {
                         if (k == null) {
                             break;
                         }
-                        int g2 = this.f27513f.g(k);
+                        int g2 = this.f27541f.g(k);
                         if (((i5 - g2) & i3) > ((i2 - g2) & i3)) {
                             kArr[i2] = k;
                             iArr[i2] = iArr[i5];
@@ -245,12 +245,12 @@ public class v<K> implements Iterable<b<K>> {
                         i4 = i5 + 1;
                     }
                     kArr[i2] = null;
-                    v<K> vVar2 = this.f27513f;
-                    vVar2.f27504e--;
-                    if (i2 != this.f27515h) {
-                        this.f27514g--;
+                    v<K> vVar2 = this.f27541f;
+                    vVar2.f27532e--;
+                    if (i2 != this.f27543h) {
+                        this.f27542g--;
                     }
-                    this.f27515h = -1;
+                    this.f27543h = -1;
                     return;
                 }
                 throw new IllegalStateException("next must be called before remove.");
@@ -295,17 +295,17 @@ public class v<K> implements Iterable<b<K>> {
                 this.m = new a(this);
             }
             a aVar = this.l;
-            if (!aVar.f27516i) {
+            if (!aVar.f27544i) {
                 aVar.c();
                 a<K> aVar2 = this.l;
-                aVar2.f27516i = true;
-                this.m.f27516i = false;
+                aVar2.f27544i = true;
+                this.m.f27544i = false;
                 return aVar2;
             }
             this.m.c();
             a<K> aVar3 = this.m;
-            aVar3.f27516i = true;
-            this.l.f27516i = false;
+            aVar3.f27544i = true;
+            this.l.f27544i = false;
             return aVar3;
         }
         return (a) invokeV.objValue;
@@ -316,18 +316,18 @@ public class v<K> implements Iterable<b<K>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, k, i2)) == null) {
             int f2 = f(k);
-            return f2 < 0 ? i2 : this.f27506g[f2];
+            return f2 < 0 ? i2 : this.f27534g[f2];
         }
         return invokeLI.intValue;
     }
 
     public void clear() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f27504e == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f27532e == 0) {
             return;
         }
-        this.f27504e = 0;
-        Arrays.fill(this.f27505f, (Object) null);
+        this.f27532e = 0;
+        Arrays.fill(this.f27533f, (Object) null);
     }
 
     public int d(K k, int i2, int i3) {
@@ -336,18 +336,18 @@ public class v<K> implements Iterable<b<K>> {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, k, i2, i3)) == null) {
             int f2 = f(k);
             if (f2 >= 0) {
-                int[] iArr = this.f27506g;
+                int[] iArr = this.f27534g;
                 int i4 = iArr[f2];
                 iArr[f2] = iArr[f2] + i3;
                 return i4;
             }
             int i5 = -(f2 + 1);
-            K[] kArr = this.f27505f;
+            K[] kArr = this.f27533f;
             kArr[i5] = k;
-            this.f27506g[i5] = i3 + i2;
-            int i6 = this.f27504e + 1;
-            this.f27504e = i6;
-            if (i6 >= this.f27508i) {
+            this.f27534g[i5] = i3 + i2;
+            int i6 = this.f27532e + 1;
+            this.f27532e = i6;
+            if (i6 >= this.f27536i) {
                 j(kArr.length << 1);
             }
             return i2;
@@ -374,11 +374,11 @@ public class v<K> implements Iterable<b<K>> {
             }
             if (obj instanceof v) {
                 v vVar = (v) obj;
-                if (vVar.f27504e != this.f27504e) {
+                if (vVar.f27532e != this.f27532e) {
                     return false;
                 }
-                K[] kArr = this.f27505f;
-                int[] iArr = this.f27506g;
+                K[] kArr = this.f27533f;
+                int[] iArr = this.f27534g;
                 int length = kArr.length;
                 for (int i2 = 0; i2 < length; i2++) {
                     K k = kArr[i2];
@@ -400,7 +400,7 @@ public class v<K> implements Iterable<b<K>> {
             return invokeL.intValue;
         }
         if (k != null) {
-            K[] kArr = this.f27505f;
+            K[] kArr = this.f27533f;
             int g2 = g(k);
             while (true) {
                 K k2 = kArr[g2];
@@ -420,7 +420,7 @@ public class v<K> implements Iterable<b<K>> {
     public int g(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k)) == null) ? (int) ((k.hashCode() * (-7046029254386353131L)) >>> this.f27509j) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k)) == null) ? (int) ((k.hashCode() * (-7046029254386353131L)) >>> this.f27537j) : invokeL.intValue;
     }
 
     public void h(K k, int i2) {
@@ -428,16 +428,16 @@ public class v<K> implements Iterable<b<K>> {
         if (interceptable == null || interceptable.invokeLI(1048585, this, k, i2) == null) {
             int f2 = f(k);
             if (f2 >= 0) {
-                this.f27506g[f2] = i2;
+                this.f27534g[f2] = i2;
                 return;
             }
             int i3 = -(f2 + 1);
-            K[] kArr = this.f27505f;
+            K[] kArr = this.f27533f;
             kArr[i3] = k;
-            this.f27506g[i3] = i2;
-            int i4 = this.f27504e + 1;
-            this.f27504e = i4;
-            if (i4 >= this.f27508i) {
+            this.f27534g[i3] = i2;
+            int i4 = this.f27532e + 1;
+            this.f27532e = i4;
+            if (i4 >= this.f27536i) {
                 j(kArr.length << 1);
             }
         }
@@ -447,9 +447,9 @@ public class v<K> implements Iterable<b<K>> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i2 = this.f27504e;
-            K[] kArr = this.f27505f;
-            int[] iArr = this.f27506g;
+            int i2 = this.f27532e;
+            K[] kArr = this.f27533f;
+            int[] iArr = this.f27534g;
             int length = kArr.length;
             for (int i3 = 0; i3 < length; i3++) {
                 K k = kArr[i3];
@@ -465,29 +465,29 @@ public class v<K> implements Iterable<b<K>> {
     public final void i(K k, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, k, i2) == null) {
-            K[] kArr = this.f27505f;
+            K[] kArr = this.f27533f;
             int g2 = g(k);
             while (kArr[g2] != null) {
                 g2 = (g2 + 1) & this.k;
             }
             kArr[g2] = k;
-            this.f27506g[g2] = i2;
+            this.f27534g[g2] = i2;
         }
     }
 
     public final void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            int length = this.f27505f.length;
-            this.f27508i = (int) (i2 * this.f27507h);
+            int length = this.f27533f.length;
+            this.f27536i = (int) (i2 * this.f27535h);
             int i3 = i2 - 1;
             this.k = i3;
-            this.f27509j = Long.numberOfLeadingZeros(i3);
-            K[] kArr = this.f27505f;
-            int[] iArr = this.f27506g;
-            this.f27505f = (K[]) new Object[i2];
-            this.f27506g = new int[i2];
-            if (this.f27504e > 0) {
+            this.f27537j = Long.numberOfLeadingZeros(i3);
+            K[] kArr = this.f27533f;
+            int[] iArr = this.f27534g;
+            this.f27533f = (K[]) new Object[i2];
+            this.f27534g = new int[i2];
+            if (this.f27532e > 0) {
                 for (int i4 = 0; i4 < length; i4++) {
                     K k = kArr[i4];
                     if (k != null) {
@@ -503,15 +503,15 @@ public class v<K> implements Iterable<b<K>> {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048590, this, str, z)) == null) {
-            if (this.f27504e == 0) {
+            if (this.f27532e == 0) {
                 return z ? StringUtil.EMPTY_ARRAY : "";
             }
             StringBuilder sb = new StringBuilder(32);
             if (z) {
                 sb.append(ExtendedMessageFormat.START_FE);
             }
-            K[] kArr = this.f27505f;
-            int[] iArr = this.f27506g;
+            K[] kArr = this.f27533f;
+            int[] iArr = this.f27534g;
             int length = kArr.length;
             while (true) {
                 i2 = length - 1;
@@ -519,7 +519,7 @@ public class v<K> implements Iterable<b<K>> {
                     K k = kArr[i2];
                     if (k != null) {
                         sb.append(k);
-                        sb.append(com.alipay.sdk.encrypt.a.f30865h);
+                        sb.append(com.alipay.sdk.encrypt.a.f30893h);
                         sb.append(iArr[i2]);
                         break;
                     }
@@ -537,7 +537,7 @@ public class v<K> implements Iterable<b<K>> {
                 if (k2 != null) {
                     sb.append(str);
                     sb.append(k2);
-                    sb.append(com.alipay.sdk.encrypt.a.f30865h);
+                    sb.append(com.alipay.sdk.encrypt.a.f30893h);
                     sb.append(iArr[i3]);
                 }
                 i2 = i3;
@@ -572,14 +572,14 @@ public class v<K> implements Iterable<b<K>> {
             }
         }
         if (f2 > 0.0f && f2 < 1.0f) {
-            this.f27507h = f2;
+            this.f27535h = f2;
             int h2 = x.h(i2, f2);
-            this.f27508i = (int) (h2 * f2);
+            this.f27536i = (int) (h2 * f2);
             int i5 = h2 - 1;
             this.k = i5;
-            this.f27509j = Long.numberOfLeadingZeros(i5);
-            this.f27505f = (K[]) new Object[h2];
-            this.f27506g = new int[h2];
+            this.f27537j = Long.numberOfLeadingZeros(i5);
+            this.f27533f = (K[]) new Object[h2];
+            this.f27534g = new int[h2];
             return;
         }
         throw new IllegalArgumentException("loadFactor must be > 0 and < 1: " + f2);

@@ -44,7 +44,7 @@ public class a {
     public static void a(String str, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65538, null, str, jSONObject, jSONObject2, jSONObject3) == null) {
-            if (!g.a().f53081b.isCloseDefaultReport()) {
+            if (!g.a().f53126b.isCloseDefaultReport()) {
                 ZeusLogger.d("Zeus/DefaultReporterImpl", "report by defaultImpl");
                 com.bytedance.pangle.helper.d.a().monitorStatusAndEvent(str, 0, jSONObject, jSONObject2, jSONObject3);
                 com.bytedance.pangle.helper.d.a().flushBuffer(new b("report result : "));

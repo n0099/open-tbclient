@@ -24,7 +24,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9470b;
+    public static final boolean f9612b;
     public transient /* synthetic */ FieldHolder $fh;
     public g a;
 
@@ -41,7 +41,7 @@ public class c {
 
     /* renamed from: c.a.r0.a.v0.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0604c {
+    public static final class C0613c {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class c {
                 return;
             }
         }
-        f9470b = k.a;
+        f9612b = k.a;
     }
 
     public /* synthetic */ c(a aVar) {
@@ -86,7 +86,7 @@ public class c {
     public static c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0604c.a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0613c.a : (c) invokeV.objValue;
     }
 
     public boolean a(@NonNull WeakReference<Activity> weakReference) {
@@ -161,7 +161,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) {
             boolean e2 = e();
-            if (f9470b) {
+            if (f9612b) {
                 String str = "is first in " + e2;
             }
             if (e2) {
@@ -169,7 +169,7 @@ public class c {
             }
             int d2 = d(activity);
             int b2 = b(activity);
-            if (f9470b) {
+            if (f9612b) {
                 String str2 = "version =" + d2 + " curVerCode" + b2;
             }
             return b2 > d2;

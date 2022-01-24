@@ -13,7 +13,7 @@ public class r {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27477b;
+    public int f27505b;
 
     public r(String str, int i2) {
         Interceptable interceptable = $ic;
@@ -31,12 +31,12 @@ public class r {
             }
         }
         this.a = str;
-        this.f27477b = i2;
+        this.f27505b = i2;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f27477b < 3) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f27505b < 3) {
             return;
         }
         c.b.b.f.a.debug(this.a, str);
@@ -44,7 +44,7 @@ public class r {
 
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f27477b < 1) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f27505b < 1) {
             return;
         }
         c.b.b.f.a.error(this.a, str);
@@ -52,7 +52,7 @@ public class r {
 
     public void c(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, th) == null) || this.f27477b < 1) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, th) == null) || this.f27505b < 1) {
             return;
         }
         c.b.b.f.a.error(this.a, str, th);
@@ -61,12 +61,12 @@ public class r {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27477b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27505b : invokeV.intValue;
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.f27477b < 2) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.f27505b < 2) {
             return;
         }
         c.b.b.f.a.log(this.a, str);

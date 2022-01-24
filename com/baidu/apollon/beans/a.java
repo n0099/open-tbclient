@@ -18,7 +18,7 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, ArrayList<ApollonBean<?>>> f32392b;
+    public final HashMap<String, ArrayList<ApollonBean<?>>> f32420b;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public final class a {
                 return;
             }
         }
-        this.f32392b = new HashMap<>();
+        this.f32420b = new HashMap<>();
     }
 
     public static synchronized a a() {
@@ -71,10 +71,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, apollonBean) == null) {
             synchronized (this) {
-                ArrayList<ApollonBean<?>> arrayList = this.f32392b.get(str);
+                ArrayList<ApollonBean<?>> arrayList = this.f32420b.get(str);
                 if (arrayList == null) {
                     arrayList = new ArrayList<>();
-                    this.f32392b.put(str, arrayList);
+                    this.f32420b.put(str, arrayList);
                 }
                 arrayList.add(apollonBean);
             }
@@ -85,8 +85,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, apollonBean) == null) {
             synchronized (this) {
-                for (String str : this.f32392b.keySet()) {
-                    ArrayList<ApollonBean<?>> arrayList = this.f32392b.get(str);
+                for (String str : this.f32420b.keySet()) {
+                    ArrayList<ApollonBean<?>> arrayList = this.f32420b.get(str);
                     Iterator<ApollonBean<?>> it = arrayList.iterator();
                     while (true) {
                         if (it.hasNext()) {
@@ -108,13 +108,13 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             synchronized (this) {
-                ArrayList<ApollonBean<?>> arrayList = this.f32392b.get(str);
+                ArrayList<ApollonBean<?>> arrayList = this.f32420b.get(str);
                 if (arrayList != null) {
                     Iterator<ApollonBean<?>> it = arrayList.iterator();
                     while (it.hasNext()) {
                         it.next().destroyBean();
                     }
-                    this.f32392b.remove(str);
+                    this.f32420b.remove(str);
                 }
             }
         }

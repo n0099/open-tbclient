@@ -30,14 +30,14 @@ public class a {
     public static final String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f51848b = 8;
+    public static final int f51893b = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f51849c;
+    public Context f51894c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51850d;
+    public String f51895d;
 
     /* renamed from: com.baidu.wallet.passport.a$1  reason: invalid class name */
     /* loaded from: classes13.dex */
@@ -48,7 +48,7 @@ public class a {
 
     /* renamed from: com.baidu.wallet.passport.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public static class C2006a {
+    public static class C2012a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class a {
             a = new a(null);
         }
 
-        public C2006a() {
+        public C2012a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,8 +113,8 @@ public class a {
             Date time = calendar.getTime();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-            this.f51850d = simpleDateFormat.format(time);
-            LogUtil.d("--DxmCookieManager---cookie----expires--->" + this.f51850d);
+            this.f51895d = simpleDateFormat.format(time);
+            LogUtil.d("--DxmCookieManager---cookie----expires--->" + this.f51895d);
         }
     }
 
@@ -138,7 +138,7 @@ public class a {
                 return;
             }
         }
-        this.f51849c = BaiduWalletDelegate.getInstance().getAppContext();
+        this.f51894c = BaiduWalletDelegate.getInstance().getAppContext();
     }
 
     private String[] b(String str) {
@@ -157,7 +157,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C2006a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C2012a.a : (a) invokeV.objValue;
     }
 
     public void a(String str) {
@@ -172,16 +172,16 @@ public class a {
         if (interceptable == null || interceptable.invokeIL(65541, this, i2, str) == null) {
             try {
                 a(i2);
-                String[] b2 = b(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.f51849c));
+                String[] b2 = b(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.f51894c));
                 if (b2 == null) {
                     LogUtil.d("Cookie", "use default: " + Arrays.toString(a));
                     b2 = a;
                 }
-                CookieSyncManager.createInstance(this.f51849c);
+                CookieSyncManager.createInstance(this.f51894c);
                 CookieManager cookieManager = CookieManager.getInstance();
                 cookieManager.setAcceptCookie(true);
                 String str2 = "OPENBDUSS=" + str;
-                String str3 = ";expires=" + this.f51850d;
+                String str3 = ";expires=" + this.f51895d;
                 LogUtil.d("------------------DxmCookieManager start setCookie--------------");
                 for (String str4 : b2) {
                     if (!str4.startsWith(".")) {

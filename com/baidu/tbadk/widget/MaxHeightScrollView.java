@@ -17,7 +17,7 @@ public class MaxHeightScrollView extends ScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41172e;
+    public int f41200e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaxHeightScrollView(Context context) {
@@ -44,7 +44,7 @@ public class MaxHeightScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.MaxHeightScrollView);
-            this.f41172e = obtainStyledAttributes.getDimensionPixelSize(R$styleable.MaxHeightScrollView_maxHeight, -1);
+            this.f41200e = obtainStyledAttributes.getDimensionPixelSize(R$styleable.MaxHeightScrollView_maxHeight, -1);
             obtainStyledAttributes.recycle();
         }
     }
@@ -53,7 +53,7 @@ public class MaxHeightScrollView extends ScrollView {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            int i4 = this.f41172e;
+            int i4 = this.f41200e;
             if (i4 != -1) {
                 i3 = View.MeasureSpec.makeMeasureSpec(i4, Integer.MIN_VALUE);
             }
@@ -64,7 +64,7 @@ public class MaxHeightScrollView extends ScrollView {
     public void setMaxHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f41172e = i2;
+            this.f41200e = i2;
             requestLayout();
         }
     }

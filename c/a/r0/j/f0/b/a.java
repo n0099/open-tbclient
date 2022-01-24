@@ -32,26 +32,26 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10999b;
+    public static final boolean f11141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f11000c;
+    public static String f11142c;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.a.y.b.a a;
 
     /* renamed from: c.a.r0.j.f0.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0747a implements c.a.r0.a.m.a {
+    public class C0756a implements c.a.r0.a.m.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.j.f0.b.c f11001e;
+        public final /* synthetic */ c.a.r0.j.f0.b.c f11143e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f11002f;
+        public final /* synthetic */ a f11144f;
 
-        public C0747a(a aVar, c.a.r0.j.f0.b.c cVar) {
+        public C0756a(a aVar, c.a.r0.j.f0.b.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,8 +66,8 @@ public class a {
                     return;
                 }
             }
-            this.f11002f = aVar;
-            this.f11001e = cVar;
+            this.f11144f = aVar;
+            this.f11143e = cVar;
         }
 
         @Override // c.a.r0.a.m.a
@@ -75,12 +75,12 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 != 0) {
-                    boolean unused = a.f10999b;
-                    this.f11002f.j("shareVideo: fail, no login in");
+                    boolean unused = a.f11141b;
+                    this.f11144f.j("shareVideo: fail, no login in");
                     return;
                 }
-                boolean unused2 = a.f10999b;
-                this.f11002f.h(this.f11001e);
+                boolean unused2 = a.f11141b;
+                this.f11144f.h(this.f11143e);
             }
         }
     }
@@ -113,7 +113,7 @@ public class a {
         public void a(c.a.r0.j.f0.b.c cVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, str) == null) {
-                if (a.f10999b) {
+                if (a.f11141b) {
                     String.format("onFail params = %s;errMsg = %s", cVar, str);
                 }
                 this.a.j(str);
@@ -144,7 +144,7 @@ public class a {
         public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (a.f10999b) {
+                if (a.f11141b) {
                     iOException.printStackTrace();
                 }
                 a.g();
@@ -158,13 +158,13 @@ public class a {
                 try {
                     JSONObject jSONObject = (JSONObject) new JSONObject(response.body().string()).opt("data");
                     if (jSONObject != null) {
-                        String unused = a.f11000c = jSONObject.optString("community_id");
+                        String unused = a.f11142c = jSONObject.optString("community_id");
                         a.f(jSONObject.optString("url"));
                         return;
                     }
                     a.g();
                 } catch (JSONException e2) {
-                    if (a.f10999b) {
+                    if (a.f11141b) {
                         e2.printStackTrace();
                     }
                     a.g();
@@ -186,9 +186,9 @@ public class a {
                 return;
             }
         }
-        f10999b = k.a;
+        f11141b = k.a;
         String str = c.a.r0.a.d0.a.c() + "/webpage";
-        f11000c = "";
+        f11142c = "";
     }
 
     public a(JsObject jsObject) {
@@ -216,7 +216,7 @@ public class a {
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            f11000c = "";
+            f11142c = "";
         }
     }
 
@@ -229,7 +229,7 @@ public class a {
                 jSONObject.put("app_type", 0);
                 jSONObject.put("app_key", e.f0());
             } catch (JSONException e2) {
-                if (f10999b) {
+                if (f11141b) {
                     e2.printStackTrace();
                 }
             }
@@ -250,8 +250,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-            eVar.f7977b = "shareVideo";
-            eVar.f7980e = com.baidu.pass.biometrics.face.liveness.b.a.g0;
+            eVar.f8119b = "shareVideo";
+            eVar.f8122e = com.baidu.pass.biometrics.face.liveness.b.a.g0;
             n.h(eVar);
         }
     }
@@ -290,45 +290,45 @@ public class a {
                 }
                 c.a.r0.j.f0.b.c cVar = new c.a.r0.j.f0.b.c();
                 cVar.a = B2;
-                cVar.f11004c = this.a.B("title");
-                cVar.f11003b = this.a.B("query");
+                cVar.f11146c = this.a.B("title");
+                cVar.f11145b = this.a.B("query");
                 d dVar = new d();
                 dVar.a = this.a.y("clipMaxDuration", 30L);
-                dVar.f11007b = this.a.y("clipMinDuration", 3L);
-                dVar.f11008c = this.a.B("topicSource");
-                dVar.f11009d = this.a.C("publishTitle", c.a.r0.a.c1.a.c().getResources().getString(g.swangame_publish_video));
-                dVar.f11010e = this.a.C("publishURL", "/searchbox?action=ugc&cmd=177");
-                dVar.f11014i = this.a.r("sourceType", 1);
-                dVar.f11015j = this.a.C("sourceFrom", "tiny");
-                dVar.f11012g = this.a.C("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
-                dVar.f11011f = this.a.C("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
-                dVar.f11013h = this.a.C("topicURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fsv.baidu.com%2Ffeedvideoui%2Fview%2Ftopiclist");
+                dVar.f11149b = this.a.y("clipMinDuration", 3L);
+                dVar.f11150c = this.a.B("topicSource");
+                dVar.f11151d = this.a.C("publishTitle", c.a.r0.a.c1.a.c().getResources().getString(g.swangame_publish_video));
+                dVar.f11152e = this.a.C("publishURL", "/searchbox?action=ugc&cmd=177");
+                dVar.f11156i = this.a.r("sourceType", 1);
+                dVar.f11157j = this.a.C("sourceFrom", "tiny");
+                dVar.f11154g = this.a.C("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
+                dVar.f11153f = this.a.C("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
+                dVar.f11155h = this.a.C("topicURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fsv.baidu.com%2Ffeedvideoui%2Fview%2Ftopiclist");
                 dVar.k = this.a.C("publishType", "9");
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("app_key", e.f0());
                     jSONObject.put("frame_type", c.a.r0.a.d2.d.J().l());
-                    jSONObject.put("query", cVar.f11003b);
+                    jSONObject.put("query", cVar.f11145b);
                     if (e.L() != null && e.L().X() != null) {
                         jSONObject.put("title", e.L().X().K());
                     }
                 } catch (JSONException e2) {
-                    if (f10999b) {
+                    if (f11141b) {
                         e2.toString();
                     }
                 }
                 jSONObject.toString();
-                if (!TextUtils.isEmpty(f11000c)) {
+                if (!TextUtils.isEmpty(f11142c)) {
                     JSONObject jSONObject2 = new JSONObject();
                     try {
-                        jSONObject2.put("id", f11000c);
+                        jSONObject2.put("id", f11142c);
                         if (e.L() != null && e.L().X() != null) {
                             jSONObject2.put("name", e.L().X().K());
                         }
                         jSONObject2.put("type", "interest");
                         jSONObject2.put("post_id", "");
                     } catch (JSONException e3) {
-                        if (f10999b) {
+                        if (f11141b) {
                             e3.toString();
                         }
                     }
@@ -338,7 +338,7 @@ public class a {
                     try {
                         jSONObject3.put("tag", jSONArray);
                     } catch (JSONException e4) {
-                        if (f10999b) {
+                        if (f11141b) {
                             e4.toString();
                         }
                     }
@@ -347,7 +347,7 @@ public class a {
                 } else {
                     dVar.m = 0;
                 }
-                cVar.f11006e = dVar;
+                cVar.f11148e = dVar;
                 return cVar;
             }
         }
@@ -358,7 +358,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-            eVar.f7977b = "shareVideo";
+            eVar.f8119b = "shareVideo";
             n.h(eVar);
             c.a.r0.j.f0.b.c k = k();
             if (k == null) {
@@ -373,7 +373,7 @@ public class a {
             if (activity == null) {
                 j("shareVideo: swanAppActivity is null");
             } else {
-                M.f(activity, null, new C0747a(this, k));
+                M.f(activity, null, new C0756a(this, k));
             }
         }
     }

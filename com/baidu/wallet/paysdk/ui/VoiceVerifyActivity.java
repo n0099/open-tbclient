@@ -16,7 +16,7 @@ import com.baidu.wallet.paysdk.sms.controller.g;
 import com.baidu.wallet.paysdk.sms.controller.h;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.utils.BdWalletUtils;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class VoiceVerifyActivity extends WalletSmsActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

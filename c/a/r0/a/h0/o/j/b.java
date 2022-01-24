@@ -27,7 +27,7 @@ public class b implements c {
     public final List<c.a.r0.a.h0.o.j.e.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6806b;
+    public boolean f6948b;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -91,7 +91,7 @@ public class b implements c {
             }
         }
         this.a = new ArrayList();
-        this.f6806b = false;
+        this.f6948b = false;
     }
 
     public void a(String str, UbcFlowEvent ubcFlowEvent) {
@@ -114,19 +114,19 @@ public class b implements c {
         }
         switch (a.a[aVar.a.ordinal()]) {
             case 1:
-                hybridUbcFlow.D("app_id", aVar.f6810b);
+                hybridUbcFlow.D("app_id", aVar.f6952b);
                 return;
             case 2:
-                hybridUbcFlow.D("app_version", aVar.f6810b);
+                hybridUbcFlow.D("app_version", aVar.f6952b);
                 return;
             case 3:
-                hybridUbcFlow.E("type", aVar.f6811c ? ThreadAchievementShareDialogView.HOT_LIST_VIEW_TYPE : "cold");
+                hybridUbcFlow.E("type", aVar.f6953c ? ThreadAchievementShareDialogView.HOT_LIST_VIEW_TYPE : "cold");
                 return;
             case 4:
-                hybridUbcFlow.E("source", aVar.f6810b);
+                hybridUbcFlow.E("source", aVar.f6952b);
                 return;
             case 5:
-                hybridUbcFlow.D("msg", aVar.f6810b);
+                hybridUbcFlow.D("msg", aVar.f6952b);
                 return;
             case 6:
                 synchronized (this.a) {
@@ -171,10 +171,10 @@ public class b implements c {
         synchronized (this.a) {
             try {
                 for (c.a.r0.a.h0.o.j.e.a aVar : this.a) {
-                    String str = aVar.f6810b;
+                    String str = aVar.f6952b;
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("url", str);
-                    jSONObject2.put("link", aVar.f6811c ? "1" : "0");
+                    jSONObject2.put("link", aVar.f6953c ? "1" : "0");
                     jSONArray.put(jSONObject2);
                 }
                 jSONObject.put("links", jSONArray);
@@ -189,8 +189,8 @@ public class b implements c {
 
     public void h(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && b(str) && !this.f6806b) {
-            this.f6806b = true;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && b(str) && !this.f6948b) {
+            this.f6948b = true;
             HybridUbcFlow q = h.q(PrefetchEvent.MODULE, str);
             g(q);
             q.A();

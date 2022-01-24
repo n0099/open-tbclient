@@ -25,16 +25,16 @@ public class k extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8241e;
+        public final /* synthetic */ CallbackHandler f8383e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f8242f;
+        public final /* synthetic */ UnitedSchemeEntity f8384f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8243g;
+        public final /* synthetic */ JSONObject f8385g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f8244h;
+        public final /* synthetic */ Context f8386h;
 
         public a(k kVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
             Interceptable interceptable = $ic;
@@ -51,10 +51,10 @@ public class k extends z {
                     return;
                 }
             }
-            this.f8241e = callbackHandler;
-            this.f8242f = unitedSchemeEntity;
-            this.f8243g = jSONObject;
-            this.f8244h = context;
+            this.f8383e = callbackHandler;
+            this.f8384f = unitedSchemeEntity;
+            this.f8385g = jSONObject;
+            this.f8386h = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,17 +64,17 @@ public class k extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.p(iVar, this.f8241e, this.f8242f);
+                    c.a.r0.a.h2.c.d.p(iVar, this.f8383e, this.f8384f);
                     return;
                 }
-                boolean b2 = c.a.r0.a.p0.f.a.b(this.f8243g.optInt("emitReplaceSwanCore"));
+                boolean b2 = c.a.r0.a.p0.f.a.b(this.f8385g.optInt("emitReplaceSwanCore"));
                 if (b2 && !c.a.r0.a.q2.b.c()) {
                     c.a.r0.a.c2.b.f.e.f(AppRuntime.getAppContext(), c.a.r0.a.h.aiapps_debug_no_swan_core).G();
-                    this.f8242f.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.f8244h.getResources().getString(c.a.r0.a.h.aiapps_debug_no_swan_core));
+                    this.f8384f.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.f8386h.getResources().getString(c.a.r0.a.h.aiapps_debug_no_swan_core));
                     return;
                 }
                 c.a.r0.a.x1.a.a.M(b2);
-                UnitedSchemeUtility.callCallback(this.f8241e, this.f8242f, UnitedSchemeUtility.wrapCallbackParams(0));
+                UnitedSchemeUtility.callCallback(this.f8383e, this.f8384f, UnitedSchemeUtility.wrapCallbackParams(0));
                 c.a.r0.a.x1.a.a.Z();
             }
         }

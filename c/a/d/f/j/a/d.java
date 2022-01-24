@@ -12,31 +12,31 @@ public class d {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f2793b;
+    public long f2895b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2794c;
+    public long f2896c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2795d;
+    public long f2897d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2796e;
+    public int f2898e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2797f;
+    public long f2899f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f2798g;
+    public long f2900g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2799h;
+    public String f2901h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2800i;
+    public int f2902i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f2801j;
+    public int f2903j;
     public String k;
     public String l;
     public BDHttpDnsResult.ResolveType m;
@@ -67,15 +67,15 @@ public class d {
             }
         }
         this.a = -1L;
-        this.f2793b = -1L;
-        this.f2794c = -1L;
-        this.f2795d = -1L;
-        this.f2796e = 0;
-        this.f2797f = -1L;
-        this.f2798g = -1L;
-        this.f2799h = "";
-        this.f2800i = -1;
-        this.f2801j = 0;
+        this.f2895b = -1L;
+        this.f2896c = -1L;
+        this.f2897d = -1L;
+        this.f2898e = 0;
+        this.f2899f = -1L;
+        this.f2900g = -1L;
+        this.f2901h = "";
+        this.f2902i = -1;
+        this.f2903j = 0;
         this.k = null;
         this.l = null;
         this.m = null;

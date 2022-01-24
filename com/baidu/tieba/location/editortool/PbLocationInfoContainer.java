@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.j0.n.b;
+import c.a.s0.s.k0.n.b;
 import c.a.s0.x.a;
 import c.a.s0.x.n;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,16 +26,16 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f45705e;
+    public TBSpecificationBtn f45733e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditorTools f45706f;
+    public EditorTools f45734f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45707g;
+    public int f45735g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f45708h;
+    public boolean f45736h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbLocationInfoContainer(Context context) {
@@ -55,8 +55,8 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
                 return;
             }
         }
-        this.f45707g = 0;
-        this.f45708h = true;
+        this.f45735g = 0;
+        this.f45736h = true;
         a();
     }
 
@@ -77,27 +77,27 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
             bVar.i(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
             bVar.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
-            this.f45705e = tBSpecificationBtn;
+            this.f45733e = tBSpecificationBtn;
             tBSpecificationBtn.setConfig(bVar);
-            this.f45705e.setTextSize(R.dimen.tbds32);
-            this.f45705e.setOnClickListener(this);
-            this.f45705e.setText(getContext().getString(R.string.location_where_are_you));
-            addView(this.f45705e, new LinearLayout.LayoutParams(-2, c.a.d.f.p.n.f(getContext(), R.dimen.tbds63)));
+            this.f45733e.setTextSize(R.dimen.tbds32);
+            this.f45733e.setOnClickListener(this);
+            this.f45733e.setText(getContext().getString(R.string.location_where_are_you));
+            addView(this.f45733e, new LinearLayout.LayoutParams(-2, c.a.d.f.p.n.f(getContext(), R.dimen.tbds63)));
         }
     }
 
     public void changeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f45705e.changeSkinType(i2);
+            this.f45733e.changeSkinType(i2);
         }
     }
 
     @Override // c.a.s0.x.n
     public void display() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f45708h) {
-            this.f45708h = false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f45736h) {
+            this.f45736h = false;
             sendAction(new a(18, -1, "first"));
         }
     }
@@ -106,14 +106,14 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45707g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45735g : invokeV.intValue;
     }
 
     @Override // c.a.s0.x.n
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f45705e.setText(getContext().getString(R.string.location_where_are_you));
+            this.f45733e.setText(getContext().getString(R.string.location_where_are_you));
         }
     }
 
@@ -138,18 +138,18 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
             }
             return;
         }
-        Object obj = aVar.f14180c;
+        Object obj = aVar.f14320c;
         if (obj == null) {
             hide();
             return;
         }
         c.a.s0.x.w.a aVar2 = (c.a.s0.x.w.a) obj;
         if (aVar2.a == 1) {
-            this.f45705e.setText(getContext().getString(R.string.location_loading));
-        } else if (!TextUtils.isEmpty(aVar2.f14216b)) {
-            this.f45705e.setText(aVar2.f14216b);
+            this.f45733e.setText(getContext().getString(R.string.location_loading));
+        } else if (!TextUtils.isEmpty(aVar2.f14356b)) {
+            this.f45733e.setText(aVar2.f14356b);
         } else {
-            this.f45705e.setText(getContext().getString(R.string.location_where_are_you));
+            this.f45733e.setText(getContext().getString(R.string.location_where_are_you));
         }
     }
 
@@ -164,7 +164,7 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) && view == this.f45705e) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) && view == this.f45733e) {
             sendAction(new a(18, -1, null));
         }
     }
@@ -173,7 +173,7 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
     public void sendAction(a aVar) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) || (editorTools = this.f45706f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) || (editorTools = this.f45734f) == null) {
             return;
         }
         editorTools.sendAction(aVar);
@@ -183,7 +183,7 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, editorTools) == null) {
-            this.f45706f = editorTools;
+            this.f45734f = editorTools;
         }
     }
 
@@ -191,7 +191,7 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f45707g = i2;
+            this.f45735g = i2;
         }
     }
 }

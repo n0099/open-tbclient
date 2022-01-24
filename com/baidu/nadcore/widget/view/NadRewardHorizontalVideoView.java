@@ -117,7 +117,7 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
         HorizontalVideoTailView horizontalVideoTailView;
         p pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, adBaseModel) == null) || (horizontalVideoTailView = this.k) == null || adBaseModel == null || (pVar = adBaseModel.f37019g) == null || !pVar.k) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, adBaseModel) == null) || (horizontalVideoTailView = this.k) == null || adBaseModel == null || (pVar = adBaseModel.f37047g) == null || !pVar.k) {
             return;
         }
         horizontalVideoTailView.setAdInfo(pVar);

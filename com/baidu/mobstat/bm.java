@@ -3,6 +3,7 @@ package com.baidu.mobstat;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +31,7 @@ public final class bm {
                     String[] strArr = br.a;
                     if (strArr.length > i3) {
                         SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i3].getBytes(), "AES");
-                        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+                        Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
                         cipher.init(1, secretKeySpec);
                         return cipher.doFinal(bArr);
                     }
@@ -49,7 +50,7 @@ public final class bm {
                     String[] strArr = br.a;
                     if (strArr.length > i3) {
                         SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i3].getBytes(), "AES");
-                        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+                        Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
                         cipher.init(2, secretKeySpec);
                         return cipher.doFinal(bArr);
                     }

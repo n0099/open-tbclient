@@ -18,7 +18,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f11155e;
+        public final /* synthetic */ b f11297e;
 
         public a(c cVar, b bVar) {
             Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class c {
                     return;
                 }
             }
-            this.f11155e = bVar;
+            this.f11297e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -45,12 +45,12 @@ public class c {
             JSONObject jSONObject;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (aVar != null && (jSONObject = aVar.f7190g) != null) {
+                if (aVar != null && (jSONObject = aVar.f7332g) != null) {
                     d.b("OpenData", "onOpenDataCallback success: ", jSONObject);
-                    this.f11155e.a(aVar.f7190g);
+                    this.f11297e.a(aVar.f7332g);
                     return;
                 }
-                this.f11155e.a(null);
+                this.f11297e.a(null);
             }
         }
     }

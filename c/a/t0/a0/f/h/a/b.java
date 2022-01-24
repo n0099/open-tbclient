@@ -32,7 +32,7 @@ public class b extends c.a.d.n.e.a<c.a.t0.a0.f.h.b.b, AlaSubListLiveDoubleViewHo
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.h.b.b.f14665g);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.h.b.b.f14805g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,32 +60,32 @@ public class b extends c.a.d.n.e.a<c.a.t0.a0.f.h.b.b, AlaSubListLiveDoubleViewHo
         }
         int i2 = this.r;
         if (i2 == 1) {
-            if (bVar.f14666e != null) {
+            if (bVar.f14806e != null) {
                 c.a.t0.a0.f.e.a c2 = c.a.t0.a0.f.e.a.c();
                 c.a.t0.a0.f.e.a c3 = c.a.t0.a0.f.e.a.c();
                 int i3 = this.q;
-                e eVar = bVar.f14666e;
-                c2.a(c3.e(i3, "c12117", eVar.f14341e, eVar.f14342f, eVar.getThreadData()));
+                e eVar = bVar.f14806e;
+                c2.a(c3.e(i3, "c12117", eVar.f14481e, eVar.f14482f, eVar.getThreadData()));
             }
-            if (bVar.f14667f != null) {
+            if (bVar.f14807f != null) {
                 c.a.t0.a0.f.e.a c4 = c.a.t0.a0.f.e.a.c();
                 c.a.t0.a0.f.e.a c5 = c.a.t0.a0.f.e.a.c();
                 int i4 = this.q;
-                e eVar2 = bVar.f14667f;
-                c4.a(c5.e(i4, "c12117", eVar2.f14341e, eVar2.f14342f, eVar2.getThreadData()));
+                e eVar2 = bVar.f14807f;
+                c4.a(c5.e(i4, "c12117", eVar2.f14481e, eVar2.f14482f, eVar2.getThreadData()));
             }
         } else if (i2 == 2) {
-            e eVar3 = bVar.f14666e;
-            if (eVar3 != null && eVar3.getThreadData() != null && bVar.f14666e.getThreadData().o1() != null) {
-                e2 threadData = bVar.f14666e.getThreadData();
-                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.o1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.o1().appId).param("locate_type", bVar.f14666e.f14342f));
+            e eVar3 = bVar.f14806e;
+            if (eVar3 != null && eVar3.getThreadData() != null && bVar.f14806e.getThreadData().p1() != null) {
+                e2 threadData = bVar.f14806e.getThreadData();
+                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.p1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.p1().appId).param("locate_type", bVar.f14806e.f14482f));
             }
-            e eVar4 = bVar.f14667f;
-            if (eVar4 == null || eVar4.getThreadData() == null || bVar.f14667f.getThreadData().o1() == null) {
+            e eVar4 = bVar.f14807f;
+            if (eVar4 == null || eVar4.getThreadData() == null || bVar.f14807f.getThreadData().p1() == null) {
                 return;
             }
-            e2 threadData2 = bVar.f14667f.getThreadData();
-            TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.o1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.o1().appId).param("locate_type", bVar.f14667f.f14342f));
+            e2 threadData2 = bVar.f14807f.getThreadData();
+            TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.p1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.p1().appId).param("locate_type", bVar.f14807f.f14482f));
         }
     }
 

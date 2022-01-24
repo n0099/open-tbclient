@@ -23,7 +23,7 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f6704f;
+    public static final boolean f6846f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -32,14 +32,14 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ C0387b f6705e;
+        public final /* synthetic */ C0396b f6847e;
 
-        public a(b bVar, C0387b c0387b) {
+        public a(b bVar, C0396b c0396b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, c0387b};
+                Object[] objArr = {bVar, c0396b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -49,7 +49,7 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
                     return;
                 }
             }
-            this.f6705e = c0387b;
+            this.f6847e = c0396b;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,30 +58,30 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
         public void onCallback(c.a.r0.a.y1.b.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-                this.f6705e.onFail(cVar.N());
+                this.f6847e.onFail(cVar.N());
             }
         }
     }
 
     /* renamed from: c.a.r0.a.h0.m.q.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0387b implements g.a, c.a.r0.a.z2.g1.c<i.a> {
+    public class C0396b implements g.a, c.a.r0.a.z2.g1.c<i.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final g.a f6706e;
+        public final g.a f6848e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f6707f;
+        public final boolean f6849f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f6708g;
+        public boolean f6850g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f6709h;
+        public final /* synthetic */ b f6851h;
 
-        public C0387b(b bVar, g.a aVar) {
+        public C0396b(b bVar, g.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,11 +96,11 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
                     return;
                 }
             }
-            this.f6709h = bVar;
-            this.f6708g = false;
-            this.f6706e = aVar;
-            this.f6707f = aVar != null;
-            if (b.f6704f) {
+            this.f6851h = bVar;
+            this.f6850g = false;
+            this.f6848e = aVar;
+            this.f6849f = aVar != null;
+            if (b.f6846f) {
                 bVar.N("IpcHttpCallbackWrapper", "wrappedCallback=" + aVar);
             }
         }
@@ -111,12 +111,12 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
                 synchronized (this) {
                     boolean e2 = e();
-                    if (b.f6704f) {
-                        b bVar = this.f6709h;
+                    if (b.f6846f) {
+                        b bVar = this.f6851h;
                         bVar.N("IpcHttpCallbackWrapper#onStatRecord", "valid=" + e2 + " url=" + str + " statRecord=" + jSONObject);
                     }
                     if (e2) {
-                        this.f6706e.a(str, str2, jSONObject);
+                        this.f6848e.a(str, str2, jSONObject);
                     }
                 }
             }
@@ -128,13 +128,13 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
                 synchronized (this) {
                     boolean e2 = e();
-                    if (b.f6704f) {
-                        b bVar = this.f6709h;
+                    if (b.f6846f) {
+                        b bVar = this.f6851h;
                         bVar.N("IpcHttpCallbackWrapper#onSuccess", "valid=" + e2 + " statusCode=" + i2 + " response=" + str);
                     }
                     if (e2) {
                         c();
-                        this.f6706e.b(str, i2);
+                        this.f6848e.b(str, i2);
                     }
                 }
             }
@@ -144,7 +144,7 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 synchronized (this) {
-                    this.f6708g = true;
+                    this.f6850g = true;
                 }
             }
         }
@@ -157,8 +157,8 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
             if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
                 synchronized (this) {
                     boolean e2 = e();
-                    if (b.f6704f) {
-                        b bVar = this.f6709h;
+                    if (b.f6846f) {
+                        b bVar = this.f6851h;
                         bVar.N("IpcHttpCallbackWrapper#onCallback", "valid=" + e2 + " msg=" + aVar);
                     }
                     if (e2) {
@@ -210,8 +210,8 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 synchronized (this) {
-                    if (this.f6707f) {
-                        z = this.f6708g ? false : true;
+                    if (this.f6849f) {
+                        z = this.f6850g ? false : true;
                     }
                 }
                 return z;
@@ -225,13 +225,13 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
             if (interceptable == null || interceptable.invokeL(1048582, this, exc) == null) {
                 synchronized (this) {
                     boolean e2 = e();
-                    if (b.f6704f) {
-                        b bVar = this.f6709h;
+                    if (b.f6846f) {
+                        b bVar = this.f6851h;
                         bVar.N("IpcHttpCallbackWrapper#onFail", "valid=" + e2 + " exception=" + exc);
                     }
                     if (e2) {
                         c();
-                        g.a aVar = this.f6706e;
+                        g.a aVar = this.f6848e;
                         if (exc == null) {
                             exc = new Exception("onFail");
                         }
@@ -247,12 +247,12 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 synchronized (this) {
                     boolean e2 = e();
-                    if (b.f6704f) {
-                        b bVar = this.f6709h;
+                    if (b.f6846f) {
+                        b bVar = this.f6851h;
                         bVar.N("IpcHttpCallbackWrapper#onStart", "valid=" + e2);
                     }
                     if (e2) {
-                        this.f6706e.onStart();
+                        this.f6848e.onStart();
                     }
                 }
             }
@@ -272,7 +272,7 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
                 return;
             }
         }
-        f6704f = k.a;
+        f6846f = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -298,20 +298,20 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
     public final void L(@NonNull String str, String str2, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, map, map2, jSONObject, aVar}) == null) {
-            if (f6704f) {
+            if (f6846f) {
                 M("ipcHttp");
             }
             String jSONObject2 = jSONObject == null ? "" : jSONObject.toString();
-            C0387b c0387b = new C0387b(this, aVar);
+            C0396b c0396b = new C0396b(this, aVar);
             c.a.r0.a.y1.b.c z = c.a.r0.a.y1.b.d.P("pms_http_with_ipc").z("pms_http_with_ipc_key_action", str);
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
             c.a.r0.a.y1.b.c u = z.z("pms_http_with_ipc_key_url", str2).z("pms_http_with_ipc_keyjson_body", TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2).u("pms_http_with_ipc_key_url_param_map", c.a.r0.a.h0.m.q.a.I(map)).u("pms_http_with_ipc_key_header_param_map", c.a.r0.a.h0.m.q.a.I(map2));
             u.K(true);
-            u.G(c0387b);
-            u.F(new a(this, c0387b));
-            if (f6704f) {
+            u.G(c0396b);
+            u.F(new a(this, c0396b));
+            if (f6846f) {
                 N("ipcHttp", "session=" + u);
             }
             u.call(e.l0);
@@ -321,7 +321,7 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
     public final void M(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            boolean z = f6704f;
+            boolean z = f6846f;
         }
     }
 
@@ -336,7 +336,7 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
     public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, str, map, map2, jSONObject, aVar) == null) {
-            if (f6704f) {
+            if (f6846f) {
                 M("buildJsonPostRequest");
             }
             L("pms_http_with_ipc_action_build_json_post_request", str, map, map2, jSONObject, aVar);
@@ -347,7 +347,7 @@ public final class b extends c.a.r0.a.h0.m.q.a implements g {
     public void j(String str, Map<String, String> map, Map<String, String> map2, g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, map, map2, aVar) == null) {
-            if (f6704f) {
+            if (f6846f) {
                 M("buildGetRequest");
             }
             String b2 = c.a.r0.a.u1.l.d.b();

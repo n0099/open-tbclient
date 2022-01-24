@@ -24,10 +24,10 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f42119e;
+    public b f42140e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f42120f;
+    public HttpMessageListener f42141f;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -61,7 +61,7 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAchievementMarkResponsedMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == this.a.unique_id) {
-                this.a.f42119e.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                this.a.f42140e.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     }
@@ -86,11 +86,11 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
                 return;
             }
         }
-        this.f42120f = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
+        this.f42141f = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
         this.unique_id = bdUniqueId;
-        this.f42119e = bVar;
+        this.f42140e = bVar;
         registerTask();
-        registerListener(this.f42120f);
+        registerListener(this.f42141f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

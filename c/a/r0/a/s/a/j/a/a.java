@@ -24,11 +24,11 @@ public class a extends z {
 
     /* renamed from: c.a.r0.a.s.a.j.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0549a implements Runnable {
+    public class RunnableC0558a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC0549a(a aVar) {
+        public RunnableC0558a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public class a extends z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             d.a().c(jSONObject);
-            q0.a0(new RunnableC0549a(this));
+            q0.a0(new RunnableC0558a(this));
         }
     }
 }

@@ -32,9 +32,9 @@ public class m extends c.a.r0.a.y1.a.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (SwanAppNetworkUtils.h()) {
-                this.f9685d.putInt("net_quality", NetworkQuality.getNetworkQuality());
+                this.f9827d.putInt("net_quality", NetworkQuality.getNetworkQuality());
             } else {
-                this.f9685d.putInt("net_quality", 3);
+                this.f9827d.putInt("net_quality", 3);
             }
             c();
         }

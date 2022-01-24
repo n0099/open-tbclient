@@ -67,7 +67,7 @@ public class d implements a.c {
                 while (it.hasNext()) {
                     c next = it.next();
                     boolean g2 = g(next, k);
-                    if (l.contains(next.f9731f) || g2) {
+                    if (l.contains(next.f9873f) || g2) {
                         next.f0(h2);
                         if (g2) {
                             k.remove(next.getAppId());
@@ -80,7 +80,7 @@ public class d implements a.c {
             Iterator<c> it2 = e.k().q().iterator();
             while (it2.hasNext()) {
                 c next2 = it2.next();
-                if (next2 != null && next2.S() && (l.contains(next2.f9731f) || g(next2, k))) {
+                if (next2 != null && next2.S() && (l.contains(next2.f9873f) || g(next2, k))) {
                     next2.f0(h2);
                 }
             }
@@ -148,7 +148,7 @@ public class d implements a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, message) == null) {
             try {
-                e.k().f9742e.send(message);
+                e.k().f9884e.send(message);
             } catch (RemoteException e2) {
                 c.a.r0.a.y1.c.a.f(Log.getStackTraceString(e2));
             }

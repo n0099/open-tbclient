@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements BuyTBeanModel.e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GIFT_TBEAN = "gift_tbean";
@@ -44,7 +44,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     public float moneyLeft;
     public CustomMessageListener roomClosedListener;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements c.a.s0.r0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,13 +94,13 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanActivity f48256e;
+        public final /* synthetic */ BuyTBeanActivity f48266e;
 
         public b(BuyTBeanActivity buyTBeanActivity) {
             Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
                     return;
                 }
             }
-            this.f48256e = buyTBeanActivity;
+            this.f48266e = buyTBeanActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -129,13 +129,13 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanActivity f48257e;
+        public final /* synthetic */ BuyTBeanActivity f48267e;
 
         public c(BuyTBeanActivity buyTBeanActivity) {
             Interceptable interceptable = $ic;
@@ -152,7 +152,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
                     return;
                 }
             }
-            this.f48257e = buyTBeanActivity;
+            this.f48267e = buyTBeanActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -160,12 +160,12 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f48257e.finish();
+                this.f48267e.finish();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

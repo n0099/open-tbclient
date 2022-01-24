@@ -14,32 +14,32 @@ import com.ss.android.socialbase.downloader.downloader.i;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.DownloadTask;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class o implements com.ss.android.socialbase.downloader.downloader.m, com.ss.android.socialbase.downloader.downloader.n {
     public static final String a = "o";
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile com.ss.android.socialbase.downloader.downloader.i f60175b;
+    public volatile com.ss.android.socialbase.downloader.downloader.i f60220b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> f60176c;
+    public com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> f60221c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.downloader.m f60177d = new p();
+    public com.ss.android.socialbase.downloader.downloader.m f60222d = new p();
 
     public o() {
         com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> z = com.ss.android.socialbase.downloader.downloader.c.z();
-        this.f60176c = z;
+        this.f60221c = z;
         z.a(this);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return;
         }
         try {
-            this.f60175b.a(i2);
+            this.f60220b.a(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -51,11 +51,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean b(int i2) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return false;
         }
         try {
-            return this.f60175b.b(i2);
+            return this.f60220b.b(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -64,11 +64,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void c(int i2) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return;
         }
         try {
-            this.f60175b.c(i2);
+            this.f60220b.c(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -76,11 +76,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void d(int i2) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return;
         }
         try {
-            this.f60175b.d(i2);
+            this.f60220b.d(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -88,11 +88,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public long e(int i2) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return 0L;
         }
         try {
-            return this.f60175b.e(i2);
+            return this.f60220b.e(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return 0L;
@@ -101,11 +101,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public int f(int i2) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return 0;
         }
         try {
-            return this.f60175b.f(i2);
+            return this.f60220b.f(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return 0;
@@ -114,11 +114,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean g(int i2) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return false;
         }
         try {
-            return this.f60175b.g(i2);
+            return this.f60220b.g(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -127,11 +127,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public DownloadInfo h(int i2) {
-        if (this.f60175b == null) {
-            return this.f60177d.h(i2);
+        if (this.f60220b == null) {
+            return this.f60222d.h(i2);
         }
         try {
-            return this.f60175b.h(i2);
+            return this.f60220b.h(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return null;
@@ -140,11 +140,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public List<com.ss.android.socialbase.downloader.model.b> i(int i2) {
-        if (this.f60175b == null) {
-            return this.f60177d.i(i2);
+        if (this.f60220b == null) {
+            return this.f60222d.i(i2);
         }
         try {
-            return this.f60175b.i(i2);
+            return this.f60220b.i(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return null;
@@ -153,12 +153,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void j(int i2) {
-        if (this.f60175b == null) {
-            this.f60177d.j(i2);
+        if (this.f60220b == null) {
+            this.f60222d.j(i2);
             return;
         }
         try {
-            this.f60175b.j(i2);
+            this.f60220b.j(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -166,7 +166,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void k(int i2) {
-        com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> oVar = this.f60176c;
+        com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> oVar = this.f60221c;
         if (oVar != null) {
             oVar.a(i2);
         }
@@ -174,11 +174,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean l(int i2) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return false;
         }
         try {
-            return this.f60175b.k(i2);
+            return this.f60220b.k(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -187,11 +187,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public int m(int i2) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return com.ss.android.socialbase.downloader.downloader.d.a().b(i2);
         }
         try {
-            return this.f60175b.m(i2);
+            return this.f60220b.m(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return -1;
@@ -200,11 +200,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean n(int i2) {
-        if (this.f60175b == null) {
-            return this.f60177d.n(i2);
+        if (this.f60220b == null) {
+            return this.f60222d.n(i2);
         }
         try {
-            return this.f60175b.n(i2);
+            return this.f60220b.n(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -213,12 +213,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void o(int i2) {
-        if (this.f60175b == null) {
-            this.f60177d.o(i2);
+        if (this.f60220b == null) {
+            this.f60222d.o(i2);
             return;
         }
         try {
-            this.f60175b.o(i2);
+            this.f60220b.o(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -226,11 +226,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean p(int i2) {
-        if (this.f60175b == null) {
-            return this.f60177d.p(i2);
+        if (this.f60220b == null) {
+            return this.f60222d.p(i2);
         }
         try {
-            return this.f60175b.p(i2);
+            return this.f60220b.p(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -239,9 +239,9 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public z q(int i2) {
-        if (this.f60175b != null) {
+        if (this.f60220b != null) {
             try {
-                return com.ss.android.socialbase.downloader.i.g.a(this.f60175b.q(i2));
+                return com.ss.android.socialbase.downloader.i.g.a(this.f60220b.q(i2));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -252,9 +252,9 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public af r(int i2) {
-        if (this.f60175b != null) {
+        if (this.f60220b != null) {
             try {
-                return com.ss.android.socialbase.downloader.i.g.a(this.f60175b.r(i2));
+                return com.ss.android.socialbase.downloader.i.g.a(this.f60220b.r(i2));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -265,9 +265,9 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public IDownloadFileUriProvider s(int i2) {
-        if (this.f60175b != null) {
+        if (this.f60220b != null) {
             try {
-                return com.ss.android.socialbase.downloader.i.g.a(this.f60175b.s(i2));
+                return com.ss.android.socialbase.downloader.i.g.a(this.f60220b.s(i2));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -278,7 +278,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void startService() {
-        com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> oVar = this.f60176c;
+        com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> oVar = this.f60221c;
         if (oVar != null) {
             oVar.startService();
         }
@@ -286,11 +286,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, boolean z) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return;
         }
         try {
-            this.f60175b.a(i2, z);
+            this.f60220b.a(i2, z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -303,11 +303,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public List<DownloadInfo> c(String str) {
-        if (this.f60175b == null) {
-            return this.f60177d.c(str);
+        if (this.f60220b == null) {
+            return this.f60222d.c(str);
         }
         try {
-            return this.f60175b.c(str);
+            return this.f60220b.c(str);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return null;
@@ -316,11 +316,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public List<DownloadInfo> d() {
-        if (this.f60175b == null) {
-            return this.f60177d.d();
+        if (this.f60220b == null) {
+            return this.f60222d.d();
         }
         try {
-            return this.f60175b.b();
+            return this.f60220b.b();
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return null;
@@ -329,9 +329,9 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public List<DownloadInfo> e(String str) {
-        if (this.f60175b != null) {
+        if (this.f60220b != null) {
             try {
-                return this.f60175b.d(str);
+                return this.f60220b.d(str);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 return null;
@@ -342,12 +342,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void f() {
-        if (this.f60175b == null) {
-            this.f60177d.f();
+        if (this.f60220b == null) {
+            this.f60222d.f();
             return;
         }
         try {
-            this.f60175b.e();
+            this.f60220b.e();
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -355,21 +355,21 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean g() {
-        return this.f60175b != null;
+        return this.f60220b != null;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.n
     public void h() {
-        this.f60175b = null;
+        this.f60220b = null;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public List<DownloadInfo> b(String str) {
-        if (this.f60175b == null) {
-            return this.f60177d.b(str);
+        if (this.f60220b == null) {
+            return this.f60222d.b(str);
         }
         try {
-            return this.f60175b.b(str);
+            return this.f60220b.b(str);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return null;
@@ -378,11 +378,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a() {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return;
         }
         try {
-            this.f60175b.a();
+            this.f60220b.a();
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -390,11 +390,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean e() {
-        if (this.f60175b == null) {
-            return this.f60177d.e();
+        if (this.f60220b == null) {
+            return this.f60222d.e();
         }
         try {
-            return this.f60175b.d();
+            return this.f60220b.d();
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -408,11 +408,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public List<DownloadInfo> d(String str) {
-        if (this.f60175b == null) {
-            return this.f60177d.d(str);
+        if (this.f60220b == null) {
+            return this.f60222d.d(str);
         }
         try {
-            return this.f60175b.e(str);
+            return this.f60220b.e(str);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return null;
@@ -421,11 +421,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void c(int i2, boolean z) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return;
         }
         try {
-            this.f60175b.d(i2, z);
+            this.f60220b.d(i2, z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -433,11 +433,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public List<DownloadInfo> a(String str) {
-        if (this.f60175b == null) {
-            return this.f60177d.a(str);
+        if (this.f60220b == null) {
+            return this.f60222d.a(str);
         }
         try {
-            return this.f60175b.a(str);
+            return this.f60220b.a(str);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return null;
@@ -446,12 +446,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void b(List<String> list) {
-        if (this.f60175b == null) {
-            this.f60177d.b(list);
+        if (this.f60220b == null) {
+            this.f60222d.b(list);
             return;
         }
         try {
-            this.f60175b.b(list);
+            this.f60220b.b(list);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -459,11 +459,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean c(DownloadInfo downloadInfo) {
-        if (this.f60175b == null) {
-            return this.f60177d.c(downloadInfo);
+        if (this.f60220b == null) {
+            return this.f60222d.c(downloadInfo);
         }
         try {
-            return this.f60175b.b(downloadInfo);
+            return this.f60220b.b(downloadInfo);
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -477,12 +477,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void b(int i2, boolean z) {
-        if (this.f60175b == null) {
-            this.f60177d.b(i2, z);
+        if (this.f60220b == null) {
+            this.f60222d.b(i2, z);
             return;
         }
         try {
-            this.f60175b.b(i2, z);
+            this.f60220b.b(i2, z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -490,12 +490,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(List<String> list) {
-        if (this.f60175b == null) {
-            this.f60177d.a(list);
+        if (this.f60220b == null) {
+            this.f60222d.a(list);
             return;
         }
         try {
-            this.f60175b.a(list);
+            this.f60220b.a(list);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -503,11 +503,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void b(int i2, int i3, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return;
         }
         try {
-            this.f60175b.a(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iDownloadListener, fVar != com.ss.android.socialbase.downloader.constants.f.SUB), fVar.ordinal(), z);
+            this.f60220b.a(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iDownloadListener, fVar != com.ss.android.socialbase.downloader.constants.f.SUB), fVar.ordinal(), z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -515,11 +515,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, int i3, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return;
         }
         try {
-            this.f60175b.b(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iDownloadListener, fVar != com.ss.android.socialbase.downloader.constants.f.SUB), fVar.ordinal(), z);
+            this.f60220b.b(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iDownloadListener, fVar != com.ss.android.socialbase.downloader.constants.f.SUB), fVar.ordinal(), z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -527,13 +527,13 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean b() {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             com.ss.android.socialbase.downloader.c.a.d(a, "isServiceForeground, aidlService is null");
             return false;
         }
         com.ss.android.socialbase.downloader.c.a.c(a, "aidlService.isServiceForeground");
         try {
-            return this.f60175b.f();
+            return this.f60220b.f();
         } catch (RemoteException e2) {
             e2.printStackTrace();
             return false;
@@ -542,11 +542,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, int i3, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z, boolean z2) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return;
         }
         try {
-            this.f60175b.a(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iDownloadListener, fVar != com.ss.android.socialbase.downloader.constants.f.SUB), fVar.ordinal(), z, z2);
+            this.f60220b.a(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iDownloadListener, fVar != com.ss.android.socialbase.downloader.constants.f.SUB), fVar.ordinal(), z, z2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -554,11 +554,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public boolean a(DownloadInfo downloadInfo) {
-        if (this.f60175b == null) {
-            return this.f60177d.a(downloadInfo);
+        if (this.f60220b == null) {
+            return this.f60222d.a(downloadInfo);
         }
         try {
-            this.f60175b.a(downloadInfo);
+            this.f60220b.a(downloadInfo);
             return false;
         } catch (RemoteException e2) {
             e2.printStackTrace();
@@ -569,7 +569,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void b(DownloadTask downloadTask) {
         com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> oVar;
-        if (downloadTask == null || (oVar = this.f60176c) == null) {
+        if (downloadTask == null || (oVar = this.f60221c) == null) {
             return;
         }
         oVar.c(downloadTask);
@@ -577,12 +577,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void b(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
-        if (this.f60175b == null) {
-            this.f60177d.b(i2, list);
+        if (this.f60220b == null) {
+            this.f60222d.b(i2, list);
             return;
         }
         try {
-            this.f60175b.a(i2, list);
+            this.f60220b.a(i2, list);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -590,14 +590,14 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, Notification notification) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             com.ss.android.socialbase.downloader.c.a.d(a, "startForeground, aidlService is null");
             return;
         }
         String str = a;
         com.ss.android.socialbase.downloader.c.a.c(str, "aidlService.startForeground, id = " + i2);
         try {
-            this.f60175b.a(i2, notification);
+            this.f60220b.a(i2, notification);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -605,13 +605,13 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(boolean z, boolean z2) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             com.ss.android.socialbase.downloader.c.a.d(a, "stopForeground, aidlService is null");
             return;
         }
         com.ss.android.socialbase.downloader.c.a.c(a, "aidlService.stopForeground");
         try {
-            this.f60175b.a(z2);
+            this.f60220b.a(z2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -620,7 +620,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(DownloadTask downloadTask) {
         com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> oVar;
-        if (downloadTask == null || (oVar = this.f60176c) == null) {
+        if (downloadTask == null || (oVar = this.f60221c) == null) {
             return;
         }
         oVar.b(downloadTask);
@@ -628,11 +628,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return;
         }
         try {
-            this.f60175b.b(i2, list);
+            this.f60220b.b(i2, list);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -640,12 +640,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(com.ss.android.socialbase.downloader.model.b bVar) {
-        if (this.f60175b == null) {
-            this.f60177d.a(bVar);
+        if (this.f60220b == null) {
+            this.f60222d.a(bVar);
             return;
         }
         try {
-            this.f60175b.a(bVar);
+            this.f60220b.a(bVar);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -653,12 +653,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, int i3, long j2) {
-        if (this.f60175b == null) {
-            this.f60177d.a(i2, i3, j2);
+        if (this.f60220b == null) {
+            this.f60222d.a(i2, i3, j2);
             return;
         }
         try {
-            this.f60175b.a(i2, i3, j2);
+            this.f60220b.a(i2, i3, j2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -666,12 +666,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, int i3, int i4, long j2) {
-        if (this.f60175b == null) {
-            this.f60177d.a(i2, i3, i4, j2);
+        if (this.f60220b == null) {
+            this.f60222d.a(i2, i3, i4, j2);
             return;
         }
         try {
-            this.f60175b.a(i2, i3, i4, j2);
+            this.f60220b.a(i2, i3, i4, j2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -679,12 +679,12 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, int i3, int i4, int i5) {
-        if (this.f60175b == null) {
-            this.f60177d.a(i2, i3, i4, i5);
+        if (this.f60220b == null) {
+            this.f60222d.a(i2, i3, i4, i5);
             return;
         }
         try {
-            this.f60175b.a(i2, i3, i4, i5);
+            this.f60220b.a(i2, i3, i4, i5);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -692,9 +692,9 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(ak akVar) {
-        if (this.f60175b != null) {
+        if (this.f60220b != null) {
             try {
-                this.f60175b.a(com.ss.android.socialbase.downloader.i.g.a(akVar));
+                this.f60220b.a(com.ss.android.socialbase.downloader.i.g.a(akVar));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -703,9 +703,9 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, int i3) {
-        if (this.f60175b != null) {
+        if (this.f60220b != null) {
             try {
-                this.f60175b.a(i2, i3);
+                this.f60220b.a(i2, i3);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -714,9 +714,9 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, z zVar) {
-        if (this.f60175b != null) {
+        if (this.f60220b != null) {
             try {
-                this.f60175b.a(i2, com.ss.android.socialbase.downloader.i.g.a(zVar));
+                this.f60220b.a(i2, com.ss.android.socialbase.downloader.i.g.a(zVar));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -725,7 +725,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.n
     public void a(IBinder iBinder) {
-        this.f60175b = i.a.a(iBinder);
+        this.f60220b = i.a.a(iBinder);
         if (com.ss.android.socialbase.downloader.i.f.a()) {
             a(new ak() { // from class: com.ss.android.socialbase.downloader.impls.o.1
                 @Override // com.ss.android.socialbase.downloader.depend.ak
@@ -749,11 +749,11 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(int i2, long j2) {
-        if (this.f60175b == null) {
+        if (this.f60220b == null) {
             return;
         }
         try {
-            this.f60175b.a(i2, j2);
+            this.f60220b.a(i2, j2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }

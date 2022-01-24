@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.t0.w3.b0;
+import c.a.t0.x3.b0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -32,16 +32,16 @@ public class s {
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             try {
                 String versionName = TbadkCoreApplication.getInst().getVersionName();
-                String q = c.a.s0.s.h0.b.k().q("version_name", "");
+                String q = c.a.s0.s.i0.b.k().q("version_name", "");
                 if (TextUtils.isEmpty(versionName)) {
                     return null;
                 }
                 if (versionName.equals(q)) {
-                    return c.a.s0.s.h0.b.k().q("apk_md5", "");
+                    return c.a.s0.s.i0.b.k().q("apk_md5", "");
                 }
-                c.a.s0.s.h0.b.k().y("version_name", versionName);
+                c.a.s0.s.i0.b.k().y("version_name", versionName);
                 String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
-                c.a.s0.s.h0.b.k().y("apk_md5", aPKMd5);
+                c.a.s0.s.i0.b.k().y("apk_md5", aPKMd5);
                 return aPKMd5;
             } catch (PackageManager.NameNotFoundException e2) {
                 BdLog.detailException(e2);

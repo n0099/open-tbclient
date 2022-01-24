@@ -167,7 +167,7 @@ public final class ImmutableIntArray implements Serializable {
         public int[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f54922b;
+        public int f54967b;
 
         public b(int i2) {
             Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public final class ImmutableIntArray implements Serializable {
                     return;
                 }
             }
-            this.f54922b = 0;
+            this.f54967b = 0;
             this.a = new int[i2];
         }
 
@@ -213,9 +213,9 @@ public final class ImmutableIntArray implements Serializable {
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
                 e(1);
                 int[] iArr = this.a;
-                int i3 = this.f54922b;
+                int i3 = this.f54967b;
                 iArr[i3] = i2;
-                this.f54922b = i3 + 1;
+                this.f54967b = i3 + 1;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -244,8 +244,8 @@ public final class ImmutableIntArray implements Serializable {
                 e(collection.size());
                 for (Integer num : collection) {
                     int[] iArr = this.a;
-                    int i2 = this.f54922b;
-                    this.f54922b = i2 + 1;
+                    int i2 = this.f54967b;
+                    this.f54967b = i2 + 1;
                     iArr[i2] = num.intValue();
                 }
                 return this;
@@ -256,17 +256,17 @@ public final class ImmutableIntArray implements Serializable {
         public ImmutableIntArray d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54922b == 0 ? ImmutableIntArray.EMPTY : new ImmutableIntArray(this.a, 0, this.f54922b, null) : (ImmutableIntArray) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54967b == 0 ? ImmutableIntArray.EMPTY : new ImmutableIntArray(this.a, 0, this.f54967b, null) : (ImmutableIntArray) invokeV.objValue;
         }
 
         public final void e(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                int i3 = this.f54922b + i2;
+                int i3 = this.f54967b + i2;
                 int[] iArr = this.a;
                 if (i3 > iArr.length) {
                     int[] iArr2 = new int[f(iArr.length, i3)];
-                    System.arraycopy(this.a, 0, iArr2, 0, this.f54922b);
+                    System.arraycopy(this.a, 0, iArr2, 0, this.f54967b);
                     this.a = iArr2;
                 }
             }

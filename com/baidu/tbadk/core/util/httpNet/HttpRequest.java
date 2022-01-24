@@ -4,7 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import c.a.d.f.p.l;
 import c.a.s0.k0.f;
-import c.a.s0.s.h0.b;
+import c.a.s0.s.i0.b;
 import c.a.s0.s.l.c;
 import c.a.s0.s.l.e;
 import c.a.s0.t.b.a;
@@ -199,7 +199,7 @@ public class HttpRequest {
             iNetWorkCore.addPostData(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime()));
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
             iNetWorkCore.addPostData(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
-            iNetWorkCore.addPostData("is_teenager", c.a.s0.h1.b.c.d() ? "1" : "0");
+            iNetWorkCore.addPostData("is_teenager", c.a.s0.g1.b.c.d() ? "1" : "0");
         }
     }
 

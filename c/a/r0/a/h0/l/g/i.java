@@ -13,10 +13,10 @@ public class i {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PMSAppInfo f6588b;
+    public PMSAppInfo f6730b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PrefetchEvent.c f6589c;
+    public PrefetchEvent.c f6731c;
 
     public i() {
         Interceptable interceptable = $ic;

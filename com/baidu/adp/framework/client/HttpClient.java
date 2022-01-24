@@ -73,22 +73,22 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
         public HttpMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HttpMessageTask f31146b;
+        public HttpMessageTask f31174b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final e f31147c;
+        public final e f31175c;
 
         /* renamed from: d  reason: collision with root package name */
-        public volatile c f31148d;
+        public volatile c f31176d;
 
         /* renamed from: com.baidu.adp.framework.client.HttpClient$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C1709a implements h {
+        public class C1710a implements h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C1709a(a aVar) {
+            public C1710a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,7 +110,7 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
             public void onProgress(int i2, int i3) {
                 HttpMessageTask.a downloadTask;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || (downloadTask = this.a.f31146b.getDownloadTask()) == null || downloadTask.a() <= 0) {
+                if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || (downloadTask = this.a.f31174b.getDownloadTask()) == null || downloadTask.a() <= 0) {
                     return;
                 }
                 HttpProgressResponsedMessage httpProgressResponsedMessage = new HttpProgressResponsedMessage(downloadTask.a());
@@ -135,8 +135,8 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
                 }
             }
             this.a = null;
-            this.f31146b = null;
-            this.f31148d = null;
+            this.f31174b = null;
+            this.f31176d = null;
             setPriority(httpMessageTask.getPriority());
             if (httpMessageTask.getIsImm()) {
                 setPriority(4);
@@ -145,8 +145,8 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
             setParallel(httpMessageTask.getParallel());
             setKey(String.valueOf(httpMessageTask.getCmd()));
             this.a = httpMessage;
-            this.f31146b = httpMessageTask;
-            this.f31147c = new e();
+            this.f31174b = httpMessageTask;
+            this.f31175c = new e();
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -154,8 +154,8 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.cancel(true);
-                if (this.f31148d != null) {
-                    this.f31148d.b();
+                if (this.f31176d != null) {
+                    this.f31176d.b();
                 }
             }
         }
@@ -201,41 +201,41 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
             long j14;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpMessageArr)) == null) {
-                if (MessageManager.getInstance().getController().i(this.a, this.f31146b) == null) {
+                if (MessageManager.getInstance().getController().i(this.a, this.f31174b) == null) {
                     return null;
                 }
                 List<Map.Entry<String, Object>> encodeInBackGround = this.a.encodeInBackGround();
                 long currentTimeMillis = System.currentTimeMillis();
-                this.f31147c.b().s(this.f31146b.getUrl());
-                this.f31147c.b().q(this.f31146b.getMethod());
-                this.f31147c.b().p(this.a.getHeaders());
-                this.f31147c.b().r(encodeInBackGround);
-                int a = this.f31146b.getTimeOut().a();
-                int a2 = this.f31146b.getConnectTimeOut().a();
-                int retry = this.f31146b.getRetry();
+                this.f31175c.b().s(this.f31174b.getUrl());
+                this.f31175c.b().q(this.f31174b.getMethod());
+                this.f31175c.b().p(this.a.getHeaders());
+                this.f31175c.b().r(encodeInBackGround);
+                int a = this.f31174b.getTimeOut().a();
+                int a2 = this.f31174b.getConnectTimeOut().a();
+                int retry = this.f31174b.getRetry();
                 try {
-                    this.f31148d = new c(this.f31147c);
-                    if (this.f31146b.getDownloadTask() != null && this.f31146b.getDownloadTask().b() != null) {
+                    this.f31176d = new c(this.f31175c);
+                    if (this.f31174b.getDownloadTask() != null && this.f31174b.getDownloadTask().b() != null) {
                         try {
-                            z2 = this.f31148d.d(this.f31146b.getDownloadTask().b(), new C1709a(this), retry, a, a2, this.f31146b.getDownloadTask().c());
+                            z2 = this.f31176d.d(this.f31174b.getDownloadTask().b(), new C1710a(this), retry, a, a2, this.f31174b.getDownloadTask().c());
                             z = true;
                         } catch (Exception e2) {
                             e = e2;
                             z = true;
                             BdLog.detailException(e);
                             z2 = false;
-                            cmd = this.f31146b.getCmd();
+                            cmd = this.f31174b.getCmd();
                             str = cmd != 1001703 ? "frs" : cmd == 1001801 ? "pb" : cmd == 1003070 ? "home_page" : cmd == 1002400 ? "enter_forum" : cmd == 1002700 ? "user_center" : cmd == 1001503 ? "person_center_post" : cmd == 1003446 ? "person_center_dynamic" : "other";
                             long startTime = this.a.getStartTime();
-                            long h2 = this.f31148d.h();
-                            long j15 = this.f31148d.j();
-                            long g2 = this.f31148d.g();
-                            long i4 = this.f31148d.i();
-                            f2 = this.f31148d.f();
+                            long h2 = this.f31176d.h();
+                            long j15 = this.f31176d.j();
+                            long g2 = this.f31176d.g();
+                            long i4 = this.f31176d.i();
+                            f2 = this.f31176d.f();
                             long j16 = currentTimeMillis - startTime;
                             j2 = h2 - currentTimeMillis;
                             long j17 = j15 - h2;
-                            int k = this.f31148d.k();
+                            int k = this.f31176d.k();
                             j3 = i4 - j15;
                             long j18 = g2 - j15;
                             j4 = i4 - g2;
@@ -244,21 +244,21 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
                             }
                             j6 = j4;
                             try {
-                                newInstance = this.f31146b.getResponsedClass().getConstructor(new Class[0]).newInstance(new Object[0]);
+                                newInstance = this.f31174b.getResponsedClass().getConstructor(new Class[0]).newInstance(new Object[0]);
                                 i3 = i2;
                                 j7 = j3;
                             } catch (Exception unused) {
                                 try {
                                     i3 = i2;
                                     j7 = j3;
-                                    newInstance = this.f31146b.getResponsedClass().getConstructor(Integer.TYPE).newInstance(Integer.valueOf(this.a.getCmd()));
+                                    newInstance = this.f31174b.getResponsedClass().getConstructor(Integer.TYPE).newInstance(Integer.valueOf(this.a.getCmd()));
                                     String str2 = "";
                                     if (z) {
                                     }
                                     newInstance.setOrginalMessage(this.a);
                                     if (!z) {
                                     }
-                                    newInstance.logStatInBackground(this.a.getCmd(), this.f31147c);
+                                    newInstance.logStatInBackground(this.a.getCmd(), this.f31175c);
                                     newInstance.setStartTime(System.currentTimeMillis());
                                     publishProgress(newInstance);
                                     if (newInstance.isSuccess()) {
@@ -268,7 +268,7 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
                                         BdLog.detailException("responsedMessage create error reason = " + e3.toString(), e3);
                                     }
                                     ErrorHttpResponsedMessage errorHttpResponsedMessage = new ErrorHttpResponsedMessage(this.a.getCmd(), this.a);
-                                    c.a.d.f.n.l.a.a(str, cmd, this.f31146b.getUrl(), false, true, j2, 0L, 0L, 0L, 0L, 0);
+                                    c.a.d.f.n.l.a.a(str, cmd, this.f31174b.getUrl(), false, true, j2, 0L, 0L, 0L, 0L, 0);
                                     return errorHttpResponsedMessage;
                                 }
                             }
@@ -278,17 +278,17 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
                             newInstance.setOrginalMessage(this.a);
                             if (!z) {
                             }
-                            newInstance.logStatInBackground(this.a.getCmd(), this.f31147c);
+                            newInstance.logStatInBackground(this.a.getCmd(), this.f31175c);
                             newInstance.setStartTime(System.currentTimeMillis());
                             publishProgress(newInstance);
                             if (newInstance.isSuccess()) {
                             }
                         }
                     } else {
-                        if (this.f31146b.getMethod() == HttpMessageTask.HTTP_METHOD.GET) {
-                            this.f31148d.e(retry, a, a2);
-                        } else if (this.f31146b.getMethod() == HttpMessageTask.HTTP_METHOD.POST) {
-                            this.f31148d.n(retry, a, a2);
+                        if (this.f31174b.getMethod() == HttpMessageTask.HTTP_METHOD.GET) {
+                            this.f31176d.e(retry, a, a2);
+                        } else if (this.f31174b.getMethod() == HttpMessageTask.HTTP_METHOD.POST) {
+                            this.f31176d.n(retry, a, a2);
                         }
                         z2 = false;
                         z = false;
@@ -297,18 +297,18 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
                     e = e4;
                     z = false;
                 }
-                cmd = this.f31146b.getCmd();
+                cmd = this.f31174b.getCmd();
                 str = cmd != 1001703 ? "frs" : cmd == 1001801 ? "pb" : cmd == 1003070 ? "home_page" : cmd == 1002400 ? "enter_forum" : cmd == 1002700 ? "user_center" : cmd == 1001503 ? "person_center_post" : cmd == 1003446 ? "person_center_dynamic" : "other";
                 long startTime2 = this.a.getStartTime();
-                long h22 = this.f31148d.h();
-                long j152 = this.f31148d.j();
-                long g22 = this.f31148d.g();
-                long i42 = this.f31148d.i();
-                f2 = this.f31148d.f();
+                long h22 = this.f31176d.h();
+                long j152 = this.f31176d.j();
+                long g22 = this.f31176d.g();
+                long i42 = this.f31176d.i();
+                f2 = this.f31176d.f();
                 long j162 = currentTimeMillis - startTime2;
                 j2 = h22 - currentTimeMillis;
                 long j172 = j152 - h22;
-                int k2 = this.f31148d.k();
+                int k2 = this.f31176d.k();
                 j3 = i42 - j152;
                 long j182 = g22 - j152;
                 j4 = i42 - g22;
@@ -322,7 +322,7 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
                 }
                 try {
                     j6 = j4;
-                    newInstance = this.f31146b.getResponsedClass().getConstructor(new Class[0]).newInstance(new Object[0]);
+                    newInstance = this.f31174b.getResponsedClass().getConstructor(new Class[0]).newInstance(new Object[0]);
                     i3 = i2;
                     j7 = j3;
                 } catch (Exception unused2) {
@@ -335,23 +335,23 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
                     } else {
                         newInstance.setStatusCode(400, "");
                     }
-                    newInstance.setContentLength(this.f31147c.c().f2815f);
+                    newInstance.setContentLength(this.f31175c.c().f2917f);
                     j8 = j2;
                 } else {
-                    if (this.f31147c.d().size() > 0) {
-                        String str3 = this.f31147c.d().get(this.f31147c.d().size() - 1).f2799h;
+                    if (this.f31175c.d().size() > 0) {
+                        String str3 = this.f31175c.d().get(this.f31175c.d().size() - 1).f2901h;
                         j8 = j2;
-                        this.a.setEncodedBinarySize(this.f31147c.d().get(this.f31147c.d().size() - 1).a);
+                        this.a.setEncodedBinarySize(this.f31175c.d().get(this.f31175c.d().size() - 1).a);
                         str222 = str3;
                     } else {
                         j8 = j2;
                     }
-                    newInstance.setStatusCode(this.f31147c.c().f2811b, str222);
-                    newInstance.setHeader(this.f31147c.c().f2816g);
-                    newInstance.setContentEncoding(this.f31147c.c().f2813d);
-                    newInstance.setContentLength(this.f31147c.c().f2815f);
-                    newInstance.setContentType(this.f31147c.c().f2814e);
-                    newInstance.setDownSize(this.f31147c.c().f2818i);
+                    newInstance.setStatusCode(this.f31175c.c().f2913b, str222);
+                    newInstance.setHeader(this.f31175c.c().f2918g);
+                    newInstance.setContentEncoding(this.f31175c.c().f2915d);
+                    newInstance.setContentLength(this.f31175c.c().f2917f);
+                    newInstance.setContentType(this.f31175c.c().f2916e);
+                    newInstance.setDownSize(this.f31175c.c().f2920i);
                     if (!newInstance.isSuccess()) {
                         newInstance.setError(newInstance.getStatusCode());
                     }
@@ -360,7 +360,7 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
                 if (!z) {
                     if (newInstance.isSuccess()) {
                         try {
-                            newInstance.decodeInBackGround(this.a.getCmd(), this.f31147c.c().f2817h);
+                            newInstance.decodeInBackGround(this.a.getCmd(), this.f31175c.c().f2919h);
                             long currentTimeMillis2 = System.currentTimeMillis();
                             j12 = currentTimeMillis2 - currentTimeMillis;
                             j13 = currentTimeMillis2 - f2;
@@ -369,13 +369,13 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
                             newInstance.performanceData.k = i3;
                             j11 = j8;
                             try {
-                                newInstance.performanceData.f2646b = j11;
+                                newInstance.performanceData.f2748b = j11;
                                 j14 = j7;
                             } catch (Exception e5) {
                                 e = e5;
                             }
                             try {
-                                newInstance.performanceData.f2647c = j14;
+                                newInstance.performanceData.f2749c = j14;
                                 j9 = j182;
                             } catch (Exception e6) {
                                 e = e6;
@@ -387,21 +387,21 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
                                 BdLog.detailException(e);
                                 if (this.a.getExtra() instanceof NetMessage) {
                                 }
-                                String url = this.f31146b.getUrl();
+                                String url = this.f31174b.getUrl();
                                 boolean isSuccess = newInstance.isSuccess();
                                 c.a.d.c.i.a aVar = newInstance.performanceData;
-                                c.a.d.f.n.l.a.a(str, cmd, url, isSuccess, true, j11, j7, aVar.f2651g, j9, j10, aVar.f2653i);
-                                newInstance.logStatInBackground(this.a.getCmd(), this.f31147c);
+                                c.a.d.f.n.l.a.a(str, cmd, url, isSuccess, true, j11, j7, aVar.f2753g, j9, j10, aVar.f2755i);
+                                newInstance.logStatInBackground(this.a.getCmd(), this.f31175c);
                                 newInstance.setStartTime(System.currentTimeMillis());
                                 publishProgress(newInstance);
                                 if (newInstance.isSuccess()) {
                                 }
                             }
                             try {
-                                newInstance.performanceData.f2648d = j9;
+                                newInstance.performanceData.f2750d = j9;
                                 j10 = j6;
                                 try {
-                                    newInstance.performanceData.f2649e = j10;
+                                    newInstance.performanceData.f2751e = j10;
                                     j7 = j14;
                                 } catch (Exception e7) {
                                     e = e7;
@@ -416,11 +416,11 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
                                 BdLog.detailException(e);
                                 if (this.a.getExtra() instanceof NetMessage) {
                                 }
-                                String url2 = this.f31146b.getUrl();
+                                String url2 = this.f31174b.getUrl();
                                 boolean isSuccess2 = newInstance.isSuccess();
                                 c.a.d.c.i.a aVar2 = newInstance.performanceData;
-                                c.a.d.f.n.l.a.a(str, cmd, url2, isSuccess2, true, j11, j7, aVar2.f2651g, j9, j10, aVar2.f2653i);
-                                newInstance.logStatInBackground(this.a.getCmd(), this.f31147c);
+                                c.a.d.f.n.l.a.a(str, cmd, url2, isSuccess2, true, j11, j7, aVar2.f2753g, j9, j10, aVar2.f2755i);
+                                newInstance.logStatInBackground(this.a.getCmd(), this.f31175c);
                                 newInstance.setStartTime(System.currentTimeMillis());
                                 publishProgress(newInstance);
                                 if (newInstance.isSuccess()) {
@@ -433,10 +433,10 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
                             j11 = j8;
                         }
                         try {
-                            newInstance.performanceData.f2650f = j5;
-                            newInstance.performanceData.f2651g = j13;
+                            newInstance.performanceData.f2752f = j5;
+                            newInstance.performanceData.f2753g = j13;
                             newInstance.setCostTime(j12);
-                            newInstance.beforeDispatchInBackGround(this.a.getCmd(), this.f31147c.c().f2817h);
+                            newInstance.beforeDispatchInBackGround(this.a.getCmd(), this.f31175c.c().f2919h);
                         } catch (Exception e10) {
                             e = e10;
                             newInstance.setError(-1003);
@@ -444,11 +444,11 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
                             BdLog.detailException(e);
                             if (this.a.getExtra() instanceof NetMessage) {
                             }
-                            String url22 = this.f31146b.getUrl();
+                            String url22 = this.f31174b.getUrl();
                             boolean isSuccess22 = newInstance.isSuccess();
                             c.a.d.c.i.a aVar22 = newInstance.performanceData;
-                            c.a.d.f.n.l.a.a(str, cmd, url22, isSuccess22, true, j11, j7, aVar22.f2651g, j9, j10, aVar22.f2653i);
-                            newInstance.logStatInBackground(this.a.getCmd(), this.f31147c);
+                            c.a.d.f.n.l.a.a(str, cmd, url22, isSuccess22, true, j11, j7, aVar22.f2753g, j9, j10, aVar22.f2755i);
+                            newInstance.logStatInBackground(this.a.getCmd(), this.f31175c);
                             newInstance.setStartTime(System.currentTimeMillis());
                             publishProgress(newInstance);
                             if (newInstance.isSuccess()) {
@@ -461,22 +461,22 @@ public class HttpClient extends c.a.d.c.e.a<HttpMessage, HttpMessageTask> {
                     }
                     if (this.a.getExtra() instanceof NetMessage) {
                         NetMessage netMessage = (NetMessage) this.a.getExtra();
-                        newInstance.performanceData.f2653i = netMessage.getSocketErrNo();
-                        newInstance.performanceData.f2654j = netMessage.getSocketCostTime();
+                        newInstance.performanceData.f2755i = netMessage.getSocketErrNo();
+                        newInstance.performanceData.f2756j = netMessage.getSocketCostTime();
                     }
-                    String url222 = this.f31146b.getUrl();
+                    String url222 = this.f31174b.getUrl();
                     boolean isSuccess222 = newInstance.isSuccess();
                     c.a.d.c.i.a aVar222 = newInstance.performanceData;
-                    c.a.d.f.n.l.a.a(str, cmd, url222, isSuccess222, true, j11, j7, aVar222.f2651g, j9, j10, aVar222.f2653i);
+                    c.a.d.f.n.l.a.a(str, cmd, url222, isSuccess222, true, j11, j7, aVar222.f2753g, j9, j10, aVar222.f2755i);
                 }
-                newInstance.logStatInBackground(this.a.getCmd(), this.f31147c);
+                newInstance.logStatInBackground(this.a.getCmd(), this.f31175c);
                 newInstance.setStartTime(System.currentTimeMillis());
                 publishProgress(newInstance);
                 try {
                     if (newInstance.isSuccess()) {
                         return null;
                     }
-                    newInstance.afterDispatchInBackGround(this.a.getCmd(), this.f31147c.c().f2817h);
+                    newInstance.afterDispatchInBackGround(this.a.getCmd(), this.f31175c.c().f2919h);
                     return null;
                 } catch (Exception e11) {
                     BdLog.e(e11.getMessage());

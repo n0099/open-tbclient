@@ -10,7 +10,7 @@ import com.facebook.common.internal.Supplier;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.imagepipeline.cache.CountingMemoryCache;
 import com.facebook.imagepipeline.image.CloseableImage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BitmapCountingMemoryCacheFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

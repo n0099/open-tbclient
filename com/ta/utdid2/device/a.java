@@ -14,19 +14,19 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f60333b;
+    public long f60378b;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f60334d;
+    public String f60379d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f60335e;
+    public String f60380e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f60336f;
+    public String f60381f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f60337g;
+    public String f60382g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -41,18 +41,18 @@ public class a {
                 return;
             }
         }
-        this.f60334d = "";
-        this.f60335e = "";
-        this.f60336f = "";
-        this.f60337g = "";
+        this.f60379d = "";
+        this.f60380e = "";
+        this.f60381f = "";
+        this.f60382g = "";
         this.a = 0L;
-        this.f60333b = 0L;
+        this.f60378b = 0L;
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f60333b = j2;
+            this.f60378b = j2;
         }
     }
 
@@ -66,39 +66,39 @@ public class a {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f60335e = str;
+            this.f60380e = str;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f60336f = str;
+            this.f60381f = str;
         }
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f60334d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f60379d : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60337g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60382g : (String) invokeV.objValue;
     }
 
     public String getDeviceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f60336f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f60381f : (String) invokeV.objValue;
     }
 
     public String getImsi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f60335e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f60380e : (String) invokeV.objValue;
     }
 
     public long a() {
@@ -110,14 +110,14 @@ public class a {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f60334d = str;
+            this.f60379d = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f60337g = str;
+            this.f60382g = str;
         }
     }
 }

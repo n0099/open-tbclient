@@ -31,9 +31,9 @@ public class d extends b {
                 return;
             }
         }
-        this.f37111b = i2;
+        this.f37139b = i2;
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i2, 100L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-        this.f37112c = threadPoolExecutor;
+        this.f37140c = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(true);
     }
 

@@ -16,7 +16,7 @@ public final class c {
     public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f6503b;
+    public long f6645b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class c {
                 return;
             }
         }
-        this.f6503b = 0L;
+        this.f6645b = 0L;
         this.a = new e();
     }
 
@@ -62,7 +62,7 @@ public final class c {
                 return false;
             }
             for (a aVar : d2) {
-                if (c.a.r0.a.h0.q.b.k().i(aVar.f6498f)) {
+                if (c.a.r0.a.h0.q.b.k().i(aVar.f6640f)) {
                     return true;
                 }
             }
@@ -80,7 +80,7 @@ public final class c {
     public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.i() <= 2 || System.currentTimeMillis() - this.f6503b < 3000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.i() <= 2 || System.currentTimeMillis() - this.f6645b < 3000 : invokeV.booleanValue;
     }
 
     public final boolean f() {
@@ -99,7 +99,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             d dVar = new d();
-            dVar.i(this.f6503b);
+            dVar.i(this.f6645b);
             dVar.h(this.a.d());
             dVar.k(this.a.g());
             dVar.l(this.a.i());
@@ -131,7 +131,7 @@ public final class c {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f6503b = System.currentTimeMillis();
+            this.f6645b = System.currentTimeMillis();
         }
     }
 }

@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Binder;
 import android.os.IBinder;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SqlDownloadCacheService extends Service {
     public static final String a = SqlDownloadCacheService.class.getSimpleName();
 

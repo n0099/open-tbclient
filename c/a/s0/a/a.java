@@ -24,7 +24,7 @@ public class a {
 
     /* renamed from: c.a.s0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0818a {
+    public static class C0827a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class a {
     public static final a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0818a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0827a.a : (a) invokeV.objValue;
     }
 
     public synchronized long a(c cVar) {

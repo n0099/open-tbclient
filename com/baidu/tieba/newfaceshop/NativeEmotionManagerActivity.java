@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes12.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements c.a.t0.n2.h.c.a<Boolean> {
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements c.a.t0.o2.h.c.a<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragment createEmotionFragment;
@@ -118,7 +118,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NativeEmotionManagerActivity f46137e;
+        public final /* synthetic */ NativeEmotionManagerActivity f46165e;
 
         public b(NativeEmotionManagerActivity nativeEmotionManagerActivity) {
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
                     return;
                 }
             }
-            this.f46137e = nativeEmotionManagerActivity;
+            this.f46165e = nativeEmotionManagerActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -143,11 +143,11 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 super.onPageSelected(i2);
-                if (this.f46137e.mManager == null) {
+                if (this.f46165e.mManager == null) {
                     return;
                 }
-                this.f46137e.fragmentPostion = i2;
-                this.f46137e.ctrlIfShowEditButton();
+                this.f46165e.fragmentPostion = i2;
+                this.f46165e.ctrlIfShowEditButton();
             }
         }
     }
@@ -260,8 +260,8 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
             super.onClick(view);
             if (view == this.mManager) {
-                boolean z = !c.a.t0.n2.h.a.b().a();
-                c.a.t0.n2.h.a.b().d(z);
+                boolean z = !c.a.t0.o2.h.a.b().a();
+                c.a.t0.o2.h.a.b().d(z);
                 if (z) {
                     this.mManager.setText(R.string.emotion_manage_finish);
                 } else {
@@ -284,7 +284,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.t0.n2.h.c.a
+    @Override // c.a.t0.o2.h.c.a
     public void onUpdate(Boolean bool) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bool) == null) || bool == null) {

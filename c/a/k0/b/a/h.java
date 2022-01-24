@@ -18,7 +18,7 @@ public abstract class h {
     public static final HashMap<String, h> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, b> f4140b;
+    public static final ConcurrentHashMap<String, b> f4281b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -41,7 +41,7 @@ public abstract class h {
             }
         }
         a = new HashMap<>();
-        f4140b = new ConcurrentHashMap<>();
+        f4281b = new ConcurrentHashMap<>();
     }
 
     public static void a(String str, IBinder iBinder, boolean z) {
@@ -51,8 +51,8 @@ public abstract class h {
                 if (a.get(str) == null) {
                     b bVar = new b(null);
                     bVar.a = iBinder;
-                    bVar.f4141b = z;
-                    f4140b.put(str, bVar);
+                    bVar.f4282b = z;
+                    f4281b.put(str, bVar);
                     return;
                 }
                 throw new IllegalArgumentException();
@@ -70,9 +70,9 @@ public abstract class h {
                 hVar.b();
                 return hVar.c();
             }
-            b bVar = f4140b.get(str);
+            b bVar = f4281b.get(str);
             if (bVar != null) {
-                if (!bVar.f4141b && Binder.getCallingUid() != Process.myUid()) {
+                if (!bVar.f4282b && Binder.getCallingUid() != Process.myUid()) {
                     throw new SecurityException();
                 }
                 return bVar.a;
@@ -87,7 +87,7 @@ public abstract class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (Binder.getCallingUid() == Process.myUid()) {
-                return f4140b.remove(str) != null;
+                return f4281b.remove(str) != null;
             }
             throw new SecurityException();
         }
@@ -110,7 +110,7 @@ public abstract class h {
         public IBinder a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f4141b;
+        public boolean f4282b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public abstract class h {
                     return;
                 }
             }
-            this.f4141b = false;
+            this.f4282b = false;
         }
 
         public /* synthetic */ b(a aVar) {

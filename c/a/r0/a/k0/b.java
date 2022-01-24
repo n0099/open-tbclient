@@ -27,10 +27,10 @@ public class b {
         public final /* synthetic */ d.c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f7557b;
+        public final /* synthetic */ File f7699b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f7558c;
+        public final /* synthetic */ b f7700c;
 
         public a(b bVar, d.c cVar, File file) {
             Interceptable interceptable = $ic;
@@ -47,16 +47,16 @@ public class b {
                     return;
                 }
             }
-            this.f7558c = bVar;
+            this.f7700c = bVar;
             this.a = cVar;
-            this.f7557b = file;
+            this.f7699b = file;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f7558c.c(this.a, 1, 0);
+                this.f7700c.c(this.a, 1, 0);
             }
         }
 
@@ -72,7 +72,7 @@ public class b {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f7558c.d(response, this.a, this.f7557b);
+                this.f7700c.d(response, this.a, this.f7699b);
                 return response;
             }
             return invokeLI.objValue;
@@ -81,14 +81,14 @@ public class b {
 
     /* renamed from: c.a.r0.a.k0.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0448b implements Runnable {
+    public class RunnableC0457b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.c f7559e;
+        public final /* synthetic */ d.c f7701e;
 
-        public RunnableC0448b(b bVar, d.c cVar) {
+        public RunnableC0457b(b bVar, d.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,14 +103,14 @@ public class b {
                     return;
                 }
             }
-            this.f7559e = cVar;
+            this.f7701e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7559e.onSuccess();
+                this.f7701e.onSuccess();
             }
         }
     }
@@ -121,7 +121,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.c f7560e;
+        public final /* synthetic */ d.c f7702e;
 
         public c(b bVar, d.c cVar) {
             Interceptable interceptable = $ic;
@@ -138,14 +138,14 @@ public class b {
                     return;
                 }
             }
-            this.f7560e = cVar;
+            this.f7702e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7560e.onFailed();
+                this.f7702e.onFailed();
             }
         }
     }
@@ -156,10 +156,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.c f7561e;
+        public final /* synthetic */ d.c f7703e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f7562f;
+        public final /* synthetic */ int f7704f;
 
         public d(b bVar, d.c cVar, int i2) {
             Interceptable interceptable = $ic;
@@ -176,15 +176,15 @@ public class b {
                     return;
                 }
             }
-            this.f7561e = cVar;
-            this.f7562f = i2;
+            this.f7703e = cVar;
+            this.f7704f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7561e.onProgressChanged(this.f7562f);
+                this.f7703e.onProgressChanged(this.f7704f);
             }
         }
     }
@@ -204,19 +204,19 @@ public class b {
     }
 
     public final void c(d.c cVar, int i2, int i3) {
-        Runnable runnableC0448b;
+        Runnable runnableC0457b;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLII(1048576, this, cVar, i2, i3) == null) || cVar == null) {
             return;
         }
         if (i2 == 0) {
-            runnableC0448b = new RunnableC0448b(this, cVar);
+            runnableC0457b = new RunnableC0457b(this, cVar);
         } else if (i2 != 2) {
-            runnableC0448b = new c(this, cVar);
+            runnableC0457b = new c(this, cVar);
         } else {
-            runnableC0448b = new d(this, cVar, i3);
+            runnableC0457b = new d(this, cVar, i3);
         }
-        q0.e0(runnableC0448b);
+        q0.e0(runnableC0457b);
     }
 
     public final void d(Response response, d.c cVar, File file) throws IOException {
@@ -291,13 +291,13 @@ public class b {
         }
     }
 
-    public void e(d.C0260d c0260d, String str, d.c cVar) {
+    public void e(d.C0269d c0269d, String str, d.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, c0260d, str, cVar) == null) {
-            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(c0260d.a, new a(this, cVar, new File(str)));
-            aVar.f11453f = false;
-            aVar.f11454g = false;
-            aVar.f11455h = false;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, c0269d, str, cVar) == null) {
+            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(c0269d.a, new a(this, cVar, new File(str)));
+            aVar.f11595f = false;
+            aVar.f11596g = false;
+            aVar.f11597h = false;
             c.a.r0.p.e.a.g().d(aVar);
         }
     }

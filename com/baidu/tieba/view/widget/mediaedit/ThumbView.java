@@ -19,19 +19,19 @@ public class ThumbView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f49437e;
+    public final int f49456e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f49438f;
+    public Drawable f49457f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f49439g;
+    public boolean f49458g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49440h;
+    public int f49459h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49441i;
+    public int f49460i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThumbView(Context context, int i2, int i3, Drawable drawable) {
@@ -51,11 +51,11 @@ public class ThumbView extends View {
                 return;
             }
         }
-        this.f49440h = i2;
-        this.f49441i = i3;
-        this.f49438f = drawable;
-        this.f49437e = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
-        setBackgroundDrawable(this.f49438f);
+        this.f49459h = i2;
+        this.f49460i = i3;
+        this.f49457f = drawable;
+        this.f49456e = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
+        setBackgroundDrawable(this.f49457f);
     }
 
     public boolean inInTarget(int i2, int i3) {
@@ -65,7 +65,7 @@ public class ThumbView extends View {
             Rect rect = new Rect();
             getHitRect(rect);
             int i4 = rect.left;
-            int i5 = this.f49437e;
+            int i5 = this.f49456e;
             rect.left = i4 - i5;
             rect.right += i5;
             rect.top -= i5;
@@ -79,14 +79,14 @@ public class ThumbView extends View {
     public boolean isPressed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49439g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49458g : invokeV.booleanValue;
     }
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.f49440h, 1073741824), View.MeasureSpec.makeMeasureSpec(this.f49441i, 1073741824));
+            super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.f49459h, 1073741824), View.MeasureSpec.makeMeasureSpec(this.f49460i, 1073741824));
         }
     }
 
@@ -94,28 +94,28 @@ public class ThumbView extends View {
     public void setPressed(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f49439g = z;
+            this.f49458g = z;
         }
     }
 
     public void setThumbDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
-            this.f49438f = drawable;
+            this.f49457f = drawable;
         }
     }
 
     public void setThumbHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f49441i = i2;
+            this.f49460i = i2;
         }
     }
 
     public void setThumbWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f49440h = i2;
+            this.f49459h = i2;
         }
     }
 }

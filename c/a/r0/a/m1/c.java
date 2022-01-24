@@ -18,27 +18,27 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f7678g;
+    public static final boolean f7820g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f7679h;
+    public static String f7821h;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7680b;
+    public String f7822b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7681c;
+    public String f7823c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f7682d;
+    public boolean f7824d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7683e;
+    public String f7825e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7684f;
+    public String f7826f;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -72,7 +72,7 @@ public final class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.a.f7680b = str;
+                this.a.f7822b = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -82,7 +82,7 @@ public final class c {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.a.f7682d = z;
+                this.a.f7824d = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -102,7 +102,7 @@ public final class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.a.f7681c = str;
+                this.a.f7823c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -112,7 +112,7 @@ public final class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.a.f7684f = str;
+                this.a.f7826f = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -122,7 +122,7 @@ public final class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.a.f7683e = str;
+                this.a.f7825e = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -142,8 +142,8 @@ public final class c {
                 return;
             }
         }
-        f7678g = k.a;
-        f7679h = "SwanAppParam";
+        f7820g = k.a;
+        f7821h = "SwanAppParam";
     }
 
     public c() {
@@ -171,14 +171,14 @@ public final class c {
                 c cVar = new c();
                 JSONObject jSONObject = new JSONObject(str);
                 cVar.a = jSONObject.optString("page");
-                cVar.f7681c = jSONObject.optString("params");
-                cVar.f7680b = jSONObject.optString("baseUrl");
-                cVar.f7682d = jSONObject.optBoolean("isFirstPage");
-                cVar.f7683e = jSONObject.optString("routeType");
-                cVar.f7684f = jSONObject.optString("routeId");
+                cVar.f7823c = jSONObject.optString("params");
+                cVar.f7822b = jSONObject.optString("baseUrl");
+                cVar.f7824d = jSONObject.optBoolean("isFirstPage");
+                cVar.f7825e = jSONObject.optString("routeType");
+                cVar.f7826f = jSONObject.optString("routeId");
                 return cVar;
             } catch (JSONException e2) {
-                if (f7678g) {
+                if (f7820g) {
                     String str2 = "createSwanAppParam() error: " + Log.getStackTraceString(e2);
                 }
                 return null;
@@ -190,7 +190,7 @@ public final class c {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7680b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7822b : (String) invokeV.objValue;
     }
 
     public String i() {
@@ -202,19 +202,19 @@ public final class c {
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7681c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7823c : (String) invokeV.objValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7684f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7826f : (String) invokeV.objValue;
     }
 
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7683e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7825e : (String) invokeV.objValue;
     }
 
     public String m() {
@@ -224,13 +224,13 @@ public final class c {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("page", this.a);
-                jSONObject.put("params", this.f7681c);
-                jSONObject.put("baseUrl", this.f7680b);
-                jSONObject.put("isFirstPage", this.f7682d);
-                jSONObject.put("routeType", this.f7683e);
-                jSONObject.put("routeId", this.f7684f);
+                jSONObject.put("params", this.f7823c);
+                jSONObject.put("baseUrl", this.f7822b);
+                jSONObject.put("isFirstPage", this.f7824d);
+                jSONObject.put("routeType", this.f7825e);
+                jSONObject.put("routeId", this.f7826f);
             } catch (JSONException e2) {
-                if (f7678g) {
+                if (f7820g) {
                     String str = "toJSONString error: " + Log.getStackTraceString(e2);
                 }
             }
@@ -242,7 +242,7 @@ public final class c {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f7682d = false;
+            this.f7824d = false;
         }
     }
 }

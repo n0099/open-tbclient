@@ -89,8 +89,8 @@ public class RecommendActivityView extends c.a.t0.g0.b<c> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && obj != null && (obj instanceof c.a.t0.a0.f.g.c.b)) {
                 c.a.t0.a0.f.g.c.b bVar = (c.a.t0.a0.f.g.c.b) obj;
-                if (!StringUtils.isNull(bVar.f14606e)) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.a.m.getPageActivity()), new String[]{bVar.f14606e}, true);
+                if (!StringUtils.isNull(bVar.f14746e)) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.a.m.getPageActivity()), new String[]{bVar.f14746e}, true);
                 }
                 TiebaStatic.log("c12902");
             }
@@ -134,10 +134,10 @@ public class RecommendActivityView extends c.a.t0.g0.b<c> {
             /* renamed from: a */
             public void bindData(int i2, c.a.t0.a0.f.g.c.b bVar) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, bVar) == null) || bVar == null || this.a == null || StringUtils.isNull(bVar.f14607f)) {
+                if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, bVar) == null) || bVar == null || this.a == null || StringUtils.isNull(bVar.f14747f)) {
                     return;
                 }
-                this.a.startLoad(bVar.f14607f, 10, false);
+                this.a.startLoad(bVar.f14747f, 10, false);
             }
 
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
@@ -246,10 +246,10 @@ public class RecommendActivityView extends c.a.t0.g0.b<c> {
     /* renamed from: q */
     public void k(c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || ListUtils.isEmpty(cVar.f14609e)) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || ListUtils.isEmpty(cVar.f14749e)) {
             return;
         }
-        this.n.bindActivityData(cVar.f14609e, this.o);
+        this.n.bindActivityData(cVar.f14749e, this.o);
         TiebaStatic.log("c12901");
     }
 }

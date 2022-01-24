@@ -5,13 +5,13 @@ import com.kwad.sdk.pngencrypt.PngjException;
 public class r extends ae {
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f57096j;
+    public boolean f57141j;
     public String k;
     public String l;
 
     public r(com.kwad.sdk.pngencrypt.k kVar) {
         super("iTXt", kVar);
-        this.f57096j = false;
+        this.f57141j = false;
         this.k = "";
         this.l = "";
     }
@@ -22,7 +22,7 @@ public class r extends ae {
         int i2 = 0;
         int i3 = 0;
         while (true) {
-            byte[] bArr = dVar.f57067d;
+            byte[] bArr = dVar.f57112d;
             if (i2 >= bArr.length) {
                 break;
             }
@@ -41,19 +41,19 @@ public class r extends ae {
         if (i3 != 3) {
             com.kwad.sdk.core.d.a.a(new PngjException("Bad formed PngChunkITXT chunk"));
         }
-        ((ae) this).f57057h = b.a(dVar.f57067d, 0, iArr[0]);
+        ((ae) this).f57102h = b.a(dVar.f57112d, 0, iArr[0]);
         int i4 = iArr[0] + 1;
-        boolean z = dVar.f57067d[i4] != 0;
-        this.f57096j = z;
+        boolean z = dVar.f57112d[i4] != 0;
+        this.f57141j = z;
         int i5 = i4 + 1;
-        if (z && dVar.f57067d[i5] != 0) {
+        if (z && dVar.f57112d[i5] != 0) {
             com.kwad.sdk.core.d.a.a(new PngjException("Bad formed PngChunkITXT chunk - bad compression method "));
         }
-        this.k = b.a(dVar.f57067d, i5, iArr[1] - i5);
-        this.l = b.b(dVar.f57067d, iArr[1] + 1, (iArr[2] - iArr[1]) - 1);
+        this.k = b.a(dVar.f57112d, i5, iArr[1] - i5);
+        this.l = b.b(dVar.f57112d, iArr[1] + 1, (iArr[2] - iArr[1]) - 1);
         int i6 = iArr[2] + 1;
-        boolean z2 = this.f57096j;
-        byte[] bArr2 = dVar.f57067d;
-        this.f57058i = z2 ? b.b(b.a(bArr2, i6, bArr2.length - i6, false)) : b.b(bArr2, i6, bArr2.length - i6);
+        boolean z2 = this.f57141j;
+        byte[] bArr2 = dVar.f57112d;
+        this.f57103i = z2 ? b.b(b.a(bArr2, i6, bArr2.length - i6, false)) : b.b(bArr2, i6, bArr2.length - i6);
     }
 }

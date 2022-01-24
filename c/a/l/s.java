@@ -156,7 +156,7 @@ public class s extends h {
     public void onBindDataToView(c.a.s0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().t0() != null) {
+            if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().u0() != null) {
                 this.l.setVisibility(0);
                 this.l.setData(aVar.getThreadData().B2, 13, aVar.getThreadData().E);
                 return;

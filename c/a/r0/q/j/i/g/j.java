@@ -26,21 +26,21 @@ public class j<T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c.a.r0.q.p.a f11537f;
+    public static final c.a.r0.q.p.a f11679f;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f11538b;
+    public e f11680b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f<T> f11539c;
+    public f<T> f11681c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f11540d;
+    public AtomicBoolean f11682d;
 
     /* renamed from: e  reason: collision with root package name */
-    public T f11541e;
+    public T f11683e;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +55,7 @@ public class j<T> {
                 return;
             }
         }
-        f11537f = c.a.r0.q.p.a.e();
+        f11679f = c.a.r0.q.p.a.e();
     }
 
     public j(f<T> fVar, int i2) {
@@ -73,11 +73,11 @@ public class j<T> {
                 return;
             }
         }
-        this.f11539c = fVar;
-        this.f11538b = fVar.f11523e;
+        this.f11681c = fVar;
+        this.f11680b = fVar.f11665e;
         this.a = i2;
-        this.f11541e = fVar.f11524f;
-        this.f11540d = fVar.f11526h;
+        this.f11683e = fVar.f11666f;
+        this.f11682d = fVar.f11668h;
     }
 
     public final boolean a(InputStream inputStream, OutputStream outputStream, long j2) throws IOException {
@@ -88,7 +88,7 @@ public class j<T> {
             byte[] bArr = new byte[32768];
             long j3 = 0;
             int i3 = 0;
-            while (!this.f11540d.get() && i3 != -1) {
+            while (!this.f11682d.get() && i3 != -1) {
                 if (j2 > 0) {
                     if (j3 >= j2) {
                         break;
@@ -100,11 +100,11 @@ public class j<T> {
                 if (i3 > 0) {
                     outputStream.write(bArr, 0, i3);
                     j3 += i3;
-                    this.f11538b.f11522b.f11489b = j3;
-                    this.f11539c.l();
+                    this.f11680b.f11664b.f11631b = j3;
+                    this.f11681c.l();
                 }
             }
-            c.a.r0.q.c.b().y("PMSTaskProcessor", "#copyStream canceled=" + this.f11540d.get() + " readed" + j3 + " totalBytes=" + j2);
+            c.a.r0.q.c.b().y("PMSTaskProcessor", "#copyStream canceled=" + this.f11682d.get() + " readed" + j3 + " totalBytes=" + j2);
             return j3 == j2;
         }
         return invokeCommon.booleanValue;
@@ -114,35 +114,35 @@ public class j<T> {
         c.a.r0.q.j.i.f.e eVar;
         Exception e2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f11540d.get()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f11682d.get()) {
             return;
         }
         c.a.r0.q.j.i.f.e eVar2 = null;
         if (!ConnectManager.isNetworkConnected(AppRuntime.getAppContext())) {
-            f11537f.g("PMSTaskProcessor", "#downloadLogic 没有网络连接", null);
-            this.f11538b.a = new c.a.r0.q.i.b(ErrorConstant.Code.DOWNLOAD_ERROR_MISS_PARAM, "download : no network");
-            this.f11538b.a.a("没有网络连接");
-        } else if (!this.f11539c.c()) {
-            f11537f.g("PMSTaskProcessor", "#downloadLogic 无法创建本地文件", null);
-            this.f11538b.a = new c.a.r0.q.i.b(ErrorConstant.Code.DOWNLOAD_ERROR_PATH, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_CREATEFILE);
+            f11679f.g("PMSTaskProcessor", "#downloadLogic 没有网络连接", null);
+            this.f11680b.a = new c.a.r0.q.i.b(ErrorConstant.Code.DOWNLOAD_ERROR_MISS_PARAM, "download : no network");
+            this.f11680b.a.a("没有网络连接");
+        } else if (!this.f11681c.c()) {
+            f11679f.g("PMSTaskProcessor", "#downloadLogic 无法创建本地文件", null);
+            this.f11680b.a = new c.a.r0.q.i.b(ErrorConstant.Code.DOWNLOAD_ERROR_PATH, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_CREATEFILE);
         } else {
-            this.f11539c.p();
+            this.f11681c.p();
             try {
                 try {
-                    eVar = c.a.r0.q.c.b().A().b(this.f11538b.f11522b.n, this.a);
+                    eVar = c.a.r0.q.c.b().A().b(this.f11680b.f11664b.n, this.a);
                     try {
                         int code = eVar.code();
                         int d2 = d(eVar, code);
-                        if (this.f11538b.a.a != d2) {
-                            this.f11538b.a = new c.a.r0.q.i.b(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
-                            this.f11538b.a.a("状态不匹配错误，可能有未捕获的异常");
-                            f11537f.g("PMSTaskProcessor", "#downloadLogic 状态不匹配错误 errorCode=" + d2 + " errNo=" + this.f11538b.a.a + " httpStatus=" + code, null);
+                        if (this.f11680b.a.a != d2) {
+                            this.f11680b.a = new c.a.r0.q.i.b(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
+                            this.f11680b.a.a("状态不匹配错误，可能有未捕获的异常");
+                            f11679f.g("PMSTaskProcessor", "#downloadLogic 状态不匹配错误 errorCode=" + d2 + " errNo=" + this.f11680b.a.a + " httpStatus=" + code, null);
                         }
                     } catch (Exception e3) {
                         e2 = e3;
-                        f11537f.g("PMSTaskProcessor", "#downloadLogic 包下载异常", e2);
-                        this.f11538b.a = new c.a.r0.q.i.b(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
-                        this.f11538b.a.a(Log.getStackTraceString(e2));
+                        f11679f.g("PMSTaskProcessor", "#downloadLogic 包下载异常", e2);
+                        this.f11680b.a = new c.a.r0.q.i.b(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
+                        this.f11680b.a.a(Log.getStackTraceString(e2));
                         c.a.r0.w.d.d(eVar);
                     }
                 } catch (Throwable th) {
@@ -168,20 +168,20 @@ public class j<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             if (!new File(str).exists()) {
-                this.f11538b.a = new c.a.r0.q.i.b(ErrorConstant.Code.DOWNLOAD_ERROR_WRITE, String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_INEXIST, c.a.r0.q.p.e.a("local file save failed:", str)));
+                this.f11680b.a = new c.a.r0.q.i.b(ErrorConstant.Code.DOWNLOAD_ERROR_WRITE, String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_INEXIST, c.a.r0.q.p.e.a("local file save failed:", str)));
                 return false;
             }
-            String str2 = this.f11538b.f11522b.l;
+            String str2 = this.f11680b.f11664b.l;
             String b2 = c.a.r0.q.p.c.b(new File(str), true);
             if (str2 != null && b2 != null) {
                 String upperCase = str2.toUpperCase();
                 if (upperCase.equals(b2)) {
                     return true;
                 }
-                this.f11538b.a = new c.a.r0.q.i.b(2202, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_MD5 + c.a.r0.q.p.e.a("server:", upperCase, ",local", b2));
+                this.f11680b.a = new c.a.r0.q.i.b(2202, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_MD5 + c.a.r0.q.p.e.a("server:", upperCase, ",local", b2));
                 return false;
             }
-            this.f11538b.a = new c.a.r0.q.i.b(ErrorConstant.Code.DOWNLOAD_ERROR_WRITE, String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_INEXIST, c.a.r0.q.p.e.a("server:", str2, ",local", b2)));
+            this.f11680b.a = new c.a.r0.q.i.b(ErrorConstant.Code.DOWNLOAD_ERROR_WRITE, String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_INEXIST, c.a.r0.q.p.e.a("server:", str2, ",local", b2)));
             return false;
         }
         return invokeL.booleanValue;
@@ -191,43 +191,43 @@ public class j<T> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, eVar, i2)) == null) {
-            c.a.r0.q.c.b().y("PMSTaskProcessor", "#parseResponse url=" + this.f11538b.f11522b.n + " code=" + eVar.code());
-            this.f11538b.a = null;
+            c.a.r0.q.c.b().y("PMSTaskProcessor", "#parseResponse url=" + this.f11680b.f11664b.n + " code=" + eVar.code());
+            this.f11680b.a = null;
             if (i2 >= 200 && i2 <= 300) {
                 c.a.r0.q.j.i.f.d body = eVar.body();
                 if (body != null) {
                     long a = body.a();
-                    f11537f.g("PMSTaskProcessor", "#parseResponse currentSize=" + this.f11538b.f11522b.f11489b + " pkgSize=" + this.f11538b.f11522b.k + " contentLength=" + a, null);
-                    if (!this.f11539c.j(this.f11538b.f11522b.k)) {
-                        f11537f.g("PMSTaskProcessor", "#parseResponse 磁盘空间不足", null);
-                        this.f11538b.a = new c.a.r0.q.i.b(ErrorConstant.Code.DOWNLOAD_ERROR_CREATEFILE, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NOSPACE);
-                        return this.f11538b.a.a;
+                    f11679f.g("PMSTaskProcessor", "#parseResponse currentSize=" + this.f11680b.f11664b.f11631b + " pkgSize=" + this.f11680b.f11664b.k + " contentLength=" + a, null);
+                    if (!this.f11681c.j(this.f11680b.f11664b.k)) {
+                        f11679f.g("PMSTaskProcessor", "#parseResponse 磁盘空间不足", null);
+                        this.f11680b.a = new c.a.r0.q.i.b(ErrorConstant.Code.DOWNLOAD_ERROR_CREATEFILE, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NOSPACE);
+                        return this.f11680b.a.a;
                     }
                     try {
                         if (e(body, a)) {
-                            this.f11538b.a = new c.a.r0.q.i.b(2200, ErrorConstant.ErrorMsg.DOWNLOAD_SUCCESS);
-                            return this.f11538b.a.a;
+                            this.f11680b.a = new c.a.r0.q.i.b(2200, ErrorConstant.ErrorMsg.DOWNLOAD_SUCCESS);
+                            return this.f11680b.a.a;
                         }
                     } catch (IOException e2) {
-                        f11537f.g("PMSTaskProcessor", "#parseResponse 写到文件过程中出错", e2);
-                        this.f11538b.a = new c.a.r0.q.i.b(ErrorConstant.Code.DOWNLOAD_ERROR_NOSPACE, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_WRITE);
-                        return this.f11538b.a.a;
+                        f11679f.g("PMSTaskProcessor", "#parseResponse 写到文件过程中出错", e2);
+                        this.f11680b.a = new c.a.r0.q.i.b(ErrorConstant.Code.DOWNLOAD_ERROR_NOSPACE, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_WRITE);
+                        return this.f11680b.a.a;
                     }
                 }
-                e eVar2 = this.f11538b;
+                e eVar2 = this.f11680b;
                 if (eVar2.a == null) {
                     eVar2.a = new c.a.r0.q.i.b(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
-                    this.f11538b.a.a("错误码为空时设置的默认错误");
+                    this.f11680b.a.a("错误码为空时设置的默认错误");
                 }
-                return this.f11538b.a.a;
+                return this.f11680b.a.a;
             }
             String str = "statusCode=" + i2;
-            f11537f.g("PMSTaskProcessor", "#parseResponse error " + str, null);
-            e eVar3 = this.f11538b;
+            f11679f.g("PMSTaskProcessor", "#parseResponse error " + str, null);
+            e eVar3 = this.f11680b;
             c.a.r0.q.i.b bVar = new c.a.r0.q.i.b(2104, ErrorConstant.ErrorMsg.META_ERROR_CONNECTION);
             bVar.a(str);
             eVar3.a = bVar;
-            return this.f11538b.a.a;
+            return this.f11680b.a.a;
         }
         return invokeLI.intValue;
     }
@@ -238,17 +238,17 @@ public class j<T> {
         if (interceptable != null && (invokeLJ = interceptable.invokeLJ(1048580, this, dVar, j2)) != null) {
             return invokeLJ.booleanValue;
         }
-        f<T> fVar = this.f11539c;
-        c<T> cVar = fVar.f11527i;
+        f<T> fVar = this.f11681c;
+        c<T> cVar = fVar.f11669i;
         ReadableByteChannel readableByteChannel = null;
         try {
-            T t = this.f11541e;
-            File file = fVar.f11525g;
+            T t = this.f11683e;
+            File file = fVar.f11667g;
             ReadableByteChannel source = dVar.source();
             try {
                 c.a.r0.q.i.b h2 = cVar.h(t, file, j2, source);
                 if (h2.a == 2302) {
-                    if (f(Channels.newInputStream(source), new FileOutputStream(this.f11539c.f11525g), j2) && c(this.f11538b.f11522b.a)) {
+                    if (f(Channels.newInputStream(source), new FileOutputStream(this.f11681c.f11667g), j2) && c(this.f11680b.f11664b.a)) {
                         if (source != null && source.isOpen()) {
                             c.a.r0.w.d.d(source);
                         }
@@ -259,14 +259,14 @@ public class j<T> {
                     }
                     return false;
                 } else if (h2.a == 2300) {
-                    this.f11538b.f11522b.f11489b = j2;
-                    this.f11539c.l();
+                    this.f11680b.f11664b.f11631b = j2;
+                    this.f11681c.l();
                     if (source != null && source.isOpen()) {
                         c.a.r0.w.d.d(source);
                     }
                     return true;
                 } else {
-                    this.f11538b.a = h2;
+                    this.f11680b.a = h2;
                     if (source != null && source.isOpen()) {
                         c.a.r0.w.d.d(source);
                     }

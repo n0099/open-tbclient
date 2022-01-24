@@ -19,13 +19,13 @@ public class SLog implements TraceLevel {
     public static final String TAG = "openSDK_LOG";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f60543c;
+    public static boolean f60588c;
     public static SLog instance;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Tracer f60544b;
+    public Tracer f60589b;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +55,7 @@ public class SLog implements TraceLevel {
                 return;
             }
         }
-        this.a = new a(new b(a(), c.m, c.f60570g, c.f60571h, c.f60566c, c.f60572i, 10, c.f60568e, c.n));
+        this.a = new a(new b(a(), c.m, c.f60615g, c.f60616h, c.f60611c, c.f60617i, 10, c.f60613e, c.n));
     }
 
     public static final void d(String str, String str2) {
@@ -87,7 +87,7 @@ public class SLog implements TraceLevel {
                 synchronized (SLog.class) {
                     if (instance == null) {
                         instance = new SLog();
-                        f60543c = true;
+                        f60588c = true;
                     }
                 }
             }
@@ -139,7 +139,7 @@ public class SLog implements TraceLevel {
     public void a(int i2, String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, th}) == null) {
-            if (f60543c) {
+            if (f60588c) {
                 String b2 = com.tencent.open.utils.f.b();
                 if (!TextUtils.isEmpty(b2)) {
                     String str3 = b2 + " SDK_VERSION:" + Constants.SDK_VERSION;
@@ -148,18 +148,18 @@ public class SLog implements TraceLevel {
                     }
                     e.a.a(32, Thread.currentThread(), System.currentTimeMillis(), TAG, str3, null);
                     this.a.a(32, Thread.currentThread(), System.currentTimeMillis(), TAG, str3, null);
-                    f60543c = false;
+                    f60588c = false;
                 }
             }
             e.a.a(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
-            if (d.a.a(c.f60565b, i2)) {
+            if (d.a.a(c.f60610b, i2)) {
                 a aVar = this.a;
                 if (aVar == null) {
                     return;
                 }
                 aVar.a(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
             }
-            Tracer tracer = this.f60544b;
+            Tracer tracer = this.f60589b;
             if (tracer != null) {
                 try {
                     tracer.a(i2, Thread.currentThread(), System.currentTimeMillis(), str, a(str2), th);
@@ -192,7 +192,7 @@ public class SLog implements TraceLevel {
     public void setCustomLogger(Tracer tracer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, tracer) == null) {
-            this.f60544b = tracer;
+            this.f60589b = tracer;
         }
     }
 
@@ -248,10 +248,10 @@ public class SLog implements TraceLevel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = c.f60567d;
+            String str = c.f60612d;
             try {
                 d.c b2 = d.b.b();
-                if (b2 != null && b2.c() > c.f60569f) {
+                if (b2 != null && b2.c() > c.f60614f) {
                     return new File(Environment.getExternalStorageDirectory(), str);
                 }
                 return new File(com.tencent.open.utils.f.c(), str);

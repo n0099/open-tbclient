@@ -78,7 +78,7 @@ public class LogoTask extends LaunchTask {
             if (this.mIsFirstUse) {
                 TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
                 TbadkCoreApplication.getInst().setIsAbstractOn(0);
-                c.a.s0.s.h0.b.k().u("frs_first_in", true);
+                c.a.s0.s.i0.b.k().u("frs_first_in", true);
             }
             NASLib.onAppStart(TbadkCoreApplication.getInst());
             l.b().A(this.mIsFirstUse);

@@ -15,7 +15,7 @@ public interface a {
 
     /* renamed from: c.a.s0.j0.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0854a {
+    public interface InterfaceC0863a {
         void a();
 
         void b(@NonNull List<e2> list, @Nullable Map<String, Object> map);
@@ -25,5 +25,5 @@ public interface a {
 
     void b(int i2, b1 b1Var, long j2);
 
-    void c(@Nullable InterfaceC0854a interfaceC0854a);
+    void c(@Nullable InterfaceC0863a interfaceC0863a);
 }

@@ -54,7 +54,7 @@ public class a extends c.a.r0.q.j.d<c.a.r0.q.j.l.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, aVar)) == null) {
             if (aVar != null && (i2 = aVar.a) != 0) {
-                return new c.a.r0.q.i.b(i2, aVar.f11549b);
+                return new c.a.r0.q.i.b(i2, aVar.f11691b);
             }
             return super.e(str, aVar);
         }
@@ -73,18 +73,18 @@ public class a extends c.a.r0.q.j.d<c.a.r0.q.j.l.a> {
         List<c.a.r0.q.i.i> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, aVar)) == null) {
-            if (aVar == null || (list = aVar.f11550c) == null || list.isEmpty()) {
+            if (aVar == null || (list = aVar.f11692c) == null || list.isEmpty()) {
                 return false;
             }
-            for (c.a.r0.q.i.i iVar : aVar.f11550c) {
+            for (c.a.r0.q.i.i iVar : aVar.f11692c) {
                 if (iVar == null || !iVar.a()) {
                     return false;
                 }
                 while (r1.hasNext()) {
                 }
             }
-            h hVar = this.f11506f;
-            return !(hVar instanceof c.a.r0.q.j.m.a) || ((c.a.r0.q.j.m.a) hVar).f().size() == aVar.f11550c.size();
+            h hVar = this.f11648f;
+            return !(hVar instanceof c.a.r0.q.j.m.a) || ((c.a.r0.q.j.m.a) hVar).f().size() == aVar.f11692c.size();
         }
         return invokeL.booleanValue;
     }
@@ -96,15 +96,15 @@ public class a extends c.a.r0.q.j.d<c.a.r0.q.j.l.a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
-            this.f11505e.F();
+            this.f11647e.F();
             g gVar = new g();
-            n(aVar.f11550c, gVar);
+            n(aVar.f11692c, gVar);
             if (gVar.n() == 0) {
-                this.f11505e.G();
+                this.f11647e.G();
                 return null;
             }
-            this.f11505e.H(gVar);
-            c.a.r0.q.j.i.a.f(aVar.f11550c, this.f11505e);
+            this.f11647e.H(gVar);
+            c.a.r0.q.j.i.a.f(aVar.f11692c, this.f11647e);
             return null;
         }
         return (c.a.r0.q.i.b) invokeL.objValue;

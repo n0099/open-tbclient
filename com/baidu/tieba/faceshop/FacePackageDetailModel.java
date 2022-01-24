@@ -26,22 +26,22 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f42799e;
+    public boolean f42820e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42800f;
+    public int f42821f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f42801g;
+    public String f42822g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42802h;
+    public String f42823h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f42803i;
+    public String f42824i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f42804j;
+    public String f42825j;
     public FacePackageDetailData k;
     public b l;
     public int m;
@@ -62,10 +62,10 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f42805b;
+        public volatile boolean f42826b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FacePackageDetailModel f42806c;
+        public final /* synthetic */ FacePackageDetailModel f42827c;
 
         public b(FacePackageDetailModel facePackageDetailModel) {
             Interceptable interceptable = $ic;
@@ -82,8 +82,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
                     return;
                 }
             }
-            this.f42806c = facePackageDetailModel;
-            this.f42805b = false;
+            this.f42827c = facePackageDetailModel;
+            this.f42826b = false;
         }
 
         public final void b(String str) {
@@ -92,7 +92,7 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
                 c.a.s0.s.r.a.f();
                 l<String> g2 = c.a.s0.s.r.a.g("tb_face_package");
                 if (g2 != null) {
-                    g2.e(TbadkCoreApplication.getCurrentAccount() + this.f42806c.f42802h, str, 604800000L);
+                    g2.e(TbadkCoreApplication.getCurrentAccount() + this.f42827c.f42823h, str, 604800000L);
                 }
             }
         }
@@ -108,24 +108,24 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
             }
             FacePackageDetailData facePackageDetailData = null;
             try {
-                if (this.f42806c.f42802h == null || this.f42806c.f42802h.length() <= 0 || this.f42805b) {
+                if (this.f42827c.f42823h == null || this.f42827c.f42823h.length() <= 0 || this.f42826b) {
                     return null;
                 }
                 c.a.s0.s.r.a.f();
                 l<String> g2 = c.a.s0.s.r.a.g("tb_face_package");
                 if (g2 != null) {
-                    String str = g2.get(TbadkCoreApplication.getCurrentAccount() + this.f42806c.f42802h);
+                    String str = g2.get(TbadkCoreApplication.getCurrentAccount() + this.f42827c.f42823h);
                     if (!m.isEmpty(str)) {
                         publishProgress(str);
                     }
                 }
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_DETAIL);
                 this.a = netWork;
-                netWork.addPostData("scr_w", String.valueOf(this.f42806c.m));
-                this.a.addPostData("scr_h", String.valueOf(this.f42806c.n));
-                this.a.addPostData("scr_dip", String.valueOf(this.f42806c.o));
-                this.a.addPostData("pid", this.f42806c.f42802h);
-                this.a.addPostData("st_type", this.f42806c.f42801g);
+                netWork.addPostData("scr_w", String.valueOf(this.f42827c.m));
+                this.a.addPostData("scr_h", String.valueOf(this.f42827c.n));
+                this.a.addPostData("scr_dip", String.valueOf(this.f42827c.o));
+                this.a.addPostData("pid", this.f42827c.f42823h);
+                this.a.addPostData("st_type", this.f42827c.f42822g);
                 String postNetData = this.a.postNetData();
                 FacePackageDetailData facePackageDetailData2 = (FacePackageDetailData) OrmObject.objectWithJsonStr(postNetData, FacePackageDetailData.class);
                 if (facePackageDetailData2 != null) {
@@ -151,13 +151,13 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel(true);
-                this.f42805b = true;
+                this.f42826b = true;
                 NetWork netWork = this.a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                     this.a = null;
                 }
-                this.f42806c.l = null;
+                this.f42827c.l = null;
             }
         }
 
@@ -168,11 +168,11 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, facePackageDetailData) == null) {
                 super.onPostExecute(facePackageDetailData);
-                this.f42806c.l = null;
+                this.f42827c.l = null;
                 if (facePackageDetailData != null) {
-                    this.f42806c.k = facePackageDetailData;
+                    this.f42827c.k = facePackageDetailData;
                 }
-                this.f42806c.p.callback(facePackageDetailData, Boolean.FALSE);
+                this.f42827c.p.callback(facePackageDetailData, Boolean.FALSE);
             }
         }
 
@@ -182,8 +182,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, strArr) == null) {
                 FacePackageDetailData facePackageDetailData = (FacePackageDetailData) OrmObject.objectWithJsonStr(strArr[0], FacePackageDetailData.class);
-                this.f42806c.k = facePackageDetailData;
-                this.f42806c.p.callback(facePackageDetailData, Boolean.TRUE);
+                this.f42827c.k = facePackageDetailData;
+                this.f42827c.p.callback(facePackageDetailData, Boolean.TRUE);
                 super.onProgressUpdate((Object[]) strArr);
             }
         }
@@ -211,7 +211,7 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
                 return;
             }
         }
-        this.f42803i = null;
+        this.f42824i = null;
         this.m = 0;
         this.n = 0;
         this.p = null;
@@ -231,38 +231,38 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
     public String F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42803i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42824i : (String) invokeV.objValue;
     }
 
     public boolean G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42799e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42820e : invokeV.booleanValue;
     }
 
     public String H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42804j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42825j : (String) invokeV.objValue;
     }
 
     public int I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42800f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42821f : invokeV.intValue;
     }
 
     public void J(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f42803i = str;
+            this.f42824i = str;
         }
     }
 
     public void K(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f42799e = z;
+            this.f42820e = z;
         }
     }
 
@@ -276,7 +276,7 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
     public void M(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f42804j = str;
+            this.f42825j = str;
         }
     }
 
@@ -290,20 +290,20 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         int i4 = facePackageData.downloading;
         int i5 = facePackageData.downloaded;
         if (i4 == 1) {
-            this.f42800f = 5;
+            this.f42821f = 5;
         } else if (i5 == 1) {
-            this.f42800f = 1;
+            this.f42821f = 1;
         } else if (i2 == 2) {
-            this.f42800f = 6;
+            this.f42821f = 6;
         } else if (i2 == 1) {
             if (i3 == 1) {
-                this.f42800f = 2;
+                this.f42821f = 2;
             }
         } else if (i2 == 0) {
             if (i3 == 1) {
-                this.f42800f = 3;
+                this.f42821f = 3;
             } else {
-                this.f42800f = 4;
+                this.f42821f = 4;
             }
         }
     }
@@ -326,13 +326,13 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
     public String getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f42802h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f42823h : (String) invokeV.objValue;
     }
 
     public String getStType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f42801g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f42822g : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -354,14 +354,14 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
     public void setPid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f42802h = str;
+            this.f42823h = str;
         }
     }
 
     public void setStType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f42801g = str;
+            this.f42822g = str;
         }
     }
 }

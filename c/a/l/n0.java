@@ -24,7 +24,7 @@ public class n0 extends c.a.l.a<c.a.s0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f4206j;
+    public int f4347j;
     public int k;
     public ThreadCommentAndPraiseInfoLayout l;
     public c.a.s0.s.q.a m;
@@ -35,7 +35,7 @@ public class n0 extends c.a.l.a<c.a.s0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n0 f4207e;
+        public final /* synthetic */ n0 f4348e;
 
         public a(n0 n0Var) {
             Interceptable interceptable = $ic;
@@ -52,16 +52,16 @@ public class n0 extends c.a.l.a<c.a.s0.s.q.a> {
                     return;
                 }
             }
-            this.f4207e = n0Var;
+            this.f4348e = n0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4207e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4348e.c() == null) {
                 return;
             }
-            this.f4207e.c().a(view, this.f4207e.m);
+            this.f4348e.c().a(view, this.f4348e.m);
         }
     }
 
@@ -90,21 +90,21 @@ public class n0 extends c.a.l.a<c.a.s0.s.q.a> {
         }
 
         @Override // c.a.l.w0.a.b
-        public boolean a(a.C0195a c0195a) {
+        public boolean a(a.C0204a c0204a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0195a)) == null) {
-                if (c0195a.c() instanceof Boolean) {
-                    if (!((Boolean) c0195a.c()).booleanValue()) {
-                        if ((this.a.f4206j & 128) <= 0) {
-                            this.a.f4206j &= -5;
-                            this.a.f4206j |= 64;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0204a)) == null) {
+                if (c0204a.c() instanceof Boolean) {
+                    if (!((Boolean) c0204a.c()).booleanValue()) {
+                        if ((this.a.f4347j & 128) <= 0) {
+                            this.a.f4347j &= -5;
+                            this.a.f4347j |= 64;
                         }
                     } else {
                         n0 n0Var = this.a;
-                        n0Var.f4206j = n0Var.k;
+                        n0Var.f4347j = n0Var.k;
                     }
-                    this.a.l.setShowFlag(this.a.f4206j);
+                    this.a.l.setShowFlag(this.a.f4347j);
                     return false;
                 }
                 return false;
@@ -131,7 +131,7 @@ public class n0 extends c.a.l.a<c.a.s0.s.q.a> {
                 return;
             }
         }
-        this.f4206j = 11;
+        this.f4347j = 11;
         this.k = 11;
         if ((TbadkCoreApplication.getInst().getPersonalizeViewData().s instanceof ThreadCardBottomOpSegmentLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().s.getParent() == null) {
             ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().s;
@@ -166,10 +166,10 @@ public class n0 extends c.a.l.a<c.a.s0.s.q.a> {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            int i3 = i2 | this.f4206j;
-            this.f4206j = i3;
+            int i3 = i2 | this.f4347j;
+            this.f4347j = i3;
             this.l.setShowFlag(i3);
-            this.k = this.f4206j;
+            this.k = this.f4347j;
         }
     }
 
@@ -177,10 +177,10 @@ public class n0 extends c.a.l.a<c.a.s0.s.q.a> {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            int i3 = (~i2) & this.f4206j;
-            this.f4206j = i3;
+            int i3 = (~i2) & this.f4347j;
+            this.f4347j = i3;
             this.l.setShowFlag(i3);
-            this.k = this.f4206j;
+            this.k = this.f4347j;
         }
     }
 
@@ -195,7 +195,7 @@ public class n0 extends c.a.l.a<c.a.s0.s.q.a> {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f4144e.m(4, new b(this));
+            this.f4285e.m(4, new b(this));
         }
     }
 
@@ -212,7 +212,7 @@ public class n0 extends c.a.l.a<c.a.s0.s.q.a> {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             boolean z = false;
             j(this.l, 0);
-            c.a.l.a g2 = this.f4144e.g();
+            c.a.l.a g2 = this.f4285e.g();
             if (g2 == null) {
                 return;
             }
@@ -230,7 +230,7 @@ public class n0 extends c.a.l.a<c.a.s0.s.q.a> {
                 }
             }
             if (z) {
-                List<h> h2 = this.f4144e.h();
+                List<h> h2 = this.f4285e.h();
                 if (ListUtils.isEmpty(h2)) {
                     return;
                 }

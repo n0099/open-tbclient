@@ -8,7 +8,7 @@ import c.a.d.f.m.e;
 import c.a.d.f.p.n;
 import c.a.s0.t.c.n0;
 import c.a.t0.p4.j;
-import c.a.t0.w3.s0.h;
+import c.a.t0.x3.s0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -34,31 +34,31 @@ public class c implements c.a.t0.p4.c0.a.a.b {
     public final NewVcodeView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final NewWriteModel f21047b;
+    public final NewWriteModel f21282b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21048c;
+    public String f21283c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21049d;
+    public String f21284d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f21050e;
+    public boolean f21285e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21051f;
+    public String f21286f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21052g;
+    public boolean f21287g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f21053h;
+    public Runnable f21288h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final NewWriteModel.g f21054i;
+    public final NewWriteModel.g f21289i;
 
     /* renamed from: j  reason: collision with root package name */
-    public NewWriteModel.g f21055j;
+    public NewWriteModel.g f21290j;
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
@@ -66,7 +66,7 @@ public class c implements c.a.t0.p4.c0.a.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f21056e;
+        public final /* synthetic */ c f21291e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -83,19 +83,19 @@ public class c implements c.a.t0.p4.c0.a.a.b {
                     return;
                 }
             }
-            this.f21056e = cVar;
+            this.f21291e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f21056e.a == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f21291e.a == null) {
                 return;
             }
-            if (StringUtils.isNull(this.f21056e.f21051f)) {
-                this.f21056e.a.showToast(false, this.f21056e.a.getContext().getResources().getString(j.drag_vcode_error));
+            if (StringUtils.isNull(this.f21291e.f21286f)) {
+                this.f21291e.a.showToast(false, this.f21291e.a.getContext().getResources().getString(j.drag_vcode_error));
             } else {
-                this.f21056e.a.showToast(false, this.f21056e.f21051f);
+                this.f21291e.a.showToast(false, this.f21291e.f21286f);
             }
         }
     }
@@ -133,7 +133,7 @@ public class c implements c.a.t0.p4.c0.a.a.b {
             }
             this.a.a.showPostThreadLoadingView(false);
             if (z) {
-                this.a.f21052g = true;
+                this.a.f21287g = true;
                 if (writeData != null && writeData.getVideoReviewType() == 1) {
                     this.a.a.showToast(true, this.a.a.getContext().getResources().getString(j.video_send_success_under_review));
                 } else if (writeData != null && writeData.getVideoReviewType() == 2) {
@@ -163,9 +163,9 @@ public class c implements c.a.t0.p4.c0.a.a.b {
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
                 this.a.a.getContext().setVisible(false);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-            } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015 && this.a.f21055j != null) {
-                if (this.a.f21055j != null) {
-                    this.a.f21055j.callback(z, postWriteCallBackData, n0Var, writeData, antiData);
+            } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015 && this.a.f21290j != null) {
+                if (this.a.f21290j != null) {
+                    this.a.f21290j.callback(z, postWriteCallBackData, n0Var, writeData, antiData);
                 }
             } else if (postWriteCallBackData == null) {
             } else {
@@ -194,13 +194,13 @@ public class c implements c.a.t0.p4.c0.a.a.b {
                 return;
             }
         }
-        this.f21050e = false;
-        this.f21051f = null;
-        this.f21053h = new a(this);
+        this.f21285e = false;
+        this.f21286f = null;
+        this.f21288h = new a(this);
         b bVar = new b(this);
-        this.f21054i = bVar;
+        this.f21289i = bVar;
         this.a = newVcodeView;
-        this.f21047b = newWriteModel;
+        this.f21282b = newWriteModel;
         newWriteModel.l0(bVar);
     }
 
@@ -224,14 +224,14 @@ public class c implements c.a.t0.p4.c0.a.a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
             if (str.contains("objc:jsChangeVcode")) {
-                String a2 = c.a.s0.f1.a.a(str);
-                this.f21048c = a2;
-                if (a2 == null || this.f21047b.Z() == null) {
+                String a2 = c.a.s0.e1.a.a(str);
+                this.f21283c = a2;
+                if (a2 == null || this.f21282b.Z() == null) {
                     return false;
                 }
                 NewVcodeView newVcodeView = this.a;
-                String str2 = this.f21048c;
-                newVcodeView.runJsMethod(str2, "'" + this.f21047b.Z().getVcodeUrl() + "'");
+                String str2 = this.f21283c;
+                newVcodeView.runJsMethod(str2, "'" + this.f21282b.Z().getVcodeUrl() + "'");
                 return true;
             } else if (str.equals("objc:jumpToFeedback()")) {
                 if (WriteActivityConfig.isAsyncWriting()) {
@@ -240,7 +240,7 @@ public class c implements c.a.t0.p4.c0.a.a.b {
                 WriteActivityConfig.newInstance(this.a.getContext()).setType(0).setForumId(TbConfig.getPositionPagerId()).setForumName(TbConfig.getPositionPagerName()).setIsVcodeFeedBack().send();
                 return true;
             } else if (str.contains("objc:jsSubmit")) {
-                return k(c.a.s0.f1.a.a(str));
+                return k(c.a.s0.e1.a.a(str));
             } else {
                 return false;
             }
@@ -252,7 +252,7 @@ public class c implements c.a.t0.p4.c0.a.a.b {
     public void c(NewWriteModel.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
-            this.f21055j = gVar;
+            this.f21290j = gVar;
         }
     }
 
@@ -261,7 +261,7 @@ public class c implements c.a.t0.p4.c0.a.a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.showPostThreadLoadingView(false);
-            this.f21047b.cancelLoadData();
+            this.f21282b.cancelLoadData();
         }
     }
 
@@ -269,8 +269,8 @@ public class c implements c.a.t0.p4.c0.a.a.b {
     public void e(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
-            this.f21050e = z;
-            this.f21051f = str;
+            this.f21285e = z;
+            this.f21286f = str;
         }
     }
 
@@ -282,7 +282,7 @@ public class c implements c.a.t0.p4.c0.a.a.b {
             if (StringUtils.isNull(str) || (split = str.split(",")) == null || split.length != 2) {
                 return false;
             }
-            this.f21049d = split[0];
+            this.f21284d = split[0];
             l(split[1]);
             return true;
         }
@@ -297,9 +297,9 @@ public class c implements c.a.t0.p4.c0.a.a.b {
                 this.a.getContext().finish();
             } else if (!StringUtils.isNull(str)) {
                 this.a.showPostThreadLoadingView(true);
-                this.f21047b.Z().setVcode(str);
-                this.f21047b.Z().setVcodeType("4");
-                this.f21047b.p0();
+                this.f21282b.Z().setVcode(str);
+                this.f21282b.Z().setVcodeType("4");
+                this.f21282b.p0();
             } else {
                 this.a.getContext().showToast(j.neterror);
                 this.a.getContext().finish();
@@ -311,8 +311,8 @@ public class c implements c.a.t0.p4.c0.a.a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             NewVcodeView newVcodeView = this.a;
-            String str = this.f21049d;
-            newVcodeView.runJsMethod(str, "'" + this.f21047b.Z().getVcodeUrl() + "'");
+            String str = this.f21284d;
+            newVcodeView.runJsMethod(str, "'" + this.f21282b.Z().getVcodeUrl() + "'");
         }
     }
 
@@ -320,7 +320,7 @@ public class c implements c.a.t0.p4.c0.a.a.b {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            e.a().removeCallbacks(this.f21053h);
+            e.a().removeCallbacks(this.f21288h);
         }
     }
 
@@ -332,8 +332,8 @@ public class c implements c.a.t0.p4.c0.a.a.b {
             return;
         }
         newVcodeView.showWebViewDelay(500);
-        if (this.f21050e) {
-            e.a().postDelayed(this.f21053h, 500L);
+        if (this.f21285e) {
+            e.a().postDelayed(this.f21288h, 500L);
         }
     }
 }

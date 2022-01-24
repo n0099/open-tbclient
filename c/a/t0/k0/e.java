@@ -21,19 +21,19 @@ public class e {
     public final BaseFragmentActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.s0.s.s.a f18657b;
+    public c.a.s0.s.s.a f18639b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.s0.s.s.a f18658c;
+    public c.a.s0.s.s.a f18640c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.s0.s.s.a f18659d;
+    public c.a.s0.s.s.a f18641d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18660e;
+    public int f18642e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f18661f;
+    public View.OnClickListener f18643f;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -41,7 +41,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f18662e;
+        public final /* synthetic */ e f18644e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class e {
                     return;
                 }
             }
-            this.f18662e = eVar;
+            this.f18644e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -67,52 +67,52 @@ public class e {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 int id = view.getId();
                 if (id == R.id.private_yes || id == R.id.yesBtn) {
-                    if (this.f18662e.f18657b != null && this.f18662e.f18657b.isShowing()) {
-                        this.f18662e.f18657b.dismiss();
+                    if (this.f18644e.f18639b != null && this.f18644e.f18639b.isShowing()) {
+                        this.f18644e.f18639b.dismiss();
                         SmartLaunchStats.onConfirmPrivacy();
-                        c.a.t0.r3.f.a.a("1", "1");
-                        c.a.s0.s.y.a.j("logoController", false);
+                        c.a.t0.s3.e.a.a("1", "1");
+                        c.a.s0.s.z.a.j("logoController", false);
                     }
-                    if (this.f18662e.f18658c != null && this.f18662e.f18658c.isShowing()) {
-                        this.f18662e.f18658c.dismiss();
-                        c.a.t0.r3.f.a.a("2", "1");
-                        c.a.s0.s.y.a.j("logoController", false);
+                    if (this.f18644e.f18640c != null && this.f18644e.f18640c.isShowing()) {
+                        this.f18644e.f18640c.dismiss();
+                        c.a.t0.s3.e.a.a("2", "1");
+                        c.a.s0.s.z.a.j("logoController", false);
                     }
-                    if (this.f18662e.f18659d != null && this.f18662e.f18659d.isShowing()) {
-                        this.f18662e.f18659d.dismiss();
-                        c.a.t0.r3.f.a.a("3", "1");
-                        c.a.s0.s.y.a.j("logoController", false);
+                    if (this.f18644e.f18641d != null && this.f18644e.f18641d.isShowing()) {
+                        this.f18644e.f18641d.dismiss();
+                        c.a.t0.s3.e.a.a("3", "1");
+                        c.a.s0.s.z.a.j("logoController", false);
                     }
-                    c.a.s0.s.h0.b.k().x("key_first_enter_app_timestamp", System.currentTimeMillis());
+                    c.a.s0.s.i0.b.k().x("key_first_enter_app_timestamp", System.currentTimeMillis());
                     PermissionUtil.setIsAgreePrivacyPolicy(true);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921639, 2));
                 } else if (id == R.id.private_no) {
-                    if (this.f18662e.f18657b.isShowing()) {
-                        this.f18662e.f18657b.dismiss();
-                        c.a.t0.r3.f.a.a("1", "2");
+                    if (this.f18644e.f18639b.isShowing()) {
+                        this.f18644e.f18639b.dismiss();
+                        c.a.t0.s3.e.a.a("1", "2");
                     }
-                    if (this.f18662e.f18658c == null) {
-                        e eVar = this.f18662e;
-                        eVar.f18658c = o.a(eVar.a.getPageContext(), this.f18662e.f18661f, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
+                    if (this.f18644e.f18640c == null) {
+                        e eVar = this.f18644e;
+                        eVar.f18640c = o.a(eVar.a.getPageContext(), this.f18644e.f18643f, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
                     }
-                    this.f18662e.f18658c.show();
-                    c.a.t0.r3.f.a.b("2");
+                    this.f18644e.f18640c.show();
+                    c.a.t0.s3.e.a.b("2");
                 } else if (id == R.id.browseBtn) {
-                    e.h(this.f18662e);
-                    if (this.f18662e.f18658c.isShowing()) {
-                        this.f18662e.f18658c.dismiss();
-                        c.a.t0.r3.f.a.a("2", "2");
-                        if (this.f18662e.f18659d == null) {
-                            e eVar2 = this.f18662e;
-                            eVar2.f18659d = o.a(eVar2.a.getPageContext(), this.f18662e.f18661f, R.string.privacy_policy_guide_two, R.string.secret_hint_browser_exit);
-                            this.f18662e.f18659d.show();
-                            c.a.t0.r3.f.a.b("3");
+                    e.h(this.f18644e);
+                    if (this.f18644e.f18640c.isShowing()) {
+                        this.f18644e.f18640c.dismiss();
+                        c.a.t0.s3.e.a.a("2", "2");
+                        if (this.f18644e.f18641d == null) {
+                            e eVar2 = this.f18644e;
+                            eVar2.f18641d = o.a(eVar2.a.getPageContext(), this.f18644e.f18643f, R.string.privacy_policy_guide_two, R.string.secret_hint_browser_exit);
+                            this.f18644e.f18641d.show();
+                            c.a.t0.s3.e.a.b("3");
                         }
                     }
-                    if (this.f18662e.f18659d.isShowing() && this.f18662e.f18660e == 2) {
-                        this.f18662e.f18659d.dismiss();
-                        c.a.t0.r3.f.a.a("3", "2");
-                        this.f18662e.a.finish();
+                    if (this.f18644e.f18641d.isShowing() && this.f18644e.f18642e == 2) {
+                        this.f18644e.f18641d.dismiss();
+                        c.a.t0.s3.e.a.a("3", "2");
+                        this.f18644e.a.finish();
                     }
                 }
             }
@@ -134,29 +134,29 @@ public class e {
                 return;
             }
         }
-        this.f18660e = 0;
-        this.f18661f = new a(this);
+        this.f18642e = 0;
+        this.f18643f = new a(this);
         this.a = baseFragmentActivity;
     }
 
     public static /* synthetic */ int h(e eVar) {
-        int i2 = eVar.f18660e;
-        eVar.f18660e = i2 + 1;
+        int i2 = eVar.f18642e;
+        eVar.f18642e = i2 + 1;
         return i2;
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.s0.s.s.a aVar = this.f18657b;
+            c.a.s0.s.s.a aVar = this.f18639b;
             if (aVar != null) {
                 aVar.dismiss();
             }
-            c.a.s0.s.s.a aVar2 = this.f18658c;
+            c.a.s0.s.s.a aVar2 = this.f18640c;
             if (aVar2 != null) {
                 aVar2.dismiss();
             }
-            c.a.s0.s.s.a aVar3 = this.f18659d;
+            c.a.s0.s.s.a aVar3 = this.f18641d;
             if (aVar3 != null) {
                 aVar3.dismiss();
             }
@@ -166,11 +166,11 @@ public class e {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.s0.s.s.a b2 = o.b(this.a.getPageContext(), this.f18661f);
-            this.f18657b = b2;
+            c.a.s0.s.s.a b2 = o.b(this.a.getPageContext(), this.f18643f);
+            this.f18639b = b2;
             b2.show();
             SmartLaunchStats.onPrivacyDialogShow();
-            c.a.t0.r3.f.a.b("1");
+            c.a.t0.s3.e.a.b("1");
         }
     }
 }

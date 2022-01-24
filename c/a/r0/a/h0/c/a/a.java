@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class a implements b.InterfaceC0348b {
+public class a implements b.InterfaceC0357b {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class a implements b.InterfaceC0348b {
         }
     }
 
-    @Override // c.a.r0.a.h0.c.a.b.InterfaceC0348b
+    @Override // c.a.r0.a.h0.c.a.b.InterfaceC0357b
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -54,7 +54,7 @@ public class a implements b.InterfaceC0348b {
         }
     }
 
-    @Override // c.a.r0.a.h0.c.a.b.InterfaceC0348b
+    @Override // c.a.r0.a.h0.c.a.b.InterfaceC0357b
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && a) {
@@ -62,7 +62,7 @@ public class a implements b.InterfaceC0348b {
         }
     }
 
-    @Override // c.a.r0.a.h0.c.a.b.InterfaceC0348b
+    @Override // c.a.r0.a.h0.c.a.b.InterfaceC0357b
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

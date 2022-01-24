@@ -15,7 +15,7 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f8415b;
+    public static JSONObject f8557b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,17 +39,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (a.class) {
-                if (f8415b != null) {
+                if (f8557b != null) {
                     if (a) {
-                        String str = "return cache obj : " + f8415b.toString();
+                        String str = "return cache obj : " + f8557b.toString();
                     }
-                    return f8415b;
+                    return f8557b;
                 }
                 JSONObject rawSwitch = c.a.r0.a.c1.a.g0().getRawSwitch();
                 if (rawSwitch == null) {
-                    f8415b = new JSONObject();
+                    f8557b = new JSONObject();
                     boolean z = a;
-                    return f8415b;
+                    return f8557b;
                 }
                 Iterator<String> keys = rawSwitch.keys();
                 while (keys.hasNext()) {
@@ -57,11 +57,11 @@ public class a {
                         keys.remove();
                     }
                 }
-                f8415b = rawSwitch;
+                f8557b = rawSwitch;
                 if (a) {
-                    String str2 = "return new obj : " + f8415b.toString();
+                    String str2 = "return new obj : " + f8557b.toString();
                 }
-                return f8415b;
+                return f8557b;
             }
         }
         return (JSONObject) invokeV.objValue;
@@ -87,7 +87,7 @@ public class a {
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             synchronized (a.class) {
                 boolean z = a;
-                f8415b = null;
+                f8557b = null;
             }
         }
     }

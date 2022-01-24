@@ -39,11 +39,11 @@ public class b extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c.a.r0.q.p.a f11464c;
+    public static final c.a.r0.q.p.a f11606c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f11465b;
+    public c f11607b;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +58,7 @@ public class b extends a {
                 return;
             }
         }
-        f11464c = c.a.r0.q.p.a.c();
+        f11606c = c.a.r0.q.p.a.c();
     }
 
     public b() {
@@ -74,7 +74,7 @@ public class b extends a {
                 return;
             }
         }
-        this.f11465b = new c();
+        this.f11607b = new c();
     }
 
     public final <T extends f> boolean A(T t) {
@@ -82,15 +82,15 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
             try {
-                c.a.r0.q.p.a aVar = f11464c;
+                c.a.r0.q.p.a aVar = f11606c;
                 aVar.i("PMSDBImpl", "#addPackage bundleId=" + t);
-                Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.f11465b.b(t.getClass()), this.f11465b.a(t.getClass()).c(t));
+                Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.f11607b.b(t.getClass()), this.f11607b.a(t.getClass()).c(t));
                 if (insert != null) {
                     return ContentUris.parseId(insert) > 0;
                 }
                 return false;
             } catch (Exception e2) {
-                f11464c.g("PMSDBImpl", "#addPackage error", e2);
+                f11606c.g("PMSDBImpl", "#addPackage error", e2);
                 return false;
             }
         }
@@ -104,8 +104,8 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             try {
-                c.a.r0.q.g.c.b a = this.f11465b.a(PMSAppInfo.class);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11465b.b(PMSAppInfo.class), null, "app_id =? ", new String[]{str}, "version_code DESC");
+                c.a.r0.q.g.c.b a = this.f11607b.a(PMSAppInfo.class);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11607b.b(PMSAppInfo.class), null, "app_id =? ", new String[]{str}, "version_code DESC");
                 if (cursor != null) {
                     try {
                         try {
@@ -114,7 +114,7 @@ public class b extends a {
                             return pMSAppInfo;
                         } catch (Exception e2) {
                             e = e2;
-                            f11464c.g("PMSDBImpl", "#queryAppInfo error", e);
+                            f11606c.g("PMSDBImpl", "#queryAppInfo error", e);
                             d.a(cursor);
                             return null;
                         }
@@ -146,8 +146,8 @@ public class b extends a {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, cls, str, strArr, str2)) == null) {
             Cursor cursor2 = null;
             try {
-                c.a.r0.q.g.c.b<T> a = this.f11465b.a(cls);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11465b.b(cls), null, str, strArr, str2);
+                c.a.r0.q.g.c.b<T> a = this.f11607b.a(cls);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11607b.b(cls), null, str, strArr, str2);
                 if (cursor != null) {
                     try {
                         try {
@@ -156,7 +156,7 @@ public class b extends a {
                             return e2;
                         } catch (Exception e3) {
                             e = e3;
-                            f11464c.g("PMSDBImpl", "#queryAppInfoList error", e);
+                            f11606c.g("PMSDBImpl", "#queryAppInfoList error", e);
                             d.a(cursor);
                             return null;
                         }
@@ -194,8 +194,8 @@ public class b extends a {
             ?? r0 = 0;
             try {
                 try {
-                    c.a.r0.q.g.c.b<T> a = this.f11465b.a(cls);
-                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11465b.b(cls), null, "bundle_id =? ", new String[]{str}, "version_code DESC");
+                    c.a.r0.q.g.c.b<T> a = this.f11607b.a(cls);
+                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11607b.b(cls), null, "bundle_id =? ", new String[]{str}, "version_code DESC");
                     if (cursor != null) {
                         try {
                             T d2 = a.d(cursor);
@@ -203,7 +203,7 @@ public class b extends a {
                             return d2;
                         } catch (Exception e2) {
                             e = e2;
-                            f11464c.g("PMSDBImpl", "#queryPackage error", e);
+                            f11606c.g("PMSDBImpl", "#queryPackage error", e);
                             d.a(cursor);
                             return null;
                         }
@@ -235,8 +235,8 @@ public class b extends a {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, cls, str, strArr, str2)) == null) {
             Cursor cursor2 = null;
             try {
-                c.a.r0.q.g.c.b<T> a = this.f11465b.a(cls);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11465b.b(cls), null, str, strArr, str2);
+                c.a.r0.q.g.c.b<T> a = this.f11607b.a(cls);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11607b.b(cls), null, str, strArr, str2);
                 if (cursor != null) {
                     try {
                         try {
@@ -245,7 +245,7 @@ public class b extends a {
                             return e2;
                         } catch (Exception e3) {
                             e = e3;
-                            f11464c.g("PMSDBImpl", "#queryPackageList error", e);
+                            f11606c.g("PMSDBImpl", "#queryPackageList error", e);
                             d.a(cursor);
                             return null;
                         }
@@ -277,8 +277,8 @@ public class b extends a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
             Cursor cursor2 = null;
             try {
-                c.a.r0.q.g.c.b a = this.f11465b.a(i.class);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11465b.b(i.class), null, "bundle_id = ? AND version_code >= ? AND version_code <= ? ", new String[]{str, String.valueOf(j2), String.valueOf(j3)}, "version_code DESC");
+                c.a.r0.q.g.c.b a = this.f11607b.a(i.class);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11607b.b(i.class), null, "bundle_id = ? AND version_code >= ? AND version_code <= ? ", new String[]{str, String.valueOf(j2), String.valueOf(j3)}, "version_code DESC");
                 if (cursor != null) {
                     try {
                         List<i> singletonList = z ? Collections.singletonList(a.d(cursor)) : a.e(cursor);
@@ -316,35 +316,35 @@ public class b extends a {
         ContentProviderResult[] applyBatch;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048583, this, gVar, list, eVar, cVar, pMSAppInfo)) == null) {
-            f11464c.i("PMSDBImpl", "#bulkInsert");
+            f11606c.i("PMSDBImpl", "#bulkInsert");
             ArrayList<ContentProviderOperation> arrayList = new ArrayList<>();
             if (gVar != null) {
-                arrayList.add(ContentProviderOperation.newInsert(this.f11465b.b(g.class)).withValues(this.f11465b.a(g.class).c(gVar)).build());
+                arrayList.add(ContentProviderOperation.newInsert(this.f11607b.b(g.class)).withValues(this.f11607b.a(g.class).c(gVar)).build());
             }
             if (list != null && !list.isEmpty()) {
-                c.a.r0.q.g.c.b a = this.f11465b.a(h.class);
+                c.a.r0.q.g.c.b a = this.f11607b.a(h.class);
                 for (h hVar : list) {
-                    arrayList.add(ContentProviderOperation.newInsert(this.f11465b.b(h.class)).withValues(a.c(hVar)).build());
+                    arrayList.add(ContentProviderOperation.newInsert(this.f11607b.b(h.class)).withValues(a.c(hVar)).build());
                 }
             }
             if (eVar != null) {
-                arrayList.add(ContentProviderOperation.newInsert(this.f11465b.b(e.class)).withValues(this.f11465b.a(e.class).c(eVar)).build());
+                arrayList.add(ContentProviderOperation.newInsert(this.f11607b.b(e.class)).withValues(this.f11607b.a(e.class).c(eVar)).build());
             }
             if (cVar != null) {
-                arrayList.add(ContentProviderOperation.newInsert(this.f11465b.b(c.a.r0.q.i.c.class)).withValues(this.f11465b.a(c.a.r0.q.i.c.class).c(cVar)).build());
+                arrayList.add(ContentProviderOperation.newInsert(this.f11607b.b(c.a.r0.q.i.c.class)).withValues(this.f11607b.a(c.a.r0.q.i.c.class).c(cVar)).build());
             }
             if (pMSAppInfo != null) {
-                arrayList.add(ContentProviderOperation.newInsert(this.f11465b.b(PMSAppInfo.class)).withValues(this.f11465b.a(PMSAppInfo.class).c(pMSAppInfo)).build());
+                arrayList.add(ContentProviderOperation.newInsert(this.f11607b.b(PMSAppInfo.class)).withValues(this.f11607b.a(PMSAppInfo.class).c(pMSAppInfo)).build());
             }
             try {
-                for (ContentProviderResult contentProviderResult : AppRuntime.getAppContext().getContentResolver().applyBatch(c.a.r0.q.g.e.b.f11472c, arrayList)) {
+                for (ContentProviderResult contentProviderResult : AppRuntime.getAppContext().getContentResolver().applyBatch(c.a.r0.q.g.e.b.f11614c, arrayList)) {
                     if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
                         return false;
                     }
                 }
                 return true;
             } catch (Exception e2) {
-                f11464c.g("PMSDBImpl", "#bulkInsert error", e2);
+                f11606c.g("PMSDBImpl", "#bulkInsert error", e2);
                 return false;
             }
         }
@@ -355,15 +355,15 @@ public class b extends a {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            c.a.r0.q.p.a aVar = f11464c;
+            c.a.r0.q.p.a aVar = f11606c;
             aVar.i("PMSDBImpl", "#clearSubPackage appId=" + str);
             if (TextUtils.isEmpty(str)) {
                 return;
             }
             try {
-                AppRuntime.getAppContext().getContentResolver().delete(this.f11465b.b(h.class), "app_id=?", new String[]{str});
+                AppRuntime.getAppContext().getContentResolver().delete(this.f11607b.b(h.class), "app_id=?", new String[]{str});
             } catch (Exception e2) {
-                f11464c.g("PMSDBImpl", "#clearSubPackage error", e2);
+                f11606c.g("PMSDBImpl", "#clearSubPackage error", e2);
             }
         }
     }
@@ -372,15 +372,15 @@ public class b extends a {
     public void d(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-            c.a.r0.q.p.a aVar = f11464c;
+            c.a.r0.q.p.a aVar = f11606c;
             aVar.i("PMSDBImpl", "#clearSubPackage appId=" + str + " versionCode=" + str2);
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
             }
             try {
-                AppRuntime.getAppContext().getContentResolver().delete(this.f11465b.b(h.class), "app_id=? AND version_code=?", new String[]{str, str2});
+                AppRuntime.getAppContext().getContentResolver().delete(this.f11607b.b(h.class), "app_id=? AND version_code=?", new String[]{str, str2});
             } catch (Exception e2) {
-                f11464c.g("PMSDBImpl", "#clearSubPackage error", e2);
+                f11606c.g("PMSDBImpl", "#clearSubPackage error", e2);
             }
         }
     }
@@ -391,12 +391,12 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, cls, str)) == null) {
             try {
-                c.a.r0.q.p.a aVar = f11464c;
+                c.a.r0.q.p.a aVar = f11606c;
                 aVar.i("PMSDBImpl", "#deletePkg bundleId=" + str);
             } catch (Exception e2) {
-                f11464c.g("PMSDBImpl", "#deletePkg error", e2);
+                f11606c.g("PMSDBImpl", "#deletePkg error", e2);
             }
-            return AppRuntime.getAppContext().getContentResolver().delete(this.f11465b.b(cls), "bundle_id =? ", new String[]{str}) > 0;
+            return AppRuntime.getAppContext().getContentResolver().delete(this.f11607b.b(cls), "bundle_id =? ", new String[]{str}) > 0;
         }
         return invokeLL.booleanValue;
     }
@@ -410,18 +410,18 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, iVar)) == null) {
             try {
-                c.a.r0.q.p.a aVar = f11464c;
-                aVar.i("PMSDBImpl", "#deletePlugin bundleId=" + iVar.f11494g + " versionCode=" + iVar.f11496i);
-                b2 = this.f11465b.b(iVar.getClass());
-                if (iVar.f11496i >= 0) {
+                c.a.r0.q.p.a aVar = f11606c;
+                aVar.i("PMSDBImpl", "#deletePlugin bundleId=" + iVar.f11636g + " versionCode=" + iVar.f11638i);
+                b2 = this.f11607b.b(iVar.getClass());
+                if (iVar.f11638i >= 0) {
                     str = "bundle_id = ?  and version_code < ? ";
-                    strArr = new String[]{iVar.f11494g, String.valueOf(iVar.f11496i)};
+                    strArr = new String[]{iVar.f11636g, String.valueOf(iVar.f11638i)};
                 } else {
                     str = "bundle_id = ? ";
-                    strArr = new String[]{iVar.f11494g};
+                    strArr = new String[]{iVar.f11636g};
                 }
             } catch (Exception e2) {
-                f11464c.g("PMSDBImpl", "#deletePlugin error", e2);
+                f11606c.g("PMSDBImpl", "#deletePlugin error", e2);
             }
             return AppRuntime.getAppContext().getContentResolver().delete(b2, str, strArr) > 0;
         }
@@ -435,7 +435,7 @@ public class b extends a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, list)) == null) {
             if (list != null && !list.isEmpty()) {
                 try {
-                    Uri b2 = this.f11465b.b(i.class);
+                    Uri b2 = this.f11607b.b(i.class);
                     StringBuilder sb = new StringBuilder();
                     ArrayList arrayList = new ArrayList();
                     boolean z = true;
@@ -451,8 +451,8 @@ public class b extends a {
                         sb.append("version_code");
                         sb.append(" = ?");
                         sb.append(" )");
-                        arrayList.add(iVar.f11494g);
-                        arrayList.add(String.valueOf(iVar.f11496i));
+                        arrayList.add(iVar.f11636g);
+                        arrayList.add(String.valueOf(iVar.f11638i));
                     }
                     if (AppRuntime.getAppContext().getContentResolver().delete(b2, sb.toString(), (String[]) arrayList.toArray(new String[0])) > 0) {
                         return true;
@@ -470,13 +470,13 @@ public class b extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            c.a.r0.q.p.a aVar = f11464c;
+            c.a.r0.q.p.a aVar = f11606c;
             aVar.i("PMSDBImpl", "#deleteSwanApp appId=" + str);
             try {
             } catch (Exception e2) {
-                f11464c.g("PMSDBImpl", "#deleteSwanApp error", e2);
+                f11606c.g("PMSDBImpl", "#deleteSwanApp error", e2);
             }
-            return AppRuntime.getAppContext().getContentResolver().delete(this.f11465b.b(PMSAppInfo.class), "app_id =? ", new String[]{str}) > 0;
+            return AppRuntime.getAppContext().getContentResolver().delete(this.f11607b.b(PMSAppInfo.class), "app_id =? ", new String[]{str}) > 0;
         }
         return invokeL.booleanValue;
     }
@@ -491,12 +491,12 @@ public class b extends a {
             int i2 = -1;
             try {
                 try {
-                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11465b.b(h.class), new String[]{"version_code"}, "app_id=?", new String[]{str}, "version_code DESC limit 1");
+                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11607b.b(h.class), new String[]{"version_code"}, "app_id=?", new String[]{str}, "version_code DESC limit 1");
                     if (cursor != null && cursor.moveToFirst()) {
                         i2 = cursor.getInt(0);
                     }
                 } catch (Exception e2) {
-                    f11464c.g("PMSDBImpl", "#getNewestSubPkgVersion fail", e2);
+                    f11606c.g("PMSDBImpl", "#getNewestSubPkgVersion fail", e2);
                 }
                 return i2;
             } finally {
@@ -530,8 +530,8 @@ public class b extends a {
                 } else {
                     str2 = "app_id=? and version_code>?";
                 }
-                Uri b2 = this.f11465b.b(h.class);
-                c.a.r0.q.g.c.b a = this.f11465b.a(h.class);
+                Uri b2 = this.f11607b.b(h.class);
+                c.a.r0.q.g.c.b a = this.f11607b.a(h.class);
                 Cursor query = AppRuntime.getAppContext().getContentResolver().query(b2, null, str2, new String[]{str, String.valueOf(i2)}, null);
                 if (query != null && a != null) {
                     try {
@@ -540,7 +540,7 @@ public class b extends a {
                         cursor = query;
                         e = e2;
                         try {
-                            f11464c.g("PMSDBImpl", "#getSubPackageByAppId fail", e);
+                            f11606c.g("PMSDBImpl", "#getSubPackageByAppId fail", e);
                             d.a(cursor);
                             if (list != null) {
                             }
@@ -575,16 +575,16 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, pMSAppInfo)) == null) {
             try {
-                c.a.r0.q.p.a aVar = f11464c;
+                c.a.r0.q.p.a aVar = f11606c;
                 aVar.i("PMSDBImpl", "#insertOrUpdateSwanApp appId=" + pMSAppInfo.appId);
                 Class<?> cls = pMSAppInfo.getClass();
-                Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.f11465b.b(cls), this.f11465b.a(cls).c(pMSAppInfo));
+                Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.f11607b.b(cls), this.f11607b.a(cls).c(pMSAppInfo));
                 if (insert != null) {
                     return ContentUris.parseId(insert) > 0;
                 }
                 return false;
             } catch (Exception e2) {
-                f11464c.g("PMSDBImpl", "#insertOrUpdateSwanApp error", e2);
+                f11606c.g("PMSDBImpl", "#insertOrUpdateSwanApp error", e2);
                 return false;
             }
         }
@@ -596,7 +596,7 @@ public class b extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, t)) == null) {
-            f11464c.i("PMSDBImpl", "#insertPkg");
+            f11606c.i("PMSDBImpl", "#insertPkg");
             return A(t);
         }
         return invokeL.booleanValue;
@@ -610,14 +610,14 @@ public class b extends a {
             Cursor cursor = null;
             try {
                 try {
-                    Uri b2 = this.f11465b.b(h.class);
-                    c.a.r0.q.g.c.b a = this.f11465b.a(h.class);
+                    Uri b2 = this.f11607b.b(h.class);
+                    c.a.r0.q.g.c.b a = this.f11607b.a(h.class);
                     cursor = AppRuntime.getAppContext().getContentResolver().query(b2, null, "app_id=? AND version_code=? AND sub_pkg_name=?", new String[]{str, str2, str3}, null);
                     if (cursor != null) {
                         return a.d(cursor) != null;
                     }
                 } catch (Exception e2) {
-                    f11464c.g("PMSDBImpl", "#isSubPackageExist error", e2);
+                    f11606c.g("PMSDBImpl", "#isSubPackageExist error", e2);
                 }
                 return false;
             } finally {
@@ -644,7 +644,7 @@ public class b extends a {
             if (E != null && E.size() > 0) {
                 for (g gVar : E) {
                     if (gVar != null) {
-                        hashMap.put(gVar.f11494g, gVar);
+                        hashMap.put(gVar.f11636g, gVar);
                     }
                 }
             }
@@ -681,8 +681,8 @@ public class b extends a {
             ?? r1 = 0;
             try {
                 try {
-                    c.a.r0.q.g.c.b a = this.f11465b.a(i.class);
-                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11465b.b(i.class), null, str, strArr, "update_time DESC");
+                    c.a.r0.q.g.c.b a = this.f11607b.a(i.class);
+                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11607b.b(i.class), null, str, strArr, "update_time DESC");
                     if (cursor != null) {
                         try {
                             List<i> e2 = a.e(cursor);
@@ -690,7 +690,7 @@ public class b extends a {
                             return e2;
                         } catch (Exception e3) {
                             e = e3;
-                            f11464c.g("PMSDBImpl", "#queryPlugin error", e);
+                            f11606c.g("PMSDBImpl", "#queryPlugin error", e);
                             d.a(cursor);
                             return null;
                         }
@@ -737,8 +737,8 @@ public class b extends a {
             ?? r1 = 0;
             try {
                 try {
-                    c.a.r0.q.g.c.b a = this.f11465b.a(j.class);
-                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11465b.b(j.class), null, "lib_name =? ", new String[]{str}, "version_code DESC");
+                    c.a.r0.q.g.c.b a = this.f11607b.a(j.class);
+                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.f11607b.b(j.class), null, "lib_name =? ", new String[]{str}, "version_code DESC");
                     if (cursor != null) {
                         try {
                             j jVar = (j) a.d(cursor);
@@ -746,7 +746,7 @@ public class b extends a {
                             return jVar;
                         } catch (Exception e2) {
                             e = e2;
-                            f11464c.g("PMSDBImpl", "#querySoLib error", e);
+                            f11606c.g("PMSDBImpl", "#querySoLib error", e);
                             d.a(cursor);
                             return null;
                         }
@@ -805,8 +805,8 @@ public class b extends a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
             Cursor cursor2 = null;
             try {
-                c.a.r0.q.g.c.b a = this.f11465b.a(i.class);
-                Uri.Builder buildUpon = this.f11465b.b(i.class).buildUpon();
+                c.a.r0.q.g.c.b a = this.f11607b.a(i.class);
+                Uri.Builder buildUpon = this.f11607b.b(i.class).buildUpon();
                 buildUpon.appendQueryParameter("rawQuery", "");
                 cursor = AppRuntime.getAppContext().getContentResolver().query(buildUpon.build(), null, str, null, null);
                 if (cursor != null) {
@@ -817,7 +817,7 @@ public class b extends a {
                             return e2;
                         } catch (Exception e3) {
                             e = e3;
-                            f11464c.g("PMSDBImpl", "#rawQueryPlugins error", e);
+                            f11606c.g("PMSDBImpl", "#rawQueryPlugins error", e);
                             d.a(cursor);
                             return null;
                         }
@@ -852,20 +852,20 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, iVar)) == null) {
             try {
-                c.a.r0.q.p.a aVar = f11464c;
-                aVar.i("PMSDBImpl", "#deletePlugin bundleId=" + iVar.f11494g + " versionCode=" + iVar.f11496i);
-                c.a.r0.q.g.c.b a = this.f11465b.a(iVar.getClass());
-                b2 = this.f11465b.b(iVar.getClass());
+                c.a.r0.q.p.a aVar = f11606c;
+                aVar.i("PMSDBImpl", "#deletePlugin bundleId=" + iVar.f11636g + " versionCode=" + iVar.f11638i);
+                c.a.r0.q.g.c.b a = this.f11607b.a(iVar.getClass());
+                b2 = this.f11607b.b(iVar.getClass());
                 c2 = a.c(iVar);
-                if (iVar.f11496i >= 0) {
+                if (iVar.f11638i >= 0) {
                     str = "bundle_id = ?  and version_code = ? ";
-                    strArr = new String[]{iVar.f11494g, String.valueOf(iVar.f11496i)};
+                    strArr = new String[]{iVar.f11636g, String.valueOf(iVar.f11638i)};
                 } else {
                     str = "bundle_id = ?  and version_name = ? ";
-                    strArr = new String[]{iVar.f11494g, iVar.f11497j};
+                    strArr = new String[]{iVar.f11636g, iVar.f11639j};
                 }
             } catch (Exception e2) {
-                f11464c.g("PMSDBImpl", "#updatePlugin error", e2);
+                f11606c.g("PMSDBImpl", "#updatePlugin error", e2);
             }
             return AppRuntime.getAppContext().getContentResolver().update(b2, c2, str, strArr) > 0;
         }
@@ -878,12 +878,12 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, pMSAppInfo)) == null) {
             try {
-                c.a.r0.q.p.a aVar = f11464c;
+                c.a.r0.q.p.a aVar = f11606c;
                 aVar.i("PMSDBImpl", "#updateSwanApp appId=" + pMSAppInfo.appId);
             } catch (Exception e2) {
-                f11464c.g("PMSDBImpl", "#updateSwanApp error", e2);
+                f11606c.g("PMSDBImpl", "#updateSwanApp error", e2);
             }
-            return AppRuntime.getAppContext().getContentResolver().update(this.f11465b.b(pMSAppInfo.getClass()), this.f11465b.a(pMSAppInfo.getClass()).c(pMSAppInfo), "app_id =? ", new String[]{pMSAppInfo.appId}) > 0;
+            return AppRuntime.getAppContext().getContentResolver().update(this.f11607b.b(pMSAppInfo.getClass()), this.f11607b.a(pMSAppInfo.getClass()).c(pMSAppInfo), "app_id =? ", new String[]{pMSAppInfo.appId}) > 0;
         }
         return invokeL.booleanValue;
     }
@@ -895,17 +895,17 @@ public class b extends a {
         ContentValues contentValues;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048606, this, str, i2)) == null) {
-            c.a.r0.q.p.a aVar = f11464c;
+            c.a.r0.q.p.a aVar = f11606c;
             aVar.i("PMSDBImpl", "#updateSwanAppPendingErrCode appId=" + str + " errCode=" + i2);
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
             try {
-                b2 = this.f11465b.b(PMSAppInfo.class);
+                b2 = this.f11607b.b(PMSAppInfo.class);
                 contentValues = new ContentValues();
                 contentValues.put("pending_err_code", Integer.valueOf(i2));
             } catch (Exception e2) {
-                f11464c.g("PMSDBImpl", "#updateSwanAppPendingErrCode error", e2);
+                f11606c.g("PMSDBImpl", "#updateSwanAppPendingErrCode error", e2);
             }
             return AppRuntime.getAppContext().getContentResolver().update(b2, contentValues, "app_id =? ", new String[]{str}) > 0;
         }

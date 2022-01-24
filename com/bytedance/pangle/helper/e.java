@@ -20,7 +20,7 @@ public final class e {
     public static Executor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ScheduledExecutorService f53087b;
+    public static ScheduledExecutorService f53132b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public final class e {
             }
         }
         a = Executors.newCachedThreadPool();
-        f53087b = Executors.newSingleThreadScheduledExecutor();
+        f53132b = Executors.newSingleThreadScheduledExecutor();
     }
 
     public static ExecutorService a(int i2) {

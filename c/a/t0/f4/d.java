@@ -13,7 +13,7 @@ public class d {
     public final List<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f17763b;
+    public final String f17585b;
 
     public d(List<String> list, String str) {
         Interceptable interceptable = $ic;
@@ -35,6 +35,6 @@ public class d {
         } else {
             this.a = new ArrayList();
         }
-        this.f17763b = str;
+        this.f17585b = str;
     }
 }

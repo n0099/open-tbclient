@@ -24,36 +24,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.DisplayUtils;
 import com.dxmpay.apollon.utils.ResUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NumberSmsView extends LinearLayout implements TextWatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SMS_LEN = 6;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditText f53827e;
+    public EditText f53872e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView[] f53828f;
+    public TextView[] f53873f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View[] f53829g;
+    public View[] f53874g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View[] f53830h;
+    public View[] f53875h;
 
     /* renamed from: i  reason: collision with root package name */
-    public OnSmsChangedListener f53831i;
+    public OnSmsChangedListener f53876i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Animation f53832j;
+    public Animation f53877j;
     public int k;
     public Context l;
     public int m;
     public View n;
     public LinearLayout o;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnSmsChangedListener {
         void onSmsChanged(int i2);
     }
@@ -77,23 +77,23 @@ public class NumberSmsView extends LinearLayout implements TextWatcher {
                 return;
             }
         }
-        this.f53832j = null;
+        this.f53877j = null;
         this.l = context;
         View inflate = LayoutInflater.from(context).inflate(ResUtils.layout(context, "dxm_wallet_base_new_view_sms"), this);
         this.n = inflate;
-        this.f53827e = (EditText) inflate.findViewById(ResUtils.id(context, "sms_input"));
+        this.f53872e = (EditText) inflate.findViewById(ResUtils.id(context, "sms_input"));
         this.o = (LinearLayout) this.n.findViewById(ResUtils.id(context, "six_circle"));
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int length = this.f53827e.getText().length();
+            int length = this.f53872e.getText().length();
             for (int i2 = 0; i2 < this.m; i2++) {
                 if (i2 < length) {
-                    this.f53828f[i2].setVisibility(0);
+                    this.f53873f[i2].setVisibility(0);
                 } else {
-                    this.f53828f[i2].setVisibility(8);
+                    this.f53873f[i2].setVisibility(8);
                 }
             }
         }
@@ -102,7 +102,7 @@ public class NumberSmsView extends LinearLayout implements TextWatcher {
     public void addNumberSmsChangedListenter(OnSmsChangedListener onSmsChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onSmsChangedListener) == null) {
-            this.f53831i = onSmsChangedListener;
+            this.f53876i = onSmsChangedListener;
         }
     }
 
@@ -112,7 +112,7 @@ public class NumberSmsView extends LinearLayout implements TextWatcher {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editable) == null) {
             a();
             b(editable.length() - 1);
-            OnSmsChangedListener onSmsChangedListener = this.f53831i;
+            OnSmsChangedListener onSmsChangedListener = this.f53876i;
             if (onSmsChangedListener != null) {
                 onSmsChangedListener.onSmsChanged(editable.length());
             }
@@ -124,21 +124,21 @@ public class NumberSmsView extends LinearLayout implements TextWatcher {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 > this.m - 1) {
             return;
         }
-        String obj = this.f53827e.getText().toString();
+        String obj = this.f53872e.getText().toString();
         for (int i3 = 0; i3 < this.m; i3++) {
-            this.f53830h[i3].setBackgroundColor(this.k);
-            this.f53829g[i3].setBackgroundColor(ResUtils.getColor(this.l, "dxm_ebpay_new_six_number_pwd_line_54576a"));
+            this.f53875h[i3].setBackgroundColor(this.k);
+            this.f53874g[i3].setBackgroundColor(ResUtils.getColor(this.l, "dxm_ebpay_new_six_number_pwd_line_54576a"));
             if (i3 == i2) {
-                this.f53828f[i3].setText(obj.substring(i2));
-                this.f53829g[i3].setVisibility(0);
-                this.f53829g[i3].startAnimation(this.f53832j);
+                this.f53873f[i3].setText(obj.substring(i2));
+                this.f53874g[i3].setVisibility(0);
+                this.f53874g[i3].startAnimation(this.f53877j);
             } else {
-                this.f53829g[i3].setVisibility(8);
+                this.f53874g[i3].setVisibility(8);
             }
         }
         if (i2 == -1) {
-            this.f53829g[0].setVisibility(0);
-            this.f53829g[0].startAnimation(this.f53832j);
+            this.f53874g[0].setVisibility(0);
+            this.f53874g[0].startAnimation(this.f53877j);
         }
     }
 
@@ -153,15 +153,15 @@ public class NumberSmsView extends LinearLayout implements TextWatcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             int i2 = this.m;
-            this.f53828f = new TextView[i2];
-            this.f53829g = new View[i2];
-            this.f53830h = new View[i2];
+            this.f53873f = new TextView[i2];
+            this.f53874g = new View[i2];
+            this.f53875h = new View[i2];
             for (int i3 = 0; i3 < this.m; i3++) {
                 View inflate = LayoutInflater.from(this.l).inflate(b.dxm_wallet_base_new_view_sms_item, (ViewGroup) null);
                 LinearLayout linearLayout = (LinearLayout) inflate.findViewById(a.lin_sms);
-                this.f53828f[i3] = (TextView) inflate.findViewById(ResUtils.id(this.l, "pwd_iv"));
-                this.f53829g[i3] = inflate.findViewById(ResUtils.id(this.l, "pwd_iv_line"));
-                this.f53830h[i3] = inflate.findViewById(ResUtils.id(this.l, "pwd_iv_line_view"));
+                this.f53873f[i3] = (TextView) inflate.findViewById(ResUtils.id(this.l, "pwd_iv"));
+                this.f53874g[i3] = inflate.findViewById(ResUtils.id(this.l, "pwd_iv_line"));
+                this.f53875h[i3] = inflate.findViewById(ResUtils.id(this.l, "pwd_iv_line_view"));
                 View findViewById = inflate.findViewById(a.view_sms_blank);
                 if (i3 == this.m - 1) {
                     findViewById.setVisibility(4);
@@ -180,15 +180,15 @@ public class NumberSmsView extends LinearLayout implements TextWatcher {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f53828f = new TextView[6];
-            this.f53829g = new View[6];
-            this.f53830h = new View[6];
+            this.f53873f = new TextView[6];
+            this.f53874g = new View[6];
+            this.f53875h = new View[6];
             for (int i2 = 0; i2 < 6; i2++) {
                 View inflate = LayoutInflater.from(this.l).inflate(b.dxm_wallet_base_new_view_sms_item, (ViewGroup) null);
                 LinearLayout linearLayout = (LinearLayout) inflate.findViewById(a.lin_sms);
-                this.f53828f[i2] = (TextView) inflate.findViewById(ResUtils.id(this.l, "pwd_iv"));
-                this.f53829g[i2] = inflate.findViewById(ResUtils.id(this.l, "pwd_iv_line"));
-                this.f53830h[i2] = inflate.findViewById(ResUtils.id(this.l, "pwd_iv_line_view"));
+                this.f53873f[i2] = (TextView) inflate.findViewById(ResUtils.id(this.l, "pwd_iv"));
+                this.f53874g[i2] = inflate.findViewById(ResUtils.id(this.l, "pwd_iv_line"));
+                this.f53875h[i2] = inflate.findViewById(ResUtils.id(this.l, "pwd_iv_line_view"));
                 View findViewById = inflate.findViewById(a.view_sms_blank);
                 if (i2 == 5) {
                     findViewById.setVisibility(4);
@@ -212,7 +212,7 @@ public class NumberSmsView extends LinearLayout implements TextWatcher {
     public String getSms() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f53827e.getText() != null ? this.f53827e.getText().toString() : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f53872e.getText() != null ? this.f53872e.getText().toString() : "" : (String) invokeV.objValue;
     }
 
     public void initView(int i2) {
@@ -222,16 +222,16 @@ public class NumberSmsView extends LinearLayout implements TextWatcher {
                 i2 = 6;
             }
             this.m = i2;
-            this.f53827e.setFilters(new InputFilter[]{new InputFilter.LengthFilter(this.m)});
+            this.f53872e.setFilters(new InputFilter[]{new InputFilter.LengthFilter(this.m)});
             this.o.removeAllViews();
             if (this.m >= 6) {
                 c();
             } else {
                 d();
             }
-            this.f53827e.addTextChangedListener(this);
+            this.f53872e.addTextChangedListener(this);
             Context context = this.l;
-            this.f53832j = AnimationUtils.loadAnimation(context, ResUtils.anim(context, "dxm_wallet_base_new_six_number_pwd_view_line"));
+            this.f53877j = AnimationUtils.loadAnimation(context, ResUtils.anim(context, "dxm_wallet_base_new_six_number_pwd_view_line"));
             this.k = ResUtils.getColor(this.l, "dxm_ebpay_new_six_number_pwd_line_d0d3d9");
             a();
             b(-1);
@@ -268,14 +268,14 @@ public class NumberSmsView extends LinearLayout implements TextWatcher {
     public void resetSms() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f53827e.setText("");
+            this.f53872e.setText("");
         }
     }
 
     public void setShowInputMethod(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            ((SafeKeyBoardEditText) this.f53827e).setShowInputMethod(z);
+            ((SafeKeyBoardEditText) this.f53872e).setShowInputMethod(z);
         }
     }
 
@@ -283,9 +283,9 @@ public class NumberSmsView extends LinearLayout implements TextWatcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             for (int i2 = 0; i2 < this.m; i2++) {
-                this.f53830h[i2].setBackgroundColor(ResUtils.getColor(this.l, "wallet_cashdesk_new_bind_card_5050"));
-                this.f53829g[i2].setBackgroundColor(ResUtils.getColor(this.l, "wallet_cashdesk_new_bind_card_5050"));
-                this.f53829g[i2].setVisibility(0);
+                this.f53875h[i2].setBackgroundColor(ResUtils.getColor(this.l, "wallet_cashdesk_new_bind_card_5050"));
+                this.f53874g[i2].setBackgroundColor(ResUtils.getColor(this.l, "wallet_cashdesk_new_bind_card_5050"));
+                this.f53874g[i2].setVisibility(0);
             }
         }
     }
@@ -294,12 +294,12 @@ public class NumberSmsView extends LinearLayout implements TextWatcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             for (int i2 = 0; i2 < this.m; i2++) {
-                this.f53830h[i2].setBackgroundColor(this.k);
-                this.f53829g[i2].setBackgroundColor(ResUtils.getColor(this.l, "dxm_ebpay_new_six_number_pwd_line_54576a"));
-                this.f53829g[i2].setVisibility(8);
+                this.f53875h[i2].setBackgroundColor(this.k);
+                this.f53874g[i2].setBackgroundColor(ResUtils.getColor(this.l, "dxm_ebpay_new_six_number_pwd_line_54576a"));
+                this.f53874g[i2].setVisibility(8);
             }
-            this.f53829g[0].startAnimation(this.f53832j);
-            this.f53829g[0].setVisibility(0);
+            this.f53874g[0].startAnimation(this.f53877j);
+            this.f53874g[0].setVisibility(0);
         }
     }
 }

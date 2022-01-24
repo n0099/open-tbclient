@@ -16,10 +16,10 @@ public class j {
     public static final String a = "resultStatus";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f30947b = "memo";
+    public static final String f30975b = "memo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f30948c = "result";
+    public static final String f30976c = "result";
     public transient /* synthetic */ FieldHolder $fh;
 
     public j() {
@@ -65,7 +65,7 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f30791e.b());
+            com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f30819e.b());
             HashMap hashMap = new HashMap();
             hashMap.put("resultStatus", Integer.toString(b2.b()));
             hashMap.put("memo", b2.a());

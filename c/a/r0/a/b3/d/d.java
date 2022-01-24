@@ -22,7 +22,7 @@ public class d extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5290b;
+    public static final boolean f5432b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class d extends a {
                 return;
             }
         }
-        f5290b = k.a;
+        f5432b = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -69,7 +69,7 @@ public class d extends a {
             try {
                 uri = new URI(str);
             } catch (URISyntaxException e2) {
-                if (f5290b) {
+                if (f5432b) {
                     e2.printStackTrace();
                 }
                 uri = null;
@@ -82,7 +82,7 @@ public class d extends a {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (f5290b) {
+            if (f5432b) {
                 String str2 = "onFcpSubmit: " + str;
             }
             if (this.a.d("na_fcp")) {
@@ -111,7 +111,7 @@ public class d extends a {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (f5290b) {
+            if (f5432b) {
                 String str2 = "onFmpSubmit: " + str;
             }
             if (!this.a.d("na_up_screen")) {
@@ -134,7 +134,7 @@ public class d extends a {
                 JSONObject jSONObject = jSONArray.getJSONObject(i2);
                 this.a.h(jSONObject.optString("actionId"), jSONObject.optLong("timestamp"));
             } catch (JSONException e2) {
-                if (f5290b) {
+                if (f5432b) {
                     e2.printStackTrace();
                 }
             }
@@ -159,7 +159,7 @@ public class d extends a {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (f5290b) {
+            if (f5432b) {
                 String str2 = "onLoadUrlStart: " + str;
             }
             if (this.a.d("na_load_url")) {
@@ -173,7 +173,7 @@ public class d extends a {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            boolean z = f5290b;
+            boolean z = f5432b;
             a();
             l();
         }

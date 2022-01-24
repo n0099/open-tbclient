@@ -11,7 +11,7 @@ public class g<T> {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f27255b;
+    public T f27283b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -26,6 +26,6 @@ public class g<T> {
                 return;
             }
         }
-        this.f27255b = null;
+        this.f27283b = null;
     }
 }

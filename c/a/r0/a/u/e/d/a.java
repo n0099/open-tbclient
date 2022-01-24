@@ -29,15 +29,15 @@ public class a extends d {
 
     /* renamed from: c.a.r0.a.u.e.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0566a implements ActivityResultConsumer {
+    public class C0575a implements ActivityResultConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f8975b;
+        public final /* synthetic */ a f9117b;
 
-        public C0566a(a aVar, String str) {
+        public C0575a(a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f8975b = aVar;
+            this.f9117b = aVar;
             this.a = str;
         }
 
@@ -61,7 +61,7 @@ public class a extends d {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i2, intent)) == null) {
-                this.f8975b.d(this.a, new c.a.r0.a.u.h.b(0));
+                this.f9117b.d(this.a, new c.a.r0.a.u.h.b(0));
                 return true;
             }
             return invokeLIL.booleanValue;
@@ -156,7 +156,7 @@ public class a extends d {
                         intent.setAction("android.intent.action.SEND");
                         intent.putExtra("android.intent.extra.STREAM", fromFile);
                         intent.setType(x(M));
-                        resultDispatcher.addConsumer(new C0566a(this, optString2));
+                        resultDispatcher.addConsumer(new C0575a(this, optString2));
                         resultDispatcher.startActivityForResult(Intent.createChooser(intent, "分享到..."));
                         return c.a.r0.a.u.h.b.f();
                     }

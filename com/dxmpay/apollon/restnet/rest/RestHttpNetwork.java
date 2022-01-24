@@ -16,14 +16,14 @@ import com.dxmpay.apollon.utils.LogUtil;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RestHttpNetwork implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final g f53597b;
+    public final g f53642b;
 
     public RestHttpNetwork(c cVar) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class RestHttpNetwork implements c {
             }
         }
         this.a = cVar;
-        this.f53597b = new g(3, 1000);
+        this.f53642b = new g(3, 1000);
     }
 
     /*  JADX ERROR: IF instruction can be used only in fallback mode
@@ -113,7 +113,7 @@ public class RestHttpNetwork implements c {
             return r4
         L31:
             r4 = move-exception
-            c.f.a.g.d.g r5 = r10.f53597b
+            c.f.a.g.d.g r5 = r10.f53642b
             int r6 = r6 + 1
             boolean r5 = r5.a(r4, r6)
             goto Lb2
@@ -128,7 +128,7 @@ public class RestHttpNetwork implements c {
             r7.append(r8)
             java.lang.String r7 = r7.toString()
             r5.<init>(r7)
-            c.f.a.g.d.g r7 = r10.f53597b
+            c.f.a.g.d.g r7 = r10.f53642b
             int r6 = r6 + 1
             boolean r4 = r7.a(r4, r6)
             goto L83
@@ -143,7 +143,7 @@ public class RestHttpNetwork implements c {
             r7.append(r4)
             java.lang.String r4 = r7.toString()
             r5.<init>(r4)
-            c.f.a.g.d.g r4 = r10.f53597b
+            c.f.a.g.d.g r4 = r10.f53642b
             int r6 = r6 + 1
             boolean r4 = r4.a(r5, r6)
         L83:
@@ -163,7 +163,7 @@ public class RestHttpNetwork implements c {
             java.lang.String r7 = r7.toString()
             r5.<init>(r7)
             if (r6 <= 0) goto Lb0
-            c.f.a.g.d.g r7 = r10.f53597b
+            c.f.a.g.d.g r7 = r10.f53642b
             int r6 = r6 + 1
             boolean r4 = r7.a(r4, r6)
             if (r4 == 0) goto Lb0

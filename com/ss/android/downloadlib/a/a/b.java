@@ -5,7 +5,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.ss.android.downloadlib.addownload.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static String a(Context context) {
         try {

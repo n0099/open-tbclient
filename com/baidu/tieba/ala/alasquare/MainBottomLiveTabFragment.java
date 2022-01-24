@@ -41,22 +41,22 @@ public class MainBottomLiveTabFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f41839e;
+    public LinearLayout f41860e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f41840f;
+    public TextView f41861f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoNetworkView f41841g;
+    public NoNetworkView f41862g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomViewPager f41842h;
+    public CustomViewPager f41863h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FragmentAdapter f41843i;
+    public FragmentAdapter f41864i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<c> f41844j;
+    public List<c> f41865j;
     public NoNetworkView.b k;
     public CustomMessageListener l;
 
@@ -115,7 +115,7 @@ public class MainBottomLiveTabFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
                 c cVar = this.a.get(i2);
-                return cVar != null ? cVar.f41846b : "";
+                return cVar != null ? cVar.f41867b : "";
             }
             return (CharSequence) invokeI.objValue;
         }
@@ -138,7 +138,7 @@ public class MainBottomLiveTabFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainBottomLiveTabFragment f41845e;
+        public final /* synthetic */ MainBottomLiveTabFragment f41866e;
 
         public a(MainBottomLiveTabFragment mainBottomLiveTabFragment) {
             Interceptable interceptable = $ic;
@@ -155,14 +155,14 @@ public class MainBottomLiveTabFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f41845e = mainBottomLiveTabFragment;
+            this.f41866e = mainBottomLiveTabFragment;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && this.f41845e.isPrimary() && this.f41845e.f41843i.getCount() > 0) {
-                Fragment item = this.f41845e.f41843i.getItem(0);
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && this.f41866e.isPrimary() && this.f41866e.f41864i.getCount() > 0) {
+                Fragment item = this.f41866e.f41864i.getItem(0);
                 if (item instanceof AlaLiveTabFragment) {
                     ((AlaLiveTabFragment) item).reload();
                 }
@@ -214,10 +214,10 @@ public class MainBottomLiveTabFragment extends BaseFragment {
         public AlaLiveTabFragment a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f41846b;
+        public String f41867b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ MainBottomLiveTabFragment f41847c;
+        public final /* synthetic */ MainBottomLiveTabFragment f41868c;
 
         public c(MainBottomLiveTabFragment mainBottomLiveTabFragment) {
             Interceptable interceptable = $ic;
@@ -234,7 +234,7 @@ public class MainBottomLiveTabFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f41847c = mainBottomLiveTabFragment;
+            this.f41868c = mainBottomLiveTabFragment;
         }
     }
 
@@ -251,7 +251,7 @@ public class MainBottomLiveTabFragment extends BaseFragment {
                 return;
             }
         }
-        this.f41844j = new ArrayList();
+        this.f41865j = new ArrayList();
         this.k = new a(this);
         this.l = new b(this, 2001384);
     }
@@ -260,18 +260,18 @@ public class MainBottomLiveTabFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.f41839e.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
+                this.f41860e.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
             }
-            this.f41841g.addNetworkChangeListener(this.k);
-            this.f41842h.setViewPagerScroll(0);
+            this.f41862g.addNetworkChangeListener(this.k);
+            this.f41863h.setViewPagerScroll(0);
             FragmentAdapter fragmentAdapter = new FragmentAdapter(getChildFragmentManager());
-            this.f41843i = fragmentAdapter;
-            this.f41842h.setAdapter(fragmentAdapter);
+            this.f41864i = fragmentAdapter;
+            this.f41863h.setAdapter(fragmentAdapter);
             c cVar = new c(this);
             cVar.a = new AlaLiveTabFragment();
-            cVar.f41846b = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_live);
-            this.f41844j.add(cVar);
-            this.f41843i.setData(this.f41844j);
+            cVar.f41867b = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_live);
+            this.f41865j.add(cVar);
+            this.f41864i.setData(this.f41865j);
         }
     }
 
@@ -280,11 +280,11 @@ public class MainBottomLiveTabFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            SkinManager.setViewTextColor(this.f41840f, R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.f41839e, R.color.CAM_X0207);
+            SkinManager.setViewTextColor(this.f41861f, R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f41860e, R.color.CAM_X0207);
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             if (pageContext != null) {
-                this.f41841g.onChangeSkinType(pageContext, i2);
+                this.f41862g.onChangeSkinType(pageContext, i2);
             }
         }
     }
@@ -304,10 +304,10 @@ public class MainBottomLiveTabFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(R.layout.main_bottom_live_tab_layout, (ViewGroup) null);
-            this.f41839e = (LinearLayout) inflate.findViewById(R.id.tab_layout);
-            this.f41840f = (TextView) inflate.findViewById(R.id.tab_view);
-            this.f41842h = (CustomViewPager) inflate.findViewById(R.id.viewpager);
-            this.f41841g = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
+            this.f41860e = (LinearLayout) inflate.findViewById(R.id.tab_layout);
+            this.f41861f = (TextView) inflate.findViewById(R.id.tab_view);
+            this.f41863h = (CustomViewPager) inflate.findViewById(R.id.viewpager);
+            this.f41862g = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
             initView();
             return inflate;
         }
@@ -328,10 +328,10 @@ public class MainBottomLiveTabFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             super.setUserVisibleHint(z);
-            if (!z || this.f41843i.getCount() <= 0) {
+            if (!z || this.f41864i.getCount() <= 0) {
                 return;
             }
-            Fragment item = this.f41843i.getItem(0);
+            Fragment item = this.f41864i.getItem(0);
             if (item instanceof AlaLiveTabFragment) {
                 AlaLiveTabFragment alaLiveTabFragment = (AlaLiveTabFragment) item;
                 if (alaLiveTabFragment.isFirstRequest()) {

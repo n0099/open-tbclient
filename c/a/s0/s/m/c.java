@@ -45,12 +45,12 @@ public class c {
         }
         a = str;
         if (str != null && str.equals("7")) {
-            c.a.t0.w3.s0.b.k().z(true);
-            c.a.t0.w3.s0.b.k().x(str2);
+            c.a.t0.x3.s0.b.k().z(true);
+            c.a.t0.x3.s0.b.k().x(str2);
             i2 = 7;
         } else if (TextUtils.equals(str, "8")) {
-            c.a.t0.w3.s0.b.k().y(8);
-            c.a.t0.w3.s0.b.k().x(str2);
+            c.a.t0.x3.s0.b.k().y(8);
+            c.a.t0.x3.s0.b.k().x(str2);
             i2 = 8;
         } else {
             i2 = 6;

@@ -41,10 +41,10 @@ public class b {
         public final /* synthetic */ CallbackHandler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f8180b;
+        public final /* synthetic */ String f8322b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f8181c;
+        public final /* synthetic */ String f8323c;
 
         public a(CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -62,19 +62,19 @@ public class b {
                 }
             }
             this.a = callbackHandler;
-            this.f8180b = str;
-            this.f8181c = str2;
+            this.f8322b = str;
+            this.f8323c = str2;
         }
 
         @Override // c.a.r0.a.a1.d.c
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.e0.d.k("DebugDependencyControl", "debug扩展库下载失败 url=" + this.f8181c);
-                if (this.a == null || TextUtils.isEmpty(this.f8180b)) {
+                c.a.r0.a.e0.d.k("DebugDependencyControl", "debug扩展库下载失败 url=" + this.f8323c);
+                if (this.a == null || TextUtils.isEmpty(this.f8322b)) {
                     return;
                 }
-                this.a.handleSchemeDispatchCallback(this.f8180b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+                this.a.handleSchemeDispatchCallback(this.f8322b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
             }
         }
 
@@ -89,25 +89,25 @@ public class b {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a != null && !TextUtils.isEmpty(this.f8180b)) {
+                if (this.a != null && !TextUtils.isEmpty(this.f8322b)) {
                     File j2 = b.j();
                     c.a.r0.a.e0.d.k("DebugDependencyControl", "debug扩展库下载成功 file=" + j2.getAbsolutePath());
                     Pair d2 = b.d(j2);
                     if (((Boolean) d2.first).booleanValue()) {
                         if (!b.o((File) d2.second)) {
                             c.a.r0.a.e0.d.k("DebugDependencyControl", "debug扩展库解压失败 file=" + j2.getAbsolutePath());
-                            this.a.handleSchemeDispatchCallback(this.f8180b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug扩展库解压失败").toString());
+                            this.a.handleSchemeDispatchCallback(this.f8322b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug扩展库解压失败").toString());
                             return;
                         }
                         b.n(true);
-                        this.a.handleSchemeDispatchCallback(this.f8180b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                        this.a.handleSchemeDispatchCallback(this.f8322b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                         return;
                     }
                     c.a.r0.a.e0.d.k("DebugDependencyControl", "debug扩展库解密失败 file=" + j2.getAbsolutePath());
-                    this.a.handleSchemeDispatchCallback(this.f8180b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug扩展库解密失败").toString());
+                    this.a.handleSchemeDispatchCallback(this.f8322b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug扩展库解密失败").toString());
                     return;
                 }
-                c.a.r0.a.e0.d.k("DebugDependencyControl", "debug扩展库下载成功 handler=" + this.a + " cb=" + this.f8180b);
+                c.a.r0.a.e0.d.k("DebugDependencyControl", "debug扩展库下载成功 handler=" + this.a + " cb=" + this.f8322b);
             }
         }
     }

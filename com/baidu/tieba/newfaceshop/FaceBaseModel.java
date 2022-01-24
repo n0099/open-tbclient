@@ -20,10 +20,10 @@ public abstract class FaceBaseModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Message f46135e;
+        public final /* synthetic */ Message f46163e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FaceBaseModel f46136f;
+        public final /* synthetic */ FaceBaseModel f46164f;
 
         public a(FaceBaseModel faceBaseModel, Message message) {
             Interceptable interceptable = $ic;
@@ -40,15 +40,15 @@ public abstract class FaceBaseModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f46136f = faceBaseModel;
-            this.f46135e = message;
+            this.f46164f = faceBaseModel;
+            this.f46163e = message;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46136f.sendMessage(this.f46135e);
+                this.f46164f.sendMessage(this.f46163e);
             }
         }
     }

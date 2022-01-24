@@ -26,28 +26,28 @@ public class f implements Parcelable {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58787b;
+    public String f58832b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f58788c;
+    public boolean f58833c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58789d;
+    public String f58834d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58790e;
+    public String f58835e;
 
     public f() {
-        this.f58788c = false;
+        this.f58833c = false;
     }
 
     public f(Parcel parcel) {
-        this.f58788c = false;
+        this.f58833c = false;
         this.a = parcel.readString();
-        this.f58787b = parcel.readString();
-        this.f58788c = parcel.readByte() != 0;
-        this.f58789d = parcel.readString();
-        this.f58790e = parcel.readString();
+        this.f58832b = parcel.readString();
+        this.f58833c = parcel.readByte() != 0;
+        this.f58834d = parcel.readString();
+        this.f58835e = parcel.readString();
     }
 
     public static f a(JSONObject jSONObject) {
@@ -83,31 +83,31 @@ public class f implements Parcelable {
     }
 
     public void a(boolean z) {
-        this.f58788c = z;
+        this.f58833c = z;
     }
 
     public String b() {
-        return this.f58787b;
+        return this.f58832b;
     }
 
     public void b(String str) {
-        this.f58787b = str;
+        this.f58832b = str;
     }
 
     public void c(String str) {
-        this.f58789d = str;
+        this.f58834d = str;
     }
 
     public boolean c() {
-        return this.f58788c;
+        return this.f58833c;
     }
 
     public String d() {
-        return this.f58789d;
+        return this.f58834d;
     }
 
     public void d(String str) {
-        this.f58790e = str;
+        this.f58835e = str;
     }
 
     @Override // android.os.Parcelable
@@ -116,19 +116,19 @@ public class f implements Parcelable {
     }
 
     public String e() {
-        return this.f58790e;
+        return this.f58835e;
     }
 
     public String toString() {
-        return "Statics{taskId='" + this.a + ExtendedMessageFormat.QUOTE + ", time='" + this.f58787b + ExtendedMessageFormat.QUOTE + ", pushExtra=" + this.f58788c + ", deviceId='" + this.f58789d + ExtendedMessageFormat.QUOTE + ", seqId='" + this.f58790e + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "Statics{taskId='" + this.a + ExtendedMessageFormat.QUOTE + ", time='" + this.f58832b + ExtendedMessageFormat.QUOTE + ", pushExtra=" + this.f58833c + ", deviceId='" + this.f58834d + ExtendedMessageFormat.QUOTE + ", seqId='" + this.f58835e + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.a);
-        parcel.writeString(this.f58787b);
-        parcel.writeByte(this.f58788c ? (byte) 1 : (byte) 0);
-        parcel.writeString(this.f58789d);
-        parcel.writeString(this.f58790e);
+        parcel.writeString(this.f58832b);
+        parcel.writeByte(this.f58833c ? (byte) 1 : (byte) 0);
+        parcel.writeString(this.f58834d);
+        parcel.writeString(this.f58835e);
     }
 }

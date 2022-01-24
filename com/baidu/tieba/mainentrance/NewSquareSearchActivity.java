@@ -56,7 +56,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     public boolean mIsFromSchema;
     public final c.a.d.c.g.a mSearchSuggestListListener;
     public HotSearchInfoData mTransmitHotSearchInfo;
-    public c.a.t0.c2.i.e mViewController;
+    public c.a.t0.d2.i.e mViewController;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
@@ -169,7 +169,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewSquareSearchActivity f45726e;
+        public final /* synthetic */ NewSquareSearchActivity f45754e;
 
         public c(NewSquareSearchActivity newSquareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -186,14 +186,14 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                     return;
                 }
             }
-            this.f45726e = newSquareSearchActivity;
+            this.f45754e = newSquareSearchActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                n.L(this.f45726e.getPageContext().getPageActivity(), this.f45726e.mViewController.o());
+                n.L(this.f45754e.getPageContext().getPageActivity(), this.f45754e.mViewController.o());
             }
         }
     }
@@ -204,7 +204,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewSquareSearchActivity f45727e;
+        public final /* synthetic */ NewSquareSearchActivity f45755e;
 
         public d(NewSquareSearchActivity newSquareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -221,14 +221,14 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                     return;
                 }
             }
-            this.f45727e = newSquareSearchActivity;
+            this.f45755e = newSquareSearchActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45727e.closeActivity();
+                this.f45755e.closeActivity();
             }
         }
     }
@@ -239,7 +239,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewSquareSearchActivity f45728e;
+        public final /* synthetic */ NewSquareSearchActivity f45756e;
 
         public e(NewSquareSearchActivity newSquareSearchActivity) {
             Interceptable interceptable = $ic;
@@ -256,7 +256,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                     return;
                 }
             }
-            this.f45728e = newSquareSearchActivity;
+            this.f45756e = newSquareSearchActivity;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -395,7 +395,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
                 return;
             }
             try {
-                this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(c.a.s0.s.h0.b.k().q("hot_search_info", ""), HotSearchInfoData.class);
+                this.mHotSearchInfo = (HotSearchInfoData) OrmObject.objectWithJsonStr(c.a.s0.s.i0.b.k().q("hot_search_info", ""), HotSearchInfoData.class);
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
@@ -435,9 +435,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                c.a.s0.s.d0.b.e(getPageContext().getPageActivity(), 1);
+                c.a.s0.s.e0.b.e(getPageContext().getPageActivity(), 1);
             } else {
-                c.a.s0.s.d0.b.e(getPageContext().getPageActivity(), 2);
+                c.a.s0.s.e0.b.e(getPageContext().getPageActivity(), 2);
             }
         }
     }
@@ -479,7 +479,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             addGlobalLayoutListener();
             registerListener(this.mSearchSuggestListListener);
             registerListener(this.mCreateBarListener);
-            this.mViewController = new c.a.t0.c2.i.e(this, this.mIsFromEnterForum);
+            this.mViewController = new c.a.t0.d2.i.e(this, this.mIsFromEnterForum);
             doSearchFromOutsideSchema();
             this.mHotForumModel = new HotForumModel(getPageContext(), this);
             loadHotSearch();
@@ -491,7 +491,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            c.a.t0.c2.i.e eVar = this.mViewController;
+            c.a.t0.d2.i.e eVar = this.mViewController;
             if (eVar != null) {
                 eVar.s();
             }
@@ -509,7 +509,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.b
-    public void onHotForumDataSuccess(List<c.a.t0.c2.b> list, List<c.a.t0.c2.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
+    public void onHotForumDataSuccess(List<c.a.t0.d2.b> list, List<c.a.t0.d2.c> list2, HotSearchInfoData hotSearchInfoData, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048583, this, list, list2, hotSearchInfoData, str) == null) {
             updateHotSearchCache(hotSearchInfoData);
@@ -551,7 +551,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
-            c.a.t0.c2.i.e eVar = this.mViewController;
+            c.a.t0.d2.i.e eVar = this.mViewController;
             if (eVar != null) {
                 eVar.t();
             }

@@ -21,31 +21,31 @@ public abstract class a implements b.InterfaceC0019b {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f19903b;
+    public boolean f20004b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f19904c;
+    public boolean f20005c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f19905d;
+    public int f20006d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19906e;
+    public int f20007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19907f;
+    public int f20008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19908g;
+    public int f20009g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19909h;
+    public int f20010h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f19910i;
+    public int f20011i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f19911j;
+    public int f20012j;
     public int k;
     public SurfaceTexture l;
     public volatile boolean m;
@@ -79,7 +79,7 @@ public abstract class a implements b.InterfaceC0019b {
                 return;
             }
         }
-        this.f19911j = -1;
+        this.f20012j = -1;
         this.m = false;
         this.n = false;
     }
@@ -118,14 +118,14 @@ public abstract class a implements b.InterfaceC0019b {
     public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19910i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20011i : invokeV.intValue;
     }
 
     @Override // c.a.a1.p.b.InterfaceC0019b
     public int v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19909h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20010h : invokeV.intValue;
     }
 
     public boolean w() {

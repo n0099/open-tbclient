@@ -40,7 +40,7 @@ public abstract class BaseAdWebView extends WebView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f41752e;
+    public e f41772e;
     public Context mContext;
     public DownloadCacheKey mDownloadCacheKey;
     public boolean mDownloadPicOnLoad;
@@ -56,7 +56,7 @@ public abstract class BaseAdWebView extends WebView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BaseAdWebView f41753c;
+        public final /* synthetic */ BaseAdWebView f41773c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BaseAdWebView baseAdWebView, BaseAdWebView baseAdWebView2, Activity activity) {
@@ -77,7 +77,7 @@ public abstract class BaseAdWebView extends WebView {
                     return;
                 }
             }
-            this.f41753c = baseAdWebView;
+            this.f41773c = baseAdWebView;
         }
 
         @Override // com.baidu.tieba.ad.webview.BaseAdWebView.c, android.webkit.WebViewClient
@@ -140,7 +140,7 @@ public abstract class BaseAdWebView extends WebView {
         public BaseAdWebView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Activity f41754b;
+        public Activity f41774b;
 
         public c(BaseAdWebView baseAdWebView, Activity activity) {
             Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public abstract class BaseAdWebView extends WebView {
                 }
             }
             this.a = baseAdWebView;
-            this.f41754b = activity;
+            this.f41774b = activity;
         }
 
         @Override // android.webkit.WebViewClient
@@ -201,15 +201,15 @@ public abstract class BaseAdWebView extends WebView {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
                 super.shouldOverrideUrlLoading(webView, str);
                 try {
-                    if (this.f41754b != null) {
+                    if (this.f41774b != null) {
                         if (str.startsWith("tel:")) {
-                            this.f41754b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                            this.f41774b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                             return true;
                         } else if (str.startsWith(BaseAdWebView.SCHEME_WTAI_MC)) {
-                            this.f41754b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
+                            this.f41774b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
                             return true;
                         } else if (str.startsWith(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO)) {
-                            this.f41754b.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));
+                            this.f41774b.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));
                             return true;
                         }
                     }
@@ -408,7 +408,7 @@ public abstract class BaseAdWebView extends WebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048587, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            e eVar = this.f41752e;
+            e eVar = this.f41772e;
             if (eVar != null) {
                 eVar.onScrollChanged(i2, i3, i4, i5);
             }
@@ -458,7 +458,7 @@ public abstract class BaseAdWebView extends WebView {
     public void setWebViewScrollListener(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, eVar) == null) {
-            this.f41752e = eVar;
+            this.f41772e = eVar;
         }
     }
 

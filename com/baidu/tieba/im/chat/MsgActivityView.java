@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
-import c.a.t0.s1.f.e;
+import c.a.t0.t1.f.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -39,7 +39,7 @@ public class MsgActivityView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgActivityView f44803e;
+        public final /* synthetic */ MsgActivityView f44831e;
 
         public a(MsgActivityView msgActivityView) {
             Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class MsgActivityView extends e {
                     return;
                 }
             }
-            this.f44803e = msgActivityView;
+            this.f44831e = msgActivityView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44803e.y == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44831e.y == null) {
                 return;
             }
-            this.f44803e.y.onItemViewClick(view, 8, this.f44803e.x, 0L);
+            this.f44831e.y.onItemViewClick(view, 8, this.f44831e.x, 0L);
         }
     }
 
@@ -75,7 +75,7 @@ public class MsgActivityView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgActivityView f44804e;
+        public final /* synthetic */ MsgActivityView f44832e;
 
         public b(MsgActivityView msgActivityView) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class MsgActivityView extends e {
                     return;
                 }
             }
-            this.f44804e = msgActivityView;
+            this.f44832e = msgActivityView;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -100,8 +100,8 @@ public class MsgActivityView extends e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (this.f44804e.z != null) {
-                    this.f44804e.z.onItemViewLongClick(view, 8, this.f44804e.x, 0L);
+                if (this.f44832e.z != null) {
+                    this.f44832e.z.onItemViewLongClick(view, 8, this.f44832e.x, 0L);
                     return true;
                 }
                 return true;
@@ -116,13 +116,13 @@ public class MsgActivityView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44805e;
+        public final /* synthetic */ String f44833e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f44806f;
+        public final /* synthetic */ String f44834f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ MsgActivityView f44807g;
+        public final /* synthetic */ MsgActivityView f44835g;
 
         public c(MsgActivityView msgActivityView, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -139,16 +139,16 @@ public class MsgActivityView extends e {
                     return;
                 }
             }
-            this.f44807g = msgActivityView;
-            this.f44805e = str;
-            this.f44806f = str2;
+            this.f44835g = msgActivityView;
+            this.f44833e = str;
+            this.f44834f = str2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f44807g.getPageContext().getPageActivity(), this.f44805e, this.f44806f)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f44835g.getPageContext().getPageActivity(), this.f44833e, this.f44834f)));
             }
         }
     }
@@ -172,7 +172,7 @@ public class MsgActivityView extends e {
                 return;
             }
         }
-        this.f21935h = (TextView) c(R.id.tex_msgitem_time);
+        this.f22214h = (TextView) c(R.id.tex_msgitem_time);
         this.u = (TextView) c(R.id.msg_msgactivity_title);
         this.v = (TextView) c(R.id.msg_msgactivity_time);
         this.w = (TextView) c(R.id.msg_msgactivity_address);
@@ -255,7 +255,7 @@ public class MsgActivityView extends e {
         }
     }
 
-    @Override // c.a.t0.s1.f.e
+    @Override // c.a.t0.t1.f.e
     public void n(c.a.d.f.h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
@@ -263,7 +263,7 @@ public class MsgActivityView extends e {
         }
     }
 
-    @Override // c.a.t0.s1.f.e
+    @Override // c.a.t0.t1.f.e
     public void o(c.a.d.f.h.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
@@ -271,7 +271,7 @@ public class MsgActivityView extends e {
         }
     }
 
-    @Override // c.a.t0.s1.f.e
+    @Override // c.a.t0.t1.f.e
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {

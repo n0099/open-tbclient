@@ -92,8 +92,8 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
             }
             UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
             aVar.a = true;
-            aVar.f40744d = "1".equals(queryParameter2);
-            aVar.f40743c = queryParameter;
+            aVar.f40772d = "1".equals(queryParameter2);
+            aVar.f40771c = queryParameter;
             MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
         }
     }
@@ -190,7 +190,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         if (!(interceptable == null || interceptable.invokeL(1048581, this, toWhereParam) == null) || toWhereParam.getResult() == null) {
             return;
         }
-        c.a.s0.s.d0.b.g(TbadkCoreApplication.getInst(), toWhereParam.getResult().intValue(), false);
+        c.a.s0.s.e0.b.g(TbadkCoreApplication.getInst(), toWhereParam.getResult().intValue(), false);
     }
 
     @Override // com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityOpenPageAuto.HostUtilityOpenPage
@@ -278,7 +278,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
     public void postSignProcess(TiebaUtilityOpenPageAuto.SignProcessParam signProcessParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, signProcessParam) == null) {
-            if (d.h0() && signProcessParam != null && !ListUtils.isEmpty(signProcessParam.getSignetArray())) {
+            if (d.m0() && signProcessParam != null && !ListUtils.isEmpty(signProcessParam.getSignetArray())) {
                 z1 z1Var = new z1();
                 z1Var.e(b.e(signProcessParam.getLevelUp(), 0));
                 ArrayList arrayList = new ArrayList();

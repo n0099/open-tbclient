@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.a;
 
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -50,7 +51,7 @@ public final class b {
     public static byte[] a(byte[] bArr, byte[] bArr2, int i2) {
         try {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
             cipher.init(i2, secretKeySpec);
             return cipher.doFinal(bArr2);
         } catch (Exception e2) {

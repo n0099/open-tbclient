@@ -28,7 +28,7 @@ public class f implements c, Closeable {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FileChannel f55356b;
+    public final FileChannel f55401b;
 
     public f(File file) {
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class f implements c, Closeable {
         if (file == null || !file.exists()) {
             throw new IllegalArgumentException("File is null or does not exist");
         }
-        this.f55356b = new FileInputStream(file).getChannel();
+        this.f55401b = new FileInputStream(file).getChannel();
     }
 
     private long a(c.b bVar, long j2, long j3) {
@@ -57,11 +57,11 @@ public class f implements c, Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{bVar, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             for (long j4 = 0; j4 < j2; j4++) {
-                c.AbstractC2087c a = bVar.a(j4);
+                c.AbstractC2093c a = bVar.a(j4);
                 if (a.a == 1) {
-                    long j5 = a.f55352c;
-                    if (j5 <= j3 && j3 <= a.f55353d + j5) {
-                        return (j3 - j5) + a.f55351b;
+                    long j5 = a.f55397c;
+                    if (j5 <= j3 && j3 <= a.f55398d + j5) {
+                        return (j3 - j5) + a.f55396b;
                     }
                 }
             }
@@ -74,7 +74,7 @@ public class f implements c, Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f55356b.position(0L);
+            this.f55401b.position(0L);
             ByteBuffer allocate = ByteBuffer.allocate(8);
             allocate.order(ByteOrder.LITTLE_ENDIAN);
             if (c(allocate, 0L) == 1179403647) {
@@ -118,7 +118,7 @@ public class f implements c, Closeable {
             byteBuffer.limit(i2);
             long j3 = 0;
             while (j3 < i2) {
-                int read = this.f55356b.read(byteBuffer, j2 + j3);
+                int read = this.f55401b.read(byteBuffer, j2 + j3);
                 if (read == -1) {
                     throw new EOFException();
                 }
@@ -143,12 +143,12 @@ public class f implements c, Closeable {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.f55356b.position(0L);
+            this.f55401b.position(0L);
             ArrayList arrayList = new ArrayList();
             c.b a = a();
             ByteBuffer allocate = ByteBuffer.allocate(8);
             allocate.order(a.a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
-            long j3 = a.f55347f;
+            long j3 = a.f55392f;
             int i2 = 0;
             if (j3 == WebSocketProtocol.PAYLOAD_SHORT_MAX) {
                 j3 = a.a(0).a;
@@ -159,9 +159,9 @@ public class f implements c, Closeable {
                     j2 = 0;
                     break;
                 }
-                c.AbstractC2087c a2 = a.a(j4);
+                c.AbstractC2093c a2 = a.a(j4);
                 if (a2.a == 2) {
-                    j2 = a2.f55351b;
+                    j2 = a2.f55396b;
                     break;
                 }
                 j4++;
@@ -176,9 +176,9 @@ public class f implements c, Closeable {
                 long j6 = j2;
                 long j7 = a3.a;
                 if (j7 == 1) {
-                    arrayList2.add(Long.valueOf(a3.f55342b));
+                    arrayList2.add(Long.valueOf(a3.f55387b));
                 } else if (j7 == 5) {
-                    j5 = a3.f55342b;
+                    j5 = a3.f55387b;
                 }
                 i2++;
                 if (a3.a == 0) {
@@ -212,7 +212,7 @@ public class f implements c, Closeable {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f55356b.close();
+            this.f55401b.close();
         }
     }
 

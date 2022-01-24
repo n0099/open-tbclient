@@ -6,7 +6,7 @@ import c.a.f.a.a;
 import c.a.s0.n0.e;
 import c.a.s0.t.c.m;
 import c.a.t0.e4.d;
-import c.a.t0.w3.n0.b;
+import c.a.t0.x3.n0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -65,11 +65,11 @@ public class UegTbJsBridge implements b {
         }
     }
 
-    public c.a.t0.w3.n0.d.c bindingMobileNumber() {
+    public c.a.t0.x3.n0.d.c bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.t0.w3.n0.d.c cVar = new c.a.t0.w3.n0.d.c();
+            c.a.t0.x3.n0.d.c cVar = new c.a.t0.x3.n0.d.c();
             try {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921372, m.b()));
             } catch (Exception e2) {
@@ -77,21 +77,21 @@ public class UegTbJsBridge implements b {
             }
             return cVar;
         }
-        return (c.a.t0.w3.n0.d.c) invokeV.objValue;
+        return (c.a.t0.x3.n0.d.c) invokeV.objValue;
     }
 
-    public c.a.t0.w3.n0.d.c callNativeSMS(String str, String str2) {
+    public c.a.t0.x3.n0.d.c callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            c.a.t0.w3.n0.d.c cVar = new c.a.t0.w3.n0.d.c();
+            c.a.t0.x3.n0.d.c cVar = new c.a.t0.x3.n0.d.c();
             UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), str, str2);
             return cVar;
         }
-        return (c.a.t0.w3.n0.d.c) invokeLL.objValue;
+        return (c.a.t0.x3.n0.d.c) invokeLL.objValue;
     }
 
-    @Override // c.a.t0.w3.n0.b
+    @Override // c.a.t0.x3.n0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -140,22 +140,22 @@ public class UegTbJsBridge implements b {
         return invokeLLLL.booleanValue;
     }
 
-    public c.a.t0.w3.n0.d.c recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public c.a.t0.x3.n0.d.c recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, str, str2, str3, str4, str5)) == null) {
-            c.a.t0.w3.n0.d.c cVar = new c.a.t0.w3.n0.d.c();
+            c.a.t0.x3.n0.d.c cVar = new c.a.t0.x3.n0.d.c();
             e.c(str2, new ReadRecordsData(str, str2, str3, str4, str5));
             return cVar;
         }
-        return (c.a.t0.w3.n0.d.c) invokeLLLLL.objValue;
+        return (c.a.t0.x3.n0.d.c) invokeLLLLL.objValue;
     }
 
-    public c.a.t0.w3.n0.d.c setBlockPopInfo(int i2, String str, String str2, String str3, String str4, int i3) {
+    public c.a.t0.x3.n0.d.c setBlockPopInfo(int i2, String str, String str2, String str3, String str4, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, str2, str3, str4, Integer.valueOf(i3)})) == null) {
-            c.a.t0.w3.n0.d.c cVar = new c.a.t0.w3.n0.d.c();
+            c.a.t0.x3.n0.d.c cVar = new c.a.t0.x3.n0.d.c();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i2);
@@ -172,6 +172,6 @@ public class UegTbJsBridge implements b {
             }
             return cVar;
         }
-        return (c.a.t0.w3.n0.d.c) invokeCommon.objValue;
+        return (c.a.t0.x3.n0.d.c) invokeCommon.objValue;
     }
 }

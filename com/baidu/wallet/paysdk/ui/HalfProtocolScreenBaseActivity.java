@@ -19,7 +19,7 @@ import com.baidu.wallet.paysdk.ui.widget.HalfScreenContainerLayout;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.core.BaseActivity;
 import com.dxmpay.wallet.core.SDKBaseActivity;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public abstract class HalfProtocolScreenBaseActivity extends PayBaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public static int a;

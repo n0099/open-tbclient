@@ -83,7 +83,7 @@ public class f extends e {
                         this.p = X.W();
                     }
                     this.p = m.b(this.p);
-                    if (TextUtils.isEmpty(this.f7982g) && !TextUtils.isEmpty(X.e0())) {
+                    if (TextUtils.isEmpty(this.f8124g) && !TextUtils.isEmpty(X.e0())) {
                         this.s = X.e0();
                     }
                     String b2 = m.b(this.s);
@@ -96,31 +96,31 @@ public class f extends e {
                     }
                 }
                 this.n = SwanAppNetworkUtils.f().type;
-                if (this.f7983h == null) {
-                    this.f7983h = new JSONObject();
+                if (this.f8125h == null) {
+                    this.f8125h = new JSONObject();
                 }
-                this.f7983h.put("swan", i2);
-                this.f7983h.put("appversion", this.l);
-                this.f7983h.put("thirdversion", this.m);
-                this.f7983h.put("net", this.n);
-                this.f7983h.put("needdown", this.o);
-                this.f7983h.put("scheme", this.p);
-                this.f7983h.put("page", this.s);
-                this.f7983h.put("launchid", this.u);
+                this.f8125h.put("swan", i2);
+                this.f8125h.put("appversion", this.l);
+                this.f8125h.put("thirdversion", this.m);
+                this.f8125h.put("net", this.n);
+                this.f8125h.put("needdown", this.o);
+                this.f8125h.put("scheme", this.p);
+                this.f8125h.put("page", this.s);
+                this.f8125h.put("launchid", this.u);
                 if (!TextUtils.isEmpty(this.t)) {
-                    this.f7983h.put("error_code", this.t);
+                    this.f8125h.put("error_code", this.t);
                 }
                 if (!TextUtils.isEmpty(this.q)) {
-                    this.f7983h.put("canceltime", this.q);
+                    this.f8125h.put("canceltime", this.q);
                 }
                 if (!TextUtils.isEmpty(this.r)) {
-                    this.f7983h.put("successtime", this.r);
+                    this.f8125h.put("successtime", this.r);
                 }
-                if (e.f7976j) {
-                    String str = "SwanAppUBCEvent: mExt=" + this.f7983h + "\t " + Thread.currentThread().getId();
+                if (e.f8118j) {
+                    String str = "SwanAppUBCEvent: mExt=" + this.f8125h + "\t " + Thread.currentThread().getId();
                 }
             } catch (JSONException e2) {
-                if (e.f7976j) {
+                if (e.f8118j) {
                     e2.printStackTrace();
                 }
             }
@@ -139,11 +139,11 @@ public class f extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
             if (eVar == null) {
-                boolean z = e.f7976j;
+                boolean z = e.f8118j;
                 return;
             }
-            this.f7981f = eVar.H();
-            this.f7978c = eVar.T();
+            this.f8123f = eVar.H();
+            this.f8120c = eVar.T();
             this.o = eVar.s0().getString("aiapp_extra_need_download", "");
             this.p = eVar.W();
             this.s = eVar.e0();

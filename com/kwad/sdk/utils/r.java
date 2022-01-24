@@ -12,13 +12,13 @@ public class r {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Location f57957b;
+    public static Location f58002b;
 
     @Nullable
     public static Location a(Context context) {
         if (!ao.a() || ao.b() == null) {
-            if (a || f57957b != null || context == null) {
-                return f57957b;
+            if (a || f58002b != null || context == null) {
+                return f58002b;
             }
             if (!ao.a() && !com.kwad.sdk.core.config.b.a(64L)) {
                 if (com.kwad.sdk.b.a.booleanValue()) {
@@ -27,15 +27,15 @@ public class r {
                 try {
                     LocationManager locationManager = (LocationManager) context.getSystemService("location");
                     if (locationManager.isProviderEnabled("gps")) {
-                        f57957b = a(context, locationManager);
+                        f58002b = a(context, locationManager);
                     }
-                    if (f57957b == null && locationManager.isProviderEnabled("network")) {
-                        f57957b = b(context, locationManager);
+                    if (f58002b == null && locationManager.isProviderEnabled("network")) {
+                        f58002b = b(context, locationManager);
                     }
-                    if (f57957b == null && locationManager.isProviderEnabled("passive")) {
-                        f57957b = c(context, locationManager);
+                    if (f58002b == null && locationManager.isProviderEnabled("passive")) {
+                        f58002b = c(context, locationManager);
                     }
-                    return f57957b;
+                    return f58002b;
                 } catch (Exception e2) {
                     a = true;
                     com.kwad.sdk.core.d.a.b(e2);
@@ -49,7 +49,7 @@ public class r {
     @SuppressLint({"MissingPermission"})
     public static Location a(Context context, LocationManager locationManager) {
         try {
-            if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f55246g) == 0) {
+            if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f55291g) == 0) {
                 Location lastKnownLocation = locationManager.getLastKnownLocation("gps");
                 if (lastKnownLocation == null) {
                     a = true;
@@ -67,7 +67,7 @@ public class r {
     @SuppressLint({"MissingPermission"})
     public static Location b(Context context, LocationManager locationManager) {
         try {
-            if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f55246g) == 0 || ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f55247h) == 0) {
+            if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f55291g) == 0 || ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f55292h) == 0) {
                 Location lastKnownLocation = locationManager.getLastKnownLocation("network");
                 if (lastKnownLocation == null) {
                     a = true;
@@ -85,7 +85,7 @@ public class r {
     @SuppressLint({"MissingPermission"})
     public static Location c(Context context, LocationManager locationManager) {
         try {
-            if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f55247h) == 0) {
+            if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f55292h) == 0) {
                 Location lastKnownLocation = locationManager.getLastKnownLocation("passive");
                 if (lastKnownLocation == null) {
                     a = true;

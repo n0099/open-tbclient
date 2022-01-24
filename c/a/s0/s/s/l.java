@@ -13,13 +13,13 @@ public class l {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13627b;
+    public String f13814b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f13628c;
+    public boolean f13815c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13629d;
+    public String f13816d;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -38,13 +38,13 @@ public class l {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13627b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13814b : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13629d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13816d : (String) invokeV.objValue;
     }
 
     public String c() {
@@ -56,13 +56,13 @@ public class l {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13628c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13815c : invokeV.booleanValue;
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f13628c = z;
+            this.f13815c = z;
         }
     }
 
@@ -82,8 +82,8 @@ public class l {
             }
         }
         this.a = str;
-        this.f13628c = z;
-        this.f13629d = str2;
+        this.f13815c = z;
+        this.f13816d = str2;
     }
 
     public l(String str, String str2, boolean z) {
@@ -102,8 +102,8 @@ public class l {
             }
         }
         this.a = str;
-        this.f13627b = str2;
-        this.f13628c = z;
+        this.f13814b = str2;
+        this.f13815c = z;
     }
 
     public l(String str, String str2, boolean z, String str3) {
@@ -122,8 +122,8 @@ public class l {
             }
         }
         this.a = str;
-        this.f13627b = str2;
-        this.f13628c = z;
-        this.f13629d = str3;
+        this.f13814b = str2;
+        this.f13815c = z;
+        this.f13816d = str3;
     }
 }

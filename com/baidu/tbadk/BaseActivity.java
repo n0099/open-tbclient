@@ -30,8 +30,8 @@ import c.a.d.f.p.n;
 import c.a.d.n.e.q;
 import c.a.s0.a.p;
 import c.a.s0.a.s;
-import c.a.s0.e1.i0;
-import c.a.s0.e1.l0;
+import c.a.s0.d1.i0;
+import c.a.s0.d1.l0;
 import c.a.s0.g0.g;
 import c.a.s0.g0.h;
 import c.a.s0.k0.i;
@@ -39,7 +39,7 @@ import c.a.s0.q0.a;
 import c.a.s0.q0.b;
 import c.a.s0.s.c;
 import c.a.s0.s.e;
-import c.a.s0.s.j0.d;
+import c.a.s0.s.k0.d;
 import c.a.s0.s.s.a;
 import c.a.s0.s.s.c;
 import c.a.s0.s.s.f;
@@ -142,7 +142,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public c.a.s0.o0.c mTbPageExtra;
     public TbPageTag mTbPageTag;
     public boolean mUseStyleImmersiveSticky;
-    public c.a.s0.s.j0.a mWaitingDialog;
+    public c.a.s0.s.k0.a mWaitingDialog;
     public BaseActivity<T>.NetRefreshListener netRefreshListener;
     public final CustomMessageListener nightResourcesChangeListener;
     public TbPageContext<T> pageContext;
@@ -547,7 +547,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                 this.this$0 = this;
             }
 
-            @Override // c.a.s0.e1.i0.b
+            @Override // c.a.s0.d1.i0.b
             public void onShot(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -787,7 +787,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void closeLoadingDialog() {
-        c.a.s0.s.j0.a aVar;
+        c.a.s0.s.k0.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (aVar = this.mWaitingDialog) == null) {
             return;
@@ -802,12 +802,12 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         this.mWaitingDialog = null;
     }
 
-    public c.a.s0.s.s.c createListMenu(String[] strArr, c.InterfaceC0884c interfaceC0884c) {
+    public c.a.s0.s.s.c createListMenu(String[] strArr, c.InterfaceC0893c interfaceC0893c) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, strArr, interfaceC0884c)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, strArr, interfaceC0893c)) == null) {
             c.a.s0.s.s.c cVar = this.mListMenu;
-            return cVar != null ? cVar : newListMenu(strArr, interfaceC0884c);
+            return cVar != null ? cVar : newListMenu(strArr, interfaceC0893c);
         }
         return (c.a.s0.s.s.c) invokeLL.objValue;
     }
@@ -985,10 +985,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.mListMenu : (c.a.s0.s.s.c) invokeV.objValue;
     }
 
-    public c.a.s0.s.j0.a getLoadingDialog() {
+    public c.a.s0.s.k0.a getLoadingDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.mWaitingDialog : (c.a.s0.s.j0.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.mWaitingDialog : (c.a.s0.s.k0.a) invokeV.objValue;
     }
 
     public g getLoadingView() {
@@ -1174,7 +1174,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             if (Build.VERSION.SDK_INT >= 23) {
                 if (!Settings.canDrawOverlays(getBaseContext())) {
                     this.mPermissionCallback = eVar;
-                    if (!c.a.s0.s.h0.b.k().h("key_is_window_permission_dialog_shown", false)) {
+                    if (!c.a.s0.s.i0.b.k().h("key_is_window_permission_dialog_shown", false)) {
                         c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this);
                         aVar.setCanceledOnTouchOutside(false);
                         aVar.setTitle(R.string.request_permission_default_title);
@@ -1254,7 +1254,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                             }
                         }).create(getPageContext());
                         aVar.show();
-                        c.a.s0.s.h0.b.k().u("key_is_window_permission_dialog_shown", true);
+                        c.a.s0.s.i0.b.k().u("key_is_window_permission_dialog_shown", true);
                     } else {
                         e eVar2 = this.mPermissionCallback;
                         if (eVar2 != null) {
@@ -1384,14 +1384,14 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? this.mUseStyleImmersiveSticky : invokeV.booleanValue;
     }
 
-    public c.a.s0.s.s.c newListMenu(String[] strArr, c.InterfaceC0884c interfaceC0884c) {
+    public c.a.s0.s.s.c newListMenu(String[] strArr, c.InterfaceC0893c interfaceC0893c) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048642, this, strArr, interfaceC0884c)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048642, this, strArr, interfaceC0893c)) == null) {
             c.a.s0.s.s.c cVar = new c.a.s0.s.s.c(getPageContext().getPageActivity());
             this.mListMenu = cVar;
             cVar.l(TbadkCoreApplication.getInst().getResources().getString(R.string.operation));
-            this.mListMenu.j(strArr, interfaceC0884c);
+            this.mListMenu.j(strArr, interfaceC0893c);
             this.mListMenu.c(getPageContext());
             return this.mListMenu;
         }
@@ -1404,7 +1404,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048643, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            if (!c.a.s0.f1.a.c(i2, i3, intent) && (eVar = this.mPermissionCallback) != null && Build.VERSION.SDK_INT >= 23 && i2 == 12016) {
+            if (!c.a.s0.e1.a.c(i2, i3, intent) && (eVar = this.mPermissionCallback) != null && Build.VERSION.SDK_INT >= 23 && i2 == 12016) {
                 eVar.onPermissionResult(Settings.canDrawOverlays(getBaseContext()));
                 this.mPermissionCallback = null;
             }
@@ -2394,7 +2394,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             if (str == null) {
                 str = TbadkCoreApplication.getInst().getResources().getString(R.string.Waiting);
             }
-            c.a.s0.s.j0.a aVar = new c.a.s0.s.j0.a((TbPageContext<?>) getPageContext());
+            c.a.s0.s.k0.a aVar = new c.a.s0.s.k0.a((TbPageContext<?>) getPageContext());
             this.mWaitingDialog = aVar;
             aVar.j(str);
             this.mWaitingDialog.e(onCancelListener);

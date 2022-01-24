@@ -1,6 +1,6 @@
 package c.a.s0.a.e0;
 
-import c.a.t0.w3.s0.f;
+import c.a.t0.x3.s0.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -15,7 +15,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f12115b;
+    public static b f12257b;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener a;
 
@@ -52,7 +52,7 @@ public class b {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof f) && ((f) data).f25029b) {
+            if ((data instanceof f) && ((f) data).f25288b) {
                 c.f().a("717");
             }
         }
@@ -78,14 +78,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f12115b == null) {
+            if (f12257b == null) {
                 synchronized (b.class) {
-                    if (f12115b == null) {
-                        f12115b = new b();
+                    if (f12257b == null) {
+                        f12257b = new b();
                     }
                 }
             }
-            return f12115b;
+            return f12257b;
         }
         return (b) invokeV.objValue;
     }

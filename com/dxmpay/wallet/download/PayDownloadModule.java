@@ -27,7 +27,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PayDownloadModule implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_DOWNLOAD_FAIL = 2;
@@ -44,19 +44,19 @@ public class PayDownloadModule implements NoProguard {
     public PayDownloadCallBack mPayDownloadCallBack;
     public String moduleName;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface PayDownloadCallBack {
         void onDownloadStatus(String str, int i2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PayDownloadModule f53984b;
+        public final /* synthetic */ PayDownloadModule f54029b;
 
         public a(PayDownloadModule payDownloadModule, String str) {
             Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class PayDownloadModule implements NoProguard {
                     return;
                 }
             }
-            this.f53984b = payDownloadModule;
+            this.f54029b = payDownloadModule;
             this.a = str;
         }
 
@@ -81,7 +81,7 @@ public class PayDownloadModule implements NoProguard {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f53984b.downloadFileSuccess(str, this.a, true);
+                this.f54029b.downloadFileSuccess(str, this.a, true);
             }
         }
 
@@ -89,9 +89,9 @@ public class PayDownloadModule implements NoProguard {
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f53984b.setDownloadModuleStatusPoint(2, PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
-                if (this.f53984b.mPayDownloadCallBack != null) {
-                    this.f53984b.mPayDownloadCallBack.onDownloadStatus("", 2);
+                this.f54029b.setDownloadModuleStatusPoint(2, PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
+                if (this.f54029b.mPayDownloadCallBack != null) {
+                    this.f54029b.mPayDownloadCallBack.onDownloadStatus("", 2);
                 }
             }
         }
@@ -99,27 +99,27 @@ public class PayDownloadModule implements NoProguard {
         @Override // c.f.b.c.b.a
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f53984b.mPayDownloadCallBack == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54029b.mPayDownloadCallBack == null) {
                 return;
             }
-            this.f53984b.mPayDownloadCallBack.onDownloadStatus("", 1);
+            this.f54029b.mPayDownloadCallBack.onDownloadStatus("", 1);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements ApollonDownloadManager.DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f53985b;
+        public final /* synthetic */ String f54030b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f53986c;
+        public final /* synthetic */ String f54031c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ PayDownloadModule f53987d;
+        public final /* synthetic */ PayDownloadModule f54032d;
 
         public b(PayDownloadModule payDownloadModule, long j2, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -136,10 +136,10 @@ public class PayDownloadModule implements NoProguard {
                     return;
                 }
             }
-            this.f53987d = payDownloadModule;
+            this.f54032d = payDownloadModule;
             this.a = j2;
-            this.f53985b = str;
-            this.f53986c = str2;
+            this.f54030b = str;
+            this.f54031c = str2;
         }
 
         @Override // com.dxmpay.apollon.downloadmanager.ApollonDownloadManager.DownloadListener
@@ -147,35 +147,35 @@ public class PayDownloadModule implements NoProguard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, downloadItemInfo) == null) {
                 if (downloadItemInfo.getDownloadState() == 8) {
-                    ApollonDownloadManager.getInstance(this.f53987d.context).unregisterObserver(this.f53987d.context, this.a, this);
-                    this.f53987d.downloadFileSuccess(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/" + this.f53985b + this.f53986c, this.f53985b, false);
+                    ApollonDownloadManager.getInstance(this.f54032d.context).unregisterObserver(this.f54032d.context, this.a, this);
+                    this.f54032d.downloadFileSuccess(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/" + this.f54030b + this.f54031c, this.f54030b, false);
                 } else if (downloadItemInfo.getDownloadState() == 2) {
-                    if (this.f53987d.mPayDownloadCallBack != null) {
-                        this.f53987d.mPayDownloadCallBack.onDownloadStatus("", 1);
+                    if (this.f54032d.mPayDownloadCallBack != null) {
+                        this.f54032d.mPayDownloadCallBack.onDownloadStatus("", 1);
                     }
                 } else if (downloadItemInfo.getDownloadState() == 16) {
-                    this.f53987d.setDownloadModuleStatusPoint(2, PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
-                    if (this.f53987d.mPayDownloadCallBack != null) {
-                        this.f53987d.mPayDownloadCallBack.onDownloadStatus("", 2);
+                    this.f54032d.setDownloadModuleStatusPoint(2, PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
+                    if (this.f54032d.mPayDownloadCallBack != null) {
+                        this.f54032d.mPayDownloadCallBack.onDownloadStatus("", 2);
                     }
                 } else {
-                    this.f53987d.setDownloadModuleStatusPoint(2, PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
-                    if (this.f53987d.mPayDownloadCallBack != null) {
-                        this.f53987d.mPayDownloadCallBack.onDownloadStatus("", 2);
+                    this.f54032d.setDownloadModuleStatusPoint(2, PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
+                    if (this.f54032d.mPayDownloadCallBack != null) {
+                        this.f54032d.mPayDownloadCallBack.onDownloadStatus("", 2);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PayDownloadModule f53988b;
+        public final /* synthetic */ PayDownloadModule f54033b;
 
         public c(PayDownloadModule payDownloadModule, String str) {
             Interceptable interceptable = $ic;
@@ -192,7 +192,7 @@ public class PayDownloadModule implements NoProguard {
                     return;
                 }
             }
-            this.f53988b = payDownloadModule;
+            this.f54033b = payDownloadModule;
             this.a = str;
         }
 
@@ -200,7 +200,7 @@ public class PayDownloadModule implements NoProguard {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f53988b.downloadFileSuccess(str, this.a, true);
+                this.f54033b.downloadFileSuccess(str, this.a, true);
             }
         }
 
@@ -208,9 +208,9 @@ public class PayDownloadModule implements NoProguard {
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f53988b.setDownloadModuleStatusPoint(2, PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
-                if (this.f53988b.mPayDownloadCallBack != null) {
-                    this.f53988b.mPayDownloadCallBack.onDownloadStatus("", 2);
+                this.f54033b.setDownloadModuleStatusPoint(2, PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
+                if (this.f54033b.mPayDownloadCallBack != null) {
+                    this.f54033b.mPayDownloadCallBack.onDownloadStatus("", 2);
                 }
             }
         }
@@ -218,29 +218,29 @@ public class PayDownloadModule implements NoProguard {
         @Override // c.f.b.c.b.a
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f53988b.mPayDownloadCallBack == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54033b.mPayDownloadCallBack == null) {
                 return;
             }
-            this.f53988b.mPayDownloadCallBack.onDownloadStatus("", 1);
+            this.f54033b.mPayDownloadCallBack.onDownloadStatus("", 1);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f53989e;
+        public final /* synthetic */ String f54034e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f53990f;
+        public final /* synthetic */ String f54035f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f53991g;
+        public final /* synthetic */ boolean f54036g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ PayDownloadModule f53992h;
+        public final /* synthetic */ PayDownloadModule f54037h;
 
         public d(PayDownloadModule payDownloadModule, String str, String str2, boolean z) {
             Interceptable interceptable = $ic;
@@ -257,41 +257,41 @@ public class PayDownloadModule implements NoProguard {
                     return;
                 }
             }
-            this.f53992h = payDownloadModule;
-            this.f53989e = str;
-            this.f53990f = str2;
-            this.f53991g = z;
+            this.f54037h = payDownloadModule;
+            this.f54034e = str;
+            this.f54035f = str2;
+            this.f54036g = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (TextUtils.equals(Md5Utils.getMd5FromFileV2(this.f53989e), this.f53990f)) {
-                    this.f53992h.setDownloadModuleStatusPoint(0, PayDownloadModule.STATUS_DOWNLOAD_MSG_SUCCESS);
-                    if (ZipUtils.unzip(this.f53989e, this.f53992h.getInternalUnZipPath(this.f53990f))) {
-                        if (this.f53992h.mPayDownloadCallBack != null) {
-                            if (!TextUtils.isEmpty(PayDownloadCache.getDownloadFileMd5Value(this.f53992h.context, this.f53992h.moduleName))) {
-                                PayDownloadModule payDownloadModule = this.f53992h;
-                                FileUtils.deleteDir(new File(payDownloadModule.getInternalUnZipPath(PayDownloadCache.getDownloadFileMd5Value(payDownloadModule.context, this.f53992h.moduleName))), true);
+                if (TextUtils.equals(Md5Utils.getMd5FromFileV2(this.f54034e), this.f54035f)) {
+                    this.f54037h.setDownloadModuleStatusPoint(0, PayDownloadModule.STATUS_DOWNLOAD_MSG_SUCCESS);
+                    if (ZipUtils.unzip(this.f54034e, this.f54037h.getInternalUnZipPath(this.f54035f))) {
+                        if (this.f54037h.mPayDownloadCallBack != null) {
+                            if (!TextUtils.isEmpty(PayDownloadCache.getDownloadFileMd5Value(this.f54037h.context, this.f54037h.moduleName))) {
+                                PayDownloadModule payDownloadModule = this.f54037h;
+                                FileUtils.deleteDir(new File(payDownloadModule.getInternalUnZipPath(PayDownloadCache.getDownloadFileMd5Value(payDownloadModule.context, this.f54037h.moduleName))), true);
                             }
-                            PayDownloadCache.setDownloadFileMd5Value(this.f53992h.context, this.f53992h.moduleName, this.f53990f);
-                            this.f53992h.mPayDownloadCallBack.onDownloadStatus(this.f53992h.getInternalUnZipPath(this.f53990f), 0);
+                            PayDownloadCache.setDownloadFileMd5Value(this.f54037h.context, this.f54037h.moduleName, this.f54035f);
+                            this.f54037h.mPayDownloadCallBack.onDownloadStatus(this.f54037h.getInternalUnZipPath(this.f54035f), 0);
                         }
                     } else {
-                        this.f53992h.setDownloadModuleStatusPoint(3, PayDownloadModule.STATUS_UN_ZIP_MSG_FAIL);
-                        if (this.f53992h.mPayDownloadCallBack != null) {
-                            this.f53992h.mPayDownloadCallBack.onDownloadStatus("", 3);
+                        this.f54037h.setDownloadModuleStatusPoint(3, PayDownloadModule.STATUS_UN_ZIP_MSG_FAIL);
+                        if (this.f54037h.mPayDownloadCallBack != null) {
+                            this.f54037h.mPayDownloadCallBack.onDownloadStatus("", 3);
                         }
                     }
                 } else {
-                    this.f53992h.setDownloadModuleStatusPoint(2, PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
-                    if (this.f53992h.mPayDownloadCallBack != null) {
-                        this.f53992h.mPayDownloadCallBack.onDownloadStatus("", 2);
+                    this.f54037h.setDownloadModuleStatusPoint(2, PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
+                    if (this.f54037h.mPayDownloadCallBack != null) {
+                        this.f54037h.mPayDownloadCallBack.onDownloadStatus("", 2);
                     }
                 }
-                if (this.f53991g) {
-                    FileUtils.deleteFile(this.f53989e);
+                if (this.f54036g) {
+                    FileUtils.deleteFile(this.f54034e);
                 }
             }
         }

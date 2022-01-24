@@ -21,10 +21,10 @@ public class cn {
     public String f195a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f60953b;
+    public long f60998b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f60954c;
+    public long f60999c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public cn() {
@@ -62,8 +62,8 @@ public class cn {
         }
         this.a = i2;
         this.f194a = j2;
-        this.f60954c = j3;
-        this.f60953b = System.currentTimeMillis();
+        this.f60999c = j3;
+        this.f60998b = System.currentTimeMillis();
         if (exc != null) {
             this.f195a = exc.getClass().getSimpleName();
         }
@@ -80,8 +80,8 @@ public class cn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             this.f194a = jSONObject.getLong("cost");
-            this.f60954c = jSONObject.getLong("size");
-            this.f60953b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
+            this.f60999c = jSONObject.getLong("size");
+            this.f60998b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
             this.a = jSONObject.getInt("wt");
             this.f195a = jSONObject.optString("expt");
             return this;
@@ -96,8 +96,8 @@ public class cn {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("cost", this.f194a);
-            jSONObject.put("size", this.f60954c);
-            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f60953b);
+            jSONObject.put("size", this.f60999c);
+            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f60998b);
             jSONObject.put("wt", this.a);
             jSONObject.put("expt", this.f195a);
             return jSONObject;

@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.c0.j.f.i;
-import c.a.t0.j3.z;
+import c.a.t0.k3.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ad.download.AdDownloadData;
@@ -123,7 +123,7 @@ public class e {
                 aVar.g();
             }
         }
-        c.a.t0.j3.b.b(str);
+        c.a.t0.k3.b.b(str);
         f.g().j(context, adDownloadData);
     }
 
@@ -244,7 +244,7 @@ public class e {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, context, downloadCacheKey, str)) == null) {
             boolean b2 = z.b(str);
             if (!b2) {
-                c.a.t0.j3.b.c(new File(str));
+                c.a.t0.k3.b.c(new File(str));
             }
             if (downloadCacheKey != null && (a2 = c.a.t0.v.g.b.c().a(downloadCacheKey)) != null) {
                 if (TextUtils.isEmpty(a2.pkgName())) {
@@ -254,8 +254,8 @@ public class e {
                     downloadCacheKey.mPackageName = a2.pkgName();
                 }
                 c.a.t0.v.g.h.a aVar = this.a.get(downloadCacheKey);
-                if (aVar != null && (downloadCacheKey2 = aVar.f24499c) != null && TextUtils.isEmpty(downloadCacheKey2.mPackageName)) {
-                    aVar.f24499c.mPackageName = a2.pkgName();
+                if (aVar != null && (downloadCacheKey2 = aVar.f24204c) != null && TextUtils.isEmpty(downloadCacheKey2.mPackageName)) {
+                    aVar.f24204c.mPackageName = a2.pkgName();
                 }
                 a2.extra().setPercentAndStatus(100, DownloadStatus.STATUS_SUCCESS);
                 a2.extra().setDownloadPath(str);

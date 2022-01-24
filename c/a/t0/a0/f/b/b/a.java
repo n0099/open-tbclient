@@ -15,22 +15,22 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14361b;
+    public String f14501b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14362c;
+    public String f14502c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14363d;
+    public String f14503d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<ThreadInfo> f14364e;
+    public List<ThreadInfo> f14504e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14365f;
+    public int f14505f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<String> f14366g;
+    public List<String> f14506g;
 
     public a(HotLiveWithCategory hotLiveWithCategory) {
         Interceptable interceptable = $ic;
@@ -48,11 +48,11 @@ public class a {
             }
         }
         this.a = hotLiveWithCategory.tab_id.intValue();
-        this.f14361b = hotLiveWithCategory.entry_name;
-        this.f14362c = hotLiveWithCategory.label_name;
-        this.f14363d = hotLiveWithCategory.bitmap_wh_ratio;
-        this.f14364e = new ArrayList(hotLiveWithCategory.live);
-        this.f14365f = hotLiveWithCategory.live_tab_type.intValue();
-        this.f14366g = hotLiveWithCategory.sub_type_list;
+        this.f14501b = hotLiveWithCategory.entry_name;
+        this.f14502c = hotLiveWithCategory.label_name;
+        this.f14503d = hotLiveWithCategory.bitmap_wh_ratio;
+        this.f14504e = new ArrayList(hotLiveWithCategory.live);
+        this.f14505f = hotLiveWithCategory.live_tab_type.intValue();
+        this.f14506g = hotLiveWithCategory.sub_type_list;
     }
 }

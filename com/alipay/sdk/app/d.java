@@ -20,7 +20,7 @@ public class d {
     public static final int a = 1010;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f30798b;
+    public static a f30826b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -55,7 +55,7 @@ public class d {
             try {
                 com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.z0);
                 activity.startActivityForResult(new Intent(str2, Uri.parse(str)), i2);
-                f30798b = aVar2;
+                f30826b = aVar2;
                 return true;
             } catch (Throwable th) {
                 aVar2.a(false, null, "UNKNOWN_ERROR");
@@ -71,11 +71,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{aVar, Integer.valueOf(i2), Integer.valueOf(i3), intent})) == null) {
             if (i2 == 1010 && intent != null) {
-                a aVar2 = f30798b;
+                a aVar2 = f30826b;
                 if (aVar2 == null) {
                     return true;
                 }
-                f30798b = null;
+                f30826b = null;
                 if (i3 != -1) {
                     if (i3 != 0) {
                         com.alipay.sdk.app.statistic.a.b(aVar, "biz", com.alipay.sdk.app.statistic.b.B0, "" + i3);

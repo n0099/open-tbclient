@@ -19,16 +19,16 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f3599b;
+    public long f3740b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3600c;
+    public String f3741c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3601d;
+    public String f3742d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f3602e;
+    public JSONObject f3743e;
 
     public c(String str) {
         Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class c {
                 return;
             }
         }
-        this.f3602e = new JSONObject();
+        this.f3743e = new JSONObject();
         this.a = str;
-        this.f3599b = System.currentTimeMillis();
-        this.f3600c = j.c();
+        this.f3740b = System.currentTimeMillis();
+        this.f3741c = j.c();
     }
 
     public c a(String str, Object obj) {
@@ -56,7 +56,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
             try {
-                this.f3602e.put(str, obj);
+                this.f3743e.put(str, obj);
             } catch (JSONException unused) {
             }
             return this;
@@ -68,7 +68,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f3601d = str;
+            this.f3742d = str;
             return this;
         }
         return (c) invokeL.objValue;
@@ -78,7 +78,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            this.f3602e = jSONObject;
+            this.f3743e = jSONObject;
             return this;
         }
         return (c) invokeL.objValue;
@@ -95,19 +95,19 @@ public class c {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("a", this.a);
-                jSONObject.put("t", this.f3599b);
-                jSONObject.put("ct", this.f3600c);
-                if (this.f3602e != null) {
-                    jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.f3602e);
-                } else if (!TextUtils.isEmpty(this.f3601d)) {
+                jSONObject.put("t", this.f3740b);
+                jSONObject.put("ct", this.f3741c);
+                if (this.f3743e != null) {
+                    jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.f3743e);
+                } else if (!TextUtils.isEmpty(this.f3742d)) {
                     try {
-                        jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, new JSONObject(this.f3601d));
+                        jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, new JSONObject(this.f3742d));
                     } catch (JSONException unused) {
-                        jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.f3601d);
+                        jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.f3742d);
                     }
                 }
             } catch (JSONException e2) {
-                if (h.f3626d) {
+                if (h.f3767d) {
                     e2.printStackTrace();
                 }
             }

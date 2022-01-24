@@ -44,7 +44,7 @@ public class c extends c.a.s0.l0.f.a<tinfo, c.a.s0.l0.d.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17988e;
+        public final /* synthetic */ c f18261e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class c extends c.a.s0.l0.f.a<tinfo, c.a.s0.l0.d.b> {
                     return;
                 }
             }
-            this.f17988e = cVar;
+            this.f18261e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -70,9 +70,9 @@ public class c extends c.a.s0.l0.f.a<tinfo, c.a.s0.l0.d.b> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 Object tag = view.getTag();
                 if (tag instanceof Integer) {
-                    c.a.s0.l0.c.b bVar = new c.a.s0.l0.c.b(4096, new d(((Integer) tag).intValue(), this.f17988e.a()), null, null);
-                    bVar.i(this.f17988e.g());
-                    this.f17988e.b().dispatchMvcEvent(bVar);
+                    c.a.s0.l0.c.b bVar = new c.a.s0.l0.c.b(4096, new d(((Integer) tag).intValue(), this.f18261e.a()), null, null);
+                    bVar.i(this.f18261e.g());
+                    this.f18261e.b().dispatchMvcEvent(bVar);
                 }
             }
         }
@@ -84,10 +84,10 @@ public class c extends c.a.s0.l0.f.a<tinfo, c.a.s0.l0.d.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ tinfo f17989e;
+        public final /* synthetic */ tinfo f18262e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f17990f;
+        public final /* synthetic */ c f18263f;
 
         public b(c cVar, tinfo tinfoVar) {
             Interceptable interceptable = $ic;
@@ -104,18 +104,18 @@ public class c extends c.a.s0.l0.f.a<tinfo, c.a.s0.l0.d.b> {
                     return;
                 }
             }
-            this.f17990f = cVar;
-            this.f17989e = tinfoVar;
+            this.f18263f = cVar;
+            this.f18262e = tinfoVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                String str = this.f17989e.forum_name;
+                String str = this.f18262e.forum_name;
                 if (m.isForumName(str)) {
-                    TiebaStatic.eventStat(this.f17990f.getActivity(), "kantie_6", null, 1, new Object[0]);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17990f.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                    TiebaStatic.eventStat(this.f18263f.getActivity(), "kantie_6", null, 1, new Object[0]);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f18263f.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
                 }
             }
         }
@@ -228,7 +228,7 @@ public class c extends c.a.s0.l0.f.a<tinfo, c.a.s0.l0.d.b> {
         }
     }
 
-    @Override // c.a.t0.w3.u
+    @Override // c.a.t0.x3.u
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

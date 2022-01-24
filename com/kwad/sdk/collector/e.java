@@ -7,7 +7,7 @@ public abstract class e<T> {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f55490b = false;
+    public boolean f55535b = false;
 
     public e(boolean z) {
         this.a = z;
@@ -15,7 +15,7 @@ public abstract class e<T> {
 
     @Nullable
     public final T a(Context context) {
-        if (this.a && !this.f55490b) {
+        if (this.a && !this.f55535b) {
             try {
                 return b(context);
             } catch (Throwable th) {

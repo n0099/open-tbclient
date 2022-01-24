@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import c.a.s0.i0.b;
 import c.a.s0.i0.c;
-import c.a.t0.d1.j0;
+import c.a.t0.e1.j0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -111,8 +111,8 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
             cVar.a = new FrsGameStrategyMainFragment();
-            cVar.f12789e = 3;
-            cVar.f12793i = c.k;
+            cVar.f12933e = 3;
+            cVar.f12937i = c.k;
             return cVar;
         }
         return (c) invokeV.objValue;

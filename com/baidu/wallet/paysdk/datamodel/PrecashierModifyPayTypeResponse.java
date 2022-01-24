@@ -14,14 +14,14 @@ import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.dxmpay.apollon.beans.IBeanResponse;
 import com.dxmpay.wallet.base.datamodel.UserData;
 import java.io.Serializable;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class PrecashierModifyPayTypeResponse extends DirectPayContentResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -936968920336557051L;
     public transient /* synthetic */ FieldHolder $fh;
     public String mOriginHttpResponse;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static PrecashierModifyPayTypeResponse a;

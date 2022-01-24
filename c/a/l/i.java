@@ -35,7 +35,7 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f4167j;
+    public View f4308j;
     public TextView k;
     public c.a.s0.s.q.a l;
     public RoundCornerFrameLayout m;
@@ -50,10 +50,10 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f4168e;
+        public final /* synthetic */ ViewGroup.LayoutParams f4309e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f4169f;
+        public final /* synthetic */ i f4310f;
 
         public a(i iVar, ViewGroup.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
@@ -70,17 +70,17 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
                     return;
                 }
             }
-            this.f4169f = iVar;
-            this.f4168e = layoutParams;
+            this.f4310f = iVar;
+            this.f4309e = layoutParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4168e.width = this.f4169f.f4167j.getWidth();
-                this.f4168e.height = (this.f4169f.f4167j.getWidth() / 16) * 9;
-                this.f4169f.m.setLayoutParams(this.f4168e);
+                this.f4309e.width = this.f4310f.f4308j.getWidth();
+                this.f4309e.height = (this.f4310f.f4308j.getWidth() / 16) * 9;
+                this.f4310f.m.setLayoutParams(this.f4309e);
             }
         }
     }
@@ -110,15 +110,15 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
         }
 
         @Override // c.a.l.w0.a.b
-        public boolean a(a.C0195a c0195a) {
+        public boolean a(a.C0204a c0204a) {
             InterceptResult invokeL;
             RoundCornerFrameLayout roundCornerFrameLayout;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0195a)) == null) {
-                if (c0195a.b() != 7 || (roundCornerFrameLayout = this.a.m) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0204a)) == null) {
+                if (c0204a.b() != 7 || (roundCornerFrameLayout = this.a.m) == null) {
                     return false;
                 }
-                roundCornerFrameLayout.onRootPressed(((Boolean) c0195a.c()).booleanValue());
+                roundCornerFrameLayout.onRootPressed(((Boolean) c0204a.c()).booleanValue());
                 return false;
             }
             return invokeL.booleanValue;
@@ -175,17 +175,17 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f4167j == null) {
-                View inflate = LayoutInflater.from(this.f4145f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
-                this.f4167j = inflate;
+            if (this.f4308j == null) {
+                View inflate = LayoutInflater.from(this.f4286f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
+                this.f4308j = inflate;
                 this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
-                this.m = (RoundCornerFrameLayout) this.f4167j.findViewById(R.id.frame_video);
-                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f4145f);
+                this.m = (RoundCornerFrameLayout) this.f4308j.findViewById(R.id.frame_video);
+                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f4286f);
                 this.n = fakeVideoContainer;
                 fakeVideoContainer.setBackgroundResource(R.color.transparent);
                 this.m.addView(this.n);
             }
-            return this.f4167j;
+            return this.f4308j;
         }
         return (View) invokeV.objValue;
     }
@@ -231,7 +231,7 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
                 this.o = k;
             }
             this.l = aVar;
-            if (aVar == null || aVar.getThreadData() == null || this.l.getThreadData().t1() == null) {
+            if (aVar == null || aVar.getThreadData() == null || this.l.getThreadData().u1() == null) {
                 return;
             }
             this.n.setData(aVar.getThreadData());
@@ -239,11 +239,11 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
             int i3 = layoutParams.width;
             int i4 = layoutParams.height;
             boolean z2 = false;
-            if (this.l.getThreadData().t1().is_vertical.intValue() == 1) {
+            if (this.l.getThreadData().u1().is_vertical.intValue() == 1) {
                 int i5 = (u / 9) * 16;
                 int i6 = v;
-                int intValue = this.l.getThreadData().t1().video_width.intValue();
-                int intValue2 = this.l.getThreadData().t1().video_height.intValue();
+                int intValue = this.l.getThreadData().u1().video_width.intValue();
+                int intValue2 = this.l.getThreadData().u1().video_height.intValue();
                 int i7 = u;
                 layoutParams.width = i7;
                 boolean z3 = i3 != i7;
@@ -266,13 +266,13 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
                 z = (i4 == i10 && i3 == i9) ? false : true;
             }
             if (z) {
-                if (this.l.getThreadData().t1().is_vertical.intValue() == 1) {
+                if (this.l.getThreadData().u1().is_vertical.intValue() == 1) {
                     this.m.setLayoutParams(layoutParams);
                 } else {
                     this.m.post(new a(this, layoutParams));
                 }
             }
-            if (!this.l.getThreadData().R1() && this.l.getThreadData().getType() != e2.Y3) {
+            if (!this.l.getThreadData().S1() && this.l.getThreadData().getType() != e2.Z3) {
                 this.k.setMaxLines(2);
                 ThreadCardUtils.setTitle(this.k, this.l.getThreadData(), 0, this.p);
             } else {
@@ -298,7 +298,7 @@ public class i extends c.a.l.a<c.a.s0.s.q.a> {
         if (!(interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i2) == null) || (aVar = this.l) == null || aVar.getThreadData() == null) {
             return;
         }
-        c.a.t0.g0.m.l(this.k, this.l.getThreadData().g0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        c.a.t0.g0.m.l(this.k, this.l.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
         this.m.onChangeSkinType(i2);
         this.m.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }

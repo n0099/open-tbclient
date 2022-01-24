@@ -22,10 +22,10 @@ public class a extends BuoyComponent {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f3829i;
+    public boolean f3970i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.j.e.c.a f3830j;
+    public c.a.j.e.c.a f3971j;
     public String k;
     public volatile long l;
     public final b m;
@@ -33,13 +33,13 @@ public class a extends BuoyComponent {
 
     /* renamed from: c.a.j.e.a.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0162a extends a.C0163a {
+    public static final class C0171a extends a.C0172a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public C0162a(a aVar) {
+        public C0171a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,7 +57,7 @@ public class a extends BuoyComponent {
             this.a = aVar;
         }
 
-        @Override // c.a.j.e.c.a.C0163a, c.a.j.e.c.a
+        @Override // c.a.j.e.c.a.C0172a, c.a.j.e.c.a
         public void a(long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
@@ -71,7 +71,7 @@ public class a extends BuoyComponent {
             }
         }
 
-        @Override // c.a.j.e.c.a.C0163a, c.a.j.e.c.a
+        @Override // c.a.j.e.c.a.C0172a, c.a.j.e.c.a
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -83,7 +83,7 @@ public class a extends BuoyComponent {
             }
         }
 
-        @Override // c.a.j.e.c.a.C0163a, c.a.j.e.c.a
+        @Override // c.a.j.e.c.a.C0172a, c.a.j.e.c.a
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -95,7 +95,7 @@ public class a extends BuoyComponent {
             }
         }
 
-        @Override // c.a.j.e.c.a.C0163a, c.a.j.e.c.a
+        @Override // c.a.j.e.c.a.C0172a, c.a.j.e.c.a
         public void onPause() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -107,7 +107,7 @@ public class a extends BuoyComponent {
             }
         }
 
-        @Override // c.a.j.e.c.a.C0163a, c.a.j.e.c.a
+        @Override // c.a.j.e.c.a.C0172a, c.a.j.e.c.a
         public void onResume() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -119,7 +119,7 @@ public class a extends BuoyComponent {
             }
         }
 
-        @Override // c.a.j.e.c.a.C0163a, c.a.j.e.c.a
+        @Override // c.a.j.e.c.a.C0172a, c.a.j.e.c.a
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -153,9 +153,9 @@ public class a extends BuoyComponent {
         }
         this.m = bVar;
         this.n = taskInfo;
-        this.f3829i = true;
+        this.f3970i = true;
         this.k = "";
-        bVar.o(new C0162a(this));
+        bVar.o(new C0171a(this));
     }
 
     public static /* synthetic */ void M(a aVar, boolean z, int i2, Object obj) {
@@ -181,7 +181,7 @@ public class a extends BuoyComponent {
     public final c.a.j.e.c.a D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3830j : (c.a.j.e.c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3971j : (c.a.j.e.c.a) invokeV.objValue;
     }
 
     public final boolean E() {
@@ -204,7 +204,7 @@ public class a extends BuoyComponent {
     public void G(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f3829i = z;
+            this.f3970i = z;
             this.m.m();
         }
     }
@@ -224,7 +224,7 @@ public class a extends BuoyComponent {
                 return;
             }
             this.k = str;
-            this.f3829i = true;
+            this.f3970i = true;
             this.m.n();
         }
     }
@@ -245,7 +245,7 @@ public class a extends BuoyComponent {
                 return;
             }
             this.k = str;
-            this.f3829i = true;
+            this.f3970i = true;
             L(true);
             this.m.p();
         }
@@ -260,7 +260,7 @@ public class a extends BuoyComponent {
                         return;
                     }
                 }
-                if (this.f3829i) {
+                if (this.f3970i) {
                     long j2 = this.l;
                     this.l = 0L;
                     BDPTask.m.i(this.n.getActionId(), j2, this.k);
@@ -285,7 +285,7 @@ public class a extends BuoyComponent {
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f3829i = z;
+            this.f3970i = z;
             super.o(z);
             this.m.q();
         }

@@ -24,16 +24,16 @@ public final class a implements e, l {
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public m f28980b;
+    public m f29008b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f28981c;
+    public b f29009c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28982d;
+    public int f29010d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28983e;
+    public int f29011e;
 
     static {
         InterceptResult invokeClinit;
@@ -68,7 +68,7 @@ public final class a implements e, l {
     public void a(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f28983e = 0;
+            this.f29011e = 0;
         }
     }
 
@@ -86,7 +86,7 @@ public final class a implements e, l {
     public long c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f28981c.f(j2) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f29009c.f(j2) : invokeJ.longValue;
     }
 
     @Override // c.i.b.a.a0.e
@@ -101,31 +101,31 @@ public final class a implements e, l {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, fVar, kVar)) == null) {
-            if (this.f28981c == null) {
+            if (this.f29009c == null) {
                 b a = c.a(fVar);
-                this.f28981c = a;
+                this.f29009c = a;
                 if (a != null) {
-                    this.f28980b.b(Format.createAudioSampleFormat(null, "audio/raw", null, a.a(), 32768, this.f28981c.e(), this.f28981c.g(), this.f28981c.d(), null, null, 0, null));
-                    this.f28982d = this.f28981c.b();
+                    this.f29008b.b(Format.createAudioSampleFormat(null, "audio/raw", null, a.a(), 32768, this.f29009c.e(), this.f29009c.g(), this.f29009c.d(), null, null, 0, null));
+                    this.f29010d = this.f29009c.b();
                 } else {
                     throw new ParserException("Unsupported or unrecognized wav header.");
                 }
             }
-            if (!this.f28981c.i()) {
-                c.b(fVar, this.f28981c);
+            if (!this.f29009c.i()) {
+                c.b(fVar, this.f29009c);
                 this.a.p(this);
             }
-            int d2 = this.f28980b.d(fVar, 32768 - this.f28983e, true);
+            int d2 = this.f29008b.d(fVar, 32768 - this.f29011e, true);
             if (d2 != -1) {
-                this.f28983e += d2;
+                this.f29011e += d2;
             }
-            int i2 = this.f28983e / this.f28982d;
+            int i2 = this.f29011e / this.f29010d;
             if (i2 > 0) {
-                long h2 = this.f28981c.h(fVar.getPosition() - this.f28983e);
-                int i3 = i2 * this.f28982d;
-                int i4 = this.f28983e - i3;
-                this.f28983e = i4;
-                this.f28980b.c(h2, 1, i3, i4, null);
+                long h2 = this.f29009c.h(fVar.getPosition() - this.f29011e);
+                int i3 = i2 * this.f29010d;
+                int i4 = this.f29011e - i3;
+                this.f29011e = i4;
+                this.f29008b.c(h2, 1, i3, i4, null);
             }
             return d2 == -1 ? -1 : 0;
         }
@@ -137,8 +137,8 @@ public final class a implements e, l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
             this.a = gVar;
-            this.f28980b = gVar.a(0, 1);
-            this.f28981c = null;
+            this.f29008b = gVar.a(0, 1);
+            this.f29009c = null;
             gVar.j();
         }
     }
@@ -147,7 +147,7 @@ public final class a implements e, l {
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28981c.c() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29009c.c() : invokeV.longValue;
     }
 
     @Override // c.i.b.a.a0.e

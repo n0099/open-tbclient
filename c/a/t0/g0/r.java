@@ -28,22 +28,22 @@ public class r implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17858e;
+    public Context f17680e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f17859f;
+    public View f17681f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f17860g;
+    public View f17682g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f17861h;
+    public ImageView f17683h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f17862i;
+    public View f17684i;
 
     /* renamed from: j  reason: collision with root package name */
-    public EMTextView f17863j;
+    public EMTextView f17685j;
     public ImageView k;
     public int l;
     public String m;
@@ -64,7 +64,7 @@ public class r implements View.OnClickListener {
             }
         }
         this.l = 3;
-        this.f17858e = context;
+        this.f17680e = context;
         c(context);
     }
 
@@ -77,21 +77,21 @@ public class r implements View.OnClickListener {
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17859f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17681f : (View) invokeV.objValue;
     }
 
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.card_low_flows_view, (ViewGroup) null);
-            this.f17859f = inflate;
+            this.f17681f = inflate;
             View findViewById = inflate.findViewById(R.id.root_view);
-            this.f17860g = findViewById;
+            this.f17682g = findViewById;
             findViewById.setOnClickListener(this);
-            this.f17861h = (ImageView) this.f17859f.findViewById(R.id.img_tb_storehouse);
-            this.f17862i = this.f17859f.findViewById(R.id.view_point);
-            this.f17863j = (EMTextView) this.f17859f.findViewById(R.id.title_content);
-            ImageView imageView = (ImageView) this.f17859f.findViewById(R.id.close);
+            this.f17683h = (ImageView) this.f17681f.findViewById(R.id.img_tb_storehouse);
+            this.f17684i = this.f17681f.findViewById(R.id.view_point);
+            this.f17685j = (EMTextView) this.f17681f.findViewById(R.id.title_content);
+            ImageView imageView = (ImageView) this.f17681f.findViewById(R.id.close);
             this.k = imageView;
             imageView.setClickable(true);
             e(TbadkCoreApplication.getInst().getSkinType());
@@ -103,27 +103,27 @@ public class r implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || StringUtils.isNull(TbSingleton.getInstance().getBannerText())) {
             return;
         }
-        this.f17863j.setText(TbSingleton.getInstance().getBannerText());
+        this.f17685j.setText(TbSingleton.getInstance().getBannerText());
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             if (this.l != i2) {
-                c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f17860g);
+                c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f17682g);
                 d2.n(R.string.J_X06);
                 d2.f(R.color.CAM_X0201);
-                c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(this.f17862i);
+                c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(this.f17684i);
                 d3.n(R.string.J_X03);
                 d3.f(R.color.CAM_X0110);
-                c.a.s0.s.u.c.d(this.f17863j).v(R.color.CAM_X0108);
+                c.a.s0.s.u.c.d(this.f17685j).v(R.color.CAM_X0108);
                 this.k.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
                 if (i2 == 4) {
-                    WebPManager.setMaskDrawable(this.f17861h, R.drawable.pic_tiebatreasure_28_2, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.f17683h, R.drawable.pic_tiebatreasure_28_2, WebPManager.ResourceStateType.NORMAL);
                 } else if (i2 == 1) {
-                    WebPManager.setMaskDrawable(this.f17861h, R.drawable.pic_tiebatreasure_28_1, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.f17683h, R.drawable.pic_tiebatreasure_28_1, WebPManager.ResourceStateType.NORMAL);
                 } else {
-                    WebPManager.setMaskDrawable(this.f17861h, R.drawable.pic_tiebatreasure_28, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.f17683h, R.drawable.pic_tiebatreasure_28, WebPManager.ResourceStateType.NORMAL);
                 }
             }
             this.l = i2;
@@ -134,10 +134,10 @@ public class r implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if ("2".equals(str)) {
-                c.a.t0.o1.g.h.a.a("c14079", "0", str);
+                c.a.t0.p1.g.h.a.a("c14079", "0", str);
             }
             if ("1".equals(str)) {
-                c.a.t0.o1.g.h.a.a("c14079", StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId()) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), str);
+                c.a.t0.p1.g.h.a.a("c14079", StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId()) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), str);
             }
         }
     }
@@ -150,12 +150,12 @@ public class r implements View.OnClickListener {
             if ("from_personaize".equals(this.m)) {
                 hashMap.put(LowFlowsActivityConfig.LF_USER, TbSingleton.getInstance().getLFUser());
                 hashMap.put(LowFlowsActivityConfig.LF_USER_TASKID, TbSingleton.getInstance().getLFUserTaskId());
-                c.a.t0.o1.g.h.a.a("c14080", StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId()) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), "1");
+                c.a.t0.p1.g.h.a.a("c14080", StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId()) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), "1");
             } else {
                 hashMap.put(LowFlowsActivityConfig.LF_USER, "1");
-                c.a.t0.o1.g.h.a.a("c14080", "0", "2");
+                c.a.t0.p1.g.h.a.a("c14080", "0", "2");
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.t0.w3.j0.n(this.f17858e, "TreasureTrovePage", hashMap)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.t0.x3.j0.n(this.f17680e, "TreasureTrovePage", hashMap)));
         }
     }
 

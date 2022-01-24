@@ -22,15 +22,15 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6256c;
+    public static final boolean f6398c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final d f6257d;
+    public static final d f6399d;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<c.a.r0.a.g1.k.a> f6258b;
+    public final List<c.a.r0.a.g1.k.a> f6400b;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -51,8 +51,8 @@ public class d {
                 return;
             }
         }
-        f6256c = k.a;
-        f6257d = new d();
+        f6398c = k.a;
+        f6399d = new d();
     }
 
     public d() {
@@ -70,13 +70,13 @@ public class d {
         }
         this.a = new AtomicBoolean(false);
         c.a.k0.a.b.d<c.a.r0.a.g1.k.a> dVar = new c().a;
-        this.f6258b = dVar == null ? null : dVar.getList();
+        this.f6400b = dVar == null ? null : dVar.getList();
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6257d : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6399d : (d) invokeV.objValue;
     }
 
     public void b(Context context) {
@@ -98,12 +98,12 @@ public class d {
     public void d(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            if (f6256c) {
+            if (f6398c) {
                 String str = ProcessUtils.getCurProcessName() + " to foreground";
             }
-            if (this.f6258b != null) {
+            if (this.f6400b != null) {
                 LifecycleProcessType current = LifecycleProcessType.getCurrent();
-                for (c.a.r0.a.g1.k.a aVar : this.f6258b) {
+                for (c.a.r0.a.g1.k.a aVar : this.f6400b) {
                     if (current == aVar.b()) {
                         aVar.a(true, activity);
                     }
@@ -115,12 +115,12 @@ public class d {
     public void e(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (f6256c) {
+            if (f6398c) {
                 String str = ProcessUtils.getCurProcessName() + " to background";
             }
-            if (this.f6258b != null) {
+            if (this.f6400b != null) {
                 LifecycleProcessType current = LifecycleProcessType.getCurrent();
-                for (c.a.r0.a.g1.k.a aVar : this.f6258b) {
+                for (c.a.r0.a.g1.k.a aVar : this.f6400b) {
                     if (current == aVar.b()) {
                         aVar.a(false, activity);
                     }
@@ -135,10 +135,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6259e;
+        public int f6401e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f6260f;
+        public final /* synthetic */ d f6402f;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -155,18 +155,18 @@ public class d {
                     return;
                 }
             }
-            this.f6260f = dVar;
-            this.f6259e = 0;
+            this.f6402f = dVar;
+            this.f6401e = 0;
         }
 
         @Override // c.a.r0.a.g1.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-                int i2 = this.f6259e + 1;
-                this.f6259e = i2;
+                int i2 = this.f6401e + 1;
+                this.f6401e = i2;
                 if (i2 == 1) {
-                    this.f6260f.d(activity);
+                    this.f6402f.d(activity);
                 }
             }
         }
@@ -175,10 +175,10 @@ public class d {
         public void onActivityStopped(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                int i2 = this.f6259e - 1;
-                this.f6259e = i2;
+                int i2 = this.f6401e - 1;
+                this.f6401e = i2;
                 if (i2 == 0) {
-                    this.f6260f.e(activity);
+                    this.f6402f.e(activity);
                 }
             }
         }

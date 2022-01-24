@@ -27,15 +27,15 @@ public class b extends f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f7666d;
+    public static final String f7808d;
     public transient /* synthetic */ FieldHolder $fh;
     public final c.a.r0.a.z2.f1.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7667b;
+    public String f7809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7668c;
+    public boolean f7810c;
 
     /* loaded from: classes.dex */
     public class a extends c {
@@ -43,10 +43,10 @@ public class b extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Activity f7669g;
+        public final /* synthetic */ Activity f7811g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Bundle f7670h;
+        public final /* synthetic */ Bundle f7812h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, c.a.r0.a.m.a aVar, Activity activity, Bundle bundle) {
@@ -67,27 +67,27 @@ public class b extends f {
                     return;
                 }
             }
-            this.f7669g = activity;
-            this.f7670h = bundle;
+            this.f7811g = activity;
+            this.f7812h = bundle;
         }
 
         @Override // c.a.r0.a.m.b.c
         public void c(c.a.r0.a.m.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                c.a.r0.a.c1.a.h0().b(this.f7669g, this.f7670h, aVar);
+                c.a.r0.a.c1.a.h0().b(this.f7811g, this.f7812h, aVar);
             }
         }
     }
 
     /* renamed from: c.a.r0.a.m.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0455b extends ResponseCallback<JSONObject> {
+    public static class C0464b extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n.b a;
 
-        public C0455b(n.b bVar) {
+        public C0464b(n.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,12 +105,19 @@ public class b extends f {
             this.a = bVar;
         }
 
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.a.b(exc);
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i2) == null) {
                 if (jSONObject == null) {
                     d.c("SwanAppAccount", "Response is null");
                     this.a.a(false);
@@ -127,25 +134,16 @@ public class b extends f {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
         public JSONObject parseResponse(Response response, int i2) throws Exception {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i2)) == null) {
                 if (response == null || response.body() == null) {
                     return null;
                 }
                 return new JSONObject(g.b(response.body().byteStream()));
             }
             return (JSONObject) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                this.a.b(exc);
-            }
         }
     }
 
@@ -155,7 +153,7 @@ public class b extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final c.a.r0.a.m.a f7671f;
+        public final c.a.r0.a.m.a f7813f;
 
         public /* synthetic */ c(b bVar, c.a.r0.a.m.a aVar, a aVar2) {
             this(bVar, aVar);
@@ -167,7 +165,7 @@ public class b extends f {
         public void onResult(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                c.a.r0.a.m.a aVar = this.f7671f;
+                c.a.r0.a.m.a aVar = this.f7813f;
                 if (aVar != null) {
                     aVar.onResult(i2);
                 }
@@ -198,7 +196,7 @@ public class b extends f {
                     return;
                 }
             }
-            this.f7671f = aVar;
+            this.f7813f = aVar;
         }
     }
 
@@ -215,7 +213,7 @@ public class b extends f {
                 return;
             }
         }
-        f7666d = c.a.r0.a.d0.a.b() + "/ma/relate2user";
+        f7808d = c.a.r0.a.d0.a.b() + "/ma/relate2user";
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -237,13 +235,13 @@ public class b extends f {
             }
         }
         this.a = new c.a.r0.a.z2.f1.c();
-        this.f7668c = false;
+        this.f7810c = false;
     }
 
     public static void b(String str, n.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, bVar) == null) {
-            c.a.r0.p.e.a.g().getRequest().url(f7666d).cookieManager(c.a.r0.a.c1.a.q().a()).addUrlParam("app_key", str).addUrlParam("launchid", c.a.r0.a.u1.l.d.b()).build().executeAsyncOnUIBack(new C0455b(bVar));
+            c.a.r0.p.e.a.g().getRequest().url(f7808d).cookieManager(c.a.r0.a.c1.a.q().a()).addUrlParam("app_key", str).addUrlParam("launchid", c.a.r0.a.u1.l.d.b()).build().executeAsyncOnUIBack(new C0464b(bVar));
         }
     }
 
@@ -272,8 +270,8 @@ public class b extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f7668c) {
-                return TextUtils.isEmpty(this.f7667b) ? "" : this.f7667b;
+            if (this.f7810c) {
+                return TextUtils.isEmpty(this.f7809b) ? "" : this.f7809b;
             }
             return c(AppRuntime.getAppContext());
         }
@@ -303,8 +301,8 @@ public class b extends f {
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f7667b = str;
-            this.f7668c = true;
+            this.f7809b = str;
+            this.f7810c = true;
         }
     }
 }

@@ -24,7 +24,7 @@ public final class l extends k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ l f27041h;
+        public final /* synthetic */ l f27069h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(l lVar, Context context, c.b.b.l.a.b0.c cVar) {
@@ -45,14 +45,14 @@ public final class l extends k {
                     return;
                 }
             }
-            this.f27041h = lVar;
+            this.f27069h = lVar;
         }
 
         @Override // android.view.SurfaceView
         public SurfaceHolder getHolder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27041h.y() : (SurfaceHolder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27069h.y() : (SurfaceHolder) invokeV.objValue;
         }
     }
 
@@ -89,7 +89,7 @@ public final class l extends k {
                     aVar2.setEGLConfigChooser(l);
                 } else {
                     b bVar = this.w;
-                    aVar2.setEGLConfigChooser(bVar.a, bVar.f27012b, bVar.f27013c, bVar.f27014d, bVar.f27015e, bVar.f27016f);
+                    aVar2.setEGLConfigChooser(bVar.a, bVar.f27040b, bVar.f27041c, bVar.f27042d, bVar.f27043e, bVar.f27044f);
                 }
                 aVar2.setRenderer(this);
                 return aVar2;
@@ -141,28 +141,28 @@ public final class l extends k {
                 }
             }
             if (z4) {
-                this.f27037h.getApplicationListener().resume();
+                this.f27065h.getApplicationListener().resume();
                 c.b.b.f.a.log("AndroidGraphics", "resumed");
             }
             if (z) {
-                synchronized (this.f27037h.getRunnables()) {
-                    this.f27037h.getExecutedRunnables().clear();
-                    this.f27037h.getExecutedRunnables().b(this.f27037h.getRunnables());
-                    this.f27037h.getRunnables().clear();
-                    for (int i2 = 0; i2 < this.f27037h.getExecutedRunnables().f27361f; i2++) {
-                        this.f27037h.getExecutedRunnables().get(i2).run();
+                synchronized (this.f27065h.getRunnables()) {
+                    this.f27065h.getExecutedRunnables().clear();
+                    this.f27065h.getExecutedRunnables().b(this.f27065h.getRunnables());
+                    this.f27065h.getRunnables().clear();
+                    for (int i2 = 0; i2 < this.f27065h.getExecutedRunnables().f27389f; i2++) {
+                        this.f27065h.getExecutedRunnables().get(i2).run();
                     }
                 }
-                this.f27037h.getInput().m();
+                this.f27065h.getInput().m();
                 this.p++;
-                this.f27037h.getApplicationListener().render();
+                this.f27065h.getApplicationListener().render();
             }
             if (z2) {
-                this.f27037h.getApplicationListener().pause();
+                this.f27065h.getApplicationListener().pause();
                 c.b.b.f.a.log("AndroidGraphics", "paused");
             }
             if (z3) {
-                this.f27037h.getApplicationListener().dispose();
+                this.f27065h.getApplicationListener().dispose();
                 c.b.b.f.a.log("AndroidGraphics", "destroyed");
             }
             if (nanoTime - this.o > 1000000000) {
@@ -197,8 +197,8 @@ public final class l extends k {
         SurfaceHolder surfaceHolder;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (((n) this.f27037h).f27042e.sync) {
-                surfaceHolder = ((n) this.f27037h).f27042e.getSurfaceHolder();
+            synchronized (((n) this.f27065h).f27070e.sync) {
+                surfaceHolder = ((n) this.f27065h).f27070e.getSurfaceHolder();
             }
             return surfaceHolder;
         }
@@ -208,7 +208,7 @@ public final class l extends k {
     public void z() {
         GLSurfaceView20 gLSurfaceView20;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (gLSurfaceView20 = this.f27034e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (gLSurfaceView20 = this.f27062e) == null) {
             return;
         }
         try {

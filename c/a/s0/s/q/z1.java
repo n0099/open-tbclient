@@ -12,13 +12,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class z1 implements c.a.t0.t3.h.c {
+public class z1 implements c.a.t0.u3.h.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<a> f13549b;
+    public List<a> f13736b;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -27,19 +27,19 @@ public class z1 implements c.a.t0.t3.h.c {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f13550b;
+        public int f13737b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13551c;
+        public String f13738c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f13552d;
+        public String f13739d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f13553e;
+        public int f13740e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f13554f;
+        public boolean f13741f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class z1 implements c.a.t0.t3.h.c {
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13550b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13737b : invokeV.intValue;
         }
 
         public String b() {
@@ -70,25 +70,25 @@ public class z1 implements c.a.t0.t3.h.c {
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13552d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13739d : (String) invokeV.objValue;
         }
 
         public String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13551c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13738c : (String) invokeV.objValue;
         }
 
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13553e : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13740e : invokeV.intValue;
         }
 
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13554f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13741f : invokeV.booleanValue;
         }
 
         public void g(JSONObject jSONObject) {
@@ -97,16 +97,16 @@ public class z1 implements c.a.t0.t3.h.c {
                 return;
             }
             this.a = jSONObject.optString("icon_name");
-            this.f13550b = jSONObject.optInt("icon_level");
-            this.f13551c = jSONObject.optString("icon_small_pic");
-            this.f13552d = jSONObject.optString("icon_pic");
-            this.f13553e = jSONObject.optInt("light_up");
+            this.f13737b = jSONObject.optInt("icon_level");
+            this.f13738c = jSONObject.optString("icon_small_pic");
+            this.f13739d = jSONObject.optString("icon_pic");
+            this.f13740e = jSONObject.optInt("light_up");
         }
 
         public void h(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                this.f13550b = i2;
+                this.f13737b = i2;
             }
         }
 
@@ -120,28 +120,28 @@ public class z1 implements c.a.t0.t3.h.c {
         public void j(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-                this.f13552d = str;
+                this.f13739d = str;
             }
         }
 
         public void k(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-                this.f13551c = str;
+                this.f13738c = str;
             }
         }
 
         public void l(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-                this.f13553e = i2;
+                this.f13740e = i2;
             }
         }
 
         public void m(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-                this.f13554f = z;
+                this.f13741f = z;
             }
         }
     }
@@ -163,7 +163,7 @@ public class z1 implements c.a.t0.t3.h.c {
     public List<a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13549b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13736b : (List) invokeV.objValue;
     }
 
     public int b() {
@@ -180,12 +180,12 @@ public class z1 implements c.a.t0.t3.h.c {
         this.a = jSONObject.optInt("levelup");
         JSONArray optJSONArray = jSONObject.optJSONArray("icon_info");
         if (optJSONArray != null) {
-            this.f13549b = new ArrayList();
+            this.f13736b = new ArrayList();
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 if (optJSONArray.optJSONObject(i2) != null) {
                     a aVar = new a();
                     aVar.g(optJSONArray.optJSONObject(i2));
-                    this.f13549b.add(aVar);
+                    this.f13736b.add(aVar);
                 }
             }
         }
@@ -194,7 +194,7 @@ public class z1 implements c.a.t0.t3.h.c {
     public void d(List<a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f13549b = list;
+            this.f13736b = list;
         }
     }
 

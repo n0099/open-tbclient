@@ -17,11 +17,11 @@ public class a extends c.a.k0.b.b.a<c.a.c0.f.h.c> {
 
     /* renamed from: c.a.t0.y.a.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1547a implements c.a.c0.f.h.c {
+    public class C1527a implements c.a.c0.f.h.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1547a(a aVar) {
+        public C1527a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,6 +98,6 @@ public class a extends c.a.k0.b.b.a<c.a.c0.f.h.c> {
     public c.a.c0.f.h.c createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1547a(this) : (c.a.c0.f.h.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1527a(this) : (c.a.c0.f.h.c) invokeV.objValue;
     }
 }

@@ -24,19 +24,19 @@ public class MyLocationData {
         public double a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f35359b;
+        public double f35387b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f35360c;
+        public float f35388c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f35361d;
+        public float f35389d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f35362e;
+        public float f35390e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f35363f;
+        public int f35391f;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class MyLocationData {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-                this.f35362e = f2;
+                this.f35390e = f2;
                 return this;
             }
             return (Builder) invokeF.objValue;
@@ -65,14 +65,14 @@ public class MyLocationData {
         public MyLocationData build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new MyLocationData(this.a, this.f35359b, this.f35360c, this.f35361d, this.f35362e, this.f35363f) : (MyLocationData) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new MyLocationData(this.a, this.f35387b, this.f35388c, this.f35389d, this.f35390e, this.f35391f) : (MyLocationData) invokeV.objValue;
         }
 
         public Builder direction(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2)) == null) {
-                this.f35361d = f2;
+                this.f35389d = f2;
                 return this;
             }
             return (Builder) invokeF.objValue;
@@ -92,7 +92,7 @@ public class MyLocationData {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d2)})) == null) {
-                this.f35359b = d2;
+                this.f35387b = d2;
                 return this;
             }
             return (Builder) invokeCommon.objValue;
@@ -102,7 +102,7 @@ public class MyLocationData {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.f35363f = i2;
+                this.f35391f = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -112,7 +112,7 @@ public class MyLocationData {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f2)) == null) {
-                this.f35360c = f2;
+                this.f35388c = f2;
                 return this;
             }
             return (Builder) invokeF.objValue;

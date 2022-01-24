@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f15234b;
+    public static c f15400b;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(Context context);
 
@@ -50,14 +50,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f15234b == null) {
+            if (f15400b == null) {
                 synchronized (c.class) {
-                    if (f15234b == null) {
-                        f15234b = new c();
+                    if (f15400b == null) {
+                        f15400b = new c();
                     }
                 }
             }
-            return f15234b;
+            return f15400b;
         }
         return (c) invokeV.objValue;
     }
@@ -86,7 +86,7 @@ public class c {
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.a.s0.s.h0.b.k().l("pref_key_stat_sdk_enable", 1) != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.a.s0.s.i0.b.k().l("pref_key_stat_sdk_enable", 1) != 0 : invokeV.booleanValue;
     }
 
     public void e(Context context, String str, boolean z) {

@@ -10,31 +10,31 @@ public final class a {
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33637b = "com.baidu.fsg.base";
+    public static final String f33665b = "com.baidu.fsg.base";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f33638c = "release";
+    public static final String f33666c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f33639d = "";
+    public static final String f33667d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f33640e = 1;
+    public static final int f33668e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f33641f = "1.0";
+    public static final String f33669f = "1.0";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f33642g = "test";
+    public static final String f33670g = "test";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f33643h = "BgAAAA";
+    public static final String f33671h = "BgAAAA";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f33644i = false;
+    public static final boolean f33672i = false;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f33645j = false;
+    public static final boolean f33673j = false;
     public static final String k = "2.1.0.0";
     public transient /* synthetic */ FieldHolder $fh;
 

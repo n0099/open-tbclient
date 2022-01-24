@@ -22,7 +22,7 @@ public final class c {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<String> f53086b;
+    public static List<String> f53131b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public final class c {
                 return;
             }
         }
-        f53086b = new CopyOnWriteArrayList();
+        f53131b = new CopyOnWriteArrayList();
     }
 
     public static String a() {

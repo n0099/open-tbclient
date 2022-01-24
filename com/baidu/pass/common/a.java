@@ -20,28 +20,28 @@ public class a {
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C1838a {
+    public static class C1839a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String a = "UTF-8";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f37634b = "AES/CBC/NoPadding";
+        public static final String f37662b = "AES/CBC/NoPadding";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f37635c = "AES";
+        public static final String f37663c = "AES";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f37636d;
+        public String f37664d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f37637e;
+        public String f37665e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f37638f;
+        public String f37666f;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public C1838a() {
+        public C1839a() {
             this("AES", "AES/CBC/NoPadding", "UTF-8");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -65,9 +65,9 @@ public class a {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
                 if (str != null && str.length() != 0) {
                     try {
-                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f37636d));
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f37638f);
-                        Cipher cipher = Cipher.getInstance(this.f37637e);
+                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f37664d));
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f37666f);
+                        Cipher cipher = Cipher.getInstance(this.f37665e);
                         cipher.init(1, secretKeySpec, ivParameterSpec);
                         return cipher.doFinal(a(str).getBytes());
                     } catch (NoSuchAlgorithmException e2) {
@@ -83,7 +83,7 @@ public class a {
             return (byte[]) invokeLLL.objValue;
         }
 
-        public C1838a(String str, String str2, String str3) {
+        public C1839a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,12 +98,12 @@ public class a {
                     return;
                 }
             }
-            this.f37636d = "UTF-8";
-            this.f37637e = "AES/CBC/NoPadding";
-            this.f37638f = "AES";
-            this.f37638f = str;
-            this.f37637e = str2;
-            this.f37636d = str3;
+            this.f37664d = "UTF-8";
+            this.f37665e = "AES/CBC/NoPadding";
+            this.f37666f = "AES";
+            this.f37666f = str;
+            this.f37665e = str2;
+            this.f37664d = str3;
         }
 
         public byte[] a(byte[] bArr, String str, String str2) throws Exception {
@@ -113,9 +113,9 @@ public class a {
                 if (bArr != null && bArr.length != 0) {
                     byte[] bArr2 = new byte[0];
                     try {
-                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f37636d));
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f37638f);
-                        Cipher cipher = Cipher.getInstance(this.f37637e);
+                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f37664d));
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f37666f);
+                        Cipher cipher = Cipher.getInstance(this.f37665e);
                         cipher.init(2, secretKeySpec, ivParameterSpec);
                         return cipher.doFinal(bArr);
                     } catch (Throwable th) {

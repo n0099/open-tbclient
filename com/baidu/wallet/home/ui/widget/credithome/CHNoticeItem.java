@@ -23,10 +23,10 @@ public class CHNoticeItem extends BaseItemView {
     public MaskTextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f51208b;
+    public MaskTextView f51253b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f51209c;
+    public NetImageView f51254c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHNoticeItem(Context context, AttributeSet attributeSet) {
@@ -54,8 +54,8 @@ public class CHNoticeItem extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_card_notice_item"), this);
             this.a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_content"));
-            this.f51208b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_class"));
-            this.f51209c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_img"));
+            this.f51253b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_class"));
+            this.f51254c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_notice_img"));
         }
     }
 
@@ -63,15 +63,15 @@ public class CHNoticeItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             if (!TextUtils.isEmpty(getData().label)) {
-                this.f51208b.setMaskText(getData().label);
+                this.f51253b.setMaskText(getData().label);
             } else {
-                this.f51208b.setVisibility(8);
+                this.f51253b.setVisibility(8);
             }
             this.a.setMaskText(getData().name);
             if (!TextUtils.isEmpty(getData().type) && !TextUtils.isEmpty(getData().link_addr)) {
-                this.f51209c.setVisibility(0);
+                this.f51254c.setVisibility(0);
             } else {
-                this.f51209c.setVisibility(8);
+                this.f51254c.setVisibility(8);
             }
         }
     }

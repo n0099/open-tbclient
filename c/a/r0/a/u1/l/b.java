@@ -14,22 +14,22 @@ public class b {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f9401b;
+    public static boolean f9543b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f9402c;
+    public static final int f9544c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f9403d;
+    public static int f9545d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f9404e;
+    public static int f9546e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f9405f;
+    public static final boolean f9547f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f9406g;
+    public static boolean f9548g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,28 +46,28 @@ public class b {
             }
         }
         a = k.a;
-        f9403d = -1;
-        f9404e = -1;
-        f9401b = f("swan_get_swan_id_cache");
+        f9545d = -1;
+        f9546e = -1;
+        f9543b = f("swan_get_swan_id_cache");
         c.a.r0.a.c1.a.g0().getSwitch("swan_pms_use_outback_switch", 0);
         c.a.r0.a.c1.a.g0().getSwitch("swan_preload_game_strategy", 0);
-        f9402c = 0;
-        f9405f = f("swan_670_append_request_info");
+        f9544c = 0;
+        f9547f = f("swan_670_append_request_info");
         c.a.r0.a.c1.a.g0().getSwitch("swan_description_online_control", 0);
         o.a = 0;
         c.a.r0.a.c1.a.g0().getSwitch("swan_bdtls_use_cache", false);
-        f9406g = false;
+        f9548g = false;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f9404e == -1) {
+            if (f9546e == -1) {
                 c.a.r0.a.c1.a.g0().getSwitch("swan_use_extra_connect_pool", 0);
-                f9404e = 0;
+                f9546e = 0;
             }
-            return f9404e;
+            return f9546e;
         }
         return invokeV.intValue;
     }
@@ -76,11 +76,11 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f9403d == -1) {
+            if (f9545d == -1) {
                 c.a.r0.a.c1.a.g0().getSwitch("swan_upgrade_js_thread_priority", 0);
-                f9403d = 0;
+                f9545d = 0;
             }
-            return f9403d;
+            return f9545d;
         }
         return invokeV.intValue;
     }
@@ -88,19 +88,19 @@ public class b {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f9406g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f9548g : invokeV.booleanValue;
     }
 
     public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f9402c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f9544c : invokeV.intValue;
     }
 
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f9401b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f9543b : invokeV.booleanValue;
     }
 
     public static boolean f(String str) {

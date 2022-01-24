@@ -15,10 +15,10 @@ public class f {
     public static final String a = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f30582b;
+    public static byte[] f30610b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Charset f30583c;
+    public static final Charset f30611c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public class f {
                 return;
             }
         }
-        f30582b = new byte[]{68, 64, 94, 49, 69, Base64.INTERNAL_PADDING, 50, 83};
-        f30583c = Charset.forName("UTF-8");
+        f30610b = new byte[]{68, 64, 94, 49, 69, Base64.INTERNAL_PADDING, 50, 83};
+        f30611c = Charset.forName("UTF-8");
     }
 
     public f() {
@@ -61,7 +61,7 @@ public class f {
                 byte[] bArr2 = new byte[length];
                 for (int i2 = 0; i2 < length; i2++) {
                     bArr2[i2] = bArr[i2];
-                    for (byte b2 : f30582b) {
+                    for (byte b2 : f30610b) {
                         bArr2[i2] = (byte) (b2 ^ bArr2[i2]);
                     }
                 }

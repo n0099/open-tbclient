@@ -3,9 +3,9 @@ package c.a.t0.a0.k.a;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.s0.s.q.e2;
-import c.a.t0.d1.k;
+import c.a.t0.e1.k;
 import c.a.t0.g0.b0;
-import c.a.t0.w3.g;
+import c.a.t0.x3.g;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -47,7 +47,7 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements b0 {
         this.x = "";
     }
 
-    @Override // c.a.t0.d1.k, c.a.d.n.e.a
+    @Override // c.a.t0.e1.k, c.a.d.n.e.a
     public /* bridge */ /* synthetic */ View S(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         n0(i2, view, viewGroup, (g) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
         return view;
@@ -88,9 +88,9 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements b0 {
             if (gVar != null) {
                 FrsViewData frsViewData = this.n;
                 int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-                List<e2> list = gVar.f24801e;
+                List<e2> list = gVar.f25060e;
                 if (list != null && list.get(0) != null) {
-                    gVar.f24801e.get(0).T1 = (i2 + 1) - topThreadSize;
+                    gVar.f25060e.get(0).T1 = (i2 + 1) - topThreadSize;
                 }
                 frsPageAlaInsertRecLiveHolder.mView.a(this.x);
                 frsPageAlaInsertRecLiveHolder.mView.k(gVar);

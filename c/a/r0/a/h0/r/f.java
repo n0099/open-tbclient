@@ -19,12 +19,12 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6860c;
+    public static final boolean f7002c;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.a.h0.r.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, c> f6861b;
+    public HashMap<String, c> f7003b;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -68,7 +68,7 @@ public class f {
                 return;
             }
         }
-        f6860c = k.a;
+        f7002c = k.a;
     }
 
     public /* synthetic */ f(a aVar) {
@@ -91,7 +91,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (f6860c && d()) {
+            if (f7002c && d()) {
                 return new e();
             }
             return new c.a.r0.a.h0.r.a();
@@ -104,7 +104,7 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, c> hashMap = this.f6861b;
+            HashMap<String, c> hashMap = this.f7003b;
             if (hashMap != null) {
                 return hashMap.get(str);
             }
@@ -136,8 +136,8 @@ public class f {
         long currentTimeMillis = System.currentTimeMillis();
         c.a.r0.a.h0.r.b a2 = a();
         this.a = a2;
-        this.f6861b = a2.h();
-        if (f6860c) {
+        this.f7003b = a2.h();
+        if (f7002c) {
             String str = "构造PresetMap耗时：" + (System.currentTimeMillis() - currentTimeMillis);
         }
     }

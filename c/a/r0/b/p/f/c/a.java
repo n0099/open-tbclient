@@ -116,10 +116,10 @@ public class a {
                 break;
         }
         int i2 = c2 != 0 ? c2 != 1 ? c2 != 2 ? c2 != 3 ? -1 : 3 : 2 : 1 : 0;
-        a.c cVar = aVar.f10202c;
+        a.c cVar = aVar.f10344c;
         cVar.a = i2;
-        cVar.f10214b = bVar.f10216b;
-        cVar.f10215c = bVar.f10217c;
+        cVar.f10356b = bVar.f10358b;
+        cVar.f10357c = bVar.f10359c;
     }
 
     public static int c() {

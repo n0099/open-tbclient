@@ -35,19 +35,19 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6898b;
+    public static final boolean f7040b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.h0.t.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0408a implements Runnable {
+    public static class RunnableC0417a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.p.e.b f6899e;
+        public final /* synthetic */ c.a.r0.a.p.e.b f7041e;
 
-        public RunnableC0408a(c.a.r0.a.p.e.b bVar) {
+        public RunnableC0417a(c.a.r0.a.p.e.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,14 +62,14 @@ public class a {
                     return;
                 }
             }
-            this.f6899e = bVar;
+            this.f7041e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.i(this.f6899e);
+                a.i(this.f7041e);
             }
         }
     }
@@ -89,8 +89,8 @@ public class a {
         }
         a = k.a;
         c.a.r0.a.c1.a.g0().getSwitch("swan_next_page_res_load", 0);
-        f6898b = false;
-        d.k("SwanAppSlaveTopPages", "swan_top_page_res_load - " + f6898b);
+        f7040b = false;
+        d.k("SwanAppSlaveTopPages", "swan_top_page_res_load - " + f7040b);
         l();
     }
 
@@ -98,10 +98,10 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bVar, bVar2)) == null) {
-            g f2 = f.U().f(bVar2.f7675h);
+            g f2 = f.U().f(bVar2.f7817h);
             if (a) {
-                String str = "page path - " + bVar2.f7672e;
-                String str2 = "page route path - " + bVar2.f7675h;
+                String str = "page path - " + bVar2.f7814e;
+                String str2 = "page route path - " + bVar2.f7817h;
             }
             return q0.S(bVar, f2.r);
         }
@@ -186,7 +186,7 @@ public class a {
     public static void i(c.a.r0.a.p.e.b<?> bVar) {
         PMSAppInfo f0;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, bVar) == null) && f6898b && bVar != null) {
+        if ((interceptable == null || interceptable.invokeL(65545, null, bVar) == null) && f7040b && bVar != null) {
             long currentTimeMillis = a ? System.currentTimeMillis() : 0L;
             e a0 = e.a0();
             if (a0 == null || (f0 = a0.V().f0()) == null) {
@@ -209,9 +209,9 @@ public class a {
 
     public static void j(c.a.r0.a.p.e.b<?> bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, null, bVar) == null) && f6898b && bVar != null) {
+        if ((interceptable == null || interceptable.invokeL(65546, null, bVar) == null) && f7040b && bVar != null) {
             long currentTimeMillis = a ? System.currentTimeMillis() : 0L;
-            ExecutorUtilsExt.postOnElastic(new RunnableC0408a(bVar), "SwanAppSlaveTopPages", 2);
+            ExecutorUtilsExt.postOnElastic(new RunnableC0417a(bVar), "SwanAppSlaveTopPages", 2);
             if (a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str = "sendTopPageMsg async cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";

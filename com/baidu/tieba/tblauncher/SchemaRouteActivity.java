@@ -12,8 +12,8 @@ import c.a.d.a.b;
 import c.a.s0.a.d;
 import c.a.s0.a.g;
 import c.a.s0.a.w;
-import c.a.s0.e1.i;
-import c.a.t0.w3.j0.n;
+import c.a.s0.d1.i;
+import c.a.t0.x3.j0.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -64,14 +64,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SchemaRouteActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public static String targetSchemeAction;
     public transient /* synthetic */ FieldHolder $fh;
     public final g.b mOnSchemeParsedCallback;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements g.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public class SchemaRouteActivity extends BaseActivity {
         if (!(interceptable == null || interceptable.invokeL(65537, this, intent) == null) || intent == null) {
             return;
         }
-        c.a.s0.s.y.a.n(intent.getDataString(), false);
+        c.a.s0.s.z.a.n(intent.getDataString(), false);
         clearClipBoardIfNeed(intent.getData());
         parserWiseSampleId(intent.getData());
         String dataString = intent.getDataString();
@@ -183,7 +183,7 @@ public class SchemaRouteActivity extends BaseActivity {
         } else if (!TextUtils.isEmpty(dataString) && dataString.contains("tbwebview")) {
             Uri data = intent.getData();
             if (g.c(data)) {
-                g.b().j(dataString, data, this.mOnSchemeParsedCallback);
+                g.b().k(dataString, data, this.mOnSchemeParsedCallback);
             } else {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(getActivity());
                 tbWebViewActivityConfig.setUri(intent.getData());
@@ -217,7 +217,7 @@ public class SchemaRouteActivity extends BaseActivity {
             d.y().N(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f12120b + g.k)) {
+                if (dataString.contains(g.f12262b + g.k)) {
                     Uri parse = Uri.parse(dataString);
                     String queryParameter3 = parse.getQueryParameter(g.K);
                     String queryParameter4 = parse.getQueryParameter(g.L);
@@ -227,7 +227,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 }
             }
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f12120b + g.l)) {
+                if (dataString.contains(g.f12262b + g.l)) {
                     String queryParameter5 = Uri.parse(dataString).getQueryParameter(g.M);
                     if (queryParameter5 != null) {
                         UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{new String(Base64.decode(queryParameter5.getBytes(), 2))});
@@ -252,7 +252,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015002, mainTabActivityConfig));
             } else {
                 if (!TextUtils.isEmpty(dataString)) {
-                    if (dataString.contains(g.f12120b + g.q)) {
+                    if (dataString.contains(g.f12262b + g.q)) {
                         Anniversary18thActivityConfig.open(this);
                         return;
                     }

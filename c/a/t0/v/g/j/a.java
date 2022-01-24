@@ -14,10 +14,10 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f24502b;
+    public c f24207b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24503c;
+    public String f24208c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,8 +42,8 @@ public class a {
             }
             a aVar = new a();
             aVar.a = jSONObject.optInt("download_state");
-            aVar.f24502b = c.b(jSONObject.optJSONObject("app_info"));
-            aVar.f24503c = jSONObject.optString("download_hint");
+            aVar.f24207b = c.b(jSONObject.optJSONObject("app_info"));
+            aVar.f24208c = jSONObject.optString("download_hint");
             return aVar;
         }
         return (a) invokeL.objValue;

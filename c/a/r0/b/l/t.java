@@ -35,7 +35,7 @@ public class t extends c.a.r0.a.h2.c.j.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ t f10087g;
+        public final /* synthetic */ t f10229g;
 
         /* loaded from: classes6.dex */
         public class a implements c.a.r0.a.z2.g1.c<Bundle> {
@@ -43,7 +43,7 @@ public class t extends c.a.r0.a.h2.c.j.g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f10088e;
+            public final /* synthetic */ b f10230e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class t extends c.a.r0.a.h2.c.j.g {
                         return;
                     }
                 }
-                this.f10088e = bVar;
+                this.f10230e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -70,16 +70,16 @@ public class t extends c.a.r0.a.h2.c.j.g {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
                     if (bundle == null) {
-                        this.f10088e.e(new OAuthException("null stoken", 10001));
+                        this.f10230e.e(new OAuthException("null stoken", 10001));
                         return;
                     }
                     String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
                     if (!TextUtils.isEmpty(string)) {
-                        this.f10088e.f10087g.t = string;
-                        this.f10088e.d();
+                        this.f10230e.f10229g.t = string;
+                        this.f10230e.d();
                         return;
                     }
-                    this.f10088e.e(new OAuthException("empty stoken", 10001));
+                    this.f10230e.e(new OAuthException("empty stoken", 10001));
                 }
             }
         }
@@ -99,7 +99,7 @@ public class t extends c.a.r0.a.h2.c.j.g {
                     return;
                 }
             }
-            this.f10087g = tVar;
+            this.f10229g = tVar;
         }
 
         @Override // c.a.r0.a.h2.c.e
@@ -107,12 +107,12 @@ public class t extends c.a.r0.a.h2.c.j.g {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!this.f10087g.s) {
-                    this.f10087g.t = null;
+                if (!this.f10229g.s) {
+                    this.f10229g.t = null;
                     boolean unused = t.u;
                     return true;
                 }
-                c.a.r0.b.l.a.t(this.f10087g.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                c.a.r0.b.l.a.t(this.f10229g.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
                 return false;
             }
             return invokeV.booleanValue;

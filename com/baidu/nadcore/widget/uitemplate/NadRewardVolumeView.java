@@ -19,10 +19,10 @@ public class NadRewardVolumeView extends AdImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f37383h;
+    public boolean f37411h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f37384i;
+    public b f37412i;
 
     /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
@@ -30,7 +30,7 @@ public class NadRewardVolumeView extends AdImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NadRewardVolumeView f37385e;
+        public final /* synthetic */ NadRewardVolumeView f37413e;
 
         public a(NadRewardVolumeView nadRewardVolumeView) {
             Interceptable interceptable = $ic;
@@ -47,17 +47,17 @@ public class NadRewardVolumeView extends AdImageView {
                     return;
                 }
             }
-            this.f37385e = nadRewardVolumeView;
+            this.f37413e = nadRewardVolumeView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                NadRewardVolumeView nadRewardVolumeView = this.f37385e;
-                nadRewardVolumeView.setVolumeState(!nadRewardVolumeView.f37383h);
-                if (this.f37385e.f37384i != null) {
-                    this.f37385e.f37384i.a(this.f37385e.f37383h);
+                NadRewardVolumeView nadRewardVolumeView = this.f37413e;
+                nadRewardVolumeView.setVolumeState(!nadRewardVolumeView.f37411h);
+                if (this.f37413e.f37412i != null) {
+                    this.f37413e.f37412i.a(this.f37413e.f37411h);
                 }
             }
         }
@@ -92,7 +92,7 @@ public class NadRewardVolumeView extends AdImageView {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setVolumeState(this.f37383h);
+            setVolumeState(this.f37411h);
             setScaleType(ImageView.ScaleType.CENTER_CROP);
             setOnClickListener(new a(this));
         }
@@ -101,14 +101,14 @@ public class NadRewardVolumeView extends AdImageView {
     public void setVolumeListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f37384i = bVar;
+            this.f37412i = bVar;
         }
     }
 
     public void setVolumeState(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f37383h = z;
+            this.f37411h = z;
             setImageDrawable(getContext().getResources().getDrawable(z ? d.nad_player_mute_open : d.nad_player_mute_close));
             invalidate();
         }
@@ -154,7 +154,7 @@ public class NadRewardVolumeView extends AdImageView {
                 return;
             }
         }
-        this.f37383h = false;
+        this.f37411h = false;
         h();
     }
 }

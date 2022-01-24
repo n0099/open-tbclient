@@ -14,7 +14,7 @@ public interface a {
 
     /* renamed from: c.a.r0.a.p.d.t1.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0497a {
+    public interface InterfaceC0506a {
     }
 
     /* loaded from: classes.dex */
@@ -47,14 +47,14 @@ public interface a {
         }
 
         @Override // c.a.r0.a.p.d.t1.a
-        public void k(Context context, c.a.r0.a.p.d.t1.b bVar, InterfaceC0497a interfaceC0497a) {
+        public void k(Context context, c.a.r0.a.p.d.t1.b bVar, InterfaceC0506a interfaceC0506a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar, interfaceC0497a) == null) {
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar, interfaceC0506a) == null) {
             }
         }
     }
 
     boolean h();
 
-    void k(@NonNull Context context, @NonNull c.a.r0.a.p.d.t1.b bVar, @NonNull InterfaceC0497a interfaceC0497a);
+    void k(@NonNull Context context, @NonNull c.a.r0.a.p.d.t1.b bVar, @NonNull InterfaceC0506a interfaceC0506a);
 }

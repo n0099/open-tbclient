@@ -23,29 +23,29 @@ public final class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final f<a> f5567e;
+        public static final f<a> f5709e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final e<a> f5568f;
+        public static final e<a> f5710f;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f5569b;
+        public int f5711b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f5570c;
+        public int f5712c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f5571d;
+        public int f5713d;
 
         /* renamed from: c.a.r0.a.d2.n.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class C0295a extends f<a> {
+        public static class C0304a extends f<a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0295a() {
+            public C0304a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,9 +66,9 @@ public final class c {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, dVar) == null) {
                     dVar.writeInt(aVar.a);
-                    dVar.writeInt(aVar.f5569b);
-                    dVar.writeInt(aVar.f5570c);
-                    dVar.writeInt(aVar.f5571d);
+                    dVar.writeInt(aVar.f5711b);
+                    dVar.writeInt(aVar.f5712c);
+                    dVar.writeInt(aVar.f5713d);
                 }
             }
         }
@@ -101,9 +101,9 @@ public final class c {
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
                     a aVar = new a();
                     aVar.a = cVar.readInt();
-                    aVar.f5569b = cVar.readInt();
-                    aVar.f5570c = cVar.readInt();
-                    aVar.f5571d = cVar.readInt();
+                    aVar.f5711b = cVar.readInt();
+                    aVar.f5712c = cVar.readInt();
+                    aVar.f5713d = cVar.readInt();
                     return aVar;
                 }
                 return (a) invokeL.objValue;
@@ -123,8 +123,8 @@ public final class c {
                     return;
                 }
             }
-            f5567e = new C0295a();
-            f5568f = new b();
+            f5709e = new C0304a();
+            f5710f = new b();
         }
 
         public a() {
@@ -158,9 +158,9 @@ public final class c {
                 } else {
                     aVar.a = 10000;
                 }
-                aVar.f5569b = optJSONObject.optInt("connectSocket", 60000);
-                aVar.f5570c = optJSONObject.optInt("uploadFile");
-                aVar.f5571d = optJSONObject.optInt("downloadFile");
+                aVar.f5711b = optJSONObject.optInt("connectSocket", 60000);
+                aVar.f5712c = optJSONObject.optInt("uploadFile");
+                aVar.f5713d = optJSONObject.optInt("downloadFile");
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -173,7 +173,7 @@ public final class c {
                 boolean z = c.a;
                 a aVar = new a();
                 aVar.a = 10000;
-                aVar.f5569b = 60000;
+                aVar.f5711b = 60000;
                 return aVar;
             }
             return (a) invokeV.objValue;

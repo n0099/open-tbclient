@@ -9,7 +9,6 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiOptions;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -255,8 +254,8 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
                 Object obj = array[i2];
                 KeyFrame keyFrame = new KeyFrame(this);
                 Map map = (Map) obj;
-                if (map.containsKey(SapiOptions.KEY_CACHE_PERCENT)) {
-                    keyFrame.percent = ((Number) map.get(SapiOptions.KEY_CACHE_PERCENT)).floatValue();
+                if (map.containsKey("percent")) {
+                    keyFrame.percent = ((Number) map.get("percent")).floatValue();
                 }
                 if (map.containsKey("value")) {
                     keyFrame.value = map.get("value");

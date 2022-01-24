@@ -8,6 +8,7 @@ import c.a.r0.a.h0.t.a;
 import c.a.r0.a.z2.q0;
 import c.a.r0.a.z2.w;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -34,31 +35,31 @@ public class h extends z {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.g1.f f6112b;
+        public final /* synthetic */ c.a.r0.a.g1.f f6254b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.m1.b f6113c;
+        public final /* synthetic */ c.a.r0.a.m1.b f6255c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6114d;
+        public final /* synthetic */ UnitedSchemeEntity f6256d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6115e;
+        public final /* synthetic */ CallbackHandler f6257e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f6116f;
+        public final /* synthetic */ c.a.r0.a.d2.e f6258f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f6117g;
+        public final /* synthetic */ String f6259g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.g.g f6118h;
+        public final /* synthetic */ c.a.r0.a.h0.g.g f6260h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Context f6119i;
+        public final /* synthetic */ Context f6261i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ h f6120j;
+        public final /* synthetic */ h f6262j;
 
         public a(h hVar, String str, c.a.r0.a.g1.f fVar, c.a.r0.a.m1.b bVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, c.a.r0.a.d2.e eVar, String str2, c.a.r0.a.h0.g.g gVar, Context context) {
             Interceptable interceptable = $ic;
@@ -75,16 +76,16 @@ public class h extends z {
                     return;
                 }
             }
-            this.f6120j = hVar;
+            this.f6262j = hVar;
             this.a = str;
-            this.f6112b = fVar;
-            this.f6113c = bVar;
-            this.f6114d = unitedSchemeEntity;
-            this.f6115e = callbackHandler;
-            this.f6116f = eVar;
-            this.f6117g = str2;
-            this.f6118h = gVar;
-            this.f6119i = context;
+            this.f6254b = fVar;
+            this.f6255c = bVar;
+            this.f6256d = unitedSchemeEntity;
+            this.f6257e = callbackHandler;
+            this.f6258f = eVar;
+            this.f6259g = str2;
+            this.f6260h = gVar;
+            this.f6261i = context;
         }
 
         @Override // c.a.r0.a.f2.f.o0.g.e
@@ -93,10 +94,10 @@ public class h extends z {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 c.a.r0.a.u1.i.d(this.a);
                 c.a.r0.a.e0.d.i("relaunch", "check pages success");
-                this.f6112b.o();
-                a.e f2 = c.a.r0.a.h0.t.a.f(this.f6112b.getActivity(), c.a.r0.a.h0.t.f.a.c(this.f6113c.f7672e));
-                c.a.r0.a.f2.f.o0.a.l(this.f6114d, this.f6115e, this.f6116f, f2.a.c(), this.f6113c.f7672e, null, this.f6117g);
-                this.f6120j.p(f2, this.f6113c, this.f6118h, this.a);
+                this.f6254b.o();
+                a.e f2 = c.a.r0.a.h0.t.a.f(this.f6254b.getActivity(), c.a.r0.a.h0.t.f.a.c(this.f6255c.f7814e));
+                c.a.r0.a.f2.f.o0.a.l(this.f6256d, this.f6257e, this.f6258f, f2.a.c(), this.f6255c.f7814e, null, this.f6259g);
+                this.f6262j.p(f2, this.f6255c, this.f6260h, this.a);
             }
         }
 
@@ -105,13 +106,13 @@ public class h extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, aVar) == null) {
                 c.a.r0.a.e0.d.c("relaunch", "check pages failed");
-                this.f6112b.o();
-                if (z.f6201b) {
-                    Context context = this.f6119i;
-                    c.a.r0.a.c2.b.f.e.g(context, this.f6119i.getString(c.a.r0.a.h.aiapps_open_pages_failed) + i2).G();
+                this.f6254b.o();
+                if (z.f6343b) {
+                    Context context = this.f6261i;
+                    c.a.r0.a.c2.b.f.e.g(context, this.f6261i.getString(c.a.r0.a.h.aiapps_open_pages_failed) + i2).G();
                 }
-                c.a.r0.a.f2.f.o0.a.j(this.f6114d, this.f6115e, this.f6117g);
-                c.a.r0.a.n2.i.j(this.f6113c, aVar);
+                c.a.r0.a.f2.f.o0.a.j(this.f6256d, this.f6257e, this.f6259g);
+                c.a.r0.a.n2.i.j(this.f6255c, aVar);
             }
         }
     }
@@ -123,13 +124,13 @@ public class h extends z {
         public final /* synthetic */ a.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f6121b;
+        public final /* synthetic */ String f6263b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.m1.b f6122c;
+        public final /* synthetic */ c.a.r0.a.m1.b f6264c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.g.g f6123d;
+        public final /* synthetic */ c.a.r0.a.h0.g.g f6265d;
 
         public b(h hVar, a.e eVar, String str, c.a.r0.a.m1.b bVar, c.a.r0.a.h0.g.g gVar) {
             Interceptable interceptable = $ic;
@@ -147,20 +148,20 @@ public class h extends z {
                 }
             }
             this.a = eVar;
-            this.f6121b = str;
-            this.f6122c = bVar;
-            this.f6123d = gVar;
+            this.f6263b = str;
+            this.f6264c = bVar;
+            this.f6265d = gVar;
         }
 
         @Override // c.a.r0.a.h0.t.a.f
         public void onReady() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = z.f6201b;
-                c.a.r0.a.u1.i.e(this.a, this.f6121b);
-                c.a.r0.a.f2.f.o0.a.e(this.a.a, this.f6122c, this.f6121b);
-                h.o(this.f6123d, this.f6122c, this.f6121b);
-                boolean unused2 = z.f6201b;
+                boolean unused = z.f6343b;
+                c.a.r0.a.u1.i.e(this.a, this.f6263b);
+                c.a.r0.a.f2.f.o0.a.e(this.a.a, this.f6264c, this.f6263b);
+                h.o(this.f6265d, this.f6264c, this.f6263b);
+                boolean unused2 = z.f6343b;
             }
         }
     }
@@ -198,7 +199,7 @@ public class h extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6201b) {
+            if (z.f6343b) {
                 r0 = "handle entity: " + unitedSchemeEntity.toString();
             }
             String uuid = UUID.randomUUID().toString();
@@ -217,20 +218,20 @@ public class h extends z {
                 return false;
             }
             c.a.r0.a.m1.b e2 = c.a.r0.a.m1.b.e(o, U.z());
-            e2.f7676i = "3";
-            e2.f7677j = uuid;
+            e2.f7818i = "3";
+            e2.f7819j = uuid;
             c.a.r0.a.n2.i.g(e2);
             if (!q0.b(U.s(), e2, true)) {
-                c.a.r0.a.e0.d.c("relaunch", "page params error : path=" + e2.f7672e + " ; routePath=" + e2.f7675h);
+                c.a.r0.a.e0.d.c("relaunch", "page params error : path=" + e2.f7814e + " ; routePath=" + e2.f7817h);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 c.a.r0.a.n2.i.i(e2);
                 return false;
             }
             String n = c.a.r0.a.f2.f.o0.a.n(unitedSchemeEntity, "params", "initData");
-            if (!TextUtils.isEmpty(n) && !TextUtils.isEmpty(e2.f7675h) && c.a.r0.a.d2.e.L() != null) {
-                c.a.r0.a.d2.e.L().K0(n, e2.f7675h);
+            if (!TextUtils.isEmpty(n) && !TextUtils.isEmpty(e2.f7817h) && c.a.r0.a.d2.e.L() != null) {
+                c.a.r0.a.d2.e.L().K0(n, e2.f7817h);
             }
-            String n2 = c.a.r0.a.f2.f.o0.a.n(unitedSchemeEntity, "params", "startTime");
+            String n2 = c.a.r0.a.f2.f.o0.a.n(unitedSchemeEntity, "params", FetchLog.START_TIME);
             if (!TextUtils.isEmpty(n2)) {
                 HybridUbcFlow q = c.a.r0.a.u1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, uuid);
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fe_route_start");
@@ -261,15 +262,15 @@ public class h extends z {
     public final void p(a.e eVar, c.a.r0.a.m1.b bVar, c.a.r0.a.h0.g.g gVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, bVar, gVar, str) == null) {
-            boolean z = eVar != null && eVar.f6884b;
+            boolean z = eVar != null && eVar.f7026b;
             HybridUbcFlow q = c.a.r0.a.u1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str);
             q.F(new UbcFlowEvent("na_pre_load_slave_check"));
             q.D("preload", z ? "1" : "0");
-            if (z.f6201b) {
+            if (z.f6343b) {
                 String str2 = "tryToExecutePageRoute start. isReady : " + z;
             }
             c.a.r0.a.h0.t.a.q(eVar, new b(this, eVar, str, bVar, gVar));
-            boolean z2 = z.f6201b;
+            boolean z2 = z.f6343b;
         }
     }
 }

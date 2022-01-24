@@ -15,7 +15,7 @@ public final class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.c.a.k.c f10238b;
+    public c.a.r0.c.a.k.c f10380b;
 
     public c(String str, c.a.r0.c.a.k.c cVar) {
         Interceptable interceptable = $ic;
@@ -33,13 +33,13 @@ public final class c {
             }
         }
         this.a = str;
-        this.f10238b = cVar;
+        this.f10380b = cVar;
     }
 
     public final c.a.r0.c.a.k.c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10238b : (c.a.r0.c.a.k.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10380b : (c.a.r0.c.a.k.c) invokeV.objValue;
     }
 
     public final String b() {
@@ -55,7 +55,7 @@ public final class c {
             if (this != obj) {
                 if (obj instanceof c) {
                     c cVar = (c) obj;
-                    return Intrinsics.areEqual(this.a, cVar.a) && Intrinsics.areEqual(this.f10238b, cVar.f10238b);
+                    return Intrinsics.areEqual(this.a, cVar.a) && Intrinsics.areEqual(this.f10380b, cVar.f10380b);
                 }
                 return false;
             }
@@ -70,7 +70,7 @@ public final class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String str = this.a;
             int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            c.a.r0.c.a.k.c cVar = this.f10238b;
+            c.a.r0.c.a.k.c cVar = this.f10380b;
             return hashCode + (cVar != null ? cVar.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -80,7 +80,7 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "BdtlsRequestParams(requestData=" + this.a + ", bdtlsRequest=" + this.f10238b + SmallTailInfo.EMOTION_SUFFIX;
+            return "BdtlsRequestParams(requestData=" + this.a + ", bdtlsRequest=" + this.f10380b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

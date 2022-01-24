@@ -21,7 +21,7 @@ public final class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ com.baidu.ubs.analytics.a.l f26837e;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.l f26865e;
 
         public a(l lVar, com.baidu.ubs.analytics.a.l lVar2) {
             Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public final class l {
                     return;
                 }
             }
-            this.f26837e = lVar2;
+            this.f26865e = lVar2;
         }
 
         @Override // c.a.y0.a.f.c
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                new c.j().c(this.f26837e);
+                new c.j().c(this.f26865e);
             }
         }
     }

@@ -5,6 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.r0.a.k;
 import c.a.r0.j.c.j.a;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.searchbox.v8engine.JSRuntime;
 import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
@@ -31,13 +32,13 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
     public long duration;
 
     /* renamed from: e  reason: collision with root package name */
-    public AudioPlayer f10848e;
+    public AudioPlayer f10990e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10849f;
+    public String f10991f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.a.l0.c f10850g;
+    public c.a.r0.a.l0.c f10992g;
     @V8JavascriptField
     public boolean loop;
     @V8JavascriptField
@@ -57,10 +58,10 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f10851e;
+        public final /* synthetic */ boolean f10993e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ g f10852f;
+        public final /* synthetic */ g f10994f;
 
         public a(g gVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -77,19 +78,19 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
                     return;
                 }
             }
-            this.f10852f = gVar;
-            this.f10851e = z;
+            this.f10994f = gVar;
+            this.f10993e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.f10851e || this.f10852f.f10848e.I()) {
-                    this.f10852f.f10848e.N(c.a.r0.j.c.f.c(this.f10852f));
-                    g gVar = this.f10852f;
+                if (!this.f10993e || this.f10994f.f10990e.I()) {
+                    this.f10994f.f10990e.N(c.a.r0.j.c.f.c(this.f10994f));
+                    g gVar = this.f10994f;
                     if (gVar.autoplay) {
-                        gVar.f10848e.Q();
+                        gVar.f10990e.Q();
                     }
                 }
             }
@@ -102,7 +103,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f10853e;
+        public final /* synthetic */ g f10995e;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -119,14 +120,14 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
                     return;
                 }
             }
-            this.f10853e = gVar;
+            this.f10995e = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10853e.f10848e.Q();
+                this.f10995e.f10990e.Q();
             }
         }
     }
@@ -137,7 +138,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f10854e;
+        public final /* synthetic */ g f10996e;
 
         public c(g gVar) {
             Interceptable interceptable = $ic;
@@ -154,14 +155,14 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
                     return;
                 }
             }
-            this.f10854e = gVar;
+            this.f10996e = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10854e.f10848e.O();
+                this.f10996e.f10990e.O();
             }
         }
     }
@@ -172,10 +173,10 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ float f10855e;
+        public final /* synthetic */ float f10997e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ g f10856f;
+        public final /* synthetic */ g f10998f;
 
         public d(g gVar, float f2) {
             Interceptable interceptable = $ic;
@@ -192,15 +193,15 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
                     return;
                 }
             }
-            this.f10856f = gVar;
-            this.f10855e = f2;
+            this.f10998f = gVar;
+            this.f10997e = f2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10856f.f10848e.U(this.f10855e);
+                this.f10998f.f10990e.U(this.f10997e);
             }
         }
     }
@@ -211,7 +212,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f10857e;
+        public final /* synthetic */ g f10999e;
 
         public e(g gVar) {
             Interceptable interceptable = $ic;
@@ -228,14 +229,14 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
                     return;
                 }
             }
-            this.f10857e = gVar;
+            this.f10999e = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10857e.f10848e.Y();
+                this.f10999e.f10990e.Y();
             }
         }
     }
@@ -246,7 +247,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f10858e;
+        public final /* synthetic */ g f11000e;
 
         public f(g gVar) {
             Interceptable interceptable = $ic;
@@ -263,21 +264,21 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
                     return;
                 }
             }
-            this.f10858e = gVar;
+            this.f11000e = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10858e.f10848e.T();
+                this.f11000e.f10990e.T();
             }
         }
     }
 
     /* renamed from: c.a.r0.j.c.g$g  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0734g implements a.b {
+    public class C0743g implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ g a;
@@ -289,17 +290,17 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f10859e;
+            public final /* synthetic */ String f11001e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ C0734g f10860f;
+            public final /* synthetic */ C0743g f11002f;
 
-            public a(C0734g c0734g, String str) {
+            public a(C0743g c0743g, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0734g, str};
+                    Object[] objArr = {c0743g, str};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -309,24 +310,24 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
                         return;
                     }
                 }
-                this.f10860f = c0734g;
-                this.f10859e = str;
+                this.f11002f = c0743g;
+                this.f11001e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f10860f.a.src = c.a.r0.a.g1.f.U().G().g(this.f10859e);
+                    this.f11002f.a.src = c.a.r0.a.g1.f.U().G().g(this.f11001e);
                     if (k.a) {
-                        String str = "prepare path: " + this.f10860f.a.src + " autoPlay: " + this.f10860f.a.autoplay + " class: " + toString();
+                        String str = "prepare path: " + this.f11002f.a.src + " autoPlay: " + this.f11002f.a.autoplay + " class: " + toString();
                     }
-                    this.f10860f.a.E(true);
+                    this.f11002f.a.E(true);
                 }
             }
         }
 
-        public C0734g(g gVar) {
+        public C0743g(g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -348,7 +349,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.f10850g.runOnJSThread(new a(this, str));
+                this.a.f10992g.runOnJSThread(new a(this, str));
             }
         }
 
@@ -382,7 +383,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
         this.volume = 1.0f;
         this.obeyMuteSwitch = true;
         this.paused = true;
-        this.f10850g = cVar;
+        this.f10992g = cVar;
         A();
     }
 
@@ -396,8 +397,8 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String valueOf = String.valueOf(c.a.r0.j.c.c.a());
-            this.f10849f = valueOf;
-            this.f10848e = C(valueOf);
+            this.f10991f = valueOf;
+            this.f10990e = C(valueOf);
             D();
         }
     }
@@ -406,7 +407,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AudioPlayer audioPlayer = this.f10848e;
+            AudioPlayer audioPlayer = this.f10990e;
             if (audioPlayer != null) {
                 return audioPlayer.y();
             }
@@ -417,17 +418,17 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
 
     public final void D() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f10848e == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f10990e == null) {
             return;
         }
         c.a.r0.j.c.e eVar = new c.a.r0.j.c.e(this, c.a.r0.j.c.f.i());
         eVar.e(this);
-        this.f10848e.V(eVar);
+        this.f10990e.V(eVar);
     }
 
     public final void E(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || this.f10848e == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || this.f10990e == null) {
             return;
         }
         c.a.r0.j.c.j.b.h().e().post(new a(this, z));
@@ -436,7 +437,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
     public final void F(c.a.r0.j.c.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f10848e.update(dVar);
+            this.f10990e.update(dVar);
         }
     }
 
@@ -444,7 +445,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
     @JavascriptInterface
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f10848e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f10990e == null) {
             return;
         }
         c.a.r0.j.c.j.b.h().e().post(new f(this));
@@ -455,7 +456,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            AudioPlayer audioPlayer = this.f10848e;
+            AudioPlayer audioPlayer = this.f10990e;
             if (audioPlayer != null) {
                 return (int) audioPlayer.A();
             }
@@ -472,7 +473,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
             char c2 = 65535;
             switch (str.hashCode()) {
                 case -2129294769:
-                    if (str.equals("startTime")) {
+                    if (str.equals(FetchLog.START_TIME)) {
                         c2 = 1;
                         break;
                     }
@@ -508,7 +509,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
                 if (c.a.r0.j.c.f.b(this.volume)) {
                     F(c.a.r0.j.c.f.c(this));
                 } else {
-                    this.volume = this.f10848e.D();
+                    this.volume = this.f10990e.D();
                 }
             } else if (c2 != 3) {
                 if (c2 == 4 && this.autoplay) {
@@ -620,7 +621,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
     @JavascriptInterface
     public void pause() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f10848e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f10990e == null) {
             return;
         }
         c.a.r0.j.c.j.b.h().e().post(new c(this));
@@ -630,7 +631,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
     @JavascriptInterface
     public void play() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f10848e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f10990e == null) {
             return;
         }
         c.a.r0.j.c.j.b.h().e().post(new b(this));
@@ -640,7 +641,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
     @JavascriptInterface
     public void seek(float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048587, this, f2) == null) || this.f10848e == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048587, this, f2) == null) || this.f10990e == null) {
             return;
         }
         c.a.r0.j.c.j.b.h().e().post(new d(this, f2));
@@ -650,7 +651,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
     public void setDataBuffer(JsArrayBuffer jsArrayBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, jsArrayBuffer) == null) {
-            c.a.r0.j.c.j.b.h().m(jsArrayBuffer, new C0734g(this));
+            c.a.r0.j.c.j.b.h().m(jsArrayBuffer, new C0743g(this));
         }
     }
 
@@ -658,7 +659,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
     @JavascriptInterface
     public void stop() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.f10848e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.f10990e == null) {
             return;
         }
         c.a.r0.j.c.j.b.h().e().post(new e(this));
@@ -669,7 +670,7 @@ public class g extends EventTargetImpl implements c.a.r0.j.c.a, c.a.r0.j.c.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            AudioPlayer audioPlayer = this.f10848e;
+            AudioPlayer audioPlayer = this.f10990e;
             if (audioPlayer != null) {
                 return audioPlayer.z();
             }

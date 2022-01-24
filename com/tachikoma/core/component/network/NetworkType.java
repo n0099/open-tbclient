@@ -2,6 +2,7 @@ package com.tachikoma.core.component.network;
 
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import com.baidu.browser.sailor.BdSailorConfig;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -47,7 +48,7 @@ public final class NetworkType {
         }
         API = new NetworkType("API", 0, RetrieveTaskManager.KEY);
         LOG = new NetworkType("LOG", 1, TbConfig.TMP_LOG_DIR_NAME);
-        UPLOAD = new NetworkType(BdSailorConfig.SAILOR_BASE_UPLOAD, 2, "upload");
+        UPLOAD = new NetworkType(BdSailorConfig.SAILOR_BASE_UPLOAD, 2, StatConstants.VALUE_TYPE_UPLOAD);
         PAY = new NetworkType("PAY", 3, "pay");
         PAYGATEWAY = new NetworkType("PAYGATEWAY", 4, "payGateway");
         HTTPS = new NetworkType("HTTPS", 5, "https");

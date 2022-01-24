@@ -6,6 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +51,7 @@ public class c {
         public HostnameVerifier a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HttpsURLConnection f31882b;
+        public HttpsURLConnection f31910b;
 
         public a(HttpsURLConnection httpsURLConnection) {
             Interceptable interceptable = $ic;
@@ -68,7 +69,7 @@ public class c {
                 }
             }
             this.a = HttpsURLConnection.getDefaultHostnameVerifier();
-            this.f31882b = httpsURLConnection;
+            this.f31910b = httpsURLConnection;
         }
 
         @Override // javax.net.SocketFactory
@@ -126,7 +127,7 @@ public class c {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-                String requestProperty = this.f31882b.getRequestProperty("Host");
+                String requestProperty = this.f31910b.getRequestProperty("Host");
                 if (!TextUtils.isEmpty(requestProperty)) {
                     str = requestProperty;
                 }
@@ -595,7 +596,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, httpURLConnection)) == null) {
             String headerField = httpURLConnection.getHeaderField("Content-Encoding");
-            return !TextUtils.isEmpty(headerField) && headerField.contains("zip");
+            return !TextUtils.isEmpty(headerField) && headerField.contains(StatConstants.VALUE_TYPE_ZIP);
         }
         return invokeL.booleanValue;
     }

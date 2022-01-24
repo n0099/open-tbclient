@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
 import c.a.d.n.e.n;
-import c.a.t0.o1.k.b.c.c;
+import c.a.t0.p1.k.b.c.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;

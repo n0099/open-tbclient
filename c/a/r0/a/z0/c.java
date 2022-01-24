@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a.g f9831b;
+    public static a.g f9973b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class c {
     public static void a(a.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
-            f9831b = gVar;
+            f9973b = gVar;
         }
     }
 
@@ -55,7 +55,7 @@ public class c {
 
     public static void c(c.a.r0.a.c0.c.f.b bVar, EditText editText, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65539, null, bVar, editText, i2) == null) || editText == null || f9831b == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(65539, null, bVar, editText, i2) == null) || editText == null || f9973b == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -71,7 +71,7 @@ public class c {
         }
         bVar.k(editText.getText().toString());
         bVar.m(editText.getSelectionStart(), editText.getSelectionEnd());
-        f9831b.a(String.valueOf(editText.getTag()), jSONObject);
+        f9973b.a(String.valueOf(editText.getTag()), jSONObject);
     }
 
     public static void d(EditText editText, int i2) {
@@ -83,7 +83,7 @@ public class c {
 
     public static void e(EditText editText, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i2) == null) || editText == null || f9831b == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i2) == null) || editText == null || f9973b == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -97,7 +97,7 @@ public class c {
                 e2.printStackTrace();
             }
         }
-        f9831b.a(String.valueOf(editText.getTag()), jSONObject);
+        f9973b.a(String.valueOf(editText.getTag()), jSONObject);
     }
 
     public static void f(EditText editText, int i2) {

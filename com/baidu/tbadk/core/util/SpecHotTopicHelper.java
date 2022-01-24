@@ -11,7 +11,7 @@ import c.a.d.f.l.d;
 import c.a.d.f.m.e;
 import c.a.d.f.p.n;
 import c.a.d.n.d.a;
-import c.a.s0.s.j0.l;
+import c.a.s0.s.k0.l;
 import c.a.s0.s.q.e2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -100,20 +100,20 @@ public class SpecHotTopicHelper {
         if (!(interceptable == null || interceptable.invokeLLLI(65539, null, e2Var, spannableString, str, i2) == null) || e2Var == null || spannableString == null || StringUtils.isNull(str)) {
             return;
         }
-        String y0 = e2Var.y0();
-        String Z0 = e2Var.Z0();
-        if (StringUtils.isNull(y0) || StringUtils.isNull(Z0)) {
+        String z0 = e2Var.z0();
+        String a1 = e2Var.a1();
+        if (StringUtils.isNull(z0) || StringUtils.isNull(a1)) {
             return;
         }
-        Bitmap j2 = c.a.s0.c0.c.k().j(y0);
-        if ((j2 == null || !AbstractImageLoaderProc.isImageFileExist(y0, 10)) && (loadBdImageFromLocal = AbstractImageLoaderProc.loadBdImageFromLocal(y0, 10)) != null) {
+        Bitmap j2 = c.a.s0.c0.c.k().j(z0);
+        if ((j2 == null || !AbstractImageLoaderProc.isImageFileExist(z0, 10)) && (loadBdImageFromLocal = AbstractImageLoaderProc.loadBdImageFromLocal(z0, 10)) != null) {
             j2 = loadBdImageFromLocal.p();
-            c.a.s0.c0.c.k().a(y0, j2);
+            c.a.s0.c0.c.k().a(z0, j2);
         }
-        Bitmap j3 = c.a.s0.c0.c.k().j(Z0);
-        if ((j3 == null || !AbstractImageLoaderProc.isImageFileExist(Z0, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(Z0, 10)) != null) {
+        Bitmap j3 = c.a.s0.c0.c.k().j(a1);
+        if ((j3 == null || !AbstractImageLoaderProc.isImageFileExist(a1, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(a1, 10)) != null) {
             j3 = loadBdImageFromLocal2.p();
-            c.a.s0.c0.c.k().a(Z0, j3);
+            c.a.s0.c0.c.k().a(a1, j3);
         }
         if (j2 != null && !j2.isRecycled() && j3 != null && !j3.isRecycled()) {
             int i3 = 0;
@@ -135,7 +135,7 @@ public class SpecHotTopicHelper {
             }
             return;
         }
-        loadSpecTopicIconIfNeed(y0, Z0);
+        loadSpecTopicIconIfNeed(z0, a1);
     }
 
     public static void loadSpecTopicIconIfNeed(String str, String str2) {
@@ -210,7 +210,7 @@ public class SpecHotTopicHelper {
         if (!(interceptable == null || interceptable.invokeJL(65543, null, j2, e2Var) == null) || (pair = mMap.get(Long.valueOf(j2))) == null) {
             return;
         }
-        e2Var.I3(j2);
-        e2Var.A4((String) pair.first, (String) pair.second);
+        e2Var.J3(j2);
+        e2Var.B4((String) pair.first, (String) pair.second);
     }
 }

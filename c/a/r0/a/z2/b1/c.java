@@ -11,7 +11,7 @@ public class c extends a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9938b;
+    public String f10080b;
 
     public c() {
         Interceptable interceptable = $ic;

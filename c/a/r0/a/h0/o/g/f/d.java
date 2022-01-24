@@ -19,19 +19,19 @@ public final class d implements h.a {
     public CopyOnWriteArrayList<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6783b;
+    public String f6925b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f6784c;
+    public Map<String, String> f6926c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6785d;
+    public int f6927d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f6786e;
+    public boolean f6928e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f6787f;
+    public String f6929f;
 
     public d(CopyOnWriteArrayList<a> copyOnWriteArrayList, String str, Map<String, String> map, int i2, boolean z) {
         Interceptable interceptable = $ic;
@@ -49,17 +49,17 @@ public final class d implements h.a {
             }
         }
         this.a = copyOnWriteArrayList;
-        this.f6783b = str;
-        this.f6784c = map;
-        this.f6785d = i2;
-        this.f6786e = z;
+        this.f6925b = str;
+        this.f6926c = map;
+        this.f6927d = i2;
+        this.f6928e = z;
     }
 
     @Override // c.a.r0.a.h0.o.g.f.h.a
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f6787f = str;
+            this.f6929f = str;
         }
     }
 
@@ -68,10 +68,10 @@ public final class d implements h.a {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, z)) == null) {
-            if (this.f6785d >= this.a.size()) {
+            if (this.f6927d >= this.a.size()) {
                 return null;
             }
-            return this.a.get(this.f6785d).a(new d(this.a, this.f6783b, this.f6784c, this.f6785d + 1, z));
+            return this.a.get(this.f6927d).a(new d(this.a, this.f6925b, this.f6926c, this.f6927d + 1, z));
         }
         return (WebResourceResponse) invokeLLZ.objValue;
     }
@@ -80,14 +80,14 @@ public final class d implements h.a {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6786e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6928e : invokeV.booleanValue;
     }
 
     @Override // c.a.r0.a.h0.o.g.f.h.a
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6783b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6925b : (String) invokeV.objValue;
     }
 
     @Override // c.a.r0.a.h0.o.g.f.h.a
@@ -95,10 +95,10 @@ public final class d implements h.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (TextUtils.isEmpty(this.f6787f)) {
-                this.f6787f = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(this.f6783b));
+            if (TextUtils.isEmpty(this.f6929f)) {
+                this.f6929f = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(this.f6925b));
             }
-            return this.f6787f;
+            return this.f6929f;
         }
         return (String) invokeV.objValue;
     }
@@ -107,6 +107,6 @@ public final class d implements h.a {
     public Map<String, String> getRequestHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6784c : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6926c : (Map) invokeV.objValue;
     }
 }

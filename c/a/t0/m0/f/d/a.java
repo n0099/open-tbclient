@@ -12,10 +12,10 @@ public final class a extends c.a.t0.m0.f.c.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f19240b;
+    public int f19503b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f19241c;
+    public boolean f19504c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -30,19 +30,19 @@ public final class a extends c.a.t0.m0.f.c.a {
                 return;
             }
         }
-        this.f19240b = -1;
+        this.f19503b = -1;
     }
 
     public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19240b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19503b : invokeV.intValue;
     }
 
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19241c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19504c : invokeV.booleanValue;
     }
 
     @Override // c.a.t0.m0.f.c.a, c.b.b.q.z.a
@@ -50,8 +50,8 @@ public final class a extends c.a.t0.m0.f.c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.reset();
-            this.f19240b = -1;
-            this.f19241c = false;
+            this.f19503b = -1;
+            this.f19504c = false;
         }
     }
 
@@ -59,8 +59,8 @@ public final class a extends c.a.t0.m0.f.c.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            this.f19240b = i2;
-            this.f19241c = z;
+            this.f19503b = i2;
+            this.f19504c = z;
             return this;
         }
         return (a) invokeCommon.objValue;

@@ -8,6 +8,7 @@ import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
 import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,19 +27,19 @@ public final class s {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f10034b;
+    public static final Pattern f10176b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, Integer> f10035c;
+    public static HashMap<String, Integer> f10177c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, Integer> f10036d;
+    public static HashMap<String, Integer> f10178d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static HashMap<String, String> f10037e;
+    public static HashMap<String, String> f10179e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static HashMap<String, String> f10038f;
+    public static HashMap<String, String> f10180f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,11 +56,11 @@ public final class s {
             }
         }
         a = c.a.r0.a.k.a;
-        f10034b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
-        f10035c = new HashMap<>();
-        f10036d = new HashMap<>();
-        f10037e = new HashMap<>();
-        f10038f = new HashMap<>();
+        f10176b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+        f10177c = new HashMap<>();
+        f10178d = new HashMap<>();
+        f10179e = new HashMap<>();
+        f10180f = new HashMap<>();
         a("application/andrew-inset", "ez", 5);
         a("application/dsptype", "tsp", 5);
         a("application/futuresplash", "spl", 5);
@@ -77,7 +78,7 @@ public final class s {
         a("application/rar", "rar", 8);
         a("application/rdf+xml", "rdf", 5);
         a("application/rss+xml", "rss", 5);
-        a("application/zip", "zip", 8);
+        a("application/zip", StatConstants.VALUE_TYPE_ZIP, 8);
         a("application/vnd.android.package-archive", "apk", 3);
         a("application/vnd.cinderella", "cdy", 5);
         a("application/vnd.ms-pki.stl", "stl", 5);
@@ -384,13 +385,13 @@ public final class s {
     public static void a(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65537, null, str, str2, i2) == null) {
-            f10035c.put(str2, Integer.valueOf(i2));
-            f10036d.put(str, Integer.valueOf(i2));
-            f10037e.put(str2, str);
-            if (f10038f.containsKey(str)) {
+            f10177c.put(str2, Integer.valueOf(i2));
+            f10178d.put(str, Integer.valueOf(i2));
+            f10179e.put(str2, str);
+            if (f10180f.containsKey(str)) {
                 return;
             }
-            f10038f.put(str, str2);
+            f10180f.put(str, str2);
         }
     }
 
@@ -409,7 +410,7 @@ public final class s {
             if (str == null) {
                 return null;
             }
-            return f10038f.get(str);
+            return f10180f.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -421,7 +422,7 @@ public final class s {
             if (str == null || TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f10037e.get(str);
+            return f10179e.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -431,7 +432,7 @@ public final class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             try {
-                Matcher matcher = f10034b.matcher(str);
+                Matcher matcher = f10176b.matcher(str);
                 if (matcher.find()) {
                     return matcher.group(1);
                 }

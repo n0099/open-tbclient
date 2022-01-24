@@ -56,9 +56,9 @@ public class j0 implements g1 {
                 return null;
             }
             if (c.a.r0.a.h0.s.a.b()) {
-                return c.a.r0.a.h0.s.a.f6862b + File.separator + "libcom.baidu.zeus.so";
+                return c.a.r0.a.h0.s.a.f7004b + File.separator + "libcom.baidu.zeus.so";
             }
-            return c.a.r0.a.h0.s.a.f6864d + File.separator + "libcom.baidu.zeus.so";
+            return c.a.r0.a.h0.s.a.f7006d + File.separator + "libcom.baidu.zeus.so";
         }
         return (String) invokeV.objValue;
     }

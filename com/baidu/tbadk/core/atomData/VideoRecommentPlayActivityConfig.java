@@ -36,6 +36,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static final String FROM_MAINTAB_RECOMMEND = "index";
     public static final String FROM_MAINTAB_VIDEO = "video_tab";
     public static final String FROM_NANI_VIDEO = "from_nani_video";
+    public static final String FROM_OFFICAL_VIDEO = "from_offical_video";
     public static final String FROM_PB_VIDEO_SCHEME = "from_pb_video_scheme";
     public static final String FROM_PERSONAL_PAGE = "from_personal_page";
     public static final String FROM_REPLY_PAGE = "from_reply_page";

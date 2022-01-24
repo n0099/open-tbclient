@@ -37,9 +37,9 @@ public class e extends BaseExecutorCell {
         if (i2 != 1) {
             d();
             String str = "You are creating a SerialExecutorCell with maxThreadNum " + i2 + ". For SerialExecutorCell, maxThreadNum must be 1. So it will be forced to set to 1.";
-            this.f37111b = 1;
+            this.f37139b = 1;
         }
-        this.f37112c = new ThreadPoolExecutor(1, 1, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        this.f37140c = new ThreadPoolExecutor(1, 1, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
     }
 
     @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
@@ -84,9 +84,9 @@ public class e extends BaseExecutorCell {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
             elasticTask.h(null);
-            this.f37112c.shutdown();
+            this.f37140c.shutdown();
             this.a.clear();
-            this.f37112c = new ThreadPoolExecutor(1, 1, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+            this.f37140c = new ThreadPoolExecutor(1, 1, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
             c.a.c0.d0.f.c.f().o();
         }
     }

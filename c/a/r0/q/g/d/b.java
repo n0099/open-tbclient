@@ -21,7 +21,7 @@ public class b implements a<PMSAppInfo> {
     public static final c.a.r0.q.p.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f11467b;
+    public static final int f11609b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class b implements a<PMSAppInfo> {
             }
         }
         a = c.a.r0.q.p.a.c();
-        f11467b = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
+        f11609b = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
     }
 
     public b() {
@@ -186,7 +186,7 @@ public class b implements a<PMSAppInfo> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
             try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD pay_protected INTEGER default " + f11467b + ";");
+                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD pay_protected INTEGER default " + f11609b + ";");
             } catch (SQLException e2) {
                 a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1180 error", e2);
             }

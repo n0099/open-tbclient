@@ -25,31 +25,31 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public View f56594b;
+    public View f56639b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KSFrameLayout f56595c;
+    public KSFrameLayout f56640c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsLogoView f56596d;
+    public KsLogoView f56641d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f56597e;
+    public ImageView f56642e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextProgressBar f56598f;
+    public TextProgressBar f56643f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f56599g;
+    public ViewGroup f56644g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f56600h;
+    public ViewGroup f56645h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewGroup f56601i;
+    public ViewGroup f56646i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CompoundButton f56602j;
+    public CompoundButton f56647j;
     public View k;
     public View l;
     public TextView m;
@@ -68,20 +68,20 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         public boolean a = false;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f56603b = false;
+        public boolean f56648b = false;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f56604c = 0;
+        public int f56649c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f56605d = true;
+        public boolean f56650d = true;
 
         public int a() {
-            return this.f56604c;
+            return this.f56649c;
         }
 
         public void a(int i2) {
-            this.f56604c = i2;
+            this.f56649c = i2;
         }
 
         public void a(boolean z) {
@@ -89,15 +89,15 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         }
 
         public void b(boolean z) {
-            this.f56603b = z;
+            this.f56648b = z;
         }
 
         public boolean b() {
-            return this.f56605d;
+            return this.f56650d;
         }
 
         public void c(boolean z) {
-            this.f56605d = z;
+            this.f56650d = z;
         }
     }
 
@@ -137,12 +137,12 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
             if (dVar6 != null) {
                 dVar6.b(view);
             }
-        } else if (view.equals(this.f56600h)) {
+        } else if (view.equals(this.f56645h)) {
             d dVar7 = this.s;
             if (dVar7 != null) {
                 dVar7.h(view);
             }
-        } else if (view.equals(this.f56598f)) {
+        } else if (view.equals(this.f56643f)) {
             d dVar8 = this.s;
             if (dVar8 != null) {
                 dVar8.c(view);
@@ -152,17 +152,17 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
             if (dVar9 != null) {
                 dVar9.f(view);
             }
-        } else if (view.equals(this.f56595c)) {
+        } else if (view.equals(this.f56640c)) {
             d dVar10 = this.s;
             if (dVar10 != null) {
                 dVar10.d(view);
             }
-        } else if (view.equals(this.f56597e)) {
+        } else if (view.equals(this.f56642e)) {
             d dVar11 = this.s;
             if (dVar11 != null) {
                 dVar11.e(view);
             }
-        } else if (!view.equals(this.f56601i) || (dVar = this.s) == null) {
+        } else if (!view.equals(this.f56646i) || (dVar = this.s) == null) {
         } else {
             dVar.g(view);
         }
@@ -171,23 +171,23 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
     private void a(KSFrameLayout kSFrameLayout, boolean z) {
         kSFrameLayout.setClickable(true);
         new f(kSFrameLayout, this);
-        this.f56595c.setWidthBasedRatio(!z);
+        this.f56640c.setWidthBasedRatio(!z);
     }
 
     private void c(boolean z) {
         setClickable(true);
-        this.f56595c = (KSFrameLayout) findViewById(R.id.ksad_interstitial_native_video_container);
-        this.f56594b = findViewById(R.id.ksad_interstitial_full_bg);
-        this.f56597e = (ImageView) findViewById(R.id.ksad_video_first_frame_container);
-        this.f56596d = (KsLogoView) findViewById(R.id.ksad_ad_interstitial_logo);
-        this.f56599g = (ViewGroup) findViewById(R.id.ksad_interstitial_playing);
-        this.f56600h = (ViewGroup) findViewById(R.id.ksad_interstitial_play_end);
-        this.f56598f = (TextProgressBar) findViewById(R.id.ksad_interstitial_download_btn);
-        this.f56601i = (ViewGroup) findViewById(R.id.ksad_ad_desc_layout);
+        this.f56640c = (KSFrameLayout) findViewById(R.id.ksad_interstitial_native_video_container);
+        this.f56639b = findViewById(R.id.ksad_interstitial_full_bg);
+        this.f56642e = (ImageView) findViewById(R.id.ksad_video_first_frame_container);
+        this.f56641d = (KsLogoView) findViewById(R.id.ksad_ad_interstitial_logo);
+        this.f56644g = (ViewGroup) findViewById(R.id.ksad_interstitial_playing);
+        this.f56645h = (ViewGroup) findViewById(R.id.ksad_interstitial_play_end);
+        this.f56643f = (TextProgressBar) findViewById(R.id.ksad_interstitial_download_btn);
+        this.f56646i = (ViewGroup) findViewById(R.id.ksad_ad_desc_layout);
         this.k = findViewById(R.id.ksad_interstitial_close_outer);
-        this.f56598f.setTextDimen(bb.a(getContext(), 10.0f));
-        this.f56598f.setTextColor(-1);
-        this.f56602j = (CompoundButton) findViewById(R.id.ksad_interstitial_mute);
+        this.f56643f.setTextDimen(bb.a(getContext(), 10.0f));
+        this.f56643f.setTextColor(-1);
+        this.f56647j = (CompoundButton) findViewById(R.id.ksad_interstitial_mute);
         this.m = (TextView) findViewById(R.id.ksad_interstitial_count_down);
         this.n = (ImageView) findViewById(R.id.ksad_interstitial_logo);
         this.o = (TextView) findViewById(R.id.ksad_interstitial_name);
@@ -195,22 +195,22 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         this.q = (TextProgressBar) findViewById(R.id.ksad_app_download_btn);
         this.l = findViewById(R.id.ksad_ad_download_container);
         new f(this, this);
-        new f(this.f56597e, this);
-        new f(this.f56598f, this);
+        new f(this.f56642e, this);
+        new f(this.f56643f, this);
         new f(this.q, this);
         new f(this.k, this);
-        new f(this.f56600h, this);
+        new f(this.f56645h, this);
         new f(this.m, this);
         new f(this.l, this);
-        new f(this.f56601i, this);
-        this.f56602j.setOnCheckedChangeListener(this);
+        new f(this.f56646i, this);
+        this.f56647j.setOnCheckedChangeListener(this);
         this.r = (TextView) findViewById(R.id.ksad_interstitial_playable_timer);
-        a(this.f56595c, z);
+        a(this.f56640c, z);
     }
 
     public void a(float f2, com.kwad.sdk.core.video.videoview.b bVar) {
-        this.f56595c.setRatio(f2);
-        this.f56595c.addView(bVar);
+        this.f56640c.setRatio(f2);
+        this.f56640c.addView(bVar);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) bVar.getLayoutParams();
         layoutParams.topMargin = 0;
         layoutParams.width = -1;
@@ -228,7 +228,7 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
     }
 
     public void a(AdTemplate adTemplate) {
-        this.f56596d.a(adTemplate);
+        this.f56641d.a(adTemplate);
     }
 
     public void a(AdTemplate adTemplate, AdInfo adInfo) {
@@ -260,14 +260,14 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         if (str != null) {
             textView.setText(str);
         }
-        if (!this.t.f56603b || this.u || this.m.getVisibility() == 0) {
+        if (!this.t.f56648b || this.u || this.m.getVisibility() == 0) {
             return;
         }
         this.m.setVisibility(0);
     }
 
     public void a(String str, int i2) {
-        TextProgressBar textProgressBar = this.f56598f;
+        TextProgressBar textProgressBar = this.f56643f;
         if (textProgressBar != null) {
             textProgressBar.a(str, i2);
         }
@@ -281,13 +281,13 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         if (at.a(str)) {
             return;
         }
-        this.f56597e.setImageDrawable(null);
-        KSImageLoader.loadImage(this.f56597e, str, adTemplate);
+        this.f56642e.setImageDrawable(null);
+        KSImageLoader.loadImage(this.f56642e, str, adTemplate);
     }
 
     public void a(boolean z) {
-        if (this.f56599g != null) {
-            this.f56599g.setVisibility(z ? 0 : 8);
+        if (this.f56644g != null) {
+            this.f56644g.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -303,9 +303,9 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
     }
 
     public void a(boolean z, boolean z2) {
-        if (this.f56597e != null) {
-            this.f56597e.setVisibility(z ? 0 : 8);
-            this.f56597e.setClickable(z2);
+        if (this.f56642e != null) {
+            this.f56642e.setVisibility(z ? 0 : 8);
+            this.f56642e.setClickable(z2);
         }
     }
 
@@ -322,7 +322,7 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
     }
 
     public void b(boolean z) {
-        CompoundButton compoundButton = this.f56602j;
+        CompoundButton compoundButton = this.f56647j;
         if (compoundButton != null) {
             compoundButton.setChecked(z);
         }
@@ -338,12 +338,12 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
 
     public void d() {
         a(false);
-        this.f56600h.setVisibility(0);
+        this.f56645h.setVisibility(0);
     }
 
     @Nullable
     public View getBlurBgView() {
-        return this.f56594b;
+        return this.f56639b;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener

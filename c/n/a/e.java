@@ -20,7 +20,7 @@ public final class e<E extends g> extends ProtoAdapter<E> {
     public final Class<E> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f30194b;
+    public Method f30222b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Class<E> cls) {
@@ -88,13 +88,13 @@ public final class e<E extends g> extends ProtoAdapter<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Method method = this.f30194b;
+            Method method = this.f30222b;
             if (method != null) {
                 return method;
             }
             try {
                 Method method2 = this.a.getMethod("fromValue", Integer.TYPE);
-                this.f30194b = method2;
+                this.f30222b = method2;
                 return method2;
             } catch (NoSuchMethodException e2) {
                 throw new AssertionError(e2);

@@ -38,22 +38,22 @@ public class c extends c.a.d.a.d {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CoverSeekBar f18916b;
+    public CoverSeekBar f19149b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f18917c;
+    public LinearLayout f19150c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.k4.i.h.a f18918d;
+    public c.a.t0.k4.i.h.a f19151d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HListView f18919e;
+    public HListView f19152e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.k4.i.c.a f18920f;
+    public c.a.t0.k4.i.c.a f19153f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CoverPendantDragView f18921g;
+    public CoverPendantDragView f19154g;
 
     /* loaded from: classes7.dex */
     public class a implements a.b {
@@ -83,7 +83,7 @@ public class c extends c.a.d.a.d {
         public void a(View view, int i2, PendantData pendantData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i2, pendantData) == null) {
-                this.a.f18921g.changeEditState(view, pendantData);
+                this.a.f19154g.changeEditState(view, pendantData);
                 StatisticItem statisticItem = new StatisticItem("c12305");
                 statisticItem.param("obj_locate", i2 + 1);
                 TiebaStatic.log(statisticItem);
@@ -134,23 +134,23 @@ public class c extends c.a.d.a.d {
         public void onProgress(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                int duration = (int) ((this.a.f18918d.v().getDuration() * i2) / 1000);
-                this.a.f18916b.setProgressImage(i2, duration);
-                this.a.f18918d.v().seekTo(duration);
+                int duration = (int) ((this.a.f19151d.v().getDuration() * i2) / 1000);
+                this.a.f19149b.setProgressImage(i2, duration);
+                this.a.f19151d.v().seekTo(duration);
             }
         }
     }
 
     /* renamed from: c.a.t0.k4.i.h.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1177c extends AnimatorListenerAdapter {
+    public class C1184c extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18922e;
+        public final /* synthetic */ c f19155e;
 
-        public C1177c(c cVar) {
+        public C1184c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,7 +165,7 @@ public class c extends c.a.d.a.d {
                     return;
                 }
             }
-            this.f18922e = cVar;
+            this.f19155e = cVar;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -173,7 +173,7 @@ public class c extends c.a.d.a.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                this.f18922e.f18917c.animate().alphaBy(1.0f).alpha(0.0f).setDuration(500L).setStartDelay(2000L).start();
+                this.f19155e.f19150c.animate().alphaBy(1.0f).alpha(0.0f).setDuration(500L).setStartDelay(2000L).start();
             }
         }
     }
@@ -184,7 +184,7 @@ public class c extends c.a.d.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18923e;
+        public final /* synthetic */ c f19156e;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -201,15 +201,15 @@ public class c extends c.a.d.a.d {
                     return;
                 }
             }
-            this.f18923e = cVar;
+            this.f19156e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f18923e.f18916b.seekTo(this.f18923e.f18916b.getCurrentPosition());
-                this.f18923e.f18918d.B();
+                this.f19156e.f19149b.seekTo(this.f19156e.f19149b.getCurrentPosition());
+                this.f19156e.f19151d.B();
             }
         }
     }
@@ -232,7 +232,7 @@ public class c extends c.a.d.a.d {
                 return;
             }
         }
-        this.f18918d = aVar;
+        this.f19151d = aVar;
         View inflate = LayoutInflater.from(fVar.getPageActivity()).inflate(R.layout.edit_cover_layout, (ViewGroup) null);
         this.a = inflate;
         inflate.getResources();
@@ -243,23 +243,23 @@ public class c extends c.a.d.a.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            this.f18921g.hideSoftKeyPad();
-            String text = this.f18921g.getText();
+            this.f19154g.hideSoftKeyPad();
+            String text = this.f19154g.getText();
             if (bitmap == null || TextUtils.isEmpty(text)) {
                 return null;
             }
-            int width = this.f18918d.v().getWidth();
-            int height = this.f18918d.v().getHeight();
+            int width = this.f19151d.v().getWidth();
+            int height = this.f19151d.v().getHeight();
             int width2 = bitmap.getWidth();
             int height2 = bitmap.getHeight();
             Bitmap createBitmap = Bitmap.createBitmap(width2, height2, Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(createBitmap);
             canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-            Bitmap tempBitmap = this.f18921g.getTempBitmap();
+            Bitmap tempBitmap = this.f19154g.getTempBitmap();
             if (tempBitmap != null) {
                 Matrix matrix = new Matrix();
                 matrix.postScale(width2 / width, height2 / height);
-                Bitmap createBitmap2 = Bitmap.createBitmap(tempBitmap, this.f18918d.v().getLeft(), this.f18918d.v().getTop(), width, height, matrix, true);
+                Bitmap createBitmap2 = Bitmap.createBitmap(tempBitmap, this.f19151d.v().getLeft(), this.f19151d.v().getTop(), width, height, matrix, true);
                 if (createBitmap2 != null) {
                     canvas.drawBitmap(createBitmap2, 0.0f, 0.0f, (Paint) null);
                 }
@@ -274,7 +274,7 @@ public class c extends c.a.d.a.d {
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18916b.getCurrentPosition() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19149b.getCurrentPosition() : invokeV.intValue;
     }
 
     public final List<PendantData> h() {
@@ -300,13 +300,13 @@ public class c extends c.a.d.a.d {
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18921g.getText() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19154g.getText() : (String) invokeV.objValue;
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f18921g.hideSoftKeyPad();
+            this.f19154g.hideSoftKeyPad();
         }
     }
 
@@ -314,13 +314,13 @@ public class c extends c.a.d.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
             CoverPendantDragView coverPendantDragView = (CoverPendantDragView) view.findViewById(R.id.cover_pendant_view);
-            this.f18921g = coverPendantDragView;
+            this.f19154g = coverPendantDragView;
             coverPendantDragView.setParentViewController(this);
-            this.f18917c = (LinearLayout) view.findViewById(R.id.cover_tips);
-            if (c.a.s0.s.h0.b.k().h("video_cover_first_in", true)) {
-                this.f18917c.setVisibility(0);
-                this.f18917c.animate().alphaBy(0.0f).alpha(1.0f).setDuration(500L).setListener(new C1177c(this)).start();
-                c.a.s0.s.h0.b.k().u("video_cover_first_in", false);
+            this.f19150c = (LinearLayout) view.findViewById(R.id.cover_tips);
+            if (c.a.s0.s.i0.b.k().h("video_cover_first_in", true)) {
+                this.f19150c.setVisibility(0);
+                this.f19150c.animate().alphaBy(0.0f).alpha(1.0f).setDuration(500L).setListener(new C1184c(this)).start();
+                c.a.s0.s.i0.b.k().u("video_cover_first_in", false);
             }
         }
     }
@@ -328,14 +328,14 @@ public class c extends c.a.d.a.d {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f18916b = (CoverSeekBar) this.a.findViewById(R.id.cover_seek_bar);
-            this.f18919e = (HListView) this.a.findViewById(R.id.pendant_list_view);
+            this.f19149b = (CoverSeekBar) this.a.findViewById(R.id.cover_seek_bar);
+            this.f19152e = (HListView) this.a.findViewById(R.id.pendant_list_view);
             c.a.t0.k4.i.c.a aVar = new c.a.t0.k4.i.c.a(getPageContext());
-            this.f18920f = aVar;
+            this.f19153f = aVar;
             aVar.d(new a(this));
-            this.f18919e.setAdapter((ListAdapter) this.f18920f);
-            this.f18920f.c(h());
-            this.f18916b.setOnProgressChanged(new b(this));
+            this.f19152e.setAdapter((ListAdapter) this.f19153f);
+            this.f19153f.c(h());
+            this.f19149b.setOnProgressChanged(new b(this));
         }
     }
 
@@ -362,9 +362,9 @@ public class c extends c.a.d.a.d {
     public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f18921g.onSelectChange(z);
+            this.f19154g.onSelectChange(z);
             if (z) {
-                CoverSeekBar coverSeekBar = this.f18916b;
+                CoverSeekBar coverSeekBar = this.f19149b;
                 coverSeekBar.seekTo(coverSeekBar.getCurrentPosition());
             }
         }
@@ -373,11 +373,11 @@ public class c extends c.a.d.a.d {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            CoverSeekBar coverSeekBar = this.f18916b;
+            CoverSeekBar coverSeekBar = this.f19149b;
             if (coverSeekBar != null) {
                 coverSeekBar.release();
             }
-            CoverPendantDragView coverPendantDragView = this.f18921g;
+            CoverPendantDragView coverPendantDragView = this.f19154g;
             if (coverPendantDragView != null) {
                 coverPendantDragView.onDestroy();
             }
@@ -387,8 +387,8 @@ public class c extends c.a.d.a.d {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f18921g.setVideoSize(this.f18918d.v().getWidth(), this.f18918d.v().getHeight());
-            this.f18921g.setVideoLocation(this.f18918d.v().getLeft(), this.f18918d.v().getTop(), this.f18918d.v().getRight(), this.f18918d.v().getBottom());
+            this.f19154g.setVideoSize(this.f19151d.v().getWidth(), this.f19151d.v().getHeight());
+            this.f19154g.setVideoLocation(this.f19151d.v().getLeft(), this.f19151d.v().getTop(), this.f19151d.v().getRight(), this.f19151d.v().getBottom());
         }
     }
 
@@ -397,7 +397,7 @@ public class c extends c.a.d.a.d {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f18916b.setData(str);
+        this.f19149b.setData(str);
     }
 
     public void u(List<PendantData> list) {
@@ -407,7 +407,7 @@ public class c extends c.a.d.a.d {
                 list = new ArrayList<>();
             }
             list.addAll(0, h());
-            this.f18920f.c(list);
+            this.f19153f.c(list);
         }
     }
 }

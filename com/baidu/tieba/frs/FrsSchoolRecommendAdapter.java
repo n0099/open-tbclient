@@ -4,10 +4,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import c.a.s0.s.q.t1;
 import c.a.s0.s.q.u1;
-import c.a.t0.d1.d3.d;
-import c.a.t0.d1.k;
-import c.a.t0.d1.k1;
-import c.a.t0.d1.x;
+import c.a.t0.e1.d3.d;
+import c.a.t0.e1.k;
+import c.a.t0.e1.k1;
+import c.a.t0.e1.x;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -80,14 +80,14 @@ public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolde
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.x = new d(this.o, this.f3262i);
+            this.x = new d(this.o, this.f3364i);
             return new FrsSchoolRecommendViewHolder(this, this.x);
         }
         return (FrsSchoolRecommendViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.t0.d1.k, c.a.d.n.e.a
+    @Override // c.a.t0.e1.k, c.a.d.n.e.a
     /* renamed from: n0 */
     public View S(int i2, View view, ViewGroup viewGroup, t1 t1Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         InterceptResult invokeCommon;
@@ -95,15 +95,15 @@ public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolde
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, t1Var, frsSchoolRecommendViewHolder})) == null) {
             super.S(i2, view, viewGroup, t1Var, frsSchoolRecommendViewHolder);
             this.x = frsSchoolRecommendViewHolder.mCardView;
-            ArrayList<u1> T4 = t1Var.T4();
-            if (T4.size() <= 0) {
+            ArrayList<u1> U4 = t1Var.U4();
+            if (U4.size() <= 0) {
                 return null;
             }
             x xVar = new x();
             xVar.showTopDivider = true;
             xVar.mGroupTitle = t1Var.getTitle();
-            for (int i3 = 0; i3 != T4.size(); i3++) {
-                u1 u1Var = T4.get(i3);
+            for (int i3 = 0; i3 != U4.size(); i3++) {
+                u1 u1Var = U4.get(i3);
                 if (u1Var != null) {
                     k1 k1Var = new k1();
                     k1Var.a.setUserId(u1Var.d());

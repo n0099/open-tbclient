@@ -73,7 +73,7 @@ public final class d extends DefaultHttpClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             BasicHttpProcessor createHttpProcessor = super.createHttpProcessor();
-            httpRequestInterceptor = b.f30647c;
+            httpRequestInterceptor = b.f30675c;
             createHttpProcessor.addRequestInterceptor(httpRequestInterceptor);
             createHttpProcessor.addRequestInterceptor(new b.a(this.a, (byte) 0));
             return createHttpProcessor;

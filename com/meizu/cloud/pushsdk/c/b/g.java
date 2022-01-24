@@ -6,11 +6,11 @@ public class g {
     public final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<Long> f58696b;
+    public final LinkedList<Long> f58741b;
 
     public g(boolean z, LinkedList<Long> linkedList) {
         this.a = z;
-        this.f58696b = linkedList;
+        this.f58741b = linkedList;
     }
 
     public boolean a() {
@@ -18,6 +18,6 @@ public class g {
     }
 
     public LinkedList<Long> b() {
-        return this.f58696b;
+        return this.f58741b;
     }
 }

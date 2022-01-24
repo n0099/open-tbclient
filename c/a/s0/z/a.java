@@ -27,26 +27,26 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f14289d;
+    public static a f14429d;
     public transient /* synthetic */ FieldHolder $fh;
     public GameInfoData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14290b;
+    public String f14430b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f14291c;
+    public final c f14431c;
 
     /* renamed from: c.a.s0.z.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0911a implements CustomMessageTask.CustomRunnable<String> {
+    public class C0921a implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f14292e;
+        public final /* synthetic */ a f14432e;
 
-        public C0911a(a aVar) {
+        public C0921a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,7 +61,7 @@ public class a {
                     return;
                 }
             }
-            this.f14292e = aVar;
+            this.f14432e = aVar;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -72,7 +72,7 @@ public class a {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001261, this.f14292e.e());
+                return new CustomResponsedMessage<>(2001261, this.f14432e.e());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -132,7 +132,7 @@ public class a {
                 return;
             }
         }
-        f14289d = new a();
+        f14429d = new a();
     }
 
     public a() {
@@ -148,9 +148,9 @@ public class a {
                 return;
             }
         }
-        this.f14291c = new b(this, 303009);
-        MessageManager.getInstance().registerListener(this.f14291c);
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001261, new C0911a(this));
+        this.f14431c = new b(this, 303009);
+        MessageManager.getInstance().registerListener(this.f14431c);
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001261, new C0921a(this));
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -158,7 +158,7 @@ public class a {
     public static a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f14289d : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f14429d : (a) invokeV.objValue;
     }
 
     public final GameInfoData b() {
@@ -167,7 +167,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             GameInfoData gameInfoData = new GameInfoData();
             gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(R.string.default_share_to_game_title));
-            gameInfoData.setGameLink(this.f14290b);
+            gameInfoData.setGameLink(this.f14430b);
             gameInfoData.setGameId("default");
             gameInfoData.setIconUrl("default");
             gameInfoData.setIntroduce(TbadkApplication.getInst().getContext().getString(R.string.default_share_to_game_content));

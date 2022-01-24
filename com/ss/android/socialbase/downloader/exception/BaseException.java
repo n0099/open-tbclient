@@ -3,7 +3,7 @@ package com.ss.android.socialbase.downloader.exception;
 import android.os.Parcel;
 import android.os.Parcelable;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BaseException extends Exception implements Parcelable {
     public static final Parcelable.Creator<BaseException> CREATOR = new Parcelable.Creator<BaseException>() { // from class: com.ss.android.socialbase.downloader.exception.BaseException.1
         /* JADX DEBUG: Method merged with bridge method */

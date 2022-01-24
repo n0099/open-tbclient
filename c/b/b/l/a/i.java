@@ -18,13 +18,13 @@ public class i implements c.b.b.n.c {
     public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f27031b;
+    public int[] f27059b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int[] f27032c;
+    public int[] f27060c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f27033d;
+    public byte[] f27061d;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class i implements c.b.b.n.c {
             }
         }
         this.a = new int[1];
-        this.f27031b = new int[1];
-        this.f27032c = new int[1];
-        this.f27033d = new byte[512];
+        this.f27059b = new int[1];
+        this.f27060c = new int[1];
+        this.f27061d = new byte[512];
     }
 
     @Override // c.b.b.n.c
@@ -66,11 +66,11 @@ public class i implements c.b.b.n.c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), intBuffer, intBuffer2})) == null) {
-            byte[] bArr = this.f27033d;
-            GLES20.glGetActiveAttrib(i2, i3, bArr.length, this.a, 0, this.f27031b, 0, this.f27032c, 0, bArr, 0);
-            intBuffer.put(this.f27031b[0]);
-            intBuffer2.put(this.f27032c[0]);
-            return new String(this.f27033d, 0, this.a[0]);
+            byte[] bArr = this.f27061d;
+            GLES20.glGetActiveAttrib(i2, i3, bArr.length, this.a, 0, this.f27059b, 0, this.f27060c, 0, bArr, 0);
+            intBuffer.put(this.f27059b[0]);
+            intBuffer2.put(this.f27060c[0]);
+            return new String(this.f27061d, 0, this.a[0]);
         }
         return (String) invokeCommon.objValue;
     }
@@ -396,11 +396,11 @@ public class i implements c.b.b.n.c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), intBuffer, intBuffer2})) == null) {
-            byte[] bArr = this.f27033d;
-            GLES20.glGetActiveUniform(i2, i3, bArr.length, this.a, 0, this.f27031b, 0, this.f27032c, 0, bArr, 0);
-            intBuffer.put(this.f27031b[0]);
-            intBuffer2.put(this.f27032c[0]);
-            return new String(this.f27033d, 0, this.a[0]);
+            byte[] bArr = this.f27061d;
+            GLES20.glGetActiveUniform(i2, i3, bArr.length, this.a, 0, this.f27059b, 0, this.f27060c, 0, bArr, 0);
+            intBuffer.put(this.f27059b[0]);
+            intBuffer2.put(this.f27060c[0]);
+            return new String(this.f27061d, 0, this.a[0]);
         }
         return (String) invokeCommon.objValue;
     }

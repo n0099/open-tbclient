@@ -8,7 +8,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static void a() {
         List<DownloadInfo> a = com.ss.android.socialbase.appdownloader.d.j().a(j.getContext());

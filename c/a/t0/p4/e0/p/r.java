@@ -10,7 +10,7 @@ public final /* synthetic */ class r implements a.e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ r f21219e = new r();
+    public static final /* synthetic */ r f21455e = new r();
     public transient /* synthetic */ FieldHolder $fh;
 
     private /* synthetic */ r() {

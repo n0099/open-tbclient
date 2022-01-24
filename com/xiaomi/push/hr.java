@@ -24,31 +24,31 @@ public class hr implements iq<hr, Object>, Serializable, Cloneable {
     public static final jg f524a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f61219b;
+    public static final iy f61264b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f61220c;
+    public static final iy f61265c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f61221d;
+    public static final iy f61266d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f61222e;
+    public static final iy f61267e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f61223f;
+    public static final iy f61268f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f61224g;
+    public static final iy f61269g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f61225h;
+    public static final iy f61270h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f61226i;
+    public static final iy f61271i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final iy f61227j;
+    public static final iy f61272j;
     public static final iy k;
     public static final iy l;
     public static final iy m;
@@ -131,15 +131,15 @@ public class hr implements iq<hr, Object>, Serializable, Cloneable {
         }
         f524a = new jg("PushMessage");
         a = new iy("", StandardMessageCodec.LIST, (short) 1);
-        f61219b = new iy("", (byte) 11, (short) 2);
-        f61220c = new iy("", (byte) 11, (short) 3);
-        f61221d = new iy("", (byte) 11, (short) 4);
-        f61222e = new iy("", (byte) 10, (short) 5);
-        f61223f = new iy("", (byte) 10, (short) 6);
-        f61224g = new iy("", (byte) 11, (short) 7);
-        f61225h = new iy("", (byte) 11, (short) 8);
-        f61226i = new iy("", (byte) 11, (short) 9);
-        f61227j = new iy("", (byte) 11, (short) 10);
+        f61264b = new iy("", (byte) 11, (short) 2);
+        f61265c = new iy("", (byte) 11, (short) 3);
+        f61266d = new iy("", (byte) 11, (short) 4);
+        f61267e = new iy("", (byte) 10, (short) 5);
+        f61268f = new iy("", (byte) 10, (short) 6);
+        f61269g = new iy("", (byte) 11, (short) 7);
+        f61270h = new iy("", (byte) 11, (short) 8);
+        f61271i = new iy("", (byte) 11, (short) 9);
+        f61272j = new iy("", (byte) 11, (short) 10);
         k = new iy("", (byte) 11, (short) 11);
         l = new iy("", StandardMessageCodec.LIST, (short) 12);
         m = new iy("", (byte) 11, (short) 13);
@@ -651,47 +651,47 @@ public class hr implements iq<hr, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f528a != null) {
-                jbVar.a(f61219b);
+                jbVar.a(f61264b);
                 jbVar.a(this.f528a);
                 jbVar.b();
             }
             if (this.f532b != null) {
-                jbVar.a(f61220c);
+                jbVar.a(f61265c);
                 jbVar.a(this.f532b);
                 jbVar.b();
             }
             if (this.f534c != null) {
-                jbVar.a(f61221d);
+                jbVar.a(f61266d);
                 jbVar.a(this.f534c);
                 jbVar.b();
             }
             if (e()) {
-                jbVar.a(f61222e);
+                jbVar.a(f61267e);
                 jbVar.a(this.f525a);
                 jbVar.b();
             }
             if (f()) {
-                jbVar.a(f61223f);
+                jbVar.a(f61268f);
                 jbVar.a(this.f531b);
                 jbVar.b();
             }
             if (this.f535d != null && g()) {
-                jbVar.a(f61224g);
+                jbVar.a(f61269g);
                 jbVar.a(this.f535d);
                 jbVar.b();
             }
             if (this.f536e != null && h()) {
-                jbVar.a(f61225h);
+                jbVar.a(f61270h);
                 jbVar.a(this.f536e);
                 jbVar.b();
             }
             if (this.f537f != null && i()) {
-                jbVar.a(f61226i);
+                jbVar.a(f61271i);
                 jbVar.a(this.f537f);
                 jbVar.b();
             }
             if (this.f538g != null && j()) {
-                jbVar.a(f61227j);
+                jbVar.a(f61272j);
                 jbVar.a(this.f538g);
                 jbVar.b();
             }

@@ -6,7 +6,7 @@ public class v implements com.kwad.sdk.core.webview.kwai.a {
     public com.kwad.sdk.core.webview.kwai.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f56458b = new a();
+    public a f56503b = new a();
 
     /* loaded from: classes3.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
@@ -22,7 +22,7 @@ public class v implements com.kwad.sdk.core.webview.kwai.a {
     public void a(int i2) {
         com.kwad.sdk.core.webview.kwai.c cVar = this.a;
         if (cVar != null) {
-            a aVar = this.f56458b;
+            a aVar = this.f56503b;
             aVar.a = i2;
             cVar.a(aVar);
         }

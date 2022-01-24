@@ -14,27 +14,27 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static c f3493e;
+    public static c f3634e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int[] f3494f;
+    public static int[] f3635f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static short[] f3495g;
+    public static short[] f3636g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static short[] f3496h;
+    public static short[] f3637h;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public short f3497b;
+    public short f3638b;
 
     /* renamed from: c  reason: collision with root package name */
-    public short f3498c;
+    public short f3639c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3499d;
+    public int f3640d;
 
     static {
         InterceptResult invokeClinit;
@@ -49,9 +49,9 @@ public class c {
                 return;
             }
         }
-        f3494f = new int[]{8000, 11025, 16000, 22050, 32000, 44100, 47250, MediaEncodeParams.AUDIO_SAMPLE_RATE};
-        f3495g = new short[]{2, 3};
-        f3496h = new short[]{2, 16, 12, 3};
+        f3635f = new int[]{8000, 11025, 16000, 22050, 32000, 44100, 47250, MediaEncodeParams.AUDIO_SAMPLE_RATE};
+        f3636g = new short[]{2, 3};
+        f3637h = new short[]{2, 16, 12, 3};
     }
 
     public c() {
@@ -67,7 +67,7 @@ public class c {
                 return;
             }
         }
-        this.f3499d = -2;
+        this.f3640d = -2;
     }
 
     public static c b() {
@@ -75,13 +75,13 @@ public class c {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            c cVar2 = f3493e;
+            c cVar2 = f3634e;
             if (cVar2 == null) {
                 synchronized (c.class) {
-                    if (f3493e == null) {
-                        f3493e = new c();
+                    if (f3634e == null) {
+                        f3634e = new c();
                     }
-                    cVar = f3493e;
+                    cVar = f3634e;
                 }
                 return cVar;
             }
@@ -108,20 +108,20 @@ public class c {
         AudioRecord audioRecord;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a > 0 && this.f3497b > 0 && this.f3498c > 0) {
-                return new AudioRecord(1, this.a, this.f3498c, this.f3497b, this.f3499d);
+            if (this.a > 0 && this.f3638b > 0 && this.f3639c > 0) {
+                return new AudioRecord(1, this.a, this.f3639c, this.f3638b, this.f3640d);
             }
-            int[] iArr2 = f3494f;
+            int[] iArr2 = f3635f;
             int length = iArr2.length;
             AudioRecord audioRecord2 = null;
             for (int i6 = 0; i6 < length; i6++) {
                 int i7 = iArr2[i6];
-                short[] sArr2 = f3495g;
+                short[] sArr2 = f3636g;
                 int length2 = sArr2.length;
                 int i8 = 0;
                 while (i8 < length2) {
                     short s2 = sArr2[i8];
-                    short[] sArr3 = f3496h;
+                    short[] sArr3 = f3637h;
                     int length3 = sArr3.length;
                     AudioRecord audioRecord3 = audioRecord2;
                     int i9 = 0;
@@ -129,7 +129,7 @@ public class c {
                         short s3 = sArr3[i9];
                         try {
                             minBufferSize = AudioRecord.getMinBufferSize(i7, s3, s2);
-                            this.f3499d = minBufferSize;
+                            this.f3640d = minBufferSize;
                         } catch (Throwable th) {
                             th = th;
                             iArr = iArr2;
@@ -182,9 +182,9 @@ public class c {
                                     try {
                                         this.a = i7;
                                         try {
-                                            this.f3497b = s4;
-                                            this.f3498c = s3;
-                                            this.f3499d = min;
+                                            this.f3638b = s4;
+                                            this.f3639c = s3;
+                                            this.f3640d = min;
                                             if (audioRecord.getState() != 1) {
                                                 audioRecord.release();
                                             }
@@ -216,7 +216,7 @@ public class c {
                                         s = s4;
                                     }
                                     try {
-                                        audioRecord3 = new AudioRecord(1, i7, s3, s4, this.f3499d);
+                                        audioRecord3 = new AudioRecord(1, i7, s3, s4, this.f3640d);
                                         try {
                                         } catch (Throwable th7) {
                                             th = th7;
@@ -240,8 +240,8 @@ public class c {
                                         this.a = i7;
                                         s = s4;
                                         try {
-                                            this.f3497b = s;
-                                            this.f3498c = s3;
+                                            this.f3638b = s;
+                                            this.f3639c = s3;
                                             if (audioRecord3.getState() != 1) {
                                                 audioRecord3.release();
                                             }

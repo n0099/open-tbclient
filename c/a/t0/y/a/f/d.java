@@ -23,14 +23,14 @@ public class d extends c.a.k0.b.b.a<i> {
 
         /* renamed from: c.a.t0.y.a.f.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class View$OnClickListenerC1549a implements View.OnClickListener {
+        public class View$OnClickListenerC1529a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AbsContainer f25628e;
+            public final /* synthetic */ AbsContainer f25355e;
 
-            public View$OnClickListenerC1549a(a aVar, AbsContainer absContainer) {
+            public View$OnClickListenerC1529a(a aVar, AbsContainer absContainer) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,14 +45,14 @@ public class d extends c.a.k0.b.b.a<i> {
                         return;
                     }
                 }
-                this.f25628e = absContainer;
+                this.f25355e = absContainer;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AbsContainer absContainer;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (absContainer = this.f25628e) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (absContainer = this.f25355e) == null) {
                     return;
                 }
                 absContainer.webViewGoBack();
@@ -65,7 +65,7 @@ public class d extends c.a.k0.b.b.a<i> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AbsContainer f25629e;
+            public final /* synthetic */ AbsContainer f25356e;
 
             public b(a aVar, AbsContainer absContainer) {
                 Interceptable interceptable = $ic;
@@ -82,14 +82,14 @@ public class d extends c.a.k0.b.b.a<i> {
                         return;
                     }
                 }
-                this.f25629e = absContainer;
+                this.f25356e = absContainer;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AbsContainer absContainer;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (absContainer = this.f25629e) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (absContainer = this.f25356e) == null) {
                     return;
                 }
                 absContainer.doFinish();
@@ -125,7 +125,7 @@ public class d extends c.a.k0.b.b.a<i> {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, absContainer) == null) {
                 int intValue = ((Integer) view.getTag()).intValue();
                 if (intValue == R.drawable.nad_web_back) {
-                    view.setOnClickListener(new View$OnClickListenerC1549a(this, absContainer));
+                    view.setOnClickListener(new View$OnClickListenerC1529a(this, absContainer));
                 } else if (intValue == R.drawable.nad_web_close) {
                     view.setOnClickListener(new b(this, absContainer));
                 }

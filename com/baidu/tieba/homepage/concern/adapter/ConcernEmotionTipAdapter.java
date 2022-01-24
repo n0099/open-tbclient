@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import c.a.d.n.e.a;
-import c.a.t0.o1.c.f.b;
+import c.a.t0.p1.c.f.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -106,18 +106,18 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, concernEmotionTipViewHolder})) == null) {
-            String str = bVar.f20214f;
+            String str = bVar.f20535f;
             if (str != null) {
                 concernEmotionTipViewHolder.tipText.setText(str);
             }
-            if (bVar.getType() == b.f20212j) {
-                if (bVar.f20213e == 2) {
+            if (bVar.getType() == b.f20533j) {
+                if (bVar.f20534e == 2) {
                     concernEmotionTipViewHolder.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_person_no_data_title));
                 } else {
                     concernEmotionTipViewHolder.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_no_data_title));
                 }
             }
-            int i3 = bVar.f20213e;
+            int i3 = bVar.f20534e;
             if (i3 == 2) {
                 concernEmotionTipViewHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
             } else if (i3 == 3) {

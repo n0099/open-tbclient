@@ -31,20 +31,20 @@ public class a extends c.a.r0.r.a.b.a {
 
     /* renamed from: c.a.r0.r.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class RunnableC0801a implements Runnable {
+    public static class RunnableC0810a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String[] f11639e;
+        public final /* synthetic */ String[] f11781e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f11640f;
+        public final /* synthetic */ Activity f11782f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f11641g;
+        public final /* synthetic */ int f11783g;
 
-        public RunnableC0801a(String[] strArr, Activity activity, int i2) {
+        public RunnableC0810a(String[] strArr, Activity activity, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,23 +59,23 @@ public class a extends c.a.r0.r.a.b.a {
                     return;
                 }
             }
-            this.f11639e = strArr;
-            this.f11640f = activity;
-            this.f11641g = i2;
+            this.f11781e = strArr;
+            this.f11782f = activity;
+            this.f11783g = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int[] iArr = new int[this.f11639e.length];
-                PackageManager packageManager = this.f11640f.getPackageManager();
-                String packageName = this.f11640f.getPackageName();
-                int length = this.f11639e.length;
+                int[] iArr = new int[this.f11781e.length];
+                PackageManager packageManager = this.f11782f.getPackageManager();
+                String packageName = this.f11782f.getPackageName();
+                int length = this.f11781e.length;
                 for (int i2 = 0; i2 < length; i2++) {
-                    iArr[i2] = packageManager.checkPermission(this.f11639e[i2], packageName);
+                    iArr[i2] = packageManager.checkPermission(this.f11781e[i2], packageName);
                 }
-                ((b) this.f11640f).onRequestPermissionsResult(this.f11641g, this.f11639e, iArr);
+                ((b) this.f11782f).onRequestPermissionsResult(this.f11783g, this.f11781e, iArr);
             }
         }
     }
@@ -229,7 +229,7 @@ public class a extends c.a.r0.r.a.b.a {
             if (Build.VERSION.SDK_INT >= 23) {
                 c.a.r0.r.a.a.c.requestPermissions(activity, strArr, i2);
             } else if (activity instanceof b) {
-                new Handler(Looper.getMainLooper()).post(new RunnableC0801a(strArr, activity, i2));
+                new Handler(Looper.getMainLooper()).post(new RunnableC0810a(strArr, activity, i2));
             }
         }
     }

@@ -16,11 +16,11 @@ public class e extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f19573f;
+    public static final BdUniqueId f19683f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FeatureCardHot f19574e;
+    public FeatureCardHot f19684e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class e extends BaseCardInfo {
                 return;
             }
         }
-        f19573f = BdUniqueId.gen();
+        f19683f = BdUniqueId.gen();
     }
 
     public e() {
@@ -55,20 +55,20 @@ public class e extends BaseCardInfo {
     public FeatureCardHot g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19574e : (FeatureCardHot) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19684e : (FeatureCardHot) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19573f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19683f : (BdUniqueId) invokeV.objValue;
     }
 
     public void i(FeatureCardHot featureCardHot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, featureCardHot) == null) {
-            this.f19574e = featureCardHot;
+            this.f19684e = featureCardHot;
         }
     }
 }

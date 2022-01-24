@@ -17,7 +17,7 @@ import tbclient.Error;
 import tbclient.GetBubbleByCategory.DataRes;
 import tbclient.GetBubbleByCategory.GetBubbleByCategoryResIdl;
 import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

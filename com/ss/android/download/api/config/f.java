@@ -1,7 +1,7 @@
 package com.ss.android.download.api.config;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface f {
     void a(@NonNull com.ss.android.download.api.model.c cVar);
 

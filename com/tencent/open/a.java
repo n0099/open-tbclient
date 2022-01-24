@@ -52,11 +52,11 @@ public class a {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void call(String str, List<String> list, C2254a c2254a) {
+        public void call(String str, List<String> list, C2260a c2260a) {
             Method method;
             Object invoke;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, list, c2254a) == null) {
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, list, c2260a) == null) {
                 Method[] declaredMethods = getClass().getDeclaredMethods();
                 int length = declaredMethods.length;
                 int i2 = 0;
@@ -72,8 +72,8 @@ public class a {
                     i2++;
                 }
                 if (method == null) {
-                    if (c2254a != null) {
-                        c2254a.a();
+                    if (c2260a != null) {
+                        c2260a.a();
                         return;
                     }
                     return;
@@ -88,15 +88,15 @@ public class a {
                     Class<?> returnType = method.getReturnType();
                     SLog.d("openSDK_LOG.JsBridge", "-->call, result: " + invoke + " | ReturnType: " + returnType.getName());
                     if (!"void".equals(returnType.getName()) && returnType != Void.class) {
-                        if (c2254a == null || !customCallback()) {
+                        if (c2260a == null || !customCallback()) {
                             return;
                         }
-                        c2254a.a(invoke != null ? invoke.toString() : null);
+                        c2260a.a(invoke != null ? invoke.toString() : null);
                     }
                 } catch (Exception e2) {
                     SLog.e("openSDK_LOG.JsBridge", "-->handler call mehtod ex. targetMethod: " + method, e2);
-                    if (c2254a != null) {
-                        c2254a.a();
+                    if (c2260a != null) {
+                        c2260a.a();
                     }
                 }
             }
@@ -135,9 +135,9 @@ public class a {
         }
     }
 
-    public void a(String str, String str2, List<String> list, C2254a c2254a) {
+    public void a(String str, String str2, List<String> list, C2260a c2260a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, list, c2254a) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, list, c2260a) == null) {
             SLog.v("openSDK_LOG.JsBridge", "getResult---objName = " + str + " methodName = " + str2);
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -150,30 +150,30 @@ public class a {
             b bVar = this.a.get(str);
             if (bVar != null) {
                 SLog.d("openSDK_LOG.JsBridge", "call----");
-                bVar.call(str2, list, c2254a);
+                bVar.call(str2, list, c2260a);
                 return;
             }
             SLog.d("openSDK_LOG.JsBridge", "not call----objName NOT FIND");
-            if (c2254a != null) {
-                c2254a.a();
+            if (c2260a != null) {
+                c2260a.a();
             }
         }
     }
 
     /* renamed from: com.tencent.open.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C2254a {
+    public static class C2260a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WeakReference<WebView> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f60500b;
+        public long f60545b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f60501c;
+        public String f60546c;
 
-        public C2254a(WebView webView, long j2, String str) {
+        public C2260a(WebView webView, long j2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,8 +189,8 @@ public class a {
                 }
             }
             this.a = new WeakReference<>(webView);
-            this.f60500b = j2;
-            this.f60501c = str;
+            this.f60545b = j2;
+            this.f60546c = str;
         }
 
         public void a(Object obj) {
@@ -208,7 +208,7 @@ public class a {
             } else {
                 obj2 = obj.toString();
             }
-            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f60500b + ",{'r':0,'result':" + obj2 + "});");
+            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f60545b + ",{'r':0,'result':" + obj2 + "});");
         }
 
         public void a() {
@@ -217,7 +217,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (webView = this.a.get()) == null) {
                 return;
             }
-            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f60500b + ",{'r':1,'result':'no such method'})");
+            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f60545b + ",{'r':1,'result':'no such method'})");
         }
 
         public void a(String str) {
@@ -241,9 +241,9 @@ public class a {
                     return false;
                 }
                 List<String> subList = arrayList.subList(4, arrayList.size() - 1);
-                C2254a c2254a = new C2254a(webView, 4L, str);
+                C2260a c2260a = new C2260a(webView, 4L, str);
                 webView.getUrl();
-                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c2254a);
+                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c2260a);
                 return true;
             }
             return false;

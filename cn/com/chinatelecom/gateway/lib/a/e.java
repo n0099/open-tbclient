@@ -15,7 +15,7 @@ public class e {
     public static final String a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f30581b;
+    public static final char[] f30609b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class e {
                 return;
             }
         }
-        f30581b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f30609b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public e() {
@@ -57,8 +57,8 @@ public class e {
             }
             StringBuilder sb = new StringBuilder();
             for (int i2 = 0; i2 < bArr.length; i2++) {
-                sb.append(f30581b[(bArr[i2] >> 4) & 15]);
-                sb.append(f30581b[bArr[i2] & 15]);
+                sb.append(f30609b[(bArr[i2] >> 4) & 15]);
+                sb.append(f30609b[bArr[i2] & 15]);
             }
             return sb.toString();
         }

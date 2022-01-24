@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.s0.e1.o0;
+import c.a.s0.d1.o0;
 import c.a.s0.s.q.e2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -80,7 +80,7 @@ public class e extends c.a.t0.g0.b<c.a.t0.a0.f.a.e> {
         }
         this.m = 3;
         this.G = AlaLiveRoomActivityConfig.FROM_TYPE_SQUARE_RECOMMEND;
-        this.H = (n.k(this.f17768g) - this.f17768g.getResources().getDimensionPixelSize(R.dimen.ds16)) / 2;
+        this.H = (n.k(this.f17590g) - this.f17590g.getResources().getDimensionPixelSize(R.dimen.ds16)) / 2;
         p();
     }
 
@@ -114,7 +114,7 @@ public class e extends c.a.t0.g0.b<c.a.t0.a0.f.a.e> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view == j()) {
             if (!l.z()) {
-                Context context = this.f17768g;
+                Context context = this.f17590g;
                 n.K(context, context.getString(R.string.no_network_guide));
                 return;
             }
@@ -123,7 +123,7 @@ public class e extends c.a.t0.g0.b<c.a.t0.a0.f.a.e> {
                 dVar.a(view, this.I);
             }
             c.a.t0.a0.f.e.a.c().h(true);
-            q(this.f17767f, this.F);
+            q(this.f17589f, this.F);
         }
     }
 
@@ -168,7 +168,7 @@ public class e extends c.a.t0.g0.b<c.a.t0.a0.f.a.e> {
         String str;
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, tbPageContext, e2Var) == null) || tbPageContext == null || e2Var == null || e2Var.J() == null || e2Var.o1() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, tbPageContext, e2Var) == null) || tbPageContext == null || e2Var == null || e2Var.J() == null || e2Var.p1() == null) {
             return;
         }
         if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -181,7 +181,7 @@ public class e extends c.a.t0.g0.b<c.a.t0.a0.f.a.e> {
             z = false;
         }
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(e2Var.o1());
+        alaLiveInfoCoreData.fillWithInfoData(e2Var.p1());
         alaLiveInfoCoreData.userName = e2Var.J().getUserName();
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, this.G, str, z, "")));
     }
@@ -192,10 +192,10 @@ public class e extends c.a.t0.g0.b<c.a.t0.a0.f.a.e> {
     public void k(c.a.t0.a0.f.a.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
-            if (eVar != null && eVar.f14344h != null) {
+            if (eVar != null && eVar.f14484h != null) {
                 j().setVisibility(0);
                 this.I = eVar;
-                this.F = eVar.f14344h;
+                this.F = eVar.f14484h;
                 this.p.setVisibility(0);
                 this.q.setVisibility(8);
                 this.s.setVisibility(0);
@@ -206,25 +206,25 @@ public class e extends c.a.t0.g0.b<c.a.t0.a0.f.a.e> {
                 layoutParams.height = i2;
                 this.t.setLayoutParams(layoutParams);
                 this.o.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_video_direct_seeding, 0, 0, 0);
-                this.o.setText(this.f17768g.getResources().getString(R.string.square_live_tip));
-                this.n.startLoad(this.F.o1().cover, 10, false);
-                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(this.F.o1().audience_count);
-                this.r.setText(this.f17768g.getResources().getString(R.string.square_audience_label, numberUniformFormatExtra));
+                this.o.setText(this.f17590g.getResources().getString(R.string.square_live_tip));
+                this.n.startLoad(this.F.p1().cover, 10, false);
+                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(this.F.p1().audience_count);
+                this.r.setText(this.f17590g.getResources().getString(R.string.square_audience_label, numberUniformFormatExtra));
                 this.u.setData(this.F);
                 this.y.setText(this.F.getTitle());
                 if (this.F.J() != null) {
-                    String name_show = eVar.f14344h.J().getName_show();
+                    String name_show = eVar.f14484h.J().getName_show();
                     if (o0.d(name_show) > 10) {
-                        name_show = o0.m(name_show, 10) + "...";
+                        name_show = o0.n(name_show, 10) + "...";
                     }
                     this.v.setText(name_show);
                     this.B.setText(name_show);
                 }
                 this.w.setText(StringHelper.getFormatTime(this.F.P()));
                 this.A.setData(this.F, false);
-                this.C.setText(this.f17768g.getResources().getString(R.string.square_audience_label, numberUniformFormatExtra));
+                this.C.setText(this.f17590g.getResources().getString(R.string.square_audience_label, numberUniformFormatExtra));
                 this.D.setText(this.F.getTitle());
-                l(this.f17767f, TbadkCoreApplication.getInst().getSkinType());
+                l(this.f17589f, TbadkCoreApplication.getInst().getSkinType());
                 return;
             }
             j().setVisibility(4);
@@ -297,7 +297,7 @@ public class e extends c.a.t0.g0.b<c.a.t0.a0.f.a.e> {
         }
         this.m = 3;
         this.G = AlaLiveRoomActivityConfig.FROM_TYPE_SQUARE_RECOMMEND;
-        this.H = (n.k(this.f17768g) - this.f17768g.getResources().getDimensionPixelSize(R.dimen.ds16)) / 2;
+        this.H = (n.k(this.f17590g) - this.f17590g.getResources().getDimensionPixelSize(R.dimen.ds16)) / 2;
         this.K = i2;
         p();
     }

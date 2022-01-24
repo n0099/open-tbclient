@@ -25,10 +25,10 @@ public class e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f17764b;
+    public List<String> f17586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f17765c;
+    public List<String> f17587c;
 
     /* loaded from: classes7.dex */
     public class a extends BdAsyncTask<Void, Void, Void> {
@@ -57,11 +57,11 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                c.a.t0.h2.d.a(c.a.t0.h2.c.f18087b);
-                c.a.t0.h2.d.a(c.a.t0.h2.c.f18088c);
-                c.a.t0.h2.d.a(c.a.t0.h2.c.f18089d);
-                c.a.t0.h2.d.a(c.a.t0.h2.c.f18091f);
-                c.a.t0.h2.d.a(c.a.t0.h2.c.f18092g);
+                c.a.t0.i2.d.a(c.a.t0.i2.c.f18402b);
+                c.a.t0.i2.d.a(c.a.t0.i2.c.f18403c);
+                c.a.t0.i2.d.a(c.a.t0.i2.c.f18404d);
+                c.a.t0.i2.d.a(c.a.t0.i2.c.f18406f);
+                c.a.t0.i2.d.a(c.a.t0.i2.c.f18407g);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -98,7 +98,7 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                List j2 = e.j(c.a.t0.h2.c.f18090e);
+                List j2 = e.j(c.a.t0.i2.c.f18405e);
                 if (j2 == null) {
                     return null;
                 }
@@ -193,7 +193,7 @@ public class e {
 
     /* renamed from: c.a.t0.f4.e$e  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1114e {
+    public static class C1110e {
         public static /* synthetic */ Interceptable $ic;
         public static final e a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -222,7 +222,7 @@ public class e {
     public static e h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? C1114e.a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? C1110e.a : (e) invokeV.objValue;
     }
 
     public static List<c.a.t0.f4.d> j(String str) {
@@ -238,7 +238,7 @@ public class e {
                 int length = listFiles.length;
                 ArrayList arrayList = new ArrayList(length);
                 for (int i2 = 0; i2 < length; i2++) {
-                    arrayList.add(new c.a.t0.f4.d(m(c.a.t0.h2.d.e(listFiles[i2])), listFiles[i2].getAbsolutePath()));
+                    arrayList.add(new c.a.t0.f4.d(m(c.a.t0.i2.d.e(listFiles[i2])), listFiles[i2].getAbsolutePath()));
                 }
                 return arrayList;
             }
@@ -279,11 +279,11 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
             synchronized (this) {
-                if (this.f17765c.contains(str)) {
+                if (this.f17587c.contains(str)) {
                     return false;
                 }
                 File file = new File(str);
-                return c.a.t0.h2.d.f(file, str2 + org.apache.commons.lang3.StringUtils.LF);
+                return c.a.t0.i2.d.f(file, str2 + org.apache.commons.lang3.StringUtils.LF);
             }
         }
         return invokeLL.booleanValue;
@@ -295,9 +295,9 @@ public class e {
             synchronized (this) {
                 try {
                     byte[] a2 = c.a.t0.f4.c.a(dVar.a);
-                    if (c.a.t0.f4.c.c(a2, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.f17763b)) {
-                        FileHelper.deleteFile(new File(dVar.f17763b));
-                        this.f17765c.add(dVar.f17763b);
+                    if (c.a.t0.f4.c.c(a2, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.f17585b)) {
+                        FileHelper.deleteFile(new File(dVar.f17585b));
+                        this.f17587c.add(dVar.f17585b);
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -316,7 +316,7 @@ public class e {
                 }
                 this.a = String.valueOf(System.currentTimeMillis());
             }
-            return c.a.t0.h2.c.f18090e + this.a;
+            return c.a.t0.i2.c.f18405e + this.a;
         }
         return (String) invokeV.objValue;
     }
@@ -328,14 +328,14 @@ public class e {
                 if (jSONObject == null) {
                     return;
                 }
-                this.f17764b.add(jSONObject.toString());
+                this.f17586b.add(jSONObject.toString());
                 String i2 = i();
                 if (h.c()) {
                     l(jSONObject, i2);
                 }
-                if (this.f17764b.size() >= g.a() || z) {
-                    n(new c.a.t0.f4.d(this.f17764b, i2));
-                    this.f17764b.clear();
+                if (this.f17586b.size() >= g.a() || z) {
+                    n(new c.a.t0.f4.d(this.f17586b, i2));
+                    this.f17586b.clear();
                     this.a = null;
                 }
             }
@@ -377,8 +377,8 @@ public class e {
                 return;
             }
         }
-        this.f17764b = new ArrayList();
-        this.f17765c = new ArrayList();
+        this.f17586b = new ArrayList();
+        this.f17587c = new ArrayList();
         if (h.c()) {
             e();
         }

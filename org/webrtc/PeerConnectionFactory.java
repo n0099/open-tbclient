@@ -16,7 +16,7 @@ import org.webrtc.NativeLibrary;
 import org.webrtc.PeerConnection;
 import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.LegacyAudioDeviceModule;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PeerConnectionFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PeerConnectionFactory";
@@ -35,13 +35,13 @@ public class PeerConnectionFactory {
     public long nativeFactory;
 
     /* renamed from: org.webrtc.PeerConnectionFactory$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +190,7 @@ public class PeerConnectionFactory {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class InitializationOptions {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -204,7 +204,7 @@ public class PeerConnectionFactory {
         public final NativeLibraryLoader nativeLibraryLoader;
         public final String nativeLibraryName;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -332,7 +332,7 @@ public class PeerConnectionFactory {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Options {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ADAPTER_TYPE_ANY = 32;

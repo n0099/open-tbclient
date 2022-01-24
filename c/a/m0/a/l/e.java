@@ -11,7 +11,7 @@ public class e {
     public static float a = 1.01f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f4442b;
+    public static boolean f4583b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

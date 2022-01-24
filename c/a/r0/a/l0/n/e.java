@@ -29,16 +29,16 @@ public class e implements PermissionProxy {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f7620e;
+        public final /* synthetic */ String f7762e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7621f;
+        public final /* synthetic */ String f7763f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PermissionListener f7622g;
+        public final /* synthetic */ PermissionListener f7764g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f7623h;
+        public final /* synthetic */ e f7765h;
 
         public a(e eVar, String str, String str2, PermissionListener permissionListener) {
             Interceptable interceptable = $ic;
@@ -55,10 +55,10 @@ public class e implements PermissionProxy {
                     return;
                 }
             }
-            this.f7623h = eVar;
-            this.f7620e = str;
-            this.f7621f = str2;
-            this.f7622g = permissionListener;
+            this.f7765h = eVar;
+            this.f7762e = str;
+            this.f7763f = str2;
+            this.f7764g = permissionListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,9 +68,9 @@ public class e implements PermissionProxy {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    this.f7623h.b(this.f7620e, this.f7621f, this.f7622g);
+                    this.f7765h.b(this.f7762e, this.f7763f, this.f7764g);
                 } else {
-                    this.f7622g.onPermissionResult(this.f7620e, 2);
+                    this.f7764g.onPermissionResult(this.f7762e, 2);
                 }
             }
         }
@@ -82,10 +82,10 @@ public class e implements PermissionProxy {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PermissionListener f7624e;
+        public final /* synthetic */ PermissionListener f7766e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7625f;
+        public final /* synthetic */ String f7767f;
 
         public b(e eVar, PermissionListener permissionListener, String str) {
             Interceptable interceptable = $ic;
@@ -102,15 +102,15 @@ public class e implements PermissionProxy {
                     return;
                 }
             }
-            this.f7624e = permissionListener;
-            this.f7625f = str;
+            this.f7766e = permissionListener;
+            this.f7767f = str;
         }
 
         @Override // c.a.r0.a.v1.f
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f7624e.onPermissionResult(this.f7625f, 0);
+                this.f7766e.onPermissionResult(this.f7767f, 0);
             }
         }
 
@@ -118,7 +118,7 @@ public class e implements PermissionProxy {
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f7624e.onPermissionResult(this.f7625f, 1);
+                this.f7766e.onPermissionResult(this.f7767f, 1);
             }
         }
     }

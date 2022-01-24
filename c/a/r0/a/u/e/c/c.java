@@ -41,30 +41,30 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile c f8949i;
+    public static volatile c f9091i;
     public transient /* synthetic */ FieldHolder $fh;
     public PopupWindow a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Timer f8950b;
+    public Timer f9092b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanAppActivity f8951c;
+    public SwanAppActivity f9093c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.a.h0.g.d f8952d;
+    public c.a.r0.a.h0.g.d f9094d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ContentObserver f8953e;
+    public ContentObserver f9095e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.a.t0.a f8954f;
+    public c.a.r0.a.t0.a f9096f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.a.u.e.c.a f8955g;
+    public c.a.r0.a.u.e.c.a f9097g;
 
     /* renamed from: h  reason: collision with root package name */
-    public j f8956h;
+    public j f9098h;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -72,10 +72,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShowFavoriteGuideApi.GuideType f8957e;
+        public final /* synthetic */ ShowFavoriteGuideApi.GuideType f9099e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f8958f;
+        public final /* synthetic */ c f9100f;
 
         public a(c cVar, ShowFavoriteGuideApi.GuideType guideType) {
             Interceptable interceptable = $ic;
@@ -92,19 +92,19 @@ public class c {
                     return;
                 }
             }
-            this.f8958f = cVar;
-            this.f8957e = guideType;
+            this.f9100f = cVar;
+            this.f9099e = guideType;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f8958f.k();
-                if (this.f8958f.f8956h != null) {
-                    this.f8958f.f8956h.e(false);
+                this.f9100f.k();
+                if (this.f9100f.f9098h != null) {
+                    this.f9100f.f9098h.e(false);
                 }
-                ShowFavoriteGuideApi.F(this.f8957e, "flow_close_close", "click");
+                ShowFavoriteGuideApi.F(this.f9099e, "flow_close_close", "click");
             }
         }
     }
@@ -115,13 +115,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShowFavoriteGuideApi.GuideType f8959e;
+        public final /* synthetic */ ShowFavoriteGuideApi.GuideType f9101e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f8960f;
+        public final /* synthetic */ Activity f9102f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f8961g;
+        public final /* synthetic */ c f9103g;
 
         /* loaded from: classes.dex */
         public class a implements a.h {
@@ -151,8 +151,8 @@ public class c {
             public void onFail() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.a.f8961g.f8956h != null) {
-                        this.a.f8961g.f8956h.e(false);
+                    if (this.a.f9103g.f9098h != null) {
+                        this.a.f9103g.f9098h.e(false);
                     }
                     c.a.r0.a.e0.d.i("FavoriteGuideHelper", "add favorite result=false");
                 }
@@ -162,8 +162,8 @@ public class c {
             public void onSuccess() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    if (this.a.f8961g.f8956h != null) {
-                        this.a.f8961g.f8956h.e(true);
+                    if (this.a.f9103g.f9098h != null) {
+                        this.a.f9103g.f9098h.e(true);
                     }
                     c.a.r0.a.e0.d.i("FavoriteGuideHelper", "add favorite result=true");
                 }
@@ -185,21 +185,21 @@ public class c {
                     return;
                 }
             }
-            this.f8961g = cVar;
-            this.f8959e = guideType;
-            this.f8960f = activity;
+            this.f9103g = cVar;
+            this.f9101e = guideType;
+            this.f9102f = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.r0.a.k1.a.h(this.f8960f, new a(this));
-                this.f8961g.k();
-                if (this.f8961g.f8950b != null) {
-                    this.f8961g.f8950b.cancel();
+                c.a.r0.a.k1.a.h(this.f9102f, new a(this));
+                this.f9103g.k();
+                if (this.f9103g.f9092b != null) {
+                    this.f9103g.f9092b.cancel();
                 }
-                ShowFavoriteGuideApi.GuideType guideType = this.f8959e;
+                ShowFavoriteGuideApi.GuideType guideType = this.f9101e;
                 ShowFavoriteGuideApi.F(guideType, guideType == ShowFavoriteGuideApi.GuideType.WEAK ? "flow_add" : "flow_close_add", "click");
             }
         }
@@ -207,29 +207,29 @@ public class c {
 
     /* renamed from: c.a.r0.a.u.e.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class ViewTreeObserver$OnGlobalLayoutListenerC0565c implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class ViewTreeObserver$OnGlobalLayoutListenerC0574c implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewTreeObserver f8962e;
+        public final /* synthetic */ ViewTreeObserver f9104e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.g.g f8963f;
+        public final /* synthetic */ c.a.r0.a.h0.g.g f9105f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.g.f f8964g;
+        public final /* synthetic */ c.a.r0.a.h0.g.f f9106g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f8965h;
+        public final /* synthetic */ String f9107h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f8966i;
+        public final /* synthetic */ c.a.r0.a.d2.e f9108i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c f8967j;
+        public final /* synthetic */ c f9109j;
 
-        public ViewTreeObserver$OnGlobalLayoutListenerC0565c(c cVar, ViewTreeObserver viewTreeObserver, c.a.r0.a.h0.g.g gVar, c.a.r0.a.h0.g.f fVar, String str, c.a.r0.a.d2.e eVar) {
+        public ViewTreeObserver$OnGlobalLayoutListenerC0574c(c cVar, ViewTreeObserver viewTreeObserver, c.a.r0.a.h0.g.g gVar, c.a.r0.a.h0.g.f fVar, String str, c.a.r0.a.d2.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,12 +244,12 @@ public class c {
                     return;
                 }
             }
-            this.f8967j = cVar;
-            this.f8962e = viewTreeObserver;
-            this.f8963f = gVar;
-            this.f8964g = fVar;
-            this.f8965h = str;
-            this.f8966i = eVar;
+            this.f9109j = cVar;
+            this.f9104e = viewTreeObserver;
+            this.f9105f = gVar;
+            this.f9106g = fVar;
+            this.f9107h = str;
+            this.f9108i = eVar;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -258,19 +258,19 @@ public class c {
             ViewTreeObserver viewTreeObserver;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f8967j.a != null || (viewTreeObserver = this.f8962e) == null || !viewTreeObserver.isAlive()) {
-                    if (this.f8967j.f8952d != this.f8963f.m() || (!((fVar = this.f8964g) == null || TextUtils.equals(this.f8965h, fVar.n3())) || (!this.f8966i.v0() && n0.K()))) {
-                        this.f8967j.k();
-                        ViewTreeObserver viewTreeObserver2 = this.f8962e;
+                if (this.f9109j.a != null || (viewTreeObserver = this.f9104e) == null || !viewTreeObserver.isAlive()) {
+                    if (this.f9109j.f9094d != this.f9105f.m() || (!((fVar = this.f9106g) == null || TextUtils.equals(this.f9107h, fVar.n3())) || (!this.f9108i.v0() && n0.K()))) {
+                        this.f9109j.k();
+                        ViewTreeObserver viewTreeObserver2 = this.f9104e;
                         if (viewTreeObserver2 == null || !viewTreeObserver2.isAlive()) {
                             return;
                         }
-                        this.f8962e.removeOnGlobalLayoutListener(this);
+                        this.f9104e.removeOnGlobalLayoutListener(this);
                         return;
                     }
                     return;
                 }
-                this.f8962e.removeOnGlobalLayoutListener(this);
+                this.f9104e.removeOnGlobalLayoutListener(this);
             }
         }
     }
@@ -281,10 +281,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f8968e;
+        public final /* synthetic */ c.a.r0.a.d2.e f9110e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f8969f;
+        public final /* synthetic */ c f9111f;
 
         public d(c cVar, c.a.r0.a.d2.e eVar) {
             Interceptable interceptable = $ic;
@@ -301,27 +301,27 @@ public class c {
                     return;
                 }
             }
-            this.f8969f = cVar;
-            this.f8968e = eVar;
+            this.f9111f = cVar;
+            this.f9110e = eVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8969f.k();
-                if (this.f8969f.f8956h != null) {
-                    this.f8969f.f8956h.e(c.a.r0.a.j0.b.a.n(this.f8968e.f5537f));
+                this.f9111f.k();
+                if (this.f9111f.f9098h != null) {
+                    this.f9111f.f9098h.e(c.a.r0.a.j0.b.a.n(this.f9110e.f5679f));
                 }
-                if (this.f8969f.f8950b != null) {
-                    this.f8969f.f8950b.cancel();
+                if (this.f9111f.f9092b != null) {
+                    this.f9111f.f9092b.cancel();
                 }
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class e implements a.InterfaceC0564a {
+    public class e implements a.InterfaceC0573a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
@@ -344,7 +344,7 @@ public class c {
             this.a = cVar;
         }
 
-        @Override // c.a.r0.a.u.e.c.a.InterfaceC0564a
+        @Override // c.a.r0.a.u.e.c.a.InterfaceC0573a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -352,7 +352,7 @@ public class c {
             }
         }
 
-        @Override // c.a.r0.a.u.e.c.a.InterfaceC0564a
+        @Override // c.a.r0.a.u.e.c.a.InterfaceC0573a
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && i2 == 1) {
@@ -368,10 +368,10 @@ public class c {
         public final /* synthetic */ c.a.r0.a.d2.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ShowFavoriteGuideApi.GuideType f8970b;
+        public final /* synthetic */ ShowFavoriteGuideApi.GuideType f9112b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f8971c;
+        public final /* synthetic */ c f9113c;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -379,7 +379,7 @@ public class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ f f8972e;
+            public final /* synthetic */ f f9114e;
 
             public a(f fVar) {
                 Interceptable interceptable = $ic;
@@ -396,18 +396,18 @@ public class c {
                         return;
                     }
                 }
-                this.f8972e = fVar;
+                this.f9114e = fVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.r0.a.j0.b.a.n(this.f8972e.a.f5537f)) {
-                    f fVar = this.f8972e;
-                    if (fVar.f8970b == ShowFavoriteGuideApi.GuideType.NORMAL && fVar.f8971c.f8956h != null) {
-                        this.f8972e.f8971c.f8956h.e(true);
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.r0.a.j0.b.a.n(this.f9114e.a.f5679f)) {
+                    f fVar = this.f9114e;
+                    if (fVar.f9112b == ShowFavoriteGuideApi.GuideType.NORMAL && fVar.f9113c.f9098h != null) {
+                        this.f9114e.f9113c.f9098h.e(true);
                     }
-                    this.f8972e.f8971c.k();
+                    this.f9114e.f9113c.k();
                 }
             }
         }
@@ -430,9 +430,9 @@ public class c {
                     return;
                 }
             }
-            this.f8971c = cVar;
+            this.f9113c = cVar;
             this.a = eVar;
-            this.f8970b = guideType;
+            this.f9112b = guideType;
         }
 
         @Override // android.database.ContentObserver
@@ -452,7 +452,7 @@ public class c {
         public final /* synthetic */ c.a.r0.a.d2.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f8973b;
+        public final /* synthetic */ c f9115b;
 
         public g(c cVar, c.a.r0.a.d2.e eVar) {
             Interceptable interceptable = $ic;
@@ -469,15 +469,15 @@ public class c {
                     return;
                 }
             }
-            this.f8973b = cVar;
+            this.f9115b = cVar;
             this.a = eVar;
         }
 
         @Override // c.a.r0.a.t0.a, c.a.r0.a.t0.b
         public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f8973b.a != null && this.f8973b.a.x()) {
-                this.f8973b.k();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f9115b.a != null && this.f9115b.a.x()) {
+                this.f9115b.k();
             }
         }
 
@@ -486,11 +486,11 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 c.a.r0.a.e0.d.i("FavoriteGuideHelper", "call onActivityDestroyed");
-                this.f8973b.k();
-                if (this.f8973b.f8951c == null || this.f8973b.f8954f == null) {
+                this.f9115b.k();
+                if (this.f9115b.f9093c == null || this.f9115b.f9096f == null) {
                     return;
                 }
-                this.f8973b.f8951c.unregisterCallback(this.f8973b.f8954f);
+                this.f9115b.f9093c.unregisterCallback(this.f9115b.f9096f);
             }
         }
 
@@ -499,11 +499,11 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.e();
-                c.a.r0.a.e0.d.i("FavoriteGuideHelper", "swanId=" + this.a.f5537f + ", nowId=" + c.a.r0.a.d2.e.f0());
-                if (TextUtils.equals(this.a.f5537f, c.a.r0.a.d2.e.f0())) {
+                c.a.r0.a.e0.d.i("FavoriteGuideHelper", "swanId=" + this.a.f5679f + ", nowId=" + c.a.r0.a.d2.e.f0());
+                if (TextUtils.equals(this.a.f5679f, c.a.r0.a.d2.e.f0())) {
                     return;
                 }
-                this.f8973b.k();
+                this.f9115b.k();
             }
         }
     }
@@ -547,7 +547,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f8974e;
+        public final /* synthetic */ c f9116e;
 
         public i(c cVar) {
             Interceptable interceptable = $ic;
@@ -564,26 +564,26 @@ public class c {
                     return;
                 }
             }
-            this.f8974e = cVar;
+            this.f9116e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f8974e.a != null) {
-                    this.f8974e.a.r();
-                    this.f8974e.a = null;
+                if (this.f9116e.a != null) {
+                    this.f9116e.a.r();
+                    this.f9116e.a = null;
                 }
-                if (this.f8974e.f8953e != null) {
-                    AppRuntime.getAppContext().getContentResolver().unregisterContentObserver(this.f8974e.f8953e);
-                    this.f8974e.f8953e = null;
+                if (this.f9116e.f9095e != null) {
+                    AppRuntime.getAppContext().getContentResolver().unregisterContentObserver(this.f9116e.f9095e);
+                    this.f9116e.f9095e = null;
                 }
-                if (this.f8974e.f8951c != null && this.f8974e.f8954f != null) {
-                    this.f8974e.f8951c.unregisterCallback(this.f8974e.f8954f);
+                if (this.f9116e.f9093c != null && this.f9116e.f9096f != null) {
+                    this.f9116e.f9093c.unregisterCallback(this.f9116e.f9096f);
                 }
-                if (this.f8974e.f8952d != null) {
-                    this.f8974e.f8952d.z2(null);
+                if (this.f9116e.f9094d != null) {
+                    this.f9116e.f9094d.z2(null);
                 }
             }
         }
@@ -612,14 +612,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (f8949i == null) {
+            if (f9091i == null) {
                 synchronized (c.class) {
-                    if (f8949i == null) {
-                        f8949i = new c();
+                    if (f9091i == null) {
+                        f9091i = new c();
                     }
                 }
             }
-            return f8949i;
+            return f9091i;
         }
         return (c) invokeV.objValue;
     }
@@ -637,9 +637,9 @@ public class c {
     public final void m() {
         c.a.r0.a.p.b.a.i k;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f8955g == null && (k = c.a.r0.a.c1.b.k()) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f9097g == null && (k = c.a.r0.a.c1.b.k()) != null) {
             c.a.r0.a.u.e.c.a a2 = k.a();
-            this.f8955g = a2;
+            this.f9097g = a2;
             if (a2 != null) {
                 a2.b(new e(this));
             }
@@ -656,24 +656,24 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, eVar, guideType) == null) {
             synchronized (this) {
-                this.f8953e = new f(this, null, eVar, guideType);
-                AppRuntime.getAppContext().getContentResolver().registerContentObserver(c.a.r0.a.j0.b.a.d(), false, this.f8953e);
+                this.f9095e = new f(this, null, eVar, guideType);
+                AppRuntime.getAppContext().getContentResolver().registerContentObserver(c.a.r0.a.j0.b.a.d(), false, this.f9095e);
                 if (activity instanceof SwanAppActivity) {
                     SwanAppActivity swanAppActivity = (SwanAppActivity) activity;
-                    this.f8951c = swanAppActivity;
-                    if (this.f8954f != null) {
-                        swanAppActivity.unregisterCallback(this.f8954f);
+                    this.f9093c = swanAppActivity;
+                    if (this.f9096f != null) {
+                        swanAppActivity.unregisterCallback(this.f9096f);
                     }
                     g gVar = new g(this, eVar);
-                    this.f8954f = gVar;
-                    this.f8951c.registerCallback(gVar);
+                    this.f9096f = gVar;
+                    this.f9093c.registerCallback(gVar);
                 }
-                c.a.r0.a.h0.g.g swanAppFragmentManager = this.f8951c.getSwanAppFragmentManager();
+                c.a.r0.a.h0.g.g swanAppFragmentManager = this.f9093c.getSwanAppFragmentManager();
                 if (swanAppFragmentManager == null) {
                     return;
                 }
                 c.a.r0.a.h0.g.d m = swanAppFragmentManager.m();
-                this.f8952d = m;
+                this.f9094d = m;
                 if (m == null) {
                     return;
                 }
@@ -689,11 +689,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{jVar, activity, eVar, guideType, str, str2, Long.valueOf(j2)}) == null) {
             String str3 = str;
-            this.f8956h = jVar;
+            this.f9098h = jVar;
             k();
             if (eVar.v0()) {
                 m();
-                c.a.r0.a.u.e.c.a aVar = this.f8955g;
+                c.a.r0.a.u.e.c.a aVar = this.f9097g;
                 if (aVar != null) {
                     aVar.c(0);
                 }
@@ -737,8 +737,8 @@ public class c {
                 findViewById.getLocationOnScreen(iArr);
                 inflate.findViewById(c.a.r0.a.f.favorite_guide_arrow).setPadding(0, 0, ((n0.o(null) - iArr[0]) - (findViewById.getWidth() / 2)) - n0.g(7.0f), 0);
                 this.a = new PopupWindow(inflate, -2, -2);
-                SwanAppActivity swanAppActivity2 = this.f8951c;
-                if (swanAppActivity2 != null && !swanAppActivity2.isFinishing() && !this.f8951c.isDestroyed() && findViewById.isAttachedToWindow()) {
+                SwanAppActivity swanAppActivity2 = this.f9093c;
+                if (swanAppActivity2 != null && !swanAppActivity2.isFinishing() && !this.f9093c.isDestroyed() && findViewById.isAttachedToWindow()) {
                     try {
                         this.a.M(findViewById, 0, -n0.g(3.0f));
                     } catch (WindowManager.BadTokenException e2) {
@@ -748,19 +748,19 @@ public class c {
                     }
                 }
             }
-            if ((guideType == ShowFavoriteGuideApi.GuideType.NORMAL || guideType == ShowFavoriteGuideApi.GuideType.TIPS) && (swanAppActivity = this.f8951c) != null && (swanAppFragmentManager = swanAppActivity.getSwanAppFragmentManager()) != null && findViewById != null) {
+            if ((guideType == ShowFavoriteGuideApi.GuideType.NORMAL || guideType == ShowFavoriteGuideApi.GuideType.TIPS) && (swanAppActivity = this.f9093c) != null && (swanAppFragmentManager = swanAppActivity.getSwanAppFragmentManager()) != null && findViewById != null) {
                 c.a.r0.a.h0.g.f l = swanAppFragmentManager.l();
                 String n3 = l == null ? "" : l.n3();
                 ViewTreeObserver viewTreeObserver = findViewById.getViewTreeObserver();
-                viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver$OnGlobalLayoutListenerC0565c(this, viewTreeObserver, swanAppFragmentManager, l, n3, eVar));
+                viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver$OnGlobalLayoutListenerC0574c(this, viewTreeObserver, swanAppFragmentManager, l, n3, eVar));
             }
             if (guideType == ShowFavoriteGuideApi.GuideType.TIPS || guideType == ShowFavoriteGuideApi.GuideType.WEAK) {
-                Timer timer = this.f8950b;
+                Timer timer = this.f9092b;
                 if (timer != null) {
                     timer.cancel();
                 }
                 Timer timer2 = new Timer();
-                this.f8950b = timer2;
+                this.f9092b = timer2;
                 timer2.schedule(new d(this, eVar), 1000 * j2);
             }
             ShowFavoriteGuideApi.F(guideType, "", "show");

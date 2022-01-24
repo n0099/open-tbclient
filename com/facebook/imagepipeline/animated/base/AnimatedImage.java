@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.animated.base;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface AnimatedImage {
     public static final int LOOP_COUNT_INFINITE = 0;
 

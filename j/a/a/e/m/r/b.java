@@ -22,22 +22,22 @@ public class b implements j.a.a.e.q.g.d {
     public j.a.a.e.m.f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AbsViewEventHandler f62303b;
+    public AbsViewEventHandler f62348b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayUIKitConfig f62304c;
+    public PayUIKitConfig f62349c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Activity f62305d;
+    public Activity f62350d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<PayWayInfo> f62306e;
+    public List<PayWayInfo> f62351e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IYYPayAmountView.ViewParams f62307f;
+    public IYYPayAmountView.ViewParams f62352f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IPayCallback<CurrencyChargeMessage> f62308g;
+    public IPayCallback<CurrencyChargeMessage> f62353g;
 
     public b(j.a.a.e.m.f fVar, AbsViewEventHandler absViewEventHandler, PayUIKitConfig payUIKitConfig, Activity activity, List<PayWayInfo> list, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         Interceptable interceptable = $ic;
@@ -56,12 +56,12 @@ public class b implements j.a.a.e.q.g.d {
         }
         RLog.info("AmountInputDialogListener", "create AmountInputDialogListener");
         this.a = fVar;
-        this.f62303b = absViewEventHandler;
-        this.f62304c = payUIKitConfig;
-        this.f62305d = activity;
-        this.f62306e = list;
-        this.f62307f = viewParams;
-        this.f62308g = iPayCallback;
+        this.f62348b = absViewEventHandler;
+        this.f62349c = payUIKitConfig;
+        this.f62350d = activity;
+        this.f62351e = list;
+        this.f62352f = viewParams;
+        this.f62353g = iPayCallback;
     }
 
     @Override // j.a.a.e.q.g.d
@@ -69,7 +69,7 @@ public class b implements j.a.a.e.q.g.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
             RLog.info("AmountInputDialogListener", "InputDialog notifyCancelType clickArea:" + cancelType);
-            this.a.c(cancelType, this.f62303b);
+            this.a.c(cancelType, this.f62348b);
         }
     }
 
@@ -77,9 +77,9 @@ public class b implements j.a.a.e.q.g.d {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            j.a.a.e.n.c a = j.a.a.e.p.b.a((int) (i2 * 100.0d), this.f62304c);
+            j.a.a.e.n.c a = j.a.a.e.p.b.a((int) (i2 * 100.0d), this.f62349c);
             RLog.info("AmountInputDialogListener", "showInputDialog: mPayAmountCustom:%s", a);
-            this.a.g(this.f62305d, a, this.f62306e, this.f62307f, this.f62308g);
+            this.a.g(this.f62350d, a, this.f62351e, this.f62352f, this.f62353g);
         }
     }
 }

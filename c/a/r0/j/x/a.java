@@ -49,38 +49,38 @@ public class a extends c.a.r0.a.g1.b {
 
     /* renamed from: c.a.r0.j.x.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0778a implements c.a.r0.a.a1.b {
+    public class C0787a implements c.a.r0.a.a1.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.a.a1.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.f1.e.b f11281b;
+        public final /* synthetic */ c.a.r0.a.f1.e.b f11423b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f11282c;
+        public final /* synthetic */ a f11424c;
 
         /* renamed from: c.a.r0.j.x.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0779a implements Runnable {
+        public class RunnableC0788a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.a1.a f11283e;
+            public final /* synthetic */ c.a.r0.a.a1.a f11425e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f11284f;
+            public final /* synthetic */ int f11426f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ C0778a f11285g;
+            public final /* synthetic */ C0787a f11427g;
 
-            public RunnableC0779a(C0778a c0778a, c.a.r0.a.a1.a aVar, int i2) {
+            public RunnableC0788a(C0787a c0787a, c.a.r0.a.a1.a aVar, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0778a, aVar, Integer.valueOf(i2)};
+                    Object[] objArr = {c0787a, aVar, Integer.valueOf(i2)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i3 = newInitContext.flag;
                     if ((i3 & 1) != 0) {
@@ -90,46 +90,46 @@ public class a extends c.a.r0.a.g1.b {
                         return;
                     }
                 }
-                this.f11285g = c0778a;
-                this.f11283e = aVar;
-                this.f11284f = i2;
+                this.f11427g = c0787a;
+                this.f11425e = aVar;
+                this.f11426f = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11285g.f11282c.f6217i) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11427g.f11424c.f6359i) {
                     return;
                 }
-                a.c cVar = (a.c) this.f11283e;
-                if (this.f11284f != 0 || cVar == null) {
+                a.c cVar = (a.c) this.f11425e;
+                if (this.f11426f != 0 || cVar == null) {
                     return;
                 }
-                C0778a c0778a = this.f11285g;
-                if (c0778a.a == null) {
+                C0787a c0787a = this.f11427g;
+                if (c0787a.a == null) {
                     return;
                 }
-                if (c0778a.f11281b.m0()) {
+                if (c0787a.f11423b.m0()) {
                     if (!c.a.r0.j.f.d.m().n()) {
                         c.a.r0.a.e0.b.c(false);
-                        this.f11285g.f11281b.z0(false);
+                        this.f11427g.f11423b.z0(false);
                     } else {
-                        a aVar = this.f11285g.f11282c;
-                        aVar.n(aVar.f6212d).setVisibility(0);
-                        this.f11285g.f11282c.q().H(this.f11285g.f11282c.f6214f);
+                        a aVar = this.f11427g.f11424c;
+                        aVar.n(aVar.f6354d).setVisibility(0);
+                        this.f11427g.f11424c.q().H(this.f11427g.f11424c.f6356f);
                         c.a.r0.a.e0.a.b(true);
                         c.a.r0.a.e0.d.i("GamesControllerImpl", "init sConsole for devHook");
                     }
                 }
-                this.f11285g.f11282c.l.c(cVar, this.f11285g.f11282c.f6212d);
-                this.f11285g.f11282c.k = cVar.a;
-                this.f11285g.a.a(0, cVar);
-                this.f11285g.f11282c.e0(cVar.f11255c);
-                c.a.r0.j.j0.a.b().e(cVar.f11255c);
+                this.f11427g.f11424c.l.c(cVar, this.f11427g.f11424c.f6354d);
+                this.f11427g.f11424c.k = cVar.a;
+                this.f11427g.a.a(0, cVar);
+                this.f11427g.f11424c.e0(cVar.f11397c);
+                c.a.r0.j.j0.a.b().e(cVar.f11397c);
             }
         }
 
-        public C0778a(a aVar, c.a.r0.a.a1.b bVar, c.a.r0.a.f1.e.b bVar2) {
+        public C0787a(a aVar, c.a.r0.a.a1.b bVar, c.a.r0.a.f1.e.b bVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -144,18 +144,18 @@ public class a extends c.a.r0.a.g1.b {
                     return;
                 }
             }
-            this.f11282c = aVar;
+            this.f11424c = aVar;
             this.a = bVar;
-            this.f11281b = bVar2;
+            this.f11423b = bVar2;
         }
 
         @Override // c.a.r0.a.a1.b
         public void a(int i2, c.a.r0.a.a1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, aVar) == null) {
-                q0.d0(this.f11282c.m);
-                this.f11282c.m = new RunnableC0779a(this, aVar, i2);
-                q0.g0(this.f11282c.m);
+                q0.d0(this.f11424c.m);
+                this.f11424c.m = new RunnableC0788a(this, aVar, i2);
+                q0.g0(this.f11424c.m);
             }
         }
     }
@@ -201,7 +201,7 @@ public class a extends c.a.r0.a.g1.b {
             if (o) {
                 String str = "asyncLoadSwanApp swanCoreVersion: " + bVar.j0();
             }
-            c.a.r0.j.t.a.c(bVar, new C0778a(this, bVar2, bVar));
+            c.a.r0.j.t.a.c(bVar, new C0787a(this, bVar2, bVar));
             c.a.r0.j.o.c.m().I(bVar);
             c.a.r0.j.o.c.m().G(bVar);
             boolean z = o;
@@ -225,13 +225,13 @@ public class a extends c.a.r0.a.g1.b {
             if (activity == null) {
                 return null;
             }
-            if (this.f6215g == null && (viewGroup = (ViewGroup) activity.findViewById(f.ai_apps_activity_root)) != null) {
+            if (this.f6357g == null && (viewGroup = (ViewGroup) activity.findViewById(f.ai_apps_activity_root)) != null) {
                 SwanAppPropertyWindow swanAppPropertyWindow = new SwanAppPropertyWindow(activity);
-                this.f6215g = swanAppPropertyWindow;
+                this.f6357g = swanAppPropertyWindow;
                 swanAppPropertyWindow.setVisibility(8);
-                viewGroup.addView(this.f6215g);
+                viewGroup.addView(this.f6357g);
             }
-            return this.f6215g;
+            return this.f6357g;
         }
         return (SwanAppPropertyWindow) invokeL.objValue;
     }
@@ -305,7 +305,7 @@ public class a extends c.a.r0.a.g1.b {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f6216h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f6358h : invokeV.booleanValue;
     }
 
     @Override // c.a.r0.a.g1.b, c.a.r0.a.g1.d
@@ -314,8 +314,8 @@ public class a extends c.a.r0.a.g1.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, activity)) == null) {
             super.n(activity);
-            this.f6214f.setAutoAttachEnable(false);
-            return this.f6214f;
+            this.f6356f.setAutoAttachEnable(false);
+            return this.f6356f;
         }
         return (FullScreenFloatView) invokeL.objValue;
     }
@@ -329,7 +329,7 @@ public class a extends c.a.r0.a.g1.b {
                 this.a = new h(AppRuntime.getAppContext());
                 i.h(true);
             }
-            this.a.G((ViewGroup) this.f6212d.findViewById(16908290));
+            this.a.G((ViewGroup) this.f6354d.findViewById(16908290));
             return this.a;
         }
         return (c.a.r0.a.p.e.a) invokeV.objValue;
@@ -348,14 +348,14 @@ public class a extends c.a.r0.a.g1.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.v();
-            SwanAppActivity swanAppActivity = this.f6212d;
+            SwanAppActivity swanAppActivity = this.f6354d;
             if (swanAppActivity != null && swanAppActivity.getLaunchInfo() != null) {
-                b.a launchInfo = this.f6212d.getLaunchInfo();
+                b.a launchInfo = this.f6354d.getLaunchInfo();
                 c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
                 fVar.a = c.a.r0.a.n2.n.n(1);
-                fVar.f7981f = launchInfo.H();
-                fVar.f7978c = launchInfo.T();
-                fVar.f7977b = "show";
+                fVar.f8123f = launchInfo.H();
+                fVar.f8120c = launchInfo.T();
+                fVar.f8119b = "show";
                 fVar.d(launchInfo.s0().getString(UBCCloudControlProcessor.UBC_KEY));
                 fVar.b(c.a.r0.a.n2.n.k(launchInfo.W()));
                 c.a.r0.a.n2.n.onEvent(fVar);
@@ -384,7 +384,7 @@ public class a extends c.a.r0.a.g1.b {
         View decorView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            SwanAppActivity swanAppActivity = this.f6212d;
+            SwanAppActivity swanAppActivity = this.f6354d;
             if (swanAppActivity == null) {
                 return super.x();
             }
@@ -397,14 +397,14 @@ public class a extends c.a.r0.a.g1.b {
                 i3 = decorView.getWidth();
                 i2 = decorView.getHeight();
             }
-            Display defaultDisplay = this.f6212d.getWindowManager().getDefaultDisplay();
+            Display defaultDisplay = this.f6354d.getWindowManager().getDefaultDisplay();
             if (i3 == 0 || i2 == 0) {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 defaultDisplay.getRealMetrics(displayMetrics);
                 i3 = displayMetrics.widthPixels;
                 i2 = displayMetrics.heightPixels;
             }
-            if (this.f6212d.isLandScape() == ((defaultDisplay.getRotation() == 1 || defaultDisplay.getRotation() == 3) ? true : true)) {
+            if (this.f6354d.isLandScape() == ((defaultDisplay.getRotation() == 1 || defaultDisplay.getRotation() == 3) ? true : true)) {
                 int i4 = i3;
                 i3 = i2;
                 i2 = i4;

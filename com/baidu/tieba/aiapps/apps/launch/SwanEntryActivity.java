@@ -9,6 +9,8 @@ import c.a.r0.a.z2.v;
 import c.a.r0.g.m.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +28,7 @@ public class SwanEntryActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEntryActivity f41828e;
+        public final /* synthetic */ SwanEntryActivity f41849e;
 
         public a(SwanEntryActivity swanEntryActivity) {
             Interceptable interceptable = $ic;
@@ -43,14 +45,14 @@ public class SwanEntryActivity extends Activity {
                     return;
                 }
             }
-            this.f41828e = swanEntryActivity;
+            this.f41849e = swanEntryActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f41828e.finish();
+                this.f41849e.finish();
             }
         }
     }
@@ -85,7 +87,11 @@ public class SwanEntryActivity extends Activity {
         if (TextUtils.isEmpty(uri)) {
             return;
         }
-        b.a(uri);
+        if (!PermissionUtil.isAgreePrivacyPolicy()) {
+            SwanAppAbTestStatic.f41846b = uri;
+        } else {
+            b.a(uri);
+        }
     }
 
     @Override // android.app.Activity

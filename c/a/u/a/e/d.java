@@ -44,23 +44,23 @@ public class d {
             LcmPb$RpcData parseFrom = LcmPb$RpcData.parseFrom(bArr);
             if (parseFrom.hasLcmResponse()) {
                 LcmPb$LcmResponse lcmResponse = parseFrom.getLcmResponse();
-                c.a.u.a.h.e.a("PbProcessor", "methodId ：" + bVar.f26226i + ", logId :" + lcmResponse.getLogId() + ", errMsg :" + lcmResponse.getErrorMsg() + ", errCode :" + lcmResponse.getErrorCode() + ", pingMS :" + lcmResponse.getNextIntervalMs());
+                c.a.u.a.h.e.a("PbProcessor", "methodId ：" + bVar.f26254i + ", logId :" + lcmResponse.getLogId() + ", errMsg :" + lcmResponse.getErrorMsg() + ", errCode :" + lcmResponse.getErrorCode() + ", pingMS :" + lcmResponse.getNextIntervalMs());
                 if (lcmResponse.getErrorCode() == 0) {
-                    long j2 = bVar.f26226i;
+                    long j2 = bVar.f26254i;
                     if (j2 == 1) {
-                        bVar.f26227j = 0;
-                        bVar.f26224g = lcmResponse.getNextIntervalMs();
+                        bVar.f26255j = 0;
+                        bVar.f26252g = lcmResponse.getNextIntervalMs();
                     } else if (j2 == 2) {
-                        bVar.f26227j = -1;
+                        bVar.f26255j = -1;
                     } else if (j2 == 3) {
-                        bVar.f26224g = lcmResponse.getNextIntervalMs();
+                        bVar.f26252g = lcmResponse.getNextIntervalMs();
                     } else if (j2 == 4) {
                         c.a.u.a.h.e.a("PbProcessor", "parseLcmResponse notify");
                     }
                 } else {
-                    bVar.f26220c = lcmResponse.getErrorCode();
-                    bVar.f26221d = lcmResponse.getErrorMsg();
-                    bVar.f26227j = -1;
+                    bVar.f26248c = lcmResponse.getErrorCode();
+                    bVar.f26249d = lcmResponse.getErrorMsg();
+                    bVar.f26255j = -1;
                 }
             } else if (parseFrom.hasLcmNotify()) {
                 c.a.u.a.h.e.a("PbProcessor", "lcmpb hasLcmNotify");
@@ -114,31 +114,31 @@ public class d {
                 bArr2 = d(bArr2);
                 c.a.u.a.h.e.a("PbProcessor", "payload is gzip compressed，length : " + bArr2.length);
             }
-            bVar.f26223f = bArr2;
+            bVar.f26251f = bArr2;
             if (parseFrom.hasNotify()) {
                 RpcMetaPb$RpcNotifyMeta notify = parseFrom.getNotify();
-                bVar.f26220c = 0;
-                bVar.f26221d = "notify";
-                bVar.f26225h = notify.getServiceId();
-                bVar.f26226i = notify.getMethodId();
+                bVar.f26248c = 0;
+                bVar.f26249d = "notify";
+                bVar.f26253h = notify.getServiceId();
+                bVar.f26254i = notify.getMethodId();
                 bVar.n = notify.getLogId();
-                bVar.f26222e = true;
+                bVar.f26250e = true;
             } else if (parseFrom.hasResponse()) {
                 RpcMetaPb$RpcResponseMeta response = parseFrom.getResponse();
-                bVar.f26220c = response.getErrorCode();
-                bVar.f26221d = response.getErrorText();
-                bVar.f26225h = response.getServiceId();
-                bVar.f26226i = response.getMethodId();
+                bVar.f26248c = response.getErrorCode();
+                bVar.f26249d = response.getErrorText();
+                bVar.f26253h = response.getServiceId();
+                bVar.f26254i = response.getMethodId();
                 bVar.n = response.getLogId();
-                bVar.f26222e = false;
-                if (bVar.f26220c == 0 && bVar.f26225h == 1) {
+                bVar.f26250e = false;
+                if (bVar.f26248c == 0 && bVar.f26253h == 1) {
                     a(bVar, bArr2);
                     return bVar;
                 }
             } else if (parseFrom.hasRequest()) {
                 RpcMetaPb$RpcRequestMeta request = parseFrom.getRequest();
-                bVar.f26225h = request.getServiceId();
-                bVar.f26226i = request.getMethodId();
+                bVar.f26253h = request.getServiceId();
+                bVar.f26254i = request.getMethodId();
                 c.a.u.a.h.e.a("PbProcessor", "parseRpcMeta requestMeta");
                 a(bVar, bArr2);
             }

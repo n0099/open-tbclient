@@ -129,7 +129,7 @@ public class KWEGIDDFP {
                     String str2 = "";
                     if (TextUtils.isEmpty(a2)) {
                         com.yxcorp.kuaishou.addfp.android.b.b.a();
-                        if (com.yxcorp.kuaishou.addfp.android.b.e.b(this.mParamContext, new String[]{s.f55248i, "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                        if (com.yxcorp.kuaishou.addfp.android.b.e.b(this.mParamContext, new String[]{s.f55293i, "android.permission.WRITE_EXTERNAL_STORAGE"})) {
                             str2 = c.a(this.mParamContext).b("Lm91a2R0ZnQ=");
                         }
                     }

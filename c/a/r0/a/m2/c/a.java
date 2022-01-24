@@ -25,17 +25,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f7699b;
+    public static final boolean f7841b;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: c.a.r0.a.m2.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0457a implements Comparator<File> {
+    public class C0466a implements Comparator<File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0457a(a aVar) {
+        public C0466a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,7 +82,7 @@ public class a {
                 return;
             }
         }
-        f7699b = k.a;
+        f7841b = k.a;
     }
 
     public a() {
@@ -102,7 +102,7 @@ public class a {
         try {
             str = AppRuntime.getAppContext().getFilesDir().getPath();
         } catch (Exception e2) {
-            if (f7699b) {
+            if (f7841b) {
                 throw e2;
             }
             str = "";
@@ -121,7 +121,7 @@ public class a {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        Arrays.sort(c2, new C0457a(this));
+        Arrays.sort(c2, new C0466a(this));
         ArrayList<File> arrayList = new ArrayList(c2.length);
         int i3 = 0;
         for (File file : c2) {
@@ -162,7 +162,7 @@ public class a {
             try {
                 return new File(this.a).listFiles();
             } catch (Exception unused) {
-                boolean z = f7699b;
+                boolean z = f7841b;
                 return null;
             }
         }
@@ -189,7 +189,7 @@ public class a {
                 }
                 return null;
             } catch (Exception unused) {
-                boolean z = f7699b;
+                boolean z = f7841b;
                 return null;
             }
         }

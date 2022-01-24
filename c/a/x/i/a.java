@@ -16,8 +16,8 @@ public final class a {
     public static final int bdvideoplayer_tip_net_error = 2131690324;
     public static final int liveshow_plugin_impl_load_fail = 2131691984;
     public static final int liveshow_plugin_installing = 2131691985;
-    public static final int predownload_net_error_msg = 2131693715;
-    public static final int predownload_no_available_msg = 2131693716;
-    public static final int status_bar_notification_info_overflow = 2131694668;
+    public static final int predownload_net_error_msg = 2131693717;
+    public static final int predownload_no_available_msg = 2131693718;
+    public static final int status_bar_notification_info_overflow = 2131694674;
     public transient /* synthetic */ FieldHolder $fh;
 }

@@ -16,40 +16,40 @@ public class a {
 
     /* renamed from: c.a.p0.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0224a implements Runnable {
+    public static class RunnableC0233a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC0222a f4574e;
+        public final /* synthetic */ a.InterfaceC0231a f4716e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4575f;
+        public final /* synthetic */ String f4717f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f4576g;
+        public final /* synthetic */ int f4718g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f4577h;
+        public final /* synthetic */ ArrayList f4719h;
 
         /* renamed from: c.a.p0.e.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0225a extends c.a.p0.k.c {
+        public class C0234a extends c.a.p0.k.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a.InterfaceC0222a f4578f;
+            public final /* synthetic */ a.InterfaceC0231a f4720f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ RunnableC0224a f4579g;
+            public final /* synthetic */ RunnableC0233a f4721g;
 
-            public C0225a(RunnableC0224a runnableC0224a, a.InterfaceC0222a interfaceC0222a) {
+            public C0234a(RunnableC0233a runnableC0233a, a.InterfaceC0231a interfaceC0231a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {runnableC0224a, interfaceC0222a};
+                    Object[] objArr = {runnableC0233a, interfaceC0231a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -59,25 +59,25 @@ public class a {
                         return;
                     }
                 }
-                this.f4579g = runnableC0224a;
-                this.f4578f = interfaceC0222a;
+                this.f4721g = runnableC0233a;
+                this.f4720f = interfaceC0231a;
             }
 
             @Override // c.a.p0.k.c
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f4578f.onFinish(this.f4579g.f4575f);
+                    this.f4720f.onFinish(this.f4721g.f4717f);
                 }
             }
         }
 
-        public RunnableC0224a(a.InterfaceC0222a interfaceC0222a, String str, int i2, ArrayList arrayList) {
+        public RunnableC0233a(a.InterfaceC0231a interfaceC0231a, String str, int i2, ArrayList arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {interfaceC0222a, str, Integer.valueOf(i2), arrayList};
+                Object[] objArr = {interfaceC0231a, str, Integer.valueOf(i2), arrayList};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -87,24 +87,24 @@ public class a {
                     return;
                 }
             }
-            this.f4574e = interfaceC0222a;
-            this.f4575f = str;
-            this.f4576g = i2;
-            this.f4577h = arrayList;
+            this.f4716e = interfaceC0231a;
+            this.f4717f = str;
+            this.f4718g = i2;
+            this.f4719h = arrayList;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4574e.onFinish(this.f4575f);
-                if (this.f4576g != 1 || this.f4577h == null) {
+                this.f4716e.onFinish(this.f4717f);
+                if (this.f4718g != 1 || this.f4719h == null) {
                     return;
                 }
-                for (int i2 = 0; i2 < this.f4577h.size(); i2++) {
-                    a.InterfaceC0222a interfaceC0222a = (a.InterfaceC0222a) this.f4577h.get(i2);
-                    if (interfaceC0222a != null) {
-                        c.a.p0.k.e.c().b(new C0225a(this, interfaceC0222a));
+                for (int i2 = 0; i2 < this.f4719h.size(); i2++) {
+                    a.InterfaceC0231a interfaceC0231a = (a.InterfaceC0231a) this.f4719h.get(i2);
+                    if (interfaceC0231a != null) {
+                        c.a.p0.k.e.c().b(new C0234a(this, interfaceC0231a));
                     }
                 }
             }
@@ -126,19 +126,19 @@ public class a {
         return invokeI.intValue;
     }
 
-    public static void b(a.InterfaceC0222a interfaceC0222a, h hVar, int i2, ArrayList<a.InterfaceC0222a> arrayList, boolean z) {
+    public static void b(a.InterfaceC0231a interfaceC0231a, h hVar, int i2, ArrayList<a.InterfaceC0231a> arrayList, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{interfaceC0222a, hVar, Integer.valueOf(i2), arrayList, Boolean.valueOf(z)}) == null) || hVar == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{interfaceC0231a, hVar, Integer.valueOf(i2), arrayList, Boolean.valueOf(z)}) == null) || hVar == null) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("0", hVar.a);
-            jSONObject.put("1", hVar.f4643b);
-            jSONObject.put("2", String.valueOf(hVar.f4644c));
-            jSONObject.put("3", hVar.f4645d);
+            jSONObject.put("1", hVar.f4785b);
+            jSONObject.put("2", String.valueOf(hVar.f4786c));
+            jSONObject.put("3", hVar.f4787d);
             String jSONObject2 = jSONObject.toString();
-            if (interfaceC0222a != null) {
+            if (interfaceC0231a != null) {
                 if (i2 == 1) {
                     if (z) {
                         c.a.p0.c.a.c().f(false);
@@ -154,7 +154,7 @@ public class a {
                 } else if (z) {
                     c.a.p0.c.a.c().m(false);
                 }
-                new Thread(new RunnableC0224a(interfaceC0222a, jSONObject2, i2, arrayList)).start();
+                new Thread(new RunnableC0233a(interfaceC0231a, jSONObject2, i2, arrayList)).start();
             }
         } catch (Throwable th) {
             c.a.p0.l.c.d(th);

@@ -44,12 +44,12 @@ public class a {
 
     /* renamed from: c.a.r0.a.w1.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0608a implements a.InterfaceC0592a {
+    public static class C0617a implements a.InterfaceC0601a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.a.w1.g.c a;
 
-        public C0608a(c.a.r0.a.w1.g.c cVar) {
+        public C0617a(c.a.r0.a.w1.g.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +67,7 @@ public class a {
             this.a = cVar;
         }
 
-        @Override // c.a.r0.a.u.f.b.g.a.InterfaceC0592a
+        @Override // c.a.r0.a.u.f.b.g.a.InterfaceC0601a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -82,7 +82,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.w1.g.c f9508e;
+        public final /* synthetic */ c.a.r0.a.w1.g.c f9650e;
 
         public b(c.a.r0.a.w1.g.c cVar) {
             Interceptable interceptable = $ic;
@@ -99,14 +99,14 @@ public class a {
                     return;
                 }
             }
-            this.f9508e = cVar;
+            this.f9650e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.c(this.f9508e);
+                a.c(this.f9650e);
             }
         }
     }
@@ -167,10 +167,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, cVar) == null) {
             if (cVar != null && cVar.a()) {
-                String str = cVar.f9545e;
-                String str2 = cVar.f9546f;
-                long j2 = cVar.f9547g;
-                c.a.r0.q.b.g(new e(str, str2, j2, cVar.f9548h), new c.a.r0.a.w1.b.a(str, str2, j2, new c(str)));
+                String str = cVar.f9687e;
+                String str2 = cVar.f9688f;
+                long j2 = cVar.f9689g;
+                c.a.r0.q.b.g(new e(str, str2, j2, cVar.f9690h), new c.a.r0.a.w1.b.a(str, str2, j2, new c(str)));
                 return;
             }
             c.a.r0.a.w1.e.a.b("plugin is invalid");
@@ -225,11 +225,11 @@ public class a {
             ArrayList arrayList = new ArrayList();
             for (c.a.r0.a.w1.g.a aVar : b2.k.a) {
                 c.a.r0.q.i.a aVar2 = new c.a.r0.q.i.a();
-                aVar2.a = aVar.f9545e;
-                aVar2.f11480b = aVar.k;
-                aVar2.f11481c = aVar.f9547g;
-                aVar2.f11483e = aVar.m;
-                aVar2.f11482d = aVar.l;
+                aVar2.a = aVar.f9687e;
+                aVar2.f11622b = aVar.k;
+                aVar2.f11623c = aVar.f9689g;
+                aVar2.f11625e = aVar.m;
+                aVar2.f11624d = aVar.l;
                 arrayList.add(aVar2);
             }
             return arrayList;
@@ -307,8 +307,8 @@ public class a {
             if (iVar == null) {
                 return null;
             }
-            File t = d.t(iVar.f11494g, String.valueOf(iVar.f11496i));
-            return (t == null || !t.exists()) ? d.t(iVar.f11494g, String.valueOf(l0.c(iVar.f11497j))) : t;
+            File t = d.t(iVar.f11636g, String.valueOf(iVar.f11638i));
+            return (t == null || !t.exists()) ? d.t(iVar.f11636g, String.valueOf(l0.c(iVar.f11639j))) : t;
         }
         return (File) invokeL.objValue;
     }
@@ -356,7 +356,7 @@ public class a {
         return (String) invokeL.objValue;
     }
 
-    public static Set<a.C0796a> i(PMSAppInfo pMSAppInfo) {
+    public static Set<a.C0805a> i(PMSAppInfo pMSAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, pMSAppInfo)) == null) {
@@ -368,7 +368,7 @@ public class a {
         return (Set) invokeL.objValue;
     }
 
-    public static Set<a.C0796a> j(String str, long j2) {
+    public static Set<a.C0805a> j(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65546, null, str, j2)) == null) {
@@ -379,10 +379,10 @@ public class a {
             HashSet hashSet = new HashSet();
             ArrayList arrayList = new ArrayList();
             for (c.a.r0.q.i.a aVar : l) {
-                if (!aVar.f11480b && c.a.r0.q.p.e.b(aVar.a, aVar.f11482d, aVar.f11483e, arrayList) == null) {
-                    a.C0796a c0796a = new a.C0796a(aVar.a);
-                    c0796a.f(aVar.f11482d, aVar.f11483e);
-                    hashSet.add(c0796a);
+                if (!aVar.f11622b && c.a.r0.q.p.e.b(aVar.a, aVar.f11624d, aVar.f11625e, arrayList) == null) {
+                    a.C0805a c0805a = new a.C0805a(aVar.a);
+                    c0805a.f(aVar.f11624d, aVar.f11625e);
+                    hashSet.add(c0805a);
                 }
             }
             if (!arrayList.isEmpty()) {
@@ -440,7 +440,7 @@ public class a {
                     Iterator<c.a.r0.a.w1.g.c> it = i2.iterator();
                     while (it.hasNext()) {
                         c.a.r0.a.w1.g.c next = it.next();
-                        Pair<Boolean, File> i3 = c.a.r0.a.p0.f.c.i(next.f9545e);
+                        Pair<Boolean, File> i3 = c.a.r0.a.p0.f.c.i(next.f9687e);
                         if (((Boolean) i3.first).booleanValue()) {
                             c.a.r0.a.e0.d.k("SwanDynamicUtil", "优先使用 Debug 动态库: " + ((File) i3.second).getAbsolutePath());
                             o(jSONObject, jSONObject2, (File) i3.second, next, -1L);
@@ -493,22 +493,22 @@ public class a {
                 z3 = true;
                 boolean z5 = false;
                 for (i iVar : w) {
-                    if (cVar2.f9545e.equals(iVar.f11494g)) {
-                        c.a.r0.a.w1.e.a.b("pluginName = " + cVar2.f9545e + " latestPlugin versionCode = " + iVar.f11496i + " cur model versionCode = " + cVar2.f9547g);
-                        long j5 = cVar2.f9547g;
+                    if (cVar2.f9687e.equals(iVar.f11636g)) {
+                        c.a.r0.a.w1.e.a.b("pluginName = " + cVar2.f9687e + " latestPlugin versionCode = " + iVar.f11638i + " cur model versionCode = " + cVar2.f9689g);
+                        long j5 = cVar2.f9689g;
                         if (j5 >= j4) {
-                            c2 = iVar.f11496i;
+                            c2 = iVar.f11638i;
                         } else {
-                            c2 = l0.c(iVar.f11497j);
-                            j5 = l0.c(cVar2.f9546f);
+                            c2 = l0.c(iVar.f11639j);
+                            j5 = l0.c(cVar2.f9688f);
                         }
                         if (c2 > j5) {
                             file2 = g(iVar);
                             z5 = true;
                         }
                         if (z5) {
-                            cVar.f9546f = iVar.f11497j;
-                            cVar.f9547g = iVar.f11496i;
+                            cVar.f9688f = iVar.f11639j;
+                            cVar.f9689g = iVar.f11638i;
                         }
                         if (!iVar.c()) {
                             c.a.r0.a.w1.e.a.b("plugin is new, not yet expired");
@@ -530,9 +530,9 @@ public class a {
             if (z2) {
                 j3 = j2;
             } else {
-                long j6 = cVar2.f9547g;
+                long j6 = cVar2.f9689g;
                 if (j6 < 0) {
-                    j6 = l0.c(cVar2.f9546f);
+                    j6 = l0.c(cVar2.f9688f);
                 }
                 j3 = j6;
             }
@@ -552,20 +552,20 @@ public class a {
         if (file != null && file.exists()) {
             str = file.getAbsolutePath();
             if (a) {
-                c.a.r0.a.w1.e.a.b("apply path in workspace, name = " + cVar.f9545e);
+                c.a.r0.a.w1.e.a.b("apply path in workspace, name = " + cVar.f9687e);
             }
         } else {
-            str = cVar.f9549i;
+            str = cVar.f9691i;
             if (a) {
-                c.a.r0.a.w1.e.a.b("apply path inner swan app, name = " + cVar.f9545e);
+                c.a.r0.a.w1.e.a.b("apply path inner swan app, name = " + cVar.f9687e);
             }
         }
         try {
-            jSONObject.put(cVar.f9545e, str);
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(cVar.f9550j)) {
+            jSONObject.put(cVar.f9687e, str);
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(cVar.f9692j)) {
                 return;
             }
-            File file2 = new File(str, cVar.f9550j);
+            File file2 = new File(str, cVar.f9692j);
             if (file2.exists()) {
                 String E = c.a.r0.w.d.E(file2);
                 if (a) {
@@ -574,7 +574,7 @@ public class a {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, new JSONObject(E));
                 jSONObject3.put(PushManager.APP_VERSION_CODE, j2);
-                jSONObject2.put(cVar.f9545e, jSONObject3);
+                jSONObject2.put(cVar.f9687e, jSONObject3);
             }
         } catch (JSONException e2) {
             if (a) {
@@ -634,7 +634,7 @@ public class a {
     public static void s(c.a.r0.a.w1.g.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, cVar) == null) {
-            c.a.r0.a.u.f.a.d().c(new c.a.r0.a.u.f.b.g.a(new C0608a(cVar)));
+            c.a.r0.a.u.f.a.d().c(new c.a.r0.a.u.f.b.g.a(new C0617a(cVar)));
         }
     }
 }

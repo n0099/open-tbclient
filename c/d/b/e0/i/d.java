@@ -20,10 +20,10 @@ public final class d {
     public static final ThreadLocal<DateFormat> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f27734b;
+    public static final String[] f27762b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final DateFormat[] f27735c;
+    public static final DateFormat[] f27763c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -54,7 +54,7 @@ public final class d {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'", Locale.US);
                 simpleDateFormat.setLenient(false);
-                simpleDateFormat.setTimeZone(c.d.b.e0.e.f27669f);
+                simpleDateFormat.setTimeZone(c.d.b.e0.e.f27697f);
                 return simpleDateFormat;
             }
             return (DateFormat) invokeV.objValue;
@@ -76,8 +76,8 @@ public final class d {
         }
         a = new a();
         String[] strArr = {"EEE, dd MMM yyyy HH:mm:ss zzz", DateUtils.PATTERN_RFC1036, DateUtils.PATTERN_ASCTIME, NetscapeDraftSpec.EXPIRES_PATTERN, "EEE, dd-MMM-yyyy HH-mm-ss z", "EEE, dd MMM yy HH:mm:ss z", "EEE dd-MMM-yyyy HH:mm:ss z", "EEE dd MMM yyyy HH:mm:ss z", "EEE dd-MMM-yyyy HH-mm-ss z", "EEE dd-MMM-yy HH:mm:ss z", "EEE dd MMM yy HH:mm:ss z", "EEE,dd-MMM-yy HH:mm:ss z", "EEE,dd-MMM-yyyy HH:mm:ss z", "EEE, dd-MM-yyyy HH:mm:ss z", "EEE MMM d yyyy HH:mm:ss z"};
-        f27734b = strArr;
-        f27735c = new DateFormat[strArr.length];
+        f27762b = strArr;
+        f27763c = new DateFormat[strArr.length];
     }
 
     public static String a(Date date) {
@@ -98,14 +98,14 @@ public final class d {
             if (parsePosition.getIndex() == str.length()) {
                 return parse;
             }
-            synchronized (f27734b) {
-                int length = f27734b.length;
+            synchronized (f27762b) {
+                int length = f27762b.length;
                 for (int i2 = 0; i2 < length; i2++) {
-                    DateFormat dateFormat = f27735c[i2];
+                    DateFormat dateFormat = f27763c[i2];
                     if (dateFormat == null) {
-                        dateFormat = new SimpleDateFormat(f27734b[i2], Locale.US);
-                        dateFormat.setTimeZone(c.d.b.e0.e.f27669f);
-                        f27735c[i2] = dateFormat;
+                        dateFormat = new SimpleDateFormat(f27762b[i2], Locale.US);
+                        dateFormat.setTimeZone(c.d.b.e0.e.f27697f);
+                        f27763c[i2] = dateFormat;
                     }
                     parsePosition.setIndex(0);
                     Date parse2 = dateFormat.parse(str, parsePosition);

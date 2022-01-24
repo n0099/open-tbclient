@@ -55,7 +55,7 @@ public class d {
             if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || aVar == null || (eVar = this.a) == null) {
                 return;
             }
-            eVar.d(aVar.a, aVar.f10454b);
+            eVar.d(aVar.a, aVar.f10596b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,7 +77,7 @@ public class d {
                             if (TextUtils.equals(jSONObject.optString(Constants.KEYS.RET, ""), "0") && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
                                 c.a.r0.h.i.k.a aVar = new c.a.r0.h.i.k.a();
                                 aVar.a = optJSONObject.optString("clickid");
-                                aVar.f10454b = optJSONObject.optString("dstlink");
+                                aVar.f10596b = optJSONObject.optString("dstlink");
                                 return aVar;
                             }
                             return null;
@@ -123,7 +123,7 @@ public class d {
     public static String c(String str, c.a.r0.h.i.r.a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, aVar)) == null) ? aVar == null ? str : str.replaceAll("\\{REQ_WIDTH\\}", aVar.a).replaceAll("\\{REQ_HEIGHT\\}", aVar.f10558b).replaceAll("\\{WIDTH\\}", aVar.f10559c).replaceAll("\\{HEIGHT\\}", aVar.f10560d).replaceAll("\\{DOWN_X\\}", aVar.f10561e).replaceAll("\\{DOWN_Y\\}", aVar.f10562f).replaceAll("\\{UP_X\\}", aVar.f10563g).replaceAll("\\{UP_Y\\}", aVar.f10564h).replaceAll("\\{VIDEO_TIME\\}", aVar.f10565i).replaceAll("\\{BEGIN_TIME\\}", aVar.f10566j).replaceAll("\\{END_TIME\\}", aVar.k).replaceAll("\\{PLAY_FIRST_FRAME\\}", aVar.l).replaceAll("\\{PLAY_LAST_FRAME\\}", aVar.m).replaceAll("\\{SCENE\\}", aVar.n).replaceAll("\\{TYPE\\}", aVar.o).replaceAll("\\{BEHAVIOR\\}", aVar.p).replaceAll("\\{STATUS\\}", aVar.q).replaceAll("\\{CONVERSION_ACTION\\}", aVar.r).replaceAll("\\{CLICK_ID\\}", aVar.s) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, aVar)) == null) ? aVar == null ? str : str.replaceAll("\\{REQ_WIDTH\\}", aVar.a).replaceAll("\\{REQ_HEIGHT\\}", aVar.f10700b).replaceAll("\\{WIDTH\\}", aVar.f10701c).replaceAll("\\{HEIGHT\\}", aVar.f10702d).replaceAll("\\{DOWN_X\\}", aVar.f10703e).replaceAll("\\{DOWN_Y\\}", aVar.f10704f).replaceAll("\\{UP_X\\}", aVar.f10705g).replaceAll("\\{UP_Y\\}", aVar.f10706h).replaceAll("\\{VIDEO_TIME\\}", aVar.f10707i).replaceAll("\\{BEGIN_TIME\\}", aVar.f10708j).replaceAll("\\{END_TIME\\}", aVar.k).replaceAll("\\{PLAY_FIRST_FRAME\\}", aVar.l).replaceAll("\\{PLAY_LAST_FRAME\\}", aVar.m).replaceAll("\\{SCENE\\}", aVar.n).replaceAll("\\{TYPE\\}", aVar.o).replaceAll("\\{BEHAVIOR\\}", aVar.p).replaceAll("\\{STATUS\\}", aVar.q).replaceAll("\\{CONVERSION_ACTION\\}", aVar.r).replaceAll("\\{CLICK_ID\\}", aVar.s) : (String) invokeLL.objValue;
     }
 
     public static void d(AdElementInfo adElementInfo, h hVar) {

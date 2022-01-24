@@ -3,7 +3,7 @@ package org.aspectj.lang.reflect;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface InterTypeMethodDeclaration extends InterTypeDeclaration {
     AjType<?>[] getExceptionTypes();
 

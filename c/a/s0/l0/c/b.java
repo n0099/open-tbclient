@@ -15,19 +15,19 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12853b;
+    public boolean f12997b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f12854c;
+    public BdUniqueId f12998c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.s0.l0.b.a f12855d;
+    public c.a.s0.l0.b.a f12999d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.l0.d.b f12856e;
+    public c.a.s0.l0.d.b f13000e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Object f12857f;
+    public Object f13001f;
 
     public b(int i2, c.a.s0.l0.b.a aVar, c.a.s0.l0.d.b bVar, c.a.s0.l0.a.a aVar2) {
         Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class b {
                 return;
             }
         }
-        this.f12853b = true;
+        this.f12997b = true;
         this.a = i2;
-        this.f12855d = aVar;
-        this.f12856e = bVar;
+        this.f12999d = aVar;
+        this.f13000e = bVar;
     }
 
     public c.a.s0.l0.b.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12855d : (c.a.s0.l0.b.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12999d : (c.a.s0.l0.b.a) invokeV.objValue;
     }
 
     public int b() {
@@ -65,45 +65,45 @@ public class b {
     public Object c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12857f : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13001f : invokeV.objValue;
     }
 
     public c.a.s0.l0.d.b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12856e : (c.a.s0.l0.d.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13000e : (c.a.s0.l0.d.b) invokeV.objValue;
     }
 
     public BdUniqueId e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12854c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12998c : (BdUniqueId) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12853b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12997b : invokeV.booleanValue;
     }
 
     public void g(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-            this.f12857f = obj;
+            this.f13001f = obj;
         }
     }
 
     public void h(c.a.s0.l0.d.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.f12856e = bVar;
+            this.f13000e = bVar;
         }
     }
 
     public void i(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            this.f12854c = bdUniqueId;
+            this.f12998c = bdUniqueId;
         }
     }
 }

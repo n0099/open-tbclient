@@ -44,7 +44,7 @@ public class s0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s0 f4213e;
+        public final /* synthetic */ s0 f4354e;
 
         public a(s0 s0Var) {
             Interceptable interceptable = $ic;
@@ -61,18 +61,18 @@ public class s0 extends h {
                     return;
                 }
             }
-            this.f4213e = s0Var;
+            this.f4354e = s0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             s0 s0Var;
-            a.InterfaceC0193a interfaceC0193a;
+            a.InterfaceC0202a interfaceC0202a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0193a = (s0Var = this.f4213e).f4148i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0202a = (s0Var = this.f4354e).f4289i) == null) {
                 return;
             }
-            interfaceC0193a.a(s0Var.p);
+            interfaceC0202a.a(s0Var.p);
         }
     }
 
@@ -224,7 +224,7 @@ public class s0 extends h {
                 this.r = k;
             }
             this.p = aVar;
-            if (aVar != null && aVar.getThreadData() != null && this.p.getThreadData().z1 != null && !this.p.getThreadData().z1.m && !this.p.getThreadData().P4()) {
+            if (aVar != null && aVar.getThreadData() != null && this.p.getThreadData().z1 != null && !this.p.getThreadData().z1.m && !this.p.getThreadData().Q4()) {
                 this.q.setVisibility(0);
                 this.q.onBindDataToView(aVar);
                 ViewGroup.LayoutParams layoutParams = this.q.getLayoutParams();
@@ -287,10 +287,10 @@ public class s0 extends h {
         }
     }
 
-    public void w(a.InterfaceC0193a interfaceC0193a) {
+    public void w(a.InterfaceC0202a interfaceC0202a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0193a) == null) {
-            this.f4148i = interfaceC0193a;
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0202a) == null) {
+            this.f4289i = interfaceC0202a;
         }
     }
 

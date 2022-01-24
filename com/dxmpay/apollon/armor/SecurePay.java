@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.base.statistics.StatServiceEvent;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SecurePay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INPUT_ID_CVV = 2;
@@ -29,7 +29,7 @@ public final class SecurePay {
     public static SecurePay a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f53519b = true;
+    public static boolean f53564b = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +48,7 @@ public final class SecurePay {
         try {
             System.loadLibrary("dxm_wsp_v1_1");
         } catch (UnsatisfiedLinkError e2) {
-            f53519b = false;
+            f53564b = false;
             String str = "load library failed, " + e2.getMessage();
         }
     }
@@ -239,7 +239,7 @@ public final class SecurePay {
     public boolean prepareCompleted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? f53519b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? f53564b : invokeV.booleanValue;
     }
 
     public native String rsaDecrypt(String str);

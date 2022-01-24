@@ -18,31 +18,31 @@ public class a {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f11619b;
+    public final int f11761b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f11620c;
+    public final int f11762c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f11621d;
+    public final String f11763d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f11622e;
+    public final String f11764e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f11623f;
+    public final String f11765f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f11624g;
+    public final String f11766g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Set<String> f11625h;
+    public final Set<String> f11767h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f11626i;
+    public final String f11768i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Long f11627j;
+    public final Long f11769j;
     public int k;
 
     public a(String str, int i2, int i3, String str2, String str3, String str4, String str5, Set<String> set, String str6, Long l) {
@@ -61,15 +61,15 @@ public class a {
             }
         }
         this.a = str;
-        this.f11620c = i3;
-        this.f11619b = i2;
-        this.f11621d = str2;
-        this.f11622e = str3;
-        this.f11623f = str4;
-        this.f11624g = str5;
-        this.f11625h = set;
-        this.f11626i = str6;
-        this.f11627j = l;
+        this.f11762c = i3;
+        this.f11761b = i2;
+        this.f11763d = str2;
+        this.f11764e = str3;
+        this.f11765f = str4;
+        this.f11766g = str5;
+        this.f11767h = set;
+        this.f11768i = str6;
+        this.f11769j = l;
     }
 
     public static a a(JSONObject jSONObject) {

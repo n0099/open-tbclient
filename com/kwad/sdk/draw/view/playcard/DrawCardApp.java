@@ -30,31 +30,31 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     public AdTemplate a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdInfo f56746b;
+    public AdInfo f56791b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f56747c;
+    public b f56792c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsAppDownloadListener f56748d;
+    public KsAppDownloadListener f56793d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f56749e;
+    public a f56794e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56750f;
+    public int f56795f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f56751g;
+    public ImageView f56796g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f56752h;
+    public ImageView f56797h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f56753i;
+    public TextView f56798i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ViewGroup f56754j;
+    public ViewGroup f56799j;
     public AppScoreView k;
     public TextView l;
     public TextView m;
@@ -95,10 +95,10 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
 
     private void a(Context context) {
         FrameLayout.inflate(context, R.layout.ksad_draw_card_app, this);
-        this.f56751g = (ImageView) findViewById(R.id.ksad_card_app_close);
-        this.f56752h = (ImageView) findViewById(R.id.ksad_card_app_icon);
-        this.f56753i = (TextView) findViewById(R.id.ksad_card_app_name);
-        this.f56754j = (ViewGroup) findViewById(R.id.ksad_card_app_score_container);
+        this.f56796g = (ImageView) findViewById(R.id.ksad_card_app_close);
+        this.f56797h = (ImageView) findViewById(R.id.ksad_card_app_icon);
+        this.f56798i = (TextView) findViewById(R.id.ksad_card_app_name);
+        this.f56799j = (ViewGroup) findViewById(R.id.ksad_card_app_score_container);
         this.k = (AppScoreView) findViewById(R.id.ksad_card_app_score);
         this.l = (TextView) findViewById(R.id.ksad_card_app_download_count);
         this.m = (TextView) findViewById(R.id.ksad_card_app_desc);
@@ -106,7 +106,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
         DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.ksad_card_app_download_btn);
         this.o = drawDownloadProgressBar;
         drawDownloadProgressBar.setTextSize(16);
-        this.f56750f = com.kwad.sdk.a.kwai.a.a(context, 156.0f);
+        this.f56795f = com.kwad.sdk.a.kwai.a.a(context, 156.0f);
     }
 
     private void d() {
@@ -118,8 +118,8 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     }
 
     private KsAppDownloadListener getAppDownloadListener() {
-        if (this.f56748d == null) {
-            this.f56748d = new c() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardApp.1
+        if (this.f56793d == null) {
+            this.f56793d = new c() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardApp.1
                 @Override // com.kwad.sdk.core.download.a.c
                 public void a(int i2) {
                     super.a(i2);
@@ -128,7 +128,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onDownloadFailed() {
-                    DrawCardApp.this.o.a(com.kwad.sdk.core.response.a.a.A(DrawCardApp.this.f56746b), DrawCardApp.this.o.getMax());
+                    DrawCardApp.this.o.a(com.kwad.sdk.core.response.a.a.A(DrawCardApp.this.f56791b), DrawCardApp.this.o.getMax());
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -138,12 +138,12 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onIdle() {
-                    DrawCardApp.this.o.a(com.kwad.sdk.core.response.a.a.A(DrawCardApp.this.f56746b), DrawCardApp.this.o.getMax());
+                    DrawCardApp.this.o.a(com.kwad.sdk.core.response.a.a.A(DrawCardApp.this.f56791b), DrawCardApp.this.o.getMax());
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onInstalled() {
-                    DrawCardApp.this.o.a(com.kwad.sdk.core.response.a.a.m(DrawCardApp.this.f56746b), DrawCardApp.this.o.getMax());
+                    DrawCardApp.this.o.a(com.kwad.sdk.core.response.a.a.m(DrawCardApp.this.f56791b), DrawCardApp.this.o.getMax());
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -153,23 +153,23 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                 }
             };
         }
-        return this.f56748d;
+        return this.f56793d;
     }
 
     public void a() {
         d();
-        this.f56747c = null;
+        this.f56792c = null;
     }
 
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
         this.a = adTemplate;
-        this.f56746b = d.j(adTemplate);
-        this.f56749e = aVar;
-        this.f56747c = new b(this.a, getAppDownloadListener());
-        KSImageLoader.loadAppIcon(this.f56752h, com.kwad.sdk.core.response.a.a.au(this.f56746b), adTemplate, 11);
-        this.f56753i.setText(com.kwad.sdk.core.response.a.a.t(this.f56746b));
-        String w = com.kwad.sdk.core.response.a.a.w(this.f56746b);
-        float x = com.kwad.sdk.core.response.a.a.x(this.f56746b);
+        this.f56791b = d.j(adTemplate);
+        this.f56794e = aVar;
+        this.f56792c = new b(this.a, getAppDownloadListener());
+        KSImageLoader.loadAppIcon(this.f56797h, com.kwad.sdk.core.response.a.a.au(this.f56791b), adTemplate, 11);
+        this.f56798i.setText(com.kwad.sdk.core.response.a.a.t(this.f56791b));
+        String w = com.kwad.sdk.core.response.a.a.w(this.f56791b);
+        float x = com.kwad.sdk.core.response.a.a.x(this.f56791b);
         boolean z = x >= 3.0f;
         if (z) {
             this.k.setScore(x);
@@ -181,40 +181,40 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
             this.l.setVisibility(0);
         }
         if (z || z2) {
-            this.f56754j.setVisibility(0);
+            this.f56799j.setVisibility(0);
         } else {
-            this.f56754j.setVisibility(8);
+            this.f56799j.setVisibility(8);
         }
         this.n.a(this.a);
-        this.m.setText(com.kwad.sdk.core.response.a.a.s(this.f56746b));
-        this.f56751g.setOnClickListener(this);
+        this.m.setText(com.kwad.sdk.core.response.a.a.s(this.f56791b));
+        this.f56796g.setOnClickListener(this);
         this.o.setOnClickListener(this);
         setOnClickListener(this);
     }
 
     public void b() {
-        a(0, this.f56750f);
+        a(0, this.f56795f);
     }
 
     public void c() {
-        a(this.f56750f, 0);
+        a(this.f56795f, 0);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != this.f56751g) {
-            com.kwad.sdk.core.download.a.a.a(new a.C2100a(getContext()).a(this.a).a(this.f56747c).a(view == this.o).a(view == this.o ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardApp.2
+        if (view != this.f56796g) {
+            com.kwad.sdk.core.download.a.a.a(new a.C2106a(getContext()).a(this.a).a(this.f56792c).a(view == this.o).a(view == this.o ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardApp.2
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
-                    if (DrawCardApp.this.f56749e != null) {
-                        DrawCardApp.this.f56749e.b();
+                    if (DrawCardApp.this.f56794e != null) {
+                        DrawCardApp.this.f56794e.b();
                     }
                 }
             }));
             return;
         }
         c();
-        a aVar = this.f56749e;
+        a aVar = this.f56794e;
         if (aVar != null) {
             aVar.a();
         }

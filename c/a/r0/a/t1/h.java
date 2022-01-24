@@ -13,7 +13,7 @@ public class h {
     public static g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f8861b;
+    public static final g f9003b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -56,7 +56,7 @@ public class h {
                 return;
             }
         }
-        f8861b = new a();
+        f9003b = new a();
     }
 
     public static g a() {
@@ -64,7 +64,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             g gVar = a;
-            return gVar == null ? f8861b : gVar;
+            return gVar == null ? f9003b : gVar;
         }
         return (g) invokeV.objValue;
     }

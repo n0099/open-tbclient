@@ -1,16 +1,16 @@
 package com.ss.android.socialbase.downloader.c;
 
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static int a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AbstractC2200a f59885b;
+    public static AbstractC2206a f59930b;
 
     /* renamed from: com.ss.android.socialbase.downloader.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static abstract class AbstractC2200a {
+    /* loaded from: classes4.dex */
+    public static abstract class AbstractC2206a {
         public void a(String str, String str2) {
         }
 
@@ -48,9 +48,9 @@ public class a {
         if (a <= 4) {
             b(str);
         }
-        AbstractC2200a abstractC2200a = f59885b;
-        if (abstractC2200a != null) {
-            abstractC2200a.c(b(str), str2);
+        AbstractC2206a abstractC2206a = f59930b;
+        if (abstractC2206a != null) {
+            abstractC2206a.c(b(str), str2);
         }
     }
 
@@ -61,9 +61,9 @@ public class a {
         if (a <= 5) {
             b(str);
         }
-        AbstractC2200a abstractC2200a = f59885b;
-        if (abstractC2200a != null) {
-            abstractC2200a.e(b(str), str2);
+        AbstractC2206a abstractC2206a = f59930b;
+        if (abstractC2206a != null) {
+            abstractC2206a.e(b(str), str2);
         }
     }
 
@@ -74,9 +74,9 @@ public class a {
         if (a <= 6) {
             b(str);
         }
-        AbstractC2200a abstractC2200a = f59885b;
-        if (abstractC2200a != null) {
-            abstractC2200a.d(b(str), str2);
+        AbstractC2206a abstractC2206a = f59930b;
+        if (abstractC2206a != null) {
+            abstractC2206a.d(b(str), str2);
         }
     }
 
@@ -89,9 +89,9 @@ public class a {
             return;
         }
         int i2 = a;
-        AbstractC2200a abstractC2200a = f59885b;
-        if (abstractC2200a != null) {
-            abstractC2200a.a(b(str), str2);
+        AbstractC2206a abstractC2206a = f59930b;
+        if (abstractC2206a != null) {
+            abstractC2206a.a(b(str), str2);
         }
     }
 
@@ -102,9 +102,9 @@ public class a {
         if (a <= 3) {
             b(str);
         }
-        AbstractC2200a abstractC2200a = f59885b;
-        if (abstractC2200a != null) {
-            abstractC2200a.b(b(str), str2);
+        AbstractC2206a abstractC2206a = f59930b;
+        if (abstractC2206a != null) {
+            abstractC2206a.b(b(str), str2);
         }
     }
 
@@ -123,9 +123,9 @@ public class a {
         if (a <= 6) {
             b(str);
         }
-        AbstractC2200a abstractC2200a = f59885b;
-        if (abstractC2200a != null) {
-            abstractC2200a.a(b(str), str2, th);
+        AbstractC2206a abstractC2206a = f59930b;
+        if (abstractC2206a != null) {
+            abstractC2206a.a(b(str), str2, th);
         }
     }
 }

@@ -18,10 +18,10 @@ public class a extends InputConnectionWrapper {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f60615b;
+    public static boolean f60660b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f60616c;
+    public static boolean f60661c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,7 +65,7 @@ public class a extends InputConnectionWrapper {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, charSequence, i2)) == null) {
-            f60616c = true;
+            f60661c = true;
             a = charSequence.toString();
             SLog.v("openSDK_LOG.CaptureInputConnection", "-->commitText: " + charSequence.toString());
             return super.commitText(charSequence, i2);
@@ -81,7 +81,7 @@ public class a extends InputConnectionWrapper {
             if (keyEvent.getAction() == 0) {
                 SLog.i("openSDK_LOG.CaptureInputConnection", "sendKeyEvent");
                 a = String.valueOf((char) keyEvent.getUnicodeChar());
-                f60616c = true;
+                f60661c = true;
                 SLog.d("openSDK_LOG.CaptureInputConnection", "s: " + a);
             }
             SLog.d("openSDK_LOG.CaptureInputConnection", "-->sendKeyEvent: " + a);
@@ -95,7 +95,7 @@ public class a extends InputConnectionWrapper {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2)) == null) {
-            f60616c = true;
+            f60661c = true;
             a = charSequence.toString();
             SLog.v("openSDK_LOG.CaptureInputConnection", "-->setComposingText: " + charSequence.toString());
             return super.setComposingText(charSequence, i2);

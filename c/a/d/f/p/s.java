@@ -49,8 +49,8 @@ public class s {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
-                long j2 = bVar.f2729c;
-                long j3 = bVar2.f2729c;
+                long j2 = bVar.f2831c;
+                long j3 = bVar2.f2831c;
                 if (j2 == j3) {
                     return 0;
                 }
@@ -84,9 +84,9 @@ public class s {
                 try {
                     l.b bVar = new l.b();
                     bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.f2729c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    bVar.f2831c = cursor.getLong(cursor.getColumnIndex("saveTime"));
                     cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.f2728b = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                    bVar.f2830b = cursor.getBlob(cursor.getColumnIndex("m_value"));
                     linkedList.add(bVar);
                 } catch (Throwable th2) {
                     th = th2;
@@ -127,9 +127,9 @@ public class s {
                 try {
                     l.b bVar = new l.b();
                     bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.f2729c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    bVar.f2831c = cursor.getLong(cursor.getColumnIndex("saveTime"));
                     cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.f2728b = cursor.getString(cursor.getColumnIndex("m_value"));
+                    bVar.f2830b = cursor.getString(cursor.getColumnIndex("m_value"));
                     linkedList.add(bVar);
                 } catch (Throwable th2) {
                     th = th2;

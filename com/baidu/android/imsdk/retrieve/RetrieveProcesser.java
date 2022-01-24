@@ -49,10 +49,10 @@ public class RetrieveProcesser {
                 }
                 LogUtils.d(TAG, "retrieve-->data is：" + jSONObject.toString());
                 String optString = jSONObject.optString("type");
-                String optString2 = jSONObject.optString(RetrieveFileData.JOB_ID);
+                String optString2 = jSONObject.optString("jobId");
                 String optString3 = jSONObject.optString("version");
                 if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
-                    String optString4 = jSONObject.optString(RetrieveFileData.EXPIRED);
+                    String optString4 = jSONObject.optString("expiredTime");
                     if (!TextUtils.isEmpty(optString4)) {
                         if (System.currentTimeMillis() >= Long.valueOf(optString4).longValue() * 1000) {
                             LogUtils.d(TAG, "retrieve-->任务过期");

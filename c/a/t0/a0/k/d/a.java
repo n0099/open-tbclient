@@ -29,24 +29,24 @@ public class a {
     public NEGFeedBackView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f14871b;
+    public TbPageContext f15011b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f14872c;
+    public ViewGroup f15012c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f14873d;
+    public BdUniqueId f15013d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NEGFeedBackView.b f14874e;
+    public NEGFeedBackView.b f15014e;
 
     /* renamed from: c.a.t0.a0.k.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0943a implements NEGFeedBackView.b {
+    public class C0953a implements NEGFeedBackView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0943a(a aVar) {
+        public C0953a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,9 +118,9 @@ public class a {
                 return;
             }
         }
-        this.f14874e = new C0943a(this);
-        this.f14871b = tbPageContext;
-        this.f14872c = viewGroup;
+        this.f15014e = new C0953a(this);
+        this.f15011b = tbPageContext;
+        this.f15012c = viewGroup;
     }
 
     public View a() {
@@ -131,48 +131,48 @@ public class a {
 
     public void b(e2 e2Var, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2Var, str) == null) || e2Var == null || e2Var.o1() == null || this.f14871b == null || this.f14872c == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2Var, str) == null) || e2Var == null || e2Var.p1() == null || this.f15011b == null || this.f15012c == null) {
             return;
         }
         int i2 = 0;
         boolean z = (e2Var.J() == null || e2Var.J().getUserId() == null || !e2Var.J().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-        if (TbadkCoreApplication.isLogin() && e2Var.o1().dislikeInfo != null && !z && e2Var.o1().dislikeInfo.size() > 0) {
+        if (TbadkCoreApplication.isLogin() && e2Var.p1().dislikeInfo != null && !z && e2Var.p1().dislikeInfo.size() > 0) {
             if (this.a == null) {
-                NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(this.f14871b);
+                NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(this.f15011b);
                 this.a = nEGFeedBackView;
-                nEGFeedBackView.setUniqueId(this.f14873d);
+                nEGFeedBackView.setUniqueId(this.f15013d);
                 this.a.setId(R.id.negative_feedback_view);
-                this.a.setDefaultReasonArray(new String[]{this.f14871b.getString(R.string.bad_quality), "", ""});
-                this.a.setEventCallback(this.f14874e);
-                this.a.attachToViewUpperRightConnerFromFrsLive(this.f14872c, n.f(this.f14871b.getPageActivity(), R.dimen.tbds120), n.f(this.f14871b.getPageActivity(), R.dimen.tbds20));
+                this.a.setDefaultReasonArray(new String[]{this.f15011b.getString(R.string.bad_quality), "", ""});
+                this.a.setEventCallback(this.f15014e);
+                this.a.attachToViewUpperRightConnerFromFrsLive(this.f15012c, n.f(this.f15011b.getPageActivity(), R.dimen.tbds120), n.f(this.f15011b.getPageActivity(), R.dimen.tbds20));
                 this.a.onChangeSkinType();
             }
             if (this.a.getVisibility() != 0) {
                 this.a.setVisibility(0);
             }
             x0 x0Var = new x0();
-            x0Var.o(e2Var.v1());
+            x0Var.o(e2Var.w1());
             x0Var.k(e2Var.U());
-            x0Var.n(e2Var.G0());
+            x0Var.n(e2Var.H0());
             x0Var.r(str);
-            x0Var.j(e2Var.o1().dislikeInfo);
+            x0Var.j(e2Var.p1().dislikeInfo);
             this.a.setData(x0Var);
         } else {
             NEGFeedBackView nEGFeedBackView2 = this.a;
             if (nEGFeedBackView2 != null && nEGFeedBackView2.getVisibility() != 8) {
                 this.a.setVisibility(8);
             }
-            i2 = n.f(this.f14871b.getPageActivity(), R.dimen.ds32);
+            i2 = n.f(this.f15011b.getPageActivity(), R.dimen.ds32);
         }
-        if (this.f14872c.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f14872c.getLayoutParams();
+        if (this.f15012c.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f15012c.getLayoutParams();
             layoutParams.rightMargin = i2;
-            this.f14872c.setLayoutParams(layoutParams);
+            this.f15012c.setLayoutParams(layoutParams);
         }
-        if (this.f14872c.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f14872c.getLayoutParams();
+        if (this.f15012c.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f15012c.getLayoutParams();
             layoutParams2.rightMargin = i2;
-            this.f14872c.setLayoutParams(layoutParams2);
+            this.f15012c.setLayoutParams(layoutParams2);
         }
         NEGFeedBackView nEGFeedBackView3 = this.a;
         if (nEGFeedBackView3 != null) {
@@ -192,7 +192,7 @@ public class a {
     public void d(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.f14873d = bdUniqueId;
+            this.f15013d = bdUniqueId;
         }
     }
 }

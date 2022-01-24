@@ -14,13 +14,13 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15641b;
+    public String f15789b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f15642c;
+    public long f15790c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f15643d;
+    public String f15791d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class d {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15641b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15789b : (String) invokeV.objValue;
     }
 
     public String b() {
@@ -51,7 +51,7 @@ public class d {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15642c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15790c : invokeV.longValue;
     }
 
     public void d(ThemeList themeList) {
@@ -60,14 +60,14 @@ public class d {
             return;
         }
         this.a = themeList.name;
-        this.f15641b = themeList.icon;
-        this.f15642c = themeList.last_update_time.longValue();
-        this.f15643d = themeList.type;
+        this.f15789b = themeList.icon;
+        this.f15790c = themeList.last_update_time.longValue();
+        this.f15791d = themeList.type;
     }
 
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15643d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15791d : (String) invokeV.objValue;
     }
 }

@@ -11,6 +11,7 @@ import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
 import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -33,16 +34,16 @@ public final class a {
     public static HashMap<String, Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, Integer> f24516b;
+    public static HashMap<String, Integer> f24221b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, String> f24517c;
+    public static HashMap<String, String> f24222c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, String> f24518d;
+    public static HashMap<String, String> f24223d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f24519e;
+    public static final Pattern f24224e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,9 +60,9 @@ public final class a {
             }
         }
         a = new HashMap<>();
-        f24516b = new HashMap<>();
-        f24517c = new HashMap<>();
-        f24518d = new HashMap<>();
+        f24221b = new HashMap<>();
+        f24222c = new HashMap<>();
+        f24223d = new HashMap<>();
         a("application/andrew-inset", "ez", 5);
         a("application/dsptype", "tsp", 5);
         a("application/futuresplash", "spl", 5);
@@ -79,7 +80,7 @@ public final class a {
         a("application/rar", "rar", 8);
         a("application/rdf+xml", "rdf", 5);
         a("application/rss+xml", "rss", 5);
-        a("application/zip", "zip", 8);
+        a("application/zip", StatConstants.VALUE_TYPE_ZIP, 8);
         a("application/vnd.android.package-archive", "apk", 3);
         a("application/vnd.cinderella", "cdy", 5);
         a("application/vnd.ms-pki.stl", "stl", 5);
@@ -380,19 +381,19 @@ public final class a {
         a("audio/aac", "aac", 1);
         a("application/vnd.rn-realmedia", x.C, 0);
         a("message/rfc822", "mht", 11);
-        f24519e = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        f24224e = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     public static void a(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65537, null, str, str2, i2) == null) {
             a.put(str2, Integer.valueOf(i2));
-            f24516b.put(str, Integer.valueOf(i2));
-            f24517c.put(str2, str);
-            if (f24518d.containsKey(str)) {
+            f24221b.put(str, Integer.valueOf(i2));
+            f24222c.put(str2, str);
+            if (f24223d.containsKey(str)) {
                 return;
             }
-            f24518d.put(str, str2);
+            f24223d.put(str, str2);
         }
     }
 
@@ -409,7 +410,7 @@ public final class a {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, str2, z)) == null) {
-            Integer num = f24516b.get(str2);
+            Integer num = f24221b.get(str2);
             if (num != null ? !(!z || num.intValue() != 8) : !((num = a.get(str)) != null && (!z || num.intValue() != 8))) {
                 num = 5;
             }
@@ -452,7 +453,7 @@ public final class a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f24518d.get(str);
+            return f24223d.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -561,7 +562,7 @@ public final class a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f24517c.get(str);
+            return f24222c.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -571,7 +572,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             try {
-                Matcher matcher = f24519e.matcher(str);
+                Matcher matcher = f24224e.matcher(str);
                 if (matcher.find()) {
                     return matcher.group(2);
                 }

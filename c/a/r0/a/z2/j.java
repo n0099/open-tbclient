@@ -20,19 +20,19 @@ public class j {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<String> f9992b;
+    public static List<String> f10134b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<String> f9993c;
+    public static List<String> f10135c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f9994d;
+    public static final Object f10136d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f9995e;
+    public static int f10137e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f9996f;
+    public static int f10138f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -74,11 +74,11 @@ public class j {
             }
         }
         a = c.a.r0.a.k.a;
-        f9992b = new ArrayList();
-        f9993c = new ArrayList();
-        f9994d = new Object();
-        f9995e = 0;
-        f9996f = 0;
+        f10134b = new ArrayList();
+        f10135c = new ArrayList();
+        f10136d = new Object();
+        f10137e = 0;
+        f10138f = 0;
     }
 
     public static boolean a() {
@@ -98,8 +98,8 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            c.a.r0.a.e0.d.c("JsNative", f9996f + "-true");
-            return f9996f + "-true-" + str + "-" + c();
+            c.a.r0.a.e0.d.c("JsNative", f10138f + "-true");
+            return f10138f + "-true-" + str + "-" + c();
         }
         return (String) invokeL.objValue;
     }
@@ -109,10 +109,10 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             StringBuilder sb = new StringBuilder();
-            synchronized (f9994d) {
-                if (f9992b != null) {
+            synchronized (f10136d) {
+                if (f10134b != null) {
                     sb.append("v8list:{");
-                    for (String str : f9992b) {
+                    for (String str : f10134b) {
                         if (!TextUtils.isEmpty(str)) {
                             if (str.length() > 100) {
                                 sb.append(str.substring(0, 99));
@@ -125,9 +125,9 @@ public class j {
                     }
                     sb.append("},");
                 }
-                if (f9993c != null) {
+                if (f10135c != null) {
                     sb.append("weblist:{");
-                    for (String str2 : f9993c) {
+                    for (String str2 : f10135c) {
                         if (!TextUtils.isEmpty(str2)) {
                             if (str2.length() > 100) {
                                 sb.append(str2.substring(0, 99));
@@ -151,35 +151,35 @@ public class j {
         List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, str)) == null) {
-            f9996f = 0;
-            if (f9995e == 1) {
+            f10138f = 0;
+            if (f10137e == 1) {
                 c.a.r0.a.e0.d.i("SwanAppCompat", "type support default");
-                f9996f = 1;
+                f10138f = 1;
                 return SchemeCollecter.getSchemesDes(str, i2);
             } else if (TextUtils.equals(str, "swan/web")) {
                 return SchemeCollecter.getSchemesDes(str, i2);
             } else {
                 if (a() && !c.a.r0.a.e1.d.b().isEmpty()) {
-                    synchronized (f9994d) {
+                    synchronized (f10136d) {
                         if (TextUtils.equals(str, SchemeCollecter.CLASSIFY_SWAN_V8)) {
-                            list = f9992b;
+                            list = f10134b;
                         } else {
-                            list = f9993c;
+                            list = f10135c;
                         }
                         if (list != null && list.size() > 0) {
                             boolean z = a;
-                            f9995e = 2;
-                            f9996f = 2;
+                            f10137e = 2;
+                            f10138f = 2;
                             return list.get(i2);
                         } else if (list != null) {
-                            f9996f = 3;
+                            f10138f = 3;
                         } else {
-                            f9996f = 4;
+                            f10138f = 4;
                         }
                     }
                 }
                 boolean z2 = a;
-                f9995e = 1;
+                f10137e = 1;
                 return SchemeCollecter.getSchemesDes(str, i2);
             }
         }
@@ -189,7 +189,7 @@ public class j {
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f9995e == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f10137e == 2 : invokeV.booleanValue;
     }
 
     public static boolean f() {
@@ -218,7 +218,7 @@ public class j {
     public static void i() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65545, null) == null) && a) {
-            String str = f9996f + "-true";
+            String str = f10138f + "-true";
         }
     }
 
@@ -226,10 +226,10 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
             boolean z = a;
-            synchronized (f9994d) {
-                f9995e = 0;
-                f9992b = new ArrayList();
-                f9993c = new ArrayList();
+            synchronized (f10136d) {
+                f10137e = 0;
+                f10134b = new ArrayList();
+                f10135c = new ArrayList();
             }
         }
     }
@@ -238,7 +238,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
             boolean z = a;
-            synchronized (f9994d) {
+            synchronized (f10136d) {
                 l(true);
                 l(false);
             }
@@ -281,11 +281,11 @@ public class j {
 
     public static void m(List<String> list, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65549, null, list, z) == null) && list != null && f9995e == 0) {
+        if ((interceptable == null || interceptable.invokeLZ(65549, null, list, z) == null) && list != null && f10137e == 0) {
             if (z) {
-                f9992b = list;
+                f10134b = list;
             } else {
-                f9993c = list;
+                f10135c = list;
             }
             if (a) {
                 StringBuilder sb = new StringBuilder();

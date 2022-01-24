@@ -14,12 +14,12 @@ public class a {
 
     /* renamed from: c.a.r0.a.h0.i.g.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0372a implements SwanAppNetworkUtils.b {
+    public class C0381a implements SwanAppNetworkUtils.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C0372a(a aVar, b bVar) {
+        public C0381a(a aVar, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,6 +78,6 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
             return;
         }
-        SwanAppNetworkUtils.b(new C0372a(this, bVar));
+        SwanAppNetworkUtils.b(new C0381a(this, bVar));
     }
 }

@@ -20,7 +20,7 @@ import c.a.d.a.j;
 import c.a.d.d.a;
 import c.a.d.f.p.n;
 import c.a.d.g.a.h;
-import c.a.s0.e1.t;
+import c.a.s0.d1.t;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.gif.NSGif;
 import com.baidu.adp.lib.util.BdLog;
@@ -873,7 +873,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
             if (bArr == null || bArr.length < interceptable) {
                 return;
             }
-            c.a.d.n.d.a a2 = a.C0106a.b().a(bArr, 0, interceptable);
+            c.a.d.n.d.a a2 = a.C0113a.b().a(bArr, 0, interceptable);
             this.t0 = true;
             setGif(a2);
         } catch (Throwable th) {

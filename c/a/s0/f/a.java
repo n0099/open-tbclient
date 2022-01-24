@@ -17,24 +17,24 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f12443f;
+    public static final String f12590f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f12444g;
+    public static final String f12591g;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12445b;
+    public String f12592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12446c;
+    public int f12593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaFileInfo f12447d;
+    public MediaFileInfo f12594d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<MediaFileInfo> f12448e;
+    public List<MediaFileInfo> f12595e;
 
     static {
         InterceptResult invokeClinit;
@@ -49,8 +49,8 @@ public class a {
                 return;
             }
         }
-        f12443f = String.valueOf(Integer.MAX_VALUE);
-        f12444g = String.valueOf(2147483646);
+        f12590f = String.valueOf(Integer.MAX_VALUE);
+        f12591g = String.valueOf(2147483646);
     }
 
     public a() {
@@ -70,7 +70,7 @@ public class a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f12446c++;
+            this.f12593c++;
         }
     }
 
@@ -83,20 +83,20 @@ public class a {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12446c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12593c : invokeV.intValue;
     }
 
     public List<MediaFileInfo> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12448e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12595e : (List) invokeV.objValue;
     }
 
     public ImageFileInfo e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            MediaFileInfo mediaFileInfo = this.f12447d;
+            MediaFileInfo mediaFileInfo = this.f12594d;
             if (mediaFileInfo instanceof ImageFileInfo) {
                 return (ImageFileInfo) mediaFileInfo;
             }
@@ -108,13 +108,13 @@ public class a {
     public MediaFileInfo f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12447d : (MediaFileInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12594d : (MediaFileInfo) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12445b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12592b : (String) invokeV.objValue;
     }
 
     public void h(String str) {
@@ -127,28 +127,28 @@ public class a {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f12446c = c.a.d.f.m.b.e(str, 0);
+            this.f12593c = c.a.d.f.m.b.e(str, 0);
         }
     }
 
     public void j(List<MediaFileInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            this.f12448e = list;
+            this.f12595e = list;
         }
     }
 
     public void k(MediaFileInfo mediaFileInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, mediaFileInfo) == null) {
-            this.f12447d = mediaFileInfo;
+            this.f12594d = mediaFileInfo;
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f12445b = str;
+            this.f12592b = str;
         }
     }
 }

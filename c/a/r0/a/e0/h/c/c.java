@@ -29,21 +29,21 @@ public class c implements a.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f5757f;
+    public static final boolean f5899f;
     public transient /* synthetic */ FieldHolder $fh;
     public a.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LocalServerSocket f5758b;
+    public LocalServerSocket f5900b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.a.e0.h.c.a f5759c;
+    public c.a.r0.a.e0.h.c.a f5901c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5760d;
+    public String f5902d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f5761e;
+    public boolean f5903e;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -52,16 +52,16 @@ public class c implements a.c {
         public Map<String, String> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5762b;
+        public String f5904b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f5763c;
+        public String f5905c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f5764d;
+        public String f5906d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f5765e;
+        public boolean f5907e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -156,7 +156,7 @@ public class c implements a.c {
                 return;
             }
         }
-        f5757f = k.a;
+        f5899f = k.a;
     }
 
     public c(String str, a.b bVar) {
@@ -174,28 +174,28 @@ public class c implements a.c {
                 return;
             }
         }
-        this.f5760d = str;
+        this.f5902d = str;
         this.a = bVar;
     }
 
     @Override // c.a.r0.a.e0.h.a.c
     public void start() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f5761e) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f5903e) {
             return;
         }
         try {
-            this.f5758b = new LocalServerSocket(this.f5760d);
-            this.f5761e = true;
+            this.f5900b = new LocalServerSocket(this.f5902d);
+            this.f5903e = true;
             int i2 = 0;
-            while (this.f5761e) {
-                LocalSocket accept = this.f5758b.accept();
+            while (this.f5903e) {
+                LocalSocket accept = this.f5900b.accept();
                 c.a.r0.a.e0.h.c.a aVar = new c.a.r0.a.e0.h.c.a(accept.getInputStream(), accept.getOutputStream());
-                this.f5759c = aVar;
+                this.f5901c = aVar;
                 aVar.o(this.a);
-                ExecutorUtilsExt.postOnSerial(this.f5759c, "V8InspectorServer");
+                ExecutorUtilsExt.postOnSerial(this.f5901c, "V8InspectorServer");
                 if (c.a.r0.a.x1.a.a.H() && (i2 = i2 + 1) > 10) {
-                    boolean z = f5757f;
+                    boolean z = f5899f;
                     return;
                 }
             }
@@ -208,20 +208,20 @@ public class c implements a.c {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f5761e = false;
-            LocalServerSocket localServerSocket = this.f5758b;
+            this.f5903e = false;
+            LocalServerSocket localServerSocket = this.f5900b;
             if (localServerSocket != null) {
                 try {
                     localServerSocket.close();
                 } catch (IOException e2) {
                     c.a.r0.a.e0.d.d("V8InspectorServer", "stop local server fail", e2);
                 }
-                this.f5758b = null;
+                this.f5900b = null;
             }
-            c.a.r0.a.e0.h.c.a aVar = this.f5759c;
+            c.a.r0.a.e0.h.c.a aVar = this.f5901c;
             if (aVar != null) {
                 aVar.l();
-                this.f5759c = null;
+                this.f5901c = null;
             }
             this.a = null;
         }

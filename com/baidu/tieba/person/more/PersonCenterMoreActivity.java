@@ -7,10 +7,10 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import c.a.d.f.p.n;
 import c.a.t0.g0.d0;
-import c.a.t0.u2.i.b;
-import c.a.t0.v2.d.h;
-import c.a.t0.y2.e;
-import c.a.t0.y2.g;
+import c.a.t0.v2.i.b;
+import c.a.t0.w2.d.h;
+import c.a.t0.z2.e;
+import c.a.t0.z2.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -42,7 +42,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterMoreActivity f47070b;
+        public final /* synthetic */ PersonCenterMoreActivity f47098b;
 
         public a(PersonCenterMoreActivity personCenterMoreActivity) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                     return;
                 }
             }
-            this.f47070b = personCenterMoreActivity;
+            this.f47098b = personCenterMoreActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,11 +68,11 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         public void a(View view, h hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, hVar) == null) {
-                this.f47070b.mItemData = hVar;
-                if (this.f47070b.mItemData == null || this.f47070b.requestPermission()) {
+                this.f47098b.mItemData = hVar;
+                if (this.f47098b.mItemData == null || this.f47098b.requestPermission()) {
                     return;
                 }
-                PersonCenterMoreActivity personCenterMoreActivity = this.f47070b;
+                PersonCenterMoreActivity personCenterMoreActivity = this.f47098b;
                 personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.k);
             }
         }

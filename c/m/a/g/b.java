@@ -18,7 +18,7 @@ public final class b {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f30166b;
+    public Path f30194b;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public final class b {
         Set set;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, path) == null) {
-            Path path2 = this.f30166b;
+            Path path2 = this.f30194b;
             if (path2 != null) {
                 path.set(path2);
                 return;
@@ -65,7 +65,7 @@ public final class b {
                     }
                 }
             }
-            this.f30166b = path3;
+            this.f30194b = path3;
             path.set(path3);
         }
     }

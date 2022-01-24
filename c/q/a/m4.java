@@ -11,7 +11,7 @@ public class m4 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ b1 f30381e;
+    public final /* synthetic */ b1 f30409e;
 
     public m4(b1 b1Var) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class m4 implements Runnable {
                 return;
             }
         }
-        this.f30381e = b1Var;
+        this.f30409e = b1Var;
     }
 
     @Override // java.lang.Runnable
@@ -36,8 +36,8 @@ public class m4 implements Runnable {
         View view;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b1 b1Var = this.f30381e;
-            if (b1Var.f30287h == null || b1Var.f30288i == null || (view = b1Var.f30289j) == null) {
+            b1 b1Var = this.f30409e;
+            if (b1Var.f30315h == null || b1Var.f30316i == null || (view = b1Var.f30317j) == null) {
                 return;
             }
             view.setVisibility(0);

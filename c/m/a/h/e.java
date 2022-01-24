@@ -14,16 +14,16 @@ public final class e {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f30174b;
+    public float f30202b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f30175c;
+    public float f30203c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f30176d;
+    public float f30204d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30177e;
+    public boolean f30205e;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -38,26 +38,26 @@ public final class e {
                 return;
             }
         }
-        this.f30175c = 1.0f;
-        this.f30176d = 1.0f;
+        this.f30203c = 1.0f;
+        this.f30204d = 1.0f;
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30177e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30205e : invokeV.booleanValue;
     }
 
     public final float b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30175c : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30203c : invokeV.floatValue;
     }
 
     public final float c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30176d : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30204d : invokeV.floatValue;
     }
 
     public final float d() {
@@ -69,7 +69,7 @@ public final class e {
     public final float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30174b : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30202b : invokeV.floatValue;
     }
 
     public final void f(float f2, float f3, float f4, float f5, ImageView.ScaleType scaleType) {
@@ -87,86 +87,86 @@ public final class e {
         switch (d.$EnumSwitchMapping$0[scaleType.ordinal()]) {
             case 1:
                 this.a = f6;
-                this.f30174b = f7;
+                this.f30202b = f7;
                 return;
             case 2:
                 if (f8 > f9) {
-                    this.f30177e = false;
-                    this.f30175c = f10;
-                    this.f30176d = f10;
+                    this.f30205e = false;
+                    this.f30203c = f10;
+                    this.f30204d = f10;
                     this.a = (f2 - (f4 * f10)) / 2.0f;
                     return;
                 }
-                this.f30177e = true;
-                this.f30175c = f11;
-                this.f30176d = f11;
-                this.f30174b = (f3 - (f5 * f11)) / 2.0f;
+                this.f30205e = true;
+                this.f30203c = f11;
+                this.f30204d = f11;
+                this.f30202b = (f3 - (f5 * f11)) / 2.0f;
                 return;
             case 3:
                 if (f4 < f2 && f5 < f3) {
                     this.a = f6;
-                    this.f30174b = f7;
+                    this.f30202b = f7;
                     return;
                 } else if (f8 > f9) {
-                    this.f30177e = true;
-                    this.f30175c = f11;
-                    this.f30176d = f11;
-                    this.f30174b = (f3 - (f5 * f11)) / 2.0f;
+                    this.f30205e = true;
+                    this.f30203c = f11;
+                    this.f30204d = f11;
+                    this.f30202b = (f3 - (f5 * f11)) / 2.0f;
                     return;
                 } else {
-                    this.f30177e = false;
-                    this.f30175c = f10;
-                    this.f30176d = f10;
+                    this.f30205e = false;
+                    this.f30203c = f10;
+                    this.f30204d = f10;
                     this.a = (f2 - (f4 * f10)) / 2.0f;
                     return;
                 }
             case 4:
                 if (f8 > f9) {
-                    this.f30177e = true;
-                    this.f30175c = f11;
-                    this.f30176d = f11;
-                    this.f30174b = (f3 - (f5 * f11)) / 2.0f;
+                    this.f30205e = true;
+                    this.f30203c = f11;
+                    this.f30204d = f11;
+                    this.f30202b = (f3 - (f5 * f11)) / 2.0f;
                     return;
                 }
-                this.f30177e = false;
-                this.f30175c = f10;
-                this.f30176d = f10;
+                this.f30205e = false;
+                this.f30203c = f10;
+                this.f30204d = f10;
                 this.a = (f2 - (f4 * f10)) / 2.0f;
                 return;
             case 5:
                 if (f8 > f9) {
-                    this.f30177e = true;
-                    this.f30175c = f11;
-                    this.f30176d = f11;
+                    this.f30205e = true;
+                    this.f30203c = f11;
+                    this.f30204d = f11;
                     return;
                 }
-                this.f30177e = false;
-                this.f30175c = f10;
-                this.f30176d = f10;
+                this.f30205e = false;
+                this.f30203c = f10;
+                this.f30204d = f10;
                 return;
             case 6:
                 if (f8 > f9) {
-                    this.f30177e = true;
-                    this.f30175c = f11;
-                    this.f30176d = f11;
-                    this.f30174b = f3 - (f5 * f11);
+                    this.f30205e = true;
+                    this.f30203c = f11;
+                    this.f30204d = f11;
+                    this.f30202b = f3 - (f5 * f11);
                     return;
                 }
-                this.f30177e = false;
-                this.f30175c = f10;
-                this.f30176d = f10;
+                this.f30205e = false;
+                this.f30203c = f10;
+                this.f30204d = f10;
                 this.a = f2 - (f4 * f10);
                 return;
             case 7:
                 Math.max(f11, f10);
-                this.f30177e = f11 > f10;
-                this.f30175c = f11;
-                this.f30176d = f10;
+                this.f30205e = f11 > f10;
+                this.f30203c = f11;
+                this.f30204d = f10;
                 return;
             default:
-                this.f30177e = true;
-                this.f30175c = f11;
-                this.f30176d = f11;
+                this.f30205e = true;
+                this.f30203c = f11;
+                this.f30204d = f11;
                 return;
         }
     }
@@ -175,10 +175,10 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.a = 0.0f;
-            this.f30174b = 0.0f;
-            this.f30175c = 1.0f;
-            this.f30176d = 1.0f;
-            this.f30177e = false;
+            this.f30202b = 0.0f;
+            this.f30203c = 1.0f;
+            this.f30204d = 1.0f;
+            this.f30205e = false;
         }
     }
 }

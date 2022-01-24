@@ -20,7 +20,7 @@ public class b {
     public final ArrayList<MetaData> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f21394b;
+    public HashMap<String, String> f21630b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class b {
             }
         }
         this.a = new ArrayList<>();
-        this.f21394b = null;
+        this.f21630b = null;
     }
 
     public ArrayList<MetaData> a() {
@@ -63,8 +63,8 @@ public class b {
         }
         if (z) {
             try {
-                if (this.f21394b == null) {
-                    this.f21394b = new HashMap<>();
+                if (this.f21630b == null) {
+                    this.f21630b = new HashMap<>();
                 }
             } catch (Exception e2) {
                 BdLog.detailException(e2);
@@ -79,7 +79,7 @@ public class b {
                 if (!TextUtils.isEmpty(metaData.getName_show())) {
                     this.a.add(metaData);
                     if (z) {
-                        this.f21394b.put(metaData.getName_show(), metaData.getPortrait());
+                        this.f21630b.put(metaData.getName_show(), metaData.getPortrait());
                     }
                 }
             }

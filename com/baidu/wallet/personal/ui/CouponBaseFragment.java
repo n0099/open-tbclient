@@ -32,7 +32,7 @@ import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import com.baidu.wallet.personal.beans.QueryCouponListBean;
 import com.baidu.wallet.personal.beans.a;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public abstract class CouponBaseFragment extends DialogFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

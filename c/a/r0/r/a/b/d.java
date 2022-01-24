@@ -15,28 +15,28 @@ public class d<D> {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b<D> f11724b;
+    public b<D> f11866b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<D> f11725c;
+    public a<D> f11867c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f11726d;
+    public Context f11868d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11727e;
+    public boolean f11869e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f11728f;
+    public boolean f11870f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f11729g;
+    public boolean f11871g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f11730h;
+    public boolean f11872h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f11731i;
+    public boolean f11873i;
 
     /* loaded from: classes6.dex */
     public interface a<D> {
@@ -65,22 +65,22 @@ public class d<D> {
             printWriter.print("mId=");
             printWriter.print(this.a);
             printWriter.print(" mListener=");
-            printWriter.println(this.f11724b);
-            if (this.f11727e || this.f11730h || this.f11731i) {
+            printWriter.println(this.f11866b);
+            if (this.f11869e || this.f11872h || this.f11873i) {
                 printWriter.print(str);
                 printWriter.print("mStarted=");
-                printWriter.print(this.f11727e);
+                printWriter.print(this.f11869e);
                 printWriter.print(" mContentChanged=");
-                printWriter.print(this.f11730h);
+                printWriter.print(this.f11872h);
                 printWriter.print(" mProcessingChange=");
-                printWriter.println(this.f11731i);
+                printWriter.println(this.f11873i);
             }
-            if (this.f11728f || this.f11729g) {
+            if (this.f11870f || this.f11871g) {
                 printWriter.print(str);
                 printWriter.print("mAbandoned=");
-                printWriter.print(this.f11728f);
+                printWriter.print(this.f11870f);
                 printWriter.print(" mReset=");
-                printWriter.println(this.f11729g);
+                printWriter.println(this.f11871g);
             }
         }
     }
@@ -106,8 +106,8 @@ public class d<D> {
     public void f(int i2, b<D> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i2, bVar) == null) {
-            if (this.f11724b == null) {
-                this.f11724b = bVar;
+            if (this.f11866b == null) {
+                this.f11866b = bVar;
                 this.a = i2;
                 return;
             }
@@ -118,8 +118,8 @@ public class d<D> {
     public void g(a<D> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            if (this.f11725c == null) {
-                this.f11725c = aVar;
+            if (this.f11867c == null) {
+                this.f11867c = aVar;
                 return;
             }
             throw new IllegalStateException("There is already a listener registered");
@@ -129,27 +129,27 @@ public class d<D> {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f11726d : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f11868d : (Context) invokeV.objValue;
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             c();
-            this.f11729g = true;
-            this.f11727e = false;
-            this.f11728f = false;
-            this.f11730h = false;
-            this.f11731i = false;
+            this.f11871g = true;
+            this.f11869e = false;
+            this.f11870f = false;
+            this.f11872h = false;
+            this.f11873i = false;
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f11727e = true;
-            this.f11729g = false;
-            this.f11728f = false;
+            this.f11869e = true;
+            this.f11871g = false;
+            this.f11870f = false;
             d();
         }
     }
@@ -157,7 +157,7 @@ public class d<D> {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f11727e = false;
+            this.f11869e = false;
             e();
         }
     }
@@ -165,12 +165,12 @@ public class d<D> {
     public void k(b<D> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            b<D> bVar2 = this.f11724b;
+            b<D> bVar2 = this.f11866b;
             if (bVar2 == null) {
                 throw new IllegalStateException("No listener register");
             }
             if (bVar2 == bVar) {
-                this.f11724b = null;
+                this.f11866b = null;
                 return;
             }
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
@@ -180,12 +180,12 @@ public class d<D> {
     public void l(a<D> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            a<D> aVar2 = this.f11725c;
+            a<D> aVar2 = this.f11867c;
             if (aVar2 == null) {
                 throw new IllegalStateException("No listener register");
             }
             if (aVar2 == aVar) {
-                this.f11725c = null;
+                this.f11867c = null;
                 return;
             }
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");

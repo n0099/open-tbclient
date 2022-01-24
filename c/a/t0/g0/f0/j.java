@@ -50,7 +50,7 @@ public class j extends k {
                 return;
             }
         }
-        this.f17778e = e2Var;
+        this.f17600e = e2Var;
     }
 
     public static boolean Y(e2 e2Var) {
@@ -60,10 +60,10 @@ public class j extends k {
             if (e2Var == null) {
                 return false;
             }
-            if (e2Var.r1() == 49 || e2Var.r1() == 69) {
+            if (e2Var.s1() == 49 || e2Var.s1() == 69) {
                 return true;
             }
-            return e2Var.r1() == 67 && e2Var.o1() != null && e2Var.o1().friendRoomStatus == 2;
+            return e2Var.s1() == 67 && e2Var.p1() != null && e2Var.p1().friendRoomStatus == 2;
         }
         return invokeL.booleanValue;
     }
@@ -85,7 +85,7 @@ public class j extends k {
     public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17778e : (e2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17600e : (e2) invokeV.objValue;
     }
 
     @Override // c.a.t0.g0.f0.k, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
@@ -93,8 +93,8 @@ public class j extends k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            e2 e2Var = this.f17778e;
-            if (e2Var != null && e2Var.r1() == 67) {
+            e2 e2Var = this.f17600e;
+            if (e2Var != null && e2Var.s1() == 67) {
                 return V0;
             }
             return U0;

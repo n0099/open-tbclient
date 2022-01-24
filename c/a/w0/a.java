@@ -255,9 +255,9 @@ public class a {
             if (!str.isEmpty()) {
                 mVar = new m(str);
             }
-            mVar.f26482b = booleanValue;
-            mVar.f26483c = intValue;
-            mVar.f26484d = booleanValue2;
+            mVar.f26510b = booleanValue;
+            mVar.f26511c = intValue;
+            mVar.f26512d = booleanValue2;
             uBCManager.setDefaultConfig(mVar);
         }
     }

@@ -12,7 +12,7 @@ public class w1 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f30504b;
+    public byte[] f30532b;
 
     public w1(int i2, byte[] bArr, Map map) {
         Interceptable interceptable = $ic;
@@ -30,6 +30,6 @@ public class w1 {
             }
         }
         this.a = i2;
-        this.f30504b = bArr;
+        this.f30532b = bArr;
     }
 }

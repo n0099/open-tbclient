@@ -7,14 +7,12 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.searchbox.aperf.bosuploader.BOSBizType;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+import com.baidu.searchbox.retrieve.upload.UploadConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.filter.FilterValue;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -95,7 +93,7 @@ public class RetrieveReportRequest extends BaseHttpRequest {
                 sb.append("=");
                 sb.append(jSONObject.opt(str));
             }
-            sb.append(BOSBizType.RETRIEVE);
+            sb.append("fetchlog");
             LogUtils.d(TAG, "sign string:" + ((Object) sb));
             return getMd5(sb.toString());
         }
@@ -150,16 +148,16 @@ public class RetrieveReportRequest extends BaseHttpRequest {
                 jSONObject.put("version", String.valueOf(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext)));
                 jSONObject.put("status", this.mStatus);
                 if (!TextUtils.isEmpty(this.mOrigin)) {
-                    jSONObject.put(FilterValue.DEFAULT_FILTER_VALUE, this.mOrigin);
+                    jSONObject.put("origin", this.mOrigin);
                 }
                 if (!TextUtils.isEmpty(this.mFileMeta)) {
-                    jSONObject.put("filemeta", this.mFileMeta);
+                    jSONObject.put(UploadConstant.FILEMETA, this.mFileMeta);
                 }
                 if (!TextUtils.isEmpty(this.mFileid)) {
                     jSONObject.put("fileid", this.mFileid);
                 }
                 jSONObject.put("sign", generateSign(jSONObject));
-                jSONObject2.put(ContentUtil.REQ_KEY_REQ, jSONObject);
+                jSONObject2.put("req", jSONObject);
                 LogUtils.d(TAG, "retrieve-->getRequestParameter:" + jSONObject2.toString());
             } catch (Exception e2) {
                 LogUtils.d(TAG, "retrieve-->getRequestParameter error:" + e2.toString());

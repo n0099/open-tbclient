@@ -17,22 +17,22 @@ public class u {
     public JSONArray a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseIntArray f11913b;
+    public SparseIntArray f12055b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f11914c;
+    public ArrayList<String> f12056c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f11915d;
+    public long f12057d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f11916e;
+    public long f12058e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11917f;
+    public String f12059f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f11918g;
+    public boolean f12060g;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -47,13 +47,13 @@ public class u {
                 return;
             }
         }
-        this.f11918g = false;
+        this.f12060g = false;
         this.a = new JSONArray();
-        this.f11913b = new SparseIntArray();
-        this.f11914c = new ArrayList<>();
-        this.f11915d = 0L;
-        this.f11916e = 0L;
-        this.f11917f = "0";
+        this.f12055b = new SparseIntArray();
+        this.f12056c = new ArrayList<>();
+        this.f12057d = 0L;
+        this.f12058e = 0L;
+        this.f12059f = "0";
     }
 
     public final void a(JSONObject jSONObject) {
@@ -72,8 +72,8 @@ public class u {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f11913b.clear();
-            this.f11914c.clear();
+            this.f12055b.clear();
+            this.f12056c.clear();
             this.a = null;
         }
     }
@@ -86,28 +86,28 @@ public class u {
 
     public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.f11914c.contains(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.f12056c.contains(str)) {
             return;
         }
-        this.f11914c.add(str);
+        this.f12056c.add(str);
     }
 
     public final void f(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            this.f11913b.put(i2, i3);
+            this.f12055b.put(i2, i3);
         }
     }
 
     public final void g(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            long j4 = this.f11915d;
+            long j4 = this.f12057d;
             if ((j2 < j4 || j4 == 0) && j2 != 0) {
-                this.f11915d = j2;
+                this.f12057d = j2;
             }
-            if (j3 > this.f11916e) {
-                this.f11916e = j3;
+            if (j3 > this.f12058e) {
+                this.f12058e = j3;
             }
         }
     }

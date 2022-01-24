@@ -20,57 +20,57 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static final String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f59410b;
+    public static a f59455b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public CopyOnWriteArrayList<com.ss.android.downloadlib.addownload.b.a> f59411c;
+    public CopyOnWriteArrayList<com.ss.android.downloadlib.addownload.b.a> f59456c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f59412d = false;
+    public boolean f59457d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59413e;
+    public String f59458e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f59414f;
+    public b f59459f;
 
     /* renamed from: com.ss.android.downloadlib.addownload.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC2184a {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC2190a {
         void a();
     }
 
     public a() {
         b bVar = new b();
-        this.f59414f = bVar;
-        this.f59411c = bVar.a("sp_ad_install_back_dialog", "key_uninstalled_list");
+        this.f59459f = bVar;
+        this.f59456c = bVar.a("sp_ad_install_back_dialog", "key_uninstalled_list");
     }
 
     public static a a() {
-        if (f59410b == null) {
-            f59410b = new a();
+        if (f59455b == null) {
+            f59455b = new a();
         }
-        return f59410b;
+        return f59455b;
     }
 
     public void b(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.f59413e = "";
-        } else if (TextUtils.equals(this.f59413e, str)) {
-            this.f59413e = "";
+            this.f59458e = "";
+        } else if (TextUtils.equals(this.f59458e, str)) {
+            this.f59458e = "";
         }
     }
 
-    private boolean a(Activity activity, DownloadInfo downloadInfo, boolean z, InterfaceC2184a interfaceC2184a) {
+    private boolean a(Activity activity, DownloadInfo downloadInfo, boolean z, InterfaceC2190a interfaceC2190a) {
         if (downloadInfo == null) {
             try {
-                if (this.f59411c.isEmpty()) {
+                if (this.f59456c.isEmpty()) {
                     return false;
                 }
             } catch (Exception e2) {
@@ -79,23 +79,23 @@ public class a {
         }
         if (activity != null && !activity.isFinishing()) {
             boolean z2 = true;
-            if (downloadInfo != null && this.f59411c.isEmpty()) {
-                a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC2184a);
+            if (downloadInfo != null && this.f59456c.isEmpty()) {
+                a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC2190a);
                 return true;
             }
             long lastModified = downloadInfo != null ? new File(downloadInfo.getTargetFilePath()).lastModified() : 0L;
-            ListIterator<com.ss.android.downloadlib.addownload.b.a> listIterator = this.f59411c.listIterator(this.f59411c.size());
+            ListIterator<com.ss.android.downloadlib.addownload.b.a> listIterator = this.f59456c.listIterator(this.f59456c.size());
             while (true) {
                 if (!listIterator.hasPrevious()) {
                     z2 = false;
                     break;
                 }
                 com.ss.android.downloadlib.addownload.b.a previous = listIterator.previous();
-                if (previous != null && !l.d(j.getContext(), previous.f59436d) && l.a(previous.f59439g)) {
-                    if (new File(previous.f59439g).lastModified() >= lastModified) {
-                        a(activity, previous, z, interfaceC2184a);
+                if (previous != null && !l.d(j.getContext(), previous.f59481d) && l.a(previous.f59484g)) {
+                    if (new File(previous.f59484g).lastModified() >= lastModified) {
+                        a(activity, previous, z, interfaceC2190a);
                     } else {
-                        a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC2184a);
+                        a(activity, new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), 0L, 0L, downloadInfo.getPackageName(), downloadInfo.getTitle(), null, downloadInfo.getTargetFilePath()), z, interfaceC2190a);
                     }
                 }
             }
@@ -107,19 +107,19 @@ public class a {
     }
 
     @MainThread
-    public boolean a(Activity activity, boolean z, InterfaceC2184a interfaceC2184a) {
-        if (j.i().optInt("disable_install_app_dialog") == 1 || this.f59412d) {
+    public boolean a(Activity activity, boolean z, InterfaceC2190a interfaceC2190a) {
+        if (j.i().optInt("disable_install_app_dialog") == 1 || this.f59457d) {
             return false;
         }
-        return a(activity, a(activity), z, interfaceC2184a);
+        return a(activity, a(activity), z, interfaceC2190a);
     }
 
-    public void a(Context context, com.ss.android.downloadlib.addownload.b.a aVar, boolean z, InterfaceC2184a interfaceC2184a) {
-        this.f59411c.clear();
-        a(context, aVar, interfaceC2184a, z);
-        this.f59412d = true;
+    public void a(Context context, com.ss.android.downloadlib.addownload.b.a aVar, boolean z, InterfaceC2190a interfaceC2190a) {
+        this.f59456c.clear();
+        a(context, aVar, interfaceC2190a, z);
+        this.f59457d = true;
         g.a(context).c();
-        this.f59414f.b("sp_ad_install_back_dialog", "key_uninstalled_list");
+        this.f59459f.b("sp_ad_install_back_dialog", "key_uninstalled_list");
         k.a(a, "tryShowInstallDialog isShow:true", null);
     }
 
@@ -155,20 +155,20 @@ public class a {
     }
 
     public void a(long j2, long j3, long j4, String str, String str2, String str3, String str4) {
-        for (int i2 = 0; i2 < this.f59411c.size(); i2++) {
-            com.ss.android.downloadlib.addownload.b.a aVar = this.f59411c.get(i2);
-            if (aVar != null && aVar.f59434b == j3) {
-                this.f59411c.set(i2, new com.ss.android.downloadlib.addownload.b.a(j2, j3, j4, str, str2, str3, str4));
-                this.f59414f.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.f59411c);
+        for (int i2 = 0; i2 < this.f59456c.size(); i2++) {
+            com.ss.android.downloadlib.addownload.b.a aVar = this.f59456c.get(i2);
+            if (aVar != null && aVar.f59479b == j3) {
+                this.f59456c.set(i2, new com.ss.android.downloadlib.addownload.b.a(j2, j3, j4, str, str2, str3, str4));
+                this.f59459f.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.f59456c);
                 return;
             }
         }
-        this.f59411c.add(new com.ss.android.downloadlib.addownload.b.a(j2, j3, j4, str, str2, str3, str4));
-        this.f59414f.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.f59411c);
+        this.f59456c.add(new com.ss.android.downloadlib.addownload.b.a(j2, j3, j4, str, str2, str3, str4));
+        this.f59459f.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.f59456c);
     }
 
-    private void a(final Context context, final com.ss.android.downloadlib.addownload.b.a aVar, final InterfaceC2184a interfaceC2184a, boolean z) {
-        final com.ss.android.downloadad.api.a.b d2 = f.a().d(aVar.f59434b);
+    private void a(final Context context, final com.ss.android.downloadlib.addownload.b.a aVar, final InterfaceC2190a interfaceC2190a, boolean z) {
+        final com.ss.android.downloadad.api.a.b d2 = f.a().d(aVar.f59479b);
         if (d2 == null) {
             com.ss.android.downloadlib.e.c.a().a("showBackInstallDialog nativeModel null");
             return;
@@ -176,37 +176,37 @@ public class a {
         com.ss.android.download.api.config.k c2 = j.c();
         b.a a2 = new b.a(context).a(z ? "应用安装确认" : "退出确认");
         Object[] objArr = new Object[1];
-        objArr[0] = TextUtils.isEmpty(aVar.f59437e) ? "刚刚下载的应用" : aVar.f59437e;
-        c2.b(a2.b(String.format("%1$s下载完成，是否立即安装？", objArr)).c("立即安装").d(z ? "暂不安装" : String.format("退出%1$s", context.getResources().getString(context.getApplicationContext().getApplicationInfo().labelRes))).a(false).a(l.a(context, aVar.f59439g)).a(new b.InterfaceC2179b() { // from class: com.ss.android.downloadlib.addownload.a.a.1
-            @Override // com.ss.android.download.api.model.b.InterfaceC2179b
+        objArr[0] = TextUtils.isEmpty(aVar.f59482e) ? "刚刚下载的应用" : aVar.f59482e;
+        c2.b(a2.b(String.format("%1$s下载完成，是否立即安装？", objArr)).c("立即安装").d(z ? "暂不安装" : String.format("退出%1$s", context.getResources().getString(context.getApplicationContext().getApplicationInfo().labelRes))).a(false).a(l.a(context, aVar.f59484g)).a(new b.InterfaceC2185b() { // from class: com.ss.android.downloadlib.addownload.a.a.1
+            @Override // com.ss.android.download.api.model.b.InterfaceC2185b
             public void a(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("backdialog_install", d2);
                 com.ss.android.socialbase.appdownloader.d.a(context, (int) aVar.a);
                 dialogInterface.dismiss();
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC2179b
+            @Override // com.ss.android.download.api.model.b.InterfaceC2185b
             public void b(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("backdialog_exit", d2);
-                InterfaceC2184a interfaceC2184a2 = interfaceC2184a;
-                if (interfaceC2184a2 != null) {
-                    interfaceC2184a2.a();
+                InterfaceC2190a interfaceC2190a2 = interfaceC2190a;
+                if (interfaceC2190a2 != null) {
+                    interfaceC2190a2.a();
                 }
                 a.this.b("");
                 dialogInterface.dismiss();
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC2179b
+            @Override // com.ss.android.download.api.model.b.InterfaceC2185b
             public void c(DialogInterface dialogInterface) {
                 a.this.b("");
             }
         }).a(1).a());
         com.ss.android.downloadlib.d.a.a().b("backdialog_show", d2);
-        this.f59413e = aVar.f59436d;
+        this.f59458e = aVar.f59481d;
     }
 
     public boolean a(String str) {
-        return TextUtils.equals(this.f59413e, str);
+        return TextUtils.equals(this.f59458e, str);
     }
 
     public void a(com.ss.android.downloadad.api.a.b bVar) {

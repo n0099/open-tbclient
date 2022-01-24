@@ -20,7 +20,7 @@ public class d extends c.a.d.n.e.a<c.a.t0.a0.f.g.c.c, RecommendActivityView.View
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.g.c.c.f14608f);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.g.c.c.f14748f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

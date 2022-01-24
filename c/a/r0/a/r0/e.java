@@ -25,10 +25,10 @@ public class e {
     public c.a.r0.a.r0.f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.l0.a f8457b;
+    public c.a.r0.a.l0.a f8599b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.a.r0.i f8458c;
+    public c.a.r0.a.r0.i f8600c;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -36,36 +36,36 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8459e;
+        public final /* synthetic */ String f8601e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Boolean f8460f;
+        public final /* synthetic */ Boolean f8602f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f8461g;
+        public final /* synthetic */ int f8603g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Map f8462h;
+        public final /* synthetic */ Map f8604h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.r0.o.b f8463i;
+        public final /* synthetic */ c.a.r0.a.r0.o.b f8605i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ e f8464j;
+        public final /* synthetic */ e f8606j;
 
         /* renamed from: c.a.r0.a.r0.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0526a implements Runnable {
+        public class RunnableC0535a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8465e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8607e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f8466f;
+            public final /* synthetic */ a f8608f;
 
-            public RunnableC0526a(a aVar, c.a.r0.a.r0.c cVar) {
+            public RunnableC0535a(a aVar, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,8 +80,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8466f = aVar;
-                this.f8465e = cVar;
+                this.f8608f = aVar;
+                this.f8607e = cVar;
             }
 
             @Override // java.lang.Runnable
@@ -89,14 +89,14 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8466f.f8461g), "dirPath");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8465e, "mkdir:", this.f8466f.f8462h);
-                    a aVar = this.f8466f;
-                    if (c.a.r0.a.r0.n.a(v, aVar.f8463i, hashMap, aVar.f8464j.f8457b)) {
-                        c.a.r0.a.r0.o.b bVar = this.f8466f.f8463i;
-                        bVar.errMsg = "mkdir:" + this.f8465e.f8450b;
-                        a aVar2 = this.f8466f;
-                        c.a.r0.a.r0.n.b(aVar2.f8463i, aVar2.f8462h);
+                    hashMap.put(Integer.valueOf(this.f8608f.f8603g), "dirPath");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8607e, "mkdir:", this.f8608f.f8604h);
+                    a aVar = this.f8608f;
+                    if (c.a.r0.a.r0.n.a(v, aVar.f8605i, hashMap, aVar.f8606j.f8599b)) {
+                        c.a.r0.a.r0.o.b bVar = this.f8608f.f8605i;
+                        bVar.errMsg = "mkdir:" + this.f8607e.f8592b;
+                        a aVar2 = this.f8608f;
+                        c.a.r0.a.r0.n.b(aVar2.f8605i, aVar2.f8604h);
                     }
                 }
             }
@@ -117,19 +117,19 @@ public class e {
                     return;
                 }
             }
-            this.f8464j = eVar;
-            this.f8459e = str;
-            this.f8460f = bool;
-            this.f8461g = i2;
-            this.f8462h = map;
-            this.f8463i = bVar;
+            this.f8606j = eVar;
+            this.f8601e = str;
+            this.f8602f = bool;
+            this.f8603g = i2;
+            this.f8604h = map;
+            this.f8605i = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8464j.f8457b.runOnJSThread(new RunnableC0526a(this, this.f8464j.a.o(this.f8459e, this.f8460f.booleanValue(), false)));
+                this.f8606j.f8599b.runOnJSThread(new RunnableC0535a(this, this.f8606j.a.o(this.f8601e, this.f8602f.booleanValue(), false)));
             }
         }
     }
@@ -140,22 +140,22 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8467e;
+        public final /* synthetic */ String f8609e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8468f;
+        public final /* synthetic */ String f8610f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f8469g;
+        public final /* synthetic */ int f8611g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f8470h;
+        public final /* synthetic */ int f8612h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Map f8471i;
+        public final /* synthetic */ Map f8613i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.r0.o.b f8472j;
+        public final /* synthetic */ c.a.r0.a.r0.o.b f8614j;
         public final /* synthetic */ e k;
 
         /* loaded from: classes.dex */
@@ -164,10 +164,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8473e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8615e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f8474f;
+            public final /* synthetic */ b f8616f;
 
             public a(b bVar, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
@@ -184,8 +184,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8474f = bVar;
-                this.f8473e = cVar;
+                this.f8616f = bVar;
+                this.f8615e = cVar;
             }
 
             @Override // java.lang.Runnable
@@ -193,13 +193,13 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8474f.f8469g), "srcPath");
-                    hashMap.put(Integer.valueOf(this.f8474f.f8470h), "destPath");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8473e, "copyFile:", this.f8474f.f8471i);
-                    b bVar = this.f8474f;
-                    if (c.a.r0.a.r0.n.a(v, bVar.f8472j, hashMap, bVar.k.f8457b)) {
-                        b bVar2 = this.f8474f;
-                        c.a.r0.a.r0.n.b(bVar2.f8472j, bVar2.f8471i);
+                    hashMap.put(Integer.valueOf(this.f8616f.f8611g), "srcPath");
+                    hashMap.put(Integer.valueOf(this.f8616f.f8612h), "destPath");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8615e, "copyFile:", this.f8616f.f8613i);
+                    b bVar = this.f8616f;
+                    if (c.a.r0.a.r0.n.a(v, bVar.f8614j, hashMap, bVar.k.f8599b)) {
+                        b bVar2 = this.f8616f;
+                        c.a.r0.a.r0.n.b(bVar2.f8614j, bVar2.f8613i);
                     }
                 }
             }
@@ -221,19 +221,19 @@ public class e {
                 }
             }
             this.k = eVar;
-            this.f8467e = str;
-            this.f8468f = str2;
-            this.f8469g = i2;
-            this.f8470h = i3;
-            this.f8471i = map;
-            this.f8472j = bVar;
+            this.f8609e = str;
+            this.f8610f = str2;
+            this.f8611g = i2;
+            this.f8612h = i3;
+            this.f8613i = map;
+            this.f8614j = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.k.f8457b.runOnJSThread(new a(this, this.k.a.c(this.f8467e, this.f8468f, false)));
+                this.k.f8599b.runOnJSThread(new a(this, this.k.a.c(this.f8609e, this.f8610f, false)));
             }
         }
     }
@@ -244,22 +244,22 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8475e;
+        public final /* synthetic */ String f8617e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8476f;
+        public final /* synthetic */ String f8618f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ byte[] f8477g;
+        public final /* synthetic */ byte[] f8619g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Map f8478h;
+        public final /* synthetic */ Map f8620h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f8479i;
+        public final /* synthetic */ String f8621i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ int f8480j;
+        public final /* synthetic */ int f8622j;
         public final /* synthetic */ int k;
         public final /* synthetic */ c.a.r0.a.r0.o.b l;
         public final /* synthetic */ e m;
@@ -270,10 +270,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8481e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8623e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f8482f;
+            public final /* synthetic */ c f8624f;
 
             public a(c cVar, c.a.r0.a.r0.c cVar2) {
                 Interceptable interceptable = $ic;
@@ -290,8 +290,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8482f = cVar;
-                this.f8481e = cVar2;
+                this.f8624f = cVar;
+                this.f8623e = cVar2;
             }
 
             @Override // java.lang.Runnable
@@ -299,12 +299,12 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8482f.k), "filePath");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8481e, "appendFile:", this.f8482f.f8478h);
-                    c cVar = this.f8482f;
-                    if (c.a.r0.a.r0.n.a(v, cVar.l, hashMap, cVar.m.f8457b)) {
-                        c cVar2 = this.f8482f;
-                        c.a.r0.a.r0.n.b(cVar2.l, cVar2.f8478h);
+                    hashMap.put(Integer.valueOf(this.f8624f.k), "filePath");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8623e, "appendFile:", this.f8624f.f8620h);
+                    c cVar = this.f8624f;
+                    if (c.a.r0.a.r0.n.a(v, cVar.l, hashMap, cVar.m.f8599b)) {
+                        c cVar2 = this.f8624f;
+                        c.a.r0.a.r0.n.b(cVar2.l, cVar2.f8620h);
                     }
                 }
             }
@@ -326,12 +326,12 @@ public class e {
                 }
             }
             this.m = eVar;
-            this.f8475e = str;
-            this.f8476f = str2;
-            this.f8477g = bArr;
-            this.f8478h = map;
-            this.f8479i = str3;
-            this.f8480j = i2;
+            this.f8617e = str;
+            this.f8618f = str2;
+            this.f8619g = bArr;
+            this.f8620h = map;
+            this.f8621i = str3;
+            this.f8622j = i2;
             this.k = i3;
             this.l = bVar;
         }
@@ -340,20 +340,20 @@ public class e {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.r0.c b2 = this.m.a.b(this.f8475e, TextUtils.isEmpty(this.f8476f) ? this.f8477g : this.f8476f, c.a.r0.a.r0.n.I("encoding", this.f8478h), false);
-                if (!TextUtils.isEmpty(this.f8479i)) {
-                    b2.f8450b = this.f8479i;
+                c.a.r0.a.r0.c b2 = this.m.a.b(this.f8617e, TextUtils.isEmpty(this.f8618f) ? this.f8619g : this.f8618f, c.a.r0.a.r0.n.I("encoding", this.f8620h), false);
+                if (!TextUtils.isEmpty(this.f8621i)) {
+                    b2.f8592b = this.f8621i;
                     b2.a = -2;
-                    c.a.r0.a.r0.n.d(this.m.f8457b, this.f8479i);
+                    c.a.r0.a.r0.n.d(this.m.f8599b, this.f8621i);
                 } else {
-                    int i2 = this.f8480j;
+                    int i2 = this.f8622j;
                     if (i2 != 7 && i2 != 12) {
-                        b2.f8450b = "fail encoding must be a string";
+                        b2.f8592b = "fail encoding must be a string";
                         b2.a = -2;
-                        c.a.r0.a.r0.n.d(this.m.f8457b, b2.f8450b);
+                        c.a.r0.a.r0.n.d(this.m.f8599b, b2.f8592b);
                     }
                 }
-                this.m.f8457b.runOnJSThread(new a(this, b2));
+                this.m.f8599b.runOnJSThread(new a(this, b2));
             }
         }
     }
@@ -364,19 +364,19 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8483e;
+        public final /* synthetic */ String f8625e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f8484f;
+        public final /* synthetic */ int f8626f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f8485g;
+        public final /* synthetic */ Map f8627g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.r0.o.b f8486h;
+        public final /* synthetic */ c.a.r0.a.r0.o.b f8628h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f8487i;
+        public final /* synthetic */ e f8629i;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -384,10 +384,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8488e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8630e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d f8489f;
+            public final /* synthetic */ d f8631f;
 
             public a(d dVar, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
@@ -404,8 +404,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8489f = dVar;
-                this.f8488e = cVar;
+                this.f8631f = dVar;
+                this.f8630e = cVar;
             }
 
             @Override // java.lang.Runnable
@@ -413,12 +413,12 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8489f.f8484f), "path");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8488e, "access:", this.f8489f.f8485g);
-                    d dVar = this.f8489f;
-                    if (c.a.r0.a.r0.n.a(v, dVar.f8486h, hashMap, dVar.f8487i.f8457b)) {
-                        d dVar2 = this.f8489f;
-                        c.a.r0.a.r0.n.b(dVar2.f8486h, dVar2.f8485g);
+                    hashMap.put(Integer.valueOf(this.f8631f.f8626f), "path");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8630e, "access:", this.f8631f.f8627g);
+                    d dVar = this.f8631f;
+                    if (c.a.r0.a.r0.n.a(v, dVar.f8628h, hashMap, dVar.f8629i.f8599b)) {
+                        d dVar2 = this.f8631f;
+                        c.a.r0.a.r0.n.b(dVar2.f8628h, dVar2.f8627g);
                     }
                 }
             }
@@ -439,42 +439,42 @@ public class e {
                     return;
                 }
             }
-            this.f8487i = eVar;
-            this.f8483e = str;
-            this.f8484f = i2;
-            this.f8485g = map;
-            this.f8486h = bVar;
+            this.f8629i = eVar;
+            this.f8625e = str;
+            this.f8626f = i2;
+            this.f8627g = map;
+            this.f8628h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8487i.f8457b.runOnJSThread(new a(this, this.f8487i.a.a(this.f8483e, false)));
+                this.f8629i.f8599b.runOnJSThread(new a(this, this.f8629i.a.a(this.f8625e, false)));
             }
         }
     }
 
     /* renamed from: c.a.r0.a.r0.e$e  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0527e implements Runnable {
+    public class RunnableC0536e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8490e;
+        public final /* synthetic */ String f8632e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f8491f;
+        public final /* synthetic */ int f8633f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f8492g;
+        public final /* synthetic */ Map f8634g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.r0.o.b f8493h;
+        public final /* synthetic */ c.a.r0.a.r0.o.b f8635h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f8494i;
+        public final /* synthetic */ e f8636i;
 
         /* renamed from: c.a.r0.a.r0.e$e$a */
         /* loaded from: classes.dex */
@@ -483,17 +483,17 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8495e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8637e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ RunnableC0527e f8496f;
+            public final /* synthetic */ RunnableC0536e f8638f;
 
-            public a(RunnableC0527e runnableC0527e, c.a.r0.a.r0.c cVar) {
+            public a(RunnableC0536e runnableC0536e, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {runnableC0527e, cVar};
+                    Object[] objArr = {runnableC0536e, cVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -503,8 +503,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8496f = runnableC0527e;
-                this.f8495e = cVar;
+                this.f8638f = runnableC0536e;
+                this.f8637e = cVar;
             }
 
             @Override // java.lang.Runnable
@@ -512,21 +512,21 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8496f.f8491f), "path");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8495e, "stat:", this.f8496f.f8492g);
-                    RunnableC0527e runnableC0527e = this.f8496f;
-                    if (c.a.r0.a.r0.n.a(v, runnableC0527e.f8493h, hashMap, runnableC0527e.f8494i.f8457b)) {
+                    hashMap.put(Integer.valueOf(this.f8638f.f8633f), "path");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8637e, "stat:", this.f8638f.f8634g);
+                    RunnableC0536e runnableC0536e = this.f8638f;
+                    if (c.a.r0.a.r0.n.a(v, runnableC0536e.f8635h, hashMap, runnableC0536e.f8636i.f8599b)) {
                         c.a.r0.a.r0.o.h hVar = new c.a.r0.a.r0.o.h();
-                        c.a.r0.a.r0.c cVar = this.f8495e;
-                        hVar.stats = cVar.f8452d;
-                        hVar.errMsg = cVar.f8450b;
-                        c.a.r0.a.r0.n.b(hVar, this.f8496f.f8492g);
+                        c.a.r0.a.r0.c cVar = this.f8637e;
+                        hVar.stats = cVar.f8594d;
+                        hVar.errMsg = cVar.f8592b;
+                        c.a.r0.a.r0.n.b(hVar, this.f8638f.f8634g);
                     }
                 }
             }
         }
 
-        public RunnableC0527e(e eVar, String str, int i2, Map map, c.a.r0.a.r0.o.b bVar) {
+        public RunnableC0536e(e eVar, String str, int i2, Map map, c.a.r0.a.r0.o.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -541,18 +541,18 @@ public class e {
                     return;
                 }
             }
-            this.f8494i = eVar;
-            this.f8490e = str;
-            this.f8491f = i2;
-            this.f8492g = map;
-            this.f8493h = bVar;
+            this.f8636i = eVar;
+            this.f8632e = str;
+            this.f8633f = i2;
+            this.f8634g = map;
+            this.f8635h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8494i.f8457b.runOnJSThread(new a(this, this.f8494i.a.y(this.f8490e, false)));
+                this.f8636i.f8599b.runOnJSThread(new a(this, this.f8636i.a.y(this.f8632e, false)));
             }
         }
     }
@@ -563,19 +563,19 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8497e;
+        public final /* synthetic */ String f8639e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f8498f;
+        public final /* synthetic */ int f8640f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f8499g;
+        public final /* synthetic */ Map f8641g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.r0.o.b f8500h;
+        public final /* synthetic */ c.a.r0.a.r0.o.b f8642h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f8501i;
+        public final /* synthetic */ e f8643i;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -583,10 +583,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8502e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8644e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ f f8503f;
+            public final /* synthetic */ f f8645f;
 
             public a(f fVar, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
@@ -603,8 +603,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8503f = fVar;
-                this.f8502e = cVar;
+                this.f8645f = fVar;
+                this.f8644e = cVar;
             }
 
             @Override // java.lang.Runnable
@@ -612,16 +612,16 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8503f.f8498f), "filePath");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8502e, "getFileInfo:", this.f8503f.f8499g);
-                    f fVar = this.f8503f;
-                    if (c.a.r0.a.r0.n.a(v, fVar.f8500h, hashMap, fVar.f8501i.f8457b)) {
+                    hashMap.put(Integer.valueOf(this.f8645f.f8640f), "filePath");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8644e, "getFileInfo:", this.f8645f.f8641g);
+                    f fVar = this.f8645f;
+                    if (c.a.r0.a.r0.n.a(v, fVar.f8642h, hashMap, fVar.f8643i.f8599b)) {
                         c.a.r0.a.r0.o.c cVar = new c.a.r0.a.r0.o.c();
-                        cVar.errMsg = "getFileInfo:" + this.f8502e.f8450b;
-                        c.a.r0.a.r0.c cVar2 = this.f8502e;
-                        cVar.digest = cVar2.f8455g;
-                        cVar.size = (int) cVar2.f8453e;
-                        c.a.r0.a.r0.n.b(cVar, this.f8503f.f8499g);
+                        cVar.errMsg = "getFileInfo:" + this.f8644e.f8592b;
+                        c.a.r0.a.r0.c cVar2 = this.f8644e;
+                        cVar.digest = cVar2.f8597g;
+                        cVar.size = (int) cVar2.f8595e;
+                        c.a.r0.a.r0.n.b(cVar, this.f8645f.f8641g);
                     }
                 }
             }
@@ -642,18 +642,18 @@ public class e {
                     return;
                 }
             }
-            this.f8501i = eVar;
-            this.f8497e = str;
-            this.f8498f = i2;
-            this.f8499g = map;
-            this.f8500h = bVar;
+            this.f8643i = eVar;
+            this.f8639e = str;
+            this.f8640f = i2;
+            this.f8641g = map;
+            this.f8642h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8501i.f8457b.runOnJSThread(new a(this, this.f8501i.a.e(this.f8497e)));
+                this.f8643i.f8599b.runOnJSThread(new a(this, this.f8643i.a.e(this.f8639e)));
             }
         }
     }
@@ -664,13 +664,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map f8504e;
+        public final /* synthetic */ Map f8646e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.r0.o.b f8505f;
+        public final /* synthetic */ c.a.r0.a.r0.o.b f8647f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f8506g;
+        public final /* synthetic */ e f8648g;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -678,10 +678,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8507e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8649e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ g f8508f;
+            public final /* synthetic */ g f8650f;
 
             public a(g gVar, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
@@ -698,24 +698,24 @@ public class e {
                         return;
                     }
                 }
-                this.f8508f = gVar;
-                this.f8507e = cVar;
+                this.f8650f = gVar;
+                this.f8649e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8507e, "getSavedFileList:", this.f8508f.f8504e);
-                    g gVar = this.f8508f;
-                    if (c.a.r0.a.r0.n.a(v, gVar.f8505f, null, gVar.f8506g.f8457b)) {
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8649e, "getSavedFileList:", this.f8650f.f8646e);
+                    g gVar = this.f8650f;
+                    if (c.a.r0.a.r0.n.a(v, gVar.f8647f, null, gVar.f8648g.f8599b)) {
                         c.a.r0.a.r0.o.d dVar = new c.a.r0.a.r0.o.d();
-                        List<c.a.r0.a.r0.d> list = this.f8507e.f8454f;
+                        List<c.a.r0.a.r0.d> list = this.f8649e.f8596f;
                         int size = list == null ? 0 : list.size();
-                        dVar.fileList = size == 0 ? new c.a.r0.a.r0.d[0] : (c.a.r0.a.r0.d[]) this.f8507e.f8454f.toArray(new c.a.r0.a.r0.d[size]);
-                        g gVar2 = this.f8508f;
-                        dVar.errMsg = gVar2.f8505f.errMsg;
-                        c.a.r0.a.r0.n.b(dVar, gVar2.f8504e);
+                        dVar.fileList = size == 0 ? new c.a.r0.a.r0.d[0] : (c.a.r0.a.r0.d[]) this.f8649e.f8596f.toArray(new c.a.r0.a.r0.d[size]);
+                        g gVar2 = this.f8650f;
+                        dVar.errMsg = gVar2.f8647f.errMsg;
+                        c.a.r0.a.r0.n.b(dVar, gVar2.f8646e);
                     }
                 }
             }
@@ -736,16 +736,16 @@ public class e {
                     return;
                 }
             }
-            this.f8506g = eVar;
-            this.f8504e = map;
-            this.f8505f = bVar;
+            this.f8648g = eVar;
+            this.f8646e = map;
+            this.f8647f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8506g.f8457b.runOnJSThread(new a(this, this.f8506g.a.i()));
+                this.f8648g.f8599b.runOnJSThread(new a(this, this.f8648g.a.i()));
             }
         }
     }
@@ -756,19 +756,19 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8509e;
+        public final /* synthetic */ String f8651e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f8510f;
+        public final /* synthetic */ int f8652f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f8511g;
+        public final /* synthetic */ Map f8653g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.r0.o.b f8512h;
+        public final /* synthetic */ c.a.r0.a.r0.o.b f8654h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f8513i;
+        public final /* synthetic */ e f8655i;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -776,10 +776,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8514e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8656e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ h f8515f;
+            public final /* synthetic */ h f8657f;
 
             public a(h hVar, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
@@ -796,8 +796,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8515f = hVar;
-                this.f8514e = cVar;
+                this.f8657f = hVar;
+                this.f8656e = cVar;
             }
 
             @Override // java.lang.Runnable
@@ -805,12 +805,12 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8515f.f8510f), "filePath");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8514e, "removeSavedFile:", this.f8515f.f8511g);
-                    h hVar = this.f8515f;
-                    if (c.a.r0.a.r0.n.a(v, hVar.f8512h, hashMap, hVar.f8513i.f8457b)) {
-                        h hVar2 = this.f8515f;
-                        c.a.r0.a.r0.n.b(hVar2.f8512h, hVar2.f8511g);
+                    hashMap.put(Integer.valueOf(this.f8657f.f8652f), "filePath");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8656e, "removeSavedFile:", this.f8657f.f8653g);
+                    h hVar = this.f8657f;
+                    if (c.a.r0.a.r0.n.a(v, hVar.f8654h, hashMap, hVar.f8655i.f8599b)) {
+                        h hVar2 = this.f8657f;
+                        c.a.r0.a.r0.n.b(hVar2.f8654h, hVar2.f8653g);
                     }
                 }
             }
@@ -831,18 +831,18 @@ public class e {
                     return;
                 }
             }
-            this.f8513i = eVar;
-            this.f8509e = str;
-            this.f8510f = i2;
-            this.f8511g = map;
-            this.f8512h = bVar;
+            this.f8655i = eVar;
+            this.f8651e = str;
+            this.f8652f = i2;
+            this.f8653g = map;
+            this.f8654h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8513i.f8457b.runOnJSThread(new a(this, this.f8513i.a.t(this.f8509e)));
+                this.f8655i.f8599b.runOnJSThread(new a(this, this.f8655i.a.t(this.f8651e)));
             }
         }
     }
@@ -853,22 +853,22 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8516e;
+        public final /* synthetic */ String f8658e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8517f;
+        public final /* synthetic */ String f8659f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ byte[] f8518g;
+        public final /* synthetic */ byte[] f8660g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Map f8519h;
+        public final /* synthetic */ Map f8661h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f8520i;
+        public final /* synthetic */ String f8662i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ int f8521j;
+        public final /* synthetic */ int f8663j;
         public final /* synthetic */ int k;
         public final /* synthetic */ c.a.r0.a.r0.o.b l;
         public final /* synthetic */ e m;
@@ -879,10 +879,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8522e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8664e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ i f8523f;
+            public final /* synthetic */ i f8665f;
 
             public a(i iVar, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
@@ -899,8 +899,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8523f = iVar;
-                this.f8522e = cVar;
+                this.f8665f = iVar;
+                this.f8664e = cVar;
             }
 
             @Override // java.lang.Runnable
@@ -908,14 +908,14 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8523f.k), "filePath");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8522e, "writeFile:", this.f8523f.f8519h);
-                    i iVar = this.f8523f;
-                    if (c.a.r0.a.r0.n.a(v, iVar.l, hashMap, iVar.m.f8457b)) {
-                        c.a.r0.a.r0.o.b bVar = this.f8523f.l;
-                        bVar.errMsg = "writeFile:" + this.f8522e.f8450b;
-                        i iVar2 = this.f8523f;
-                        c.a.r0.a.r0.n.b(iVar2.l, iVar2.f8519h);
+                    hashMap.put(Integer.valueOf(this.f8665f.k), "filePath");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8664e, "writeFile:", this.f8665f.f8661h);
+                    i iVar = this.f8665f;
+                    if (c.a.r0.a.r0.n.a(v, iVar.l, hashMap, iVar.m.f8599b)) {
+                        c.a.r0.a.r0.o.b bVar = this.f8665f.l;
+                        bVar.errMsg = "writeFile:" + this.f8664e.f8592b;
+                        i iVar2 = this.f8665f;
+                        c.a.r0.a.r0.n.b(iVar2.l, iVar2.f8661h);
                     }
                 }
             }
@@ -937,12 +937,12 @@ public class e {
                 }
             }
             this.m = eVar;
-            this.f8516e = str;
-            this.f8517f = str2;
-            this.f8518g = bArr;
-            this.f8519h = map;
-            this.f8520i = str3;
-            this.f8521j = i2;
+            this.f8658e = str;
+            this.f8659f = str2;
+            this.f8660g = bArr;
+            this.f8661h = map;
+            this.f8662i = str3;
+            this.f8663j = i2;
             this.k = i3;
             this.l = bVar;
         }
@@ -951,20 +951,20 @@ public class e {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.r0.c C = this.m.a.C(false, this.f8516e, TextUtils.isEmpty(this.f8517f) ? this.f8518g : this.f8517f, c.a.r0.a.r0.n.I("encoding", this.f8519h));
-                if (!TextUtils.isEmpty(this.f8520i)) {
-                    C.f8450b = this.f8520i;
+                c.a.r0.a.r0.c C = this.m.a.C(false, this.f8658e, TextUtils.isEmpty(this.f8659f) ? this.f8660g : this.f8659f, c.a.r0.a.r0.n.I("encoding", this.f8661h));
+                if (!TextUtils.isEmpty(this.f8662i)) {
+                    C.f8592b = this.f8662i;
                     C.a = -2;
-                    c.a.r0.a.r0.n.d(this.m.f8457b, this.f8520i);
+                    c.a.r0.a.r0.n.d(this.m.f8599b, this.f8662i);
                 } else {
-                    int i2 = this.f8521j;
+                    int i2 = this.f8663j;
                     if (i2 != 7 && i2 != 12) {
-                        C.f8450b = "fail encoding must be a string";
+                        C.f8592b = "fail encoding must be a string";
                         C.a = -2;
-                        c.a.r0.a.r0.n.d(this.m.f8457b, C.f8450b);
+                        c.a.r0.a.r0.n.d(this.m.f8599b, C.f8592b);
                     }
                 }
-                this.m.f8457b.runOnJSThread(new a(this, C));
+                this.m.f8599b.runOnJSThread(new a(this, C));
             }
         }
     }
@@ -975,19 +975,19 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8524e;
+        public final /* synthetic */ String f8666e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f8525f;
+        public final /* synthetic */ int f8667f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f8526g;
+        public final /* synthetic */ Map f8668g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.r0.o.b f8527h;
+        public final /* synthetic */ c.a.r0.a.r0.o.b f8669h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f8528i;
+        public final /* synthetic */ e f8670i;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -995,10 +995,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8529e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8671e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ j f8530f;
+            public final /* synthetic */ j f8672f;
 
             public a(j jVar, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
@@ -1015,8 +1015,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8530f = jVar;
-                this.f8529e = cVar;
+                this.f8672f = jVar;
+                this.f8671e = cVar;
             }
 
             @Override // java.lang.Runnable
@@ -1024,14 +1024,14 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8530f.f8525f), "filePath");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8529e, "unlink:", this.f8530f.f8526g);
-                    j jVar = this.f8530f;
-                    if (c.a.r0.a.r0.n.a(v, jVar.f8527h, hashMap, jVar.f8528i.f8457b)) {
-                        c.a.r0.a.r0.o.b bVar = this.f8530f.f8527h;
-                        bVar.errMsg = "unlink:" + this.f8529e.f8450b;
-                        j jVar2 = this.f8530f;
-                        c.a.r0.a.r0.n.b(jVar2.f8527h, jVar2.f8526g);
+                    hashMap.put(Integer.valueOf(this.f8672f.f8667f), "filePath");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8671e, "unlink:", this.f8672f.f8668g);
+                    j jVar = this.f8672f;
+                    if (c.a.r0.a.r0.n.a(v, jVar.f8669h, hashMap, jVar.f8670i.f8599b)) {
+                        c.a.r0.a.r0.o.b bVar = this.f8672f.f8669h;
+                        bVar.errMsg = "unlink:" + this.f8671e.f8592b;
+                        j jVar2 = this.f8672f;
+                        c.a.r0.a.r0.n.b(jVar2.f8669h, jVar2.f8668g);
                     }
                 }
             }
@@ -1052,18 +1052,18 @@ public class e {
                     return;
                 }
             }
-            this.f8528i = eVar;
-            this.f8524e = str;
-            this.f8525f = i2;
-            this.f8526g = map;
-            this.f8527h = bVar;
+            this.f8670i = eVar;
+            this.f8666e = str;
+            this.f8667f = i2;
+            this.f8668g = map;
+            this.f8669h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8528i.f8457b.runOnJSThread(new a(this, this.f8528i.a.z(this.f8524e, false)));
+                this.f8670i.f8599b.runOnJSThread(new a(this, this.f8670i.a.z(this.f8666e, false)));
             }
         }
     }
@@ -1074,22 +1074,22 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8531e;
+        public final /* synthetic */ String f8673e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8532f;
+        public final /* synthetic */ String f8674f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f8533g;
+        public final /* synthetic */ int f8675g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f8534h;
+        public final /* synthetic */ int f8676h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Map f8535i;
+        public final /* synthetic */ Map f8677i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.r0.o.b f8536j;
+        public final /* synthetic */ c.a.r0.a.r0.o.b f8678j;
         public final /* synthetic */ e k;
 
         /* loaded from: classes.dex */
@@ -1098,10 +1098,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8537e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8679e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ k f8538f;
+            public final /* synthetic */ k f8680f;
 
             public a(k kVar, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
@@ -1118,8 +1118,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8538f = kVar;
-                this.f8537e = cVar;
+                this.f8680f = kVar;
+                this.f8679e = cVar;
             }
 
             @Override // java.lang.Runnable
@@ -1127,15 +1127,15 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8538f.f8533g), "zipFilePath");
-                    hashMap.put(Integer.valueOf(this.f8538f.f8534h), "targetPath");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8537e, "unzip:", this.f8538f.f8535i);
-                    k kVar = this.f8538f;
-                    if (c.a.r0.a.r0.n.a(v, kVar.f8536j, hashMap, kVar.k.f8457b)) {
-                        c.a.r0.a.r0.o.b bVar = this.f8538f.f8536j;
-                        bVar.errMsg = "unzip:" + this.f8537e.f8450b;
-                        k kVar2 = this.f8538f;
-                        c.a.r0.a.r0.n.b(kVar2.f8536j, kVar2.f8535i);
+                    hashMap.put(Integer.valueOf(this.f8680f.f8675g), "zipFilePath");
+                    hashMap.put(Integer.valueOf(this.f8680f.f8676h), "targetPath");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8679e, "unzip:", this.f8680f.f8677i);
+                    k kVar = this.f8680f;
+                    if (c.a.r0.a.r0.n.a(v, kVar.f8678j, hashMap, kVar.k.f8599b)) {
+                        c.a.r0.a.r0.o.b bVar = this.f8680f.f8678j;
+                        bVar.errMsg = "unzip:" + this.f8679e.f8592b;
+                        k kVar2 = this.f8680f;
+                        c.a.r0.a.r0.n.b(kVar2.f8678j, kVar2.f8677i);
                     }
                 }
             }
@@ -1157,19 +1157,19 @@ public class e {
                 }
             }
             this.k = eVar;
-            this.f8531e = str;
-            this.f8532f = str2;
-            this.f8533g = i2;
-            this.f8534h = i3;
-            this.f8535i = map;
-            this.f8536j = bVar;
+            this.f8673e = str;
+            this.f8674f = str2;
+            this.f8675g = i2;
+            this.f8676h = i3;
+            this.f8677i = map;
+            this.f8678j = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.k.f8457b.runOnJSThread(new a(this, this.k.a.A(this.f8531e, this.f8532f)));
+                this.k.f8599b.runOnJSThread(new a(this, this.k.a.A(this.f8673e, this.f8674f)));
             }
         }
     }
@@ -1180,22 +1180,22 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8539e;
+        public final /* synthetic */ String f8681e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8540f;
+        public final /* synthetic */ String f8682f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f8541g;
+        public final /* synthetic */ int f8683g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f8542h;
+        public final /* synthetic */ int f8684h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Map f8543i;
+        public final /* synthetic */ Map f8685i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.r0.o.b f8544j;
+        public final /* synthetic */ c.a.r0.a.r0.o.b f8686j;
         public final /* synthetic */ e k;
 
         /* loaded from: classes.dex */
@@ -1204,10 +1204,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8545e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8687e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ l f8546f;
+            public final /* synthetic */ l f8688f;
 
             public a(l lVar, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
@@ -1224,8 +1224,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8546f = lVar;
-                this.f8545e = cVar;
+                this.f8688f = lVar;
+                this.f8687e = cVar;
             }
 
             @Override // java.lang.Runnable
@@ -1233,16 +1233,16 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8546f.f8541g), "tempFilePath");
-                    hashMap.put(Integer.valueOf(this.f8546f.f8542h), "filePath");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8545e, "saveFile:", this.f8546f.f8543i);
-                    l lVar = this.f8546f;
-                    if (c.a.r0.a.r0.n.a(v, lVar.f8544j, hashMap, lVar.k.f8457b)) {
+                    hashMap.put(Integer.valueOf(this.f8688f.f8683g), "tempFilePath");
+                    hashMap.put(Integer.valueOf(this.f8688f.f8684h), "filePath");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8687e, "saveFile:", this.f8688f.f8685i);
+                    l lVar = this.f8688f;
+                    if (c.a.r0.a.r0.n.a(v, lVar.f8686j, hashMap, lVar.k.f8599b)) {
                         c.a.r0.a.r0.o.g gVar = new c.a.r0.a.r0.o.g();
-                        List<String> list = this.f8545e.f8451c;
+                        List<String> list = this.f8687e.f8593c;
                         gVar.savedFilePath = list != null ? list.get(0) : null;
-                        gVar.errMsg = this.f8545e.f8450b;
-                        c.a.r0.a.r0.n.b(gVar, this.f8546f.f8543i);
+                        gVar.errMsg = this.f8687e.f8592b;
+                        c.a.r0.a.r0.n.b(gVar, this.f8688f.f8685i);
                     }
                 }
             }
@@ -1264,19 +1264,19 @@ public class e {
                 }
             }
             this.k = eVar;
-            this.f8539e = str;
-            this.f8540f = str2;
-            this.f8541g = i2;
-            this.f8542h = i3;
-            this.f8543i = map;
-            this.f8544j = bVar;
+            this.f8681e = str;
+            this.f8682f = str2;
+            this.f8683g = i2;
+            this.f8684h = i3;
+            this.f8685i = map;
+            this.f8686j = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.k.f8457b.runOnJSThread(new a(this, this.k.a.x(this.f8539e, this.f8540f, false)));
+                this.k.f8599b.runOnJSThread(new a(this, this.k.a.x(this.f8681e, this.f8682f, false)));
             }
         }
     }
@@ -1287,19 +1287,19 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8547e;
+        public final /* synthetic */ String f8689e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f8548f;
+        public final /* synthetic */ int f8690f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f8549g;
+        public final /* synthetic */ Map f8691g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.r0.o.b f8550h;
+        public final /* synthetic */ c.a.r0.a.r0.o.b f8692h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f8551i;
+        public final /* synthetic */ e f8693i;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -1307,10 +1307,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8552e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8694e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ m f8553f;
+            public final /* synthetic */ m f8695f;
 
             public a(m mVar, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
@@ -1327,8 +1327,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8553f = mVar;
-                this.f8552e = cVar;
+                this.f8695f = mVar;
+                this.f8694e = cVar;
             }
 
             @Override // java.lang.Runnable
@@ -1336,16 +1336,16 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8553f.f8548f), "dirPath");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8552e, "readdir:", this.f8553f.f8549g);
-                    m mVar = this.f8553f;
-                    if (c.a.r0.a.r0.n.a(v, mVar.f8550h, hashMap, mVar.f8551i.f8457b)) {
+                    hashMap.put(Integer.valueOf(this.f8695f.f8690f), "dirPath");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8694e, "readdir:", this.f8695f.f8691g);
+                    m mVar = this.f8695f;
+                    if (c.a.r0.a.r0.n.a(v, mVar.f8692h, hashMap, mVar.f8693i.f8599b)) {
                         c.a.r0.a.r0.o.e eVar = new c.a.r0.a.r0.o.e();
-                        List<String> list = this.f8552e.f8451c;
+                        List<String> list = this.f8694e.f8593c;
                         int size = list == null ? 0 : list.size();
-                        eVar.files = size == 0 ? new String[0] : (String[]) this.f8552e.f8451c.toArray(new String[size]);
-                        eVar.errMsg = this.f8552e.f8450b;
-                        c.a.r0.a.r0.n.b(eVar, this.f8553f.f8549g);
+                        eVar.files = size == 0 ? new String[0] : (String[]) this.f8694e.f8593c.toArray(new String[size]);
+                        eVar.errMsg = this.f8694e.f8592b;
+                        c.a.r0.a.r0.n.b(eVar, this.f8695f.f8691g);
                     }
                 }
             }
@@ -1366,18 +1366,18 @@ public class e {
                     return;
                 }
             }
-            this.f8551i = eVar;
-            this.f8547e = str;
-            this.f8548f = i2;
-            this.f8549g = map;
-            this.f8550h = bVar;
+            this.f8693i = eVar;
+            this.f8689e = str;
+            this.f8690f = i2;
+            this.f8691g = map;
+            this.f8692h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8551i.f8457b.runOnJSThread(new a(this, this.f8551i.a.s(this.f8547e, false)));
+                this.f8693i.f8599b.runOnJSThread(new a(this, this.f8693i.a.s(this.f8689e, false)));
             }
         }
     }
@@ -1388,22 +1388,22 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8554e;
+        public final /* synthetic */ String f8696e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Boolean f8555f;
+        public final /* synthetic */ Boolean f8697f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f8556g;
+        public final /* synthetic */ int f8698g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Map f8557h;
+        public final /* synthetic */ Map f8699h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.r0.o.b f8558i;
+        public final /* synthetic */ c.a.r0.a.r0.o.b f8700i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ e f8559j;
+        public final /* synthetic */ e f8701j;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -1411,10 +1411,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8560e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8702e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ n f8561f;
+            public final /* synthetic */ n f8703f;
 
             public a(n nVar, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
@@ -1431,8 +1431,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8561f = nVar;
-                this.f8560e = cVar;
+                this.f8703f = nVar;
+                this.f8702e = cVar;
             }
 
             @Override // java.lang.Runnable
@@ -1440,12 +1440,12 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8561f.f8556g), "dirPath");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8560e, "rmdir:", this.f8561f.f8557h);
-                    n nVar = this.f8561f;
-                    if (c.a.r0.a.r0.n.a(v, nVar.f8558i, hashMap, nVar.f8559j.f8457b)) {
-                        n nVar2 = this.f8561f;
-                        c.a.r0.a.r0.n.b(nVar2.f8558i, nVar2.f8557h);
+                    hashMap.put(Integer.valueOf(this.f8703f.f8698g), "dirPath");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8702e, "rmdir:", this.f8703f.f8699h);
+                    n nVar = this.f8703f;
+                    if (c.a.r0.a.r0.n.a(v, nVar.f8700i, hashMap, nVar.f8701j.f8599b)) {
+                        n nVar2 = this.f8703f;
+                        c.a.r0.a.r0.n.b(nVar2.f8700i, nVar2.f8699h);
                     }
                 }
             }
@@ -1466,19 +1466,19 @@ public class e {
                     return;
                 }
             }
-            this.f8559j = eVar;
-            this.f8554e = str;
-            this.f8555f = bool;
-            this.f8556g = i2;
-            this.f8557h = map;
-            this.f8558i = bVar;
+            this.f8701j = eVar;
+            this.f8696e = str;
+            this.f8697f = bool;
+            this.f8698g = i2;
+            this.f8699h = map;
+            this.f8700i = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8559j.f8457b.runOnJSThread(new a(this, this.f8559j.a.v(this.f8554e, this.f8555f.booleanValue(), false)));
+                this.f8701j.f8599b.runOnJSThread(new a(this, this.f8701j.a.v(this.f8696e, this.f8697f.booleanValue(), false)));
             }
         }
     }
@@ -1489,22 +1489,22 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8562e;
+        public final /* synthetic */ String f8704e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8563f;
+        public final /* synthetic */ String f8705f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f8564g;
+        public final /* synthetic */ int f8706g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f8565h;
+        public final /* synthetic */ int f8707h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Map f8566i;
+        public final /* synthetic */ Map f8708i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.r0.o.b f8567j;
+        public final /* synthetic */ c.a.r0.a.r0.o.b f8709j;
         public final /* synthetic */ e k;
 
         /* loaded from: classes.dex */
@@ -1513,10 +1513,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8568e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8710e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ o f8569f;
+            public final /* synthetic */ o f8711f;
 
             public a(o oVar, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
@@ -1533,8 +1533,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8569f = oVar;
-                this.f8568e = cVar;
+                this.f8711f = oVar;
+                this.f8710e = cVar;
             }
 
             @Override // java.lang.Runnable
@@ -1542,28 +1542,28 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8569f.f8565h), "filePath");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8568e, "readFile:", this.f8569f.f8566i);
-                    o oVar = this.f8569f;
-                    if (c.a.r0.a.r0.n.a(v, oVar.f8567j, hashMap, oVar.k.f8457b)) {
-                        if (TextUtils.isEmpty(this.f8569f.f8563f)) {
+                    hashMap.put(Integer.valueOf(this.f8711f.f8707h), "filePath");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8710e, "readFile:", this.f8711f.f8708i);
+                    o oVar = this.f8711f;
+                    if (c.a.r0.a.r0.n.a(v, oVar.f8709j, hashMap, oVar.k.f8599b)) {
+                        if (TextUtils.isEmpty(this.f8711f.f8705f)) {
                             c.a.r0.a.r0.o.a aVar = new c.a.r0.a.r0.o.a();
-                            c.a.r0.a.r0.c cVar = this.f8568e;
-                            if (cVar.f8456h == null) {
-                                cVar.f8456h = new byte[0];
+                            c.a.r0.a.r0.c cVar = this.f8710e;
+                            if (cVar.f8598h == null) {
+                                cVar.f8598h = new byte[0];
                             }
-                            byte[] bArr = this.f8568e.f8456h;
+                            byte[] bArr = this.f8710e.f8598h;
                             aVar.data = new JsArrayBuffer(bArr, bArr.length);
-                            aVar.errMsg = this.f8568e.f8450b;
-                            c.a.r0.a.r0.n.b(aVar, this.f8569f.f8566i);
+                            aVar.errMsg = this.f8710e.f8592b;
+                            c.a.r0.a.r0.n.b(aVar, this.f8711f.f8708i);
                             return;
                         }
-                        List<String> list = this.f8568e.f8451c;
+                        List<String> list = this.f8710e.f8593c;
                         String str = list != null ? list.get(0) : null;
                         c.a.r0.a.r0.o.f fVar = new c.a.r0.a.r0.o.f();
                         fVar.data = str;
-                        fVar.errMsg = this.f8568e.f8450b;
-                        c.a.r0.a.r0.n.b(fVar, this.f8569f.f8566i);
+                        fVar.errMsg = this.f8710e.f8592b;
+                        c.a.r0.a.r0.n.b(fVar, this.f8711f.f8708i);
                     }
                 }
             }
@@ -1585,26 +1585,26 @@ public class e {
                 }
             }
             this.k = eVar;
-            this.f8562e = str;
-            this.f8563f = str2;
-            this.f8564g = i2;
-            this.f8565h = i3;
-            this.f8566i = map;
-            this.f8567j = bVar;
+            this.f8704e = str;
+            this.f8705f = str2;
+            this.f8706g = i2;
+            this.f8707h = i3;
+            this.f8708i = map;
+            this.f8709j = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.r0.c q = this.k.a.q(this.f8562e, this.f8563f, false);
-                int i2 = this.f8564g;
+                c.a.r0.a.r0.c q = this.k.a.q(this.f8704e, this.f8705f, false);
+                int i2 = this.f8706g;
                 if (i2 != 7 && i2 != 12) {
-                    q.f8450b = "fail encoding must be a string";
+                    q.f8592b = "fail encoding must be a string";
                     q.a = -2;
-                    c.a.r0.a.r0.n.d(this.k.f8457b, q.f8450b);
+                    c.a.r0.a.r0.n.d(this.k.f8599b, q.f8592b);
                 }
-                this.k.f8457b.runOnJSThread(new a(this, q));
+                this.k.f8599b.runOnJSThread(new a(this, q));
             }
         }
     }
@@ -1615,22 +1615,22 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8570e;
+        public final /* synthetic */ String f8712e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8571f;
+        public final /* synthetic */ String f8713f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f8572g;
+        public final /* synthetic */ int f8714g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f8573h;
+        public final /* synthetic */ int f8715h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Map f8574i;
+        public final /* synthetic */ Map f8716i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.r0.o.b f8575j;
+        public final /* synthetic */ c.a.r0.a.r0.o.b f8717j;
         public final /* synthetic */ e k;
 
         /* loaded from: classes.dex */
@@ -1639,10 +1639,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r0.c f8576e;
+            public final /* synthetic */ c.a.r0.a.r0.c f8718e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ p f8577f;
+            public final /* synthetic */ p f8719f;
 
             public a(p pVar, c.a.r0.a.r0.c cVar) {
                 Interceptable interceptable = $ic;
@@ -1659,8 +1659,8 @@ public class e {
                         return;
                     }
                 }
-                this.f8577f = pVar;
-                this.f8576e = cVar;
+                this.f8719f = pVar;
+                this.f8718e = cVar;
             }
 
             @Override // java.lang.Runnable
@@ -1668,13 +1668,13 @@ public class e {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf(this.f8577f.f8572g), "oldPath");
-                    hashMap.put(Integer.valueOf(this.f8577f.f8573h), "newPath");
-                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8576e, "rename:", this.f8577f.f8574i);
-                    p pVar = this.f8577f;
-                    if (c.a.r0.a.r0.n.a(v, pVar.f8575j, hashMap, pVar.k.f8457b)) {
-                        p pVar2 = this.f8577f;
-                        c.a.r0.a.r0.n.b(pVar2.f8575j, pVar2.f8574i);
+                    hashMap.put(Integer.valueOf(this.f8719f.f8714g), "oldPath");
+                    hashMap.put(Integer.valueOf(this.f8719f.f8715h), "newPath");
+                    c.a.r0.a.r0.b v = c.a.r0.a.r0.n.v(this.f8718e, "rename:", this.f8719f.f8716i);
+                    p pVar = this.f8719f;
+                    if (c.a.r0.a.r0.n.a(v, pVar.f8717j, hashMap, pVar.k.f8599b)) {
+                        p pVar2 = this.f8719f;
+                        c.a.r0.a.r0.n.b(pVar2.f8717j, pVar2.f8716i);
                     }
                 }
             }
@@ -1696,19 +1696,19 @@ public class e {
                 }
             }
             this.k = eVar;
-            this.f8570e = str;
-            this.f8571f = str2;
-            this.f8572g = i2;
-            this.f8573h = i3;
-            this.f8574i = map;
-            this.f8575j = bVar;
+            this.f8712e = str;
+            this.f8713f = str2;
+            this.f8714g = i2;
+            this.f8715h = i3;
+            this.f8716i = map;
+            this.f8717j = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.k.f8457b.runOnJSThread(new a(this, this.k.a.u(this.f8570e, this.f8571f, false)));
+                this.k.f8599b.runOnJSThread(new a(this, this.k.a.u(this.f8712e, this.f8713f, false)));
             }
         }
     }
@@ -1728,14 +1728,14 @@ public class e {
                 return;
             }
         }
-        this.f8457b = aVar;
+        this.f8599b = aVar;
         c();
     }
 
     @JavascriptInterface
     public void access(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("path", jsObject);
             c.a.r0.a.r0.o.b bVar = new c.a.r0.a.r0.o.b();
             Map<String, Object> J = c.a.r0.a.r0.n.J(this.a, jsObject, bVar, "access:fail parameter error: parameter.path should be String instead of Undefined;");
@@ -1743,23 +1743,23 @@ public class e {
                 return;
             }
             String I = c.a.r0.a.r0.n.I("path", J);
-            this.f8458c.h(new d(this, I, O, J, bVar), "aigamesaccess:", I);
+            this.f8600c.h(new d(this, I, O, J, bVar), "aigamesaccess:", I);
         }
     }
 
     @JavascriptInterface
     public void accessSync(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, null, null)) {
-            this.f8458c.k(str);
-            c.a.r0.a.r0.n.d0(this.f8457b, this.a.a(str, true), JSExceptionType.Error, "unknown error", "accessSync:");
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, null, null)) {
+            this.f8600c.k(str);
+            c.a.r0.a.r0.n.d0(this.f8599b, this.a.a(str, true), JSExceptionType.Error, "unknown error", "accessSync:");
         }
     }
 
     @JavascriptInterface
     public void appendFile(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("encoding", jsObject);
             int O2 = c.a.r0.a.r0.n.O("filePath", jsObject);
             int O3 = c.a.r0.a.r0.n.O("data", jsObject);
@@ -1772,16 +1772,16 @@ public class e {
             }
             String I = c.a.r0.a.r0.n.I("data", J);
             String I2 = c.a.r0.a.r0.n.I("filePath", J);
-            this.f8458c.h(new c(this, I2, I, r, J, w, O, O2, bVar), "aigamesappendFile:", I2);
+            this.f8600c.h(new c(this, I2, I, r, J, w, O, O2, bVar), "aigamesappendFile:", I2);
         }
     }
 
     @JavascriptInterface
     public void appendFileSync(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, null, null)) {
-            this.f8458c.k(str);
-            c.a.r0.a.r0.n.d0(this.f8457b, this.a.b(str, str2, str3, true), JSExceptionType.Error, "unknown error", "appendFileSync:");
+        if ((interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, null, null)) {
+            this.f8600c.k(str);
+            c.a.r0.a.r0.n.d0(this.f8599b, this.a.b(str, str2, str3, true), JSExceptionType.Error, "unknown error", "appendFileSync:");
         }
     }
 
@@ -1796,14 +1796,14 @@ public class e {
                 lVar = new c.a.r0.a.r0.l();
             }
             this.a = new c.a.r0.a.r0.f(AppRuntime.getAppContext(), c.a.r0.a.g1.f.U().z(), lVar);
-            this.f8458c = c.a.r0.a.r0.i.d();
+            this.f8600c = c.a.r0.a.r0.i.d();
         }
     }
 
     @JavascriptInterface
     public void copyFile(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("srcPath", jsObject);
             int O2 = c.a.r0.a.r0.n.O("destPath", jsObject);
             c.a.r0.a.r0.o.b bVar = new c.a.r0.a.r0.o.b();
@@ -1813,23 +1813,23 @@ public class e {
             }
             String I = c.a.r0.a.r0.n.I("srcPath", J);
             String I2 = c.a.r0.a.r0.n.I("destPath", J);
-            this.f8458c.h(new b(this, I, I2, O, O2, J, bVar), "aigamescopyFile:", I, I2);
+            this.f8600c.h(new b(this, I, I2, O, O2, J, bVar), "aigamescopyFile:", I, I2);
         }
     }
 
     @JavascriptInterface
     public void copyFileSync(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, null, null)) {
-            this.f8458c.k(str, str2);
-            c.a.r0.a.r0.n.d0(this.f8457b, this.a.c(str, str2, true), JSExceptionType.Error, "unknown error", "copyFileSync:");
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, null, null)) {
+            this.f8600c.k(str, str2);
+            c.a.r0.a.r0.n.d0(this.f8599b, this.a.c(str, str2, true), JSExceptionType.Error, "unknown error", "copyFileSync:");
         }
     }
 
     @JavascriptInterface
     public void getFileInfo(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(1048586, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("filePath", jsObject);
             c.a.r0.a.r0.o.b bVar = new c.a.r0.a.r0.o.b();
             Map<String, Object> J = c.a.r0.a.r0.n.J(this.a, jsObject, bVar, "getFileInfo:fail parameter error: parameter.filePath should be String instead of Undefined;");
@@ -1837,7 +1837,7 @@ public class e {
                 return;
             }
             String I = c.a.r0.a.r0.n.I("filePath", J);
-            this.f8458c.h(new f(this, I, O, J, bVar), "aigamesgetFileInfo:", I);
+            this.f8600c.h(new f(this, I, O, J, bVar), "aigamesgetFileInfo:", I);
         }
     }
 
@@ -1846,15 +1846,15 @@ public class e {
         c.a.r0.a.r0.o.b bVar;
         Map<String, Object> J;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.filePath should be String instead of ") && (J = c.a.r0.a.r0.n.J(this.a, jsObject, (bVar = new c.a.r0.a.r0.o.b()), "getSavedFileList:fail parameter error: parameter.filePath should be String instead of Undefined;")) != null) {
-            this.f8458c.h(new g(this, J, bVar), "aigamesgetSavedFileList:", new String[0]);
+        if ((interceptable == null || interceptable.invokeL(1048587, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.filePath should be String instead of ") && (J = c.a.r0.a.r0.n.J(this.a, jsObject, (bVar = new c.a.r0.a.r0.o.b()), "getSavedFileList:fail parameter error: parameter.filePath should be String instead of Undefined;")) != null) {
+            this.f8600c.h(new g(this, J, bVar), "aigamesgetSavedFileList:", new String[0]);
         }
     }
 
     @JavascriptInterface
     public void mkdir(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(1048588, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("dirPath", jsObject);
             c.a.r0.a.r0.o.b bVar = new c.a.r0.a.r0.o.b();
             Map<String, Object> J = c.a.r0.a.r0.n.J(this.a, jsObject, bVar, "mkdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
@@ -1862,7 +1862,7 @@ public class e {
                 return;
             }
             String I = c.a.r0.a.r0.n.I("dirPath", J);
-            this.f8458c.h(new a(this, I, (Boolean) c.a.r0.a.r0.n.H("recursive", J, Boolean.FALSE), O, J, bVar), "aigamesmkdir:", I);
+            this.f8600c.h(new a(this, I, (Boolean) c.a.r0.a.r0.n.H("recursive", J, Boolean.FALSE), O, J, bVar), "aigamesmkdir:", I);
         }
     }
 
@@ -1877,7 +1877,7 @@ public class e {
     @JavascriptInterface
     public void readFile(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(1048591, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("filePath", jsObject);
             int O2 = c.a.r0.a.r0.n.O("encoding", jsObject);
             c.a.r0.a.r0.o.b bVar = new c.a.r0.a.r0.o.b();
@@ -1887,7 +1887,7 @@ public class e {
             }
             String I = c.a.r0.a.r0.n.I("encoding", J);
             String I2 = c.a.r0.a.r0.n.I("filePath", J);
-            this.f8458c.h(new o(this, I2, I, O2, O, J, bVar), "aigamesreadFile:", I2);
+            this.f8600c.h(new o(this, I2, I, O2, O, J, bVar), "aigamesreadFile:", I2);
         }
     }
 
@@ -1897,11 +1897,11 @@ public class e {
         List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, str, str2)) == null) {
-            if (c.a.r0.a.r0.n.T(this.a, this.f8457b, null, null)) {
-                this.f8458c.k(str);
+            if (c.a.r0.a.r0.n.T(this.a, this.f8599b, null, null)) {
+                this.f8600c.k(str);
                 c.a.r0.a.r0.c q = this.a.q(str, str2, true);
-                c.a.r0.a.r0.n.d0(this.f8457b, q, JSExceptionType.Error, "unknown error", "readFileSync:");
-                if (q == null || q.a != 0 || (list = q.f8451c) == null) {
+                c.a.r0.a.r0.n.d0(this.f8599b, q, JSExceptionType.Error, "unknown error", "readFileSync:");
+                if (q == null || q.a != 0 || (list = q.f8593c) == null) {
                     return null;
                 }
                 return list.get(0);
@@ -1914,7 +1914,7 @@ public class e {
     @JavascriptInterface
     public void readdir(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048594, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(1048594, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("dirPath", jsObject);
             c.a.r0.a.r0.o.b bVar = new c.a.r0.a.r0.o.b();
             Map<String, Object> J = c.a.r0.a.r0.n.J(this.a, jsObject, bVar, "readdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
@@ -1922,7 +1922,7 @@ public class e {
                 return;
             }
             String I = c.a.r0.a.r0.n.I("dirPath", J);
-            this.f8458c.h(new m(this, I, O, J, bVar), "aigamesreaddir:", I);
+            this.f8600c.h(new m(this, I, O, J, bVar), "aigamesreaddir:", I);
         }
     }
 
@@ -1931,16 +1931,16 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-            if (c.a.r0.a.r0.n.T(this.a, this.f8457b, null, null)) {
-                this.f8458c.k(str);
+            if (c.a.r0.a.r0.n.T(this.a, this.f8599b, null, null)) {
+                this.f8600c.k(str);
                 c.a.r0.a.r0.c s = this.a.s(str, true);
-                c.a.r0.a.r0.n.d0(this.f8457b, s, JSExceptionType.Error, "unknown error", "readdirSync:");
+                c.a.r0.a.r0.n.d0(this.f8599b, s, JSExceptionType.Error, "unknown error", "readdirSync:");
                 if (s == null || s.a != 0) {
                     return new String[0];
                 }
-                List<String> list = s.f8451c;
+                List<String> list = s.f8593c;
                 int size = list == null ? 0 : list.size();
-                return size == 0 ? new String[0] : (String[]) s.f8451c.toArray(new String[size]);
+                return size == 0 ? new String[0] : (String[]) s.f8593c.toArray(new String[size]);
             }
             return null;
         }
@@ -1950,21 +1950,21 @@ public class e {
     @JavascriptInterface
     public void removeSavedFile(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048596, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(1048596, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("filePath", jsObject);
             c.a.r0.a.r0.o.b bVar = new c.a.r0.a.r0.o.b();
             Map<String, Object> J = c.a.r0.a.r0.n.J(this.a, jsObject, bVar, "removeSavedFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
             if (J == null) {
                 return;
             }
-            this.f8458c.h(new h(this, c.a.r0.a.r0.n.I("filePath", J), O, J, bVar), "aigamesremoveSavedFile:", new String[0]);
+            this.f8600c.h(new h(this, c.a.r0.a.r0.n.I("filePath", J), O, J, bVar), "aigamesremoveSavedFile:", new String[0]);
         }
     }
 
     @JavascriptInterface
     public void rename(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(1048597, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("oldPath", jsObject);
             int O2 = c.a.r0.a.r0.n.O("newPath", jsObject);
             c.a.r0.a.r0.o.b bVar = new c.a.r0.a.r0.o.b();
@@ -1974,23 +1974,23 @@ public class e {
             }
             String I = c.a.r0.a.r0.n.I("oldPath", J);
             String I2 = c.a.r0.a.r0.n.I("newPath", J);
-            this.f8458c.h(new p(this, I, I2, O, O2, J, bVar), "aigamesrename:", I, I2);
+            this.f8600c.h(new p(this, I, I2, O, O2, J, bVar), "aigamesrename:", I, I2);
         }
     }
 
     @JavascriptInterface
     public void renameSync(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048598, this, str, str2) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, null, null)) {
-            this.f8458c.k(str, str2);
-            c.a.r0.a.r0.n.d0(this.f8457b, this.a.u(str, str2, true), JSExceptionType.Error, "unknown error", "renameSync:");
+        if ((interceptable == null || interceptable.invokeLL(1048598, this, str, str2) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, null, null)) {
+            this.f8600c.k(str, str2);
+            c.a.r0.a.r0.n.d0(this.f8599b, this.a.u(str, str2, true), JSExceptionType.Error, "unknown error", "renameSync:");
         }
     }
 
     @JavascriptInterface
     public void rmdir(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048599, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(1048599, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("dirPath", jsObject);
             c.a.r0.a.r0.o.b bVar = new c.a.r0.a.r0.o.b();
             Map<String, Object> J = c.a.r0.a.r0.n.J(this.a, jsObject, bVar, "rmdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
@@ -1998,7 +1998,7 @@ public class e {
                 return;
             }
             String I = c.a.r0.a.r0.n.I("dirPath", J);
-            this.f8458c.h(new n(this, I, (Boolean) c.a.r0.a.r0.n.H("recursive", J, Boolean.FALSE), O, J, bVar), "aigamesrmdir:", I);
+            this.f8600c.h(new n(this, I, (Boolean) c.a.r0.a.r0.n.H("recursive", J, Boolean.FALSE), O, J, bVar), "aigamesrmdir:", I);
         }
     }
 
@@ -2013,7 +2013,7 @@ public class e {
     @JavascriptInterface
     public void saveFile(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048602, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(1048602, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("tempFilePath", jsObject);
             int O2 = c.a.r0.a.r0.n.O("filePath", jsObject);
             int i2 = O2 == 12 ? 7 : O2;
@@ -2024,7 +2024,7 @@ public class e {
             }
             String I = c.a.r0.a.r0.n.I("tempFilePath", J);
             String I2 = c.a.r0.a.r0.n.I("filePath", J);
-            this.f8458c.h(new l(this, I, I2, O, i2, J, bVar), "aigamessaveFile:", I, I2);
+            this.f8600c.h(new l(this, I, I2, O, i2, J, bVar), "aigamessaveFile:", I, I2);
         }
     }
 
@@ -2038,7 +2038,7 @@ public class e {
     @JavascriptInterface
     public void stat(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048605, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(1048605, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("path", jsObject);
             c.a.r0.a.r0.o.b bVar = new c.a.r0.a.r0.o.b();
             Map<String, Object> J = c.a.r0.a.r0.n.J(this.a, jsObject, bVar, "stat:fail parameter error: parameter.path should be String instead of Undefined;");
@@ -2046,7 +2046,7 @@ public class e {
                 return;
             }
             String I = c.a.r0.a.r0.n.I("path", J);
-            this.f8458c.h(new RunnableC0527e(this, I, O, J, bVar), "aigamesstat:", I);
+            this.f8600c.h(new RunnableC0536e(this, I, O, J, bVar), "aigamesstat:", I);
         }
     }
 
@@ -2055,14 +2055,14 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
-            if (c.a.r0.a.r0.n.T(this.a, this.f8457b, null, null)) {
-                this.f8458c.k(str);
+            if (c.a.r0.a.r0.n.T(this.a, this.f8599b, null, null)) {
+                this.f8600c.k(str);
                 c.a.r0.a.r0.c y = this.a.y(str, true);
-                c.a.r0.a.r0.n.d0(this.f8457b, y, JSExceptionType.Error, "unknown error", "statSync:");
+                c.a.r0.a.r0.n.d0(this.f8599b, y, JSExceptionType.Error, "unknown error", "statSync:");
                 if (y == null || y.a != 0) {
                     return null;
                 }
-                return y.f8452d;
+                return y.f8594d;
             }
             return null;
         }
@@ -2072,7 +2072,7 @@ public class e {
     @JavascriptInterface
     public void unlink(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048607, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(1048607, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("filePath", jsObject);
             c.a.r0.a.r0.o.b bVar = new c.a.r0.a.r0.o.b();
             Map<String, Object> J = c.a.r0.a.r0.n.J(this.a, jsObject, bVar, "unlink:fail parameter error: parameter.filePath should be String instead of Undefined;");
@@ -2080,23 +2080,23 @@ public class e {
                 return;
             }
             String I = c.a.r0.a.r0.n.I("filePath", J);
-            this.f8458c.h(new j(this, I, O, J, bVar), "aigamesunlink:", I);
+            this.f8600c.h(new j(this, I, O, J, bVar), "aigamesunlink:", I);
         }
     }
 
     @JavascriptInterface
     public void unlinkSync(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048608, this, str) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, null, null)) {
-            this.f8458c.k(str);
-            c.a.r0.a.r0.n.d0(this.f8457b, this.a.z(str, true), JSExceptionType.Error, "unknown error", "unlinkSync:");
+        if ((interceptable == null || interceptable.invokeL(1048608, this, str) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, null, null)) {
+            this.f8600c.k(str);
+            c.a.r0.a.r0.n.d0(this.f8599b, this.a.z(str, true), JSExceptionType.Error, "unknown error", "unlinkSync:");
         }
     }
 
     @JavascriptInterface
     public void unzip(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048609, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(1048609, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("zipFilePath", jsObject);
             int O2 = c.a.r0.a.r0.n.O("targetPath", jsObject);
             c.a.r0.a.r0.o.b bVar = new c.a.r0.a.r0.o.b();
@@ -2106,14 +2106,14 @@ public class e {
             }
             String I = c.a.r0.a.r0.n.I("zipFilePath", J);
             String I2 = c.a.r0.a.r0.n.I("targetPath", J);
-            this.f8458c.h(new k(this, I, I2, O, O2, J, bVar), "aigamesunzip:", I, I2);
+            this.f8600c.h(new k(this, I, I2, O, O2, J, bVar), "aigamesunzip:", I, I2);
         }
     }
 
     @JavascriptInterface
     public void writeFile(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048610, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+        if ((interceptable == null || interceptable.invokeL(1048610, this, jsObject) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
             int O = c.a.r0.a.r0.n.O("filePath", jsObject);
             String w = c.a.r0.a.r0.n.w(c.a.r0.a.r0.n.O("data", jsObject));
             int O2 = c.a.r0.a.r0.n.O("encoding", jsObject);
@@ -2125,34 +2125,34 @@ public class e {
             }
             String I = c.a.r0.a.r0.n.I("data", J);
             String I2 = c.a.r0.a.r0.n.I("filePath", J);
-            this.f8458c.h(new i(this, I2, I, r, J, w, O2, O, bVar), "aigameswriteFile:", I2);
+            this.f8600c.h(new i(this, I2, I, r, J, w, O2, O, bVar), "aigameswriteFile:", I2);
         }
     }
 
     @JavascriptInterface
     public void writeFileSync(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048614, this, str, str2, str3) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, null, null)) {
-            this.f8458c.k(str);
-            c.a.r0.a.r0.n.d0(this.f8457b, this.a.C(true, str, str2, str3), JSExceptionType.Error, "unknown error", "writeFileSync:");
+        if ((interceptable == null || interceptable.invokeLLL(1048614, this, str, str2, str3) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, null, null)) {
+            this.f8600c.k(str);
+            c.a.r0.a.r0.n.d0(this.f8599b, this.a.C(true, str, str2, str3), JSExceptionType.Error, "unknown error", "writeFileSync:");
         }
     }
 
     @JavascriptInterface
     public void mkdirSync(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048590, this, str, z) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, null, null)) {
-            this.f8458c.k(str);
-            c.a.r0.a.r0.n.d0(this.f8457b, this.a.o(str, z, true), JSExceptionType.Error, "unknown error", "mkdirSync:");
+        if ((interceptable == null || interceptable.invokeLZ(1048590, this, str, z) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, null, null)) {
+            this.f8600c.k(str);
+            c.a.r0.a.r0.n.d0(this.f8599b, this.a.o(str, z, true), JSExceptionType.Error, "unknown error", "mkdirSync:");
         }
     }
 
     @JavascriptInterface
     public void rmdirSync(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048601, this, str, z) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, null, null)) {
-            this.f8458c.k(str);
-            c.a.r0.a.r0.n.d0(this.f8457b, this.a.v(str, z, true), JSExceptionType.Error, "unknown error", "rmdirSync:");
+        if ((interceptable == null || interceptable.invokeLZ(1048601, this, str, z) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, null, null)) {
+            this.f8600c.k(str);
+            c.a.r0.a.r0.n.d0(this.f8599b, this.a.v(str, z, true), JSExceptionType.Error, "unknown error", "rmdirSync:");
         }
     }
 
@@ -2162,11 +2162,11 @@ public class e {
         List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, str, str2)) == null) {
-            if (c.a.r0.a.r0.n.T(this.a, this.f8457b, null, null)) {
-                this.f8458c.k(str, str2);
+            if (c.a.r0.a.r0.n.T(this.a, this.f8599b, null, null)) {
+                this.f8600c.k(str, str2);
                 c.a.r0.a.r0.c x = this.a.x(str, str2, true);
-                c.a.r0.a.r0.n.d0(this.f8457b, x, JSExceptionType.Error, "unknown error", "saveFileSync:");
-                if (x == null || x.a != 0 || (list = x.f8451c) == null) {
+                c.a.r0.a.r0.n.d0(this.f8599b, x, JSExceptionType.Error, "unknown error", "saveFileSync:");
+                if (x == null || x.a != 0 || (list = x.f8593c) == null) {
                     return null;
                 }
                 return list.get(0);
@@ -2203,9 +2203,9 @@ public class e {
     @JavascriptInterface
     public void writeFileSync(String str, JsArrayBuffer jsArrayBuffer) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048611, this, str, jsArrayBuffer) == null) && c.a.r0.a.r0.n.T(this.a, this.f8457b, null, null)) {
-            this.f8458c.k(str);
-            c.a.r0.a.r0.n.d0(this.f8457b, this.a.C(true, str, jsArrayBuffer == null ? new byte[0] : jsArrayBuffer.buffer(), null), JSExceptionType.Error, "unknown error", "writeFileSync:");
+        if ((interceptable == null || interceptable.invokeLL(1048611, this, str, jsArrayBuffer) == null) && c.a.r0.a.r0.n.T(this.a, this.f8599b, null, null)) {
+            this.f8600c.k(str);
+            c.a.r0.a.r0.n.d0(this.f8599b, this.a.C(true, str, jsArrayBuffer == null ? new byte[0] : jsArrayBuffer.buffer(), null), JSExceptionType.Error, "unknown error", "writeFileSync:");
         }
     }
 
@@ -2214,14 +2214,14 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            if (c.a.r0.a.r0.n.T(this.a, this.f8457b, null, null)) {
-                this.f8458c.k(str);
+            if (c.a.r0.a.r0.n.T(this.a, this.f8599b, null, null)) {
+                this.f8600c.k(str);
                 c.a.r0.a.r0.c q = this.a.q(str, null, true);
-                c.a.r0.a.r0.n.d0(this.f8457b, q, JSExceptionType.Error, "unknown error", "readFileSync:");
-                if (q.f8456h == null) {
-                    q.f8456h = new byte[0];
+                c.a.r0.a.r0.n.d0(this.f8599b, q, JSExceptionType.Error, "unknown error", "readFileSync:");
+                if (q.f8598h == null) {
+                    q.f8598h = new byte[0];
                 }
-                byte[] bArr = q.f8456h;
+                byte[] bArr = q.f8598h;
                 return new JsArrayBuffer(bArr, bArr.length);
             }
             return null;

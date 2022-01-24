@@ -29,22 +29,22 @@ public class a {
     public final String f874a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f61409b;
+    public final Object f61454b;
 
     /* renamed from: b  reason: collision with other field name */
     public final String f875b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f61410c;
+    public final String f61455c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f61411d;
+    public final String f61456d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile String f61412e;
+    public volatile String f61457e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile String f61413f;
+    public volatile String f61458f;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -62,11 +62,11 @@ public class a {
             }
         }
         this.f873a = new Object();
-        this.f61409b = new Object();
+        this.f61454b = new Object();
         this.f874a = "mipush_region";
         this.f875b = "mipush_country_code";
-        this.f61410c = "mipush_region.lock";
-        this.f61411d = "mipush_country_code.lock";
+        this.f61455c = "mipush_region.lock";
+        this.f61456d = "mipush_country_code.lock";
         this.f872a = context;
     }
 
@@ -266,41 +266,41 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f61412e)) {
-                this.f61412e = a(this.f872a, "mipush_region", "mipush_region.lock", this.f873a);
+            if (TextUtils.isEmpty(this.f61457e)) {
+                this.f61457e = a(this.f872a, "mipush_region", "mipush_region.lock", this.f873a);
             }
-            return this.f61412e;
+            return this.f61457e;
         }
         return (String) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.equals(str, this.f61412e)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.equals(str, this.f61457e)) {
             return;
         }
-        this.f61412e = str;
-        a(this.f872a, this.f61412e, "mipush_region", "mipush_region.lock", this.f873a);
+        this.f61457e = str;
+        a(this.f872a, this.f61457e, "mipush_region", "mipush_region.lock", this.f873a);
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.f61413f)) {
-                this.f61413f = a(this.f872a, "mipush_country_code", "mipush_country_code.lock", this.f61409b);
+            if (TextUtils.isEmpty(this.f61458f)) {
+                this.f61458f = a(this.f872a, "mipush_country_code", "mipush_country_code.lock", this.f61454b);
             }
-            return this.f61413f;
+            return this.f61458f;
         }
         return (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.equals(str, this.f61413f)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.equals(str, this.f61458f)) {
             return;
         }
-        this.f61413f = str;
-        a(this.f872a, this.f61413f, "mipush_country_code", "mipush_country_code.lock", this.f61409b);
+        this.f61458f = str;
+        a(this.f872a, this.f61458f, "mipush_country_code", "mipush_country_code.lock", this.f61454b);
     }
 }

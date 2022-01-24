@@ -2,13 +2,23 @@ package c.a.t0.b1.a;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class a implements i {
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f15367b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f15368c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f15369d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -24,13 +34,14 @@ public class a implements i {
         }
     }
 
-    @Override // c.a.t0.b1.a.i
-    public int a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 2;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return invokeV.intValue;
+        this.a = jSONObject.optLong("id");
+        this.f15367b = jSONObject.optString("name");
+        this.f15368c = jSONObject.optString("name_show");
+        this.f15369d = jSONObject.optString("portrait");
     }
 }

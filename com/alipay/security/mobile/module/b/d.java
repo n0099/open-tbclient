@@ -117,7 +117,7 @@ public final class d {
             String[] strArr = {"/system/bin/", "/system/xbin/", "/system/sbin/", "/sbin/", "/vendor/bin/"};
             for (int i2 = 0; i2 < 5; i2++) {
                 try {
-                    if (new File(strArr[i2] + j0.f55090b).exists()) {
+                    if (new File(strArr[i2] + j0.f55135b).exists()) {
                         return true;
                     }
                 } catch (Exception unused) {

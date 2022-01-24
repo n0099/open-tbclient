@@ -27,7 +27,7 @@ public final class ObservableFlattenIterable<T, R> extends AbstractObservableWit
         public final Observer<? super R> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f62164d;
+        public Disposable f62209d;
         public final Function<? super T, ? extends Iterable<? extends R>> mapper;
 
         public FlattenIterableObserver(Observer<? super R> observer, Function<? super T, ? extends Iterable<? extends R>> function) {
@@ -53,8 +53,8 @@ public final class ObservableFlattenIterable<T, R> extends AbstractObservableWit
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f62164d.dispose();
-                this.f62164d = DisposableHelper.DISPOSED;
+                this.f62209d.dispose();
+                this.f62209d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -62,19 +62,19 @@ public final class ObservableFlattenIterable<T, R> extends AbstractObservableWit
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62164d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62209d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Disposable disposable = this.f62164d;
+                Disposable disposable = this.f62209d;
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
                 if (disposable == disposableHelper) {
                     return;
                 }
-                this.f62164d = disposableHelper;
+                this.f62209d = disposableHelper;
                 this.actual.onComplete();
             }
         }
@@ -83,13 +83,13 @@ public final class ObservableFlattenIterable<T, R> extends AbstractObservableWit
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                Disposable disposable = this.f62164d;
+                Disposable disposable = this.f62209d;
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
                 if (disposable == disposableHelper) {
                     RxJavaPlugins.onError(th);
                     return;
                 }
-                this.f62164d = disposableHelper;
+                this.f62209d = disposableHelper;
                 this.actual.onError(th);
             }
         }
@@ -97,7 +97,7 @@ public final class ObservableFlattenIterable<T, R> extends AbstractObservableWit
         @Override // io.reactivex.Observer
         public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.f62164d == DisposableHelper.DISPOSED) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.f62209d == DisposableHelper.DISPOSED) {
                 return;
             }
             try {
@@ -108,20 +108,20 @@ public final class ObservableFlattenIterable<T, R> extends AbstractObservableWit
                             observer.onNext((Object) ObjectHelper.requireNonNull(r, "The iterator returned a null value"));
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
-                            this.f62164d.dispose();
+                            this.f62209d.dispose();
                             onError(th);
                             return;
                         }
                     } catch (Throwable th2) {
                         Exceptions.throwIfFatal(th2);
-                        this.f62164d.dispose();
+                        this.f62209d.dispose();
                         onError(th2);
                         return;
                     }
                 }
             } catch (Throwable th3) {
                 Exceptions.throwIfFatal(th3);
-                this.f62164d.dispose();
+                this.f62209d.dispose();
                 onError(th3);
             }
         }
@@ -129,8 +129,8 @@ public final class ObservableFlattenIterable<T, R> extends AbstractObservableWit
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f62164d, disposable)) {
-                this.f62164d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f62209d, disposable)) {
+                this.f62209d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

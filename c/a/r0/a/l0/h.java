@@ -14,10 +14,10 @@ public final class h {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7603b;
+    public String f7745b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7604c;
+    public String f7746c;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -57,7 +57,7 @@ public final class h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.a.f7603b = str;
+                this.a.f7745b = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -81,7 +81,7 @@ public final class h {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7603b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7745b : (String) invokeV.objValue;
     }
 
     public int getType() {
@@ -94,7 +94,7 @@ public final class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "V8EngineModel{mType=" + this.a + ", mID='" + this.f7603b + ExtendedMessageFormat.QUOTE + ", mViewMode=" + this.f7604c + ExtendedMessageFormat.END_FE;
+            return "V8EngineModel{mType=" + this.a + ", mID='" + this.f7745b + ExtendedMessageFormat.QUOTE + ", mViewMode=" + this.f7746c + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

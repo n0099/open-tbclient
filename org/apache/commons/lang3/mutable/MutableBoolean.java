@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.apache.commons.lang3.BooleanUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MutableBoolean implements Mutable<Boolean>, Serializable, Comparable<MutableBoolean> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4830728138360036487L;

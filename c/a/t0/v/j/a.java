@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class a implements c.a.t0.u3.a {
+public class a implements c.a.t0.v3.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.t0.v.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class C1489a {
+    public static /* synthetic */ class C1472a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -44,7 +44,7 @@ public class a implements c.a.t0.u3.a {
         }
     }
 
-    public /* synthetic */ a(C1489a c1489a) {
+    public /* synthetic */ a(C1472a c1472a) {
         this();
     }
 
@@ -54,7 +54,7 @@ public class a implements c.a.t0.u3.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (a) invokeV.objValue;
     }
 
-    @Override // c.a.t0.u3.a
+    @Override // c.a.t0.v3.a
     public void a(long j2, String str, String str2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), str, str2, Long.valueOf(j3)}) == null) {
@@ -68,7 +68,7 @@ public class a implements c.a.t0.u3.a {
         }
     }
 
-    @Override // c.a.t0.u3.a
+    @Override // c.a.t0.v3.a
     public void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
@@ -80,7 +80,7 @@ public class a implements c.a.t0.u3.a {
         }
     }
 
-    @Override // c.a.t0.u3.a
+    @Override // c.a.t0.v3.a
     public void c(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
@@ -92,7 +92,7 @@ public class a implements c.a.t0.u3.a {
         }
     }
 
-    @Override // c.a.t0.u3.a
+    @Override // c.a.t0.v3.a
     public void d(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
@@ -104,7 +104,7 @@ public class a implements c.a.t0.u3.a {
         }
     }
 
-    @Override // c.a.t0.u3.a
+    @Override // c.a.t0.v3.a
     public void e(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
@@ -117,7 +117,7 @@ public class a implements c.a.t0.u3.a {
         }
     }
 
-    @Override // c.a.t0.u3.a
+    @Override // c.a.t0.v3.a
     public void f(long j2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {

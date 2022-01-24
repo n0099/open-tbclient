@@ -1,87 +1,55 @@
 package c.a.t0.j2;
 
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
-import android.widget.FrameLayout;
+import android.content.Context;
+import android.os.Handler;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class a extends Animation {
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Handler f18511b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public RelativeLayout f18512c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f18513d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f18216e;
+    public Runnable f18514e;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f18217f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f18218g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public FrameLayout.LayoutParams f18219h;
-
-    public a(View view, int i2, int i3) {
+    public a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (view == null) {
-            return;
-        }
-        this.f18216e = view;
-        if (view.getVisibility() == 8 && i3 > 0) {
-            this.f18217f = i3;
-        } else {
-            this.f18217f = this.f18216e.getMeasuredHeight();
-        }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
-        this.f18219h = layoutParams;
-        this.f18218g = i2;
-        if (i2 == 0) {
-            layoutParams.bottomMargin = -this.f18217f;
-        } else {
-            layoutParams.bottomMargin = 0;
-        }
+        this.a = context;
     }
 
-    @Override // android.view.animation.Animation
-    public void applyTransformation(float f2, Transformation transformation) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
-            super.applyTransformation(f2, transformation);
-            if (f2 < 1.0f) {
-                if (this.f18218g == 0) {
-                    FrameLayout.LayoutParams layoutParams = this.f18219h;
-                    int i2 = this.f18217f;
-                    layoutParams.bottomMargin = (-i2) + ((int) (i2 * f2));
-                } else {
-                    this.f18219h.bottomMargin = -((int) (this.f18217f * f2));
-                }
-                this.f18216e.requestLayout();
-            } else if (this.f18218g == 0) {
-                this.f18219h.bottomMargin = 0;
-                this.f18216e.requestLayout();
-                this.f18217f = this.f18216e.getMeasuredHeight();
-            } else {
-                this.f18219h.bottomMargin = -this.f18217f;
-                this.f18216e.setVisibility(8);
-                this.f18216e.requestLayout();
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f18512c == null || this.f18513d == null) {
+            return;
         }
+        this.f18511b.removeCallbacks(this.f18514e);
+        this.f18511b.post(this.f18514e);
     }
 }

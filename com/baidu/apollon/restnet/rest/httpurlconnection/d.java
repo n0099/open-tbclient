@@ -21,19 +21,19 @@ public class d implements e {
     public InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32639b;
+    public int f32667b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32640c;
+    public String f32668c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<String>> f32641d;
+    public Map<String, List<String>> f32669d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.apollon.restnet.http.a f32642e;
+    public com.baidu.apollon.restnet.http.a f32670e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f32643f;
+    public InputStream f32671f;
 
     public d(InputStream inputStream, int i2, String str, Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
@@ -51,9 +51,9 @@ public class d implements e {
             }
         }
         this.a = inputStream;
-        this.f32639b = i2;
-        this.f32640c = str;
-        this.f32641d = map;
+        this.f32667b = i2;
+        this.f32668c = str;
+        this.f32669d = map;
     }
 
     private boolean g() {
@@ -70,14 +70,14 @@ public class d implements e {
     public int a() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32639b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32667b : invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.restnet.rest.e
     public String b() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32640c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32668c : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.restnet.rest.e
@@ -98,10 +98,10 @@ public class d implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f32642e == null) {
-                this.f32642e = new com.baidu.apollon.restnet.http.a(this.f32641d, false);
+            if (this.f32670e == null) {
+                this.f32670e = new com.baidu.apollon.restnet.http.a(this.f32669d, false);
             }
-            return this.f32642e;
+            return this.f32670e;
         }
         return (com.baidu.apollon.restnet.http.a) invokeV.objValue;
     }
@@ -117,7 +117,7 @@ public class d implements e {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            InputStream inputStream = this.f32643f;
+            InputStream inputStream = this.f32671f;
             if (inputStream != null) {
                 try {
                     inputStream.close();
@@ -140,10 +140,10 @@ public class d implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, inputStream)) == null) {
-            if (this.f32643f == null) {
-                this.f32643f = new GZIPInputStream(inputStream);
+            if (this.f32671f == null) {
+                this.f32671f = new GZIPInputStream(inputStream);
             }
-            return this.f32643f;
+            return this.f32671f;
         }
         return (InputStream) invokeL.objValue;
     }

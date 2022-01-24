@@ -9,9 +9,9 @@ import android.widget.TextView;
 import c.a.d.a.j;
 import c.a.d.f.p.n;
 import c.a.s0.s.q.e1;
-import c.a.t0.s2.h;
-import c.a.t0.s2.i;
-import c.a.t0.s2.u.f.h0;
+import c.a.t0.t2.h;
+import c.a.t0.t2.i;
+import c.a.t0.t2.u.f.i0;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,28 +33,28 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public e1 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e1 f46603b;
+    public e1 f46631b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e1 f46604c;
+    public e1 f46632c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbPageContext f46605d;
+    public TbPageContext f46633d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46606e;
+    public int f46634e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h0 f46607f;
+    public i0 f46635f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f46608g;
+    public b f46636g;
     public LinearLayout game_info;
     public ImageView game_info_img;
     public TextView game_info_text;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f46609h;
+    public View.OnClickListener f46637h;
     public LinearLayout news_info;
     public ImageView news_info_img;
     public TextView news_info_text;
@@ -73,7 +73,7 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbPageNewsInfoHolder f46610e;
+        public final /* synthetic */ PbPageNewsInfoHolder f46638e;
 
         public a(PbPageNewsInfoHolder pbPageNewsInfoHolder) {
             Interceptable interceptable = $ic;
@@ -90,34 +90,34 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f46610e = pbPageNewsInfoHolder;
+            this.f46638e = pbPageNewsInfoHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f46610e.f46605d.getPageActivity()) && n.C()) {
-                if (this.f46610e.f46608g != null) {
-                    this.f46610e.f46608g.a(this.f46610e.f46607f);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f46638e.f46633d.getPageActivity()) && n.C()) {
+                if (this.f46638e.f46636g != null) {
+                    this.f46638e.f46636g.a(this.f46638e.f46635f);
                 }
-                PbPageNewsInfoHolder pbPageNewsInfoHolder = this.f46610e;
+                PbPageNewsInfoHolder pbPageNewsInfoHolder = this.f46638e;
                 if (view == pbPageNewsInfoHolder.pb_top_code) {
-                    if (pbPageNewsInfoHolder.a == null || TextUtils.isEmpty(this.f46610e.a.a)) {
+                    if (pbPageNewsInfoHolder.a == null || TextUtils.isEmpty(this.f46638e.a.a)) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f46610e.f46605d.getPageActivity()), new String[]{this.f46610e.a.a});
-                    TiebaStatic.log(new StatisticItem("c11410").param("obj_source", this.f46610e.a.a));
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f46638e.f46633d.getPageActivity()), new String[]{this.f46638e.a.a});
+                    TiebaStatic.log(new StatisticItem("c11410").param("obj_source", this.f46638e.a.a));
                 } else if (view == pbPageNewsInfoHolder.news_info) {
-                    BdLog.e("link: " + this.f46610e.f46603b.a);
-                    if (this.f46610e.f46603b == null || TextUtils.isEmpty(this.f46610e.f46603b.a)) {
+                    BdLog.e("link: " + this.f46638e.f46631b.a);
+                    if (this.f46638e.f46631b == null || TextUtils.isEmpty(this.f46638e.f46631b.a)) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f46610e.f46605d.getPageActivity()), new String[]{this.f46610e.f46603b.a});
-                    TiebaStatic.log(new StatisticItem("c11409").param("obj_source", this.f46610e.f46603b.a));
-                } else if (view != pbPageNewsInfoHolder.game_info || pbPageNewsInfoHolder.f46604c == null || TextUtils.isEmpty(this.f46610e.f46604c.a)) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f46638e.f46633d.getPageActivity()), new String[]{this.f46638e.f46631b.a});
+                    TiebaStatic.log(new StatisticItem("c11409").param("obj_source", this.f46638e.f46631b.a));
+                } else if (view != pbPageNewsInfoHolder.game_info || pbPageNewsInfoHolder.f46632c == null || TextUtils.isEmpty(this.f46638e.f46632c.a)) {
                 } else {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f46610e.f46605d.getPageActivity()), new String[]{this.f46610e.f46604c.a});
-                    TiebaStatic.log(new StatisticItem("c11408").param("obj_source", this.f46610e.f46604c.a));
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f46638e.f46633d.getPageActivity()), new String[]{this.f46638e.f46632c.a});
+                    TiebaStatic.log(new StatisticItem("c11408").param("obj_source", this.f46638e.f46632c.a));
                 }
             }
         }
@@ -125,7 +125,7 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
 
     /* loaded from: classes12.dex */
     public interface b {
-        void a(h0 h0Var);
+        void a(i0 i0Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -146,10 +146,10 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f46606e = 3;
-        this.f46609h = new a(this);
-        this.f46605d = tbPageContext;
-        this.f46608g = bVar;
+        this.f46634e = 3;
+        this.f46637h = new a(this);
+        this.f46633d = tbPageContext;
+        this.f46636g = bVar;
         this.pb_news_info_layout = (LinearLayout) view.findViewById(i.pb_news_info_layout);
         this.pb_list_item_top_line = view.findViewById(i.pb_list_item_top_line);
         this.pb_top_code = (RelativeLayout) view.findViewById(i.pb_top_code);
@@ -164,58 +164,58 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         this.game_info_img = (ImageView) view.findViewById(i.game_info_img);
         this.game_info_text = (TextView) view.findViewById(i.game_info_text);
         this.pb_news_info_divider = view.findViewById(i.pb_news_info_divider);
-        setOnClickListener(this.f46609h);
+        setOnClickListener(this.f46637h);
     }
 
-    public void bindDataToView(h0 h0Var) {
+    public void bindDataToView(i0 i0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, h0Var) == null) || h0Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, i0Var) == null) || i0Var == null) {
             return;
         }
-        this.f46607f = h0Var;
-        e1 e1Var = h0Var.I0;
+        this.f46635f = i0Var;
+        e1 e1Var = i0Var.I0;
         this.a = e1Var;
-        this.f46603b = h0Var.J0;
-        this.f46604c = h0Var.K0;
+        this.f46631b = i0Var.J0;
+        this.f46632c = i0Var.K0;
         if (e1Var != null) {
-            this.top_code_img.startLoad(e1Var.f13362d, 10, false);
-            this.top_code_detail_summary_text.setText(this.a.f13360b);
-            this.top_code_detail_subtitle_text.setText(this.a.f13363e);
-            this.top_code_get_btn.setText(this.a.f13364f);
+            this.top_code_img.startLoad(e1Var.f13548d, 10, false);
+            this.top_code_detail_summary_text.setText(this.a.f13546b);
+            this.top_code_detail_subtitle_text.setText(this.a.f13549e);
+            this.top_code_get_btn.setText(this.a.f13550f);
             SkinManager.setBackgroundResource(this.top_code_get_btn, h.selector_star_btn_like);
             SkinManager.setViewTextColor(this.top_code_get_btn, h.news_text_color_selector);
         } else {
             this.pb_top_code.setVisibility(8);
         }
-        e1 e1Var2 = this.f46603b;
+        e1 e1Var2 = this.f46631b;
         if (e1Var2 != null) {
-            this.news_info_text.setText(e1Var2.f13360b);
+            this.news_info_text.setText(e1Var2.f13546b);
             SkinManager.setBackgroundResource(this.news_info_img, h.icon_frs_news);
         } else {
             this.news_info.setVisibility(8);
             this.news_info_text.setVisibility(8);
             this.news_info_img.setVisibility(8);
         }
-        e1 e1Var3 = this.f46604c;
+        e1 e1Var3 = this.f46632c;
         if (e1Var3 != null) {
-            this.game_info_text.setText(e1Var3.f13360b);
+            this.game_info_text.setText(e1Var3.f13546b);
             SkinManager.setBackgroundResource(this.game_info_img, h.icon_frs_game);
         } else {
             this.game_info.setVisibility(8);
             this.game_info_text.setVisibility(8);
             this.game_info_text.setVisibility(8);
         }
-        this.pb_news_info_layout.setTag(h0Var);
+        this.pb_news_info_layout.setTag(i0Var);
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f46606e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f46634e == i2) {
             return;
         }
-        this.f46605d.getLayoutMode().k(i2 == 1);
-        this.f46605d.getLayoutMode().j(getView());
-        this.f46606e = i2;
+        this.f46633d.getLayoutMode().k(i2 == 1);
+        this.f46633d.getLayoutMode().j(getView());
+        this.f46634e = i2;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

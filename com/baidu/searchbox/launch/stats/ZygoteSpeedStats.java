@@ -31,7 +31,7 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static final String AFTER_MAINTAB_CREATE_COST_NO_AD = "afterMainTabCreateCostNoAd";
     public static final int APPLICATION_LAUNCH_THRESHOLD = 1000;
     public static final String APP_STARTED_COST = "appStartedCost";
-    public static boolean DEBUG = false;
+    public static final boolean DEBUG;
     public static final int DEFAULT_TICKS = 100;
     public static final String ELAPSED_CPU_COST = "elapsedCpuCost";
     public static final String ELAPSED_NO_SPLASH_COST = "elapsedNoSplashCost";

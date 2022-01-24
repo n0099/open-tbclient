@@ -25,17 +25,17 @@ public class a {
 
     /* renamed from: c.a.r0.m.l.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class View$OnClickListenerC0784a implements View.OnClickListener {
+    public static class View$OnClickListenerC0793a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.m.o.c f11356e;
+        public final /* synthetic */ c.a.r0.m.o.c f11498e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.i1.c.h.d f11357f;
+        public final /* synthetic */ c.a.r0.a.i1.c.h.d f11499f;
 
-        public View$OnClickListenerC0784a(c.a.r0.m.o.c cVar, c.a.r0.a.i1.c.h.d dVar) {
+        public View$OnClickListenerC0793a(c.a.r0.m.o.c cVar, c.a.r0.a.i1.c.h.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,15 +50,15 @@ public class a {
                     return;
                 }
             }
-            this.f11356e = cVar;
-            this.f11357f = dVar;
+            this.f11498e = cVar;
+            this.f11499f = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.r0.m.m.a.a(this.f11356e, this.f11357f);
+                c.a.r0.m.m.a.a(this.f11498e, this.f11499f);
             }
         }
     }
@@ -71,16 +71,16 @@ public class a {
             Paint paint = new Paint();
             paint.setAntiAlias(true);
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint.setColor(dVar.m.f7227f);
-            paint.setTextSize(dVar.m.f7228g);
+            paint.setColor(dVar.m.f7369f);
+            paint.setTextSize(dVar.m.f7370g);
             d.b bVar = dVar.m;
-            float f2 = bVar.f7230i;
-            float f3 = bVar.f7224j;
+            float f2 = bVar.f7372i;
+            float f3 = bVar.f7366j;
             Paint paint2 = new Paint();
             paint2.setAntiAlias(true);
             paint2.setStyle(Paint.Style.FILL_AND_STROKE);
             paint2.setColor(dVar.m.l);
-            String str = dVar.m.f7226e;
+            String str = dVar.m.f7368e;
             int g2 = n0.g(6.0f);
             float f4 = f2 * 2.0f;
             float measureText = paint.measureText(str) + f4;
@@ -110,7 +110,7 @@ public class a {
                 ImageView imageView = new ImageView(AppRuntime.getAppContext());
                 imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
                 imageView.setImageBitmap(createBitmap);
-                imageView.setOnClickListener(new View$OnClickListenerC0784a(cVar, dVar));
+                imageView.setOnClickListener(new View$OnClickListenerC0793a(cVar, dVar));
                 c.a.r0.a.e0.d.i("map", "creatCallout end");
                 return imageView;
             }

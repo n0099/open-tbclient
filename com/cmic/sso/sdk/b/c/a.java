@@ -27,7 +27,7 @@ import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
@@ -200,13 +200,13 @@ public class a {
                 public final /* synthetic */ c a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.cmic.sso.sdk.a f53422b;
+                public final /* synthetic */ com.cmic.sso.sdk.a f53467b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ d f53423c;
+                public final /* synthetic */ d f53468c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f53424d;
+                public final /* synthetic */ a f53469d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -223,10 +223,10 @@ public class a {
                             return;
                         }
                     }
-                    this.f53424d = this;
+                    this.f53469d = this;
                     this.a = cVar;
-                    this.f53422b = aVar;
-                    this.f53423c = dVar;
+                    this.f53467b = aVar;
+                    this.f53468c = dVar;
                 }
 
                 @Override // com.cmic.sso.sdk.b.d.c
@@ -242,8 +242,8 @@ public class a {
                             } else {
                                 string = jSONObject.getString(MiPushCommandMessage.KEY_RESULT_CODE);
                             }
-                            s.b(this.f53422b, string);
-                            this.f53423c.a(string, jSONObject.optString("desc"), jSONObject);
+                            s.b(this.f53467b, string);
+                            this.f53468c.a(string, jSONObject.optString("desc"), jSONObject);
                         } catch (Exception e2) {
                             e2.printStackTrace();
                             a(com.cmic.sso.sdk.b.d.a.a(102223));
@@ -256,8 +256,8 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) && this.a.g()) {
                         a();
-                        s.b(this.f53422b, String.valueOf(aVar3.a()));
-                        this.f53423c.a(String.valueOf(aVar3.a()), aVar3.b(), com.cmic.sso.sdk.auth.c.a(String.valueOf(aVar3.a()), aVar3.b()));
+                        s.b(this.f53467b, String.valueOf(aVar3.a()));
+                        this.f53468c.a(String.valueOf(aVar3.a()), aVar3.b(), com.cmic.sso.sdk.auth.c.a(String.valueOf(aVar3.a()), aVar3.b()));
                     }
                 }
 
@@ -266,7 +266,7 @@ public class a {
                     if (!(interceptable2 == null || interceptable2.invokeV(65537, this) == null) || this.a.a().contains("uniConfig")) {
                         return;
                     }
-                    s.c(this.f53422b, String.valueOf(SystemClock.elapsedRealtime() - this.a.i()));
+                    s.c(this.f53467b, String.valueOf(SystemClock.elapsedRealtime() - this.a.i()));
                 }
             }, aVar);
         }

@@ -40,7 +40,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c.a.t0.o1.k.b.a {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c.a.t0.p1.k.b.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
@@ -172,7 +172,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a024" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.t0.o1.k.b.a
+    @Override // c.a.t0.p1.k.b.a
     public void loadData() {
         int i2;
         String substring;
@@ -188,7 +188,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
                 String uri2 = uri.toString();
                 if (g.c(uri)) {
-                    g.b().g(uri, new a(this));
+                    g.b().h(uri, new a(this));
                 } else if (!StringUtils.isNull(uri2) && uri2.startsWith("tbtopicdetail://")) {
                     String decode = Uri.decode(uri.getEncodedPath());
                     if (StringUtils.isNull(decode)) {
@@ -229,12 +229,12 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // c.a.t0.o1.k.b.a
-    public void netCallback(int i2, c.a.t0.o1.k.b.c.a aVar) {
+    @Override // c.a.t0.p1.k.b.a
+    public void netCallback(int i2, c.a.t0.p1.k.b.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, aVar) == null) {
             this.mTopicDetailView.hideLoadingView();
-            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f20674f)) {
+            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f20995f)) {
                 this.mTopicDetailView.hideNetRefreshView();
                 this.mTopicDetailView.setData(aVar);
                 return;
@@ -243,7 +243,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // c.a.t0.o1.k.b.a
+    @Override // c.a.t0.p1.k.b.a
     public void netThreadCallback(int i2, boolean z, List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), list}) == null) {

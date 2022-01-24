@@ -14,6 +14,7 @@ import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.perfframe.ioc.Constant;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -105,7 +106,7 @@ public class e extends com.baidu.platform.base.d {
                     poiInfo.setAddress(optJSONObject.optString(DuPaBInfoMsg.B_ADDR));
                     poiInfo.setPhoneNum(optJSONObject.optString(InputType.TEL));
                     poiInfo.setUid(optJSONObject.optString("uid"));
-                    poiInfo.setPostCode(optJSONObject.optString("zip"));
+                    poiInfo.setPostCode(optJSONObject.optString(StatConstants.VALUE_TYPE_ZIP));
                     poiInfo.setName(optJSONObject.optString("name"));
                     poiInfo.setLocation(c(optJSONObject, "point"));
                     poiInfo.setCity(str2);

@@ -21,13 +21,13 @@ public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f45061b;
+        public int f45089b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ChatMessage f45062c;
+        public ChatMessage f45090c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f45063d;
+        public int f45091d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -59,9 +59,9 @@ public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
                 }
             }
             this.a = str;
-            this.f45061b = i2;
-            this.f45062c = chatMessage;
-            this.f45063d = i3;
+            this.f45089b = i2;
+            this.f45090c = chatMessage;
+            this.f45091d = i3;
         }
     }
 

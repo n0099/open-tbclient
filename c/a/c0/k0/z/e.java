@@ -57,8 +57,8 @@ public class e extends b {
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.c0.f.d.c(this.f2184e.f37018f.f37025d, this.f2185f.getContext());
-                c.a.c0.a0.a.b(new ClogBuilder().r(ClogBuilder.LogType.CLICK).f(ClogBuilder.Area.BUTTON).m(this.f2184e.f37016d.f2233b));
+                c.a.c0.f.d.c(this.f2184e.f37046f.f37053d, this.f2185f.getContext());
+                c.a.c0.a0.a.b(new ClogBuilder().r(ClogBuilder.LogType.CLICK).f(ClogBuilder.Area.BUTTON).m(this.f2184e.f37044d.f2233b));
                 c.a.c0.k0.x.b bVar = this.f2185f.f2177d;
                 if (bVar != null) {
                     bVar.b(this.f2184e);
@@ -112,15 +112,15 @@ public class e extends b {
             super.update(adBaseModel, nadExpressNaBaseView);
             b.d(adBaseModel);
             k();
-            String str = adBaseModel.f37018f.f37023b.a;
+            String str = adBaseModel.f37046f.f37051b.a;
             if (!TextUtils.isEmpty(str)) {
                 this.f2183g.setText(str);
                 this.f2183g.setVisibility(0);
             } else {
                 this.f2183g.setVisibility(8);
             }
-            this.f2182f.setText(adBaseModel.f37018f.f37024c);
-            if (!TextUtils.isEmpty(adBaseModel.f37018f.f37025d)) {
+            this.f2182f.setText(adBaseModel.f37046f.f37052c);
+            if (!TextUtils.isEmpty(adBaseModel.f37046f.f37053d)) {
                 this.f2182f.setVisibility(0);
                 this.f2182f.setOnClickListener(new a(this, adBaseModel));
                 return;

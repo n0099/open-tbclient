@@ -5,20 +5,20 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
     public Object a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public Queue<b> f60093b = new ConcurrentLinkedQueue();
+    public Queue<b> f60138b = new ConcurrentLinkedQueue();
 
     /* renamed from: c  reason: collision with root package name */
-    public a f60094c;
+    public a f60139c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f60095d;
+    public Handler f60140d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HandlerThread {
         public a(String str) {
             super(str);
@@ -29,38 +29,38 @@ public class g {
             super.onLooperPrepared();
             Looper looper = getLooper();
             synchronized (g.this.a) {
-                g.this.f60095d = new Handler(looper);
+                g.this.f60140d = new Handler(looper);
             }
-            while (!g.this.f60093b.isEmpty()) {
-                b bVar = (b) g.this.f60093b.poll();
-                g.this.f60095d.postDelayed(bVar.a, bVar.f60096b);
+            while (!g.this.f60138b.isEmpty()) {
+                b bVar = (b) g.this.f60138b.poll();
+                g.this.f60140d.postDelayed(bVar.a, bVar.f60141b);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b {
         public Runnable a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f60096b;
+        public long f60141b;
 
         public b(Runnable runnable, long j2) {
             this.a = runnable;
-            this.f60096b = j2;
+            this.f60141b = j2;
         }
     }
 
     public g(String str) {
-        this.f60094c = new a(str);
+        this.f60139c = new a(str);
     }
 
     public void b() {
-        this.f60094c.quit();
+        this.f60139c.quit();
     }
 
     public void a() {
-        this.f60094c.start();
+        this.f60139c.start();
     }
 
     public void a(Runnable runnable) {
@@ -68,14 +68,14 @@ public class g {
     }
 
     public void a(Runnable runnable, long j2) {
-        if (this.f60095d == null) {
+        if (this.f60140d == null) {
             synchronized (this.a) {
-                if (this.f60095d == null) {
-                    this.f60093b.add(new b(runnable, j2));
+                if (this.f60140d == null) {
+                    this.f60138b.add(new b(runnable, j2));
                     return;
                 }
             }
         }
-        this.f60095d.postDelayed(runnable, j2);
+        this.f60140d.postDelayed(runnable, j2);
     }
 }

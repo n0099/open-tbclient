@@ -17,13 +17,13 @@ public class MemoryUpdateHeadNameMessage extends CustomResponsedMessage<a> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f45066b;
+        public String f45094b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f45067c;
+        public String f45095c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f45068d;
+        public int f45096d;
 
         public a() {
             Interceptable interceptable = $ic;

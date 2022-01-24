@@ -28,7 +28,7 @@ public class g {
         public c.a.r0.q.i.f a;
 
         /* renamed from: b  reason: collision with root package name */
-        public PMSPkgStatus f11638b;
+        public PMSPkgStatus f11780b;
 
         public a(c.a.r0.q.i.f fVar, PMSPkgStatus pMSPkgStatus) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class g {
                 }
             }
             this.a = fVar;
-            this.f11638b = pMSPkgStatus;
+            this.f11780b = pMSPkgStatus;
         }
 
         public boolean equals(Object obj) {
@@ -114,7 +114,7 @@ public class g {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 for (a aVar : this.a) {
-                    if (aVar != null && (aVar.a instanceof i) && aVar.f11638b == PMSPkgStatus.WAIT) {
+                    if (aVar != null && (aVar.a instanceof i) && aVar.f11780b == PMSPkgStatus.WAIT) {
                         return true;
                     }
                 }
@@ -200,7 +200,7 @@ public class g {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this) {
                 for (a aVar : this.a) {
-                    if (aVar != null && (aVar.a instanceof c.a.r0.q.i.h) && aVar.f11638b == PMSPkgStatus.WAIT) {
+                    if (aVar != null && (aVar.a instanceof c.a.r0.q.i.h) && aVar.f11780b == PMSPkgStatus.WAIT) {
                         return true;
                     }
                 }
@@ -236,7 +236,7 @@ public class g {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0025, code lost:
-        r1.f11638b = com.baidu.swan.pms.model.PMSPkgStatus.ERROR;
+        r1.f11780b = com.baidu.swan.pms.model.PMSPkgStatus.ERROR;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -263,7 +263,7 @@ public class g {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0025, code lost:
-        r1.f11638b = com.baidu.swan.pms.model.PMSPkgStatus.FINISH;
+        r1.f11780b = com.baidu.swan.pms.model.PMSPkgStatus.FINISH;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

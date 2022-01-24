@@ -30,10 +30,10 @@ public final class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c.a.r0.a.o2.g.a f9577b;
+    public static c.a.r0.a.o2.g.a f9719b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f9578c;
+    public static final Set<String> f9720c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,18 +51,18 @@ public final class a {
         }
         a = k.a;
         HashSet hashSet = new HashSet();
-        f9578c = hashSet;
+        f9720c = hashSet;
         hashSet.add("aiapps_websafe_debug_key");
-        f9578c.add("aiapps_server_domains_debug_key");
-        f9578c.add("aiapps_use_extension_debug_key");
-        f9578c.add("aiapps_emit_live_debug_key");
-        f9578c.add("aiapps_emit_https_debug_key");
-        f9578c.add("aiapps_emit_wss_debug_key");
-        f9578c.add("aiapps_load_cts_debug_key");
-        f9578c.add("aiapps_env_data");
-        f9578c.add("aiapps_js_native_switch_key");
-        f9578c.add("aiapps_emit_game_core_debug_key");
-        f9578c.add("aiapps_emit_game_launch_mode_key");
+        f9720c.add("aiapps_server_domains_debug_key");
+        f9720c.add("aiapps_use_extension_debug_key");
+        f9720c.add("aiapps_emit_live_debug_key");
+        f9720c.add("aiapps_emit_https_debug_key");
+        f9720c.add("aiapps_emit_wss_debug_key");
+        f9720c.add("aiapps_load_cts_debug_key");
+        f9720c.add("aiapps_env_data");
+        f9720c.add("aiapps_js_native_switch_key");
+        f9720c.add("aiapps_emit_game_core_debug_key");
+        f9720c.add("aiapps_emit_game_launch_mode_key");
     }
 
     public a() {
@@ -294,7 +294,7 @@ public final class a {
                 return null;
             }
             extensionCore.extensionCoreVersionCode = 4294967297L;
-            extensionCore.extensionCoreVersionName = com.baidu.fsg.face.base.b.b.f33986e;
+            extensionCore.extensionCoreVersionName = com.baidu.fsg.face.base.b.b.f34014e;
             return extensionCore;
         }
         return (ExtensionCore) invokeL.objValue;
@@ -452,16 +452,16 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) {
-            if (f9577b == null) {
+            if (f9719b == null) {
                 synchronized (a.class) {
-                    if (f9577b == null) {
+                    if (f9719b == null) {
                         c.a.r0.a.o2.g.a aVar = new c.a.r0.a.o2.g.a("swan_app_debug");
-                        f9577b = aVar;
-                        aVar.f8063f.addAll(f9578c);
+                        f9719b = aVar;
+                        aVar.f8205f.addAll(f9720c);
                     }
                 }
             }
-            return f9577b;
+            return f9719b;
         }
         return (c.a.r0.a.o2.g.a) invokeV.objValue;
     }

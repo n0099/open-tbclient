@@ -44,7 +44,7 @@ public class FilterValue implements Serializable {
                 return;
             }
         }
-        this.mValue = DEFAULT_FILTER_VALUE;
+        this.mValue = "origin";
         this.mLevel = 0.4f;
         this.mFilterType = 1;
         this.mComplex = 0;
@@ -65,7 +65,7 @@ public class FilterValue implements Serializable {
                 return;
             }
         }
-        this.mValue = DEFAULT_FILTER_VALUE;
+        this.mValue = "origin";
         this.mLevel = 0.4f;
         this.mFilterType = 1;
         this.mComplex = 0;
@@ -88,7 +88,7 @@ public class FilterValue implements Serializable {
                 return;
             }
         }
-        this.mValue = DEFAULT_FILTER_VALUE;
+        this.mValue = "origin";
         this.mLevel = 0.4f;
         this.mFilterType = 1;
         this.mComplex = 0;
@@ -110,7 +110,7 @@ public class FilterValue implements Serializable {
                 return;
             }
         }
-        this.mValue = DEFAULT_FILTER_VALUE;
+        this.mValue = "origin";
         this.mLevel = 0.4f;
         this.mFilterType = 1;
         this.mComplex = 0;

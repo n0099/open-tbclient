@@ -20,13 +20,13 @@ public class r1 extends x {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13486h;
+    public String f13672h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13487i;
+    public int f13673i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f13488j;
+    public String f13674j;
     public ArrayList<q1> k;
 
     static {
@@ -83,7 +83,7 @@ public class r1 extends x {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? x.f13523f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? x.f13710f : (BdUniqueId) invokeV.objValue;
     }
 
     public ArrayList<q1> k() {

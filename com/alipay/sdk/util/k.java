@@ -49,7 +49,7 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             if (EnvUtils.isSandBox()) {
-                return com.alipay.sdk.cons.a.f30810b;
+                return com.alipay.sdk.cons.a.f30838b;
             }
             if (context == null) {
                 return com.alipay.sdk.cons.a.a;

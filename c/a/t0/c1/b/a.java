@@ -1,51 +1,75 @@
 package c.a.t0.c1.b;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.view.ViewGroup;
+import c.a.t0.e1.k;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+import com.baidu.tieba.forumMember.manito.ManitoHeaderItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes7.dex */
-public class a {
+/* loaded from: classes6.dex */
+public class a extends k<b, ManitoHeaderItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.t0.c1.a.c a;
 
-    public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (bdTypeListView == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new c.a.t0.c1.a.a(tbPageContext, c.a.t0.c1.c.a.f15334h, tbPageContext.getUniqueId()));
-        c.a.t0.c1.a.c cVar = new c.a.t0.c1.a.c(tbPageContext, c.a.t0.c1.c.b.l, tbPageContext.getUniqueId());
-        this.a = cVar;
-        arrayList.add(cVar);
-        arrayList.add(new c.a.t0.c1.a.b(tbPageContext, c.a.t0.c1.c.a.f15333g, tbPageContext.getUniqueId()));
-        arrayList.add(new c.a.t0.c1.a.d(tbPageContext, c.a.t0.c1.c.a.f15335i, tbPageContext.getUniqueId()));
-        bdTypeListView.addAdapters(arrayList);
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    @Override // c.a.t0.e1.k, c.a.d.n.e.a
+    public /* bridge */ /* synthetic */ View S(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        n0(i2, view, viewGroup, (b) obj, (ManitoHeaderItemViewHolder) viewHolder);
+        return view;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // c.a.d.n.e.a
+    /* renamed from: m0 */
+    public ManitoHeaderItemViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.a.b0(onClickListener);
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ManitoHeaderItemViewHolder(LayoutInflater.from(this.f3360e).inflate(R.layout.manito_item_header, (ViewGroup) null)) : (ManitoHeaderItemViewHolder) invokeL.objValue;
+    }
+
+    public View n0(int i2, View view, ViewGroup viewGroup, b bVar, ManitoHeaderItemViewHolder manitoHeaderItemViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, manitoHeaderItemViewHolder})) == null) {
+            super.S(i2, view, viewGroup, bVar, manitoHeaderItemViewHolder);
+            if (manitoHeaderItemViewHolder.mSkinType != this.r) {
+                SkinManager.setBackgroundColor(manitoHeaderItemViewHolder.getView(), R.color.CAM_X0201);
+                SkinManager.setViewTextColor(manitoHeaderItemViewHolder.title, R.color.CAM_X0105, 1);
+            }
+            manitoHeaderItemViewHolder.title.setText(String.format(this.f3360e.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.a())));
+            manitoHeaderItemViewHolder.mSkinType = this.r;
+            return view;
         }
+        return (View) invokeCommon.objValue;
     }
 }

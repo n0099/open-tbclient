@@ -26,10 +26,10 @@ public class b {
     public BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.p4.z.a f21404b;
+    public c.a.t0.p4.z.a f21640b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f21405c;
+    public HttpMessageListener f21641c;
 
     /* loaded from: classes8.dex */
     public class a extends HttpMessageListener {
@@ -67,8 +67,8 @@ public class b {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(j.share_sdk_check_no_resp));
                 }
-                if (this.a.f21404b != null) {
-                    this.a.f21404b.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                if (this.a.f21640b != null) {
+                    this.a.f21640b.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -89,7 +89,7 @@ public class b {
                 return;
             }
         }
-        this.f21405c = new a(this, CmdConfigHttp.CMD_CHECK_SHARE_SDK);
+        this.f21641c = new a(this, CmdConfigHttp.CMD_CHECK_SHARE_SDK);
         this.a = bdUniqueId;
         b();
     }
@@ -99,8 +99,8 @@ public class b {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
             messageManager.registerTask(c());
-            this.f21405c.setTag(this.a);
-            messageManager.registerListener(this.f21405c);
+            this.f21641c.setTag(this.a);
+            messageManager.registerListener(this.f21641c);
         }
     }
 
@@ -121,7 +121,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             if (StringUtils.isNull(str)) {
-                c.a.t0.p4.z.a aVar = this.f21404b;
+                c.a.t0.p4.z.a aVar = this.f21640b;
                 if (aVar != null) {
                     aVar.a(null, -2112, TbadkCoreApplication.getInst().getString(j.check_share_sdk_appkey_null));
                     return;
@@ -140,7 +140,7 @@ public class b {
     public void e(c.a.t0.p4.z.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f21404b = aVar;
+            this.f21640b = aVar;
         }
     }
 }

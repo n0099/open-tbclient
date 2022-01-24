@@ -16,33 +16,33 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f35131e;
+    public static String f35159e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f35132f;
+    public static String f35160f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f35133g;
+    public static String f35161g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f35134h;
+    public static String f35162h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f35135i;
+    public static int f35163i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static b f35136j;
+    public static b f35164j;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35137b;
+    public String f35165b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35138c;
+    public String f35166c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35139d;
+    public String f35167d;
     public boolean k;
 
     static {
@@ -74,9 +74,9 @@ public class b {
             }
         }
         this.a = null;
-        this.f35137b = null;
-        this.f35138c = null;
-        this.f35139d = null;
+        this.f35165b = null;
+        this.f35166c = null;
+        this.f35167d = null;
         this.k = false;
         if (com.baidu.location.f.getServiceContext() != null) {
             a(com.baidu.location.f.getServiceContext());
@@ -87,10 +87,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f35136j == null) {
-                f35136j = new b();
+            if (f35164j == null) {
+                f35164j = new b();
             }
-            return f35136j;
+            return f35164j;
         }
         return (b) invokeV.objValue;
     }
@@ -118,18 +118,18 @@ public class b {
             stringBuffer.append("&sdk=");
             stringBuffer.append(7.93f);
             if (z) {
-                if (k.f35170g.equals("all")) {
+                if (k.f35198g.equals("all")) {
                     stringBuffer.append("&addr=allj");
                 }
-                if (k.f35172i) {
+                if (k.f35200i) {
                     stringBuffer.append("&adtp=n2");
                 }
-                if (k.f35171h || k.k || k.l || k.f35173j) {
+                if (k.f35199h || k.k || k.l || k.f35201j) {
                     stringBuffer.append("&sema=");
-                    if (k.f35171h) {
+                    if (k.f35199h) {
                         stringBuffer.append("aptag|");
                     }
-                    if (k.f35173j) {
+                    if (k.f35201j) {
                         stringBuffer.append("aptagd|");
                     }
                     if (k.k) {
@@ -152,18 +152,18 @@ public class b {
                     stringBuffer.append(j2);
                 }
             }
-            if (this.f35138c != null) {
+            if (this.f35166c != null) {
                 stringBuffer.append("&cu=");
-                stringBuffer.append(this.f35138c);
+                stringBuffer.append(this.f35166c);
                 String str3 = this.a;
-                str2 = (str3 == null || str3.equals("NULL") || this.f35138c.contains(new StringBuffer(this.a).reverse().toString())) ? "&Aim=" : "&Aim=";
-                if (this.f35137b != null) {
+                str2 = (str3 == null || str3.equals("NULL") || this.f35166c.contains(new StringBuffer(this.a).reverse().toString())) ? "&Aim=" : "&Aim=";
+                if (this.f35165b != null) {
                     stringBuffer.append("&snd=");
-                    stringBuffer.append(this.f35137b);
+                    stringBuffer.append(this.f35165b);
                 }
-                if (this.f35139d != null) {
+                if (this.f35167d != null) {
                     stringBuffer.append("&Aid=");
-                    stringBuffer.append(this.f35139d);
+                    stringBuffer.append(this.f35167d);
                 }
                 stringBuffer.append("&fw=");
                 stringBuffer.append(com.baidu.location.f.getFrameVersion());
@@ -192,9 +192,9 @@ public class b {
             str2 = "&im=";
             stringBuffer.append(str2);
             stringBuffer.append(this.a);
-            if (this.f35137b != null) {
+            if (this.f35165b != null) {
             }
-            if (this.f35139d != null) {
+            if (this.f35167d != null) {
             }
             stringBuffer.append("&fw=");
             stringBuffer.append(com.baidu.location.f.getFrameVersion());
@@ -221,24 +221,24 @@ public class b {
             return;
         }
         try {
-            this.f35138c = CommonParam.getCUID(context);
+            this.f35166c = CommonParam.getCUID(context);
         } catch (Exception unused) {
-            this.f35138c = null;
+            this.f35166c = null;
         }
         try {
-            f35131e = context.getPackageName();
+            f35159e = context.getPackageName();
         } catch (Exception unused2) {
-            f35131e = null;
+            f35159e = null;
         }
-        k.o = "" + this.f35138c;
+        k.o = "" + this.f35166c;
         this.k = true;
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            f35132f = str;
-            f35131e = str2;
+            f35160f = str;
+            f35159e = str2;
         }
     }
 }

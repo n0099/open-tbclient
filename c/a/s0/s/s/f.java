@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.e1.o0;
+import c.a.s0.d1.o0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
@@ -25,22 +25,22 @@ public class f implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f13587e;
+    public Activity f13774e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f13588f;
+    public View f13775f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f13589g;
+    public ViewGroup f13776g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f13590h;
+    public View f13777h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f13591i;
+    public TextView f13778i;
 
     /* renamed from: j  reason: collision with root package name */
-    public WindowManager f13592j;
+    public WindowManager f13779j;
     public WindowManager.LayoutParams k;
     public int l;
     public int m;
@@ -59,7 +59,7 @@ public class f implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f13593e;
+        public final /* synthetic */ f f13780e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -76,14 +76,14 @@ public class f implements View.OnClickListener {
                     return;
                 }
             }
-            this.f13593e = fVar;
+            this.f13780e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13593e.e();
+                this.f13780e.e();
             }
         }
     }
@@ -109,29 +109,29 @@ public class f implements View.OnClickListener {
         if (activity == null) {
             return;
         }
-        this.f13587e = activity;
+        this.f13774e = activity;
         this.r = c.a.d.f.p.n.f(activity, R.dimen.tbds114);
         this.p = c.a.d.f.p.n.f(activity, R.dimen.tbds84);
         this.q = c.a.d.f.p.n.f(activity, R.dimen.tbds44);
         this.m = c.a.d.f.p.n.f(activity, R.dimen.tbds222);
         this.l = c.a.d.f.p.n.f(activity, R.dimen.tbds29);
         View inflate = LayoutInflater.from(activity).inflate(R.layout.text_toast_layout, (ViewGroup) null);
-        this.f13589g = (ViewGroup) inflate.findViewById(R.id.layout_container);
-        this.f13590h = inflate.findViewById(R.id.background);
-        this.f13591i = (TextView) inflate.findViewById(R.id.toast_tv);
-        this.f13588f = inflate;
-        this.f13590h.setBackgroundDrawable(b());
-        this.f13591i.setMaxLines(1);
-        this.f13591i.setGravity(17);
-        this.f13591i.setTextSize(0, c.a.d.f.p.n.f(activity, R.dimen.tbfontsize40));
-        this.f13591i.setTextColor(this.f13587e.getResources().getColor(R.color.CAM_X0101));
-        TextView textView = this.f13591i;
+        this.f13776g = (ViewGroup) inflate.findViewById(R.id.layout_container);
+        this.f13777h = inflate.findViewById(R.id.background);
+        this.f13778i = (TextView) inflate.findViewById(R.id.toast_tv);
+        this.f13775f = inflate;
+        this.f13777h.setBackgroundDrawable(b());
+        this.f13778i.setMaxLines(1);
+        this.f13778i.setGravity(17);
+        this.f13778i.setTextSize(0, c.a.d.f.p.n.f(activity, R.dimen.tbfontsize40));
+        this.f13778i.setTextColor(this.f13774e.getResources().getColor(R.color.CAM_X0101));
+        TextView textView = this.f13778i;
         int i4 = this.q;
         textView.setPadding(i4, 0, i4, 0);
-        this.f13592j = (WindowManager) this.f13587e.getSystemService("window");
+        this.f13779j = (WindowManager) this.f13774e.getSystemService("window");
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         this.k = layoutParams;
-        layoutParams.width = c.a.d.f.p.n.k(this.f13587e) - (this.l * 2);
+        layoutParams.width = c.a.d.f.p.n.k(this.f13774e) - (this.l * 2);
         WindowManager.LayoutParams layoutParams2 = this.k;
         layoutParams2.height = this.r;
         layoutParams2.type = 1000;
@@ -158,13 +158,13 @@ public class f implements View.OnClickListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.f13587e != null && !TextUtils.isEmpty(str)) {
+            if (this.f13774e != null && !TextUtils.isEmpty(str)) {
                 String e2 = o0.e(str, 34);
-                int t = c.a.d.f.p.n.t(this.f13591i.getPaint(), e2);
-                ViewGroup.LayoutParams layoutParams = this.f13589g.getLayoutParams();
+                int t = c.a.d.f.p.n.t(this.f13778i.getPaint(), e2);
+                ViewGroup.LayoutParams layoutParams = this.f13776g.getLayoutParams();
                 layoutParams.width = t + (this.q * 2);
-                this.f13589g.setLayoutParams(layoutParams);
-                this.f13591i.setText(e2);
+                this.f13776g.setLayoutParams(layoutParams);
+                this.f13778i.setText(e2);
             }
             return this;
         }
@@ -187,7 +187,7 @@ public class f implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{c.a.t0.x1.o.k.b.b("#FF722B"), c.a.t0.x1.o.k.b.b("#FF2b5D")});
+            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{c.a.t0.y1.o.k.b.b("#FF722B"), c.a.t0.y1.o.k.b.b("#FF2b5D")});
             gradientDrawable.setCornerRadius(this.p);
             return gradientDrawable;
         }
@@ -197,15 +197,15 @@ public class f implements View.OnClickListener {
     public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m + UtilHelper.getNavigationBarHeight(this.f13587e) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m + UtilHelper.getNavigationBarHeight(this.f13774e) : invokeV.intValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             c.a.d.f.m.e.a().removeCallbacks(this.u);
-            if (this.f13588f.getWindowToken() != null) {
-                this.f13592j.removeView(this.f13588f);
+            if (this.f13775f.getWindowToken() != null) {
+                this.f13779j.removeView(this.f13775f);
             }
         }
     }
@@ -232,8 +232,8 @@ public class f implements View.OnClickListener {
     public void i(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
-            this.f13589g.setTag(obj);
-            this.f13589g.setOnClickListener(this);
+            this.f13776g.setTag(obj);
+            this.f13776g.setOnClickListener(this);
         }
     }
 
@@ -242,11 +242,11 @@ public class f implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             c.a.d.f.m.e.a().removeCallbacks(this.u);
-            View view = this.f13588f;
+            View view = this.f13775f;
             if (view != null && view.getWindowToken() != null) {
-                this.f13592j.removeView(this.f13588f);
+                this.f13779j.removeView(this.f13775f);
             }
-            this.f13592j.addView(this.f13588f, this.k);
+            this.f13779j.addView(this.f13775f, this.k);
             c.a.d.f.m.e.a().postDelayed(this.u, this.o);
             return this;
         }

@@ -18,19 +18,19 @@ public class d implements c.a.s0.l0.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<String> f17991e;
+    public ArrayList<String> f18264e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17992f;
+    public int f18265f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f17993g;
+    public String f18266g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f17994h;
+    public String f18267h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f17995i;
+    public String f18268i;
 
     public d(int i2, tinfo tinfoVar) {
         Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class d implements c.a.s0.l0.b.a {
         if (tinfoVar == null) {
             return;
         }
-        this.f17991e = new ArrayList<>();
-        this.f17992f = i2;
-        this.f17994h = String.valueOf(tinfoVar.forum_id);
-        this.f17993g = tinfoVar.forum_name;
-        this.f17995i = String.valueOf(tinfoVar.thread_id);
+        this.f18264e = new ArrayList<>();
+        this.f18265f = i2;
+        this.f18267h = String.valueOf(tinfoVar.forum_id);
+        this.f18266g = tinfoVar.forum_name;
+        this.f18268i = String.valueOf(tinfoVar.thread_id);
         for (Pic pic : tinfoVar.pics) {
             if (pic != null && !StringUtils.isNull(pic.big_pic)) {
-                this.f17991e.add(pic.big_pic);
+                this.f18264e.add(pic.big_pic);
             }
         }
     }
@@ -67,14 +67,14 @@ public class d implements c.a.s0.l0.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             ImageViewerConfig.b bVar = new ImageViewerConfig.b();
-            bVar.x(this.f17991e);
-            bVar.B(this.f17992f);
-            bVar.z(this.f17993g);
-            bVar.y(this.f17994h);
-            bVar.O(this.f17995i);
+            bVar.x(this.f18264e);
+            bVar.B(this.f18265f);
+            bVar.z(this.f18266g);
+            bVar.y(this.f18267h);
+            bVar.O(this.f18268i);
             bVar.C(true);
             bVar.F(false);
-            ArrayList<String> arrayList = this.f17991e;
+            ArrayList<String> arrayList = this.f18264e;
             bVar.J(arrayList.get(arrayList.size() - 1));
             return new CustomMessage<>(2010000, bVar.v(context));
         }

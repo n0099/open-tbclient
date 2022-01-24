@@ -15,7 +15,7 @@ public final class i {
     public static int a = 1000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f26855b = true;
+    public static boolean f26883b = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,14 +35,14 @@ public final class i {
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && f26855b) {
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && f26883b) {
             c(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && f26855b) {
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && f26883b) {
             c(5, "BaiDuAbSDK", str, null);
         }
     }
@@ -75,14 +75,14 @@ public final class i {
 
     public static void d(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) && f26855b) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) && f26883b) {
             c(2, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void e(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, th) == null) && f26855b) {
+        if ((interceptable == null || interceptable.invokeL(65541, null, th) == null) && f26883b) {
             c(4, "BaiDuAbSDK", "", th);
         }
     }
@@ -143,7 +143,7 @@ public final class i {
     public static void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            f26855b = z;
+            f26883b = z;
         }
     }
 }

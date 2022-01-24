@@ -18,7 +18,7 @@ public class b extends Handler {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CountDownLatch f3425b;
+    public CountDownLatch f3527b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context, CountDownLatch countDownLatch) {
@@ -39,7 +39,7 @@ public class b extends Handler {
             }
         }
         this.a = context;
-        this.f3425b = countDownLatch;
+        this.f3527b = countDownLatch;
     }
 
     @Override // android.os.Handler
@@ -51,7 +51,7 @@ public class b extends Handler {
                 new WebView(this.a);
             } catch (Exception unused) {
             }
-            this.f3425b.countDown();
+            this.f3527b.countDown();
         }
     }
 }

@@ -22,11 +22,11 @@ public class ClearableEditText extends AppCompatEditText {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f39894f;
+    public static final int f39922f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f39895e;
+    public Drawable f39923e;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class ClearableEditText extends AppCompatEditText {
                 return;
             }
         }
-        f39894f = n0.g(10.0f);
+        f39922f = n0.g(10.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,14 +68,14 @@ public class ClearableEditText extends AppCompatEditText {
     private void setClearIconVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
-            setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.f39895e : null, getCompoundDrawables()[3]);
+            setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.f39923e : null, getCompoundDrawables()[3]);
         }
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f39895e = getResources().getDrawable(e.aiapps_location_search_del);
+            this.f39923e = getResources().getDrawable(e.aiapps_location_search_del);
         }
     }
 
@@ -103,7 +103,7 @@ public class ClearableEditText extends AppCompatEditText {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 1 && (drawable = getCompoundDrawables()[2]) != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + f39894f && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - f39894f) {
+            if (motionEvent.getAction() == 1 && (drawable = getCompoundDrawables()[2]) != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + f39922f && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - f39922f) {
                 setText("");
             }
             return super.onTouchEvent(motionEvent);

@@ -18,7 +18,7 @@ public abstract class n implements IIdProvider {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f52920b;
+    public static final char[] f52965b;
     public transient /* synthetic */ FieldHolder $fh;
     public IIdentifierListener a;
 
@@ -101,7 +101,7 @@ public abstract class n implements IIdProvider {
                 return;
             }
         }
-        f52920b = new char[]{'0', SignatureImpl.SEP};
+        f52965b = new char[]{'0', SignatureImpl.SEP};
     }
 
     public n() {
@@ -143,7 +143,7 @@ public abstract class n implements IIdProvider {
                 str5 = str4;
                 str6 = str5;
             }
-            boolean z3 = (z && (str4 == null || str4.isEmpty() || f0.a(str4, f52920b))) ? true : z2;
+            boolean z3 = (z && (str4 == null || str4.isEmpty() || f0.a(str4, f52965b))) ? true : z2;
             e0.c("BaseProvider", "mcallback onSupport");
             this.a.onSupport(new IdSupplierImpl(str4, str5, str6, z, z3));
         }

@@ -17,10 +17,10 @@ public class e {
     public static Set<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Set<String> f19519b;
+    public static Set<String> f19629b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Set<String> f19520c;
+    public static Set<String> f19630c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,21 +37,21 @@ public class e {
             }
         }
         a = new HashSet();
-        f19519b = new HashSet();
-        f19520c = new HashSet();
+        f19629b = new HashSet();
+        f19630c = new HashSet();
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            f19519b.add(str);
+            f19629b.add(str);
         }
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            f19520c.add(str);
+            f19630c.add(str);
         }
     }
 
@@ -75,20 +75,20 @@ public class e {
 
     public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, str) == null) || f19519b.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, str) == null) || f19629b.size() == 0) {
             return;
         }
-        d(str, f19519b);
-        f19519b.clear();
+        d(str, f19629b);
+        f19629b.clear();
     }
 
     public static void f(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || f19520c.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || f19630c.size() == 0) {
             return;
         }
-        d(str, f19520c);
-        f19520c.clear();
+        d(str, f19630c);
+        f19630c.clear();
     }
 
     public static void g(String str) {

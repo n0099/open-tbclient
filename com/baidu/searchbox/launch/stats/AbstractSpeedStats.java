@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public abstract class AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
-    public static String TAG = "AbstractSpeedStats";
+    public static final String TAG = "AbstractSpeedStats";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

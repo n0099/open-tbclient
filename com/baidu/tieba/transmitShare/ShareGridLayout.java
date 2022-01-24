@@ -17,26 +17,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ShareGridLayout extends ViewGroup implements b {
     public static /* synthetic */ Interceptable $ic;
     public static final int DEFAULT_MARGIN_LEFT_RIGHT;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f48487e;
+    public Context f48497e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48488f;
+    public int f48498f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48489g;
+    public int f48499g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48490h;
+    public int f48500h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f48491i;
+    public int f48501i;
 
     static {
         InterceptResult invokeClinit;
@@ -78,7 +78,7 @@ public class ShareGridLayout extends ViewGroup implements b {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f48487e = context;
+            this.f48497e = context;
             b(0, n.k(context) - (DEFAULT_MARGIN_LEFT_RIGHT * 2));
         }
     }
@@ -95,20 +95,20 @@ public class ShareGridLayout extends ViewGroup implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             int i4 = i3 - i2;
-            if (n.k(TbadkCoreApplication.getInst()) > 800 && this.f48488f * 5 <= i4) {
-                this.f48490h = 5;
+            if (n.k(TbadkCoreApplication.getInst()) > 800 && this.f48498f * 5 <= i4) {
+                this.f48500h = 5;
             } else {
-                this.f48490h = 4;
+                this.f48500h = 4;
             }
-            int i5 = this.f48488f;
-            int i6 = this.f48490h;
+            int i5 = this.f48498f;
+            int i6 = this.f48500h;
             double d2 = i4 - (i5 * i6);
             if (d2 <= 0.0d) {
-                this.f48491i = 0;
+                this.f48501i = 0;
             } else if (i6 == 5) {
-                this.f48491i = (int) Math.floor(d2 / 10.0d);
+                this.f48501i = (int) Math.floor(d2 / 10.0d);
             } else {
-                this.f48491i = (int) Math.floor(d2 / 8.0d);
+                this.f48501i = (int) Math.floor(d2 / 8.0d);
             }
         }
     }
@@ -126,23 +126,23 @@ public class ShareGridLayout extends ViewGroup implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             b(i2, i4);
-            int i6 = this.f48491i;
+            int i6 = this.f48501i;
             int childCount = getChildCount();
             int i7 = 0;
             int i8 = 0;
             int i9 = 0;
             while (i7 < childCount) {
-                getChildAt(i7).layout(i6, i8, this.f48488f + i6, this.f48489g + i8);
+                getChildAt(i7).layout(i6, i8, this.f48498f + i6, this.f48499g + i8);
                 i9++;
-                int i10 = i6 + this.f48488f;
-                int i11 = this.f48491i;
+                int i10 = i6 + this.f48498f;
+                int i11 = this.f48501i;
                 i6 = i10 + (i11 * 2);
-                if (i9 >= this.f48490h) {
+                if (i9 >= this.f48500h) {
                     i6 = i11;
                     i9 = 0;
                 }
                 i7++;
-                i8 = (i7 / this.f48490h) * this.f48489g;
+                i8 = (i7 / this.f48500h) * this.f48499g;
             }
         }
     }
@@ -151,24 +151,24 @@ public class ShareGridLayout extends ViewGroup implements b {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.f48488f, Integer.MIN_VALUE);
-            int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.f48489g, Integer.MIN_VALUE);
+            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.f48498f, Integer.MIN_VALUE);
+            int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.f48499g, Integer.MIN_VALUE);
             int childCount = getChildCount();
             for (int i4 = 0; i4 < childCount; i4++) {
                 getChildAt(i4).measure(makeMeasureSpec, makeMeasureSpec2);
             }
-            int i5 = this.f48490h;
+            int i5 = this.f48500h;
             if (childCount <= i5) {
-                setMeasuredDimension(ViewGroup.resolveSize((this.f48488f * i5) + (this.f48491i * 2 * i5), i2), ViewGroup.resolveSize(this.f48489g, i3));
+                setMeasuredDimension(ViewGroup.resolveSize((this.f48498f * i5) + (this.f48501i * 2 * i5), i2), ViewGroup.resolveSize(this.f48499g, i3));
                 return;
             }
             int i6 = childCount / i5;
             if (childCount % i5 > 0) {
                 i6++;
             }
-            int i7 = this.f48488f;
-            int i8 = this.f48490h;
-            setMeasuredDimension(ViewGroup.resolveSize((i7 * i8) + (this.f48491i * 2 * i8), i2), ViewGroup.resolveSize(this.f48489g * i6, i3));
+            int i7 = this.f48498f;
+            int i8 = this.f48500h;
+            setMeasuredDimension(ViewGroup.resolveSize((i7 * i8) + (this.f48501i * 2 * i8), i2), ViewGroup.resolveSize(this.f48499g * i6, i3));
         }
     }
 
@@ -176,8 +176,8 @@ public class ShareGridLayout extends ViewGroup implements b {
     public void setItemParams(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            this.f48488f = i2;
-            this.f48489g = i3;
+            this.f48498f = i2;
+            this.f48499g = i3;
             requestLayout();
         }
     }

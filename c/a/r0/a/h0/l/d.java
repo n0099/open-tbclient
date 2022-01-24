@@ -23,15 +23,15 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f6551d;
+    public static final boolean f6693d;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.a.l0.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.y.a f6552b;
+    public c.a.r0.a.y.a f6694b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f6553c;
+    public k f6695c;
 
     /* loaded from: classes.dex */
     public class a extends c.a.r0.a.l0.p.a {
@@ -40,10 +40,10 @@ public class d {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6554b;
+        public String f6696b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f6555c;
+        public final /* synthetic */ d f6697c;
 
         public a(@NonNull d dVar, @NonNull String str, String str2) {
             Interceptable interceptable = $ic;
@@ -60,10 +60,10 @@ public class d {
                     return;
                 }
             }
-            this.f6555c = dVar;
+            this.f6697c = dVar;
             this.a = str;
-            this.f6554b = str2;
-            if (d.f6551d) {
+            this.f6696b = str2;
+            if (d.f6693d) {
                 String str3 = "basePath: " + str + ", jsFile: " + str2;
             }
         }
@@ -72,7 +72,7 @@ public class d {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6554b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6696b : (String) invokeV.objValue;
         }
 
         @Override // c.a.r0.a.l0.p.a, c.a.r0.a.l0.p.b
@@ -81,7 +81,7 @@ public class d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (d.f6551d) {
+                if (d.f6693d) {
                     String str = "pathList item: " + this.a;
                 }
                 return c.a.r0.a.h0.d.a.a("appframe", this.a);
@@ -93,8 +93,8 @@ public class d {
         public void c(c.a.r0.a.l0.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                if (this.f6555c.f6553c != null) {
-                    this.f6555c.f6553c.a(aVar);
+                if (this.f6697c.f6695c != null) {
+                    this.f6697c.f6695c.a(aVar);
                 }
                 aVar.A0();
             }
@@ -104,7 +104,7 @@ public class d {
         public void d(c.a.r0.a.l0.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-                this.f6555c.f6552b.b(aVar, c.a.r0.a.c1.a.c());
+                this.f6697c.f6694b.b(aVar, c.a.r0.a.c1.a.c());
             }
         }
 
@@ -129,7 +129,7 @@ public class d {
                 return;
             }
         }
-        f6551d = c.a.r0.a.k.a;
+        f6693d = c.a.r0.a.k.a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -156,7 +156,7 @@ public class d {
     public void d(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.f6552b.a(activity);
+            this.f6694b.a(activity);
         }
     }
 
@@ -188,7 +188,7 @@ public class d {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.f7592g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.f7734g : (String) invokeV.objValue;
     }
 
     public c.a.r0.a.l0.a i() {
@@ -214,7 +214,7 @@ public class d {
     public void l(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kVar) == null) {
-            this.f6553c = kVar;
+            this.f6695c = kVar;
         }
     }
 
@@ -233,14 +233,14 @@ public class d {
                 return;
             }
         }
-        this.f6552b = new c.a.r0.a.y.a();
-        if (f6551d) {
+        this.f6694b = new c.a.r0.a.y.a();
+        if (f6693d) {
             String str4 = "createV8Master: " + str + str2;
         }
         f fVar = c.a.r0.a.u1.l.e.l() ? new f() : null;
         h e2 = e();
         if (!TextUtils.isEmpty(str3)) {
-            e2.f7603b = str3;
+            e2.f7745b = str3;
         }
         this.a = g.b(e2, f(str, str2), fVar);
     }

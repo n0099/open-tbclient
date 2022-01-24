@@ -17,21 +17,21 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f4492d = 1;
+    public static int f4634d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f4493e = 2;
+    public static int f4635e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f4494f = 3;
+    public static int f4636f = 3;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f4495b;
+    public Map<String, String> f4637b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f4496c;
+    public SharedPreferences f4638c;
 
     static {
         InterceptResult invokeClinit;
@@ -62,7 +62,7 @@ public class a {
             }
         }
         this.a = new HashMap();
-        this.f4495b = new HashMap();
+        this.f4637b = new HashMap();
     }
 
     public void a() {
@@ -77,13 +77,13 @@ public class a {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str)) == null) {
-            if (i2 == f4492d) {
+            if (i2 == f4634d) {
                 str2 = this.a.get(str);
-            } else if (i2 == f4493e) {
-                str2 = this.f4495b.get(str);
+            } else if (i2 == f4635e) {
+                str2 = this.f4637b.get(str);
             } else {
-                if (i2 == f4494f) {
-                    SharedPreferences sharedPreferences = this.f4496c;
+                if (i2 == f4636f) {
+                    SharedPreferences sharedPreferences = this.f4638c;
                     if (sharedPreferences != null) {
                         str2 = sharedPreferences.getString(str, "");
                     } else {
@@ -100,19 +100,19 @@ public class a {
     public void c(SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sharedPreferences) == null) {
-            this.f4496c = sharedPreferences;
+            this.f4638c = sharedPreferences;
         }
     }
 
     public void d(int i2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i2, str, str2) == null) {
-            if (i2 == f4492d) {
+            if (i2 == f4634d) {
                 this.a.put(str, str2);
-            } else if (i2 == f4493e) {
-                this.f4495b.put(str, str2);
-            } else if (i2 == f4494f) {
-                SharedPreferences sharedPreferences = this.f4496c;
+            } else if (i2 == f4635e) {
+                this.f4637b.put(str, str2);
+            } else if (i2 == f4636f) {
+                SharedPreferences sharedPreferences = this.f4638c;
                 if (sharedPreferences != null) {
                     sharedPreferences.edit().putString(str, str2).commit();
                 } else {

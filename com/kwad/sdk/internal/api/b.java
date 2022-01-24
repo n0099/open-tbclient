@@ -7,25 +7,25 @@ public class b implements KsImage {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57000b;
+    public int f57045b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57001c;
+    public String f57046c;
 
     public b(int i2, int i3, String str) {
         this.a = i2;
-        this.f57000b = i3;
-        this.f57001c = str;
+        this.f57045b = i3;
+        this.f57046c = str;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public int getHeight() {
-        return this.f57000b;
+        return this.f57045b;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public String getImageUrl() {
-        return this.f57001c;
+        return this.f57046c;
     }
 
     @Override // com.kwad.sdk.api.KsImage
@@ -35,6 +35,6 @@ public class b implements KsImage {
 
     @Override // com.kwad.sdk.api.KsImage
     public boolean isValid() {
-        return this.a > 0 && this.f57000b > 0 && !TextUtils.isEmpty(this.f57001c);
+        return this.a > 0 && this.f57045b > 0 && !TextUtils.isEmpty(this.f57046c);
     }
 }

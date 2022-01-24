@@ -14,17 +14,17 @@ public class a {
     public final RecordType a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f6810b;
+    public final String f6952b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f6811c;
+    public final boolean f6953c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f6812d;
+    public final Object f6954d;
 
     /* renamed from: c.a.r0.a.h0.o.j.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0401a {
+    public static /* synthetic */ class C0410a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -36,13 +36,13 @@ public class a {
         public RecordType a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6813b;
+        public String f6955b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f6814c;
+        public boolean f6956c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Object f6815d;
+        public Object f6957d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f6813b = str;
+                this.f6955b = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -78,7 +78,7 @@ public class a {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f6814c = z;
+                this.f6956c = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -95,7 +95,7 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(b bVar, C0401a c0401a) {
+    public /* synthetic */ a(b bVar, C0410a c0410a) {
         this(bVar);
     }
 
@@ -121,8 +121,8 @@ public class a {
             }
         }
         this.a = bVar.a;
-        this.f6810b = bVar.f6813b;
-        this.f6811c = bVar.f6814c;
-        this.f6812d = bVar.f6815d;
+        this.f6952b = bVar.f6955b;
+        this.f6953c = bVar.f6956c;
+        this.f6954d = bVar.f6957d;
     }
 }

@@ -1,124 +1,50 @@
 package c.a.s0.s.d0;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static a a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f13009b = 0;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static int f13010c = 0;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static int f13011d = 0;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static int f13012e = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-979030508, "Lc/a/s0/s/d0/b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-979030508, "Lc/a/s0/s/d0/b;");
-        }
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
+    public static JSONObject a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            a aVar = a;
-            if (aVar == null) {
-                return -1;
-            }
-            return aVar.getCurrentTabType();
-        }
-        return invokeV.intValue;
-    }
-
-    public static Class<?> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            a aVar = a;
-            if (aVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            return aVar.d();
+            b(jSONObject, "uid", TbadkCoreApplication.getCurrentAccount());
+            b(jSONObject, "latest_related_tid", TbadkCoreApplication.getInst().getLatestRelatedTid());
+            b(jSONObject, "latest_related_fid", TbadkCoreApplication.getInst().getLatestRelatedFid());
+            b(jSONObject, "continuous_crash_times", String.valueOf(c.a.s0.s.g0.a.q().o()));
+            b(jSONObject, "trigger_safe_mode_status", String.valueOf(c.a.s0.s.g0.a.q().s()));
+            return jSONObject;
         }
-        return (Class) invokeV.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public static JSONObject b(JSONObject jSONObject, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            a aVar = a;
-            if (aVar == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, str, str2)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            return aVar.f();
+            if (str != null && str2 != null) {
+                try {
+                    jSONObject.put(str, str2);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+            }
+            return jSONObject;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(Context context) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) || (aVar = a) == null) {
-            return;
-        }
-        aVar.a(context);
-    }
-
-    public static void e(Context context, int i2) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, context, i2) == null) || (aVar = a) == null) {
-            return;
-        }
-        aVar.b(context, i2);
-    }
-
-    public static void f(Context context, int i2, boolean z) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = a) == null) {
-            return;
-        }
-        aVar.c(context, i2, z);
-    }
-
-    public static void g(Context context, int i2, boolean z) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = a) == null) {
-            return;
-        }
-        aVar.e(context, i2, z);
-    }
-
-    public static void h(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, aVar) == null) {
-            a = aVar;
-        }
+        return (JSONObject) invokeLLL.objValue;
     }
 }

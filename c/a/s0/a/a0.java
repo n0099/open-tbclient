@@ -15,10 +15,10 @@ public class a0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12048b;
+    public String f12190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f12049c;
+    public a f12191c;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -64,13 +64,13 @@ public class a0 {
     public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12049c : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12191c : (a) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12048b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12190b : (String) invokeV.objValue;
     }
 
     public void d(DataRes dataRes) {
@@ -81,12 +81,12 @@ public class a0 {
         this.a = dataRes.title;
         String str = dataRes.img;
         String str2 = dataRes.tips;
-        this.f12048b = dataRes.url;
+        this.f12190b = dataRes.url;
         String str3 = dataRes.btn_sure;
         String str4 = dataRes.btn_cancel;
         if (dataRes.activity_done != null) {
             a aVar = new a();
-            this.f12049c = aVar;
+            this.f12191c = aVar;
             ToastInfo toastInfo = dataRes.activity_done;
             String str5 = toastInfo.url;
             aVar.a = toastInfo.btntext;

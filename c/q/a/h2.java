@@ -11,7 +11,7 @@ public class h2 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ k2 f30334e;
+    public final /* synthetic */ k2 f30362e;
 
     public h2(k2 k2Var) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class h2 implements Runnable {
                 return;
             }
         }
-        this.f30334e = k2Var;
+        this.f30362e = k2Var;
     }
 
     @Override // java.lang.Runnable
@@ -36,14 +36,14 @@ public class h2 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                View rootView = this.f30334e.a.getRootView();
+                View rootView = this.f30362e.a.getRootView();
                 if (rootView != null && rootView.getVisibility() == 0 && rootView.isShown()) {
-                    y2 a = c3.a(this.f30334e.f30356b.a);
-                    a.d(new g3(this.f30334e.f30356b.f30483c), this.f30334e.a.getWidth(), this.f30334e.a.getHeight());
+                    y2 a = c3.a(this.f30362e.f30384b.a);
+                    a.d(new g3(this.f30362e.f30384b.f30511c), this.f30362e.a.getWidth(), this.f30362e.a.getHeight());
                     a.m();
-                    r0.n(this.f30334e.f30356b.f30483c);
-                    if (this.f30334e.f30356b.f30486f != null) {
-                        this.f30334e.f30356b.f30486f.onDisplayed();
+                    r0.n(this.f30362e.f30384b.f30511c);
+                    if (this.f30362e.f30384b.f30514f != null) {
+                        this.f30362e.f30384b.f30514f.onDisplayed();
                     }
                 }
             } catch (Exception e2) {

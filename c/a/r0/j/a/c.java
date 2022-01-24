@@ -19,13 +19,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j2)}) == null) {
             b bVar = new b();
-            bVar.f7977b = str;
-            bVar.f7980e = str2;
+            bVar.f8119b = str;
+            bVar.f8122e = str2;
             if (e.L() != null && e.L().X() != null) {
                 b.a X = e.L().X();
                 bVar.a = n.n(X.G());
-                bVar.f7981f = X.H();
-                bVar.f7978c = X.T();
+                bVar.f8123f = X.H();
+                bVar.f8120c = X.T();
                 bVar.a("play_time", Long.valueOf(j2));
             }
             n.y("916", "68", bVar);
@@ -48,11 +48,11 @@ public class c {
                 return;
             }
             b bVar = new b();
-            bVar.f7977b = str;
-            bVar.f7980e = str2;
+            bVar.f8119b = str;
+            bVar.f8122e = str2;
             bVar.a = str3;
-            bVar.f7981f = aVar.H();
-            bVar.f7978c = aVar.T();
+            bVar.f8123f = aVar.H();
+            bVar.f8120c = aVar.T();
             n.y("916", "68", bVar);
         }
     }
@@ -61,13 +61,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
             b bVar = new b();
-            bVar.f7977b = str;
-            bVar.f7980e = str2;
+            bVar.f8119b = str;
+            bVar.f8122e = str2;
             if (e.L() != null && e.L().X() != null) {
                 b.a X = e.L().X();
                 bVar.a = n.n(X.G());
-                bVar.f7981f = X.H();
-                bVar.f7978c = X.T();
+                bVar.f8123f = X.H();
+                bVar.f8120c = X.T();
             }
             bVar.k = str3;
             n.y("916", "68", bVar);
@@ -78,13 +78,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             b bVar = new b();
-            bVar.f7977b = str;
-            bVar.f7980e = "show";
+            bVar.f8119b = str;
+            bVar.f8122e = "show";
             if (e.L() != null && e.L().X() != null) {
                 b.a X = e.L().X();
                 bVar.a = n.n(X.G());
-                bVar.f7981f = X.H();
-                bVar.f7978c = X.T();
+                bVar.f8123f = X.H();
+                bVar.f8120c = X.T();
             }
             bVar.a("early", e() ? "0" : "1");
             n.y("916", "68", bVar);

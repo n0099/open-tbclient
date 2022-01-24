@@ -15,22 +15,22 @@ public class h {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13404b;
+    public String f13590b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13405c;
+    public String f13591c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13406d;
+    public int f13592d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13407e;
+    public int f13593e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13408f;
+    public String f13594f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13409g;
+    public String f13595g;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -53,12 +53,12 @@ public class h {
         }
         try {
             this.a = jSONObject.optLong("activity_id");
-            this.f13404b = jSONObject.optString("main_title");
-            this.f13405c = jSONObject.optString("sub_title");
-            this.f13406d = jSONObject.optInt("back_pic_width");
-            this.f13407e = jSONObject.optInt("back_pic_height");
-            this.f13408f = jSONObject.optString("back_pic");
-            this.f13409g = jSONObject.optString("subpage_link");
+            this.f13590b = jSONObject.optString("main_title");
+            this.f13591c = jSONObject.optString("sub_title");
+            this.f13592d = jSONObject.optInt("back_pic_width");
+            this.f13593e = jSONObject.optInt("back_pic_height");
+            this.f13594f = jSONObject.optString("back_pic");
+            this.f13595g = jSONObject.optString("subpage_link");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -71,12 +71,12 @@ public class h {
         }
         try {
             this.a = activityInfo.activity_id.longValue();
-            this.f13404b = activityInfo.main_title;
-            this.f13405c = activityInfo.sub_title;
-            this.f13406d = activityInfo.back_pic_width.intValue();
-            this.f13407e = activityInfo.back_pic_height.intValue();
-            this.f13408f = activityInfo.back_pic;
-            this.f13409g = activityInfo.subpage_link;
+            this.f13590b = activityInfo.main_title;
+            this.f13591c = activityInfo.sub_title;
+            this.f13592d = activityInfo.back_pic_width.intValue();
+            this.f13593e = activityInfo.back_pic_height.intValue();
+            this.f13594f = activityInfo.back_pic;
+            this.f13595g = activityInfo.subpage_link;
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

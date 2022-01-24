@@ -16,16 +16,16 @@ public final class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final TaskInfo f3876d;
+    public final TaskInfo f4017d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f3877e;
+    public final b f4018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.j.f.e.a f3878f;
+    public final c.a.j.f.e.a f4019f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f3879g;
+    public final String f4020g;
 
     public /* synthetic */ a(TaskInfo taskInfo, b bVar, c.a.j.f.e.a aVar, String str, Integer num, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
         this(taskInfo, bVar, aVar, (i2 & 8) != 0 ? taskInfo.getSingleKey() : str, (i2 & 16) != 0 ? null : num, (i2 & 32) != 0 ? null : str2);
@@ -42,7 +42,7 @@ public final class a extends d {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3879g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4020g : (String) invokeV.objValue;
     }
 
     public int g() {
@@ -57,19 +57,19 @@ public final class a extends d {
     public final TaskInfo h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3876d : (TaskInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4017d : (TaskInfo) invokeV.objValue;
     }
 
     public final b i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3877e : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4018e : (b) invokeV.objValue;
     }
 
     public final c.a.j.f.e.a j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3878f : (c.a.j.f.e.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f4019f : (c.a.j.f.e.a) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -91,9 +91,9 @@ public final class a extends d {
                 return;
             }
         }
-        this.f3876d = taskInfo;
-        this.f3877e = bVar;
-        this.f3878f = aVar;
-        this.f3879g = str;
+        this.f4017d = taskInfo;
+        this.f4018e = bVar;
+        this.f4019f = aVar;
+        this.f4020g = str;
     }
 }

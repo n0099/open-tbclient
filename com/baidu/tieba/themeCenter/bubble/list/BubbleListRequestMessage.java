@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.bubble.list;
 
-import c.a.s0.e1.b0;
+import c.a.s0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetBubbleList.DataReq;
 import tbclient.GetBubbleList.GetBubbleListReqIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class BubbleListRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

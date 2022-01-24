@@ -13,10 +13,10 @@ public class s extends ContentObserver {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54221b;
+    public int f54266b;
 
     /* renamed from: c  reason: collision with root package name */
-    public q f54222c;
+    public q f54267c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(q qVar, int i2, String str) {
@@ -36,8 +36,8 @@ public class s extends ContentObserver {
                 return;
             }
         }
-        this.f54222c = qVar;
-        this.f54221b = i2;
+        this.f54267c = qVar;
+        this.f54266b = i2;
         this.a = str;
     }
 
@@ -45,9 +45,9 @@ public class s extends ContentObserver {
     public void onChange(boolean z) {
         q qVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (qVar = this.f54222c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (qVar = this.f54267c) == null) {
             return;
         }
-        qVar.a(this.f54221b, this.a);
+        qVar.a(this.f54266b, this.a);
     }
 }

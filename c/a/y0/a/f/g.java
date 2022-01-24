@@ -1,6 +1,7 @@
 package c.a.y0.a.f;
 
 import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -46,8 +47,8 @@ public final class g {
                 jSONObject2.put("phone", bVar.n().getPhone());
                 for (n nVar : bVar.o()) {
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("startTime", nVar.N());
-                    jSONObject3.put("endTime", nVar.O());
+                    jSONObject3.put(FetchLog.START_TIME, nVar.N());
+                    jSONObject3.put(FetchLog.END_TIME, nVar.O());
                     jSONObject3.put("keepTime", nVar.P());
                     jSONObject3.put("sessionId", nVar.I());
                     jSONArray.put(jSONObject3);
@@ -56,8 +57,8 @@ public final class g {
                     JSONObject jSONObject4 = new JSONObject();
                     jSONObject4.put("pagerName", lVar.E());
                     jSONObject4.put("sessionId", lVar.I());
-                    jSONObject4.put("endTime", lVar.O());
-                    jSONObject4.put("startTime", lVar.N());
+                    jSONObject4.put(FetchLog.END_TIME, lVar.O());
+                    jSONObject4.put(FetchLog.START_TIME, lVar.N());
                     jSONObject4.put("path", lVar.getPath());
                     jSONArray2.put(jSONObject4);
                 }

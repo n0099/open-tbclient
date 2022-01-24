@@ -22,7 +22,7 @@ public class t extends a<c.a.s0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f4214j;
+    public View f4355j;
     public ThreadLinkView k;
     public TextView l;
     public c.a.s0.s.q.a m;
@@ -46,19 +46,19 @@ public class t extends a<c.a.s0.s.q.a> {
             }
         }
         if (TbadkCoreApplication.getInst().getPersonalizeViewData().p != null && TbadkCoreApplication.getInst().getPersonalizeViewData().p.getParent() == null) {
-            this.f4214j = TbadkCoreApplication.getInst().getPersonalizeViewData().p;
+            this.f4355j = TbadkCoreApplication.getInst().getPersonalizeViewData().p;
         } else {
-            this.f4214j = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
+            this.f4355j = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
         }
-        this.k = (ThreadLinkView) this.f4214j.findViewById(R.id.link_thread_root);
-        this.l = (TextView) this.f4214j.findViewById(R.id.link_seg_title);
+        this.k = (ThreadLinkView) this.f4355j.findViewById(R.id.link_thread_root);
+        this.l = (TextView) this.f4355j.findViewById(R.id.link_seg_title);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4214j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4355j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -87,7 +87,7 @@ public class t extends a<c.a.s0.s.q.a> {
             if (aVar == null || aVar.getThreadData() == null) {
                 return;
             }
-            c.a.t0.g0.m.l(this.l, this.m.getThreadData().g0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            c.a.t0.g0.m.l(this.l, this.m.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 }

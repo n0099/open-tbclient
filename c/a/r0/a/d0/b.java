@@ -17,13 +17,13 @@ public class b {
     public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f5510b;
+    public final long f5652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f5511c;
+    public final String f5653c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, String> f5512d;
+    public final Map<String, String> f5654d;
 
     public b(long j2) {
         Interceptable interceptable = $ic;
@@ -40,13 +40,13 @@ public class b {
                 return;
             }
         }
-        this.f5512d = new HashMap();
-        this.f5510b = TimeUnit.MILLISECONDS.toSeconds(j2);
+        this.f5654d = new HashMap();
+        this.f5652b = TimeUnit.MILLISECONDS.toSeconds(j2);
         this.a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j2);
-        this.f5511c = Long.toHexString(a(this.a + "#" + this.f5510b));
-        this.f5512d.put("timestamp", Long.toString(this.a));
-        this.f5512d.put("delta", Long.toString(this.f5510b));
-        this.f5512d.put("rasign", this.f5511c);
+        this.f5653c = Long.toHexString(a(this.a + "#" + this.f5652b));
+        this.f5654d.put("timestamp", Long.toString(this.a));
+        this.f5654d.put("delta", Long.toString(this.f5652b));
+        this.f5654d.put("rasign", this.f5653c);
     }
 
     public static b b() {
@@ -89,7 +89,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return super.toString() + " serverTime:" + this.a + " delta:" + this.f5510b + " rasign:" + this.f5511c;
+            return super.toString() + " serverTime:" + this.a + " delta:" + this.f5652b + " rasign:" + this.f5653c;
         }
         return (String) invokeV.objValue;
     }

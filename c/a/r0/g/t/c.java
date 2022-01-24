@@ -21,13 +21,13 @@ public class c<ContenT> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f10394e;
+        public final String f10536e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ContenT f10395f;
+        public final ContenT f10537f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f10396g;
+        public final /* synthetic */ c f10538g;
 
         public a(c cVar, String str, ContenT content) {
             Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class c<ContenT> {
                     return;
                 }
             }
-            this.f10396g = cVar;
-            this.f10394e = str;
-            this.f10395f = content;
+            this.f10538g = cVar;
+            this.f10536e = str;
+            this.f10537f = content;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10396g.d(this.f10394e);
+                this.f10538g.d(this.f10536e);
             }
         }
     }
@@ -116,7 +116,7 @@ public class c<ContenT> {
             if (aVar == null) {
                 return null;
             }
-            return aVar.f10395f;
+            return aVar.f10537f;
         }
         return (ContenT) invokeL.objValue;
     }
@@ -129,7 +129,7 @@ public class c<ContenT> {
                 c<ContenT>.a remove = this.a.remove(str);
                 if (remove != null) {
                     d.L().removeCallbacks(remove);
-                    return remove.f10395f;
+                    return remove.f10537f;
                 }
                 return null;
             }

@@ -24,12 +24,12 @@ public final class f extends c.a.r0.a.h0.i.g.c.a<e> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6486c;
+    public static final boolean f6628c;
     public transient /* synthetic */ FieldHolder $fh;
     public final c.a.r0.a.n1.j.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.r0.a.n1.j.b f6487b;
+    public final c.a.r0.a.n1.j.b f6629b;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -37,10 +37,10 @@ public final class f extends c.a.r0.a.h0.i.g.c.a<e> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f6488e;
+        public final /* synthetic */ e f6630e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f6489f;
+        public final /* synthetic */ f f6631f;
 
         public a(f fVar, e eVar) {
             Interceptable interceptable = $ic;
@@ -57,8 +57,8 @@ public final class f extends c.a.r0.a.h0.i.g.c.a<e> {
                     return;
                 }
             }
-            this.f6489f = fVar;
-            this.f6488e = eVar;
+            this.f6631f = fVar;
+            this.f6630e = eVar;
         }
 
         @Override // java.lang.Runnable
@@ -68,7 +68,7 @@ public final class f extends c.a.r0.a.h0.i.g.c.a<e> {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (p = n0.p()) == null) {
                 return;
             }
-            Message.obtain(this.f6489f, 2, e.a(this.f6488e.f6482b, p)).sendToTarget();
+            Message.obtain(this.f6631f, 2, e.a(this.f6630e.f6624b, p)).sendToTarget();
         }
     }
 
@@ -85,7 +85,7 @@ public final class f extends c.a.r0.a.h0.i.g.c.a<e> {
                 return;
             }
         }
-        f6486c = k.a;
+        f6628c = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,8 +106,8 @@ public final class f extends c.a.r0.a.h0.i.g.c.a<e> {
                 return;
             }
         }
-        this.a = a.C0478a.a("simple_parser");
-        this.f6487b = (c.a.r0.a.n1.j.b) a.C0478a.a("hsv_parser");
+        this.a = a.C0487a.a("simple_parser");
+        this.f6629b = (c.a.r0.a.n1.j.b) a.C0487a.a("hsv_parser");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -118,9 +118,9 @@ public final class f extends c.a.r0.a.h0.i.g.c.a<e> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) || eVar == null) {
             return;
         }
-        if (!e(eVar.f6482b)) {
-            if (f6486c) {
-                String str = ">> stop to capture, page is not top, webViewId =" + eVar.f6482b;
+        if (!e(eVar.f6624b)) {
+            if (f6628c) {
+                String str = ">> stop to capture, page is not top, webViewId =" + eVar.f6624b;
                 return;
             }
             return;
@@ -136,49 +136,49 @@ public final class f extends c.a.r0.a.h0.i.g.c.a<e> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) || eVar == null) {
             return;
         }
-        if (!e(eVar.f6482b)) {
-            if (f6486c) {
-                String str = ">> stop to parse capture, page is not top, webViewId = " + eVar.f6482b;
+        if (!e(eVar.f6624b)) {
+            if (f6628c) {
+                String str = ">> stop to parse capture, page is not top, webViewId = " + eVar.f6624b;
                 return;
             }
             return;
         }
-        Bitmap bitmap = eVar.f6485d;
+        Bitmap bitmap = eVar.f6627d;
         c.a.r0.a.h0.g.f f2 = c.a.r0.a.n1.c.f();
-        View B = c.a.r0.a.g1.f.U().B(eVar.f6482b);
+        View B = c.a.r0.a.g1.f.U().B(eVar.f6624b);
         if (bitmap != null && f2 != null && B != null) {
-            boolean z = f6486c;
+            boolean z = f6628c;
             Rect b2 = c.a.r0.a.n1.c.b(bitmap, f2, B);
             this.a.c(c.a.r0.a.n1.c.d(f2));
             if (!c.a.r0.a.n1.c.h() && this.a.a(bitmap, b2)) {
-                boolean z2 = f6486c;
+                boolean z2 = f6628c;
                 c.a.r0.a.h0.i.h.f fVar = new c.a.r0.a.h0.i.h.f();
                 fVar.e(SceneType.SCENE_WHITE_SCREEN_L1);
-                fVar.d(eVar.f6482b);
+                fVar.d(eVar.f6624b);
                 return;
             }
-            double d2 = this.f6487b.d(bitmap, b2);
+            double d2 = this.f6629b.d(bitmap, b2);
             c.a.r0.a.h0.i.h.f fVar2 = new c.a.r0.a.h0.i.h.f();
             if (c.a.r0.a.n1.c.g() && d2 >= 0.5d) {
-                if (f6486c) {
+                if (f6628c) {
                     String str2 = ">> capture is part white screen ratio: " + d2;
                 }
                 fVar2.e(SceneType.SCENE_WHITE_SCREEN_L3);
-                fVar2.d(eVar.f6482b);
+                fVar2.d(eVar.f6624b);
                 return;
             } else if (d2 >= 0.7d) {
-                if (f6486c) {
+                if (f6628c) {
                     String str3 = ">> capture is part white screen ratio: " + d2;
                 }
                 fVar2.e(SceneType.SCENE_WHITE_SCREEN_L2);
-                fVar2.d(eVar.f6482b);
+                fVar2.d(eVar.f6624b);
                 return;
             } else {
                 g.b().a();
                 return;
             }
         }
-        boolean z3 = f6486c;
+        boolean z3 = f6628c;
     }
 
     public final boolean e(String str) {
@@ -192,7 +192,7 @@ public final class f extends c.a.r0.a.h0.i.g.c.a<e> {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) || eVar == null) {
             return;
         }
-        boolean z = f6486c;
+        boolean z = f6628c;
         q0.e0(new a(this, eVar));
     }
 }

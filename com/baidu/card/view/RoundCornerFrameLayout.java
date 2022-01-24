@@ -33,22 +33,22 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f33271e;
+    public RectF f33299e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float[] f33272f;
+    public float[] f33300f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f33273g;
+    public Paint f33301g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f33274h;
+    public ImageView f33302h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Bitmap f33275i;
+    public Bitmap f33303i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f33276j;
+    public int f33304j;
     public ColorFilter k;
     public ColorFilter l;
 
@@ -70,9 +70,9 @@ public class RoundCornerFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f33272f = new float[8];
-        this.f33274h = null;
-        this.f33276j = 3;
+        this.f33300f = new float[8];
+        this.f33302h = null;
+        this.f33304j = 3;
         b();
     }
 
@@ -81,15 +81,15 @@ public class RoundCornerFrameLayout extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getMeasuredHeight() <= 0 || getMeasuredWidth() <= 0) {
             return;
         }
-        this.f33271e.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        this.f33299e.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
         try {
-            this.f33275i = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
+            this.f33303i = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
         } catch (OutOfMemoryError e2) {
             BdLog.e(e2);
             System.gc();
             TbadkCoreApplication.getInst().onLowMemory();
             try {
-                this.f33275i = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
+                this.f33303i = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
             } catch (OutOfMemoryError unused) {
                 BdLog.e(e2);
                 System.gc();
@@ -97,15 +97,15 @@ public class RoundCornerFrameLayout extends FrameLayout {
                 return;
             }
         }
-        Canvas canvas = new Canvas(this.f33275i);
+        Canvas canvas = new Canvas(this.f33303i);
         canvas.drawColor(-16777216);
-        this.f33273g.setColor(-1);
+        this.f33301g.setColor(-1);
         Path path = new Path();
-        path.addRoundRect(this.f33271e, this.f33272f, Path.Direction.CW);
-        canvas.drawPath(path, this.f33273g);
-        this.f33274h.setImageBitmap(this.f33275i);
-        if (this.f33274h.getParent() == null) {
-            addView(this.f33274h);
+        path.addRoundRect(this.f33299e, this.f33300f, Path.Direction.CW);
+        canvas.drawPath(path, this.f33301g);
+        this.f33302h.setImageBitmap(this.f33303i);
+        if (this.f33302h.getParent() == null) {
+            addView(this.f33302h);
         }
     }
 
@@ -114,14 +114,14 @@ public class RoundCornerFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
             super.addView(view);
-            ImageView imageView = this.f33274h;
+            ImageView imageView = this.f33302h;
             if (imageView == null || view == imageView) {
                 return;
             }
             if (imageView.getParent() != null) {
-                ((ViewGroup) this.f33274h.getParent()).removeView(this.f33274h);
+                ((ViewGroup) this.f33302h.getParent()).removeView(this.f33302h);
             }
-            super.addView(this.f33274h);
+            super.addView(this.f33302h);
         }
     }
 
@@ -129,35 +129,35 @@ public class RoundCornerFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setWillNotDraw(false);
-            this.f33271e = new RectF();
-            this.f33272f = a.y(R.string.J_X05);
+            this.f33299e = new RectF();
+            this.f33300f = a.y(R.string.J_X05);
             Paint paint = new Paint();
-            this.f33273g = paint;
+            this.f33301g = paint;
             paint.setStrokeWidth(0.0f);
-            this.f33273g.setStrokeCap(Paint.Cap.ROUND);
-            this.f33273g.setAntiAlias(true);
-            this.f33273g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+            this.f33301g.setStrokeCap(Paint.Cap.ROUND);
+            this.f33301g.setAntiAlias(true);
+            this.f33301g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
             ImageView imageView = new ImageView(getContext());
-            this.f33274h = imageView;
+            this.f33302h = imageView;
             imageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f33274h == null || this.f33276j == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f33302h == null || this.f33304j == i2) {
             return;
         }
-        this.f33276j = i2;
+        this.f33304j = i2;
         this.k = new SimpleColorFilter(SkinManager.getColor(R.color.CAM_X0201));
         this.l = new SimpleColorFilter(SkinManager.getColor(R.color.CAM_X0205));
-        this.f33274h.setColorFilter(this.k);
+        this.f33302h.setColorFilter(this.k);
     }
 
     public void onRootPressed(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (imageView = this.f33274h) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (imageView = this.f33302h) == null) {
             return;
         }
         imageView.setColorFilter(z ? this.l : this.k);
@@ -168,9 +168,9 @@ public class RoundCornerFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
             if (!(i2 == i4 && i3 == i5) && i2 > 0 && i3 > 0) {
-                Bitmap bitmap = this.f33275i;
+                Bitmap bitmap = this.f33303i;
                 if (bitmap != null && !bitmap.isRecycled()) {
-                    this.f33275i.recycle();
+                    this.f33303i.recycle();
                 }
                 a();
             }
@@ -182,12 +182,12 @@ public class RoundCornerFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.removeAllViews();
-            ImageView imageView = this.f33274h;
+            ImageView imageView = this.f33302h;
             if (imageView != null) {
                 if (imageView.getParent() != null) {
-                    ((ViewGroup) this.f33274h.getParent()).removeView(this.f33274h);
+                    ((ViewGroup) this.f33302h.getParent()).removeView(this.f33302h);
                 }
-                super.addView(this.f33274h);
+                super.addView(this.f33302h);
             }
         }
     }
@@ -195,8 +195,8 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public void setCorner(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            Arrays.fill(this.f33272f, f2);
-            Bitmap bitmap = this.f33275i;
+            Arrays.fill(this.f33300f, f2);
+            Bitmap bitmap = this.f33303i;
             if (bitmap != null) {
                 bitmap.recycle();
                 a();
@@ -207,8 +207,8 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public void setCornerId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f33272f = a.y(i2);
-            Bitmap bitmap = this.f33275i;
+            this.f33300f = a.y(i2);
+            Bitmap bitmap = this.f33303i;
             if (bitmap != null) {
                 bitmap.recycle();
                 a();
@@ -235,9 +235,9 @@ public class RoundCornerFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f33272f = new float[8];
-        this.f33274h = null;
-        this.f33276j = 3;
+        this.f33300f = new float[8];
+        this.f33302h = null;
+        this.f33304j = 3;
         b();
     }
 
@@ -260,9 +260,9 @@ public class RoundCornerFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f33272f = new float[8];
-        this.f33274h = null;
-        this.f33276j = 3;
+        this.f33300f = new float[8];
+        this.f33302h = null;
+        this.f33304j = 3;
         b();
     }
 }

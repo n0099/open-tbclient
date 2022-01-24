@@ -11,7 +11,7 @@ import com.baidu.android.util.devices.RomUtils;
 import com.ss.android.socialbase.appdownloader.e.d;
 import com.ss.android.socialbase.downloader.constants.e;
 import com.ss.android.socialbase.downloader.downloader.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends Fragment {
     public static Intent d() {
         return new Intent("android.settings.APPLICATION_SETTINGS");
@@ -62,7 +62,7 @@ public class a extends Fragment {
         String packageName = e2.getPackageName();
         if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
             String lowerCase = Build.MANUFACTURER.toLowerCase();
-            if (lowerCase.contains(e.f59904c)) {
+            if (lowerCase.contains(e.f59949c)) {
                 Intent intent = new Intent();
                 intent.putExtra("packageName", packageName);
                 intent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.PermissionManagerActivity"));

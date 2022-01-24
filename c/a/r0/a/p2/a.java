@@ -16,36 +16,36 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8332b;
+    public String f8474b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8333c;
+    public String f8475c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8334d;
+    public String f8476d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f8335e;
+    public long f8477e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f8336f;
+    public boolean f8478f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f8337g;
+    public long f8479g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f8338h;
+    public long f8480h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f8339i;
+    public int f8481i;
 
     /* renamed from: c.a.r0.a.p2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0513a implements Comparator<a> {
+    public static final class C0522a implements Comparator<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0513a() {
+        public C0522a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +66,7 @@ public class a {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, aVar2)) == null) {
-                int length = aVar2.f8332b.length() - aVar.f8332b.length();
+                int length = aVar2.f8474b.length() - aVar.f8474b.length();
                 if (length != 0) {
                     return length;
                 }
@@ -74,14 +74,14 @@ public class a {
                 if (length2 != 0) {
                     return length2;
                 }
-                int hashCode = aVar2.f8333c.hashCode() - aVar.f8333c.hashCode();
+                int hashCode = aVar2.f8475c.hashCode() - aVar.f8475c.hashCode();
                 if (hashCode != 0) {
                     return hashCode;
                 }
-                if (aVar2.f8334d == null) {
+                if (aVar2.f8476d == null) {
                     return -1;
                 }
-                return aVar.f8334d == null ? 1 : 0;
+                return aVar.f8476d == null ? 1 : 0;
             }
             return invokeLL.intValue;
         }
@@ -123,18 +123,18 @@ public class a {
     public boolean b(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? (aVar == null || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f8332b) || TextUtils.isEmpty(this.f8333c) || !TextUtils.equals(this.a, aVar.a) || !TextUtils.equals(this.f8332b, aVar.f8332b) || !TextUtils.equals(this.f8333c, aVar.f8333c)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? (aVar == null || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f8474b) || TextUtils.isEmpty(this.f8475c) || !TextUtils.equals(this.a, aVar.a) || !TextUtils.equals(this.f8474b, aVar.f8474b) || !TextUtils.equals(this.f8475c, aVar.f8475c)) ? false : true : invokeL.booleanValue;
     }
 
     public boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f8332b) || !str.startsWith(this.f8332b)) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f8474b) || !str.startsWith(this.f8474b)) {
                 return false;
             }
-            int length = this.f8332b.length();
-            return this.f8332b.charAt(length + (-1)) == '/' || str.length() <= length || str.charAt(length) == '/';
+            int length = this.f8474b.length();
+            return this.f8474b.charAt(length + (-1)) == '/' || str.length() <= length || str.charAt(length) == '/';
         }
         return invokeL.booleanValue;
     }
@@ -144,7 +144,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "domain: " + this.a + "; path: " + this.f8332b + "; name: " + this.f8333c + "; value: " + this.f8334d + "; expires: " + this.f8335e + "; secure: " + this.f8336f;
+            return "domain: " + this.a + "; path: " + this.f8474b + "; name: " + this.f8475c + "; value: " + this.f8476d + "; expires: " + this.f8477e + "; secure: " + this.f8478f;
         }
         return (String) invokeV.objValue;
     }
@@ -165,7 +165,7 @@ public class a {
             }
         }
         this.a = str;
-        this.f8332b = str2;
-        this.f8335e = -1L;
+        this.f8474b = str2;
+        this.f8477e = -1L;
     }
 }

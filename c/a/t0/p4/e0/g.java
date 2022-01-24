@@ -16,7 +16,7 @@ public class g {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.k0.g f21128b;
+    public c.a.t0.k0.g f21363b;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -24,7 +24,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f21129e;
+        public final /* synthetic */ g f21364e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public class g {
                     return;
                 }
             }
-            this.f21129e = gVar;
+            this.f21364e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f21129e.f21128b.I();
+                this.f21364e.f21363b.I();
             }
         }
     }
@@ -74,7 +74,7 @@ public class g {
     public void b() {
         c.a.t0.k0.g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.f21128b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.f21363b) == null) {
             return;
         }
         gVar.I();
@@ -87,21 +87,21 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) || editorTools == null || (editorBar = editorTools.mEB) == null || this.a == null || (launcherForId = editorBar.getLauncherForId(26)) == null) {
             return;
         }
-        if (this.f21128b == null) {
+        if (this.f21363b == null) {
             c.a.t0.k0.g gVar = new c.a.t0.k0.g(this.a, launcherForId);
-            this.f21128b = gVar;
+            this.f21363b = gVar;
             gVar.g0(c.a.t0.p4.f.bg_tip_blue_down);
-            this.f21128b.O(32);
-            this.f21128b.L(2);
-            this.f21128b.M(new a(this));
+            this.f21363b.O(32);
+            this.f21363b.L(2);
+            this.f21363b.M(new a(this));
             int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(c.a.t0.p4.e.ds10);
             int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(c.a.t0.p4.e.ds24);
             int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(c.a.t0.p4.e.ds4);
-            this.f21128b.Z(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
-            this.f21128b.j0(0);
-            this.f21128b.k0(-dimensionPixelSize3);
-            this.f21128b.N(3000);
+            this.f21363b.Z(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
+            this.f21363b.j0(0);
+            this.f21363b.k0(-dimensionPixelSize3);
+            this.f21363b.N(3000);
         }
-        this.f21128b.m0(this.a.getResources().getString(c.a.t0.p4.j.hot_topic_tip), "key_show_hottopic_tip");
+        this.f21363b.m0(this.a.getResources().getString(c.a.t0.p4.j.hot_topic_tip), "key_show_hottopic_tip");
     }
 }

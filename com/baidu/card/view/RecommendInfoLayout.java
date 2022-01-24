@@ -28,13 +28,13 @@ public class RecommendInfoLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f33261e;
+    public LinearLayout f33289e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BarImageView f33262f;
+    public BarImageView f33290f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f33263g;
+    public TextView f33291g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendInfoLayout(Context context) {
@@ -61,19 +61,19 @@ public class RecommendInfoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.thread_recommend_info_layout, (ViewGroup) this, true);
-            this.f33261e = (LinearLayout) inflate.findViewById(R.id.recommend_layout);
-            this.f33262f = (BarImageView) inflate.findViewById(R.id.recommend_forum_avatar);
-            this.f33263g = (TextView) inflate.findViewById(R.id.recommend_info_view);
+            this.f33289e = (LinearLayout) inflate.findViewById(R.id.recommend_layout);
+            this.f33290f = (BarImageView) inflate.findViewById(R.id.recommend_forum_avatar);
+            this.f33291g = (TextView) inflate.findViewById(R.id.recommend_info_view);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c d2 = c.d(this.f33261e);
+            c d2 = c.d(this.f33289e);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0209);
-            c d3 = c.d(this.f33263g);
+            c d3 = c.d(this.f33291g);
             d3.A(R.string.F_X01);
             d3.z(R.dimen.T_X09);
             d3.v(R.color.CAM_X0107);
@@ -83,23 +83,23 @@ public class RecommendInfoLayout extends RelativeLayout {
     public void setData(a aVar) {
         ThreadRecommendInfoData threadRecommendInfoData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || aVar == null || aVar.getThreadData() == null || (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(aVar.getThreadData().q1(), 0)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || aVar == null || aVar.getThreadData() == null || (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(aVar.getThreadData().r1(), 0)) == null) {
             return;
         }
         String str = threadRecommendInfoData.forumAvatar;
         if (!TextUtils.isEmpty(str)) {
-            this.f33262f.setVisibility(0);
-            this.f33262f.startLoad(str, 10, false);
+            this.f33290f.setVisibility(0);
+            this.f33290f.startLoad(str, 10, false);
         } else {
-            this.f33262f.setVisibility(8);
+            this.f33290f.setVisibility(8);
         }
         String str2 = threadRecommendInfoData.forumName;
         String str3 = threadRecommendInfoData.recommendReason;
         if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-            this.f33263g.setText(StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, "...") + TbadkCoreApplication.getInst().getString(R.string.forum) + str3);
+            this.f33291g.setText(StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, "...") + TbadkCoreApplication.getInst().getString(R.string.forum) + str3);
         } else if (TextUtils.isEmpty(str3)) {
         } else {
-            this.f33263g.setText(str3);
+            this.f33291g.setText(str3);
         }
     }
 

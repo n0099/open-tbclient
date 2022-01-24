@@ -61,17 +61,17 @@ public class b {
 
     /* renamed from: c.a.r0.a.c0.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0281b implements Runnable {
+    public static class RunnableC0290b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ScrollView f5368e;
+        public final /* synthetic */ ScrollView f5510e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.c0.c.e.c.b f5369f;
+        public final /* synthetic */ c.a.r0.a.c0.c.e.c.b f5511f;
 
-        public RunnableC0281b(ScrollView scrollView, c.a.r0.a.c0.c.e.c.b bVar) {
+        public RunnableC0290b(ScrollView scrollView, c.a.r0.a.c0.c.e.c.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,15 +86,15 @@ public class b {
                     return;
                 }
             }
-            this.f5368e = scrollView;
-            this.f5369f = bVar;
+            this.f5510e = scrollView;
+            this.f5511f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5368e.smoothScrollTo(0, this.f5369f.H);
+                this.f5510e.smoothScrollTo(0, this.f5511f.H);
             }
         }
     }
@@ -135,11 +135,11 @@ public class b {
             if (bVar.l == null) {
                 c.a.r0.a.c0.g.a.a("Component-Container-Scroll", "insert component（scroll） with a null position");
                 return false;
-            } else if (TextUtils.isEmpty(bVar.f5310h)) {
+            } else if (TextUtils.isEmpty(bVar.f5452h)) {
                 ScrollView h2 = h(swanAppComponentContainerView, bVar);
                 return h2 != null && cVar.a.c(h2, bVar.l);
             } else {
-                SwanAppComponentContainerView a2 = cVar.a(bVar.f5310h);
+                SwanAppComponentContainerView a2 = cVar.a(bVar.f5452h);
                 if (a2 == null) {
                     d.c("Component-Container-Scroll", "insert component（scroll） to parent with a null parent container view");
                     return false;
@@ -197,7 +197,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, cVar, bVar, swanAppComponentContainerView)) == null) {
             boolean z = a;
-            String str = bVar.f5310h;
+            String str = bVar.f5452h;
             if (TextUtils.isEmpty(str)) {
                 ScrollView scrollView = swanAppComponentContainerView.getScrollView();
                 ScrollView scrollView2 = swanAppComponentContainerView;
@@ -242,10 +242,10 @@ public class b {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, cVar, bVar, swanAppComponentContainerView)) == null) {
-            if (TextUtils.isEmpty(bVar.f5310h)) {
+            if (TextUtils.isEmpty(bVar.f5452h)) {
                 return cVar.a.removeView(swanAppComponentContainerView.getScrollView());
             }
-            SwanAppComponentContainerView a2 = cVar.a(bVar.f5310h);
+            SwanAppComponentContainerView a2 = cVar.a(bVar.f5452h);
             if (a2 == null) {
                 d.c("Component-Container-Scroll", "remove component（scroll） to parent with a null parent container view");
                 return false;
@@ -276,7 +276,7 @@ public class b {
                 FrameLayout frameLayout = new FrameLayout(swanAppComponentContainerView.getContext());
                 frameLayout.addView(swanAppComponentContainerView, a());
                 scrollView.addView(frameLayout);
-                swanAppComponentContainerView.postDelayed(new RunnableC0281b(scrollView, (c.a.r0.a.c0.c.e.c.b) bVar), 100L);
+                swanAppComponentContainerView.postDelayed(new RunnableC0290b(scrollView, (c.a.r0.a.c0.c.e.c.b) bVar), 100L);
                 swanAppComponentContainerView.setScrollView(scrollView);
                 return scrollView;
             }

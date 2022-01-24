@@ -18,22 +18,22 @@ public class e {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f58273b;
+    public final long f58318b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f58274c;
+    public final boolean f58319c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f58275d;
+    public final boolean f58320d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f58276e;
+    public final int f58321e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f58277f;
+    public final boolean f58322f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f58278g;
+    public final boolean f58323g;
 
     /* renamed from: com.kwai.filedownloader.e.e$1  reason: invalid class name */
     /* loaded from: classes3.dex */
@@ -160,12 +160,12 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f58275d = true;
+                    this.f58320d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f58273b = j3;
+                    this.f58318b = j3;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
@@ -192,12 +192,12 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f58275d = true;
+                    this.f58320d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f58273b = j3;
+                    this.f58318b = j3;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
@@ -223,12 +223,12 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f58275d = true;
+                    this.f58320d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f58273b = j3;
+                    this.f58318b = j3;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
@@ -262,12 +262,12 @@ public class e {
                         str8 = null;
                         if (str6 == null) {
                         }
-                        this.f58275d = true;
+                        this.f58320d = true;
                         if (str2 != null) {
                         }
                         if (str3 != null) {
                         }
-                        this.f58273b = j3;
+                        this.f58318b = j3;
                         if (str4 != null) {
                         }
                         if (str7 == null) {
@@ -291,12 +291,12 @@ public class e {
                         str8 = null;
                         if (str6 == null) {
                         }
-                        this.f58275d = true;
+                        this.f58320d = true;
                         if (str2 != null) {
                         }
                         if (str3 != null) {
                         }
-                        this.f58273b = j3;
+                        this.f58318b = j3;
                         if (str4 != null) {
                         }
                         if (str7 == null) {
@@ -319,12 +319,12 @@ public class e {
                     str8 = null;
                     if (str6 == null) {
                     }
-                    this.f58275d = true;
+                    this.f58320d = true;
                     if (str2 != null) {
                     }
                     if (str3 != null) {
                     }
-                    this.f58273b = j3;
+                    this.f58318b = j3;
                     if (str4 != null) {
                     }
                     if (str7 == null) {
@@ -360,15 +360,15 @@ public class e {
         if (str6 == null) {
             obj = "download.max-network-thread-count";
             i2 = 0;
-            this.f58274c = false;
+            this.f58319c = false;
         } else if (!str6.equals("true") && !str6.equals("false")) {
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", "http.lenient", "true", "false"));
         } else {
             obj = "download.max-network-thread-count";
             i2 = 0;
-            this.f58274c = str6.equals("true");
+            this.f58319c = str6.equals("true");
         }
-        this.f58275d = true;
+        this.f58320d = true;
         if (str2 != null) {
             this.a = Math.max(i2, Integer.valueOf(str2).intValue());
         } else {
@@ -385,17 +385,17 @@ public class e {
             obj3 = "http.lenient";
             j3 = 2000;
         }
-        this.f58273b = j3;
+        this.f58318b = j3;
         if (str4 != null) {
-            this.f58276e = a(Integer.valueOf(str4).intValue());
+            this.f58321e = a(Integer.valueOf(str4).intValue());
             i3 = 3;
         } else {
             i3 = 3;
-            this.f58276e = 3;
+            this.f58321e = 3;
         }
         if (str7 == null) {
             r6 = 0;
-            this.f58277f = false;
+            this.f58322f = false;
         } else if (!str7.equals("true") && !str7.equals("false")) {
             Object[] objArr = new Object[i3];
             objArr[0] = "file.non-pre-allocation";
@@ -404,10 +404,10 @@ public class e {
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", objArr));
         } else {
             r6 = 0;
-            this.f58277f = str7.equals("true");
+            this.f58322f = str7.equals("true");
         }
         if (str8 == null) {
-            this.f58278g = r6;
+            this.f58323g = r6;
         } else if (!str8.equals("true") && !str8.equals("false")) {
             Object[] objArr2 = new Object[3];
             objArr2[r6] = "broadcast.completed";
@@ -415,21 +415,21 @@ public class e {
             objArr2[2] = "false";
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", objArr2));
         } else {
-            this.f58278g = str8.equals("true");
+            this.f58323g = str8.equals("true");
         }
         if (d.a) {
             Object[] objArr3 = new Object[11];
             objArr3[r6] = Long.valueOf(System.currentTimeMillis() - j2);
             objArr3[1] = obj3;
-            objArr3[2] = Boolean.valueOf(this.f58274c);
+            objArr3[2] = Boolean.valueOf(this.f58319c);
             objArr3[3] = "process.non-separate";
-            objArr3[4] = Boolean.valueOf(this.f58275d);
+            objArr3[4] = Boolean.valueOf(this.f58320d);
             objArr3[5] = "download.min-progress-step";
             objArr3[6] = Integer.valueOf(this.a);
             objArr3[7] = obj2;
-            objArr3[8] = Long.valueOf(this.f58273b);
+            objArr3[8] = Long.valueOf(this.f58318b);
             objArr3[9] = obj;
-            objArr3[10] = Integer.valueOf(this.f58276e);
+            objArr3[10] = Integer.valueOf(this.f58321e);
             d.b(e.class, "init properties %d\n load properties: %s=%B; %s=%B; %s=%d; %s=%d; %s=%d", objArr3);
         }
     }

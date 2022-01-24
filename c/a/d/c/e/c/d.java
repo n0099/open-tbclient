@@ -19,21 +19,21 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f2580f;
+    public static final BdUniqueId f2682f;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.d.c.e.c.j.c f2581b;
+    public c.a.d.c.e.c.j.c f2683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f2582c;
+    public e f2684c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2583d;
+    public int f2685d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SocketMessageTask f2584e;
+    public SocketMessageTask f2686e;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -47,7 +47,7 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
         public SocketResponsedMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public e f2585b;
+        public e f2687b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
                 return;
             }
         }
-        f2580f = BdUniqueId.gen();
+        f2682f = BdUniqueId.gen();
     }
 
     public d(c.a.d.c.e.c.j.c cVar, e eVar, a aVar, int i2) {
@@ -96,37 +96,37 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
             }
         }
         this.a = null;
-        this.f2581b = null;
-        this.f2582c = null;
-        this.f2583d = 0;
-        this.f2584e = null;
-        this.f2581b = cVar;
-        this.f2582c = eVar;
+        this.f2683b = null;
+        this.f2684c = null;
+        this.f2685d = 0;
+        this.f2686e = null;
+        this.f2683b = cVar;
+        this.f2684c = eVar;
         this.a = aVar;
-        this.f2583d = i2;
+        this.f2685d = i2;
         if (eVar != null) {
             try {
-                this.f2584e = eVar.t();
+                this.f2686e = eVar.t();
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
-        if (this.f2584e == null) {
-            this.f2584e = (SocketMessageTask) MessageManager.getInstance().findTask(this.f2581b.a.b());
+        if (this.f2686e == null) {
+            this.f2686e = (SocketMessageTask) MessageManager.getInstance().findTask(this.f2683b.a.b());
         }
-        setTag(f2580f);
+        setTag(f2682f);
         setPriority(4);
-        SocketMessageTask socketMessageTask = this.f2584e;
+        SocketMessageTask socketMessageTask = this.f2686e;
         if (socketMessageTask != null) {
             setKey(String.valueOf(socketMessageTask.getCmd()));
-            setParallel(this.f2584e.getParallel());
+            setParallel(this.f2686e.getParallel());
         }
     }
 
     public static BdUniqueId e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f2580f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f2682f : (BdUniqueId) invokeV.objValue;
     }
 
     public final void b(SocketResponsedMessage socketResponsedMessage) {
@@ -134,11 +134,11 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
         if (!(interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) || this.a == null) {
             return;
         }
-        boolean c2 = c(socketResponsedMessage, this.f2582c);
+        boolean c2 = c(socketResponsedMessage, this.f2684c);
         b bVar = new b();
         bVar.a = socketResponsedMessage;
         if (!c2) {
-            bVar.f2585b = this.f2582c;
+            bVar.f2687b = this.f2684c;
         }
         this.a.a(bVar);
     }
@@ -147,10 +147,10 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage, eVar)) == null) {
-            if (this.f2583d == 0 || eVar == null || socketResponsedMessage != null) {
+            if (this.f2685d == 0 || eVar == null || socketResponsedMessage != null) {
                 return true;
             }
-            i.b("unpacker", eVar.k(), eVar.m() == null ? -1L : eVar.m().getClientLogID(), this.f2583d, "checkresponsedMessage", h.l, "ack cont responsed");
+            i.b("unpacker", eVar.k(), eVar.m() == null ? -1L : eVar.m().getClientLogID(), this.f2685d, "checkresponsedMessage", h.l, "ack cont responsed");
             return false;
         }
         return invokeLL.booleanValue;
@@ -173,15 +173,15 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
         L4:
             r1 = r51
             java.lang.String r0 = "other"
-            c.a.d.c.e.c.j.c r2 = r1.f2581b
+            c.a.d.c.e.c.j.c r2 = r1.f2683b
             r3 = 0
             if (r2 != 0) goto Le
             return r3
         Le:
-            c.a.d.c.e.c.e r5 = r1.f2582c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L289
+            c.a.d.c.e.c.e r5 = r1.f2684c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L289
             r6 = 0
             if (r5 == 0) goto L1f
-            c.a.d.c.e.c.e r5 = r1.f2582c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L19
+            c.a.d.c.e.c.e r5 = r1.f2684c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L19
             long r8 = r5.m     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L19
             goto L20
         L19:
@@ -192,25 +192,25 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
         L1f:
             r8 = r6
         L20:
-            c.a.d.c.e.c.e r5 = r1.f2582c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L289
+            c.a.d.c.e.c.e r5 = r1.f2684c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L289
             if (r5 == 0) goto L29
-            c.a.d.c.e.c.e r5 = r1.f2582c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L19
+            c.a.d.c.e.c.e r5 = r1.f2684c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L19
             long r10 = r5.n     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L19
             goto L2a
         L29:
             r10 = r6
         L2a:
             long r12 = java.lang.System.currentTimeMillis()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L289
-            c.a.d.c.e.c.j.c r5 = r1.f2581b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L289
+            c.a.d.c.e.c.j.c r5 = r1.f2683b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L289
             c.a.d.c.e.c.j.a r5 = r5.a     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L289
             int r5 = r5.b()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L289
-            c.a.d.c.e.c.j.c r14 = r1.f2581b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L284
+            c.a.d.c.e.c.j.c r14 = r1.f2683b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L284
             c.a.d.c.e.c.j.a r14 = r14.a     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L284
             boolean r19 = r14.g()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L284
-            c.a.d.c.e.c.j.c r14 = r1.f2581b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L284
-            int r15 = r14.f2625d     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L284
+            c.a.d.c.e.c.j.c r14 = r1.f2683b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L284
+            int r15 = r14.f2727d     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L284
             c.a.d.c.e.c.j.b r14 = c.a.d.c.e.c.j.b.f()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L284
-            c.a.d.c.e.c.j.c r2 = r1.f2581b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L284
+            c.a.d.c.e.c.j.c r2 = r1.f2683b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L284
             r14.d(r2)     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L284
             long r20 = java.lang.System.currentTimeMillis()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27f
             r14 = 301001(0x497c9, float:4.21792E-40)
@@ -254,12 +254,12 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
             java.lang.String r0 = "person_center_dynamic"
             goto L56
         L8f:
-            c.a.d.c.e.c.e r0 = r1.f2582c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
+            c.a.d.c.e.c.e r0 = r1.f2684c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
             if (r0 == 0) goto Ld2
-            c.a.d.c.e.c.e r0 = r1.f2582c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> Lcd
+            c.a.d.c.e.c.e r0 = r1.f2684c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> Lcd
             com.baidu.adp.framework.message.SocketMessage r0 = r0.m()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> Lcd
             long r16 = r0.getStartTime()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> Lcd
-            c.a.d.c.e.c.e r14 = r1.f2582c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> Lcd
+            c.a.d.c.e.c.e r14 = r1.f2684c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> Lcd
             long r22 = r14.s()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> Lcd
             long r16 = r22 - r16
             long r24 = r12 - r22
@@ -303,50 +303,50 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
             r31 = r12
             r33 = r31
         Ldb:
-            int r0 = r2.f2624c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
+            int r0 = r2.f2726c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
             if (r0 != 0) goto Le6
-            int r0 = r2.f2625d     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> Lcd
-            byte[] r14 = r2.f2623b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> Lcd
+            int r0 = r2.f2727d     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> Lcd
+            byte[] r14 = r2.f2725b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> Lcd
             int r14 = r14.length     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> Lcd
             if (r0 == r14) goto Lec
         Le6:
-            int r0 = r2.f2625d     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
+            int r0 = r2.f2727d     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
             if (r0 > 0) goto Lf0
-            r2.f2623b = r3     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> Lcd
+            r2.f2725b = r3     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> Lcd
         Lec:
             r0 = r3
             r16 = r15
             goto L150
         Lf0:
-            c.a.d.c.e.c.j.c r0 = r1.f2581b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
+            c.a.d.c.e.c.j.c r0 = r1.f2683b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
             c.a.d.c.e.c.j.a r0 = r0.a     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
             boolean r0 = r0.e()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
             if (r0 == 0) goto L137
-            byte[] r0 = r2.f2623b     // Catch: java.lang.Exception -> L12c
-            int r14 = r2.f2624c     // Catch: java.lang.Exception -> L12c
-            byte r3 = c.a.d.c.e.c.j.a.f2614g     // Catch: java.lang.Exception -> L12c
+            byte[] r0 = r2.f2725b     // Catch: java.lang.Exception -> L12c
+            int r14 = r2.f2726c     // Catch: java.lang.Exception -> L12c
+            byte r3 = c.a.d.c.e.c.j.a.f2716g     // Catch: java.lang.Exception -> L12c
             java.nio.ByteBuffer r0 = java.nio.ByteBuffer.wrap(r0, r14, r3)     // Catch: java.lang.Exception -> L12c
             short r0 = r0.getShort()     // Catch: java.lang.Exception -> L12c
-            byte r3 = c.a.d.c.e.c.j.a.f2614g     // Catch: java.lang.Exception -> L12c
+            byte r3 = c.a.d.c.e.c.j.a.f2716g     // Catch: java.lang.Exception -> L12c
             int r3 = r3 + r0
             java.nio.ByteBuffer r14 = java.nio.ByteBuffer.allocateDirect(r0)     // Catch: java.lang.Exception -> L12c
-            byte[] r4 = r2.f2623b     // Catch: java.lang.Exception -> L12c
+            byte[] r4 = r2.f2725b     // Catch: java.lang.Exception -> L12c
             r16 = r15
-            int r15 = r2.f2624c     // Catch: java.lang.Exception -> L12c
-            byte r18 = c.a.d.c.e.c.j.a.f2614g     // Catch: java.lang.Exception -> L12c
+            int r15 = r2.f2726c     // Catch: java.lang.Exception -> L12c
+            byte r18 = c.a.d.c.e.c.j.a.f2716g     // Catch: java.lang.Exception -> L12c
             int r15 = r15 + r18
             java.nio.ByteBuffer r0 = r14.put(r4, r15, r0)     // Catch: java.lang.Exception -> L12c
             byte[] r0 = r0.array()     // Catch: java.lang.Exception -> L12c
-            int r4 = r2.f2624c     // Catch: java.lang.Exception -> L12c
+            int r4 = r2.f2726c     // Catch: java.lang.Exception -> L12c
             int r4 = r4 + r3
-            r2.f2624c = r4     // Catch: java.lang.Exception -> L12c
-            int r4 = r2.f2625d     // Catch: java.lang.Exception -> L12c
+            r2.f2726c = r4     // Catch: java.lang.Exception -> L12c
+            int r4 = r2.f2727d     // Catch: java.lang.Exception -> L12c
             int r4 = r4 - r3
-            r2.f2625d = r4     // Catch: java.lang.Exception -> L12c
+            r2.f2727d = r4     // Catch: java.lang.Exception -> L12c
             goto L13a
         L12c:
             com.baidu.adp.framework.client.socket.coder.CoderException r0 = new com.baidu.adp.framework.client.socket.coder.CoderException     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L134
-            int r3 = c.a.d.c.e.c.h.f2607d     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L134
+            int r3 = c.a.d.c.e.c.h.f2709d     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L134
             r0.<init>(r3)     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L134
             throw r0     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L134
         L134:
@@ -356,18 +356,18 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
             r16 = r15
             r0 = 0
         L13a:
-            int r3 = r2.f2625d     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
+            int r3 = r2.f2727d     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
             java.nio.ByteBuffer r3 = java.nio.ByteBuffer.allocateDirect(r3)     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
-            byte[] r4 = r2.f2623b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
-            int r14 = r2.f2624c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
-            int r15 = r2.f2625d     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
+            byte[] r4 = r2.f2725b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
+            int r14 = r2.f2726c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
+            int r15 = r2.f2727d     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
             java.nio.ByteBuffer r3 = r3.put(r4, r14, r15)     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
             byte[] r3 = r3.array()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
-            r2.f2623b = r3     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
+            r2.f2725b = r3     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
         L150:
             c.a.d.c.e.c.j.b r14 = c.a.d.c.e.c.j.b.f()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
-            byte[] r3 = r2.f2623b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
-            com.baidu.adp.framework.task.SocketMessageTask r4 = r1.f2584e     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
+            byte[] r3 = r2.f2725b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
+            com.baidu.adp.framework.task.SocketMessageTask r4 = r1.f2686e     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L27a
             r35 = r2
             r2 = r16
             r15 = r5
@@ -394,7 +394,7 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
             r15 = r5
             c.a.d.f.n.l.a.a(r14, r15, r16, r17, r18, r19, r21, r23, r25, r27, r29)     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L199
             com.baidu.adp.framework.client.socket.coder.CoderException r0 = new com.baidu.adp.framework.client.socket.coder.CoderException     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L199
-            int r2 = c.a.d.c.e.c.h.f2607d     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L199
+            int r2 = c.a.d.c.e.c.h.f2709d     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L199
             r0.<init>(r2)     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L199
             throw r0     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L199
         L199:
@@ -405,31 +405,31 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
             long r14 = java.lang.System.currentTimeMillis()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L270
             long r14 = r14 - r20
             if (r3 == 0) goto L246
-            c.a.d.c.e.c.e r0 = r1.f2582c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L270
+            c.a.d.c.e.c.e r0 = r1.f2684c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L270
             if (r0 == 0) goto L1e9
-            c.a.d.c.e.c.j.c r0 = r1.f2581b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e1
+            c.a.d.c.e.c.j.c r0 = r1.f2683b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e1
             if (r0 == 0) goto L1e9
             long r16 = java.lang.System.currentTimeMillis()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e1
-            c.a.d.c.e.c.e r0 = r1.f2582c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e1
+            c.a.d.c.e.c.e r0 = r1.f2684c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e1
             long r18 = r0.s()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e1
             r36 = r5
             long r4 = r16 - r18
             r3.setCostTime(r4)     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
-            c.a.d.c.e.c.e r0 = r1.f2582c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
+            c.a.d.c.e.c.e r0 = r1.f2684c     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
             int r0 = r0.o()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
             r3.setRetry(r0)     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
             c.a.d.c.i.a r0 = r3.performanceData     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
             r0.a = r6     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
             c.a.d.c.i.a r0 = r3.performanceData     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
-            r0.f2647c = r8     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
+            r0.f2749c = r8     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
             c.a.d.c.i.a r0 = r3.performanceData     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
             r6 = r31
-            r0.f2648d = r6     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
+            r0.f2750d = r6     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
             c.a.d.c.i.a r0 = r3.performanceData     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
             r4 = r33
-            r0.f2649e = r4     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
+            r0.f2751e = r4     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
             c.a.d.c.i.a r0 = r3.performanceData     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
-            r0.f2652h = r10     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
+            r0.f2754h = r10     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L1e3
             goto L1ef
         L1e1:
             r36 = r5
@@ -444,16 +444,16 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
         L1ef:
             r3.setDownSize(r2)     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L241
             c.a.d.c.i.a r0 = r3.performanceData     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L241
-            r0.f2651g = r14     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L241
+            r0.f2753g = r14     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L241
             c.a.d.c.i.a r0 = r3.performanceData     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L241
-            r0.f2650f = r12     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L241
-            c.a.d.c.e.c.j.c r0 = r1.f2581b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L241
+            r0.f2752f = r12     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L241
+            c.a.d.c.e.c.j.c r0 = r1.f2683b     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L241
             c.a.d.c.e.c.j.a r0 = r0.a     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L241
             int r0 = r0.h()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L241
             long r10 = (long) r0     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L241
             r3.sequenceID = r10     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L241
             r2 = r35
-            byte[] r0 = r2.f2623b     // Catch: java.lang.Exception -> L211
+            byte[] r0 = r2.f2725b     // Catch: java.lang.Exception -> L211
             r10 = r36
             r3.beforeDispatchInBackGround(r10, r0)     // Catch: java.lang.Exception -> L20f
             goto L21b
@@ -543,17 +543,17 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
             r3 = 0
         L28e:
             r4 = -100
-            c.a.d.c.e.c.e r6 = r1.f2582c
+            c.a.d.c.e.c.e r6 = r1.f2684c
             if (r6 == 0) goto L2a4
             com.baidu.adp.framework.message.SocketMessage r6 = r6.m()
             if (r6 == 0) goto L2a4
-            c.a.d.c.e.c.e r4 = r1.f2582c
+            c.a.d.c.e.c.e r4 = r1.f2684c
             com.baidu.adp.framework.message.SocketMessage r4 = r4.m()
             long r4 = r4.getClientLogID()
         L2a4:
             r12 = r4
             com.baidu.adp.lib.stats.BdStatisticsManager r6 = com.baidu.adp.lib.stats.BdStatisticsManager.getInstance()
-            int r4 = r1.f2583d
+            int r4 = r1.f2685d
             java.lang.String r10 = java.lang.String.valueOf(r4)
             r4 = 4
             java.lang.Object[] r11 = new java.lang.Object[r4]
@@ -567,13 +567,13 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
             java.lang.String r5 = "seqid"
             r11[r4] = r5
             r4 = 3
-            int r5 = r1.f2583d
+            int r5 = r1.f2685d
             java.lang.Integer r5 = java.lang.Integer.valueOf(r5)
             r11[r4] = r5
             java.lang.String r7 = "im"
             r8 = r12
             r6.error(r7, r8, r10, r11)
-            int r8 = r1.f2583d
+            int r8 = r1.f2685d
             int r10 = c.a.d.c.e.c.h.k
             java.lang.String r4 = "unpacker"
             java.lang.String r9 = "unpacktask"
@@ -605,7 +605,7 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
             r0[r4] = r3
             r1.publishProgress(r0)
             if (r3 == 0) goto L329
-            byte[] r0 = r2.f2623b     // Catch: java.lang.Exception -> L321
+            byte[] r0 = r2.f2725b     // Catch: java.lang.Exception -> L321
             r3.afterDispatchInBackGround(r5, r0)     // Catch: java.lang.Exception -> L321
             goto L329
         L321:

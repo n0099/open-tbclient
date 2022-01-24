@@ -22,12 +22,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f25639c;
+    public static b f25366c;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC1551b a;
+    public InterfaceC1531b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f25640b;
+    public final HttpMessageListener f25367b;
 
     /* loaded from: classes9.dex */
     public class a extends HttpMessageListener {
@@ -84,7 +84,7 @@ public class b {
 
     /* renamed from: c.a.t0.y.a.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC1551b {
+    public interface InterfaceC1531b {
         void a(String str);
 
         void b(String str);
@@ -103,7 +103,7 @@ public class b {
                 return;
             }
         }
-        f25639c = new b();
+        f25366c = new b();
     }
 
     public b() {
@@ -119,7 +119,7 @@ public class b {
                 return;
             }
         }
-        this.f25640b = new a(this, CmdConfigHttp.CMD_GET_SPLASH_INFO);
+        this.f25367b = new a(this, CmdConfigHttp.CMD_GET_SPLASH_INFO);
     }
 
     public static String b() {
@@ -137,15 +137,15 @@ public class b {
     public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f25639c : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f25366c : (b) invokeV.objValue;
     }
 
-    public void e(TbPageContext<?> tbPageContext, InterfaceC1551b interfaceC1551b, AdInfo adInfo) {
+    public void e(TbPageContext<?> tbPageContext, InterfaceC1531b interfaceC1531b, AdInfo adInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, tbPageContext, interfaceC1551b, adInfo) == null) {
-            this.a = interfaceC1551b;
-            this.f25640b.setTag(tbPageContext.getUniqueId());
-            MessageManager.getInstance().registerListener(this.f25640b);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, tbPageContext, interfaceC1531b, adInfo) == null) {
+            this.a = interfaceC1531b;
+            this.f25367b.setTag(tbPageContext.getUniqueId());
+            MessageManager.getInstance().registerListener(this.f25367b);
             SplashHttpRequest.sendRequest(new SplashHttpRequest(tbPageContext.getPageActivity(), adInfo));
         }
     }

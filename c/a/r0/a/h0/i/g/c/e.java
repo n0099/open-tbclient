@@ -12,7 +12,7 @@ public class e extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Bitmap f6485d;
+    public Bitmap f6627d;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class e extends b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
             e eVar = new e();
             eVar.a = 1;
-            eVar.f6482b = str;
-            eVar.f6483c = 0L;
-            eVar.f6485d = bitmap;
+            eVar.f6624b = str;
+            eVar.f6625c = 0L;
+            eVar.f6627d = bitmap;
             return eVar;
         }
         return (e) invokeLL.objValue;
@@ -48,8 +48,8 @@ public class e extends b {
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j2)) == null) {
             e eVar = new e();
             eVar.a = 1;
-            eVar.f6482b = str;
-            eVar.f6483c = j2;
+            eVar.f6624b = str;
+            eVar.f6625c = j2;
             return eVar;
         }
         return (e) invokeLJ.objValue;

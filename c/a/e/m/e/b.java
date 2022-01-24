@@ -13,13 +13,13 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3463b;
+    public int f3600b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3464c;
+    public int f3601c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3465d;
+    public int f3602d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -34,27 +34,27 @@ public class b {
                 return;
             }
         }
-        this.f3463b = -1;
-        this.f3464c = -1;
-        this.f3465d = -1;
+        this.f3600b = -1;
+        this.f3601c = -1;
+        this.f3602d = -1;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3463b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3600b : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3465d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3602d : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3464c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3601c : invokeV.intValue;
     }
 
     public String d() {
@@ -66,21 +66,21 @@ public class b {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f3463b = i2;
+            this.f3600b = i2;
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f3465d = i2;
+            this.f3602d = i2;
         }
     }
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f3464c = i2;
+            this.f3601c = i2;
         }
     }
 

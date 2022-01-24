@@ -24,7 +24,7 @@ import c.a.s0.g0.g;
 import c.a.s0.g0.h;
 import c.a.s0.s.a;
 import c.a.s0.s.c;
-import c.a.s0.s.j0.d;
+import c.a.s0.s.k0.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;

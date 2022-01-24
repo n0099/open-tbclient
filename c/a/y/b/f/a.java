@@ -14,19 +14,19 @@ public class a {
     public FloatBuffer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FloatBuffer f26712b;
+    public FloatBuffer f26740b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26713c;
+    public int f26741c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f26714d;
+    public int f26742d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f26715e;
+    public int f26743e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26716f;
+    public int f26744f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -45,19 +45,19 @@ public class a {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26714d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26742d : invokeV.intValue;
     }
 
     public FloatBuffer b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26712b : (FloatBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26740b : (FloatBuffer) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26716f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26744f : invokeV.intValue;
     }
 
     public FloatBuffer d() {
@@ -69,12 +69,12 @@ public class a {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26713c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26741c : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26715e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26743e : invokeV.intValue;
     }
 }

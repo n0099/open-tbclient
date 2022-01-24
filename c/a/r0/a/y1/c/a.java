@@ -21,23 +21,23 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9708b;
+    public static final boolean f9850b;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: c.a.r0.a.y1.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0633a implements Runnable {
+    public class RunnableC0642a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.y1.c.c f9709e;
+        public final /* synthetic */ c.a.r0.a.y1.c.c f9851e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f9710f;
+        public final /* synthetic */ a f9852f;
 
-        public RunnableC0633a(a aVar, c.a.r0.a.y1.c.c cVar) {
+        public RunnableC0642a(a aVar, c.a.r0.a.y1.c.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,15 +52,15 @@ public final class a {
                     return;
                 }
             }
-            this.f9710f = aVar;
-            this.f9709e = cVar;
+            this.f9852f = aVar;
+            this.f9851e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9710f.g(this.f9709e);
+                this.f9852f.g(this.f9851e);
             }
         }
     }
@@ -112,7 +112,7 @@ public final class a {
                 return;
             }
         }
-        f9708b = k.a;
+        f9850b = k.a;
     }
 
     public a() {
@@ -138,7 +138,7 @@ public final class a {
     public static void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            boolean z = f9708b;
+            boolean z = f9850b;
         }
     }
 
@@ -197,11 +197,11 @@ public final class a {
                 return;
             }
             Handler L = c.a.r0.a.d2.d.L();
-            RunnableC0633a runnableC0633a = new RunnableC0633a(this, cVar);
+            RunnableC0642a runnableC0642a = new RunnableC0642a(this, cVar);
             if (i3 < 0) {
                 i2 = 0;
             }
-            L.postDelayed(runnableC0633a, i2);
+            L.postDelayed(runnableC0642a, i2);
         }
     }
 }

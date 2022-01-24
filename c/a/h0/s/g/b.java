@@ -12,7 +12,7 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f3676b;
+    public JSONObject f3817b;
 
     public b() {
         Interceptable interceptable = $ic;

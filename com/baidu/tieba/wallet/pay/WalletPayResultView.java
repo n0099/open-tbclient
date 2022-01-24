@@ -85,7 +85,7 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
             Bitmap moneyIconBitmap = CurrencySwitchUtil.getMoneyIconBitmap();
             BitmapDrawable bitmapDrawable = new BitmapDrawable(moneyIconBitmap);
             bitmapDrawable.setBounds(0, 0, moneyIconBitmap.getWidth(), moneyIconBitmap.getHeight());
-            c.a.s0.g1.d dVar = new c.a.s0.g1.d(bitmapDrawable);
+            c.a.s0.f1.d dVar = new c.a.s0.f1.d(bitmapDrawable);
             dVar.b(n.f(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
             dVar.c(n.f(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
             SpannableString spannableString = new SpannableString(str);

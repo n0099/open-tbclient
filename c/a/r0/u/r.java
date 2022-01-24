@@ -29,31 +29,31 @@ public class r {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f11897b;
+    public b f12039b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11898c;
+    public String f12040c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11899d;
+    public String f12041d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11900e;
+    public String f12042e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11901f;
+    public String f12043f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11902g;
+    public String f12044g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f11903h;
+    public String f12045h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f11904i;
+    public String f12046i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f11905j;
+    public String f12047j;
     public String k;
     public String l;
     public String m;
@@ -73,25 +73,25 @@ public class r {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11906b;
+        public String f12048b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f11907c;
+        public String f12049c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f11908d;
+        public String f12050d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f11909e;
+        public int f12051e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f11910f;
+        public String f12052f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f11911g;
+        public String f12053g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f11912h;
+        public int f12054h;
 
         public a(r rVar) {
             Interceptable interceptable = $ic;
@@ -109,14 +109,14 @@ public class r {
                 }
             }
             this.a = "Android";
-            this.f11906b = Build.VERSION.RELEASE;
-            this.f11907c = Build.MANUFACTURER;
-            this.f11909e = Build.VERSION.SDK_INT;
-            this.f11910f = Build.MODEL;
+            this.f12048b = Build.VERSION.RELEASE;
+            this.f12049c = Build.MANUFACTURER;
+            this.f12051e = Build.VERSION.SDK_INT;
+            this.f12052f = Build.MODEL;
             Context appContext = AppRuntime.getAppContext();
             WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
-            this.f11911g = windowManager.getDefaultDisplay().getWidth() + "_" + windowManager.getDefaultDisplay().getHeight();
-            this.f11912h = appContext.getResources().getDisplayMetrics().densityDpi;
+            this.f12053g = windowManager.getDefaultDisplay().getWidth() + "_" + windowManager.getDefaultDisplay().getHeight();
+            this.f12054h = appContext.getResources().getDisplayMetrics().densityDpi;
         }
     }
 
@@ -161,23 +161,23 @@ public class r {
             }
         }
         this.a = new a(this);
-        this.f11897b = new b(this);
-        this.f11904i = c.a.r0.v.a.c();
+        this.f12039b = new b(this);
+        this.f12046i = c.a.r0.v.a.c();
         this.o = "";
         Context appContext = AppRuntime.getAppContext();
         try {
             PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
-            this.f11898c = packageInfo.versionName;
-            this.f11900e = packageInfo.packageName;
+            this.f12040c = packageInfo.versionName;
+            this.f12042e = packageInfo.packageName;
         } catch (PackageManager.NameNotFoundException unused) {
         }
         TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService("phone");
-        if (telephonyManager != null && (Build.VERSION.SDK_INT < 23 || appContext.checkSelfPermission(com.kuaishou.weapon.un.s.f55242c) == 0)) {
-            this.f11905j = telephonyManager.getSimOperator();
+        if (telephonyManager != null && (Build.VERSION.SDK_INT < 23 || appContext.checkSelfPermission(com.kuaishou.weapon.un.s.f55287c) == 0)) {
+            this.f12047j = telephonyManager.getSimOperator();
         }
-        this.f11901f = e.g().getDeviceId(appContext);
-        this.f11902g = e.g().p(appContext);
-        this.f11903h = e.g().a();
+        this.f12043f = e.g().getDeviceId(appContext);
+        this.f12044g = e.g().p(appContext);
+        this.f12045h = e.g().a();
         this.n = e.g().b();
         this.q = e.g().t();
         this.r = str;
@@ -284,25 +284,25 @@ public class r {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.putOpt(UrlOcrConfig.IdCardKey.OS, this.a.a);
-                jSONObject2.putOpt("osversion", this.a.f11906b);
-                jSONObject2.putOpt("model", this.a.f11910f);
-                jSONObject2.putOpt("deviceType", this.a.f11908d);
-                jSONObject2.putOpt("sdk", this.a.f11909e + "");
-                jSONObject2.putOpt("brand", this.a.f11907c);
-                jSONObject2.putOpt("screen", this.a.f11911g);
-                jSONObject2.putOpt("density", this.a.f11912h + "");
+                jSONObject2.putOpt("osversion", this.a.f12048b);
+                jSONObject2.putOpt("model", this.a.f12052f);
+                jSONObject2.putOpt("deviceType", this.a.f12050d);
+                jSONObject2.putOpt("sdk", this.a.f12051e + "");
+                jSONObject2.putOpt("brand", this.a.f12049c);
+                jSONObject2.putOpt("screen", this.a.f12053g);
+                jSONObject2.putOpt("density", this.a.f12054h + "");
                 JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.putOpt("passId", this.f11897b.a);
+                jSONObject3.putOpt("passId", this.f12039b.a);
                 jSONObject.putOpt("userInfo", jSONObject3);
                 jSONObject.putOpt(ConstantHelper.LOG_OS, jSONObject2);
-                jSONObject.putOpt("appVersion", this.f11898c);
-                jSONObject.putOpt("appBranch", this.f11899d);
-                jSONObject.putOpt("appPackageName", this.f11900e);
-                jSONObject.putOpt("cuid", this.f11901f);
-                jSONObject.putOpt("uuid", this.f11902g);
-                jSONObject.putOpt("hostName", this.f11903h);
-                jSONObject.putOpt("net", this.f11904i);
-                jSONObject.putOpt("operator", this.f11905j);
+                jSONObject.putOpt("appVersion", this.f12040c);
+                jSONObject.putOpt("appBranch", this.f12041d);
+                jSONObject.putOpt("appPackageName", this.f12042e);
+                jSONObject.putOpt("cuid", this.f12043f);
+                jSONObject.putOpt("uuid", this.f12044g);
+                jSONObject.putOpt("hostName", this.f12045h);
+                jSONObject.putOpt("net", this.f12046i);
+                jSONObject.putOpt("operator", this.f12047j);
                 jSONObject.putOpt("smartAppId", this.k);
                 jSONObject.putOpt("smartAppVersion", this.l);
                 jSONObject.putOpt("swanCoreVersion", this.m);

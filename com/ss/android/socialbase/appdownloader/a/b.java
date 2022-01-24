@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import androidx.annotation.RequiresApi;
 @RequiresApi(api = 26)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends a {
     public b(Context context) {
         super(context, null, null);

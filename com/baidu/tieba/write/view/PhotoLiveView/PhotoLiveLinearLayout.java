@@ -14,7 +14,7 @@ public class PhotoLiveLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f49716e;
+    public a f49735e;
 
     /* loaded from: classes13.dex */
     public interface a {
@@ -39,7 +39,7 @@ public class PhotoLiveLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f49716e = null;
+        this.f49735e = null;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
@@ -55,7 +55,7 @@ public class PhotoLiveLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            a aVar = this.f49716e;
+            a aVar = this.f49735e;
             if (aVar != null) {
                 aVar.a();
             }
@@ -65,7 +65,7 @@ public class PhotoLiveLinearLayout extends LinearLayout {
     public void setOnChangeLayoutListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f49716e = aVar;
+            this.f49735e = aVar;
         }
     }
 
@@ -88,6 +88,6 @@ public class PhotoLiveLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f49716e = null;
+        this.f49735e = null;
     }
 }

@@ -15,7 +15,7 @@ import i.k;
 import i.o.a.o;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicLong implements f, k, e<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object EMPTY;

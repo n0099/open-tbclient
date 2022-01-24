@@ -44,31 +44,31 @@ public class e {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f6270b;
+    public static long f6412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ContentObserver f6271c;
+    public static ContentObserver f6413c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ContentResolver f6272d;
+    public static ContentResolver f6414d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static PackageManager f6273e;
+    public static PackageManager f6415e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f6274f;
+    public static boolean f6416f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f6275g;
+    public static long f6417g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static List<c.a.r0.a.g2.c> f6276h;
+    public static List<c.a.r0.a.g2.c> f6418h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Runnable f6277i;
+    public static Runnable f6419i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f6278j;
+    public static int f6420j;
     public static Uri k;
     public static String l;
     public static String m;
@@ -82,17 +82,17 @@ public class e {
 
         /* renamed from: c.a.r0.a.g2.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0347a implements Runnable {
+        public class RunnableC0356a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Uri f6279e;
+            public final /* synthetic */ Uri f6421e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f6280f;
+            public final /* synthetic */ a f6422f;
 
-            public RunnableC0347a(a aVar, Uri uri) {
+            public RunnableC0356a(a aVar, Uri uri) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,15 +107,15 @@ public class e {
                         return;
                     }
                 }
-                this.f6280f = aVar;
-                this.f6279e = uri;
+                this.f6422f = aVar;
+                this.f6421e = uri;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    e.q(this.f6280f.a, this.f6279e);
+                    e.q(this.f6422f.a, this.f6421e);
                 }
             }
         }
@@ -149,7 +149,7 @@ public class e {
                 if (e.a) {
                     String str = "onChange(), uri: " + uri;
                 }
-                ExecutorUtilsExt.postOnElastic(new RunnableC0347a(this, uri), "systemScreenShot", 1);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0356a(this, uri), "systemScreenShot", 1);
             }
         }
     }
@@ -160,13 +160,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6281e;
+        public final /* synthetic */ String f6423e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Handler f6282f;
+        public final /* synthetic */ Handler f6424f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f6283g;
+        public final /* synthetic */ d f6425g;
 
         public b(String str, Handler handler, d dVar) {
             Interceptable interceptable = $ic;
@@ -183,9 +183,9 @@ public class e {
                     return;
                 }
             }
-            this.f6281e = str;
-            this.f6282f = handler;
-            this.f6283g = dVar;
+            this.f6423e = str;
+            this.f6424f = handler;
+            this.f6425g = dVar;
         }
 
         @Override // java.lang.Runnable
@@ -194,21 +194,21 @@ public class e {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 e.e();
                 if (e.a) {
-                    String str = "mCount: " + e.f6278j;
+                    String str = "mCount: " + e.f6420j;
                 }
                 long j2 = c.a.r0.a.z2.d.a() ? 500L : 100L;
-                if (e.m(this.f6281e, e.k) || e.f6278j > 10) {
-                    if (e.m(this.f6281e, e.k) && e.l() && !e.o(this.f6281e, e.k)) {
-                        for (c.a.r0.a.g2.c cVar : e.f6276h) {
+                if (e.m(this.f6423e, e.k) || e.f6420j > 10) {
+                    if (e.m(this.f6423e, e.k) && e.l() && !e.o(this.f6423e, e.k)) {
+                        for (c.a.r0.a.g2.c cVar : e.f6418h) {
                             if (cVar != null) {
-                                cVar.a(this.f6283g);
+                                cVar.a(this.f6425g);
                             }
                         }
                         return;
                     }
                     return;
                 }
-                this.f6282f.postDelayed(e.f6277i, j2);
+                this.f6424f.postDelayed(e.f6419i, j2);
             }
         }
     }
@@ -219,7 +219,7 @@ public class e {
         public static String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static String[] f6284b;
+        public static String[] f6426b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -236,7 +236,7 @@ public class e {
                 }
             }
             a = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
-            f6284b = new String[]{"_display_name", "_data", "date_added", "_id"};
+            f6426b = new String[]{"_display_name", "_data", "date_added", "_id"};
         }
 
         public static boolean e(String str) {
@@ -259,7 +259,7 @@ public class e {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Uri f6285b;
+        public Uri f6427b;
 
         public /* synthetic */ d(String str, Long l, Uri uri, a aVar) {
             this(str, l, uri);
@@ -282,7 +282,7 @@ public class e {
             }
             this.a = str;
             l.longValue();
-            this.f6285b = uri;
+            this.f6427b = uri;
         }
     }
 
@@ -300,16 +300,16 @@ public class e {
             }
         }
         a = k.a;
-        f6275g = System.currentTimeMillis() - 10000;
-        f6276h = new ArrayList();
-        f6278j = 0;
+        f6417g = System.currentTimeMillis() - 10000;
+        f6418h = new ArrayList();
+        f6420j = 0;
         l = null;
         m = null;
     }
 
     public static /* synthetic */ int e() {
-        int i2 = f6278j;
-        f6278j = i2 + 1;
+        int i2 = f6420j;
+        f6420j = i2 + 1;
         return i2;
     }
 
@@ -318,7 +318,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, uri)) == null) {
             try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(f6272d, uri);
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(f6414d, uri);
                 if (bitmap == null) {
                     return 0.0d;
                 }
@@ -367,7 +367,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return g.a().b() && System.currentTimeMillis() - f6270b > 2000;
+            return g.a().b() && System.currentTimeMillis() - f6412b > 2000;
         }
         return invokeV.booleanValue;
     }
@@ -393,7 +393,7 @@ public class e {
                 return false;
             }
             try {
-                return MediaStore.Images.Media.getBitmap(f6272d, uri) != null;
+                return MediaStore.Images.Media.getBitmap(f6414d, uri) != null;
             } catch (Exception unused) {
                 return false;
             }
@@ -430,7 +430,7 @@ public class e {
     public static boolean p(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? Build.VERSION.SDK_INT < 23 || c.a.r0.r.a.b.a.a(context, s.f55248i) == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? Build.VERSION.SDK_INT < 23 || c.a.r0.r.a.b.a.a(context, s.f55293i) == 0 : invokeL.booleanValue;
     }
 
     /* JADX WARN: Not initialized variable reg: 3, insn: 0x0145: MOVE  (r2 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:44:0x0145 */
@@ -440,16 +440,16 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, null, handler, uri) == null) {
             if (uri.toString().matches(c.a + ".*")) {
-                if (t() && f6274f) {
-                    f6275g = System.currentTimeMillis();
+                if (t() && f6416f) {
+                    f6417g = System.currentTimeMillis();
                     return;
                 }
-                f6278j = 0;
-                f6275g = System.currentTimeMillis();
+                f6420j = 0;
+                f6417g = System.currentTimeMillis();
                 Closeable closeable2 = null;
                 try {
                     try {
-                        cursor = f6272d.query(uri, c.f6284b, null, null, "date_added DESC");
+                        cursor = f6414d.query(uri, c.f6426b, null, null, "date_added DESC");
                         if (cursor != null) {
                             try {
                                 if (cursor.moveToFirst()) {
@@ -473,17 +473,17 @@ public class e {
                                     l = k.toString();
                                     m = string;
                                     if (c.e(string) && c.f(currentTimeMillis, j2)) {
-                                        f6274f = true;
+                                        f6416f = true;
                                         b bVar = new b(string, handler, new d(string, Long.valueOf(j2), k, null));
-                                        f6277i = bVar;
+                                        f6419i = bVar;
                                         handler.post(bVar);
                                     } else {
-                                        f6274f = false;
+                                        f6416f = false;
                                     }
                                 }
                             } catch (RuntimeException unused) {
-                                if (f6273e != null) {
-                                    List<ProviderInfo> queryContentProviders = f6273e.queryContentProviders(null, 0, 131072);
+                                if (f6415e != null) {
+                                    List<ProviderInfo> queryContentProviders = f6415e.queryContentProviders(null, 0, 131072);
                                     HashMap hashMap = new HashMap();
                                     hashMap.put("from", "SystemScreenshot");
                                     hashMap.put("page", "SystemScreenshot");
@@ -516,18 +516,18 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65554, null, cVar) == null) || cVar == null) {
             return;
         }
-        f6276h.add(cVar);
+        f6418h.add(cVar);
     }
 
     public static void s(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, context) == null) {
-            f6273e = context.getPackageManager();
+            f6415e = context.getPackageManager();
             Handler handler = new Handler(Looper.getMainLooper());
-            f6272d = context.getContentResolver();
-            f6271c = new a(handler, handler);
+            f6414d = context.getContentResolver();
+            f6413c = new a(handler, handler);
             if (p(context)) {
-                f6272d.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, f6271c);
+                f6414d.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, f6413c);
             } else if (a && q0.G()) {
                 c.a.r0.a.e0.d.i("SYSTEM_SCREENSHOT", "WRITE_EXTERNAL_STORAGE permission denied");
             }
@@ -537,7 +537,7 @@ public class e {
     public static boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? System.currentTimeMillis() - f6275g <= 1000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? System.currentTimeMillis() - f6417g <= 1000 : invokeV.booleanValue;
     }
 
     public static void u(c.a.r0.a.g2.c cVar) {
@@ -545,6 +545,6 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65557, null, cVar) == null) || cVar == null) {
             return;
         }
-        f6276h.remove(cVar);
+        f6418h.remove(cVar);
     }
 }

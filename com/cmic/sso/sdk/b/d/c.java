@@ -1,5 +1,5 @@
 package com.cmic.sso.sdk.b.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface c {
     void a(a aVar);
 

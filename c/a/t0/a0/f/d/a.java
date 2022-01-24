@@ -2,7 +2,7 @@ package c.a.t0.a0.f.d;
 
 import android.content.Context;
 import android.text.TextUtils;
-import c.a.t0.e2.n.c;
+import c.a.t0.f2.n.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -23,7 +23,7 @@ public class a {
 
     /* renamed from: c.a.t0.a0.f.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C0927a {
+    public static /* synthetic */ class C0937a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -51,7 +51,7 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(C0927a c0927a) {
+    public /* synthetic */ a(C0937a c0937a) {
         this();
     }
 

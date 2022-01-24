@@ -90,19 +90,19 @@ public final class k {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f28789b;
+        public final long f28817b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f28790c;
+        public final int f28818c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f28791d;
+        public final int f28819d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f28792e;
+        public final int f28820e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final byte[] f28793f;
+        public final byte[] f28821f;
 
         public d(long j2, int i2, long j3, int i3, int i4, int i5, int i6, int i7, boolean z, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -120,11 +120,11 @@ public final class k {
                 }
             }
             this.a = i2;
-            this.f28789b = j3;
-            this.f28790c = i4;
-            this.f28791d = i6;
-            this.f28792e = i7;
-            this.f28793f = bArr;
+            this.f28817b = j3;
+            this.f28818c = i4;
+            this.f28819d = i6;
+            this.f28820e = i7;
+            this.f28821f = bArr;
         }
     }
 

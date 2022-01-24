@@ -18,15 +18,15 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f6499d;
+    public static final boolean f6641d;
     public transient /* synthetic */ FieldHolder $fh;
     public Timer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f6500b;
+    public volatile boolean f6642b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f6501c;
+    public final c f6643c;
 
     /* loaded from: classes.dex */
     public class a extends TimerTask {
@@ -34,7 +34,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f6502e;
+        public final /* synthetic */ b f6644e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -51,22 +51,22 @@ public class b {
                     return;
                 }
             }
-            this.f6502e = bVar;
+            this.f6644e = bVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = b.f6499d;
-                this.f6502e.f6500b = false;
+                boolean unused = b.f6641d;
+                this.f6644e.f6642b = false;
             }
         }
     }
 
     /* renamed from: c.a.r0.a.h0.i.g.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0373b {
+    public static final class C0382b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class b {
                 return;
             }
         }
-        f6499d = k.a;
+        f6641d = k.a;
     }
 
     public /* synthetic */ b(a aVar) {
@@ -111,22 +111,22 @@ public class b {
     public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? C0373b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? C0382b.a : (b) invokeV.objValue;
     }
 
     public List<c.a.r0.a.h0.i.g.d.a> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6501c.a.d() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6643c.a.d() : (List) invokeV.objValue;
     }
 
     public void e(c.a.r0.a.h0.i.g.d.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && this.f6500b) {
-            if (f6499d) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && this.f6642b) {
+            if (f6641d) {
                 String str = ">> add request " + aVar.toString();
             }
-            this.f6501c.a(aVar);
+            this.f6643c.a(aVar);
         }
     }
 
@@ -135,8 +135,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            d g2 = this.f6501c.g();
-            if (f6499d) {
+            d g2 = this.f6643c.g();
+            if (f6641d) {
                 String str = ">> requestResult: " + g2.d() + g2.c();
             }
             return g2;
@@ -147,9 +147,9 @@ public class b {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f6500b = true;
+            this.f6642b = true;
             h();
-            this.f6501c.h();
+            this.f6643c.h();
         }
     }
 
@@ -166,8 +166,8 @@ public class b {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            boolean z = f6499d;
-            this.f6501c.i();
+            boolean z = f6641d;
+            this.f6643c.i();
             h();
             Timer timer = new Timer();
             this.a = timer;
@@ -178,9 +178,9 @@ public class b {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f6500b = false;
+            this.f6642b = false;
             h();
-            boolean z = f6499d;
+            boolean z = f6641d;
         }
     }
 
@@ -197,7 +197,7 @@ public class b {
                 return;
             }
         }
-        this.f6500b = true;
-        this.f6501c = new c();
+        this.f6642b = true;
+        this.f6643c = new c();
     }
 }

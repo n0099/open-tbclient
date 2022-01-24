@@ -1,6 +1,6 @@
 package org.apache.commons.logging;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface Log {
     void debug(Object obj);
 

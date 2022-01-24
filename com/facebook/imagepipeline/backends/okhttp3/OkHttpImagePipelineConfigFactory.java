@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import okhttp3.OkHttpClient;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OkHttpImagePipelineConfigFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

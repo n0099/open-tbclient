@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-import c.a.t0.w3.w;
-import c.a.t0.x1.o.j.c;
+import c.a.t0.x3.w;
+import c.a.t0.y1.o.j.c;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,13 +23,13 @@ public class MoreButton extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f45692e;
+        public final /* synthetic */ TbPageContext f45720e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f45693f;
+        public final /* synthetic */ c f45721f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ MoreButton f45694g;
+        public final /* synthetic */ MoreButton f45722g;
 
         public a(MoreButton moreButton, TbPageContext tbPageContext, c cVar) {
             Interceptable interceptable = $ic;
@@ -46,16 +46,16 @@ public class MoreButton extends TextView {
                     return;
                 }
             }
-            this.f45694g = moreButton;
-            this.f45692e = tbPageContext;
-            this.f45693f = cVar;
+            this.f45722g = moreButton;
+            this.f45720e = tbPageContext;
+            this.f45721f = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                w.c(this.f45692e, this.f45693f.d());
+                w.c(this.f45720e, this.f45721f.d());
             }
         }
     }

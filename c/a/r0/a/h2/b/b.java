@@ -25,10 +25,10 @@ public class b extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7020e;
+        public final /* synthetic */ CallbackHandler f7162e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7021f;
+        public final /* synthetic */ String f7163f;
 
         public a(b bVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public class b extends z {
                     return;
                 }
             }
-            this.f7020e = callbackHandler;
-            this.f7021f = str;
+            this.f7162e = callbackHandler;
+            this.f7163f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,9 +65,9 @@ public class b extends z {
                     }
                 } else {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(iVar.b());
-                    c.a.r0.a.c1.b.j().g(this.f7020e, wrapCallbackParams.toString());
+                    c.a.r0.a.c1.b.j().g(this.f7162e, wrapCallbackParams.toString());
                 }
-                this.f7020e.handleSchemeDispatchCallback(this.f7021f, wrapCallbackParams.toString());
+                this.f7162e.handleSchemeDispatchCallback(this.f7163f, wrapCallbackParams.toString());
             }
         }
     }

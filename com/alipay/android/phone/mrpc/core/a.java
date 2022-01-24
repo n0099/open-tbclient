@@ -12,19 +12,19 @@ public abstract class a implements v {
     public Method a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f30635b;
+    public byte[] f30663b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30636c;
+    public String f30664c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30637d;
+    public int f30665d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30638e;
+    public String f30666e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f30639f;
+    public boolean f30667f;
 
     public a(Method method, int i2, String str, byte[] bArr, String str2, boolean z) {
         Interceptable interceptable = $ic;
@@ -42,10 +42,10 @@ public abstract class a implements v {
             }
         }
         this.a = method;
-        this.f30637d = i2;
-        this.f30636c = str;
-        this.f30635b = bArr;
-        this.f30638e = str2;
-        this.f30639f = z;
+        this.f30665d = i2;
+        this.f30664c = str;
+        this.f30663b = bArr;
+        this.f30666e = str2;
+        this.f30667f = z;
     }
 }

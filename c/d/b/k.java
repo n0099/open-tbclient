@@ -21,29 +21,29 @@ public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h[] f27953e;
+    public static final h[] f27981e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h[] f27954f;
+    public static final h[] f27982f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final k f27955g;
+    public static final k f27983g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final k f27956h;
+    public static final k f27984h;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f27957b;
+    public final boolean f27985b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final String[] f27958c;
+    public final String[] f27986c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public final String[] f27959d;
+    public final String[] f27987d;
 
     static {
         InterceptResult invokeClinit;
@@ -58,24 +58,24 @@ public final class k {
                 return;
             }
         }
-        f27953e = new h[]{h.q, h.r, h.s, h.t, h.u, h.k, h.m, h.l, h.n, h.p, h.o};
-        f27954f = new h[]{h.q, h.r, h.s, h.t, h.u, h.k, h.m, h.l, h.n, h.p, h.o, h.f27944i, h.f27945j, h.f27942g, h.f27943h, h.f27940e, h.f27941f, h.f27939d};
+        f27981e = new h[]{h.q, h.r, h.s, h.t, h.u, h.k, h.m, h.l, h.n, h.p, h.o};
+        f27982f = new h[]{h.q, h.r, h.s, h.t, h.u, h.k, h.m, h.l, h.n, h.p, h.o, h.f27972i, h.f27973j, h.f27970g, h.f27971h, h.f27968e, h.f27969f, h.f27967d};
         a aVar = new a(true);
-        aVar.b(f27953e);
+        aVar.b(f27981e);
         aVar.e(TlsVersion.TLS_1_3, TlsVersion.TLS_1_2);
         aVar.d(true);
         aVar.a();
         a aVar2 = new a(true);
-        aVar2.b(f27954f);
+        aVar2.b(f27982f);
         aVar2.e(TlsVersion.TLS_1_3, TlsVersion.TLS_1_2, TlsVersion.TLS_1_1, TlsVersion.TLS_1_0);
         aVar2.d(true);
-        f27955g = aVar2.a();
+        f27983g = aVar2.a();
         a aVar3 = new a(true);
-        aVar3.b(f27954f);
+        aVar3.b(f27982f);
         aVar3.e(TlsVersion.TLS_1_0);
         aVar3.d(true);
         aVar3.a();
-        f27956h = new a(false).a();
+        f27984h = new a(false).a();
     }
 
     public k(a aVar) {
@@ -94,20 +94,20 @@ public final class k {
             }
         }
         this.a = aVar.a;
-        this.f27958c = aVar.f27960b;
-        this.f27959d = aVar.f27961c;
-        this.f27957b = aVar.f27962d;
+        this.f27986c = aVar.f27988b;
+        this.f27987d = aVar.f27989c;
+        this.f27985b = aVar.f27990d;
     }
 
     public void a(SSLSocket sSLSocket, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, sSLSocket, z) == null) {
             k e2 = e(sSLSocket, z);
-            String[] strArr = e2.f27959d;
+            String[] strArr = e2.f27987d;
             if (strArr != null) {
                 sSLSocket.setEnabledProtocols(strArr);
             }
-            String[] strArr2 = e2.f27958c;
+            String[] strArr2 = e2.f27986c;
             if (strArr2 != null) {
                 sSLSocket.setEnabledCipherSuites(strArr2);
             }
@@ -119,7 +119,7 @@ public final class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String[] strArr = this.f27958c;
+            String[] strArr = this.f27986c;
             if (strArr != null) {
                 return h.b(strArr);
             }
@@ -133,10 +133,10 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sSLSocket)) == null) {
             if (this.a) {
-                String[] strArr = this.f27959d;
-                if (strArr == null || c.d.b.e0.e.A(c.d.b.e0.e.f27670g, strArr, sSLSocket.getEnabledProtocols())) {
-                    String[] strArr2 = this.f27958c;
-                    return strArr2 == null || c.d.b.e0.e.A(h.f27937b, strArr2, sSLSocket.getEnabledCipherSuites());
+                String[] strArr = this.f27987d;
+                if (strArr == null || c.d.b.e0.e.A(c.d.b.e0.e.f27698g, strArr, sSLSocket.getEnabledProtocols())) {
+                    String[] strArr2 = this.f27986c;
+                    return strArr2 == null || c.d.b.e0.e.A(h.f27965b, strArr2, sSLSocket.getEnabledCipherSuites());
                 }
                 return false;
             }
@@ -157,18 +157,18 @@ public final class k {
         String[] enabledProtocols;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, sSLSocket, z)) == null) {
-            if (this.f27958c != null) {
-                enabledCipherSuites = c.d.b.e0.e.y(h.f27937b, sSLSocket.getEnabledCipherSuites(), this.f27958c);
+            if (this.f27986c != null) {
+                enabledCipherSuites = c.d.b.e0.e.y(h.f27965b, sSLSocket.getEnabledCipherSuites(), this.f27986c);
             } else {
                 enabledCipherSuites = sSLSocket.getEnabledCipherSuites();
             }
-            if (this.f27959d != null) {
-                enabledProtocols = c.d.b.e0.e.y(c.d.b.e0.e.f27670g, sSLSocket.getEnabledProtocols(), this.f27959d);
+            if (this.f27987d != null) {
+                enabledProtocols = c.d.b.e0.e.y(c.d.b.e0.e.f27698g, sSLSocket.getEnabledProtocols(), this.f27987d);
             } else {
                 enabledProtocols = sSLSocket.getEnabledProtocols();
             }
             String[] supportedCipherSuites = sSLSocket.getSupportedCipherSuites();
-            int v = c.d.b.e0.e.v(h.f27937b, supportedCipherSuites, "TLS_FALLBACK_SCSV");
+            int v = c.d.b.e0.e.v(h.f27965b, supportedCipherSuites, "TLS_FALLBACK_SCSV");
             if (z && v != -1) {
                 enabledCipherSuites = c.d.b.e0.e.h(enabledCipherSuites, supportedCipherSuites[v]);
             }
@@ -193,7 +193,7 @@ public final class k {
                 if (z != kVar.a) {
                     return false;
                 }
-                return !z || (Arrays.equals(this.f27958c, kVar.f27958c) && Arrays.equals(this.f27959d, kVar.f27959d) && this.f27957b == kVar.f27957b);
+                return !z || (Arrays.equals(this.f27986c, kVar.f27986c) && Arrays.equals(this.f27987d, kVar.f27987d) && this.f27985b == kVar.f27985b);
             }
             return false;
         }
@@ -203,7 +203,7 @@ public final class k {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27957b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27985b : invokeV.booleanValue;
     }
 
     @Nullable
@@ -211,7 +211,7 @@ public final class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String[] strArr = this.f27959d;
+            String[] strArr = this.f27987d;
             if (strArr != null) {
                 return TlsVersion.forJavaNames(strArr);
             }
@@ -225,7 +225,7 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (this.a) {
-                return ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + Arrays.hashCode(this.f27958c)) * 31) + Arrays.hashCode(this.f27959d)) * 31) + (!this.f27957b ? 1 : 0);
+                return ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + Arrays.hashCode(this.f27986c)) * 31) + Arrays.hashCode(this.f27987d)) * 31) + (!this.f27985b ? 1 : 0);
             }
             return 17;
         }
@@ -237,9 +237,9 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (this.a) {
-                String obj = this.f27958c != null ? b().toString() : "[all enabled]";
-                String obj2 = this.f27959d != null ? g().toString() : "[all enabled]";
-                return "ConnectionSpec(cipherSuites=" + obj + ", tlsVersions=" + obj2 + ", supportsTlsExtensions=" + this.f27957b + SmallTailInfo.EMOTION_SUFFIX;
+                String obj = this.f27986c != null ? b().toString() : "[all enabled]";
+                String obj2 = this.f27987d != null ? g().toString() : "[all enabled]";
+                return "ConnectionSpec(cipherSuites=" + obj + ", tlsVersions=" + obj2 + ", supportsTlsExtensions=" + this.f27985b + SmallTailInfo.EMOTION_SUFFIX;
             }
             return "ConnectionSpec()";
         }
@@ -254,14 +254,14 @@ public final class k {
         @Nullable
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f27960b;
+        public String[] f27988b;
         @Nullable
 
         /* renamed from: c  reason: collision with root package name */
-        public String[] f27961c;
+        public String[] f27989c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f27962d;
+        public boolean f27990d;
 
         public a(boolean z) {
             Interceptable interceptable = $ic;
@@ -310,7 +310,7 @@ public final class k {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
                 if (this.a) {
                     if (strArr.length != 0) {
-                        this.f27960b = (String[]) strArr.clone();
+                        this.f27988b = (String[]) strArr.clone();
                         return this;
                     }
                     throw new IllegalArgumentException("At least one cipher suite is required");
@@ -325,7 +325,7 @@ public final class k {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
                 if (this.a) {
-                    this.f27962d = z;
+                    this.f27990d = z;
                     return this;
                 }
                 throw new IllegalStateException("no TLS extensions for cleartext connections");
@@ -356,7 +356,7 @@ public final class k {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
                 if (this.a) {
                     if (strArr.length != 0) {
-                        this.f27961c = (String[]) strArr.clone();
+                        this.f27989c = (String[]) strArr.clone();
                         return this;
                     }
                     throw new IllegalArgumentException("At least one TLS version is required");
@@ -382,9 +382,9 @@ public final class k {
                 }
             }
             this.a = kVar.a;
-            this.f27960b = kVar.f27958c;
-            this.f27961c = kVar.f27959d;
-            this.f27962d = kVar.f27957b;
+            this.f27988b = kVar.f27986c;
+            this.f27989c = kVar.f27987d;
+            this.f27990d = kVar.f27985b;
         }
     }
 }

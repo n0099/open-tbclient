@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import c.a.d.a.e;
 import c.a.d.a.f;
 import c.a.d.f.p.n;
-import c.a.s0.t.c.s0;
+import c.a.s0.t.c.r0;
 import c.a.s0.t.d.d;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -33,13 +33,13 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f47780e;
+    public b f47808e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f47781f;
+    public Context f47809f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f47782g;
+    public final boolean f47810g;
 
     /* loaded from: classes12.dex */
     public static /* synthetic */ class a {
@@ -65,19 +65,19 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 return;
             }
         }
-        this.f47781f = baseActivity.getPageContext().getPageActivity();
+        this.f47809f = baseActivity.getPageContext().getPageActivity();
         this.mLoadDataCallBack = eVar;
-        this.f47782g = false;
+        this.f47810g = false;
     }
 
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f47780e == null) {
-                this.f47780e = new b(this, null);
+            if (this.f47808e == null) {
+                this.f47808e = new b(this, null);
             }
-            this.f47780e.setPriority(3);
-            this.f47780e.execute(new String[0]);
+            this.f47808e.setPriority(3);
+            this.f47808e.execute(new String[0]);
         }
     }
 
@@ -86,7 +86,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = this.f47780e;
+            b bVar = this.f47808e;
             if (bVar != null) {
                 bVar.cancel();
                 return false;
@@ -113,7 +113,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AboutModel f47783b;
+        public final /* synthetic */ AboutModel f47811b;
 
         public b(AboutModel aboutModel) {
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                     return;
                 }
             }
-            this.f47783b = aboutModel;
+            this.f47811b = aboutModel;
             this.a = null;
         }
 
@@ -158,7 +158,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 } else {
                     this.a.addPostData("_msg_status", "1");
                 }
-                if (this.f47783b.f47782g) {
+                if (this.f47811b.f47810g) {
                     this.a.addPostData("reversion_return", "1");
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
@@ -183,16 +183,16 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                     try {
                         eVar2.z(postNetData);
                         if (TbadkCoreApplication.getClientId() == null && eVar2.i().a() != null && eVar2.i().a().length() > 0) {
-                            TbadkCoreApplication.saveClientId(this.f47783b.f47781f, eVar2.i().a());
+                            TbadkCoreApplication.saveClientId(this.f47811b.f47809f, eVar2.i().a());
                             TbadkCoreApplication.setClientId(eVar2.i().a());
                         }
-                        s0 t = eVar2.t();
+                        r0 t = eVar2.t();
                         if (t != null) {
-                            c.a.s0.s.h0.b.k().u("localvideo_open", t.B());
+                            c.a.s0.s.i0.b.k().u("localvideo_open", t.B());
                         }
                         c.a.s0.t.c.d e2 = eVar2.e();
                         if (e2 != null && !TextUtils.isEmpty(e2.c())) {
-                            c.a.s0.s.h0.b.k().y("sync_ad_privacy_url", e2.c());
+                            c.a.s0.s.i0.b.k().y("sync_ad_privacy_url", e2.c());
                         }
                         return eVar2;
                     } catch (Exception e3) {
@@ -218,8 +218,8 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 if (eVar != null && eVar.e() != null) {
                     TbadkCoreApplication.getInst().setAdAdSense(eVar.e());
                 }
-                this.f47783b.f47780e = null;
-                this.f47783b.mLoadDataCallBack.c(eVar);
+                this.f47811b.f47808e = null;
+                this.f47811b.mLoadDataCallBack.c(eVar);
             }
         }
 
@@ -227,7 +227,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f47783b.f47780e = null;
+                this.f47811b.f47808e = null;
                 NetWork netWork = this.a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();

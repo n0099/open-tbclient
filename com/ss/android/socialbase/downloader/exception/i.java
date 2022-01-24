@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.exception;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i extends Throwable {
     public String a;
 

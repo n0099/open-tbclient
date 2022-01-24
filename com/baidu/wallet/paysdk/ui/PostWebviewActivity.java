@@ -19,13 +19,13 @@ import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.apollon.webmanager.SafeWebView;
 import com.dxmpay.wallet.base.widget.BdActionBar;
 import com.dxmpay.wallet.core.SDKBaseActivity;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class PostWebviewActivity extends DxmPayBaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SafeWebView a;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public class a extends SafeWebView.SafeChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

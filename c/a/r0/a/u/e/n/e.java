@@ -25,15 +25,15 @@ public class e extends c.a.r0.a.u.e.n.a {
 
         /* renamed from: c.a.r0.a.u.e.n.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0589a implements a.c {
+        public class C0598a implements a.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ m a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f9237b;
+            public final /* synthetic */ a f9379b;
 
-            public C0589a(a aVar, m mVar) {
+            public C0598a(a aVar, m mVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +48,7 @@ public class e extends c.a.r0.a.u.e.n.a {
                         return;
                     }
                 }
-                this.f9237b = aVar;
+                this.f9379b = aVar;
                 this.a = mVar;
             }
 
@@ -60,10 +60,10 @@ public class e extends c.a.r0.a.u.e.n.a {
                     try {
                         jSONObject.put("direction", f2);
                         jSONObject.put("accuracy", c.a.r0.a.r2.e.a.h(i2));
-                        this.a.d(this.f9237b.a, jSONObject);
+                        this.a.d(this.f9379b.a, jSONObject);
                     } catch (JSONException e2) {
                         c.a.r0.a.e0.d.c("CompassApi", "handle compass,json error，" + e2.toString());
-                        this.a.f(this.f9237b.a, "Json error");
+                        this.a.f(this.f9379b.a, "Json error");
                     }
                 }
             }
@@ -95,7 +95,7 @@ public class e extends c.a.r0.a.u.e.n.a {
                 m mVar = new m("compassChange", jSONObject, str);
                 c.a.r0.a.r2.e.a i2 = c.a.r0.a.r2.e.a.i();
                 i2.l(this.a.getContext());
-                i2.o(new C0589a(this, mVar));
+                i2.o(new C0598a(this, mVar));
                 c.a.r0.a.e0.d.i("CompassApi", "start listen compass");
                 i2.p();
                 mVar.b(this.a);

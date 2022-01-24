@@ -19,7 +19,7 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
     public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<BaseFragment> f47098b;
+    public ArrayList<BaseFragment> f47126b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
@@ -39,12 +39,12 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f47098b = new ArrayList<>();
+        this.f47126b = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         BaseFragment createPersonalFramget = createPersonalFramget();
         createPersonalFramget.setArguments(bundle);
-        this.f47098b.add(createPersonalFramget);
+        this.f47126b.add(createPersonalFramget);
         if (z) {
             this.a = new int[]{0};
             return;
@@ -53,7 +53,7 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
         bundle2.putInt("page_type", 1);
         BaseFragment createPersonalFramget2 = createPersonalFramget();
         createPersonalFramget2.setArguments(bundle2);
-        this.f47098b.add(createPersonalFramget2);
+        this.f47126b.add(createPersonalFramget2);
         this.a = new int[]{0, 1};
     }
 
@@ -74,7 +74,7 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
             if (i2 >= this.a.length || i2 < 0) {
                 return null;
             }
-            return this.f47098b.get(i2);
+            return this.f47126b.get(i2);
         }
         return (Fragment) invokeI.objValue;
     }

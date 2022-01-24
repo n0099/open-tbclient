@@ -80,9 +80,9 @@ public class d extends c.a.r0.q.k.b {
             for (i iVar : w) {
                 JSONObject jSONObject5 = new JSONObject();
                 jSONObject5.put("type", "ddl");
-                jSONObject5.put("bundle_id", iVar.f11494g);
-                jSONObject5.put("version_code", iVar.f11496i);
-                jSONObject5.put("version_name", iVar.f11497j);
+                jSONObject5.put("bundle_id", iVar.f11636g);
+                jSONObject5.put("version_code", iVar.f11638i);
+                jSONObject5.put("version_name", iVar.f11639j);
                 jSONArray.put(jSONObject5);
             }
             return jSONArray;

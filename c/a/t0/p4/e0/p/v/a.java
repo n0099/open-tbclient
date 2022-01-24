@@ -21,13 +21,13 @@ public class a {
     public List<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<List<String>> f21220b;
+    public List<List<String>> f21456b;
 
     /* renamed from: c  reason: collision with root package name */
-    public VideoCategoryClassData f21221c;
+    public VideoCategoryClassData f21457c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f21222d;
+    public BdUniqueId f21458d;
 
     public a(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
@@ -45,19 +45,19 @@ public class a {
             }
         }
         this.a = new ArrayList();
-        this.f21220b = new ArrayList();
-        this.f21221c = new VideoCategoryClassData();
-        this.f21222d = bdUniqueId;
+        this.f21456b = new ArrayList();
+        this.f21457c = new VideoCategoryClassData();
+        this.f21458d = bdUniqueId;
     }
 
     public VideoCategoryClassData a(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-            this.f21221c.setFirstClass(this.a.get(i2));
-            this.f21221c.setSecondClass(this.f21220b.get(i2).get(i3));
-            this.f21221c.getTags().clear();
-            return this.f21221c;
+            this.f21457c.setFirstClass(this.a.get(i2));
+            this.f21457c.setSecondClass(this.f21456b.get(i2).get(i3));
+            this.f21457c.getTags().clear();
+            return this.f21457c;
         }
         return (VideoCategoryClassData) invokeII.objValue;
     }
@@ -71,20 +71,20 @@ public class a {
     public List<List<String>> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21220b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21456b : (List) invokeV.objValue;
     }
 
     public ArrayList<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21221c.getTags() : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21457c.getTags() : (ArrayList) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             GetSelectClassReqMessage getSelectClassReqMessage = new GetSelectClassReqMessage();
-            getSelectClassReqMessage.setTag(this.f21222d);
+            getSelectClassReqMessage.setTag(this.f21458d);
             MessageManager.getInstance().sendMessage(getSelectClassReqMessage);
         }
     }
@@ -93,9 +93,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             GetSelectTagReqMessage getSelectTagReqMessage = new GetSelectTagReqMessage();
-            getSelectTagReqMessage.setTag(this.f21222d);
-            getSelectTagReqMessage.setFirstClass(this.f21221c.getFirstClass());
-            getSelectTagReqMessage.setSecondClass(this.f21221c.getSecondClass());
+            getSelectTagReqMessage.setTag(this.f21458d);
+            getSelectTagReqMessage.setFirstClass(this.f21457c.getFirstClass());
+            getSelectTagReqMessage.setSecondClass(this.f21457c.getSecondClass());
             MessageManager.getInstance().sendMessage(getSelectTagReqMessage);
         }
     }
@@ -111,15 +111,15 @@ public class a {
     public void h(List<List<String>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.f21220b.clear();
-            this.f21220b.addAll(list);
+            this.f21456b.clear();
+            this.f21456b.addAll(list);
         }
     }
 
     public void i(VideoCategoryClassData videoCategoryClassData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, videoCategoryClassData) == null) {
-            this.f21221c = videoCategoryClassData;
+            this.f21457c = videoCategoryClassData;
         }
     }
 }

@@ -14,10 +14,10 @@ public class w implements com.kwad.sdk.core.webview.kwai.a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56459b;
+        public String f56504b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f56460c;
+        public String f56505c;
     }
 
     private void a(a aVar) {

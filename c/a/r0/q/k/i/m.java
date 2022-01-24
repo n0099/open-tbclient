@@ -13,12 +13,12 @@ public class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile m f11611c;
+    public static volatile m f11753c;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11612b;
+    public int f11754b;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class m {
                 return;
             }
         }
-        this.f11612b = 0;
+        this.f11754b = 0;
         this.a = c.a.r0.q.c.b().i().getInt("max_emit_app_close_num", 1);
     }
 
@@ -41,24 +41,24 @@ public class m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f11611c == null) {
+            if (f11753c == null) {
                 synchronized (m.class) {
-                    if (f11611c == null) {
-                        f11611c = new m();
+                    if (f11753c == null) {
+                        f11753c = new m();
                     }
                 }
             }
-            return f11611c;
+            return f11753c;
         }
         return (m) invokeV.objValue;
     }
 
     public static void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f11611c == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f11753c == null) {
             return;
         }
-        f11611c = null;
+        f11753c = null;
     }
 
     public String b() {
@@ -71,7 +71,7 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                this.f11612b++;
+                this.f11754b++;
             }
         }
     }
@@ -82,7 +82,7 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                z = this.f11612b < this.a;
+                z = this.f11754b < this.a;
             }
             return z;
         }

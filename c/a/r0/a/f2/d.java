@@ -24,7 +24,7 @@ public class d extends e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5854b;
+    public static final boolean f5996b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class d extends e {
                 return;
             }
         }
-        f5854b = k.a;
+        f5996b = k.a;
     }
 
     public d() {
@@ -89,7 +89,7 @@ public class d extends e {
                     b(zVar);
                 }
             }
-            if (f5854b) {
+            if (f5996b) {
                 b(new l(this));
                 b(new c.a.r0.a.f2.f.a(this));
                 if (d2 == null || (b2 = d2.b(this)) == null || b2.isEmpty()) {

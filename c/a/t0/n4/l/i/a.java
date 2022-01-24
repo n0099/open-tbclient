@@ -15,7 +15,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f19954b;
+    public static a f20055b;
     public transient /* synthetic */ FieldHolder $fh;
     public SparseArray<CloudMusicData.MusicTagList.MusicList> a;
 
@@ -56,10 +56,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f19954b == null) {
-                    f19954b = new a();
+                if (f20055b == null) {
+                    f20055b = new a();
                 }
-                aVar = f19954b;
+                aVar = f20055b;
             }
             return aVar;
         }
@@ -76,7 +76,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = null;
-            f19954b = null;
+            f20055b = null;
         }
     }
 

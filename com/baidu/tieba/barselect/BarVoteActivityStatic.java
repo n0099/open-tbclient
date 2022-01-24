@@ -1,7 +1,7 @@
 package com.baidu.tieba.barselect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.e1.v0;
+import c.a.s0.d1.v0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -160,8 +160,8 @@ public class BarVoteActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof c.a.t0.s2.d)) {
-                    c.a.t0.s2.d dVar = (c.a.t0.s2.d) customMessage.getData();
+                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof c.a.t0.t2.d)) {
+                    c.a.t0.t2.d dVar = (c.a.t0.t2.d) customMessage.getData();
                     CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(dVar.a(), dVar.b(), dVar.d(), dVar.c());
                     commitVoteReqMsg.setTag(dVar.e());
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
@@ -354,8 +354,8 @@ public class BarVoteActivityStatic {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            c.a.t0.w3.f0.a.h(309642, VoteElectionSocketResMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, c.a.t0.w3.f0.a.a("c/f/bawu/electionInfo", 309642));
+            c.a.t0.x3.f0.a.h(309642, VoteElectionSocketResMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, c.a.t0.x3.f0.a.a("c/f/bawu/electionInfo", 309642));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setIsNeedLogin(true);
             tbHttpMessageTask.setResponsedClass(VoteElectionHttpResMessage.class);

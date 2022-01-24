@@ -17,7 +17,7 @@ public class b {
     public static long a = 60000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f4726b;
+    public static long f4868b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class b {
                 return;
             }
         }
-        f4726b = a * 60;
+        f4868b = a * 60;
     }
 
     public static void a(Context context, long j2) {

@@ -19,7 +19,7 @@ public abstract class a {
 
     /* renamed from: c.a.r0.q.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C0797a {
+    public static /* synthetic */ class C0806a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -31,7 +31,7 @@ public abstract class a {
 
         /* renamed from: c.a.r0.q.p.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0798a {
+        public static class C0807a {
             public static /* synthetic */ Interceptable $ic;
             public static b a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public abstract class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "DB" : (String) invokeV.objValue;
         }
 
-        public /* synthetic */ b(C0797a c0797a) {
+        public /* synthetic */ b(C0806a c0806a) {
             this();
         }
     }
@@ -87,7 +87,7 @@ public abstract class a {
 
         /* renamed from: c.a.r0.q.p.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0799a {
+        public static class C0808a {
             public static /* synthetic */ Interceptable $ic;
             public static c a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +131,7 @@ public abstract class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "IO" : (String) invokeV.objValue;
         }
 
-        public /* synthetic */ c(C0797a c0797a) {
+        public /* synthetic */ c(C0806a c0806a) {
             this();
         }
     }
@@ -143,7 +143,7 @@ public abstract class a {
 
         /* renamed from: c.a.r0.q.p.a$d$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0800a {
+        public static class C0809a {
             public static /* synthetic */ Interceptable $ic;
             public static d a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +187,7 @@ public abstract class a {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Net" : (String) invokeV.objValue;
         }
 
-        public /* synthetic */ d(C0797a c0797a) {
+        public /* synthetic */ d(C0806a c0806a) {
             this();
         }
     }
@@ -226,21 +226,21 @@ public abstract class a {
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.C0798a.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.C0807a.a : (b) invokeV.objValue;
     }
 
     @NonNull
     public static a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.C0799a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.C0808a.a : (a) invokeV.objValue;
     }
 
     @NonNull
     public static a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.C0800a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.C0809a.a : (a) invokeV.objValue;
     }
 
     public final String a() {

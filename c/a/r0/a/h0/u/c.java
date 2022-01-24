@@ -15,7 +15,7 @@ public class c extends c.a.r0.a.o0.d.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<c.a.r0.a.o0.d.b> f6913d;
+    public final List<c.a.r0.a.o0.d.b> f7055d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c() {
@@ -33,7 +33,7 @@ public class c extends c.a.r0.a.o0.d.c {
                 return;
             }
         }
-        this.f6913d = new ArrayList();
+        this.f7055d = new ArrayList();
     }
 
     @Override // c.a.r0.a.o0.d.b
@@ -41,16 +41,16 @@ public class c extends c.a.r0.a.o0.d.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            if (aVar == null || this.f6913d.size() <= 0) {
+            if (aVar == null || this.f7055d.size() <= 0) {
                 return null;
             }
             int i2 = 0;
             StringBuilder sb = new StringBuilder();
-            for (c.a.r0.a.o0.d.b bVar : this.f6913d) {
+            for (c.a.r0.a.o0.d.b bVar : this.f7055d) {
                 sb.append(bVar.d("event" + i2, aVar));
                 i2++;
             }
-            if (c.a.r0.a.o0.d.b.f8026b) {
+            if (c.a.r0.a.o0.d.b.f8168b) {
                 String str = "combine msg - " + sb.toString();
             }
             return sb.toString();
@@ -61,17 +61,17 @@ public class c extends c.a.r0.a.o0.d.c {
     @Override // c.a.r0.a.o0.d.b
     public void h(c.a.r0.a.h0.f.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null || aVar.isWebView() || this.f6913d.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null || aVar.isWebView() || this.f7055d.size() <= 0) {
             return;
         }
-        if (c.a.r0.a.o0.d.b.f8026b) {
+        if (c.a.r0.a.o0.d.b.f8168b) {
             String str = "dispatch event - " + this.a + " on v8";
         }
-        for (c.a.r0.a.o0.d.b bVar : this.f6913d) {
+        for (c.a.r0.a.o0.d.b bVar : this.f7055d) {
             JSEvent e2 = bVar.e(aVar);
             if (e2 != null) {
                 j(aVar, e2);
-                if (c.a.r0.a.o0.d.b.f8026b) {
+                if (c.a.r0.a.o0.d.b.f8168b) {
                     String str2 = "dispatchJSEvent action - " + e2.type + " on v8 : " + e2.data;
                 }
             }
@@ -82,8 +82,8 @@ public class c extends c.a.r0.a.o0.d.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
-            if (bVar != null && !this.f6913d.contains(bVar)) {
-                this.f6913d.add(bVar);
+            if (bVar != null && !this.f7055d.contains(bVar)) {
+                this.f7055d.add(bVar);
             }
             return this;
         }

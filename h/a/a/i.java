@@ -13,25 +13,25 @@ public final class i {
     public static final int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f61672b;
+    public static final int[] f61717b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f61673c;
+    public static final int[] f61718c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f61674d;
+    public static final int[] f61719d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int[] f61675e;
+    public static final int[] f61720e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int[] f61676f;
+    public static final int[] f61721f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int[] f61677g;
+    public static final int[] f61722g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int[] f61678h;
+    public static final int[] f61723h;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,12 +48,12 @@ public final class i {
             }
         }
         a = new int[]{1, 5, 9, 13, 17, 25, 33, 41, 49, 65, 81, 97, 113, w0.n, 177, 209, 241, 305, 369, 497, 753, 1265, 2289, 4337, 8433, 16625};
-        f61672b = new int[]{2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 24};
-        f61673c = new int[]{0, 1, 2, 3, 4, 5, 6, 8, 10, 14, 18, 26, 34, 50, 66, 98, 130, 194, 322, 578, 1090, 2114, 6210, 22594};
-        f61674d = new int[]{0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 12, 14, 24};
-        f61675e = new int[]{2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 18, 22, 30, 38, 54, 70, 102, 134, Opcodes.IFNULL, 326, 582, 1094, 2118};
-        f61676f = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 24};
-        f61677g = new int[]{0, 0, 8, 8, 0, 16, 8, 16, 16};
-        f61678h = new int[]{0, 8, 0, 8, 16, 0, 16, 8, 16};
+        f61717b = new int[]{2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 24};
+        f61718c = new int[]{0, 1, 2, 3, 4, 5, 6, 8, 10, 14, 18, 26, 34, 50, 66, 98, 130, 194, 322, 578, 1090, 2114, 6210, 22594};
+        f61719d = new int[]{0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 12, 14, 24};
+        f61720e = new int[]{2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 18, 22, 30, 38, 54, 70, 102, 134, Opcodes.IFNULL, 326, 582, 1094, 2118};
+        f61721f = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 24};
+        f61722g = new int[]{0, 0, 8, 8, 0, 16, 8, 16, 16};
+        f61723h = new int[]{0, 8, 0, 8, 16, 0, 16, 8, 16};
     }
 }

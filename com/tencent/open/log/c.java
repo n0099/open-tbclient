@@ -13,31 +13,31 @@ public class c {
     public static int a = 60;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f60565b = 60;
+    public static int f60610b = 60;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f60566c = "OpenSDK.Client.File.Tracer";
+    public static String f60611c = "OpenSDK.Client.File.Tracer";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f60567d;
+    public static String f60612d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f60568e;
+    public static String f60613e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f60569f;
+    public static long f60614f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f60570g;
+    public static int f60615g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f60571h;
+    public static int f60616h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f60572i;
+    public static int f60617i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f60573j;
+    public static String f60618j;
     public static String k;
     public static String l;
     public static int m;
@@ -58,13 +58,13 @@ public class c {
                 return;
             }
         }
-        f60567d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
-        f60568e = ".log";
-        f60569f = 8388608L;
-        f60570g = 262144;
-        f60571h = 1024;
-        f60572i = 10000;
-        f60573j = "debug.file.blockcount";
+        f60612d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
+        f60613e = ".log";
+        f60614f = 8388608L;
+        f60615g = 262144;
+        f60616h = 1024;
+        f60617i = 10000;
+        f60618j = "debug.file.blockcount";
         k = "debug.file.keepperiod";
         l = "debug.file.tracelevel";
         m = 24;

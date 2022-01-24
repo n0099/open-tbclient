@@ -12,7 +12,7 @@ import android.text.TextUtils;
 import c.a.d.f.m.h;
 import c.a.d.f.p.o;
 import c.a.d.f.p.t;
-import c.a.s0.s.h0.b;
+import c.a.s0.s.i0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;

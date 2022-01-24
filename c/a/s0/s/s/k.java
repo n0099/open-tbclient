@@ -25,13 +25,13 @@ public class k extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<l> f13622e;
+    public ArrayList<l> f13809e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f13623f;
+    public TbPageContext<?> f13810f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13624g;
+    public boolean f13811g;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -46,10 +46,10 @@ public class k extends BaseAdapter {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f13625b;
+        public TextView f13812b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f13626c;
+        public ImageView f13813c;
 
         public b(k kVar) {
             Interceptable interceptable = $ic;
@@ -87,16 +87,16 @@ public class k extends BaseAdapter {
                 return;
             }
         }
-        this.f13624g = false;
-        this.f13623f = tbPageContext;
-        this.f13622e = new ArrayList<>();
+        this.f13811g = false;
+        this.f13810f = tbPageContext;
+        this.f13809e = new ArrayList<>();
     }
 
     public final boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            ArrayList<l> arrayList = this.f13622e;
+            ArrayList<l> arrayList = this.f13809e;
             return arrayList != null && i2 == arrayList.size() - 1;
         }
         return invokeI.booleanValue;
@@ -105,14 +105,14 @@ public class k extends BaseAdapter {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f13624g = z;
+            this.f13811g = z;
         }
     }
 
     public void c(ArrayList<l> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.f13622e = arrayList;
+            this.f13809e = arrayList;
             notifyDataSetChanged();
         }
     }
@@ -121,14 +121,14 @@ public class k extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13622e.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13809e.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f13622e.get(i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f13809e.get(i2) : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -144,34 +144,34 @@ public class k extends BaseAdapter {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
-            l lVar = this.f13622e.get(i2);
+            l lVar = this.f13809e.get(i2);
             if (lVar == null) {
                 return null;
             }
             if (view == null) {
-                view = LayoutInflater.from(this.f13623f.getPageActivity()).inflate(R.layout.dialog_rich_bdlist_item, viewGroup, false);
+                view = LayoutInflater.from(this.f13810f.getPageActivity()).inflate(R.layout.dialog_rich_bdlist_item, viewGroup, false);
                 bVar = new b(this, null);
                 bVar.a = (TextView) view.findViewById(R.id.text_tip);
-                bVar.f13625b = (TextView) view.findViewById(R.id.text_desc);
-                bVar.f13626c = (ImageView) view.findViewById(R.id.checked_icon);
+                bVar.f13812b = (TextView) view.findViewById(R.id.text_desc);
+                bVar.f13813c = (ImageView) view.findViewById(R.id.checked_icon);
             } else {
                 bVar = (b) view.getTag();
             }
             bVar.a.setText(lVar.c());
             if (StringUtils.isNull(lVar.a())) {
-                bVar.f13625b.setVisibility(8);
+                bVar.f13812b.setVisibility(8);
             } else {
-                bVar.f13625b.setText(lVar.a());
-                bVar.f13625b.setVisibility(0);
+                bVar.f13812b.setText(lVar.a());
+                bVar.f13812b.setVisibility(0);
             }
             if (lVar.d()) {
-                bVar.f13626c.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_set_list_ok_selection26, WebPManager.ResourceStateType.NORMAL));
-                bVar.f13626c.setVisibility(0);
-            } else if (this.f13624g) {
-                WebPManager.setPureDrawable(bVar.f13626c, R.drawable.icon_pure_stroke_n, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
-                bVar.f13626c.setVisibility(0);
+                bVar.f13813c.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_set_list_ok_selection26, WebPManager.ResourceStateType.NORMAL));
+                bVar.f13813c.setVisibility(0);
+            } else if (this.f13811g) {
+                WebPManager.setPureDrawable(bVar.f13813c, R.drawable.icon_pure_stroke_n, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
+                bVar.f13813c.setVisibility(0);
             } else {
-                bVar.f13626c.setVisibility(4);
+                bVar.f13813c.setVisibility(4);
             }
             if (a(i2)) {
                 SkinManager.setBackgroundResource(view, R.drawable.dialog_single_button_bg_selector);
@@ -179,8 +179,8 @@ public class k extends BaseAdapter {
                 SkinManager.setBackgroundResource(view, R.drawable.dialg_alert_btn_bg);
             }
             view.setTag(bVar);
-            this.f13623f.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.f13623f.getLayoutMode().j(view);
+            this.f13810f.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.f13810f.getLayoutMode().j(view);
             return view;
         }
         return (View) invokeILL.objValue;

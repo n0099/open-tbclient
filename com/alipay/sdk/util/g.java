@@ -13,22 +13,22 @@ public class g {
     public static final String a = "pref_trade_token";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f30939b = ";";
+    public static final String f30967b = ";";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f30940c = "result={";
+    public static final String f30968c = "result={";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f30941d = "}";
+    public static final String f30969d = "}";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f30942e = "trade_token=\"";
+    public static final String f30970e = "trade_token=\"";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f30943f = "\"";
+    public static final String f30971f = "\"";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f30944g = "trade_token=";
+    public static final String f30972g = "trade_token=";
     public transient /* synthetic */ FieldHolder $fh;
 
     public g() {
@@ -72,16 +72,16 @@ public class g {
             }
             String[] split = str.split(";");
             for (int i2 = 0; i2 < split.length; i2++) {
-                if (split[i2].startsWith(f30940c) && split[i2].endsWith("}")) {
+                if (split[i2].startsWith(f30968c) && split[i2].endsWith("}")) {
                     String[] split2 = split[i2].substring(8, split[i2].length() - 1).split("&");
                     int i3 = 0;
                     while (true) {
                         if (i3 >= split2.length) {
                             break;
-                        } else if (split2[i3].startsWith(f30942e) && split2[i3].endsWith("\"")) {
+                        } else if (split2[i3].startsWith(f30970e) && split2[i3].endsWith("\"")) {
                             str2 = split2[i3].substring(13, split2[i3].length() - 1);
                             break;
-                        } else if (split2[i3].startsWith(f30944g)) {
+                        } else if (split2[i3].startsWith(f30972g)) {
                             str2 = split2[i3].substring(12);
                             break;
                         } else {

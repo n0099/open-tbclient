@@ -39,11 +39,11 @@ public class d extends z {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f25936d = "com.baidu.tieba://";
+    public static String f25917d = "com.baidu.tieba://";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25937c;
+    public String f25918c;
 
     /* loaded from: classes9.dex */
     public class a implements c.a.r0.a.z2.g1.c<i<b.e>> {
@@ -51,22 +51,22 @@ public class d extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f25938e;
+        public final /* synthetic */ CallbackHandler f25919e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f25939f;
+        public final /* synthetic */ Context f25920f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f25940g;
+        public final /* synthetic */ String f25921g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f25941h;
+        public final /* synthetic */ String f25922h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f25942i;
+        public final /* synthetic */ String f25923i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f25943j;
+        public final /* synthetic */ String f25924j;
         public final /* synthetic */ String k;
         public final /* synthetic */ d l;
 
@@ -86,12 +86,12 @@ public class d extends z {
                 }
             }
             this.l = dVar;
-            this.f25938e = callbackHandler;
-            this.f25939f = context;
-            this.f25940g = str;
-            this.f25941h = str2;
-            this.f25942i = str3;
-            this.f25943j = str4;
+            this.f25919e = callbackHandler;
+            this.f25920f = context;
+            this.f25921g = str;
+            this.f25922h = str2;
+            this.f25923i = str3;
+            this.f25924j = str4;
             this.k = str5;
         }
 
@@ -102,13 +102,13 @@ public class d extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.q(iVar, this.f25938e, this.l.f25937c);
-                } else if (!this.l.l(this.f25939f, this.f25940g, this.f25941h, this.f25942i, this.f25943j, this.k)) {
+                    c.a.r0.a.h2.c.d.q(iVar, this.f25919e, this.l.f25918c);
+                } else if (!this.l.l(this.f25920f, this.f25921g, this.f25922h, this.f25923i, this.f25924j, this.k)) {
                     c.a.r0.a.e0.d.c("PageTransitionAction", "page transition fail");
-                    this.f25938e.handleSchemeDispatchCallback(this.l.f25937c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    this.f25919e.handleSchemeDispatchCallback(this.l.f25918c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 } else {
                     c.a.r0.a.e0.d.i("PageTransitionAction", "page transition success");
-                    this.f25938e.handleSchemeDispatchCallback(this.l.f25937c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    this.f25919e.handleSchemeDispatchCallback(this.l.f25918c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 }
             }
         }
@@ -217,7 +217,7 @@ public class d extends z {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = str6 + str4;
                 }
-                String str8 = f25936d;
+                String str8 = f25917d;
                 if (TextUtils.isEmpty(str2)) {
                     if (!TextUtils.isEmpty(str)) {
                         str8 = str8 + str;
@@ -233,12 +233,12 @@ public class d extends z {
                 }
                 StringBuilder sb2 = new StringBuilder(sb.substring(0, sb.length() - 1));
                 String str9 = str8 + "?" + ((Object) sb2);
-                if (z.f6201b) {
+                if (z.f6343b) {
                     String str10 = "encodeParams: " + ((Object) sb2);
                 }
                 return str9;
             } catch (JSONException e2) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -257,7 +257,7 @@ public class d extends z {
             if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
                 Uri parse = Uri.parse(str);
                 if (c.a.s0.a.g.c(parse)) {
-                    c.a.s0.a.g.b().j(str, parse, new b(context));
+                    c.a.s0.a.g.b().k(str, parse, new b(context));
                 } else {
                     TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context);
                     tbWebViewActivityConfig.setUri(parse);
@@ -293,7 +293,7 @@ public class d extends z {
             }
             JSONObject d2 = w.d(param);
             String optString = d2.optString("cb");
-            this.f25937c = optString;
+            this.f25918c = optString;
             if (TextUtils.isEmpty(optString)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
@@ -306,7 +306,7 @@ public class d extends z {
             try {
                 optJSONObject.put("launchMode", "standard");
             } catch (JSONException e2) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     e2.printStackTrace();
                 }
             }
@@ -343,7 +343,7 @@ public class d extends z {
                     str6 = m(str, str2, str3, str4, str5);
                     z = n(context, str6);
                 }
-                if (z.f6201b) {
+                if (z.f6343b) {
                     String str7 = "result = " + z + org.apache.commons.lang3.StringUtils.LF + "拼接后的uri is: " + str6;
                 }
             }

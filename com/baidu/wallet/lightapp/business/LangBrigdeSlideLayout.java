@@ -22,7 +22,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
     public LightappBrowserWebView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f51428b;
+    public boolean f51473b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LangBrigdeSlideLayout(Context context) {
@@ -42,7 +42,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
                 return;
             }
         }
-        this.f51428b = true;
+        this.f51473b = true;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -110,7 +110,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
     public boolean isReadyForPullDown() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.isTop && this.f51428b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.isTop && this.f51473b : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -126,7 +126,7 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
     public void setSupportPullDown(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f51428b = z;
+            this.f51473b = z;
             if (z) {
                 return;
             }
@@ -176,6 +176,6 @@ public class LangBrigdeSlideLayout extends PullToRefreshBase<LightappWebView> {
                 return;
             }
         }
-        this.f51428b = true;
+        this.f51473b = true;
     }
 }

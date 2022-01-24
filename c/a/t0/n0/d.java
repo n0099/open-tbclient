@@ -15,11 +15,11 @@ public class d extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f19571f;
+    public static final BdUniqueId f19681f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.d1.g2.c.b f19572e;
+    public c.a.t0.e1.g2.c.b f19682e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class d extends BaseCardInfo {
                 return;
             }
         }
-        f19571f = BdUniqueId.gen();
+        f19681f = BdUniqueId.gen();
     }
 
     public d() {
@@ -51,23 +51,23 @@ public class d extends BaseCardInfo {
         }
     }
 
-    public c.a.t0.d1.g2.c.b g() {
+    public c.a.t0.e1.g2.c.b g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19572e : (c.a.t0.d1.g2.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19682e : (c.a.t0.e1.g2.c.b) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19571f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19681f : (BdUniqueId) invokeV.objValue;
     }
 
-    public void i(c.a.t0.d1.g2.c.b bVar) {
+    public void i(c.a.t0.e1.g2.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f19572e = bVar;
+            this.f19682e = bVar;
         }
     }
 }

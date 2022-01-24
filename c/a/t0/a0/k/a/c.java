@@ -3,7 +3,7 @@ package c.a.t0.a0.k.a;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.s0.s.q.e2;
-import c.a.t0.d1.k;
+import c.a.t0.e1.k;
 import c.a.t0.g0.b0;
 import c.a.t0.g0.d0;
 import com.baidu.adp.BdUniqueId;
@@ -54,7 +54,7 @@ public class c extends k<e2, FrsPageAlaEmptyLiveViewHolder> implements b0 {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, e2Var) == null) || view == null || e2Var == null) {
                 return;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001607, Integer.valueOf(e2Var.r1())));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001607, Integer.valueOf(e2Var.s1())));
         }
     }
 
@@ -101,7 +101,7 @@ public class c extends k<e2, FrsPageAlaEmptyLiveViewHolder> implements b0 {
             }
             c.a.t0.a0.k.e.b bVar = new c.a.t0.a0.k.e.b(tbPageContext);
             this.x = bVar;
-            bVar.t(this.f3262i);
+            bVar.t(this.f3364i);
             this.x.a(this.y);
             return new FrsPageAlaEmptyLiveViewHolder(this.x);
         }
@@ -109,7 +109,7 @@ public class c extends k<e2, FrsPageAlaEmptyLiveViewHolder> implements b0 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.t0.d1.k, c.a.d.n.e.a
+    @Override // c.a.t0.e1.k, c.a.d.n.e.a
     /* renamed from: n0 */
     public View S(int i2, View view, ViewGroup viewGroup, e2 e2Var, FrsPageAlaEmptyLiveViewHolder frsPageAlaEmptyLiveViewHolder) {
         InterceptResult invokeCommon;
@@ -119,14 +119,14 @@ public class c extends k<e2, FrsPageAlaEmptyLiveViewHolder> implements b0 {
             frsPageAlaEmptyLiveViewHolder.mView.a(this.y);
             frsPageAlaEmptyLiveViewHolder.mView.m(this.z);
             if (e2Var != null) {
-                e2Var.S4();
+                e2Var.T4();
             }
             return frsPageAlaEmptyLiveViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // c.a.t0.d1.k
+    @Override // c.a.t0.e1.k
     public void o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, tbPageContext, bdUniqueId) == null) {

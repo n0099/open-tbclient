@@ -17,7 +17,7 @@ import tbclient.Tabfeedlist.TabfeedlistResIdl;
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.t0.u0.l.d.a enterForumTabFeedData;
+    public c.a.t0.v0.l.d.a enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -66,7 +66,7 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
                 setErrorString(tabfeedlistResIdl.error.usermsg);
             }
             if (getError() == 0 && tabfeedlistResIdl.data != null) {
-                c.a.t0.u0.l.d.a aVar = new c.a.t0.u0.l.d.a();
+                c.a.t0.v0.l.d.a aVar = new c.a.t0.v0.l.d.a();
                 this.enterForumTabFeedData = aVar;
                 aVar.g(tabfeedlistResIdl.data);
             }

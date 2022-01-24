@@ -26,7 +26,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f14205e;
+        public final /* synthetic */ n f14345e;
 
         public a(n nVar) {
             Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public class c {
                     return;
                 }
             }
-            this.f14205e = nVar;
+            this.f14345e = nVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             n nVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (nVar = this.f14205e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (nVar = this.f14345e) == null) {
                 return;
             }
             nVar.sendAction(new c.a.s0.x.a(14, -1, Boolean.TRUE));
@@ -69,7 +69,7 @@ public class c {
                 return null;
             }
             multiImgToolView.setAsyncLocalImageLoader(bVar);
-            c.a.t0.w3.m0.a aVar = new c.a.t0.w3.m0.a(context);
+            c.a.t0.x3.m0.a aVar = new c.a.t0.x3.m0.a(context);
             aVar.e(multiImgToolView.getDragLayer());
             aVar.g(multiImgToolView.getDragHorizonScrollView());
             aVar.f(multiImgToolView.getDragHorizonScrollView());

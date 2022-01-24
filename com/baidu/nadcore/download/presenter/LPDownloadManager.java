@@ -37,7 +37,7 @@ public class LPDownloadManager {
     public static LruCache<String, c> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f36974b;
+    public static final List<String> f37002b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -47,13 +47,13 @@ public class LPDownloadManager {
         public final /* synthetic */ RelativeLayout a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.c0.j.d.a f36975b;
+        public final /* synthetic */ c.a.c0.j.d.a f37003b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Context f36976c;
+        public final /* synthetic */ Context f37004c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f36977d;
+        public final /* synthetic */ String f37005d;
 
         public a(RelativeLayout relativeLayout, c.a.c0.j.d.a aVar, Context context, String str) {
             Interceptable interceptable = $ic;
@@ -71,9 +71,9 @@ public class LPDownloadManager {
                 }
             }
             this.a = relativeLayout;
-            this.f36975b = aVar;
-            this.f36976c = context;
-            this.f36977d = str;
+            this.f37003b = aVar;
+            this.f37004c = context;
+            this.f37005d = str;
         }
 
         @Override // c.a.c0.u.p.a
@@ -94,15 +94,15 @@ public class LPDownloadManager {
             }
             int i3 = gVar.a;
             if (i3 == 1) {
-                LPDownloadManager.d(this.a, this.f36975b).o();
+                LPDownloadManager.d(this.a, this.f37003b).o();
             } else if (i3 != 2 && i3 != 3) {
-                b.a().b(this.f36976c, c.a.c0.f0.g.nad_download_lp_forbid_tip);
-            } else if ((this.f36976c instanceof Activity) && (pVar = gVar.f1981b) != null) {
-                LPDownloadManager.g(this.f36975b, pVar);
-                LPDownloadManager.d(this.a, this.f36975b).x(gVar, (Activity) this.f36976c);
+                b.a().b(this.f37004c, c.a.c0.f0.g.nad_download_lp_forbid_tip);
+            } else if ((this.f37004c instanceof Activity) && (pVar = gVar.f1981b) != null) {
+                LPDownloadManager.g(this.f37003b, pVar);
+                LPDownloadManager.d(this.a, this.f37003b).x(gVar, (Activity) this.f37004c);
             }
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.r(ClogBuilder.LogType.FREE_SHOW).m(this.f36975b.n.a).p(ClogBuilder.Page.DOWNLOAD_RECTIFY).h(String.valueOf(gVar.a)).i(this.f36977d);
+            clogBuilder.r(ClogBuilder.LogType.FREE_SHOW).m(this.f37003b.n.a).p(ClogBuilder.Page.DOWNLOAD_RECTIFY).h(String.valueOf(gVar.a)).i(this.f37005d);
             c.a.c0.a0.a.b(clogBuilder);
         }
 
@@ -129,7 +129,7 @@ public class LPDownloadManager {
                 return;
             }
         }
-        f36974b = new ArrayList<String>() { // from class: com.baidu.nadcore.download.presenter.LPDownloadManager.1
+        f37002b = new ArrayList<String>() { // from class: com.baidu.nadcore.download.presenter.LPDownloadManager.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -202,7 +202,7 @@ public class LPDownloadManager {
     public static void e(@NonNull Context context, @NonNull RelativeLayout relativeLayout, String str, @NonNull c.a.c0.j.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65541, null, context, relativeLayout, str, aVar) == null) {
-            for (String str2 : f36974b) {
+            for (String str2 : f37002b) {
                 if (aVar.f1955g.startsWith(str2) || str.startsWith(str2)) {
                     d(relativeLayout, aVar).o();
                     return;

@@ -17,13 +17,13 @@ public class t2 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final BlockingQueue f30461b;
+    public static final BlockingQueue f30489b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ThreadFactory f30462c;
+    public static final ThreadFactory f30490c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static t2 f30463d;
+    public static t2 f30491d;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
 
@@ -40,8 +40,8 @@ public class t2 {
                 return;
             }
         }
-        f30461b = new LinkedBlockingQueue(210);
-        f30462c = new q2();
+        f30489b = new LinkedBlockingQueue(210);
+        f30490c = new q2();
     }
 
     public t2() {
@@ -57,7 +57,7 @@ public class t2 {
                 return;
             }
         }
-        this.a = new ThreadPoolExecutor(5, 60, 1L, TimeUnit.SECONDS, f30461b, f30462c);
+        this.a = new ThreadPoolExecutor(5, 60, 1L, TimeUnit.SECONDS, f30489b, f30490c);
     }
 
     public static synchronized t2 a() {
@@ -66,10 +66,10 @@ public class t2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (t2.class) {
-                if (f30463d == null) {
-                    f30463d = new t2();
+                if (f30491d == null) {
+                    f30491d = new t2();
                 }
-                t2Var = f30463d;
+                t2Var = f30491d;
             }
             return t2Var;
         }

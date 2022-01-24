@@ -31,11 +31,11 @@ public class a extends z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f8260d;
+    public static final Set<String> f8402d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f8261c;
+    public ConcurrentHashMap<String, Long> f8403c;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +50,7 @@ public class a extends z {
                 return;
             }
         }
-        f8260d = Sets.newHashSet("REFERER", "USER-AGENT");
+        f8402d = Sets.newHashSet("REFERER", "USER-AGENT");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,7 +72,7 @@ public class a extends z {
                 return;
             }
         }
-        this.f8261c = new ConcurrentHashMap<>();
+        this.f8403c = new ConcurrentHashMap<>();
     }
 
     public static HashMap<String, String> l(@Nullable JSONObject jSONObject) {
@@ -86,7 +86,7 @@ public class a extends z {
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
-                if (!TextUtils.isEmpty(next) && !f8260d.contains(next.toUpperCase())) {
+                if (!TextUtils.isEmpty(next) && !f8402d.contains(next.toUpperCase())) {
                     String optString = jSONObject.optString(next);
                     if (TextUtils.isEmpty(optString)) {
                         optString = "";
@@ -197,7 +197,7 @@ public class a extends z {
                     jSONObject.put("cancelTag", str);
                 }
             } catch (JSONException e2) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     e2.printStackTrace();
                 }
             }
@@ -220,7 +220,7 @@ public class a extends z {
                 return 0L;
             }
             try {
-                return this.f8261c.get(str).longValue();
+                return this.f8403c.get(str).longValue();
             } catch (Exception unused) {
                 return 0L;
             }
@@ -230,10 +230,10 @@ public class a extends z {
 
     public final void q(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f8261c == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f8403c == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f8261c.remove(str);
+        this.f8403c.remove(str);
     }
 
     public void r(String str, JSONObject jSONObject) {
@@ -248,7 +248,7 @@ public class a extends z {
             hashMap.put("data", jSONObject2.toString());
             c.a.r0.a.g1.f.U().u(new c.a.r0.a.o0.d.c(str, hashMap));
         } catch (JSONException e2) {
-            if (z.f6201b) {
+            if (z.f6343b) {
                 e2.printStackTrace();
             }
         }

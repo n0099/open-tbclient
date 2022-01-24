@@ -23,33 +23,33 @@ public class a implements h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f6296g;
+    public static final boolean f6438g;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<c.a.r0.a.h0.f.d.b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Lock f6297b;
+    public final Lock f6439b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f6298c;
+    public volatile boolean f6440c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f6299d;
+    public volatile boolean f6441d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f6300e;
+    public c f6442e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WebKitFactory.IForceInitZeusListener f6301f;
+    public WebKitFactory.IForceInitZeusListener f6443f;
 
     /* renamed from: c.a.r0.a.h0.f.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0350a implements c {
+    public class C0359a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0350a(a aVar) {
+        public C0359a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,12 +72,12 @@ public class a implements h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.a.f6297b.lock();
-                    this.a.f6299d = true;
+                    this.a.f6439b.lock();
+                    this.a.f6441d = true;
                     this.a.j();
                     this.a.p();
                 } finally {
-                    this.a.f6297b.unlock();
+                    this.a.f6439b.unlock();
                 }
             }
         }
@@ -112,13 +112,13 @@ public class a implements h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 try {
-                    this.a.f6297b.lock();
-                    this.a.f6298c = true;
+                    this.a.f6439b.lock();
+                    this.a.f6440c = true;
                     this.a.p();
-                    this.a.f6297b.unlock();
-                    BdSailor.getInstance().removeForceInitListener(this.a.f6301f);
+                    this.a.f6439b.unlock();
+                    BdSailor.getInstance().removeForceInitListener(this.a.f6443f);
                 } catch (Throwable th) {
-                    this.a.f6297b.unlock();
+                    this.a.f6439b.unlock();
                     throw th;
                 }
             }
@@ -128,7 +128,7 @@ public class a implements h {
         public void onForceInitZeusStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                boolean unused = a.f6296g;
+                boolean unused = a.f6438g;
             }
         }
     }
@@ -174,10 +174,10 @@ public class a implements h {
                 return;
             }
         }
-        f6296g = k.a;
+        f6438g = k.a;
     }
 
-    public /* synthetic */ a(C0350a c0350a) {
+    public /* synthetic */ a(C0359a c0359a) {
         this();
     }
 
@@ -192,12 +192,12 @@ public class a implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             try {
-                this.f6297b.lock();
+                this.f6439b.lock();
                 if (bVar != null && this.a.contains(bVar)) {
                     this.a.remove(bVar);
                 }
             } finally {
-                this.f6297b.unlock();
+                this.f6439b.unlock();
             }
         }
     }
@@ -207,7 +207,7 @@ public class a implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             try {
-                this.f6297b.lock();
+                this.f6439b.lock();
                 if (bVar == null) {
                     return;
                 }
@@ -218,7 +218,7 @@ public class a implements h {
                     p();
                 }
             } finally {
-                this.f6297b.unlock();
+                this.f6439b.unlock();
             }
         }
     }
@@ -260,13 +260,13 @@ public class a implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                this.f6297b.lock();
-                if (f6296g) {
-                    String str = "isLoaded() mIsBlinkInited: " + this.f6299d;
-                    String str2 = "isLoaded() mIsZeusForceInited: " + this.f6298c + " ,isZeusForceInited: " + o();
+                this.f6439b.lock();
+                if (f6438g) {
+                    String str = "isLoaded() mIsBlinkInited: " + this.f6441d;
+                    String str2 = "isLoaded() mIsZeusForceInited: " + this.f6440c + " ,isZeusForceInited: " + o();
                 }
-                if (this.f6299d) {
-                    if (!this.f6298c) {
+                if (this.f6441d) {
+                    if (!this.f6440c) {
                     }
                     z = true;
                     return z;
@@ -274,7 +274,7 @@ public class a implements h {
                 z = false;
                 return z;
             } finally {
-                this.f6297b.unlock();
+                this.f6439b.unlock();
             }
         }
         return invokeV.booleanValue;
@@ -284,7 +284,7 @@ public class a implements h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (f6296g) {
+            if (f6438g) {
                 String str = "checkZeusForceInit: " + BdSailor.getInstance().checkZeusForceInit();
                 String str2 = "isZeusForceInited: " + BdSailor.getInstance().isZeusForceInited();
             }
@@ -297,7 +297,7 @@ public class a implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             try {
-                this.f6297b.lock();
+                this.f6439b.lock();
                 if (n()) {
                     Iterator<c.a.r0.a.h0.f.d.b> it = this.a.iterator();
                     while (it.hasNext()) {
@@ -309,7 +309,7 @@ public class a implements h {
                     this.a.clear();
                 }
             } finally {
-                this.f6297b.unlock();
+                this.f6439b.unlock();
             }
         }
     }
@@ -328,13 +328,13 @@ public class a implements h {
             }
         }
         this.a = new ArrayList<>();
-        this.f6297b = new ReentrantLock();
-        this.f6298c = false;
-        this.f6299d = false;
-        this.f6300e = new C0350a(this);
+        this.f6439b = new ReentrantLock();
+        this.f6440c = false;
+        this.f6441d = false;
+        this.f6442e = new C0359a(this);
         b bVar = new b(this);
-        this.f6301f = bVar;
+        this.f6443f = bVar;
         BdSailor.addForceInitListener(bVar);
-        c.a.r0.a.c1.a.g().h(this.f6300e);
+        c.a.r0.a.c1.a.g().h(this.f6442e);
     }
 }

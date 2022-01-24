@@ -15,7 +15,7 @@ public final class e {
     public SharedPreferences a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f61542b;
+    public SharedPreferences.Editor f61587b;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public final class e {
         try {
             SharedPreferences sharedPreferences = context.getSharedPreferences("kscfg_outdfp", 0);
             this.a = sharedPreferences;
-            this.f61542b = sharedPreferences.edit();
+            this.f61587b = sharedPreferences.edit();
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -44,8 +44,8 @@ public final class e {
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f61542b.putString("kwtk", str);
-            this.f61542b.commit();
+            this.f61587b.putString("kwtk", str);
+            this.f61587b.commit();
         }
     }
 
@@ -64,8 +64,8 @@ public final class e {
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f61542b.putString("oai_ll_sn_d", str);
-            this.f61542b.commit();
+            this.f61587b.putString("oai_ll_sn_d", str);
+            this.f61587b.commit();
         }
     }
 

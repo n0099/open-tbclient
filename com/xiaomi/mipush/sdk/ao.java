@@ -76,21 +76,21 @@ public class ao extends Handler {
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f60886b.ordinal() == i2) {
+                        if (at.f60931b.ordinal() == i2) {
                             context12 = this.a.f72a;
-                            if ("syncing".equals(ae.a(context12).a(at.f60886b))) {
+                            if ("syncing".equals(ae.a(context12).a(at.f60931b))) {
                                 anVar2 = this.a;
-                                atVar2 = at.f60886b;
+                                atVar2 = at.f60931b;
                                 anVar2.a(str, atVar2, true, (HashMap<String, String>) null);
                                 context13 = this.a.f72a;
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f60887c.ordinal() == i2) {
+                        if (at.f60932c.ordinal() == i2) {
                             context10 = this.a.f72a;
-                            if ("syncing".equals(ae.a(context10).a(at.f60887c))) {
+                            if ("syncing".equals(ae.a(context10).a(at.f60932c))) {
                                 anVar = this.a;
-                                atVar = at.f60887c;
+                                atVar = at.f60932c;
                                 context11 = this.a.f72a;
                                 a = i.a(context11, e.a);
                                 anVar.a(str, atVar, false, a);
@@ -98,37 +98,37 @@ public class ao extends Handler {
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f60888d.ordinal() == i2) {
+                        if (at.f60933d.ordinal() == i2) {
                             context8 = this.a.f72a;
-                            if ("syncing".equals(ae.a(context8).a(at.f60888d))) {
+                            if ("syncing".equals(ae.a(context8).a(at.f60933d))) {
                                 anVar = this.a;
-                                atVar = at.f60888d;
+                                atVar = at.f60933d;
                                 context9 = this.a.f72a;
-                                a = i.a(context9, e.f60898b);
+                                a = i.a(context9, e.f60943b);
                                 anVar.a(str, atVar, false, a);
                                 context13 = this.a.f72a;
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f60889e.ordinal() == i2) {
+                        if (at.f60934e.ordinal() == i2) {
                             context6 = this.a.f72a;
-                            if ("syncing".equals(ae.a(context6).a(at.f60889e))) {
+                            if ("syncing".equals(ae.a(context6).a(at.f60934e))) {
                                 anVar = this.a;
-                                atVar = at.f60889e;
+                                atVar = at.f60934e;
                                 context7 = this.a.f72a;
-                                a = i.a(context7, e.f60899c);
+                                a = i.a(context7, e.f60944c);
                                 anVar.a(str, atVar, false, a);
                                 context13 = this.a.f72a;
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f60890f.ordinal() == i2) {
+                        if (at.f60935f.ordinal() == i2) {
                             context4 = this.a.f72a;
-                            if ("syncing".equals(ae.a(context4).a(at.f60890f))) {
+                            if ("syncing".equals(ae.a(context4).a(at.f60935f))) {
                                 anVar = this.a;
-                                atVar = at.f60890f;
+                                atVar = at.f60935f;
                                 context5 = this.a.f72a;
-                                a = i.a(context5, e.f60900d);
+                                a = i.a(context5, e.f60945d);
                                 anVar.a(str, atVar, false, a);
                             }
                         }

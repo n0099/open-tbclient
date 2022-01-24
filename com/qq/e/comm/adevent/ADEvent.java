@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ADEvent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object[] f59047b;
+    public final Object[] f59092b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ADEvent(int i2) {
@@ -52,14 +52,14 @@ public class ADEvent {
             }
         }
         this.a = i2;
-        this.f59047b = objArr;
+        this.f59092b = objArr;
     }
 
     public Object[] getParas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Object[] objArr = this.f59047b;
+            Object[] objArr = this.f59092b;
             return objArr == null ? new Object[0] : objArr;
         }
         return (Object[]) invokeV.objValue;

@@ -16,11 +16,11 @@ public final class a {
 
     /* renamed from: c.a.d.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class animation.InterpolatorC0124a implements Interpolator {
+    public static class animation.InterpolatorC0131a implements Interpolator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public animation.InterpolatorC0124a() {
+        public animation.InterpolatorC0131a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public final class a {
                 return;
             }
         }
-        a = new animation.InterpolatorC0124a();
+        a = new animation.InterpolatorC0131a();
     }
 
     public static int a(float f2, float f3, boolean z) {

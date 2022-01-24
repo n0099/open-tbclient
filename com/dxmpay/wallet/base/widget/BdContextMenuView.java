@@ -21,22 +21,22 @@ import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.widget.BdMenu;
 import com.dxmpay.wallet.base.widget.BdMenuItem;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mMenuLoaded;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenuItem f53742e;
+        public final /* synthetic */ BdMenuItem f53787e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BdContextMenuView f53743f;
+        public final /* synthetic */ BdContextMenuView f53788f;
 
         public a(BdContextMenuView bdContextMenuView, BdMenuItem bdMenuItem) {
             Interceptable interceptable = $ic;
@@ -53,18 +53,18 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
                     return;
                 }
             }
-            this.f53743f = bdContextMenuView;
-            this.f53742e = bdMenuItem;
+            this.f53788f = bdContextMenuView;
+            this.f53787e = bdMenuItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             BdMenuItem.OnItemClickListener onClickListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f53742e.getOnClickListener()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f53787e.getOnClickListener()) == null) {
                 return;
             }
-            onClickListener.onClick(this.f53742e);
+            onClickListener.onClick(this.f53787e);
         }
     }
 

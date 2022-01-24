@@ -129,12 +129,12 @@ public class AlaSquareLiveAdapter extends a<e, SquareLiveViewHolder> {
                 return null;
             }
             if (eVar != null) {
-                eVar.f14345i = i2 + 1;
+                eVar.f14485i = i2 + 1;
             }
             eVar2.k(eVar);
             c.a.t0.a0.f.e.a.c().a(eVar.k(a0(), false));
             if (i2 == this.r) {
-                eVar2.j().setAnimation(AnimationUtils.loadAnimation(this.f3258e, R.anim.list_anim));
+                eVar2.j().setAnimation(AnimationUtils.loadAnimation(this.f3360e, R.anim.list_anim));
             }
             return squareLiveViewHolder.getView();
         }

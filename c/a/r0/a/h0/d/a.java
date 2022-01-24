@@ -20,18 +20,18 @@ public final class a {
 
     /* renamed from: c.a.r0.a.h0.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0349a {
+    public static class C0358a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f6292b;
+        public int f6434b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f6293c;
+        public long f6435c;
 
-        public C0349a() {
+        public C0358a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public final class a {
         public static final boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f6294b;
+        public static int f6436b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -69,7 +69,7 @@ public final class a {
                 }
             }
             a = k.a;
-            f6294b = -1;
+            f6436b = -1;
         }
 
         public static boolean a() {
@@ -98,20 +98,20 @@ public final class a {
             return invokeV.intValue;
         }
 
-        public static C0349a d() {
+        public static C0358a d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-                C0349a c0349a = new C0349a();
-                c0349a.a = f();
-                c0349a.f6292b = g();
-                c0349a.f6293c = e();
+                C0358a c0358a = new C0358a();
+                c0358a.a = f();
+                c0358a.f6434b = g();
+                c0358a.f6435c = e();
                 if (a) {
-                    String str = "getCodeCacheConfig() maxCount: " + c0349a.a + " ,sizeLimit: " + c0349a.f6292b + " ,diskSizeThreshold: " + c0349a.f6293c;
+                    String str = "getCodeCacheConfig() maxCount: " + c0358a.a + " ,sizeLimit: " + c0358a.f6434b + " ,diskSizeThreshold: " + c0358a.f6435c;
                 }
-                return c0349a;
+                return c0358a;
             }
-            return (C0349a) invokeV.objValue;
+            return (C0358a) invokeV.objValue;
         }
 
         public static long e() {
@@ -145,11 +145,11 @@ public final class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-                if (f6294b == -1) {
+                if (f6436b == -1) {
                     c.a.r0.a.c1.a.g0().getSwitch("swan_custom_code_cache", 0);
-                    f6294b = 0;
+                    f6436b = 0;
                 }
-                return f6294b;
+                return f6436b;
             }
             return invokeV.intValue;
         }
@@ -185,10 +185,10 @@ public final class a {
                 codeCacheSetting.maxCount = 20;
                 codeCacheSetting.sizeLimit = 102400;
             } else {
-                C0349a d2 = b.d();
+                C0358a d2 = b.d();
                 codeCacheSetting.maxCount = d2.a;
-                codeCacheSetting.sizeLimit = d2.f6292b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = d2.f6293c;
+                codeCacheSetting.sizeLimit = d2.f6434b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = d2.f6435c;
             }
             if (a) {
                 String str3 = "buildCacheSetting cacheType: " + str;

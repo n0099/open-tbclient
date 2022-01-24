@@ -1,20 +1,19 @@
 package c.a.t0.q3;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class k {
+public class k implements ILokiIdentityNeedContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f21778b;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -30,16 +29,10 @@ public class k {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext
+    public String getAppName() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optString(SpeedStatsUtils.UBC_VALUE_BANNER);
-            this.f21778b = jSONObject.optString("link");
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tieba" : (String) invokeV.objValue;
     }
 }

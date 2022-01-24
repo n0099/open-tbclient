@@ -6,9 +6,10 @@ import c.a.n.c.a;
 import c.a.n.c.b;
 import c.a.n.c.c;
 import c.a.n.c.d;
-import c.a.n.c.f;
-import c.a.n.c.h;
+import c.a.n.c.e;
+import c.a.n.c.g;
 import c.a.n.c.i;
+import c.a.n.c.j;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.config.AppIdentityManager;
@@ -22,6 +23,7 @@ import com.baidu.util.Base64Encoder;
 public final class CommonUrlParamManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PARAM_APP_NAME = "appname";
+    public static final String PARAM_BDOS = "bdos";
     public static final String PARAM_BDVC = "bdvc";
     public static final String PARAM_C3AID = "c3_aid";
     public static final String PARAM_CFROM = "cfrom";
@@ -37,11 +39,12 @@ public final class CommonUrlParamManager {
     public static final String PARAM_ZID = "zid";
     public static CommonUrlParamManager sCommonUrlParamManager;
     public transient /* synthetic */ FieldHolder $fh;
+    public b customOSParam;
     public volatile String mC3Aid;
-    public b mDeviceInfoParam;
+    public c mDeviceInfoParam;
     public String mEnuid;
-    public f mNetworkParam;
-    public h mUaParam;
+    public g mNetworkParam;
+    public i mUaParam;
 
     public CommonUrlParamManager() {
         Interceptable interceptable = $ic;
@@ -63,7 +66,7 @@ public final class CommonUrlParamManager {
     private String addParam(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, str, str2, str3)) == null) ? !TextUtils.isEmpty(str3) ? UrlUtil.addParam(str, str2, i.a(str3)) : str : (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, str, str2, str3)) == null) ? !TextUtils.isEmpty(str3) ? UrlUtil.addParam(str, str2, j.a(str3)) : str : (String) invokeLLL.objValue;
     }
 
     private String getC3Aid() {
@@ -112,9 +115,10 @@ public final class CommonUrlParamManager {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.mNetworkParam = new f();
-            this.mDeviceInfoParam = new b();
-            this.mUaParam = new h();
+            this.mNetworkParam = new g();
+            this.mDeviceInfoParam = new c();
+            this.mUaParam = new i();
+            this.customOSParam = new b();
         }
     }
 
@@ -122,11 +126,11 @@ public final class CommonUrlParamManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            c a = a.a();
+            d a = a.a();
             String enuid = getEnuid();
             String c3Aid = getC3Aid();
             String zid = a.getZid();
-            d b2 = a.b();
+            e b2 = a.b();
             String b3 = b2.b();
             if (b2.d()) {
                 return processUrl(enuid, zid, c3Aid, null, str);
@@ -146,7 +150,7 @@ public final class CommonUrlParamManager {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, this, str, str2, str3, str4, str5)) == null) {
-            c a = a.a();
+            d a = a.a();
             String a2 = this.mUaParam.a();
             String appName = AppIdentityManager.getInstance().getAppName();
             String sid = a.getSid();
@@ -166,6 +170,9 @@ public final class CommonUrlParamManager {
             String addParam = addParam(addParam(this.mNetworkParam.a(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(addParam(str5, "appname", appName), "sid", sid), "ut", a3), "ua", a2), "bdvc", bDVCInfo), "zid", str2), "uid", str), "iid", str4), "cfrom", cfrom), "from", from), "scheme", schemeHeader), true), "c3_aid", str3), PARAM_MATRIXSTYLE, c2);
             if (!TextUtils.isEmpty(a4)) {
                 addParam = addParam(addParam, PARAM_CMODE, a4);
+            }
+            if (a.b().e()) {
+                addParam = addParam(addParam, PARAM_BDOS, this.customOSParam.a());
             }
             a.a(addParam, true);
             return addParam;

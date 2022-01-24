@@ -18,27 +18,27 @@ public final class a extends GestureDetector.SimpleOnGestureListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f11983j;
+    public static final boolean f12125j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f11984e;
+    public final Context f12126e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final GestureDetector f11985f;
+    public final GestureDetector f12127f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f11986g;
+    public b f12128g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MediaGestureMode f11987h;
+    public MediaGestureMode f12129h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11988i;
+    public int f12130i;
 
     /* renamed from: c.a.r0.y.l.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C0814a {
+    public static /* synthetic */ class C0823a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public final class a extends GestureDetector.SimpleOnGestureListener {
                 return;
             }
         }
-        f11983j = k.a;
+        f12125j = k.a;
     }
 
     public a(Context context) {
@@ -104,9 +104,9 @@ public final class a extends GestureDetector.SimpleOnGestureListener {
                 return;
             }
         }
-        this.f11987h = MediaGestureMode.INTI;
-        this.f11984e = context;
-        this.f11985f = new GestureDetector(context, this);
+        this.f12129h = MediaGestureMode.INTI;
+        this.f12126e = context;
+        this.f12127f = new GestureDetector(context, this);
     }
 
     public boolean a(MotionEvent motionEvent) {
@@ -114,10 +114,10 @@ public final class a extends GestureDetector.SimpleOnGestureListener {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 1 && (bVar = this.f11986g) != null) {
-                bVar.onTouchUp(motionEvent, this.f11987h);
+            if (motionEvent.getAction() == 1 && (bVar = this.f12128g) != null) {
+                bVar.onTouchUp(motionEvent, this.f12129h);
             }
-            return this.f11985f.onTouchEvent(motionEvent);
+            return this.f12127f.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
@@ -129,15 +129,15 @@ public final class a extends GestureDetector.SimpleOnGestureListener {
             if (mediaGestureMode == MediaGestureMode.INTI) {
                 if (Math.abs(f3) - Math.abs(f4) > 3.0f) {
                     MediaGestureMode mediaGestureMode2 = MediaGestureMode.FAST_FORWARD;
-                    boolean z = f11983j;
+                    boolean z = f12125j;
                     return mediaGestureMode2;
-                } else if (f2 <= this.f11988i / 2) {
+                } else if (f2 <= this.f12130i / 2) {
                     MediaGestureMode mediaGestureMode3 = MediaGestureMode.BRIGHTNESS;
-                    boolean z2 = f11983j;
+                    boolean z2 = f12125j;
                     return mediaGestureMode3;
                 } else {
                     MediaGestureMode mediaGestureMode4 = MediaGestureMode.VOLUME;
-                    boolean z3 = f11983j;
+                    boolean z3 = f12125j;
                     return mediaGestureMode4;
                 }
             }
@@ -149,14 +149,14 @@ public final class a extends GestureDetector.SimpleOnGestureListener {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f11988i = i2;
+            this.f12130i = i2;
         }
     }
 
     public void d(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f11986g = bVar;
+            this.f12128g = bVar;
         }
     }
 
@@ -165,10 +165,10 @@ public final class a extends GestureDetector.SimpleOnGestureListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (f11983j) {
+            if (f12125j) {
                 String str = "onDoubleTap:" + motionEvent;
             }
-            b bVar = this.f11986g;
+            b bVar = this.f12128g;
             if (bVar != null) {
                 return bVar.onDoubleTap(motionEvent);
             }
@@ -182,11 +182,11 @@ public final class a extends GestureDetector.SimpleOnGestureListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            if (f11983j) {
+            if (f12125j) {
                 String str = "onDown:" + motionEvent;
             }
-            this.f11987h = MediaGestureMode.INTI;
-            b bVar = this.f11986g;
+            this.f12129h = MediaGestureMode.INTI;
+            b bVar = this.f12128g;
             if (bVar != null) {
                 return bVar.onDown(motionEvent);
             }
@@ -200,25 +200,25 @@ public final class a extends GestureDetector.SimpleOnGestureListener {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (f11983j) {
+            if (f12125j) {
                 String str = "onScroll:" + motionEvent + " e2:" + motionEvent2 + " distanceX:" + f2 + " distanceY:" + f3;
             }
-            if (this.f11986g == null) {
+            if (this.f12128g == null) {
                 return super.onScroll(motionEvent, motionEvent2, f2, f3);
             }
-            MediaGestureMode b2 = b(this.f11987h, motionEvent.getX(), f2, f3);
-            this.f11987h = b2;
-            int i2 = C0814a.a[b2.ordinal()];
+            MediaGestureMode b2 = b(this.f12129h, motionEvent.getX(), f2, f3);
+            this.f12129h = b2;
+            int i2 = C0823a.a[b2.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         return false;
                     }
-                    return this.f11986g.onFastForward(motionEvent, motionEvent2, f2, f3);
+                    return this.f12128g.onFastForward(motionEvent, motionEvent2, f2, f3);
                 }
-                return this.f11986g.onBrightnessChange(motionEvent, motionEvent2, f2, f3);
+                return this.f12128g.onBrightnessChange(motionEvent, motionEvent2, f2, f3);
             }
-            return this.f11986g.onVolumeChange(motionEvent, motionEvent2, f2, f3);
+            return this.f12128g.onVolumeChange(motionEvent, motionEvent2, f2, f3);
         }
         return invokeCommon.booleanValue;
     }
@@ -228,10 +228,10 @@ public final class a extends GestureDetector.SimpleOnGestureListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
-            if (f11983j) {
+            if (f12125j) {
                 String str = "onSingleTapUp:" + motionEvent;
             }
-            b bVar = this.f11986g;
+            b bVar = this.f12128g;
             if (bVar != null) {
                 return bVar.onSingleTap(motionEvent);
             }

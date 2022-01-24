@@ -40,34 +40,34 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f11114j;
+    public static final boolean f11256j;
     public static volatile c k;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f11115b;
+    public final Object f11257b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanCoreVersion f11116c;
+    public SwanCoreVersion f11258c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ExtensionCore f11117d;
+    public ExtensionCore f11259d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.j.o.e f11118e;
+    public c.a.r0.j.o.e f11260e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<f> f11119f;
+    public List<f> f11261f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f11120g;
+    public boolean f11262g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f11121h;
+    public boolean f11263h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f11122i;
+    public String f11264i;
 
     /* loaded from: classes6.dex */
     public class a implements f {
@@ -93,7 +93,7 @@ public class c {
         @Override // c.a.r0.j.o.c.f
         public void onReady() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.f11114j) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.f11256j) {
                 c.a.r0.a.c2.b.f.e f2 = c.a.r0.a.c2.b.f.e.f(AppRuntime.getAppContext(), g.aiapps_game_preload_core_runtime_end);
                 f2.l(1);
                 f2.G();
@@ -137,13 +137,13 @@ public class c {
 
     /* renamed from: c.a.r0.j.o.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0758c implements f {
+    public class C0767c implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a.c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f11123b;
+        public final /* synthetic */ c f11265b;
 
         /* renamed from: c.a.r0.j.o.c$c$a */
         /* loaded from: classes6.dex */
@@ -152,14 +152,14 @@ public class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0758c f11124e;
+            public final /* synthetic */ C0767c f11266e;
 
-            public a(C0758c c0758c) {
+            public a(C0767c c0767c) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0758c};
+                    Object[] objArr = {c0767c};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -169,28 +169,28 @@ public class c {
                         return;
                     }
                 }
-                this.f11124e = c0758c;
+                this.f11266e = c0767c;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 SwanAppActivity activity;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11124e.f11123b.f11121h || this.f11124e.f11123b.f11118e == null || (activity = c.a.r0.a.g1.f.U().getActivity()) == null || activity.isFinishing() || activity.getSwanAppFragmentManager() == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11266e.f11265b.f11263h || this.f11266e.f11265b.f11260e == null || (activity = c.a.r0.a.g1.f.U().getActivity()) == null || activity.isFinishing() || activity.getSwanAppFragmentManager() == null) {
                     return;
                 }
-                if (c.f11114j) {
-                    String str = "loadAppJs start: " + this.f11124e.f11123b.f11122i;
+                if (c.f11256j) {
+                    String str = "loadAppJs start: " + this.f11266e.f11265b.f11264i;
                 }
-                this.f11124e.f11123b.f11118e.k(activity);
-                this.f11124e.f11123b.f11118e.t(this.f11124e.a);
-                if (this.f11124e.f11123b.v()) {
-                    this.f11124e.f11123b.F(activity);
+                this.f11266e.f11265b.f11260e.k(activity);
+                this.f11266e.f11265b.f11260e.t(this.f11266e.a);
+                if (this.f11266e.f11265b.v()) {
+                    this.f11266e.f11265b.F(activity);
                 }
             }
         }
 
-        public C0758c(c cVar, a.c cVar2) {
+        public C0767c(c cVar, a.c cVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -205,7 +205,7 @@ public class c {
                     return;
                 }
             }
-            this.f11123b = cVar;
+            this.f11265b = cVar;
             this.a = cVar2;
         }
 
@@ -220,7 +220,7 @@ public class c {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements e.InterfaceC0760e {
+    public class d implements e.InterfaceC0769e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
@@ -243,13 +243,13 @@ public class c {
             this.a = cVar;
         }
 
-        @Override // c.a.r0.j.o.e.InterfaceC0760e
+        @Override // c.a.r0.j.o.e.InterfaceC0769e
         public void a(c.a.r0.a.l0.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                boolean unused = c.f11114j;
-                synchronized (this.a.f11115b) {
-                    this.a.f11120g = true;
+                boolean unused = c.f11256j;
+                synchronized (this.a.f11257b) {
+                    this.a.f11262g = true;
                     this.a.w();
                 }
             }
@@ -304,7 +304,7 @@ public class c {
                 return;
             }
         }
-        f11114j = k.a;
+        f11256j = k.a;
     }
 
     public c() {
@@ -321,21 +321,21 @@ public class c {
             }
         }
         this.a = -1;
-        this.f11115b = new Object();
-        this.f11119f = new CopyOnWriteArrayList();
+        this.f11257b = new Object();
+        this.f11261f = new CopyOnWriteArrayList();
     }
 
     public static synchronized void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             synchronized (c.class) {
-                boolean z = f11114j;
+                boolean z = f11256j;
                 if (k == null) {
                     return;
                 }
-                k.f11121h = true;
-                if (k.f11118e != null) {
-                    k.f11118e.m();
+                k.f11263h = true;
+                if (k.f11260e != null) {
+                    k.f11260e.m();
                 }
                 k = null;
                 m().y();
@@ -362,19 +362,19 @@ public class c {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.f11115b) {
-                if (!this.f11120g && this.f11118e == null) {
+            synchronized (this.f11257b) {
+                if (!this.f11262g && this.f11260e == null) {
                     K();
                     J();
                     String l = l();
-                    if (TextUtils.isEmpty(l) || this.f11121h) {
+                    if (TextUtils.isEmpty(l) || this.f11263h) {
                         return;
                     }
-                    if (f11114j) {
+                    if (f11256j) {
                         String str = "prepareMaster start: " + l;
                     }
                     c.a.r0.j.o.e eVar = new c.a.r0.j.o.e(l, "swan-game.js");
-                    this.f11118e = eVar;
+                    this.f11260e = eVar;
                     eVar.v(new d(this));
                 }
             }
@@ -384,9 +384,9 @@ public class c {
     public void B(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-            boolean z = f11114j;
-            if (fVar != null && !this.f11119f.contains(fVar)) {
-                this.f11119f.add(fVar);
+            boolean z = f11256j;
+            if (fVar != null && !this.f11261f.contains(fVar)) {
+                this.f11261f.add(fVar);
             }
             if (u()) {
                 w();
@@ -400,11 +400,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, extensionCore) == null) {
             if (extensionCore != null && extensionCore.isAvailable()) {
-                if (f11114j) {
-                    String str = "setExtensionCore: " + this.f11117d;
+                if (f11256j) {
+                    String str = "setExtensionCore: " + this.f11259d;
                 }
-                this.f11117d = extensionCore;
-            } else if (f11114j) {
+                this.f11259d = extensionCore;
+            } else if (f11256j) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("setExtensionCore invalid: ");
                 Object obj = extensionCore;
@@ -420,9 +420,9 @@ public class c {
     public final void E(SwanCoreVersion swanCoreVersion) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, swanCoreVersion) == null) && swanCoreVersion != null && swanCoreVersion.isAvailable()) {
-            this.f11116c = swanCoreVersion;
-            if (f11114j) {
-                String str = "setSwanCoreVersion: " + this.f11116c;
+            this.f11258c = swanCoreVersion;
+            if (f11256j) {
+                String str = "setSwanCoreVersion: " + this.f11258c;
             }
         }
     }
@@ -443,11 +443,11 @@ public class c {
     public void G(c.a.r0.a.f1.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            ExtensionCore extensionCore = this.f11117d;
+            ExtensionCore extensionCore = this.f11259d;
             if (extensionCore != null) {
                 bVar.C0(extensionCore);
             } else {
-                this.f11117d = bVar.O();
+                this.f11259d = bVar.O();
             }
         }
     }
@@ -455,7 +455,7 @@ public class c {
     public void H() {
         c.a.r0.j.o.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (eVar = this.f11118e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (eVar = this.f11260e) == null) {
             return;
         }
         eVar.o().F0();
@@ -465,12 +465,12 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
             K();
-            SwanCoreVersion swanCoreVersion = this.f11116c;
+            SwanCoreVersion swanCoreVersion = this.f11258c;
             if (swanCoreVersion != null) {
                 bVar.Z0(swanCoreVersion);
             }
-            if (f11114j) {
-                String str = "syncSwanCore mSwanCoreVersion: " + this.f11116c;
+            if (f11256j) {
+                String str = "syncSwanCore mSwanCoreVersion: " + this.f11258c;
             }
         }
     }
@@ -478,9 +478,9 @@ public class c {
     public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ExtensionCore extensionCore = this.f11117d;
+            ExtensionCore extensionCore = this.f11259d;
             if (extensionCore == null || !extensionCore.isAvailable()) {
-                boolean z = f11114j;
+                boolean z = f11256j;
                 D(c.a.r0.a.p0.b.c(1));
             }
         }
@@ -489,7 +489,7 @@ public class c {
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            SwanCoreVersion swanCoreVersion = this.f11116c;
+            SwanCoreVersion swanCoreVersion = this.f11258c;
             if (swanCoreVersion == null || !swanCoreVersion.isAvailable()) {
                 E(o());
             }
@@ -499,7 +499,7 @@ public class c {
     public void h(Activity activity) {
         c.a.r0.j.o.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, activity) == null) || (eVar = this.f11118e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, activity) == null) || (eVar = this.f11260e) == null) {
             return;
         }
         eVar.k(activity);
@@ -508,7 +508,7 @@ public class c {
     public void i(JSEvent jSEvent) {
         c.a.r0.j.o.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, jSEvent) == null) || (eVar = this.f11118e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, jSEvent) == null) || (eVar = this.f11260e) == null) {
             return;
         }
         eVar.o().dispatchEvent(jSEvent);
@@ -518,7 +518,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            c.a.r0.j.o.e eVar = this.f11118e;
+            c.a.r0.j.o.e eVar = this.f11260e;
             if (eVar != null) {
                 return eVar.n();
             }
@@ -531,15 +531,15 @@ public class c {
     public ExtensionCore k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f11117d : (ExtensionCore) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f11259d : (ExtensionCore) invokeV.objValue;
     }
 
     public final String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            SwanCoreVersion swanCoreVersion = this.f11116c;
-            return (swanCoreVersion == null || !swanCoreVersion.isAvailable()) ? "" : this.f11116c.swanCorePath;
+            SwanCoreVersion swanCoreVersion = this.f11258c;
+            return (swanCoreVersion == null || !swanCoreVersion.isAvailable()) ? "" : this.f11258c.swanCorePath;
         }
         return (String) invokeV.objValue;
     }
@@ -548,7 +548,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            c.a.r0.j.o.e eVar = this.f11118e;
+            c.a.r0.j.o.e eVar = this.f11260e;
             if (eVar != null) {
                 return eVar.o();
             }
@@ -562,15 +562,15 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             if (c.a.r0.j.p.a.c.a("package")) {
-                if (TextUtils.isEmpty(this.f11122i)) {
+                if (TextUtils.isEmpty(this.f11264i)) {
                     return null;
                 }
-                if (!new File(this.f11122i, "swan-game.js").exists()) {
+                if (!new File(this.f11264i, "swan-game.js").exists()) {
                     q0.e0(new e(this));
                     return c.a.r0.a.q2.b.g(1);
                 }
                 SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
-                swanCoreVersion.swanCorePath = this.f11122i;
+                swanCoreVersion.swanCorePath = this.f11264i;
                 swanCoreVersion.swanCoreType = 2;
                 return swanCoreVersion;
             } else if (!c.a.r0.j.p.a.c.a("normal") && !c.a.r0.a.x1.a.a.h()) {
@@ -579,7 +579,7 @@ public class c {
                 SwanCoreVersion swanCoreVersion2 = new SwanCoreVersion();
                 swanCoreVersion2.swanCorePath = c.a.r0.j.p.a.b.b().getAbsolutePath();
                 swanCoreVersion2.swanCoreType = 2;
-                boolean z = f11114j;
+                boolean z = f11256j;
                 return swanCoreVersion2;
             }
         }
@@ -594,7 +594,7 @@ public class c {
                 c.a.r0.a.c1.a.g0().getSwitch("swan_game_preload", 0);
                 this.a = 0;
             }
-            if (f11114j) {
+            if (f11256j) {
                 String str = "getPreLoadABSwitch:" + this.a;
             }
             return this.a;
@@ -607,7 +607,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             c.a.r0.a.c1.a.g0().getSwitch("swan_game_startup_improvement", false);
-            if (f11114j) {
+            if (f11256j) {
                 String str = "getPushFragmentABSwitch:false";
             }
             return false;
@@ -619,7 +619,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            c.a.r0.j.o.e eVar = this.f11118e;
+            c.a.r0.j.o.e eVar = this.f11260e;
             if (eVar != null) {
                 return eVar.p();
             }
@@ -631,7 +631,7 @@ public class c {
     public SwanCoreVersion s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f11116c : (SwanCoreVersion) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f11258c : (SwanCoreVersion) invokeV.objValue;
     }
 
     public final boolean t(Intent intent) {
@@ -652,8 +652,8 @@ public class c {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            synchronized (this.f11115b) {
-                z = this.f11120g && this.f11118e != null;
+            synchronized (this.f11257b) {
+                z = this.f11262g && this.f11260e != null;
             }
             return z;
         }
@@ -664,38 +664,38 @@ public class c {
         InterceptResult invokeV;
         DuMixGameSurfaceView r;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? (this.f11121h || (r = r()) == null || r.getParent() != null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? (this.f11263h || (r = r()) == null || r.getParent() != null) ? false : true : invokeV.booleanValue;
     }
 
     public final void w() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || this.f11121h || this.f11119f.isEmpty() || !u()) {
+        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || this.f11263h || this.f11261f.isEmpty() || !u()) {
             return;
         }
-        for (f fVar : this.f11119f) {
+        for (f fVar : this.f11261f) {
             if (fVar != null) {
                 fVar.onReady();
             }
         }
-        this.f11119f.clear();
+        this.f11261f.clear();
     }
 
     public void x(a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, cVar) == null) {
-            boolean z = f11114j;
+            boolean z = f11256j;
             if (cVar == null || TextUtils.isEmpty(cVar.a)) {
                 return;
             }
-            this.f11122i = cVar.a;
+            this.f11264i = cVar.a;
             h.p(NodeJS.STARTUP_SCRIPT_NAME).D("preload", u() ? "1" : "0");
             h.p(NodeJS.STARTUP_SCRIPT_NAME).F(new UbcFlowEvent("na_prepare_runtime_start"));
             boolean b2 = c.a.r0.a.k2.d.c().b();
             boolean b3 = c.a.r0.a.k2.d.b();
             if (b2 && b3) {
-                B(new C0758c(this, cVar));
-                if (this.f11118e != null) {
-                    c.a.r0.j.z.e.b.b().f(this.f11118e.o(), cVar);
+                B(new C0767c(this, cVar));
+                if (this.f11260e != null) {
+                    c.a.r0.j.z.e.b.b().f(this.f11260e.o(), cVar);
                     return;
                 }
                 return;
@@ -714,7 +714,7 @@ public class c {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            boolean z = f11114j;
+            boolean z = f11256j;
             z(null);
         }
     }
@@ -722,7 +722,7 @@ public class c {
     public void z(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, intent) == null) {
-            if (f11114j) {
+            if (f11256j) {
                 String str = "preloadCoreRuntime preloadScene:" + (intent != null ? intent.getStringExtra("bundle_key_preload_preload_scene") : null);
             }
             if (!u() && t(intent)) {

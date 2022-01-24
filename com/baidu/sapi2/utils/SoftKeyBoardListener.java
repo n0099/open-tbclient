@@ -18,10 +18,10 @@ public class SoftKeyBoardListener implements NoProguard {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38117b;
+    public int f38145b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OnSoftKeyBoardChangeListener f38118c;
+    public OnSoftKeyBoardChangeListener f38146c;
 
     /* loaded from: classes10.dex */
     public interface OnSoftKeyBoardChangeListener extends NoProguard {
@@ -64,21 +64,21 @@ public class SoftKeyBoardListener implements NoProguard {
                 PrintStream printStream = System.out;
                 printStream.println("" + height);
                 SoftKeyBoardListener softKeyBoardListener = this.a;
-                int i2 = softKeyBoardListener.f38117b;
+                int i2 = softKeyBoardListener.f38145b;
                 if (i2 == 0) {
-                    softKeyBoardListener.f38117b = height;
+                    softKeyBoardListener.f38145b = height;
                 } else if (i2 == height) {
                 } else {
                     if (i2 - height > 200) {
-                        if (softKeyBoardListener.f38118c != null) {
-                            this.a.f38118c.keyBoardShow(this.a.f38117b - height);
+                        if (softKeyBoardListener.f38146c != null) {
+                            this.a.f38146c.keyBoardShow(this.a.f38145b - height);
                         }
-                        this.a.f38117b = height;
+                        this.a.f38145b = height;
                     } else if (height - i2 > 200) {
-                        if (softKeyBoardListener.f38118c != null) {
-                            this.a.f38118c.keyBoardHide(height - this.a.f38117b);
+                        if (softKeyBoardListener.f38146c != null) {
+                            this.a.f38146c.keyBoardHide(height - this.a.f38145b);
                         }
-                        this.a.f38117b = height;
+                        this.a.f38145b = height;
                     }
                 }
             }
@@ -115,7 +115,7 @@ public class SoftKeyBoardListener implements NoProguard {
     private void a(OnSoftKeyBoardChangeListener onSoftKeyBoardChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, onSoftKeyBoardChangeListener) == null) {
-            this.f38118c = onSoftKeyBoardChangeListener;
+            this.f38146c = onSoftKeyBoardChangeListener;
         }
     }
 }

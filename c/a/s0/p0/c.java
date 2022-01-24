@@ -142,7 +142,7 @@ public class c {
                 return null;
             }
             StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("tid", e2Var.g0()).param("fid", e2Var.U()).param("thread_type", e2Var.r1()).param("card_type", e2Var.R0()).param("nid", e2Var.G0());
+            statisticItem.param("tid", e2Var.h0()).param("fid", e2Var.U()).param("thread_type", e2Var.s1()).param("card_type", e2Var.S0()).param("nid", e2Var.H0());
             if (e2Var.L() != null && !m.isEmpty(e2Var.L().oriUgcVid)) {
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, e2Var.L().oriUgcVid);
             }

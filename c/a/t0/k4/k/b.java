@@ -85,9 +85,9 @@ public class b extends c {
             }
             BdLog.e("mediaFormat " + mediaFormat);
             c.b bVar = new c.b();
-            int i3 = aVar2.f18965b;
+            int i3 = aVar2.f19198b;
             int i4 = aVar2.a;
-            int i5 = aVar2.f18966c;
+            int i5 = aVar2.f19199c;
             bVar.a = str;
             FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
             MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
@@ -133,9 +133,9 @@ public class b extends c {
                                             bArr = null;
                                             bArr2 = null;
                                         } else {
-                                            bArr2 = aVar2.a() ? g.b(aVar2.f18966c / 8, aVar.f18966c / 8, bArr3) : null;
+                                            bArr2 = aVar2.a() ? g.b(aVar2.f19199c / 8, aVar.f19199c / 8, bArr3) : null;
                                             if (aVar2.b()) {
-                                                bArr = g.c(aVar2.f18965b, aVar.f18965b, aVar.f18966c / 8, bArr2 == null ? bArr3 : bArr2);
+                                                bArr = g.c(aVar2.f19198b, aVar.f19198b, aVar.f19199c / 8, bArr2 == null ? bArr3 : bArr2);
                                             } else {
                                                 bArr = null;
                                             }
@@ -144,8 +144,8 @@ public class b extends c {
                                             bArr = bArr2 == null ? bArr3 : bArr2;
                                         }
                                         fileOutputStream.write(bArr);
-                                        if (this.f18958b != null) {
-                                            this.f18958b.a(bArr3, bufferInfo.presentationTimeUs / d2);
+                                        if (this.f19191b != null) {
+                                            this.f19191b.a(bArr3, bufferInfo.presentationTimeUs / d2);
                                         }
                                         BdLog.i(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
                                         z2 = false;
@@ -181,8 +181,8 @@ public class b extends c {
                 d3 = d2;
             }
             long j3 = currentTimeMillis;
-            if (this.f18958b != null) {
-                this.f18958b.a(null, 1.0d);
+            if (this.f19191b != null) {
+                this.f19191b.a(null, 1.0d);
             }
             BdLog.i("decode " + str + " cost " + (System.currentTimeMillis() - j3) + " milliseconds !");
             return bVar;

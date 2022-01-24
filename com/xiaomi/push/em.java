@@ -21,10 +21,10 @@ public class em extends ep {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f61036b;
+    public Bitmap f61081b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bitmap f61037c;
+    public Bitmap f61082c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public em(Context context, String str) {
@@ -57,7 +57,7 @@ public class em extends ep {
                 if (bitmap.getWidth() != 984 || 184 > bitmap.getHeight() || bitmap.getHeight() > 1678) {
                     com.xiaomi.channel.commonutils.logger.b.m134a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
                 } else {
-                    this.f61036b = bitmap;
+                    this.f61081b = bitmap;
                 }
             }
             return this;
@@ -103,7 +103,7 @@ public class em extends ep {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!m359b() || this.f61036b == null) {
+            if (!m359b() || this.f61081b == null) {
                 m358b();
                 return;
             }
@@ -113,15 +113,15 @@ public class em extends ep {
             int a2 = a(resources, "bg", "id", packageName);
             if (l.a(a()) >= 10) {
                 a = a();
-                bitmap = a(this.f61036b, 30.0f);
+                bitmap = a(this.f61081b, 30.0f);
             } else {
                 a = a();
-                bitmap = this.f61036b;
+                bitmap = this.f61081b;
             }
             a.setImageViewBitmap(a2, bitmap);
             int a3 = a(resources, "icon", "id", packageName);
-            if (this.f61037c != null) {
-                a().setImageViewBitmap(a3, this.f61037c);
+            if (this.f61082c != null) {
+                a().setImageViewBitmap(a3, this.f61082c);
             } else {
                 a(a3);
             }
@@ -161,7 +161,7 @@ public class em extends ep {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bitmap)) == null) {
             if (m359b() && bitmap != null) {
-                this.f61037c = bitmap;
+                this.f61082c = bitmap;
             }
             return this;
         }

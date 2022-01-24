@@ -21,6 +21,7 @@ import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.util.LoginPostStatisticHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -116,23 +117,23 @@ public class ViewHelper {
         }
     }
 
-    public static boolean checkUpIsLogin(Context context) {
-        InterceptResult invokeL;
+    public static boolean checkUpIsLogin(Context context, LoginPostStatisticHelper.StatisticData statisticData) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, statisticData)) == null) {
             boolean isLogin = TbadkCoreApplication.isLogin();
             if (!isLogin) {
-                skipToLoginActivity(context);
+                skipToLoginActivity(context, statisticData);
             }
             return isLogin;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
     public static boolean checkUpIsLoginFromH5(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, str2)) == null) {
             boolean isLogin = TbadkCoreApplication.isLogin();
             if (!isLogin) {
                 skipToLoginActivityFromH5(context, str, str2);
@@ -145,7 +146,7 @@ public class ViewHelper {
     public static int getCommonColor(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) {
             boolean z = true;
             if (i2 != 1 && i2 != 4) {
                 z = false;
@@ -158,7 +159,7 @@ public class ViewHelper {
     public static void initCommonColor() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, null) == null) || (context = mAppContext) == null || context.getResources() == null) {
+        if (!(interceptable == null || interceptable.invokeV(65546, null) == null) || (context = mAppContext) == null || context.getResources() == null) {
             return;
         }
         mMore_color = mAppContext.getResources().getColor(R.color.common_color_10097);
@@ -167,7 +168,7 @@ public class ViewHelper {
 
     public static void initSkinDataOnStartup(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
             mAppContext = context;
             mIsNeedInit = true;
         }
@@ -175,7 +176,7 @@ public class ViewHelper {
 
     public static void prepareNewView(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(65548, null, view) == null) || view == null) {
             return;
         }
         cachedSkinInViews.i(Integer.valueOf(System.identityHashCode(view)));
@@ -183,7 +184,7 @@ public class ViewHelper {
 
     public static void processAllViewsIn(ViewGroup viewGroup, boolean z, ViewCallback viewCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65548, null, new Object[]{viewGroup, Boolean.valueOf(z), viewCallback}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(65549, null, new Object[]{viewGroup, Boolean.valueOf(z), viewCallback}) != null) {
             return;
         }
         if (z && viewCallback.onViewFound(viewGroup)) {
@@ -210,14 +211,14 @@ public class ViewHelper {
 
     public static void processCurrentSkin(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, view) == null) && (view instanceof ViewGroup)) {
+        if ((interceptable == null || interceptable.invokeL(65550, null, view) == null) && (view instanceof ViewGroup)) {
             processSkin((ViewGroup) view, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public static void processSkin(ViewGroup viewGroup, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65550, null, viewGroup, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65551, null, viewGroup, i2) == null) {
             int identityHashCode = System.identityHashCode(viewGroup);
             Integer f2 = cachedSkinInViews.f(Integer.valueOf(identityHashCode));
             if (f2 == null || i2 != f2.intValue()) {
@@ -229,7 +230,7 @@ public class ViewHelper {
 
     public static void processSkin0(ViewGroup viewGroup, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65551, null, viewGroup, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65552, null, viewGroup, i2) == null) {
             processAllViewsIn(viewGroup, true, new ViewCallback(i2, i2 == 1 || i2 == 4) { // from class: com.baidu.tbadk.core.util.ViewHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -321,7 +322,7 @@ public class ViewHelper {
 
     public static void removeStateBarViewSpace(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65552, null, view) == null) || view == null || view.getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(65553, null, view) == null) || view == null || view.getParent() == null) {
             return;
         }
         View view2 = (View) view.getParent().getParent();
@@ -335,7 +336,7 @@ public class ViewHelper {
 
     public static void setGroupTextColor(TextView textView, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65553, null, textView, i2) == null) || textView == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65554, null, textView, i2) == null) || textView == null) {
             return;
         }
         if (i2 != 1 && i2 != 4) {
@@ -347,7 +348,7 @@ public class ViewHelper {
 
     public static void setSkinForListDivider(View view, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65554, null, view, i2) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65555, null, view, i2) == null) || view == null) {
             return;
         }
         if (i2 != 1 && i2 != 4) {
@@ -359,7 +360,7 @@ public class ViewHelper {
 
     public static void setSkinForListItem(View view, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65555, null, view, i2, i3) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65556, null, view, i2, i3) == null) || view == null) {
             return;
         }
         view.setBackgroundDrawable(null);
@@ -374,7 +375,7 @@ public class ViewHelper {
 
     public static void setTextColor(TextView textView, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65557, null, textView, i2) == null) || textView == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65558, null, textView, i2) == null) || textView == null) {
             return;
         }
         textView.setTextColor(getCommonColor(i2));
@@ -382,10 +383,10 @@ public class ViewHelper {
 
     public static void skipToLoginActivity(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65558, null, context) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeL(65559, null, context) == null) || context == null) {
             return;
         }
-        c.a.s0.s.b0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        c.a.s0.s.c0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libbd_pass_face_sdk.so"))) {
             RequestParams requestParams = new RequestParams();
             requestParams.setRunType(e.a);
@@ -398,27 +399,27 @@ public class ViewHelper {
 
     public static void skipToLoginActivityFromH5(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65559, null, context, str, str2) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65561, null, context, str, str2) == null) || context == null) {
             return;
         }
-        c.a.s0.s.b0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        c.a.s0.s.c0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
     }
 
     @Deprecated
     public static void skipToRegisterActivity(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65560, null, context) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeL(65562, null, context) == null) || context == null) {
             return;
         }
-        c.a.s0.s.b0.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+        c.a.s0.s.c0.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
         skipToLoginActivity(context);
     }
 
     public static int getCommonColor(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65544, null, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65545, null, z)) == null) {
             if (mIsNeedInit) {
                 mIsNeedInit = false;
                 initCommonColor();
@@ -430,16 +431,29 @@ public class ViewHelper {
 
     public static void setTextColor(CheckBox checkBox, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65556, null, checkBox, i2) == null) || checkBox == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65557, null, checkBox, i2) == null) || checkBox == null) {
             return;
         }
         checkBox.setTextColor(getCommonColor(i2));
     }
 
+    public static boolean checkUpIsLogin(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            boolean isLogin = TbadkCoreApplication.isLogin();
+            if (!isLogin) {
+                skipToLoginActivity(context);
+            }
+            return isLogin;
+        }
+        return invokeL.booleanValue;
+    }
+
     public static boolean checkUpIsLoginFromH5(LoginActivityConfig loginActivityConfig) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, loginActivityConfig)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, loginActivityConfig)) == null) {
             boolean isLogin = TbadkCoreApplication.isLogin();
             if (!isLogin) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));
@@ -447,5 +461,24 @@ public class ViewHelper {
             return isLogin;
         }
         return invokeL.booleanValue;
+    }
+
+    public static void skipToLoginActivity(Context context, LoginPostStatisticHelper.StatisticData statisticData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65560, null, context, statisticData) == null) || context == null) {
+            return;
+        }
+        c.a.s0.s.c0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libbd_pass_face_sdk.so"))) {
+            RequestParams requestParams = new RequestParams();
+            requestParams.setRunType(e.a);
+            requestParams.setRunNode("aps");
+            requestParams.addChannel(new d("com.baidu.tieba.soloader.libbdface", (DefaultDownloadCallback) null));
+            PmsManager.getInstance().execute(requestParams);
+        }
+        LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true);
+        loginActivityConfig.setStatisticLocate(statisticData.locate);
+        LoginPostStatisticHelper.statisticGoToLogin(statisticData);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));
     }
 }

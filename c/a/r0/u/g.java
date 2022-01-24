@@ -11,31 +11,31 @@ public class g {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11824b;
+    public String f11966b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11825c;
+    public String f11967c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f11826d;
+    public int f11968d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11827e;
+    public String f11969e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11828f;
+    public String f11970f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11829g;
+    public int f11971g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f11830h;
+    public String f11972h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11831i;
+    public int f11973i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f11832j;
+    public int f11974j;
     public String k;
 
     public g(String str, String str2, String str3, int i2, String str4, String str5) {
@@ -54,10 +54,10 @@ public class g {
             }
         }
         this.a = str;
-        this.f11824b = str2;
-        this.f11825c = str3;
-        this.f11826d = i2;
-        this.f11827e = str4;
-        this.f11828f = str5;
+        this.f11966b = str2;
+        this.f11967c = str3;
+        this.f11968d = i2;
+        this.f11969e = str4;
+        this.f11970f = str5;
     }
 }

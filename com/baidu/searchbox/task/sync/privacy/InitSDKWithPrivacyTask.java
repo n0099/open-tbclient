@@ -45,7 +45,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     private void initAxeSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            a.C0248a.c(TbadkCoreApplication.getInst()).b().t();
+            a.C0257a.c(TbadkCoreApplication.getInst()).b().t();
         }
     }
 
@@ -64,7 +64,6 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            initUBC();
             initAxeSdk();
             initAdRuntime();
         }

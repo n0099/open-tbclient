@@ -20,7 +20,7 @@ public class g {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f7903b;
+    public static final int f8045b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,13 +37,13 @@ public class g {
             }
         }
         a = c.a.r0.a.k.a;
-        f7903b = c.a.r0.a.c1.a.g0().v() * 1024;
+        f8045b = c.a.r0.a.c1.a.g0().v() * 1024;
     }
 
     public static boolean a(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && str.getBytes().length > f7903b : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && str.getBytes().length > f8045b : invokeL.booleanValue;
     }
 
     public static boolean b(@NonNull String str) {
@@ -65,7 +65,7 @@ public class g {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f7903b > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f8045b > 0 : invokeV.booleanValue;
     }
 
     public static void d(@NonNull String str) {

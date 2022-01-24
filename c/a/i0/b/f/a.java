@@ -104,7 +104,7 @@ public class a {
                                         break;
                                     }
                                     g next = it.next();
-                                    if (TextUtils.equals(next.f3782c, optString3)) {
+                                    if (TextUtils.equals(next.f3923c, optString3)) {
                                         c.a.c0.x.a.b(arrayList, next);
                                         break;
                                     }

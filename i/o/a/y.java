@@ -12,7 +12,7 @@ public final class y<T> implements d.a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.c<T> f61932e;
+    public final h.c<T> f61977e;
 
     public y(h.c<T> cVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class y<T> implements d.a<T> {
                 return;
             }
         }
-        this.f61932e = cVar;
+        this.f61977e = cVar;
     }
 
     @Override // i.d.a, i.n.b
@@ -42,7 +42,7 @@ public final class y<T> implements d.a<T> {
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
             w wVar = new w(jVar);
             jVar.b(wVar);
-            this.f61932e.call(wVar);
+            this.f61977e.call(wVar);
         }
     }
 }

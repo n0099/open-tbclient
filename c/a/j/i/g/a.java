@@ -16,7 +16,7 @@ public final class a {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final TaskUIData f3987b;
+    public final TaskUIData f4128b;
 
     public a(int i2, TaskUIData taskUIData) {
         Interceptable interceptable = $ic;
@@ -34,13 +34,13 @@ public final class a {
             }
         }
         this.a = i2;
-        this.f3987b = taskUIData;
+        this.f4128b = taskUIData;
     }
 
     public final TaskUIData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3987b : (TaskUIData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4128b : (TaskUIData) invokeV.objValue;
     }
 
     public final int b() {
@@ -56,7 +56,7 @@ public final class a {
             if (this != obj) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    if (!(this.a == aVar.a) || !Intrinsics.areEqual(this.f3987b, aVar.f3987b)) {
+                    if (!(this.a == aVar.a) || !Intrinsics.areEqual(this.f4128b, aVar.f4128b)) {
                     }
                 }
                 return false;
@@ -71,7 +71,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int i2 = this.a * 31;
-            TaskUIData taskUIData = this.f3987b;
+            TaskUIData taskUIData = this.f4128b;
             return i2 + (taskUIData != null ? taskUIData.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -81,7 +81,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "CurUIData(uiType=" + this.a + ", UIData=" + this.f3987b + SmallTailInfo.EMOTION_SUFFIX;
+            return "CurUIData(uiType=" + this.a + ", UIData=" + this.f4128b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

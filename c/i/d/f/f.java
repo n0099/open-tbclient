@@ -16,16 +16,16 @@ public final class f {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f30110b;
+    public double f30138b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f30111c;
+    public double f30139c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f30112d;
+    public double f30140d;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f30113e;
+    public double f30141e;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -41,10 +41,10 @@ public final class f {
             }
         }
         this.a = 0L;
-        this.f30110b = 0.0d;
-        this.f30111c = 0.0d;
-        this.f30112d = Double.NaN;
-        this.f30113e = Double.NaN;
+        this.f30138b = 0.0d;
+        this.f30139c = 0.0d;
+        this.f30140d = Double.NaN;
+        this.f30141e = Double.NaN;
     }
 
     public static double g(double d2, double d3) {
@@ -68,28 +68,28 @@ public final class f {
             long j2 = this.a;
             if (j2 == 0) {
                 this.a = 1L;
-                this.f30110b = d2;
-                this.f30112d = d2;
-                this.f30113e = d2;
+                this.f30138b = d2;
+                this.f30140d = d2;
+                this.f30141e = d2;
                 if (Doubles.f(d2)) {
                     return;
                 }
-                this.f30111c = Double.NaN;
+                this.f30139c = Double.NaN;
                 return;
             }
             this.a = j2 + 1;
-            if (Doubles.f(d2) && Doubles.f(this.f30110b)) {
-                double d3 = this.f30110b;
+            if (Doubles.f(d2) && Doubles.f(this.f30138b)) {
+                double d3 = this.f30138b;
                 double d4 = d2 - d3;
                 double d5 = d3 + (d4 / this.a);
-                this.f30110b = d5;
-                this.f30111c += d4 * (d2 - d5);
+                this.f30138b = d5;
+                this.f30139c += d4 * (d2 - d5);
             } else {
-                this.f30110b = g(this.f30110b, d2);
-                this.f30111c = Double.NaN;
+                this.f30138b = g(this.f30138b, d2);
+                this.f30139c = Double.NaN;
             }
-            this.f30112d = Math.min(this.f30112d, d2);
-            this.f30113e = Math.max(this.f30113e, d2);
+            this.f30140d = Math.min(this.f30140d, d2);
+            this.f30141e = Math.max(this.f30141e, d2);
         }
     }
 
@@ -141,6 +141,6 @@ public final class f {
     public Stats h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new Stats(this.a, this.f30110b, this.f30111c, this.f30112d, this.f30113e) : (Stats) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new Stats(this.a, this.f30138b, this.f30139c, this.f30140d, this.f30141e) : (Stats) invokeV.objValue;
     }
 }

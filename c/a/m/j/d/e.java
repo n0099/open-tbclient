@@ -14,7 +14,7 @@ public class e implements d {
     public BigInteger a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BigInteger f4351b;
+    public BigInteger f4492b;
 
     public e(byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class e implements d {
             }
         }
         this.a = new BigInteger(bArr);
-        this.f4351b = new BigInteger(bArr2);
+        this.f4492b = new BigInteger(bArr2);
     }
 
     @Override // c.a.m.j.d.d
@@ -46,6 +46,6 @@ public class e implements d {
     public BigInteger b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4351b : (BigInteger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4492b : (BigInteger) invokeV.objValue;
     }
 }

@@ -8,6 +8,7 @@ import c.a.r0.h.i.s.f;
 import c.a.r0.h.i.s.h;
 import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
 import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
@@ -191,7 +192,7 @@ public class b {
         TreeMap treeMap = new TreeMap(map);
         if (!TextUtils.isEmpty(str)) {
             treeMap.put("errCode", str);
-            treeMap.put("errMsg", c.a.r0.h.i.s.b.a(str));
+            treeMap.put(StatConstants.KEY_EXT_ERR_MSG, c.a.r0.h.i.s.b.a(str));
         }
         n("error", treeMap, hVar);
     }

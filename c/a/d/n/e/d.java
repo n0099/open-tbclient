@@ -23,10 +23,10 @@ public class d {
     public ArrayList<c> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<c> f3271b;
+    public ArrayList<c> f3373b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f3272c;
+    public a f3374c;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -66,16 +66,16 @@ public class d {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f3273b;
+        public int f3375b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TypeAdapter.ViewHolder f3274c;
+        public TypeAdapter.ViewHolder f3376c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Object f3275d;
+        public Object f3377d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f3276e;
+        public boolean f3378e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -108,10 +108,10 @@ public class d {
             }
         }
         this.a = null;
-        this.f3271b = null;
-        this.f3272c = null;
+        this.f3373b = null;
+        this.f3374c = null;
         this.a = new ArrayList<>();
-        this.f3271b = new ArrayList<>();
+        this.f3373b = new ArrayList<>();
     }
 
     public void a(View view, Object obj, boolean z, boolean z2, int i2) {
@@ -120,17 +120,17 @@ public class d {
             return;
         }
         c cVar = new c(this);
-        cVar.f3274c = new TypeAdapter.ViewHolder(view);
-        cVar.f3275d = obj;
-        cVar.f3276e = z2;
+        cVar.f3376c = new TypeAdapter.ViewHolder(view);
+        cVar.f3377d = obj;
+        cVar.f3378e = z2;
         int id = BdUniqueId.gen().getId();
-        cVar.f3273b = id;
+        cVar.f3375b = id;
         cVar.a = id;
         view.setTag("FOOTER");
-        if (i2 >= 0 && i2 <= this.f3271b.size()) {
-            this.f3271b.add(i2, cVar);
+        if (i2 >= 0 && i2 <= this.f3373b.size()) {
+            this.f3373b.add(i2, cVar);
         } else {
-            this.f3271b.add(cVar);
+            this.f3373b.add(cVar);
         }
     }
 
@@ -140,11 +140,11 @@ public class d {
             return;
         }
         c cVar = new c(this);
-        cVar.f3274c = new TypeAdapter.ViewHolder(view);
-        cVar.f3275d = obj;
-        cVar.f3276e = z2;
+        cVar.f3376c = new TypeAdapter.ViewHolder(view);
+        cVar.f3377d = obj;
+        cVar.f3378e = z2;
         int id = BdUniqueId.gen().getId();
-        cVar.f3273b = id;
+        cVar.f3375b = id;
         cVar.a = id;
         view.setTag("HEADER");
         if (i2 >= 0 && i2 <= this.a.size()) {
@@ -173,9 +173,9 @@ public class d {
         TypeAdapter.ViewHolder viewHolder;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) {
-            for (int i2 = 0; i2 < this.f3271b.size(); i2++) {
-                c cVar = this.f3271b.get(i2);
-                if (cVar != null && (viewHolder = cVar.f3274c) != null && viewHolder.itemView == view) {
+            for (int i2 = 0; i2 < this.f3373b.size(); i2++) {
+                c cVar = this.f3373b.get(i2);
+                if (cVar != null && (viewHolder = cVar.f3376c) != null && viewHolder.itemView == view) {
                     return i2;
                 }
             }
@@ -188,10 +188,10 @@ public class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            Iterator<c> it = this.f3271b.iterator();
+            Iterator<c> it = this.f3373b.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (next != null && i2 == next.f3273b) {
+                if (next != null && i2 == next.f3375b) {
                     return next;
                 }
             }
@@ -207,7 +207,7 @@ public class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view)) == null) {
             for (int i2 = 0; i2 < this.a.size(); i2++) {
                 c cVar = this.a.get(i2);
-                if (cVar != null && (viewHolder = cVar.f3274c) != null && viewHolder.itemView == view) {
+                if (cVar != null && (viewHolder = cVar.f3376c) != null && viewHolder.itemView == view) {
                     return i2;
                 }
             }
@@ -223,7 +223,7 @@ public class d {
             Iterator<c> it = this.a.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (next != null && i2 == next.f3273b) {
+                if (next != null && i2 == next.f3375b) {
                     return next;
                 }
             }
@@ -235,7 +235,7 @@ public class d {
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3271b.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3373b.size() : invokeV.intValue;
     }
 
     public int i() {
@@ -252,10 +252,10 @@ public class d {
             if (view == null) {
                 return false;
             }
-            for (int i2 = 0; i2 < this.f3271b.size(); i2++) {
-                c cVar = this.f3271b.get(i2);
-                if (cVar != null && (viewHolder = cVar.f3274c) != null && viewHolder.itemView == view) {
-                    this.f3271b.remove(i2);
+            for (int i2 = 0; i2 < this.f3373b.size(); i2++) {
+                c cVar = this.f3373b.get(i2);
+                if (cVar != null && (viewHolder = cVar.f3376c) != null && viewHolder.itemView == view) {
+                    this.f3373b.remove(i2);
                     return true;
                 }
             }
@@ -274,7 +274,7 @@ public class d {
             }
             for (int i2 = 0; i2 < this.a.size(); i2++) {
                 c cVar = this.a.get(i2);
-                if (cVar != null && (viewHolder = cVar.f3274c) != null && viewHolder.itemView == view) {
+                if (cVar != null && (viewHolder = cVar.f3376c) != null && viewHolder.itemView == view) {
                     this.a.remove(i2);
                     return true;
                 }
@@ -287,7 +287,7 @@ public class d {
     public void l(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            this.f3272c = aVar;
+            this.f3374c = aVar;
         }
     }
 }

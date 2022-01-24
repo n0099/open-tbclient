@@ -188,7 +188,7 @@ public class c {
         } else if (!StringUtils.isNull(accountData.getID())) {
             str = "set_basedata_account:logined";
         }
-        c.a.s0.s.b0.a.a("account", -1L, 0, str, 0, "", new Object[0]);
+        c.a.s0.s.c0.a.a("account", -1L, 0, str, 0, "", new Object[0]);
         if (accountData.getIsActive() == 1) {
             b();
         }

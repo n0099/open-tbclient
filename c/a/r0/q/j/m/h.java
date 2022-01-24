@@ -13,10 +13,10 @@ public abstract class h {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11591b;
+    public String f11733b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11592c;
+    public String f11734c;
 
     public h(int i2) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public abstract class h {
                 return;
             }
         }
-        this.f11591b = "-1";
-        this.f11592c = "-1";
+        this.f11733b = "-1";
+        this.f11734c = "-1";
         this.a = i2;
     }
 
@@ -47,20 +47,20 @@ public abstract class h {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11591b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11733b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11592c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11734c : (String) invokeV.objValue;
     }
 
     public h d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f11591b = str;
+            this.f11733b = str;
             return this;
         }
         return (h) invokeL.objValue;
@@ -70,7 +70,7 @@ public abstract class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f11592c = str;
+            this.f11734c = str;
             return this;
         }
         return (h) invokeL.objValue;

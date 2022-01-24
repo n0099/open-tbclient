@@ -40,11 +40,11 @@ public class b {
                 ArrayList arrayList = new ArrayList();
                 try {
                     for (c.a.r0.q.i.a aVar : l) {
-                        if (aVar.f11480b) {
-                            j3 = aVar.f11481c;
+                        if (aVar.f11622b) {
+                            j3 = aVar.f11623c;
                         } else {
-                            i b2 = c.a.r0.q.p.e.b(aVar.a, aVar.f11482d, aVar.f11483e, arrayList);
-                            j3 = b2 == null ? 0L : b2.f11496i;
+                            i b2 = c.a.r0.q.p.e.b(aVar.a, aVar.f11624d, aVar.f11625e, arrayList);
+                            j3 = b2 == null ? 0L : b2.f11638i;
                         }
                         if (j3 != 0) {
                             JSONObject jSONObject = new JSONObject();
@@ -107,14 +107,14 @@ public class b {
                     jSONObject.put(FlutterActivityAndFragmentDelegate.FRAMEWORK_RESTORATION_BUNDLE_KEY, c());
                     jSONObject.put(ETAG.KEY_EXTENSION, b());
                     JSONArray jSONArray = new JSONArray();
-                    for (a.C0796a c0796a : aVar.f()) {
+                    for (a.C0805a c0805a : aVar.f()) {
                         JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("bundle_id", c0796a.a());
-                        jSONObject2.put("category", c0796a.b());
-                        jSONObject2.put("pkg_ver", c0796a.e());
+                        jSONObject2.put("bundle_id", c0805a.a());
+                        jSONObject2.put("category", c0805a.b());
+                        jSONObject2.put("pkg_ver", c0805a.e());
                         JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("min_version", c0796a.d());
-                        jSONObject3.put("max_version", c0796a.c());
+                        jSONObject3.put("min_version", c0805a.d());
+                        jSONObject3.put("max_version", c0805a.c());
                         jSONObject2.put("version_range", jSONObject3);
                         jSONArray.put(jSONObject2);
                     }

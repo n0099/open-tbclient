@@ -12,10 +12,10 @@ public class b {
     public AlaUserInfoData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12340b;
+    public int f12584b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f12341c;
+    public boolean f12585c;
 
     public b() {
         Interceptable interceptable = $ic;

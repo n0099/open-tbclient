@@ -18,10 +18,10 @@ public final class c {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<a> f19192b;
+    public final Set<a> f19455b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f19193c;
+    public int f19456c;
 
     public c(int i2) {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public final class c {
             }
         }
         this.a = i2;
-        this.f19192b = new LinkedHashSet();
+        this.f19455b = new LinkedHashSet();
     }
 
     public final a a(int i2, int i3) {
@@ -50,7 +50,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
             synchronized (this) {
-                Iterator<T> it = this.f19192b.iterator();
+                Iterator<T> it = this.f19455b.iterator();
                 while (true) {
                     aVar = null;
                     if (!it.hasNext()) {
@@ -72,8 +72,8 @@ public final class c {
                 }
                 a aVar3 = (a) obj;
                 if (aVar3 != null) {
-                    this.f19192b.remove(aVar3);
-                    this.f19193c -= aVar3.k();
+                    this.f19455b.remove(aVar3);
+                    this.f19456c -= aVar3.k();
                     aVar = aVar3;
                 }
             }
@@ -86,11 +86,11 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                for (a aVar : this.f19192b) {
+                for (a aVar : this.f19455b) {
                     aVar.e();
                 }
-                this.f19192b.clear();
-                this.f19193c = 0;
+                this.f19455b.clear();
+                this.f19456c = 0;
                 Unit unit = Unit.INSTANCE;
             }
         }
@@ -103,17 +103,17 @@ public final class c {
             if ((aVar == null ? null : aVar.g()) == null) {
                 return true;
             }
-            if (this.f19192b.contains(aVar)) {
+            if (this.f19455b.contains(aVar)) {
                 return false;
             }
-            if (aVar.k() + this.f19193c > this.a) {
+            if (aVar.k() + this.f19456c > this.a) {
                 BdLog.v("DrawingCache [Release][+] OOM Pool");
                 return false;
             }
             synchronized (this) {
-                this.f19192b.add(aVar);
+                this.f19455b.add(aVar);
                 aVar.f();
-                this.f19193c += aVar.k();
+                this.f19456c += aVar.k();
                 Unit unit = Unit.INSTANCE;
             }
             return true;

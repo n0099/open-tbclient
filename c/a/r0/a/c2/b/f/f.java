@@ -41,17 +41,17 @@ public class f {
     public static WeakReference<View> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Runnable f5493b;
+    public static Runnable f5635b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e.b f5494c;
+    public static e.b f5636c;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: d  reason: collision with root package name */
-    public static View f5495d;
+    public static View f5637d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f5496e;
+    public static boolean f5638e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -60,33 +60,33 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f5497e;
+        public final /* synthetic */ View f5639e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f5498f;
+        public final /* synthetic */ View f5640f;
 
         /* renamed from: c.a.r0.a.c2.b.f.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class animation.Animation$AnimationListenerC0290a implements Animation.AnimationListener {
+        public class animation.Animation$AnimationListenerC0299a implements Animation.AnimationListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
             /* renamed from: c.a.r0.a.c2.b.f.f$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            public class RunnableC0291a implements Runnable {
+            public class RunnableC0300a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ animation.Animation$AnimationListenerC0290a f5499e;
+                public final /* synthetic */ animation.Animation$AnimationListenerC0299a f5641e;
 
-                public RunnableC0291a(animation.Animation$AnimationListenerC0290a animation_animation_animationlistenerc0290a) {
+                public RunnableC0300a(animation.Animation$AnimationListenerC0299a animation_animation_animationlistenerc0299a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {animation_animation_animationlistenerc0290a};
+                        Object[] objArr = {animation_animation_animationlistenerc0299a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -96,16 +96,16 @@ public class f {
                             return;
                         }
                     }
-                    this.f5499e = animation_animation_animationlistenerc0290a;
+                    this.f5641e = animation_animation_animationlistenerc0299a;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f5499e.a.f5497e.getParent() == null) {
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f5641e.a.f5639e.getParent() == null) {
                         return;
                     }
-                    ((ViewGroup) this.f5499e.a.f5497e.getParent()).removeView(this.f5499e.a.f5497e);
+                    ((ViewGroup) this.f5641e.a.f5639e.getParent()).removeView(this.f5641e.a.f5639e);
                 }
             }
 
@@ -116,14 +116,14 @@ public class f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ animation.Animation$AnimationListenerC0290a f5500e;
+                public final /* synthetic */ animation.Animation$AnimationListenerC0299a f5642e;
 
-                public b(animation.Animation$AnimationListenerC0290a animation_animation_animationlistenerc0290a) {
+                public b(animation.Animation$AnimationListenerC0299a animation_animation_animationlistenerc0299a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {animation_animation_animationlistenerc0290a};
+                        Object[] objArr = {animation_animation_animationlistenerc0299a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -133,21 +133,21 @@ public class f {
                             return;
                         }
                     }
-                    this.f5500e = animation_animation_animationlistenerc0290a;
+                    this.f5642e = animation_animation_animationlistenerc0299a;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     View view;
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f5500e.a.f5498f) == null || view.getParent() == null || !(this.f5500e.a.f5498f.getParent() instanceof ViewGroup)) {
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f5642e.a.f5640f) == null || view.getParent() == null || !(this.f5642e.a.f5640f.getParent() instanceof ViewGroup)) {
                         return;
                     }
-                    ((ViewGroup) this.f5500e.a.f5498f.getParent()).removeView(this.f5500e.a.f5498f);
+                    ((ViewGroup) this.f5642e.a.f5640f.getParent()).removeView(this.f5642e.a.f5640f);
                 }
             }
 
-            public animation.Animation$AnimationListenerC0290a(a aVar) {
+            public animation.Animation$AnimationListenerC0299a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,10 +169,10 @@ public class f {
             public void onAnimationEnd(Animation animation) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                    if (this.a.f5497e.getParent() instanceof ViewGroup) {
-                        this.a.f5497e.post(new RunnableC0291a(this));
+                    if (this.a.f5639e.getParent() instanceof ViewGroup) {
+                        this.a.f5639e.post(new RunnableC0300a(this));
                     }
-                    View view = this.a.f5498f;
+                    View view = this.a.f5640f;
                     if (view != null) {
                         view.post(new b(this));
                     }
@@ -209,21 +209,21 @@ public class f {
                     return;
                 }
             }
-            this.f5497e = view;
-            this.f5498f = view2;
+            this.f5639e = view;
+            this.f5640f = view2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                WeakReference weakReference = new WeakReference(this.f5497e.getContext());
+                WeakReference weakReference = new WeakReference(this.f5639e.getContext());
                 if (weakReference.get() == null) {
                     return;
                 }
                 Animation loadAnimation = AnimationUtils.loadAnimation((Context) weakReference.get(), c.a.r0.a.a.aiapps_toast_exit);
-                loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0290a(this));
-                this.f5497e.startAnimation(loadAnimation);
+                loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0299a(this));
+                this.f5639e.startAnimation(loadAnimation);
             }
         }
     }
@@ -234,7 +234,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f5501e;
+        public final /* synthetic */ e.c f5643e;
 
         public b(e.c cVar) {
             Interceptable interceptable = $ic;
@@ -251,14 +251,14 @@ public class f {
                     return;
                 }
             }
-            this.f5501e = cVar;
+            this.f5643e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e.c cVar = this.f5501e;
+                e.c cVar = this.f5643e;
                 if (cVar != null) {
                     cVar.a();
                 }
@@ -273,7 +273,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f5502e;
+        public final /* synthetic */ e.c f5644e;
 
         public c(e.c cVar) {
             Interceptable interceptable = $ic;
@@ -290,14 +290,14 @@ public class f {
                     return;
                 }
             }
-            this.f5502e = cVar;
+            this.f5644e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e.c cVar = this.f5502e;
+                e.c cVar = this.f5644e;
                 if (cVar != null) {
                     cVar.a();
                 }
@@ -312,19 +312,19 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f5503e;
+        public final /* synthetic */ View f5645e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f5504f;
+        public final /* synthetic */ Context f5646f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f5505g;
+        public final /* synthetic */ View f5647g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ FrameLayout.LayoutParams f5506h;
+        public final /* synthetic */ FrameLayout.LayoutParams f5648h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Animation f5507i;
+        public final /* synthetic */ Animation f5649i;
 
         public d(View view, Context context, View view2, FrameLayout.LayoutParams layoutParams, Animation animation) {
             Interceptable interceptable = $ic;
@@ -341,11 +341,11 @@ public class f {
                     return;
                 }
             }
-            this.f5503e = view;
-            this.f5504f = context;
-            this.f5505g = view2;
-            this.f5506h = layoutParams;
-            this.f5507i = animation;
+            this.f5645e = view;
+            this.f5646f = context;
+            this.f5647g = view2;
+            this.f5648h = layoutParams;
+            this.f5649i = animation;
         }
 
         @Override // java.lang.Runnable
@@ -353,34 +353,34 @@ public class f {
             View view;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (f.f5496e && this.f5503e != null) {
-                    if (f.f5495d != null && (f.f5495d.getParent() instanceof ViewGroup)) {
-                        ((ViewGroup) f.f5495d.getParent()).removeView(f.f5495d);
+                if (f.f5638e && this.f5645e != null) {
+                    if (f.f5637d != null && (f.f5637d.getParent() instanceof ViewGroup)) {
+                        ((ViewGroup) f.f5637d.getParent()).removeView(f.f5637d);
                     }
-                    Context context = this.f5504f;
+                    Context context = this.f5646f;
                     if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
                         return;
                     }
-                    FrameLayout frameLayout = new FrameLayout(this.f5504f);
+                    FrameLayout frameLayout = new FrameLayout(this.f5646f);
                     frameLayout.setClickable(true);
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                    layoutParams.topMargin = c.a.r0.a.c2.b.f.e.c(this.f5504f);
-                    View view2 = this.f5503e;
+                    layoutParams.topMargin = c.a.r0.a.c2.b.f.e.c(this.f5646f);
+                    View view2 = this.f5645e;
                     if (view2 instanceof ViewGroup) {
                         ((ViewGroup) view2).addView(frameLayout, layoutParams);
-                        View unused = f.f5495d = frameLayout;
+                        View unused = f.f5637d = frameLayout;
                     }
                 }
                 if (f.a != null && (view = (View) f.a.get()) != null && (view.getParent() instanceof ViewGroup)) {
                     ((ViewGroup) view.getParent()).removeView(view);
                 }
-                Context context2 = this.f5504f;
+                Context context2 = this.f5646f;
                 if ((context2 instanceof Activity) && ((Activity) context2).isFinishing()) {
                     return;
                 }
-                ((ViewGroup) this.f5503e).addView(this.f5505g, this.f5506h);
-                this.f5505g.startAnimation(this.f5507i);
-                WeakReference unused2 = f.a = new WeakReference(this.f5505g);
+                ((ViewGroup) this.f5645e).addView(this.f5647g, this.f5648h);
+                this.f5647g.startAnimation(this.f5649i);
+                WeakReference unused2 = f.a = new WeakReference(this.f5647g);
             }
         }
     }
@@ -448,10 +448,10 @@ public class f {
         view2.setClickable(true);
         if (view instanceof ViewGroup) {
             view.post(new d(view, context, view2, layoutParams, animation));
-            if (f5493b == null) {
-                f5493b = new e();
+            if (f5635b == null) {
+                f5635b = new e();
             }
-            c.a.r0.a.d2.d.L().postDelayed(f5493b, i2 * 1000);
+            c.a.r0.a.d2.d.L().postDelayed(f5635b, i2 * 1000);
         }
     }
 
@@ -462,20 +462,20 @@ public class f {
                 if (a != null) {
                     View view = a.get();
                     if (view != null) {
-                        view.post(new a(view, f5495d));
-                        if (f5493b != null) {
-                            view.removeCallbacks(f5493b);
+                        view.post(new a(view, f5637d));
+                        if (f5635b != null) {
+                            view.removeCallbacks(f5635b);
                         }
                     }
-                    if (f5493b != null) {
-                        c.a.r0.a.d2.d.L().removeCallbacks(f5493b);
+                    if (f5635b != null) {
+                        c.a.r0.a.d2.d.L().removeCallbacks(f5635b);
                     }
-                    f5493b = null;
+                    f5635b = null;
                     a = null;
-                    f5495d = null;
-                    if (f5494c != null) {
-                        f5494c.onDismiss();
-                        f5494c = null;
+                    f5637d = null;
+                    if (f5636c != null) {
+                        f5636c.onDismiss();
+                        f5636c = null;
                     }
                 }
             }
@@ -520,7 +520,7 @@ public class f {
     public static void l(e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, bVar) == null) {
-            f5494c = bVar;
+            f5636c = bVar;
         }
     }
 
@@ -528,7 +528,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{activity, charSequence, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             Resources resources = c.a.r0.a.c1.a.c().getResources();
-            f5496e = z;
+            f5638e = z;
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(g.aiapps_toast_template_square_d20, (ViewGroup) null);
             linearLayout.setBackground(resources.getDrawable(c.a.r0.a.e.aiapps_toast_bg_d20));
             linearLayout.findViewById(c.a.r0.a.f.highlight_toast_imageView_d20).setVisibility(8);
@@ -550,7 +550,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{activity, charSequence, drawable, view, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             Resources resources = activity.getResources();
-            f5496e = z;
+            f5638e = z;
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(g.aiapps_toast_template_square_d20, (ViewGroup) null);
             linearLayout.setBackground(resources.getDrawable(c.a.r0.a.e.aiapps_toast_bg_d20));
             TextView textView = (TextView) linearLayout.findViewById(c.a.r0.a.f.highlight_toast_text_d20);
@@ -596,7 +596,7 @@ public class f {
         if (i3 == null) {
             return;
         }
-        f5496e = z;
+        f5638e = z;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(g.aiapps_toast_template_a_d20, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(c.a.r0.a.e.aiapps_toast_bg_d20));
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(c.a.r0.a.f.left_icon_fresco);

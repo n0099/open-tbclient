@@ -91,7 +91,7 @@ public class d extends c.a.t0.g0.b<i> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f14538e;
+        public final /* synthetic */ d f14678e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class d extends c.a.t0.g0.b<i> {
                     return;
                 }
             }
-            this.f14538e = dVar;
+            this.f14678e = dVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -129,7 +129,7 @@ public class d extends c.a.t0.g0.b<i> {
         public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                this.f14538e.q();
+                this.f14678e.q();
             }
         }
 
@@ -221,12 +221,12 @@ public class d extends c.a.t0.g0.b<i> {
 
     /* renamed from: c.a.t0.a0.f.c.h.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0926d implements PermissionJudgePolicy.OnPermissionsGrantedListener {
+    public class C0936d implements PermissionJudgePolicy.OnPermissionsGrantedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
 
-        public C0926d(d dVar, TbPageContext tbPageContext) {
+        public C0936d(d dVar, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -313,7 +313,7 @@ public class d extends c.a.t0.g0.b<i> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             if (view == this.n) {
-                if (ViewHelper.checkUpIsLogin(this.f17768g)) {
+                if (ViewHelper.checkUpIsLogin(this.f17590g)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveTabMyConcernActivityConfig(i().getPageActivity())));
                 }
                 StatisticItem statisticItem = new StatisticItem("c13552");
@@ -323,13 +323,13 @@ public class d extends c.a.t0.g0.b<i> {
                 if (StringUtils.isNull(this.K)) {
                     return;
                 }
-                UrlManager.getInstance().dealOneLink(this.f17767f, new String[]{this.K});
+                UrlManager.getInstance().dealOneLink(this.f17589f, new String[]{this.K});
                 StatisticItem statisticItem2 = new StatisticItem("c13553");
                 TiebaStaticHelper.addYYParam(statisticItem2);
                 TiebaStatic.log(statisticItem2);
             } else if (view == this.u) {
                 String str = "http://tieba.baidu.com/f?kw=百度直播";
-                String q = c.a.s0.s.h0.b.k().q("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播");
+                String q = c.a.s0.s.i0.b.k().q("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播");
                 if (!StringUtils.isNull(q) && q.startsWith("http")) {
                     str = q;
                 }
@@ -338,13 +338,13 @@ public class d extends c.a.t0.g0.b<i> {
                 } else if (!str.contains("&default_tab_id=")) {
                     str = str + "&default_tab_id=1&call_from=15";
                 }
-                UrlManager.getInstance().dealOneLink(this.f17767f, new String[]{str}, true);
+                UrlManager.getInstance().dealOneLink(this.f17589f, new String[]{str}, true);
                 StatisticItem statisticItem3 = new StatisticItem("c13554");
                 TiebaStaticHelper.addYYParam(statisticItem3);
                 TiebaStatic.log(statisticItem3);
             } else if (view == this.x) {
-                if (ViewHelper.checkUpIsLogin(this.f17768g)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921545, new b(this, new AlaPersonCenterActivityConfig(this.f17767f.getPageActivity(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), TbadkCoreApplication.getCurrentAccountInfo().getSex(), true))));
+                if (ViewHelper.checkUpIsLogin(this.f17590g)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921545, new b(this, new AlaPersonCenterActivityConfig(this.f17589f.getPageActivity(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), TbadkCoreApplication.getCurrentAccountInfo().getSex(), true))));
                 }
                 StatisticItem statisticItem4 = new StatisticItem("c13555");
                 TiebaStaticHelper.addYYParam(statisticItem4);
@@ -420,7 +420,7 @@ public class d extends c.a.t0.g0.b<i> {
             this.H.setRepeatMode(1);
             this.H.setDuration(2000L);
             this.H.addListener(new a(this));
-            l(this.f17767f, TbadkCoreApplication.getInst().getSkinType());
+            l(this.f17589f, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -431,8 +431,8 @@ public class d extends c.a.t0.g0.b<i> {
             return;
         }
         if (z) {
-            if (!c.a.s0.s.h0.b.k().h(c.a.s0.s.h0.b.o("square_live_publish_live_has_showed"), false)) {
-                c.a.s0.s.h0.b.k().u(c.a.s0.s.h0.b.o("square_live_publish_live_has_showed"), true);
+            if (!c.a.s0.s.i0.b.k().h(c.a.s0.s.i0.b.o("square_live_publish_live_has_showed"), false)) {
+                c.a.s0.s.i0.b.k().u(c.a.s0.s.i0.b.o("square_live_publish_live_has_showed"), true);
                 this.D.setVisibility(0);
                 return;
             }
@@ -451,7 +451,7 @@ public class d extends c.a.t0.g0.b<i> {
             this.x.setVisibility(TbSingleton.getInstance().isShowStartLiveEntry() ? 0 : 8);
             this.A.setVisibility(TbSingleton.getInstance().isShowStartLiveEntry() ? 0 : 8);
             this.A.setVisibility(TbSingleton.getInstance().isAuditPackageSwitchOn() ? 0 : 8);
-            if (iVar != null && iVar.f14437e != null) {
+            if (iVar != null && iVar.f14577e != null) {
                 if (TbSingleton.getInstance().isShowStartLiveEntry()) {
                     StatisticItem statisticItem = new StatisticItem("c13550");
                     TiebaStaticHelper.addYYParam(statisticItem);
@@ -466,10 +466,10 @@ public class d extends c.a.t0.g0.b<i> {
                 StatisticItem statisticItem4 = new StatisticItem("c13546");
                 TiebaStaticHelper.addYYParam(statisticItem4);
                 TiebaStatic.log(statisticItem4);
-                h hVar = iVar.f14437e;
-                this.K = hVar.f14435c;
-                if (hVar.a && !ListUtils.isEmpty(hVar.f14434b)) {
-                    ArrayList<h.a> arrayList = iVar.f14437e.f14434b;
+                h hVar = iVar.f14577e;
+                this.K = hVar.f14575c;
+                if (hVar.a && !ListUtils.isEmpty(hVar.f14574b)) {
+                    ArrayList<h.a> arrayList = iVar.f14577e.f14574b;
                     this.J = arrayList;
                     if (ListUtils.isEmpty(arrayList)) {
                         return;
@@ -495,7 +495,7 @@ public class d extends c.a.t0.g0.b<i> {
         permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
         permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-        permissionJudgePolicy.setOnPermissionsGrantedListener(new C0926d(this, tbPageContext));
+        permissionJudgePolicy.setOnPermissionsGrantedListener(new C0936d(this, tbPageContext));
         permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
     }
 
@@ -523,7 +523,7 @@ public class d extends c.a.t0.g0.b<i> {
                     n.M(i().getPageActivity(), R.string.plugin_config_not_found);
                     return;
                 }
-                c.a.s0.s.h0.b.k().u(c.a.s0.s.h0.b.o("square_live_publish_live_has_showed"), true);
+                c.a.s0.s.i0.b.k().u(c.a.s0.s.i0.b.o("square_live_publish_live_has_showed"), true);
                 this.D.setVisibility(8);
                 v(i());
             }

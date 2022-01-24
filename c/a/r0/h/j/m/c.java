@@ -11,10 +11,10 @@ public class c {
     public static String a = "com.baidu.gamenow";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f10600b = "file_name";
+    public static String f10742b = "file_name";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f10601c = "file_unzip_path";
+    public static String f10743c = "file_unzip_path";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

@@ -16,7 +16,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.RendererCommon;
 import org.webrtc.VideoFrame;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VideoFrameDrawer {
     public static /* synthetic */ Interceptable $ic;
     public static final float[] srcPoints;
@@ -31,7 +31,7 @@ public class VideoFrameDrawer {
     public final YuvUploader yuvUploader;
 
     /* renamed from: org.webrtc.VideoFrameDrawer$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$VideoFrame$TextureBuffer$Type;
         public static /* synthetic */ Interceptable $ic;
@@ -63,7 +63,7 @@ public class VideoFrameDrawer {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class YuvUploader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

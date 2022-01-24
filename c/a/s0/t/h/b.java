@@ -2,8 +2,8 @@ package c.a.s0.t.h;
 
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.t3.f;
-import c.a.t0.t3.g;
+import c.a.t0.u3.f;
+import c.a.t0.u3.g;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
@@ -30,10 +30,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserRewardDialogView f14051e;
+        public final /* synthetic */ NewUserRewardDialogView f14191e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f14052f;
+        public final /* synthetic */ c.a.s0.s.s.a f14192f;
 
         public a(NewUserRewardDialogView newUserRewardDialogView, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -50,36 +50,36 @@ public class b {
                     return;
                 }
             }
-            this.f14051e = newUserRewardDialogView;
-            this.f14052f = aVar;
+            this.f14191e = newUserRewardDialogView;
+            this.f14192f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f14051e.onDestroy();
-                this.f14052f.dismiss();
+                this.f14191e.onDestroy();
+                this.f14192f.dismiss();
             }
         }
     }
 
     /* renamed from: c.a.s0.t.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class View$OnClickListenerC0896b implements View.OnClickListener {
+    public static class View$OnClickListenerC0906b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f14053e;
+        public final /* synthetic */ TbPageContext f14193e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f14054f;
+        public final /* synthetic */ c.a.s0.s.s.a f14194f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f14055g;
+        public final /* synthetic */ int f14195g;
 
-        public View$OnClickListenerC0896b(TbPageContext tbPageContext, c.a.s0.s.s.a aVar, int i2) {
+        public View$OnClickListenerC0906b(TbPageContext tbPageContext, c.a.s0.s.s.a aVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,18 +94,18 @@ public class b {
                     return;
                 }
             }
-            this.f14053e = tbPageContext;
-            this.f14054f = aVar;
-            this.f14055g = i2;
+            this.f14193e = tbPageContext;
+            this.f14194f = aVar;
+            this.f14195g = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f14053e, new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?user_id=" + TbadkCoreApplication.getCurrentAccount()});
-                this.f14054f.dismiss();
-                b.d(this.f14055g);
+                UrlManager.getInstance().dealOneLink(this.f14193e, new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?user_id=" + TbadkCoreApplication.getCurrentAccount()});
+                this.f14194f.dismiss();
+                b.d(this.f14195g);
             }
         }
     }
@@ -116,10 +116,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostWriteCallBackData f14056e;
+        public final /* synthetic */ PostWriteCallBackData f14196e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f14057f;
+        public final /* synthetic */ TbPageContext f14197f;
 
         public c(PostWriteCallBackData postWriteCallBackData, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -136,8 +136,8 @@ public class b {
                     return;
                 }
             }
-            this.f14056e = postWriteCallBackData;
-            this.f14057f = tbPageContext;
+            this.f14196e = postWriteCallBackData;
+            this.f14197f = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
@@ -145,13 +145,13 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 g gVar = new g();
-                PostWriteCallBackData postWriteCallBackData = this.f14056e;
+                PostWriteCallBackData postWriteCallBackData = this.f14196e;
                 if (postWriteCallBackData != null) {
                     IconStampData iconStampData = postWriteCallBackData.getIconStampData();
                     gVar.f(iconStampData.stampType);
                     gVar.h(iconStampData.stampTitle);
                 }
-                new f(this.f14057f.getPageActivity(), gVar).a();
+                new f(this.f14197f.getPageActivity(), gVar).a();
                 b.f();
             }
         }
@@ -169,7 +169,7 @@ public class b {
             aVar.setAnimRes(R.style.picker_view_scale_anim);
             aVar.create(tbPageContext).show();
             newUserRewardDialogView.setCloseListener(new a(newUserRewardDialogView, aVar));
-            newUserRewardDialogView.getNewsUserDialogLookView().setOnClickListener(new View$OnClickListenerC0896b(tbPageContext, aVar, i2));
+            newUserRewardDialogView.getNewsUserDialogLookView().setOnClickListener(new View$OnClickListenerC0906b(tbPageContext, aVar, i2));
             newUserRewardDialogView.getNewUserDialogShareView().setOnClickListener(new c(postWriteCallBackData, tbPageContext));
             e(i2);
         }

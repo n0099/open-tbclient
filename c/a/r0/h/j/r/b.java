@@ -9,6 +9,7 @@ import c.a.r0.a.z2.q0;
 import c.a.r0.a.z2.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -67,8 +68,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             e eVar = new e();
-            eVar.f7977b = "beforeConfigRequest";
-            eVar.f7980e = str;
+            eVar.f8119b = "beforeConfigRequest";
+            eVar.f8122e = str;
             n.g(eVar);
         }
     }
@@ -81,9 +82,9 @@ public class b {
             String str6 = z != null ? z.targetAppPackageId : "";
             String str7 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f7977b = str;
-            eVar.f7982g = "gbview";
-            eVar.f7980e = str2;
+            eVar.f8119b = str;
+            eVar.f8124g = "gbview";
+            eVar.f8122e = str2;
             eVar.a("gameAppkey", str3);
             eVar.a("gamePosition", str4);
             eVar.a("configName", str5);
@@ -101,8 +102,8 @@ public class b {
             String str3 = z != null ? z.targetAppPackageId : "";
             String str4 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f7977b = str;
-            eVar.f7982g = "gbview";
+            eVar.f8119b = str;
+            eVar.f8124g = "gbview";
             eVar.a("configName", str2);
             eVar.a("targetPackageName", str3);
             eVar.a("targetDownloadUrl", str4);
@@ -121,11 +122,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), str2}) == null) {
             e eVar = new e();
-            eVar.f7977b = "request";
-            eVar.f7982g = "wdview";
+            eVar.f8119b = "request";
+            eVar.f8124g = "wdview";
             eVar.a("requestStatus", str);
             eVar.a("isFromNet", z ? "0" : "1");
-            eVar.a("errMsg", str2);
+            eVar.a(StatConstants.KEY_EXT_ERR_MSG, str2);
             n.g(eVar);
             if (TextUtils.equals(str, com.baidu.pass.biometrics.face.liveness.b.a.g0) || (TextUtils.equals(str, "start") && !z)) {
                 o();
@@ -144,9 +145,9 @@ public class b {
                 str6 = str9;
             }
             e eVar = new e();
-            eVar.f7977b = str;
-            eVar.f7982g = str2;
-            eVar.f7980e = str3;
+            eVar.f8119b = str;
+            eVar.f8124g = str2;
+            eVar.f8122e = str3;
             eVar.a("gameAppkey", str4);
             eVar.a("gamePosition", str5);
             eVar.a("configName", str7);
@@ -162,9 +163,9 @@ public class b {
             JSONObject d2 = w.d(str3);
             c cVar = new c();
             cVar.g(aVar);
-            cVar.f7977b = str;
-            cVar.f7982g = d2.optString("from_view");
-            cVar.f7980e = d2.optString("from_value");
+            cVar.f8119b = str;
+            cVar.f8124g = d2.optString("from_view");
+            cVar.f8122e = d2.optString("from_value");
             cVar.a("configName", d2.optString(GameGuideConfigInfo.KEY_CONFIG_NAME));
             cVar.a("targetPackageName", str2);
             cVar.a("targetDownloadUrl", str4);
@@ -180,9 +181,9 @@ public class b {
             long elapsedRealtime = optLong != 0 ? SystemClock.elapsedRealtime() - optLong : 0L;
             c cVar = new c();
             cVar.g(aVar);
-            cVar.f7980e = d2.optString("from_value");
-            cVar.f7977b = str;
-            cVar.f7982g = d2.optString("from_view");
+            cVar.f8122e = d2.optString("from_value");
+            cVar.f8119b = str;
+            cVar.f8124g = d2.optString("from_view");
             cVar.a("error_code", Integer.valueOf(i2));
             cVar.a("configName", d2.optString(GameGuideConfigInfo.KEY_CONFIG_NAME));
             if (elapsedRealtime != 0) {
@@ -218,8 +219,8 @@ public class b {
             String str2 = z != null ? z.targetAppPackageId : "";
             String str3 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f7977b = "guideClick";
-            eVar.f7982g = "wdview";
+            eVar.f8119b = "guideClick";
+            eVar.f8124g = "wdview";
             eVar.a("guideViewNum", String.valueOf(i2));
             eVar.a("configName", str);
             eVar.a("targetPackageName", str2);
@@ -236,9 +237,9 @@ public class b {
             String str3 = z != null ? z.targetAppPackageId : "";
             String str4 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f7977b = "wdDialogClick";
-            eVar.f7982g = "wdview";
-            eVar.f7980e = str;
+            eVar.f8119b = "wdDialogClick";
+            eVar.f8124g = "wdview";
+            eVar.f8122e = str;
             eVar.a("coinsThisTime", String.valueOf(i2));
             eVar.a("coinsTotal", String.valueOf(i3));
             eVar.a("configName", str2);
@@ -256,8 +257,8 @@ public class b {
             String str2 = z != null ? z.targetAppPackageId : "";
             String str3 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f7977b = "wdDialogShow";
-            eVar.f7982g = "wdview";
+            eVar.f8119b = "wdDialogShow";
+            eVar.f8124g = "wdview";
             eVar.a("coinsThisTime", String.valueOf(i2));
             eVar.a("coinsTotal", String.valueOf(i3));
             eVar.a("configName", str);
@@ -282,8 +283,8 @@ public class b {
             String str2 = z != null ? z.targetAppPackageId : "";
             String str3 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f7977b = "guideShow";
-            eVar.f7982g = "wdview";
+            eVar.f8119b = "guideShow";
+            eVar.f8124g = "wdview";
             eVar.a("configName", str);
             eVar.a("targetPackageName", str2);
             eVar.a("targetDownloadUrl", str3);
@@ -299,8 +300,8 @@ public class b {
             String str4 = z != null ? z.targetAppPackageId : "";
             String str5 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f7982g = str;
-            eVar.f7980e = str2;
+            eVar.f8124g = str;
+            eVar.f8122e = str2;
             eVar.a("configName", str3);
             eVar.a("targetPackageName", str4);
             eVar.a("targetDownloadUrl", str5);

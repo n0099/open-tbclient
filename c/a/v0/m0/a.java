@@ -1,6 +1,6 @@
 package c.a.v0.m0;
 
-import c.a.t0.p3.p;
+import c.a.t0.q3.p;
 import c.a.v0.i;
 import c.a.v0.q;
 import c.a.v0.r;
@@ -20,7 +20,7 @@ public class a {
     public static r a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? c.a.t0.p3.r.a() : (r) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? c.a.t0.q3.r.a() : (r) invokeV.objValue;
     }
 
     @Inject

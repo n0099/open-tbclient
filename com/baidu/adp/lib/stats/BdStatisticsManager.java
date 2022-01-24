@@ -596,7 +596,7 @@ public class BdStatisticsManager {
             c.a.d.f.n.n.b.m().n(dVar, str4, str5);
             g.i().l(dVar);
             if (dVar != null) {
-                this.mAppVersion = dVar.f2891c;
+                this.mAppVersion = dVar.f2993c;
             }
             if (TextUtils.isEmpty(this.mProcessNameMd5)) {
                 String processNameMd5 = getProcessNameMd5();
@@ -760,7 +760,7 @@ public class BdStatisticsManager {
         if (!(interceptable == null || interceptable.invokeL(1048622, this, str) == null) || (dVar = this.mCommonData) == null) {
             return;
         }
-        dVar.f2895g = str;
+        dVar.f2997g = str;
     }
 
     public void setCuidGalaxy2(String str) {
@@ -769,7 +769,7 @@ public class BdStatisticsManager {
         if (!(interceptable == null || interceptable.invokeL(1048623, this, str) == null) || (dVar = this.mCommonData) == null) {
             return;
         }
-        dVar.f2896h = str;
+        dVar.f2998h = str;
     }
 
     public void setOaid(String str) {

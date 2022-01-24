@@ -16,13 +16,13 @@ public class c extends Base64OutputStream {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f26515e;
+    public boolean f26543e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f26516f;
+    public boolean f26544f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f26517g;
+    public long f26545g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(OutputStream outputStream, int i2) {
@@ -43,35 +43,35 @@ public class c extends Base64OutputStream {
                 return;
             }
         }
-        this.f26515e = false;
-        this.f26516f = false;
-        this.f26517g = 0L;
+        this.f26543e = false;
+        this.f26544f = false;
+        this.f26545g = 0L;
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26517g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26545g : invokeV.longValue;
     }
 
     @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
     public void write(byte[] bArr, int i2, int i3) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
-            if (this.f26515e && !this.f26516f && i3 > 0 && bArr.length - i2 > 0) {
+            if (this.f26543e && !this.f26544f && i3 > 0 && bArr.length - i2 > 0) {
                 bArr[i2] = ContentUtil.GZIP_HEAD_2;
-                this.f26516f = true;
-            } else if (!this.f26515e && i3 == 1 && bArr.length - i2 > 0) {
+                this.f26544f = true;
+            } else if (!this.f26543e && i3 == 1 && bArr.length - i2 > 0) {
                 bArr[i2] = ContentUtil.GZIP_HEAD_1;
-                this.f26515e = true;
-            } else if (!this.f26515e && i3 > 1 && bArr.length - i2 > 1) {
+                this.f26543e = true;
+            } else if (!this.f26543e && i3 > 1 && bArr.length - i2 > 1) {
                 bArr[i2] = ContentUtil.GZIP_HEAD_1;
-                this.f26515e = true;
+                this.f26543e = true;
                 bArr[i2 + 1] = ContentUtil.GZIP_HEAD_2;
-                this.f26516f = true;
+                this.f26544f = true;
             }
             if (i3 > 0) {
-                this.f26517g += i3;
+                this.f26545g += i3;
             }
             super.write(bArr, i2, i3);
         }
@@ -81,12 +81,12 @@ public class c extends Base64OutputStream {
     public void write(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (!this.f26515e) {
+            if (!this.f26543e) {
                 super.write(117);
-                this.f26515e = true;
-            } else if (!this.f26516f) {
+                this.f26543e = true;
+            } else if (!this.f26544f) {
                 super.write(123);
-                this.f26516f = true;
+                this.f26544f = true;
             } else {
                 super.write(i2);
             }

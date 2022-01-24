@@ -10,14 +10,14 @@ import org.json.JSONObject;
 public class z implements com.kwad.sdk.core.webview.kwai.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f56461c;
+    public static Handler f56506c;
     public com.kwad.sdk.core.webview.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f56462b;
+    public com.kwad.sdk.core.download.a.b f56507b;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f56463d;
+    public b f56508d;
 
     /* loaded from: classes3.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
@@ -32,10 +32,10 @@ public class z implements com.kwad.sdk.core.webview.kwai.a {
 
     public z(com.kwad.sdk.core.webview.a aVar, com.kwad.sdk.core.download.a.b bVar, b bVar2) {
         this.a = aVar;
-        this.f56462b = bVar;
-        this.f56463d = bVar2;
-        if (f56461c == null) {
-            f56461c = new Handler(Looper.getMainLooper());
+        this.f56507b = bVar;
+        this.f56508d = bVar2;
+        if (f56506c == null) {
+            f56506c = new Handler(Looper.getMainLooper());
         }
     }
 
@@ -54,11 +54,11 @@ public class z implements com.kwad.sdk.core.webview.kwai.a {
             a aVar = new a();
             aVar.parseJson(new JSONObject(str));
             final int i2 = aVar.a;
-            f56461c.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.z.1
+            f56506c.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.z.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (z.this.f56463d != null) {
-                        z.this.f56463d.a(i2);
+                    if (z.this.f56508d != null) {
+                        z.this.f56508d.a(i2);
                     }
                 }
             });

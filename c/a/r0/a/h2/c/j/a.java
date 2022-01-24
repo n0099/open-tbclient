@@ -25,7 +25,7 @@ public class a extends h<b> {
 
     /* renamed from: c.a.r0.a.h2.c.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0424a {
+    public static /* synthetic */ class C0433a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -37,19 +37,19 @@ public class a extends h<b> {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f7165b;
+        public final boolean f7307b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final JSONObject f7166c;
+        public final JSONObject f7308c;
 
-        public /* synthetic */ b(boolean z, String str, JSONObject jSONObject, C0424a c0424a) {
+        public /* synthetic */ b(boolean z, String str, JSONObject jSONObject, C0433a c0433a) {
             this(z, str, jSONObject);
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("Result(%b):%s", Boolean.valueOf(this.f7165b), this.a) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("Result(%b):%s", Boolean.valueOf(this.f7307b), this.a) : (String) invokeV.objValue;
         }
 
         public b(boolean z, String str, JSONObject jSONObject) {
@@ -68,8 +68,8 @@ public class a extends h<b> {
                 }
             }
             this.a = str == null ? "" : str;
-            this.f7165b = z;
-            this.f7166c = jSONObject;
+            this.f7307b = z;
+            this.f7308c = jSONObject;
         }
     }
 
@@ -119,7 +119,7 @@ public class a extends h<b> {
                     c.a.r0.a.h2.c.d.m(c2);
                     c.a.r0.a.h2.c.d.t("Accredit", c2.toString());
                 }
-                if (c.a.r0.a.h2.c.c.f7106f) {
+                if (c.a.r0.a.h2.c.c.f7248f) {
                     throw new JSONException("Illegal errno=" + optInt + " errms=" + c2.optString("errms"));
                 }
             }

@@ -20,7 +20,7 @@ public final class d extends HandlerThread implements c<b> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f6484e;
+    public Handler f6626e;
 
     static {
         InterceptResult invokeClinit;
@@ -61,7 +61,7 @@ public final class d extends HandlerThread implements c<b> {
     public void a(@NonNull Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
-            this.f6484e = handler;
+            this.f6626e = handler;
         }
     }
 
@@ -69,10 +69,10 @@ public final class d extends HandlerThread implements c<b> {
     public void b(b bVar) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || bVar == null || (handler = this.f6484e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || bVar == null || (handler = this.f6626e) == null) {
             return;
         }
-        this.f6484e.sendMessageDelayed(Message.obtain(handler, bVar.a, bVar), bVar.f6483c);
+        this.f6626e.sendMessageDelayed(Message.obtain(handler, bVar.a, bVar), bVar.f6625c);
     }
 
     public final void c() {

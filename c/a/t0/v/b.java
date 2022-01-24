@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.e;
 import c.a.d.f.p.n;
-import c.a.t0.j3.l;
+import c.a.t0.k3.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UrlManager;
@@ -29,18 +29,18 @@ public final class b implements l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f24448d;
+    public static final Pattern f24153d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static b f24449e;
+    public static b f24154e;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<l.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ConcurrentHashMap<String, l.b> f24450b;
+    public final ConcurrentHashMap<String, l.b> f24155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public l.c f24451c;
+    public l.c f24156c;
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
@@ -48,10 +48,10 @@ public final class b implements l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l.a f24452e;
+        public final /* synthetic */ l.a f24157e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f24453f;
+        public final /* synthetic */ b f24158f;
 
         public a(b bVar, l.a aVar) {
             Interceptable interceptable = $ic;
@@ -68,15 +68,15 @@ public final class b implements l {
                     return;
                 }
             }
-            this.f24453f = bVar;
-            this.f24452e = aVar;
+            this.f24158f = bVar;
+            this.f24157e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f24453f.f(this.f24452e);
+                this.f24158f.f(this.f24157e);
             }
         }
     }
@@ -94,8 +94,8 @@ public final class b implements l {
                 return;
             }
         }
-        f24448d = Pattern.compile(UrlManager.patternText, 2);
-        f24449e = new b();
+        f24153d = Pattern.compile(UrlManager.patternText, 2);
+        f24154e = new b();
     }
 
     public b() {
@@ -112,24 +112,24 @@ public final class b implements l {
             }
         }
         this.a = new LinkedList();
-        this.f24450b = new ConcurrentHashMap<>();
-        this.f24451c = null;
+        this.f24155b = new ConcurrentHashMap<>();
+        this.f24156c = null;
     }
 
     public static b l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f24449e : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f24154e : (b) invokeV.objValue;
     }
 
-    @Override // c.a.t0.j3.l
+    @Override // c.a.t0.k3.l
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) && f24448d.matcher(str).find() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) && f24153d.matcher(str).find() : invokeL.booleanValue;
     }
 
-    @Override // c.a.t0.j3.l
+    @Override // c.a.t0.k3.l
     public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, strArr, Boolean.valueOf(z), bundle}) == null) {
@@ -137,7 +137,7 @@ public final class b implements l {
         }
     }
 
-    @Override // c.a.t0.j3.l
+    @Override // c.a.t0.k3.l
     public boolean c(Context context, String[] strArr, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -172,7 +172,7 @@ public final class b implements l {
                 return false;
             }
             String str2 = strArr[0];
-            l.b bVar = this.f24450b.get(m(str2));
+            l.b bVar = this.f24155b.get(m(str2));
             if (bVar != null) {
                 bVar.a(context, j(k(str2)));
                 return true;
@@ -189,7 +189,7 @@ public final class b implements l {
                     break;
                 }
             }
-            if (!z3 && this.f24451c != null) {
+            if (!z3 && this.f24156c != null) {
                 if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                     return true;
                 }
@@ -274,15 +274,15 @@ public final class b implements l {
 
     public final void n(Context context, String str, String str2, boolean z, l.d dVar, boolean z2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && f24448d.matcher(str2).find()) {
-            this.f24451c.a(context, str, str2, z, dVar, z2, bundle);
+        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && f24153d.matcher(str2).find()) {
+            this.f24156c.a(context, str, str2, z, dVar, z2, bundle);
         }
     }
 
     public void o(l.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.f24451c = cVar;
+            this.f24156c = cVar;
         }
     }
 }

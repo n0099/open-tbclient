@@ -5,23 +5,23 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface aj extends IInterface {
     void a(int i2, int i3) throws RemoteException;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a extends Binder implements aj {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.aj$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public static class C2203a implements aj {
+        /* loaded from: classes4.dex */
+        public static class C2209a implements aj {
             public static aj a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f59929b;
+            public IBinder f59974b;
 
-            public C2203a(IBinder iBinder) {
-                this.f59929b = iBinder;
+            public C2209a(IBinder iBinder) {
+                this.f59974b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.aj
@@ -32,7 +32,7 @@ public interface aj extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.ProcessAidlCallback");
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
-                    if (!this.f59929b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f59974b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(i2, i3);
                     } else {
                         obtain2.readException();
@@ -45,7 +45,7 @@ public interface aj extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f59929b;
+                return this.f59974b;
             }
         }
 
@@ -61,7 +61,7 @@ public interface aj extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof aj)) {
                 return (aj) queryLocalInterface;
             }
-            return new C2203a(iBinder);
+            return new C2209a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -85,7 +85,7 @@ public interface aj extends IInterface {
         }
 
         public static aj a() {
-            return C2203a.a;
+            return C2209a.a;
         }
     }
 }

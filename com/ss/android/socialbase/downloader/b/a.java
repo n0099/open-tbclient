@@ -5,16 +5,16 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends SQLiteOpenHelper {
     public static volatile a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f59836b;
+    public boolean f59881b;
 
     public a() {
         super(com.ss.android.socialbase.downloader.downloader.c.N(), "downloader.db", (SQLiteDatabase.CursorFactory) null, 15);
-        this.f59836b = false;
+        this.f59881b = false;
     }
 
     public static a a() {
@@ -31,14 +31,14 @@ public class a extends SQLiteOpenHelper {
     @Override // android.database.sqlite.SQLiteOpenHelper
     public SQLiteDatabase getReadableDatabase() {
         Context N = com.ss.android.socialbase.downloader.downloader.c.N();
-        if (!this.f59836b && N != null) {
+        if (!this.f59881b && N != null) {
             try {
                 File file = new File("/data/data/" + N.getPackageName() + "/database/main/");
                 if (!file.exists()) {
                     file.mkdir();
                 }
                 super.getReadableDatabase().execSQL("PRAGMA temp_store_directory = tempDir");
-                this.f59836b = true;
+                this.f59881b = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

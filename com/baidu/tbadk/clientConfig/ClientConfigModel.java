@@ -21,10 +21,10 @@ public class ClientConfigModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.q.a f40098e;
+    public c.a.s0.q.a f40126e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.d.c.g.a f40099f;
+    public final c.a.d.c.g.a f40127f;
 
     /* loaded from: classes11.dex */
     public class a extends c.a.d.c.g.a {
@@ -59,16 +59,16 @@ public class ClientConfigModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (!this.a.z(responsedMessage)) {
-                    if (this.a.f40098e != null) {
-                        this.a.f40098e.onError("");
+                    if (this.a.f40126e != null) {
+                        this.a.f40126e.onError("");
                     }
                 } else if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
                         this.a.A(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                     } else if (responsedMessage instanceof ClientConfigSocketResponse) {
                         this.a.A(((ClientConfigSocketResponse) responsedMessage).getData());
-                    } else if (this.a.f40098e != null) {
-                        this.a.f40098e.onError("");
+                    } else if (this.a.f40126e != null) {
+                        this.a.f40126e.onError("");
                     }
                 } else {
                     String errorString = responsedMessage.getErrorString();
@@ -76,8 +76,8 @@ public class ClientConfigModel extends BdBaseModel {
                     if (StringUtils.isNull(errorString)) {
                         errorString = string;
                     }
-                    if (this.a.f40098e != null) {
-                        this.a.f40098e.onError(errorString);
+                    if (this.a.f40126e != null) {
+                        this.a.f40126e.onError(errorString);
                     }
                 }
             }
@@ -103,8 +103,8 @@ public class ClientConfigModel extends BdBaseModel {
             }
         }
         a aVar2 = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.f40099f = aVar2;
-        this.f40098e = aVar;
+        this.f40127f = aVar2;
+        this.f40126e = aVar;
         registerListener(aVar2);
     }
 
@@ -112,13 +112,13 @@ public class ClientConfigModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
             if (dataRes == null) {
-                if (this.f40098e != null) {
-                    this.f40098e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
+                if (this.f40126e != null) {
+                    this.f40126e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
                     return;
                 }
                 return;
             }
-            c.a.s0.q.a aVar = this.f40098e;
+            c.a.s0.q.a aVar = this.f40126e;
             if (aVar != null) {
                 aVar.a(dataRes);
             }

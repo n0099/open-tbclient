@@ -31,19 +31,19 @@ public final class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
     public int m;
     public int n;
-    public C1205a o;
+    public C1213a o;
     public final CacheManager p;
     public c q;
 
     /* renamed from: c.a.t0.m0.f.e.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class C1205a {
+    public final class C1213a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public C1205a(a this$0) {
+        public C1213a(a this$0) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public final class a extends d {
         Intrinsics.checkNotNullExpressionValue(b3, "all(*Families.layoutComponentTypes).get()");
         this.m = -1;
         this.n = -1;
-        this.o = new C1205a(this);
+        this.o = new C1213a(this);
         this.p = context.b();
         this.q = new c.a.t0.m0.h.d();
     }

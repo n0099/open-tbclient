@@ -19,15 +19,15 @@ public final class d extends AsyncTask<Void, Void, a> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f60462h = "https://open.weixin.qq.com/connect/sdk/qrconnect?appid=%s&noncestr=%s&timestamp=%s&scope=%s&signature=%s";
+    public static String f60507h = "https://open.weixin.qq.com/connect/sdk/qrconnect?appid=%s&noncestr=%s&timestamp=%s&scope=%s&signature=%s";
     public transient /* synthetic */ FieldHolder $fh;
     public String appId;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f60463i;
+    public String f60508i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f60464j;
+    public String f60509j;
     public OAuthListener k;
     public f l;
     public String scope;
@@ -150,8 +150,8 @@ public final class d extends AsyncTask<Void, Void, a> {
         }
         this.appId = str;
         this.scope = str2;
-        this.f60463i = str3;
-        this.f60464j = str4;
+        this.f60508i = str3;
+        this.f60509j = str4;
         this.signature = str5;
         this.k = oAuthListener;
     }
@@ -173,7 +173,7 @@ public final class d extends AsyncTask<Void, Void, a> {
     public final /* synthetic */ a doInBackground(Void[] voidArr) {
         Thread.currentThread().setName("OpenSdkGetQRCodeTask");
         Log.i("MicroMsg.SDK.GetQRCodeTask", "doInBackground");
-        String format = String.format(f60462h, this.appId, this.f60463i, this.f60464j, this.scope, this.signature);
+        String format = String.format(f60507h, this.appId, this.f60508i, this.f60509j, this.scope, this.signature);
         long currentTimeMillis = System.currentTimeMillis();
         byte[] a2 = e.a(format);
         Log.d("MicroMsg.SDK.GetQRCodeTask", String.format("doInBackground, url = %s, time consumed = %d(ms)", format, Long.valueOf(System.currentTimeMillis() - currentTimeMillis)));

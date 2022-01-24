@@ -10,6 +10,7 @@ import c.a.r0.a.k;
 import c.a.r0.a.n2.n;
 import c.a.r0.a.z2.w;
 import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -28,10 +29,10 @@ public abstract class b extends z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5873c;
+    public String f6015c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f5874d;
+    public boolean f6016d;
 
     /* loaded from: classes.dex */
     public class a implements c.a.r0.a.z2.g1.c<i<b.e>> {
@@ -39,19 +40,19 @@ public abstract class b extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5875e;
+        public final /* synthetic */ CallbackHandler f6017e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5876f;
+        public final /* synthetic */ String f6018f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f5877g;
+        public final /* synthetic */ c.a.r0.a.d2.e f6019g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5878h;
+        public final /* synthetic */ UnitedSchemeEntity f6020h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f5879i;
+        public final /* synthetic */ b f6021i;
 
         public a(b bVar, CallbackHandler callbackHandler, String str, c.a.r0.a.d2.e eVar, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
@@ -68,11 +69,11 @@ public abstract class b extends z {
                     return;
                 }
             }
-            this.f5879i = bVar;
-            this.f5875e = callbackHandler;
-            this.f5876f = str;
-            this.f5877g = eVar;
-            this.f5878h = unitedSchemeEntity;
+            this.f6021i = bVar;
+            this.f6017e = callbackHandler;
+            this.f6018f = str;
+            this.f6019g = eVar;
+            this.f6020h = unitedSchemeEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,11 +83,11 @@ public abstract class b extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.q(iVar, this.f5875e, this.f5876f);
-                    this.f5879i.l(this.f5877g, this.f5878h, this.f5875e, this.f5876f);
+                    c.a.r0.a.h2.c.d.q(iVar, this.f6017e, this.f6018f);
+                    this.f6021i.l(this.f6019g, this.f6020h, this.f6017e, this.f6018f);
                     return;
                 }
-                this.f5879i.k(this.f5877g, this.f5878h, this.f5875e, this.f5876f);
+                this.f6021i.k(this.f6019g, this.f6020h, this.f6017e, this.f6018f);
             }
         }
     }
@@ -110,8 +111,8 @@ public abstract class b extends z {
                 return;
             }
         }
-        this.f5873c = null;
-        this.f5874d = false;
+        this.f6015c = null;
+        this.f6016d = false;
     }
 
     public static void m(String str, String str2, String str3) {
@@ -123,9 +124,9 @@ public abstract class b extends z {
         c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
         b.a V = a0.V();
         eVar.a = n.n(V.G());
-        eVar.f7980e = str3;
-        eVar.f7977b = DI.BD.FAVOR;
-        eVar.f7981f = a0.N();
+        eVar.f8122e = str3;
+        eVar.f8119b = DI.BD.FAVOR;
+        eVar.f8123f = a0.N();
         SwanCoreVersion j0 = V.j0();
         String Y = a0.Y();
         String str4 = j0 != null ? j0.swanCoreVersionName : "";
@@ -144,20 +145,20 @@ public abstract class b extends z {
             if (eVar == null) {
                 c.a.r0.a.e0.d.c("favorite", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                boolean z = z.f6201b;
+                boolean z = z.f6343b;
                 return false;
             }
             JSONObject d2 = w.d(unitedSchemeEntity.getParam("params"));
             String optString = d2.optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 c.a.r0.a.e0.d.c("favorite", "none cb");
-                boolean z2 = z.f6201b;
+                boolean z2 = z.f6343b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            this.f5874d = d2.optBoolean("isFavorButton", false);
+            this.f6016d = d2.optBoolean("isFavorButton", false);
             if (!j(eVar, unitedSchemeEntity)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params error");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, IActiveUploadListener.PARAM_ERR_MSG);
                 return false;
             }
             String optString2 = d2.optString("slaveId");
@@ -165,7 +166,7 @@ public abstract class b extends z {
             if (TextUtils.equals(optString2, c.a.r0.a.g1.f.U().C()) && (TextUtils.equals(T, "pages/swan-news-showcase/index") || TextUtils.equals(T, "pages/swan-operate-news/index"))) {
                 k(eVar, unitedSchemeEntity, callbackHandler, optString);
             } else if (!o(unitedSchemeEntity)) {
-                eVar.d0().g(context, this.f5874d ? "scope_favorite_button" : "mapp_favorite", new a(this, callbackHandler, optString, eVar, unitedSchemeEntity));
+                eVar.d0().g(context, this.f6016d ? "scope_favorite_button" : "mapp_favorite", new a(this, callbackHandler, optString, eVar, unitedSchemeEntity));
             } else {
                 k(eVar, unitedSchemeEntity, callbackHandler, optString);
             }

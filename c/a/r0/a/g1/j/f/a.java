@@ -13,7 +13,7 @@ public class a implements b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6254b;
+    public int f6396b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class a implements b {
             }
         }
         this.a = -2;
-        this.f6254b = -2;
+        this.f6396b = -2;
     }
 
     @Override // c.a.r0.a.g1.j.f.b
@@ -54,11 +54,11 @@ public class a implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f6254b == -2) {
+            if (this.f6396b == -2) {
                 c.a.r0.a.c1.a.g0().getSwitch("swan_webview_pause_control", 3);
-                this.f6254b = 3;
+                this.f6396b = 3;
             }
-            return (this.f6254b & 2) == 2;
+            return (this.f6396b & 2) == 2;
         }
         return invokeV.booleanValue;
     }
@@ -68,11 +68,11 @@ public class a implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f6254b == -2) {
+            if (this.f6396b == -2) {
                 c.a.r0.a.c1.a.g0().getSwitch("swan_webview_pause_control", 3);
-                this.f6254b = 3;
+                this.f6396b = 3;
             }
-            return (this.f6254b & 1) == 1;
+            return (this.f6396b & 1) == 1;
         }
         return invokeV.booleanValue;
     }

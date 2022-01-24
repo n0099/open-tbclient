@@ -2,7 +2,6 @@ package com.baidu.tieba.external.cover.module;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiOptions;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -84,7 +83,7 @@ public class PreViewPickCoverEditDraftBean implements Serializable, Cloneable {
                 this.mLayoutY = jSONObject.optInt("layout_y");
                 this.mRotateAngle = jSONObject.optInt("rotate_angle");
                 this.mScale = jSONObject.optInt(AnimationProperty.SCALE);
-                this.mCoverPercent = (float) jSONObject.optDouble(SapiOptions.KEY_CACHE_PERCENT);
+                this.mCoverPercent = (float) jSONObject.optDouble("percent");
                 JSONObject optJSONObject = jSONObject.optJSONObject("style");
                 if (optJSONObject != null) {
                     this.mStyleEntity = TextWordsEntity.TextStyleEntity.parse(optJSONObject);
@@ -117,7 +116,7 @@ public class PreViewPickCoverEditDraftBean implements Serializable, Cloneable {
                 jSONObject.put("layout_y", this.mLayoutY);
                 jSONObject.put("rotate_angle", this.mRotateAngle);
                 jSONObject.put(AnimationProperty.SCALE, this.mScale);
-                jSONObject.put(SapiOptions.KEY_CACHE_PERCENT, this.mCoverPercent);
+                jSONObject.put("percent", this.mCoverPercent);
                 if (this.mStyleEntity != null) {
                     jSONObject.put("style", TextWordsEntity.TextStyleEntity.toJson(this.mStyleEntity));
                 }

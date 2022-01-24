@@ -27,14 +27,14 @@ public class b {
     public static class a extends ResponseCallback<c.a.r0.a.b2.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ InterfaceC0273b a;
+        public final /* synthetic */ InterfaceC0282b a;
 
-        public a(InterfaceC0273b interfaceC0273b) {
+        public a(InterfaceC0282b interfaceC0282b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {interfaceC0273b};
+                Object[] objArr = {interfaceC0282b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -44,22 +44,22 @@ public class b {
                     return;
                 }
             }
-            this.a = interfaceC0273b;
+            this.a = interfaceC0282b;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(c.a.r0.a.b2.a aVar, int i2) {
-            InterfaceC0273b interfaceC0273b;
+            InterfaceC0282b interfaceC0282b;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || (interfaceC0273b = this.a) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || (interfaceC0282b = this.a) == null) {
                 return;
             }
             if (aVar == null) {
-                interfaceC0273b.a(null);
+                interfaceC0282b.a(null);
             } else {
-                interfaceC0273b.a(aVar);
+                interfaceC0282b.a(aVar);
             }
         }
 
@@ -84,18 +84,18 @@ public class b {
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            InterfaceC0273b interfaceC0273b;
+            InterfaceC0282b interfaceC0282b;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (interfaceC0273b = this.a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (interfaceC0282b = this.a) == null) {
                 return;
             }
-            interfaceC0273b.a(null);
+            interfaceC0282b.a(null);
         }
     }
 
     /* renamed from: c.a.r0.a.b2.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0273b {
+    public interface InterfaceC0282b {
         void a(c.a.r0.a.b2.a aVar);
     }
 
@@ -131,14 +131,14 @@ public class b {
         return (String) invokeV.objValue;
     }
 
-    public static void c(InterfaceC0273b interfaceC0273b) {
+    public static void c(InterfaceC0282b interfaceC0282b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, interfaceC0273b) == null) {
-            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(b(), new a(interfaceC0273b));
+        if (interceptable == null || interceptable.invokeL(65539, null, interfaceC0282b) == null) {
+            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(b(), new a(interfaceC0282b));
             if (c.a.r0.p.e.a.g().c()) {
-                aVar.f11453f = true;
+                aVar.f11595f = true;
             }
-            aVar.f11454g = true;
+            aVar.f11596g = true;
             c.a.r0.p.e.a.g().d(aVar);
         }
     }

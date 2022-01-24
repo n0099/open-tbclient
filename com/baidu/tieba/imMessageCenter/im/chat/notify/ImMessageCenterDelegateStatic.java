@@ -34,7 +34,7 @@ public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
     public MessageRedDotView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f45182b;
+    public CustomMessageListener f45210b;
 
     /* loaded from: classes12.dex */
     public static class a extends CustomMessageListener {
@@ -195,11 +195,11 @@ public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             c cVar = new c();
             cVar.a = new MessageCenterFragment();
-            cVar.f12789e = 3;
-            cVar.f12786b = R.string.my_message;
-            cVar.f12790f = R.raw.lottie_tab_msg;
-            cVar.f12793i = c.l;
-            cVar.f12792h = c.a.s0.i0.e.c.d().c("message");
+            cVar.f12933e = 3;
+            cVar.f12930b = R.string.my_message;
+            cVar.f12934f = R.raw.lottie_tab_msg;
+            cVar.f12937i = c.l;
+            cVar.f12936h = c.a.s0.i0.e.c.d().c("message");
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -214,9 +214,9 @@ public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
             this.a = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;
-            aVar.f41044f = tbFragmentTabIndicator;
+            aVar.f41072f = tbFragmentTabIndicator;
             aVar.a = this.a;
-            aVar.f41040b = true;
+            aVar.f41068b = true;
             tbFragmentTabIndicator.addTipWrapContent("msg", aVar);
             this.a.setVisibility(4);
             if (!TbSingleton.getInstance().isShowVivoBadge()) {
@@ -238,8 +238,8 @@ public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
     public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f45182b = new b(this, 2921002);
-            MessageManager.getInstance().registerListener(this.f45182b);
+            this.f45210b = new b(this, 2921002);
+            MessageManager.getInstance().registerListener(this.f45210b);
         }
     }
 
@@ -248,7 +248,7 @@ public class ImMessageCenterDelegateStatic extends c.a.s0.i0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onRemove();
-            MessageManager.getInstance().unRegisterListener(this.f45182b);
+            MessageManager.getInstance().unRegisterListener(this.f45210b);
         }
     }
 }

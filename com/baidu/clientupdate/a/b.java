@@ -13,12 +13,12 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f33333b;
+    public static b f33361b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.clientupdate.download.a f33334c;
+    public com.baidu.clientupdate.download.a f33362c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,17 +52,17 @@ public final class b {
         }
         this.a = null;
         this.a = context.getApplicationContext();
-        this.f33334c = com.baidu.clientupdate.download.a.a(context);
+        this.f33362c = com.baidu.clientupdate.download.a.a(context);
     }
 
     public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f33333b == null) {
-                f33333b = new b(context);
+            if (f33361b == null) {
+                f33361b = new b(context);
             }
-            return f33333b;
+            return f33361b;
         }
         return (b) invokeL.objValue;
     }

@@ -1,6 +1,5 @@
 package c.f.a.g.d;
 
-import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,7 +27,7 @@ public final class a implements HostnameVerifier {
     public static final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f28105b;
+    public static final Pattern f28133b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +44,7 @@ public final class a implements HostnameVerifier {
             }
         }
         a = new a();
-        f28105b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f28133b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
     public a() {
@@ -90,7 +89,7 @@ public final class a implements HostnameVerifier {
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? f28105b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? f28133b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public final boolean c(String str, String str2) {
@@ -105,7 +104,7 @@ public final class a implements HostnameVerifier {
                     str2 = str2 + '.';
                 }
                 String lowerCase = str2.toLowerCase(Locale.US);
-                if (!lowerCase.contains(ProxyConfig.MATCH_ALL_SCHEMES)) {
+                if (!lowerCase.contains("*")) {
                     return str.equals(lowerCase);
                 }
                 if (!lowerCase.startsWith(CertificatePinner.Pin.WILDCARD) || lowerCase.indexOf(42, 1) != -1 || str.length() < lowerCase.length() || CertificatePinner.Pin.WILDCARD.equals(lowerCase)) {

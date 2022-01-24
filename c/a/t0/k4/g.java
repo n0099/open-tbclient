@@ -18,19 +18,19 @@ public final class g {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18816b;
+    public String f19049b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18817c;
+    public String f19050c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f18818d;
+    public String f19051d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18819e;
+    public int f19052e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18820f;
+    public int f19053f;
 
     static {
         InterceptResult invokeClinit;
@@ -67,35 +67,35 @@ public final class g {
         Intrinsics.checkNotNullParameter(description, "description");
         Intrinsics.checkNotNullParameter(buttonDesc, "buttonDesc");
         this.a = name;
-        this.f18816b = portrait;
-        this.f18817c = description;
-        this.f18818d = buttonDesc;
-        this.f18819e = i2;
-        this.f18820f = i3;
+        this.f19049b = portrait;
+        this.f19050c = description;
+        this.f19051d = buttonDesc;
+        this.f19052e = i2;
+        this.f19053f = i3;
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18818d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19051d : (String) invokeV.objValue;
     }
 
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18819e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19052e : invokeV.intValue;
     }
 
     public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18820f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19053f : invokeV.intValue;
     }
 
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18817c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19050c : (String) invokeV.objValue;
     }
 
     public final String e() {
@@ -113,7 +113,7 @@ public final class g {
             }
             if (obj instanceof g) {
                 g gVar = (g) obj;
-                return Intrinsics.areEqual(this.a, gVar.a) && Intrinsics.areEqual(this.f18816b, gVar.f18816b) && Intrinsics.areEqual(this.f18817c, gVar.f18817c) && Intrinsics.areEqual(this.f18818d, gVar.f18818d) && this.f18819e == gVar.f18819e && this.f18820f == gVar.f18820f;
+                return Intrinsics.areEqual(this.a, gVar.a) && Intrinsics.areEqual(this.f19049b, gVar.f19049b) && Intrinsics.areEqual(this.f19050c, gVar.f19050c) && Intrinsics.areEqual(this.f19051d, gVar.f19051d) && this.f19052e == gVar.f19052e && this.f19053f == gVar.f19053f;
             }
             return false;
         }
@@ -123,34 +123,34 @@ public final class g {
     public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f18816b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19049b : (String) invokeV.objValue;
     }
 
     public final void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.f18818d = str;
+            this.f19051d = str;
         }
     }
 
     public final void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f18819e = i2;
+            this.f19052e = i2;
         }
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (((((((((this.a.hashCode() * 31) + this.f18816b.hashCode()) * 31) + this.f18817c.hashCode()) * 31) + this.f18818d.hashCode()) * 31) + this.f18819e) * 31) + this.f18820f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (((((((((this.a.hashCode() * 31) + this.f19049b.hashCode()) * 31) + this.f19050c.hashCode()) * 31) + this.f19051d.hashCode()) * 31) + this.f19052e) * 31) + this.f19053f : invokeV.intValue;
     }
 
     public final void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f18820f = i2;
+            this.f19053f = i2;
         }
     }
 
@@ -158,7 +158,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.f18817c = str;
+            this.f19050c = str;
         }
     }
 
@@ -174,7 +174,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.f18816b = str;
+            this.f19049b = str;
         }
     }
 
@@ -182,7 +182,7 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return "VideoAdUiData(name=" + this.a + ", portrait=" + this.f18816b + ", description=" + this.f18817c + ", buttonDesc=" + this.f18818d + ", buttonType=" + this.f18819e + ", channel=" + this.f18820f + ')';
+            return "VideoAdUiData(name=" + this.a + ", portrait=" + this.f19049b + ", description=" + this.f19050c + ", buttonDesc=" + this.f19051d + ", buttonType=" + this.f19052e + ", channel=" + this.f19053f + ')';
         }
         return (String) invokeV.objValue;
     }

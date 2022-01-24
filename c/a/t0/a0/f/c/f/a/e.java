@@ -33,7 +33,7 @@ public class e extends c.a.d.n.e.a<c.a.t0.a0.f.c.f.b.b, LiveTabConcernOfflineVie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f14450b;
+        public final /* synthetic */ e f14590b;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class e extends c.a.d.n.e.a<c.a.t0.a0.f.c.f.b.b, LiveTabConcernOfflineVie
                     return;
                 }
             }
-            this.f14450b = eVar;
+            this.f14590b = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +59,7 @@ public class e extends c.a.d.n.e.a<c.a.t0.a0.f.c.f.b.b, LiveTabConcernOfflineVie
         public void a(View view, c.a.t0.a0.f.c.f.b.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, bVar) == null) {
-                this.f14450b.a0(bVar);
+                this.f14590b.a0(bVar);
             }
         }
     }
@@ -92,7 +92,7 @@ public class e extends c.a.d.n.e.a<c.a.t0.a0.f.c.f.b.b, LiveTabConcernOfflineVie
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || bVar == null) {
             return;
         }
-        String str = bVar.f14452e;
+        String str = bVar.f14592e;
         if (StringUtils.isNull(str) || c.a.d.f.m.b.g(str, 0L) == 0) {
             return;
         }

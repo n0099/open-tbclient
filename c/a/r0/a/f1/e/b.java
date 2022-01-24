@@ -33,11 +33,11 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f5829i;
+    public static final boolean f5971i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f5830h;
+    public long f5972h;
 
     /* loaded from: classes.dex */
     public static final class a extends b<a> {
@@ -99,7 +99,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
                 return;
             }
         }
-        f5829i = k.a;
+        f5971i = k.a;
     }
 
     public b() {
@@ -120,7 +120,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
-            boolean z = f5829i;
+            boolean z = f5971i;
             return new a().update(intent);
         }
         return (b) invokeL.objValue;
@@ -135,7 +135,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
             }
             String f2 = o0.f(str);
             if (c.a.r0.a.w1.c.a.k(f2)) {
-                return o0.i(str, c.a.r0.a.f2.g.a.f6202b);
+                return o0.i(str, c.a.r0.a.f2.g.a.f6344b);
             }
             if (swanAppConfigData.p(j.b(f2))) {
                 return str;
@@ -158,7 +158,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
             if (!TextUtils.isEmpty(str) && swanAppConfigData != null) {
                 return l1(x1(o1(str)), swanAppConfigData);
             }
-            if (f5829i) {
+            if (f5971i) {
                 String str2 = "getPageInfo ret null - " + str;
                 return null;
             }
@@ -177,22 +177,22 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
             Uri parse = Uri.parse(str);
             String j2 = o0.j(parse);
             if (TextUtils.isEmpty(j2)) {
-                boolean z = f5829i;
+                boolean z = f5971i;
                 return null;
             }
             String n = o0.n(j2, parse, true);
             if (TextUtils.isEmpty(n)) {
-                boolean z2 = f5829i;
+                boolean z2 = f5971i;
                 return null;
             }
-            String i2 = o0.i(parse.getEncodedQuery(), c.a.r0.a.f2.g.a.f6202b);
-            if (f5829i) {
+            String i2 = o0.i(parse.getEncodedQuery(), c.a.r0.a.f2.g.a.f6344b);
+            if (f5971i) {
                 String str2 = "query: " + i2;
             }
             if (!TextUtils.isEmpty(i2)) {
                 n = n + "?" + i2;
             }
-            if (f5829i) {
+            if (f5971i) {
                 String str3 = "launch path - " + n;
             }
             return n;
@@ -312,8 +312,8 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-            if (this.f5830h < 1 && j2 > 0) {
-                this.f5830h = j2;
+            if (this.f5972h < 1 && j2 > 0) {
+                this.f5972h = j2;
                 return (SelfT) super.Y0(j2);
             }
             return (SelfT) a();
@@ -342,7 +342,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
                     f0.versionCode = Integer.parseInt(str);
                     return (SelfT) super.b1(str);
                 } catch (NumberFormatException e2) {
-                    if (f5829i) {
+                    if (f5971i) {
                         e2.printStackTrace();
                     }
                 }
@@ -487,7 +487,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
                     try {
                         return new JSONObject(queryParameter).optJSONObject("baidusearch");
                     } catch (JSONException e2) {
-                        if (f5829i) {
+                        if (f5971i) {
                             e2.printStackTrace();
                         }
                     }
@@ -572,7 +572,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
     public long u1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f5830h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f5972h : invokeV.longValue;
     }
 
     public String v1() {

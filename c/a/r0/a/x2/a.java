@@ -19,22 +19,22 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f9579b;
+    public static int f9721b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.x2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0616a implements Runnable {
+    public static class RunnableC0625a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f9580e;
+        public final /* synthetic */ int f9722e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f9581f;
+        public final /* synthetic */ int f9723f;
 
-        public RunnableC0616a(int i2, int i3) {
+        public RunnableC0625a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,15 +49,15 @@ public class a {
                     return;
                 }
             }
-            this.f9580e = i2;
-            this.f9581f = i3;
+            this.f9722e = i2;
+            this.f9723f = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.b(this.f9580e, this.f9581f);
+                a.b(this.f9722e, this.f9723f);
             }
         }
     }
@@ -76,16 +76,16 @@ public class a {
             }
         }
         a = k.a;
-        f9579b = 0;
+        f9721b = 0;
     }
 
     public static void b(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65538, null, i2, i3) == null) {
             if (i2 == 0) {
-                f9579b = 2;
+                f9721b = 2;
             } else if (i3 > i2) {
-                f9579b = 1;
+                f9721b = 1;
                 c.a.r0.a.p0.e.a.d().e(i2, i3);
                 j.h();
                 b.m().i();
@@ -101,14 +101,14 @@ public class a {
     public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f9579b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f9721b : invokeV.intValue;
     }
 
     public static void d(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3) == null) {
             if (i2 != 0 && c.a.r0.a.c1.a.g0().l()) {
-                q.k(new RunnableC0616a(i2, i3), "onUpgradeOperation");
+                q.k(new RunnableC0625a(i2, i3), "onUpgradeOperation");
             } else {
                 b(i2, i3);
             }

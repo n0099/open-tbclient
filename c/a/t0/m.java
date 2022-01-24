@@ -1,5 +1,6 @@
 package c.a.t0;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import c.a.s0.s0.l;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,17 +20,17 @@ public class m extends c.a.t0.d0.a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f19170e = true;
+    public static boolean f19433e = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f19171b;
+    public long f19434b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f19172c;
+    public long f19435c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j f19173d;
+    public j f19436d;
 
     static {
         InterceptResult invokeClinit;
@@ -64,8 +65,8 @@ public class m extends c.a.t0.d0.a {
                 return;
             }
         }
-        this.f19171b = -1L;
-        this.f19172c = -1L;
+        this.f19434b = -1L;
+        this.f19435c = -1L;
     }
 
     @Override // c.a.t0.d0.a
@@ -74,12 +75,12 @@ public class m extends c.a.t0.d0.a {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(3007);
             long currentTimeMillis = System.currentTimeMillis();
-            this.f19171b = currentTimeMillis;
-            this.f19172c = currentTimeMillis;
+            this.f19434b = currentTimeMillis;
+            this.f19435c = currentTimeMillis;
             super.d(bundle);
-            j jVar = new j(this.a, this.f19172c);
-            this.f19173d = jVar;
-            jVar.f(f19170e);
+            j jVar = new j(this.a, this.f19435c);
+            this.f19436d = jVar;
+            jVar.i(f19433e);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY);
         }
     }
@@ -89,15 +90,39 @@ public class m extends c.a.t0.d0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.e();
-            f19170e = false;
-            this.f19173d.d();
+            f19433e = false;
+            this.f19436d.g();
         }
     }
 
-    public void f() {
+    public void f(Configuration configuration) {
+        j jVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && LogoActivityConfig.isFirst && this.f19171b >= 0) {
-            l.b().w(System.currentTimeMillis() - this.f19171b);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) || (jVar = this.f19436d) == null) {
+            return;
+        }
+        jVar.d(configuration);
+    }
+
+    public void g() {
+        j jVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (jVar = this.f19436d) == null) {
+            return;
+        }
+        jVar.e();
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (LogoActivityConfig.isFirst && this.f19434b >= 0) {
+                l.b().w(System.currentTimeMillis() - this.f19434b);
+            }
+            j jVar = this.f19436d;
+            if (jVar != null) {
+                jVar.f();
+            }
         }
     }
 }

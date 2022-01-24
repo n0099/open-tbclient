@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import kotlinx.coroutines.scheduling.CoroutineScheduler;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class WireOutput {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public final class WireOutput {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
-            if ((i2 & a.f30864g) == 0) {
+            if ((i2 & a.f30892g) == 0) {
                 return 1;
             }
             if ((i2 & (-16384)) == 0) {
@@ -253,7 +253,7 @@ public final class WireOutput {
     public void writeVarint32(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            while ((i2 & a.f30864g) != 0) {
+            while ((i2 & a.f30892g) != 0) {
                 writeRawByte((i2 & 127) | 128);
                 i2 >>>= 7;
             }

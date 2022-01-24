@@ -12,7 +12,6 @@ import androidx.annotation.CheckResult;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -53,13 +52,13 @@ public final class d {
     public static String a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f11920b = -1;
+    public static int f12062b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f11921c = 1;
+    public static int f12063c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f11922d;
+    public static int f12064d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -1285,18 +1284,18 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) {
-            int i2 = f11922d;
+            int i2 = f12064d;
             if (i2 > 0) {
                 return i2;
             }
             try {
-                f11922d = new StatFs("/data").getBlockSize();
+                f12064d = new StatFs("/data").getBlockSize();
             } catch (IllegalArgumentException unused) {
             }
-            if (f11922d <= 0) {
-                f11922d = 8192;
+            if (f12064d <= 0) {
+                f12064d = 8192;
             }
-            return f11922d;
+            return f12064d;
         }
         return invokeV.intValue;
     }
@@ -1325,7 +1324,7 @@ public final class d {
             }
             int lastIndexOf = str.lastIndexOf(File.separator);
             int length = str.length();
-            return (lastIndexOf == f11920b || length <= lastIndexOf) ? str : str.substring(lastIndexOf + f11921c, length);
+            return (lastIndexOf == f12062b || length <= lastIndexOf) ? str : str.substring(lastIndexOf + f12063c, length);
         }
         return (String) invokeL.objValue;
     }
@@ -1336,7 +1335,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, str)) == null) {
             String s = s(str);
-            return (TextUtils.isEmpty(s) || (lastIndexOf = s.lastIndexOf(".")) == f11920b || lastIndexOf == s.length() + (-1)) ? "" : s.substring(lastIndexOf + 1);
+            return (TextUtils.isEmpty(s) || (lastIndexOf = s.lastIndexOf(".")) == f12062b || lastIndexOf == s.length() + (-1)) ? "" : s.substring(lastIndexOf + 1);
         }
         return (String) invokeL.objValue;
     }
@@ -1399,7 +1398,7 @@ public final class d {
     public static boolean x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65585, null, str)) == null) ? str.contains(Constants.PATH_PARENT) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65585, null, str)) == null) ? str.contains("../") : invokeL.booleanValue;
     }
 
     public static boolean y(File file) {

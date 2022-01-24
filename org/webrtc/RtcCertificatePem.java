@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.PeerConnection;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RtcCertificatePem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_EXPIRY = 2592000;

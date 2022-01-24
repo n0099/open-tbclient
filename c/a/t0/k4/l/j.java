@@ -26,10 +26,10 @@ public class j extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<StickerItem> f19035e;
+    public List<StickerItem> f19268e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VideoEffectLayout.h f19036f;
+    public VideoEffectLayout.h f19269f;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -37,10 +37,10 @@ public class j extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f19037e;
+        public final /* synthetic */ int f19270e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f19038f;
+        public final /* synthetic */ j f19271f;
 
         public a(j jVar, int i2) {
             Interceptable interceptable = $ic;
@@ -57,17 +57,17 @@ public class j extends BaseAdapter {
                     return;
                 }
             }
-            this.f19038f = jVar;
-            this.f19037e = i2;
+            this.f19271f = jVar;
+            this.f19270e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || ((StickerItem) this.f19038f.f19035e.get(this.f19037e * 2)).isSelect || this.f19038f.f19036f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || ((StickerItem) this.f19271f.f19268e.get(this.f19270e * 2)).isSelect || this.f19271f.f19269f == null) {
                 return;
             }
-            this.f19038f.f19036f.onStickerChoosed((StickerItem) this.f19038f.f19035e.get(this.f19037e * 2));
+            this.f19271f.f19269f.onStickerChoosed((StickerItem) this.f19271f.f19268e.get(this.f19270e * 2));
         }
     }
 
@@ -77,10 +77,10 @@ public class j extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f19039e;
+        public final /* synthetic */ int f19272e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f19040f;
+        public final /* synthetic */ j f19273f;
 
         public b(j jVar, int i2) {
             Interceptable interceptable = $ic;
@@ -97,17 +97,17 @@ public class j extends BaseAdapter {
                     return;
                 }
             }
-            this.f19040f = jVar;
-            this.f19039e = i2;
+            this.f19273f = jVar;
+            this.f19272e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || ((StickerItem) this.f19040f.f19035e.get((this.f19039e * 2) + 1)).isSelect || this.f19040f.f19036f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || ((StickerItem) this.f19273f.f19268e.get((this.f19272e * 2) + 1)).isSelect || this.f19273f.f19269f == null) {
                 return;
             }
-            this.f19040f.f19036f.onStickerChoosed((StickerItem) this.f19040f.f19035e.get((this.f19039e * 2) + 1));
+            this.f19273f.f19269f.onStickerChoosed((StickerItem) this.f19273f.f19268e.get((this.f19272e * 2) + 1));
         }
     }
 
@@ -118,22 +118,22 @@ public class j extends BaseAdapter {
         public RelativeLayout a;
 
         /* renamed from: b  reason: collision with root package name */
-        public RelativeLayout f19041b;
+        public RelativeLayout f19274b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TbImageView f19042c;
+        public TbImageView f19275c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TbImageView f19043d;
+        public TbImageView f19276d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ProgressBar f19044e;
+        public ProgressBar f19277e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ProgressBar f19045f;
+        public ProgressBar f19278f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ImageView f19046g;
+        public ImageView f19279g;
 
         public c(j jVar) {
             Interceptable interceptable = $ic;
@@ -172,13 +172,13 @@ public class j extends BaseAdapter {
     public StickerItem getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (StickerItem) ListUtils.getItem(this.f19035e, i2) : (StickerItem) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (StickerItem) ListUtils.getItem(this.f19268e, i2) : (StickerItem) invokeI.objValue;
     }
 
     public void d() {
         List<StickerItem> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.f19035e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.f19268e) == null) {
             return;
         }
         for (StickerItem stickerItem : list) {
@@ -194,14 +194,14 @@ public class j extends BaseAdapter {
     public void e(List<StickerItem> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f19035e = list;
+            this.f19268e = list;
         }
     }
 
     public void f(VideoEffectLayout.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) {
-            this.f19036f = hVar;
+            this.f19269f = hVar;
         }
     }
 
@@ -210,10 +210,10 @@ public class j extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (ListUtils.isEmpty(this.f19035e)) {
+            if (ListUtils.isEmpty(this.f19268e)) {
                 return 0;
             }
-            return (int) Math.ceil(this.f19035e.size() / 2.0d);
+            return (int) Math.ceil(this.f19268e.size() / 2.0d);
         }
         return invokeV.intValue;
     }
@@ -237,40 +237,40 @@ public class j extends BaseAdapter {
             if (view == null) {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_sticker, (ViewGroup) null);
                 cVar = new c(this);
-                cVar.f19042c = (TbImageView) view.findViewById(R.id.top_sticker);
-                cVar.f19043d = (TbImageView) view.findViewById(R.id.bottom_sticker);
+                cVar.f19275c = (TbImageView) view.findViewById(R.id.top_sticker);
+                cVar.f19276d = (TbImageView) view.findViewById(R.id.bottom_sticker);
                 cVar.a = (RelativeLayout) view.findViewById(R.id.top_container);
-                cVar.f19046g = (ImageView) view.findViewById(R.id.no_sticker);
-                cVar.f19041b = (RelativeLayout) view.findViewById(R.id.bottom_container);
-                cVar.f19044e = (ProgressBar) view.findViewById(R.id.top_progressbar);
-                cVar.f19045f = (ProgressBar) view.findViewById(R.id.bottom_progressbar);
+                cVar.f19279g = (ImageView) view.findViewById(R.id.no_sticker);
+                cVar.f19274b = (RelativeLayout) view.findViewById(R.id.bottom_container);
+                cVar.f19277e = (ProgressBar) view.findViewById(R.id.top_progressbar);
+                cVar.f19278f = (ProgressBar) view.findViewById(R.id.bottom_progressbar);
                 view.setTag(cVar);
             } else {
                 cVar = (c) view.getTag();
             }
-            cVar.f19042c.setAutoChangeStyle(false);
-            cVar.f19043d.setAutoChangeStyle(false);
-            cVar.f19042c.setGifIconSupport(false);
-            cVar.f19043d.setGifIconSupport(false);
+            cVar.f19275c.setAutoChangeStyle(false);
+            cVar.f19276d.setAutoChangeStyle(false);
+            cVar.f19275c.setGifIconSupport(false);
+            cVar.f19276d.setGifIconSupport(false);
             int i3 = i2 * 2;
-            if (ListUtils.getItem(this.f19035e, i3) instanceof StickerItem) {
+            if (ListUtils.getItem(this.f19268e, i3) instanceof StickerItem) {
                 cVar.a.setVisibility(0);
-                if (this.f19035e.get(i3).id == -1) {
-                    cVar.f19046g.setVisibility(0);
-                    cVar.f19042c.setVisibility(8);
-                    cVar.f19046g.setImageResource(R.drawable.icon_video_sticker_no);
+                if (this.f19268e.get(i3).id == -1) {
+                    cVar.f19279g.setVisibility(0);
+                    cVar.f19275c.setVisibility(8);
+                    cVar.f19279g.setImageResource(R.drawable.icon_video_sticker_no);
                 } else {
-                    cVar.f19046g.setVisibility(8);
-                    cVar.f19042c.setVisibility(0);
-                    cVar.f19042c.startLoad(this.f19035e.get(i3).img, 10, true);
+                    cVar.f19279g.setVisibility(8);
+                    cVar.f19275c.setVisibility(0);
+                    cVar.f19275c.startLoad(this.f19268e.get(i3).img, 10, true);
                 }
                 cVar.a.setOnClickListener(new a(this, i2));
-                if (this.f19035e.get(i3).isDownLoading) {
-                    cVar.f19044e.setVisibility(0);
+                if (this.f19268e.get(i3).isDownLoading) {
+                    cVar.f19277e.setVisibility(0);
                 } else {
-                    cVar.f19044e.setVisibility(8);
+                    cVar.f19277e.setVisibility(8);
                 }
-                if (this.f19035e.get(i3).isSelect) {
+                if (this.f19268e.get(i3).isSelect) {
                     SkinManager.setBackgroundResource(cVar.a, R.drawable.bg_select_sticker);
                 } else {
                     cVar.a.setBackgroundResource(R.color.transparent);
@@ -279,22 +279,22 @@ public class j extends BaseAdapter {
                 cVar.a.setVisibility(8);
             }
             int i4 = i3 + 1;
-            if (ListUtils.getItem(this.f19035e, i4) instanceof StickerItem) {
-                cVar.f19041b.setVisibility(0);
-                cVar.f19043d.startLoad(this.f19035e.get(i4).img, 10, true);
-                cVar.f19041b.setOnClickListener(new b(this, i2));
-                if (this.f19035e.get(i4).isDownLoading) {
-                    cVar.f19045f.setVisibility(0);
+            if (ListUtils.getItem(this.f19268e, i4) instanceof StickerItem) {
+                cVar.f19274b.setVisibility(0);
+                cVar.f19276d.startLoad(this.f19268e.get(i4).img, 10, true);
+                cVar.f19274b.setOnClickListener(new b(this, i2));
+                if (this.f19268e.get(i4).isDownLoading) {
+                    cVar.f19278f.setVisibility(0);
                 } else {
-                    cVar.f19045f.setVisibility(8);
+                    cVar.f19278f.setVisibility(8);
                 }
-                if (this.f19035e.get(i4).isSelect) {
-                    SkinManager.setBackgroundResource(cVar.f19041b, R.drawable.bg_select_sticker);
+                if (this.f19268e.get(i4).isSelect) {
+                    SkinManager.setBackgroundResource(cVar.f19274b, R.drawable.bg_select_sticker);
                 } else {
-                    cVar.f19041b.setBackgroundResource(R.color.transparent);
+                    cVar.f19274b.setBackgroundResource(R.color.transparent);
                 }
             } else {
-                cVar.f19041b.setVisibility(8);
+                cVar.f19274b.setVisibility(8);
             }
             return view;
         }

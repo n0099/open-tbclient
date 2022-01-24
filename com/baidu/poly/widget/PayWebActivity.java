@@ -52,7 +52,7 @@ public class PayWebActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PayWebActivity f37788e;
+        public final /* synthetic */ PayWebActivity f37816e;
 
         public a(PayWebActivity payWebActivity) {
             Interceptable interceptable = $ic;
@@ -69,15 +69,15 @@ public class PayWebActivity extends Activity {
                     return;
                 }
             }
-            this.f37788e = payWebActivity;
+            this.f37816e = payWebActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f37788e.setResult(0);
-                this.f37788e.finish();
+                this.f37816e.setResult(0);
+                this.f37816e.finish();
             }
         }
     }

@@ -89,7 +89,7 @@ public class EmotionView extends TbImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionView f42714e;
+        public final /* synthetic */ EmotionView f42735e;
 
         public b(EmotionView emotionView) {
             Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class EmotionView extends TbImageView {
                     return;
                 }
             }
-            this.f42714e = emotionView;
+            this.f42735e = emotionView;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -116,28 +116,28 @@ public class EmotionView extends TbImageView {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    this.f42714e.V = true;
-                    this.f42714e.a0 = motionEvent.getRawX();
-                    this.f42714e.b0 = motionEvent.getRawY();
-                    EmotionView emotionView = this.f42714e;
+                    this.f42735e.V = true;
+                    this.f42735e.a0 = motionEvent.getRawX();
+                    this.f42735e.b0 = motionEvent.getRawY();
+                    EmotionView emotionView = this.f42735e;
                     emotionView.c0 = emotionView.a0;
-                    EmotionView emotionView2 = this.f42714e;
+                    EmotionView emotionView2 = this.f42735e;
                     emotionView2.d0 = emotionView2.b0;
-                    this.f42714e.U = System.currentTimeMillis();
-                    if (this.f42714e.L()) {
-                        EmotionView emotionView3 = this.f42714e;
+                    this.f42735e.U = System.currentTimeMillis();
+                    if (this.f42735e.L()) {
+                        EmotionView emotionView3 = this.f42735e;
                         emotionView3.postDelayed(new d(emotionView3, emotionView3.U), 500L);
                     }
                 } else if (action == 1) {
-                    this.f42714e.V = false;
-                    if (this.f42714e.W) {
-                        this.f42714e.P();
-                    } else if (this.f42714e.e0 != null && this.f42714e.K()) {
-                        this.f42714e.e0.onClick(this.f42714e);
+                    this.f42735e.V = false;
+                    if (this.f42735e.W) {
+                        this.f42735e.P();
+                    } else if (this.f42735e.e0 != null && this.f42735e.K()) {
+                        this.f42735e.e0.onClick(this.f42735e);
                     }
                 } else if (action == 3) {
-                    this.f42714e.V = false;
-                    this.f42714e.P();
+                    this.f42735e.V = false;
+                    this.f42735e.P();
                 }
                 return true;
             }
@@ -162,10 +162,10 @@ public class EmotionView extends TbImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f42715e;
+        public long f42736e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EmotionView f42716f;
+        public final /* synthetic */ EmotionView f42737f;
 
         public d(EmotionView emotionView, long j2) {
             Interceptable interceptable = $ic;
@@ -182,15 +182,15 @@ public class EmotionView extends TbImageView {
                     return;
                 }
             }
-            this.f42716f = emotionView;
-            this.f42715e = j2;
+            this.f42737f = emotionView;
+            this.f42736e = j2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f42716f.V && this.f42715e == this.f42716f.U && this.f42716f.M()) {
-                this.f42716f.O();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f42737f.V && this.f42736e == this.f42737f.U && this.f42737f.M()) {
+                this.f42737f.O();
             }
         }
     }

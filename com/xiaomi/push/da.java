@@ -48,13 +48,13 @@ public class da {
     public boolean f220a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60968b;
+    public int f61013b;
 
     /* renamed from: b  reason: collision with other field name */
     public String f221b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60969c;
+    public String f61014c;
 
     static {
         InterceptResult invokeClinit;
@@ -85,7 +85,7 @@ public class da {
             }
         }
         this.f218a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        this.f60968b = 2097152;
+        this.f61013b = 2097152;
         this.f219a = new ArrayList<>();
     }
 
@@ -107,7 +107,7 @@ public class da {
                     int start = matcher.start();
                     String substring = str.substring(start, this.f221b.length() + start);
                     if (this.f220a) {
-                        if (substring.compareTo(this.f60969c) > 0) {
+                        if (substring.compareTo(this.f61014c) > 0) {
                             read = start;
                             z = true;
                             break;
@@ -126,7 +126,7 @@ public class da {
                     int i4 = read - i3;
                     this.f217a += i4;
                     bufferedWriter.write(cArr, i3, i4);
-                    if (z || this.f217a > this.f60968b) {
+                    if (z || this.f217a > this.f61013b) {
                         return;
                     }
                 }
@@ -234,7 +234,7 @@ public class da {
                 this.f221b = this.f218a.format(date);
                 format = this.f218a.format(date2);
             }
-            this.f60969c = format;
+            this.f61014c = format;
             return this;
         }
         return (da) invokeLL.objValue;
@@ -290,6 +290,6 @@ public class da {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 == 0) {
             return;
         }
-        this.f60968b = i2;
+        this.f61013b = i2;
     }
 }

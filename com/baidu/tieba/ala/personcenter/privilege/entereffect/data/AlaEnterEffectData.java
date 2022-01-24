@@ -7,7 +7,6 @@ import com.baidu.ala.gift.AlaDynamicGift;
 import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
 import com.baidu.ala.gift.AlaDynamicGiftZip;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -116,7 +115,7 @@ public class AlaEnterEffectData implements Serializable, n {
         this.content_last = jSONObject.optString("content_last");
         this.effect_range_name = jSONObject.optString("effect_range_name");
         this.end_time = jSONObject.optLong("end_time");
-        this.begin_time = jSONObject.optLong(ExternalTransferSpeedStats.UBC_APPLICATION_CREATE_KEY);
+        this.begin_time = jSONObject.optLong("begin_time");
         this.categoryType = jSONObject.optInt("effect_type");
         this.obtain_way = jSONObject.optString("obtain_way");
         JSONObject optJSONObject = jSONObject.optJSONObject("nobility_info");

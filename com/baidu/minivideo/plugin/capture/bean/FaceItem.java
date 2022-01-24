@@ -6,7 +6,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.plugin.capture.Application;
 import com.baidu.minivideo.plugin.capture.utils.FileUtils;
 import com.baidu.minivideo.plugin.capture.utils.StringUtils;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -176,7 +175,7 @@ public class FaceItem implements Jsonable {
                 this.name = jSONObject.optString("name");
                 this.bgurl = jSONObject.optString("bgurl");
                 this.file = jSONObject.optString("file");
-                this.sk = jSONObject.optString(ContentUtil.RESULT_KEY_SK);
+                this.sk = jSONObject.optString("sk");
                 this.tip = jSONObject.optString("tip");
                 return true;
             } catch (JSONException unused) {
@@ -197,7 +196,7 @@ public class FaceItem implements Jsonable {
                 jSONObject.put("name", this.name);
                 jSONObject.put("bgurl", this.bgurl);
                 jSONObject.put("file", this.file);
-                jSONObject.put(ContentUtil.RESULT_KEY_SK, this.sk);
+                jSONObject.put("sk", this.sk);
                 jSONObject.put("tip", this.tip);
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -215,7 +214,7 @@ public class FaceItem implements Jsonable {
                 this.name = jSONObject.optString("name");
                 this.bgurl = jSONObject.optString("bgurl");
                 this.file = jSONObject.optString("file");
-                this.sk = jSONObject.optString(ContentUtil.RESULT_KEY_SK);
+                this.sk = jSONObject.optString("sk");
                 this.musicId = jSONObject.optString("music_id");
                 this.tip = jSONObject.optString("tip");
                 this.filterId = jSONObject.optString("filter_id");

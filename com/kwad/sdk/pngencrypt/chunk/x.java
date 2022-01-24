@@ -5,13 +5,13 @@ import com.kwad.sdk.pngencrypt.PngjException;
 public class x extends s {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f57108h;
+    public String f57153h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57109i;
+    public int f57154i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int[] f57110j;
+    public int[] f57155j;
 
     public x(com.kwad.sdk.pngencrypt.k kVar) {
         super("sPLT", kVar);
@@ -27,7 +27,7 @@ public class x extends s {
         int i7 = 0;
         int i8 = 0;
         while (true) {
-            byte[] bArr = dVar.f57067d;
+            byte[] bArr = dVar.f57112d;
             if (i8 >= bArr.length) {
                 i8 = -1;
                 break;
@@ -38,42 +38,42 @@ public class x extends s {
             }
         }
         if (i8 > 0) {
-            byte[] bArr2 = dVar.f57067d;
+            byte[] bArr2 = dVar.f57112d;
             if (i8 <= bArr2.length - 2) {
-                this.f57108h = b.a(bArr2, 0, i8);
-                int a = com.kwad.sdk.pngencrypt.n.a(dVar.f57067d, i8 + 1);
-                this.f57109i = a;
+                this.f57153h = b.a(bArr2, 0, i8);
+                int a = com.kwad.sdk.pngencrypt.n.a(dVar.f57112d, i8 + 1);
+                this.f57154i = a;
                 int i9 = i8 + 2;
-                int length = (dVar.f57067d.length - i9) / (a == 8 ? 6 : 10);
-                this.f57110j = new int[length * 5];
+                int length = (dVar.f57112d.length - i9) / (a == 8 ? 6 : 10);
+                this.f57155j = new int[length * 5];
                 int i10 = i9;
                 int i11 = 0;
                 while (i7 < length) {
-                    if (this.f57109i == 8) {
+                    if (this.f57154i == 8) {
                         int i12 = i10 + 1;
-                        i3 = com.kwad.sdk.pngencrypt.n.a(dVar.f57067d, i10);
+                        i3 = com.kwad.sdk.pngencrypt.n.a(dVar.f57112d, i10);
                         int i13 = i12 + 1;
-                        i4 = com.kwad.sdk.pngencrypt.n.a(dVar.f57067d, i12);
+                        i4 = com.kwad.sdk.pngencrypt.n.a(dVar.f57112d, i12);
                         int i14 = i13 + 1;
-                        i5 = com.kwad.sdk.pngencrypt.n.a(dVar.f57067d, i13);
+                        i5 = com.kwad.sdk.pngencrypt.n.a(dVar.f57112d, i13);
                         i2 = i14 + 1;
-                        i6 = com.kwad.sdk.pngencrypt.n.a(dVar.f57067d, i14);
+                        i6 = com.kwad.sdk.pngencrypt.n.a(dVar.f57112d, i14);
                     } else {
-                        int b2 = com.kwad.sdk.pngencrypt.n.b(dVar.f57067d, i10);
+                        int b2 = com.kwad.sdk.pngencrypt.n.b(dVar.f57112d, i10);
                         int i15 = i10 + 2;
-                        int b3 = com.kwad.sdk.pngencrypt.n.b(dVar.f57067d, i15);
+                        int b3 = com.kwad.sdk.pngencrypt.n.b(dVar.f57112d, i15);
                         int i16 = i15 + 2;
-                        int b4 = com.kwad.sdk.pngencrypt.n.b(dVar.f57067d, i16);
+                        int b4 = com.kwad.sdk.pngencrypt.n.b(dVar.f57112d, i16);
                         int i17 = i16 + 2;
-                        int b5 = com.kwad.sdk.pngencrypt.n.b(dVar.f57067d, i17);
+                        int b5 = com.kwad.sdk.pngencrypt.n.b(dVar.f57112d, i17);
                         i2 = i17 + 2;
                         i3 = b2;
                         i4 = b3;
                         i5 = b4;
                         i6 = b5;
                     }
-                    int b6 = com.kwad.sdk.pngencrypt.n.b(dVar.f57067d, i2);
-                    int[] iArr = this.f57110j;
+                    int b6 = com.kwad.sdk.pngencrypt.n.b(dVar.f57112d, i2);
+                    int[] iArr = this.f57155j;
                     int i18 = i11 + 1;
                     iArr[i11] = i3;
                     int i19 = i18 + 1;
@@ -94,6 +94,6 @@ public class x extends s {
     }
 
     public String c() {
-        return this.f57108h;
+        return this.f57153h;
     }
 }

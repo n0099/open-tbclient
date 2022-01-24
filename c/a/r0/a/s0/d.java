@@ -14,7 +14,7 @@ public final class d {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8766b;
+    public String f8908b;
 
     public d(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
@@ -32,6 +32,6 @@ public final class d {
             }
         }
         this.a = str;
-        this.f8766b = str2;
+        this.f8908b = str2;
     }
 }

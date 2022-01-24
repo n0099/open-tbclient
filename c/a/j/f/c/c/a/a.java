@@ -14,13 +14,13 @@ public final class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f3853d;
+    public final String f3994d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f3854e;
+    public final String f3995e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f3855f;
+    public final String f3996f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(String str, String str2, String str3, Integer num, String str4) {
@@ -41,9 +41,9 @@ public final class a extends d {
                 return;
             }
         }
-        this.f3853d = str;
-        this.f3854e = str2;
-        this.f3855f = str3;
+        this.f3994d = str;
+        this.f3995e = str2;
+        this.f3996f = str3;
     }
 
     @Override // c.a.j.h.a.a
@@ -57,7 +57,7 @@ public final class a extends d {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3853d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3994d : (String) invokeV.objValue;
     }
 
     public int g() {
@@ -72,13 +72,13 @@ public final class a extends d {
     public final String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3854e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3995e : (String) invokeV.objValue;
     }
 
     public final String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3855f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3996f : (String) invokeV.objValue;
     }
 
     public /* synthetic */ a(String str, String str2, String str3, Integer num, String str4, int i2, DefaultConstructorMarker defaultConstructorMarker) {

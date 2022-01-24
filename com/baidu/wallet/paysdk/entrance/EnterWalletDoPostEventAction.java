@@ -12,7 +12,7 @@ import com.dxmpay.apollon.eventbus.EventBus;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.BdWalletUtils;
 import java.util.HashMap;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class EnterWalletDoPostEventAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

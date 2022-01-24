@@ -11,9 +11,9 @@ import c.a.s0.s.q.l1;
 import c.a.s0.s.q.w1;
 import c.a.s0.s.s.a;
 import c.a.s0.t.c.n0;
-import c.a.t0.h2.k;
-import c.a.t0.w3.k0.a;
-import c.a.t0.w3.p0.f;
+import c.a.t0.i2.k;
+import c.a.t0.x3.k0.a;
+import c.a.t0.x3.p0.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -55,29 +55,29 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class NewWriteModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static int MAX_IMG_NUM = 10;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f48230e;
+    public h f48246e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f48231f;
+    public d f48247f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WriteData f48232g;
+    public WriteData f48248g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f48233h;
+    public String f48249h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f48234i;
+    public String f48250i;
 
     /* renamed from: j  reason: collision with root package name */
-    public byte[] f48235j;
+    public byte[] f48251j;
     public e k;
     public f l;
     public g m;
@@ -90,16 +90,16 @@ public class NewWriteModel extends BdBaseModel {
     public boolean t;
     public f.c u;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f48236e;
+        public final /* synthetic */ c.a.s0.s.s.a f48252e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewWriteModel f48237f;
+        public final /* synthetic */ NewWriteModel f48253f;
 
         public a(NewWriteModel newWriteModel, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -116,30 +116,30 @@ public class NewWriteModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48237f = newWriteModel;
-            this.f48236e = aVar;
+            this.f48253f = newWriteModel;
+            this.f48252e = aVar;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f48236e.dismiss();
-                this.f48237f.X();
+                this.f48252e.dismiss();
+                this.f48253f.X();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f48238e;
+        public final /* synthetic */ c.a.s0.s.s.a f48254e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewWriteModel f48239f;
+        public final /* synthetic */ NewWriteModel f48255f;
 
         public b(NewWriteModel newWriteModel, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -156,21 +156,21 @@ public class NewWriteModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48239f = newWriteModel;
-            this.f48238e = aVar;
+            this.f48255f = newWriteModel;
+            this.f48254e = aVar;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f48238e.dismiss();
-                this.f48239f.cancel();
+                this.f48254e.dismiss();
+                this.f48255f.cancel();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class c extends f.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,82 +194,82 @@ public class NewWriteModel extends BdBaseModel {
             this.a = newWriteModel;
         }
 
-        @Override // c.a.t0.w3.p0.f.c
+        @Override // c.a.t0.x3.p0.f.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (this.a.f48232g == null || TextUtils.isEmpty(str)) {
+                if (this.a.f48248g == null || TextUtils.isEmpty(str)) {
                     if (this.a.m != null) {
-                        this.a.m.callback(false, null, null, this.a.f48232g, null);
+                        this.a.m.callback(false, null, null, this.a.f48248g, null);
                         return;
                     }
                     return;
                 }
-                this.a.f48230e = null;
-                this.a.f48232g.setAuthSid(str);
+                this.a.f48246e = null;
+                this.a.f48248g.setAuthSid(str);
                 this.a.p0();
             }
         }
 
-        @Override // c.a.t0.w3.p0.f.c
+        @Override // c.a.t0.x3.p0.f.c
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.a.f48232g == null || TextUtils.isEmpty(str)) {
+                if (this.a.f48248g == null || TextUtils.isEmpty(str)) {
                     if (this.a.m != null) {
-                        this.a.m.callback(false, null, null, this.a.f48232g, null);
+                        this.a.m.callback(false, null, null, this.a.f48248g, null);
                         return;
                     }
                     return;
                 }
-                this.a.f48230e = null;
-                this.a.f48232g.setAuthSid(str);
+                this.a.f48246e = null;
+                this.a.f48248g.setAuthSid(str);
                 this.a.p0();
             }
         }
 
-        @Override // c.a.t0.w3.p0.f.c
+        @Override // c.a.t0.x3.p0.f.c
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a.f48232g != null) {
-                    this.a.f48232g.setAuthSid(null);
+                if (this.a.f48248g != null) {
+                    this.a.f48248g.setAuthSid(null);
                 }
                 if (this.a.m != null) {
-                    this.a.m.callback(false, null, null, this.a.f48232g, null);
+                    this.a.m.callback(false, null, null, this.a.f48248g, null);
                 }
             }
         }
 
-        @Override // c.a.t0.w3.p0.f.c
+        @Override // c.a.t0.x3.p0.f.c
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                if (this.a.f48232g != null) {
-                    this.a.f48230e = null;
-                    this.a.f48232g.setAuthSid(null);
+                if (this.a.f48248g != null) {
+                    this.a.f48246e = null;
+                    this.a.f48248g.setAuthSid(null);
                     this.a.p0();
                 } else if (this.a.m != null) {
-                    this.a.m.callback(false, null, null, this.a.f48232g, null);
+                    this.a.m.callback(false, null, null, this.a.f48248g, null);
                 }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class d extends BdAsyncTask<Void, Void, ImageUploadResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.t0.w3.k0.a f48240b;
+        public c.a.t0.x3.k0.a f48256b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Bitmap f48241c;
+        public Bitmap f48257c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ NewWriteModel f48242d;
+        public final /* synthetic */ NewWriteModel f48258d;
 
         public d(NewWriteModel newWriteModel) {
             Interceptable interceptable = $ic;
@@ -286,10 +286,10 @@ public class NewWriteModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48242d = newWriteModel;
+            this.f48258d = newWriteModel;
             this.a = false;
-            this.f48240b = new c.a.t0.w3.k0.a();
-            this.f48241c = null;
+            this.f48256b = new c.a.t0.x3.k0.a();
+            this.f48257c = null;
             setPriority(3);
         }
 
@@ -300,36 +300,36 @@ public class NewWriteModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                boolean isLocalImagePath = FileHelper.isLocalImagePath(this.f48242d.f48234i);
+                boolean isLocalImagePath = FileHelper.isLocalImagePath(this.f48258d.f48250i);
                 if (this.a) {
                     return null;
                 }
-                if (this.f48242d.f48235j == null || this.f48242d.f48235j.length <= 0) {
-                    if (TextUtils.isEmpty(this.f48242d.f48234i) || !isLocalImagePath) {
+                if (this.f48258d.f48251j == null || this.f48258d.f48251j.length <= 0) {
+                    if (TextUtils.isEmpty(this.f48258d.f48250i) || !isLocalImagePath) {
                         return null;
                     }
-                    this.f48242d.f48233h = FileHelper.getImageRealPathFromUri(TbadkCoreApplication.getInst().getApp(), Uri.parse(this.f48242d.f48234i));
-                    if (TextUtils.isEmpty(this.f48242d.f48233h)) {
+                    this.f48258d.f48249h = FileHelper.getImageRealPathFromUri(TbadkCoreApplication.getInst().getApp(), Uri.parse(this.f48258d.f48250i));
+                    if (TextUtils.isEmpty(this.f48258d.f48249h)) {
                         return null;
                     }
-                    NewWriteModel newWriteModel = this.f48242d;
-                    return newWriteModel.Y(newWriteModel.f48233h, this.f48240b);
+                    NewWriteModel newWriteModel = this.f48258d;
+                    return newWriteModel.Y(newWriteModel.f48249h, this.f48256b);
                 }
-                Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(this.f48242d.f48235j);
-                this.f48241c = Bytes2Bitmap;
+                Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(this.f48258d.f48251j);
+                this.f48257c = Bytes2Bitmap;
                 if (Bytes2Bitmap == null) {
                     return null;
                 }
-                this.f48242d.f48233h = FileHelper.saveFileToSDOrMemory(TbConfig.IMAGE_RESIZED_FILE, Bytes2Bitmap, 85);
-                if (TextUtils.isEmpty(this.f48242d.f48233h)) {
-                    Bitmap bitmap = this.f48241c;
+                this.f48258d.f48249h = FileHelper.saveFileToSDOrMemory(TbConfig.IMAGE_RESIZED_FILE, Bytes2Bitmap, 85);
+                if (TextUtils.isEmpty(this.f48258d.f48249h)) {
+                    Bitmap bitmap = this.f48257c;
                     if (bitmap != null && !bitmap.isRecycled()) {
-                        this.f48241c.recycle();
+                        this.f48257c.recycle();
                     }
                     return null;
                 }
-                NewWriteModel newWriteModel2 = this.f48242d;
-                return newWriteModel2.Y(newWriteModel2.f48233h, this.f48240b);
+                NewWriteModel newWriteModel2 = this.f48258d;
+                return newWriteModel2.Y(newWriteModel2.f48249h, this.f48256b);
             }
             return (ImageUploadResult) invokeL.objValue;
         }
@@ -344,14 +344,14 @@ public class NewWriteModel extends BdBaseModel {
                 if (this.a) {
                     return;
                 }
-                if (this.f48242d.k != null) {
-                    this.f48242d.k.a(imageUploadResult, false);
+                if (this.f48258d.k != null) {
+                    this.f48258d.k.a(imageUploadResult, false);
                 }
-                Bitmap bitmap = this.f48241c;
+                Bitmap bitmap = this.f48257c;
                 if (bitmap == null || bitmap.isRecycled()) {
                     return;
                 }
-                this.f48241c.recycle();
+                this.f48257c.recycle();
             }
         }
 
@@ -360,69 +360,69 @@ public class NewWriteModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.a = true;
-                c.a.t0.w3.k0.a aVar = this.f48240b;
+                c.a.t0.x3.k0.a aVar = this.f48256b;
                 if (aVar != null) {
                     aVar.b();
                 }
-                if (this.f48242d.k != null) {
-                    this.f48242d.k.a(null, true);
+                if (this.f48258d.k != null) {
+                    this.f48258d.k.a(null, true);
                 }
-                Bitmap bitmap = this.f48241c;
+                Bitmap bitmap = this.f48257c;
                 if (bitmap != null && !bitmap.isRecycled()) {
-                    this.f48241c.recycle();
+                    this.f48257c.recycle();
                 }
                 super.cancel();
-                this.f48242d.f48231f = null;
+                this.f48258d.f48247f = null;
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface e {
         void a(ImageUploadResult imageUploadResult, boolean z);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface f {
         void a(boolean z, String str, n0 n0Var, WriteData writeData, AntiData antiData);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface g {
         void callback(boolean z, PostWriteCallBackData postWriteCallBackData, n0 n0Var, WriteData writeData, AntiData antiData);
     }
 
-    /* loaded from: classes12.dex */
-    public class h extends BdAsyncTask<Integer, Integer, c.a.t0.w3.s0.g> {
+    /* loaded from: classes13.dex */
+    public class h extends BdAsyncTask<Integer, Integer, c.a.t0.x3.s0.g> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c.a.t0.w3.k0.a a;
+        public c.a.t0.x3.k0.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f48243b;
+        public String f48259b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f48244c;
+        public boolean f48260c;
 
         /* renamed from: d  reason: collision with root package name */
-        public k f48245d;
+        public k f48261d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a.t0.h2.g f48246e;
+        public c.a.t0.i2.g f48262e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewWriteModel f48247f;
+        public final /* synthetic */ NewWriteModel f48263f;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes13.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomDialogData f48248e;
+            public final /* synthetic */ CustomDialogData f48264e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ h f48249f;
+            public final /* synthetic */ h f48265f;
 
             public a(h hVar, CustomDialogData customDialogData) {
                 Interceptable interceptable = $ic;
@@ -439,15 +439,15 @@ public class NewWriteModel extends BdBaseModel {
                         return;
                     }
                 }
-                this.f48249f = hVar;
-                this.f48248e = customDialogData;
+                this.f48265f = hVar;
+                this.f48264e = customDialogData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.t0.s2.t.c.a((TbPageContext) this.f48249f.f48247f.o, this.f48248e).show();
+                    c.a.t0.t2.t.c.a((TbPageContext) this.f48265f.f48263f.o, this.f48264e).show();
                 }
             }
         }
@@ -467,20 +467,20 @@ public class NewWriteModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48247f = newWriteModel;
+            this.f48263f = newWriteModel;
             this.a = null;
-            this.f48243b = null;
-            this.f48244c = false;
+            this.f48259b = null;
+            this.f48260c = false;
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, k.class);
             if (runTask != null) {
-                this.f48245d = (k) runTask.getData();
+                this.f48261d = (k) runTask.getData();
             }
-            k kVar = this.f48245d;
+            k kVar = this.f48261d;
             if (kVar != null) {
-                this.f48246e = kVar.get();
+                this.f48262e = kVar.get();
             }
             setPriority(3);
-            c.a.t0.w3.s0.c.a("发帖：任务创建：PostThreadTask");
+            c.a.t0.x3.s0.c.a("发帖：任务创建：PostThreadTask");
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -490,9 +490,9 @@ public class NewWriteModel extends BdBaseModel {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public c.a.t0.w3.s0.g doInBackground(Integer... numArr) {
+        public c.a.t0.x3.s0.g doInBackground(Integer... numArr) {
             InterceptResult invokeL;
-            c.a.t0.w3.s0.g gVar;
+            c.a.t0.x3.s0.g gVar;
             JSONArray jSONArray;
             JSONException jSONException;
             IconStampData iconStampData;
@@ -509,39 +509,39 @@ public class NewWriteModel extends BdBaseModel {
             VideoEasterEggData videoEasterEggData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
-                if (this.f48244c) {
+                if (this.f48260c) {
                     return null;
                 }
-                c.a.s0.c0.d.c(this.f48247f.f48232g.getContent());
-                c.a.t0.w3.s0.c.a("doInBackground() start");
-                c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground");
-                c.a.t0.w3.k0.a aVar2 = new c.a.t0.w3.k0.a();
+                c.a.s0.c0.d.c(this.f48263f.f48248g.getContent());
+                c.a.t0.x3.s0.c.a("doInBackground() start");
+                c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground");
+                c.a.t0.x3.k0.a aVar2 = new c.a.t0.x3.k0.a();
                 this.a = aVar2;
-                aVar2.j(this.f48247f.q);
-                this.a.k(this.f48247f.r);
-                this.a.l(this.f48246e);
-                this.a.i(this.f48247f.p);
-                this.f48243b = this.a.h(this.f48247f.f48232g, this.f48247f.n);
-                c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 结束");
+                aVar2.j(this.f48263f.q);
+                this.a.k(this.f48263f.r);
+                this.a.l(this.f48262e);
+                this.a.i(this.f48263f.p);
+                this.f48259b = this.a.h(this.f48263f.f48248g, this.f48263f.n);
+                c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 结束");
                 ErrorData d2 = this.a.d();
-                c.a.t0.w3.s0.a.c(this.f48247f.f48232g, d2);
-                if (this.a.e() && this.f48243b != null) {
-                    c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 成功");
+                c.a.t0.x3.s0.a.c(this.f48263f.f48248g, d2);
+                if (this.a.e() && this.f48259b != null) {
+                    c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 成功");
                     AntiData c2 = this.a.c();
                     String error_msg = d2.getError_msg();
                     if (m.isEmpty(error_msg)) {
                         error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_success);
                     }
-                    gVar = new c.a.t0.w3.s0.g(d2.getError_code(), error_msg, c2);
-                    if (this.f48247f.f48232g != null && this.f48247f.f48232g.isHasImages() && !gVar.s()) {
-                        this.f48247f.f48232g.deleteUploadedTempImages();
+                    gVar = new c.a.t0.x3.s0.g(d2.getError_code(), error_msg, c2);
+                    if (this.f48263f.f48248g != null && this.f48263f.f48248g.isHasImages() && !gVar.s()) {
+                        this.f48263f.f48248g.deleteUploadedTempImages();
                     }
-                    c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 删除临时的图片");
+                    c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 删除临时的图片");
                 } else if (d2 != null && d2.error_code == 220015) {
-                    gVar = new c.a.t0.w3.s0.g(d2.getError_code(), d2.getError_msg(), null);
-                    if (this.f48243b != null) {
+                    gVar = new c.a.t0.x3.s0.g(d2.getError_code(), d2.getError_msg(), null);
+                    if (this.f48259b != null) {
                         try {
-                            JSONObject optJSONObject = new JSONObject(this.f48243b).optJSONObject("info");
+                            JSONObject optJSONObject = new JSONObject(this.f48259b).optJSONObject("info");
                             if (optJSONObject != null && (jSONArray = optJSONObject.getJSONArray("confilter_hitwords")) != null && jSONArray.length() > 0) {
                                 int length = jSONArray.length();
                                 ArrayList<String> arrayList = new ArrayList<>();
@@ -554,24 +554,24 @@ public class NewWriteModel extends BdBaseModel {
                             e2.printStackTrace();
                         }
                     }
-                    c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 失败 1");
+                    c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 失败 1");
                 } else if (d2 != null && d2.error_code == 238010) {
-                    gVar = new c.a.t0.w3.s0.g(d2.getError_code(), d2.getError_msg(), null);
-                    if (this.f48243b != null) {
+                    gVar = new c.a.t0.x3.s0.g(d2.getError_code(), d2.getError_msg(), null);
+                    if (this.f48259b != null) {
                         try {
-                            JSONObject optJSONObject2 = new JSONObject(this.f48243b).optJSONObject("info");
+                            JSONObject optJSONObject2 = new JSONObject(this.f48259b).optJSONObject("info");
                             if (optJSONObject2 != null) {
                                 w1 w1Var = new w1();
                                 w1Var.a = optJSONObject2.optString("block_content");
-                                w1Var.f13521b = optJSONObject2.optString("block_cancel");
-                                w1Var.f13522c = optJSONObject2.optString("block_confirm");
+                                w1Var.f13708b = optJSONObject2.optString("block_cancel");
+                                w1Var.f13709c = optJSONObject2.optString("block_confirm");
                                 gVar.J(w1Var);
                             }
                         } catch (JSONException e3) {
                             e3.printStackTrace();
                         }
                     }
-                    c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 失败 2");
+                    c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 失败 2");
                 } else if (d2 != null && d2.error_code != 0) {
                     String error_msg2 = d2.getError_msg();
                     if (StringUtils.isNull(error_msg2)) {
@@ -581,17 +581,17 @@ public class NewWriteModel extends BdBaseModel {
                             error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
                         }
                     }
-                    gVar = new c.a.t0.w3.s0.g(d2.getError_code(), error_msg2, this.a.c());
-                    c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 失败 3");
+                    gVar = new c.a.t0.x3.s0.g(d2.getError_code(), error_msg2, this.a.c());
+                    c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 失败 3");
                 } else {
-                    gVar = new c.a.t0.w3.s0.g(-17, TbadkCoreApplication.getInst().getApp().getString(R.string.neterror), null);
-                    c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 失败 4");
+                    gVar = new c.a.t0.x3.s0.g(-17, TbadkCoreApplication.getInst().getApp().getString(R.string.neterror), null);
+                    c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 失败 4");
                 }
                 if (!gVar.s()) {
                     ContriInfo contriInfo = new ContriInfo();
                     try {
-                        if (this.f48243b != null) {
-                            JSONObject jSONObject = new JSONObject(this.f48243b);
+                        if (this.f48259b != null) {
+                            JSONObject jSONObject = new JSONObject(this.f48259b);
                             String optString = jSONObject.optString("msg");
                             try {
                                 str4 = jSONObject.optString("pre_msg");
@@ -629,8 +629,8 @@ public class NewWriteModel extends BdBaseModel {
                                         gVar.M(videoEasterEggData);
                                         gVar.z(aVar);
                                         gVar.F(iconStampData);
-                                        c.a.t0.w3.s0.c.a("doInBackground end");
-                                        c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                        c.a.t0.x3.s0.c.a("doInBackground end");
+                                        c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
                                         return gVar;
                                     }
                                     try {
@@ -664,14 +664,14 @@ public class NewWriteModel extends BdBaseModel {
                                         gVar.M(videoEasterEggData);
                                         gVar.z(aVar);
                                         gVar.F(iconStampData);
-                                        c.a.t0.w3.s0.c.a("doInBackground end");
-                                        c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                        c.a.t0.x3.s0.c.a("doInBackground end");
+                                        c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
                                         return gVar;
                                     }
                                     try {
                                         str8 = jSONObject.optString("video_id");
                                         try {
-                                            customDialogData = c.a.t0.s2.b.a(jSONObject);
+                                            customDialogData = c.a.t0.t2.b.a(jSONObject);
                                             try {
                                                 JSONObject optJSONObject3 = jSONObject.optJSONObject("twzhibo_info");
                                                 r6 = optJSONObject3 != null ? optJSONObject3.optInt("is_copytwzhibo", 0) : 0;
@@ -705,8 +705,8 @@ public class NewWriteModel extends BdBaseModel {
                                                         gVar.M(videoEasterEggData);
                                                         gVar.z(aVar);
                                                         gVar.F(iconStampData);
-                                                        c.a.t0.w3.s0.c.a("doInBackground end");
-                                                        c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                                        c.a.t0.x3.s0.c.a("doInBackground end");
+                                                        c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
                                                         return gVar;
                                                     }
                                                 } else {
@@ -743,8 +743,8 @@ public class NewWriteModel extends BdBaseModel {
                                                             gVar.M(videoEasterEggData);
                                                             gVar.z(aVar);
                                                             gVar.F(iconStampData);
-                                                            c.a.t0.w3.s0.c.a("doInBackground end");
-                                                            c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                                            c.a.t0.x3.s0.c.a("doInBackground end");
+                                                            c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
                                                             return gVar;
                                                         }
                                                     } else {
@@ -754,7 +754,7 @@ public class NewWriteModel extends BdBaseModel {
                                                     if (optJSONObject6 != null) {
                                                         aVar = new c.a.s0.u.a();
                                                         try {
-                                                            aVar.o(optJSONObject6);
+                                                            aVar.p(optJSONObject6);
                                                         } catch (JSONException e8) {
                                                             e = e8;
                                                             str3 = optString;
@@ -777,8 +777,8 @@ public class NewWriteModel extends BdBaseModel {
                                                             gVar.M(videoEasterEggData);
                                                             gVar.z(aVar);
                                                             gVar.F(iconStampData);
-                                                            c.a.t0.w3.s0.c.a("doInBackground end");
-                                                            c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                                            c.a.t0.x3.s0.c.a("doInBackground end");
+                                                            c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
                                                             return gVar;
                                                         }
                                                     } else {
@@ -812,8 +812,8 @@ public class NewWriteModel extends BdBaseModel {
                                                             gVar.M(videoEasterEggData);
                                                             gVar.z(aVar);
                                                             gVar.F(iconStampData);
-                                                            c.a.t0.w3.s0.c.a("doInBackground end");
-                                                            c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                                            c.a.t0.x3.s0.c.a("doInBackground end");
+                                                            c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
                                                             return gVar;
                                                         }
                                                     } else {
@@ -844,8 +844,8 @@ public class NewWriteModel extends BdBaseModel {
                                                     gVar.M(videoEasterEggData);
                                                     gVar.z(aVar);
                                                     gVar.F(iconStampData);
-                                                    c.a.t0.w3.s0.c.a("doInBackground end");
-                                                    c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                                    c.a.t0.x3.s0.c.a("doInBackground end");
+                                                    c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
                                                     return gVar;
                                                 }
                                             } catch (JSONException e11) {
@@ -882,8 +882,8 @@ public class NewWriteModel extends BdBaseModel {
                                             gVar.M(videoEasterEggData);
                                             gVar.z(aVar);
                                             gVar.F(iconStampData);
-                                            c.a.t0.w3.s0.c.a("doInBackground end");
-                                            c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                            c.a.t0.x3.s0.c.a("doInBackground end");
+                                            c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
                                             return gVar;
                                         }
                                     } catch (JSONException e13) {
@@ -914,8 +914,8 @@ public class NewWriteModel extends BdBaseModel {
                                         gVar.M(videoEasterEggData);
                                         gVar.z(aVar);
                                         gVar.F(iconStampData);
-                                        c.a.t0.w3.s0.c.a("doInBackground end");
-                                        c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                        c.a.t0.x3.s0.c.a("doInBackground end");
+                                        c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
                                         return gVar;
                                     }
                                 } catch (JSONException e14) {
@@ -949,8 +949,8 @@ public class NewWriteModel extends BdBaseModel {
                                     gVar.M(videoEasterEggData);
                                     gVar.z(aVar);
                                     gVar.F(iconStampData);
-                                    c.a.t0.w3.s0.c.a("doInBackground end");
-                                    c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                    c.a.t0.x3.s0.c.a("doInBackground end");
+                                    c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
                                     return gVar;
                                 }
                             } catch (JSONException e15) {
@@ -1008,45 +1008,45 @@ public class NewWriteModel extends BdBaseModel {
                     gVar.z(aVar);
                     gVar.F(iconStampData);
                 }
-                c.a.t0.w3.s0.c.a("doInBackground end");
-                c.a.t0.w3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                c.a.t0.x3.s0.c.a("doInBackground end");
+                c.a.t0.x3.s0.c.a("发帖：任务后台执行 开始 doInBackground 完全结束");
                 return gVar;
             }
-            return (c.a.t0.w3.s0.g) invokeL.objValue;
+            return (c.a.t0.x3.s0.g) invokeL.objValue;
         }
 
-        public final void c(c.a.t0.w3.s0.g gVar) {
+        public final void c(c.a.t0.x3.s0.g gVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) || c.a.t0.w3.p0.f.a(gVar.f(), AuthTokenData.parse(this.f48243b), this.f48247f.u)) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) || c.a.t0.x3.p0.f.a(gVar.f(), AuthTokenData.parse(this.f48259b), this.f48263f.u)) {
                 return;
             }
             if (gVar.u()) {
-                this.f48247f.d0(gVar);
+                this.f48263f.d0(gVar);
             } else if (gVar.x()) {
-                this.f48247f.c0(gVar);
-                this.f48247f.d0(gVar);
+                this.f48263f.c0(gVar);
+                this.f48263f.d0(gVar);
             } else if (c.a.t0.g4.a.c(gVar.f())) {
-                this.f48247f.b0(gVar);
-                this.f48247f.d0(gVar);
+                this.f48263f.b0(gVar);
+                this.f48263f.d0(gVar);
             } else if (gVar.v()) {
                 n0 n0Var = new n0();
-                n0Var.e(this.f48243b);
-                if (n0Var.c() == null || this.f48247f.f48232g == null) {
+                n0Var.e(this.f48259b);
+                if (n0Var.c() == null || this.f48263f.f48248g == null) {
                     return;
                 }
-                this.f48247f.f48232g.setVcodeMD5(n0Var.b());
-                this.f48247f.f48232g.setVcodeUrl(n0Var.c());
-                NewWriteModel newWriteModel = this.f48247f;
-                newWriteModel.e0(gVar, null, n0Var, newWriteModel.f48232g);
+                this.f48263f.f48248g.setVcodeMD5(n0Var.b());
+                this.f48263f.f48248g.setVcodeUrl(n0Var.c());
+                NewWriteModel newWriteModel = this.f48263f;
+                newWriteModel.e0(gVar, null, n0Var, newWriteModel.f48248g);
             } else if (gVar.t()) {
                 AccessState accessState = new AccessState();
-                accessState.parserJson(this.f48243b);
-                NewWriteModel newWriteModel2 = this.f48247f;
-                newWriteModel2.e0(gVar, accessState, null, newWriteModel2.f48232g);
+                accessState.parserJson(this.f48259b);
+                NewWriteModel newWriteModel2 = this.f48263f;
+                newWriteModel2.e0(gVar, accessState, null, newWriteModel2.f48248g);
             } else if (gVar.w()) {
-                this.f48247f.d0(gVar);
+                this.f48263f.d0(gVar);
             } else {
-                this.f48247f.d0(gVar);
+                this.f48263f.d0(gVar);
             }
         }
 
@@ -1054,18 +1054,18 @@ public class NewWriteModel extends BdBaseModel {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f48244c = true;
-                c.a.t0.w3.k0.a aVar = this.a;
+                this.f48260c = true;
+                c.a.t0.x3.k0.a aVar = this.a;
                 if (aVar != null) {
                     aVar.b();
                 }
-                if (this.f48247f.m != null) {
-                    this.f48247f.m.callback(false, null, null, this.f48247f.f48232g, null);
-                } else if (this.f48247f.l != null) {
-                    this.f48247f.l.a(false, null, null, null, null);
+                if (this.f48263f.m != null) {
+                    this.f48263f.m.callback(false, null, null, this.f48263f.f48248g, null);
+                } else if (this.f48263f.l != null) {
+                    this.f48263f.l.a(false, null, null, null, null);
                 }
                 super.cancel(true);
-                this.f48247f.f48230e = null;
+                this.f48263f.f48246e = null;
             }
         }
 
@@ -1078,31 +1078,31 @@ public class NewWriteModel extends BdBaseModel {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onPostExecute(c.a.t0.w3.s0.g gVar) {
+        public void onPostExecute(c.a.t0.x3.s0.g gVar) {
             String h2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) {
                 super.onPostExecute(gVar);
-                c.a.t0.w3.s0.c.a("onPostExecute start");
-                c.a.t0.w3.s0.c.a("发帖： onPostExecute");
+                c.a.t0.x3.s0.c.a("onPostExecute start");
+                c.a.t0.x3.s0.c.a("发帖： onPostExecute");
                 String str = null;
-                this.f48247f.f48230e = null;
+                this.f48263f.f48246e = null;
                 if (gVar != null && gVar.f() != 0) {
-                    c.a.s0.s.b0.a.a(AlbumActivityConfig.FROM_WRITE, 0L, 0, "write_result", gVar.f(), gVar.g(), "tid", gVar.p(), "pid", gVar.l());
+                    c.a.s0.s.c0.a.a(AlbumActivityConfig.FROM_WRITE, 0L, 0, "write_result", gVar.f(), gVar.g(), "tid", gVar.p(), "pid", gVar.l());
                 }
-                if (!this.f48244c && gVar != null) {
+                if (!this.f48260c && gVar != null) {
                     if (gVar.s()) {
-                        c.a.t0.w3.s0.c.a("onPostExecute error");
+                        c.a.t0.x3.s0.c.a("onPostExecute error");
                         c(gVar);
-                        c.a.t0.h2.g gVar2 = this.f48246e;
+                        c.a.t0.i2.g gVar2 = this.f48262e;
                         if (gVar2 != null) {
                             gVar2.h(gVar.a, gVar.g());
                         }
                     } else {
-                        c.a.t0.w3.s0.c.a("onPostExecute success");
-                        if (this.f48247f.m == null) {
-                            if (this.f48247f.l != null) {
-                                this.f48247f.l.a(true, gVar.g(), null, null, gVar.c());
+                        c.a.t0.x3.s0.c.a("onPostExecute success");
+                        if (this.f48263f.m == null) {
+                            if (this.f48263f.l != null) {
+                                this.f48263f.l.a(true, gVar.g(), null, null, gVar.c());
                             }
                         } else {
                             if (!StringUtils.isNull(gVar.m()) && !StringUtils.isNull(gVar.d())) {
@@ -1122,43 +1122,43 @@ public class NewWriteModel extends BdBaseModel {
                             postWriteCallBackData.setActivityDialog(gVar.a());
                             postWriteCallBackData.setVideoid(gVar.r());
                             postWriteCallBackData.setContriInfo(gVar.e());
-                            if (this.f48247f.f48232g != null) {
-                                postWriteCallBackData.setProZone(this.f48247f.f48232g.getProZone());
-                                postWriteCallBackData.setGeneralTabId(this.f48247f.f48232g.getTabId());
+                            if (this.f48263f.f48248g != null) {
+                                postWriteCallBackData.setProZone(this.f48263f.f48248g.getProZone());
+                                postWriteCallBackData.setGeneralTabId(this.f48263f.f48248g.getTabId());
                             }
                             postWriteCallBackData.setVideoEasterEggData(gVar.q());
                             postWriteCallBackData.setmAdverSegmentData(gVar.b());
                             postWriteCallBackData.setIconStampData(gVar.j());
                             n0 n0Var = new n0();
-                            n0Var.e(this.f48243b);
-                            if (this.f48247f.f48232g == null || c.a.t0.w3.s0.b.k().i() == null) {
-                                if (this.f48247f.f48232g == null || !this.f48247f.s) {
-                                    if (this.f48247f.f48232g != null && this.f48247f.t) {
-                                        c.a.t0.w3.s0.b.k().C(this.f48247f.f48232g.getForumId());
-                                        c.a.t0.w3.s0.b.k().D(this.f48247f.f48232g.getForumName());
+                            n0Var.e(this.f48259b);
+                            if (this.f48263f.f48248g == null || c.a.t0.x3.s0.b.k().i() == null) {
+                                if (this.f48263f.f48248g == null || !this.f48263f.s) {
+                                    if (this.f48263f.f48248g != null && this.f48263f.t) {
+                                        c.a.t0.x3.s0.b.k().C(this.f48263f.f48248g.getForumId());
+                                        c.a.t0.x3.s0.b.k().D(this.f48263f.f48248g.getForumName());
                                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921655, postWriteCallBackData));
                                     }
                                 } else {
-                                    if (this.f48247f.f48232g.getVideoInfo() != null) {
-                                        postWriteCallBackData.writeDataForVideo = this.f48247f.f48232g;
+                                    if (this.f48263f.f48248g.getVideoInfo() != null) {
+                                        postWriteCallBackData.writeDataForVideo = this.f48263f.f48248g;
                                     }
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921650, postWriteCallBackData));
                                 }
                             } else {
-                                c.a.t0.w3.s0.b.k().C(this.f48247f.f48232g.getForumId());
-                                c.a.t0.w3.s0.b.k().D(this.f48247f.f48232g.getForumName());
-                                if (this.f48247f.f48232g.getVideoInfo() != null) {
-                                    postWriteCallBackData.writeDataForVideo = this.f48247f.f48232g;
+                                c.a.t0.x3.s0.b.k().C(this.f48263f.f48248g.getForumId());
+                                c.a.t0.x3.s0.b.k().D(this.f48263f.f48248g.getForumName());
+                                if (this.f48263f.f48248g.getVideoInfo() != null) {
+                                    postWriteCallBackData.writeDataForVideo = this.f48263f.f48248g;
                                 }
                                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001383, postWriteCallBackData);
-                                customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, c.a.t0.w3.s0.b.k().i()));
+                                customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, c.a.t0.x3.s0.b.k().i()));
                                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                                c.a.t0.w3.s0.b.k().z(false);
+                                c.a.t0.x3.s0.b.k().z(false);
                             }
                             CustomDialogData activityDialog = postWriteCallBackData.getActivityDialog();
                             if (activityDialog != null && gVar.j() == null) {
-                                if (this.f48247f.f48232g != null) {
-                                    int type = this.f48247f.f48232g.getType();
+                                if (this.f48263f.f48248g != null) {
+                                    int type = this.f48263f.f48248g.getType();
                                     if (type != 0) {
                                         if (type == 1 || type == 2) {
                                             activityDialog.type = 1;
@@ -1173,20 +1173,20 @@ public class NewWriteModel extends BdBaseModel {
                                 }
                                 c.a.d.f.m.e.a().postDelayed(new a(this, activityDialog), 1000L);
                             }
-                            this.f48247f.m.callback(true, postWriteCallBackData, n0Var, this.f48247f.f48232g, gVar.c());
+                            this.f48263f.m.callback(true, postWriteCallBackData, n0Var, this.f48263f.f48248g, gVar.c());
                         }
-                        if (this.f48247f.f48232g != null && !this.f48247f.f48232g.isWork()) {
+                        if (this.f48263f.f48248g != null && !this.f48263f.f48248g.isWork()) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001375, Boolean.valueOf(gVar.j() == null)));
                         }
-                        c.a.t0.h2.g gVar3 = this.f48246e;
+                        c.a.t0.i2.g gVar3 = this.f48262e;
                         if (gVar3 != null) {
                             gVar3.c();
                         }
                     }
-                    c.a.t0.w3.s0.c.a("发帖： onPostExecute 完全结束");
+                    c.a.t0.x3.s0.c.a("发帖： onPostExecute 完全结束");
                     return;
                 }
-                c.a.t0.w3.s0.c.a("发帖： onPostExecute isCanceled");
+                c.a.t0.x3.s0.c.a("发帖： onPostExecute isCanceled");
             }
         }
     }
@@ -1224,12 +1224,12 @@ public class NewWriteModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48230e = null;
-        this.f48231f = null;
-        this.f48232g = null;
-        this.f48233h = null;
-        this.f48234i = null;
-        this.f48235j = null;
+        this.f48246e = null;
+        this.f48247f = null;
+        this.f48248g = null;
+        this.f48249h = null;
+        this.f48250i = null;
+        this.f48251j = null;
         this.l = null;
         this.m = null;
         this.n = false;
@@ -1240,41 +1240,41 @@ public class NewWriteModel extends BdBaseModel {
     public void V() {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dVar = this.f48231f) == null || dVar.isCancelled()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dVar = this.f48247f) == null || dVar.isCancelled()) {
             return;
         }
-        this.f48231f.cancel();
+        this.f48247f.cancel();
     }
 
     public boolean W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WriteData writeData = this.f48232g;
+            WriteData writeData = this.f48248g;
             if (writeData == null) {
                 return true;
             }
-            return (writeData.getWriteImagesInfo() != null ? this.f48232g.getWriteImagesInfo().size() + 0 : 0) <= MAX_IMG_NUM;
+            return (writeData.getWriteImagesInfo() != null ? this.f48248g.getWriteImagesInfo().size() + 0 : 0) <= MAX_IMG_NUM;
         }
         return invokeV.booleanValue;
     }
 
     public final void X() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f48230e == null) {
-            if (c.a.t0.w3.s0.b.k().i() != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f48246e == null) {
+            if (c.a.t0.x3.s0.b.k().i() != null) {
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001378, Z());
-                customResponsedMessage.setOrginalMessage(new CustomMessage(2001378, c.a.t0.w3.s0.b.k().i()));
+                customResponsedMessage.setOrginalMessage(new CustomMessage(2001378, c.a.t0.x3.s0.b.k().i()));
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
-            this.f48230e = new h(this);
-            c.a.t0.w3.s0.c.a("dealPost()");
-            c.a.t0.w3.s0.a.l(this.f48232g);
-            this.f48230e.execute(new Integer[0]);
+            this.f48246e = new h(this);
+            c.a.t0.x3.s0.c.a("dealPost()");
+            c.a.t0.x3.s0.a.l(this.f48248g);
+            this.f48246e.execute(new Integer[0]);
         }
     }
 
-    public final ImageUploadResult Y(String str, c.a.t0.w3.k0.a aVar) {
+    public final ImageUploadResult Y(String str, c.a.t0.x3.k0.a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, aVar)) == null) {
@@ -1293,7 +1293,7 @@ public class NewWriteModel extends BdBaseModel {
     public WriteData Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48232g : (WriteData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48248g : (WriteData) invokeV.objValue;
     }
 
     public void a0() {
@@ -1301,24 +1301,24 @@ public class NewWriteModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             SpanGroupManager spanGroupManager = this.q;
             if (spanGroupManager != null) {
-                this.r = spanGroupManager.C();
+                this.r = spanGroupManager.E();
             } else {
                 this.r = null;
             }
         }
     }
 
-    public final void b0(c.a.t0.w3.s0.g gVar) {
+    public final void b0(c.a.t0.x3.s0.g gVar) {
         c.a.d.a.f<?> fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, gVar) == null) || (fVar = this.o) == null || gVar == null || (this.m instanceof c.a.t0.w3.s0.b)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, gVar) == null) || (fVar = this.o) == null || gVar == null || (this.m instanceof c.a.t0.x3.s0.b)) {
             return;
         }
         c.a.t0.g4.a.d(fVar.getPageActivity(), gVar.g());
         gVar.C(null);
     }
 
-    public final void c0(c.a.t0.w3.s0.g gVar) {
+    public final void c0(c.a.t0.x3.s0.g gVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, gVar) == null) || this.o == null || gVar == null || gVar.c() == null || gVar.c().mFrsForbidenDialogInfo == null) {
             return;
@@ -1329,14 +1329,14 @@ public class NewWriteModel extends BdBaseModel {
     public final void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            h hVar = this.f48230e;
+            h hVar = this.f48246e;
             if (hVar != null && !hVar.isCancelled()) {
-                this.f48230e.cancel();
+                this.f48246e.cancel();
                 return;
             }
             g gVar = this.m;
             if (gVar != null) {
-                gVar.callback(false, null, null, this.f48232g, null);
+                gVar.callback(false, null, null, this.f48248g, null);
                 return;
             }
             f fVar = this.l;
@@ -1351,24 +1351,24 @@ public class NewWriteModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            h hVar = this.f48230e;
+            h hVar = this.f48246e;
             if (hVar == null || hVar.isCancelled()) {
                 return false;
             }
-            this.f48230e.cancel();
+            this.f48246e.cancel();
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final void d0(c.a.t0.w3.s0.g gVar) {
+    public final void d0(c.a.t0.x3.s0.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, gVar) == null) {
-            e0(gVar, null, null, this.f48232g);
+            e0(gVar, null, null, this.f48248g);
         }
     }
 
-    public final void e0(c.a.t0.w3.s0.g gVar, AccessState accessState, n0 n0Var, WriteData writeData) {
+    public final void e0(c.a.t0.x3.s0.g gVar, AccessState accessState, n0 n0Var, WriteData writeData) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLL(1048587, this, gVar, accessState, n0Var, writeData) == null) || gVar == null) {
             return;
@@ -1411,8 +1411,8 @@ public class NewWriteModel extends BdBaseModel {
     public void i0(byte[] bArr, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, bArr, str) == null) {
-            this.f48235j = bArr;
-            this.f48234i = str;
+            this.f48251j = bArr;
+            this.f48250i = str;
         }
     }
 
@@ -1464,12 +1464,12 @@ public class NewWriteModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            if (this.f48232g == null) {
+            if (this.f48248g == null) {
                 return false;
             }
-            c.a.t0.w3.s0.c.a("发帖：开始上传");
-            this.f48232g.startPublish();
-            l1.g(this.f48232g, 0).f(true);
+            c.a.t0.x3.s0.c.a("发帖：开始上传");
+            this.f48248g.startPublish();
+            l1.g(this.f48248g, 0).f(true);
             X();
             return true;
         }
@@ -1478,9 +1478,9 @@ public class NewWriteModel extends BdBaseModel {
 
     public void o0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && this.f48231f == null) {
+        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && this.f48247f == null) {
             d dVar = new d(this);
-            this.f48231f = dVar;
+            this.f48247f = dVar;
             dVar.execute(new Void[0]);
         }
     }
@@ -1489,11 +1489,11 @@ public class NewWriteModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (this.f48232g == null) {
+            if (this.f48248g == null) {
                 return false;
             }
-            if (l.z() && !l.H() && this.f48232g.getWriteImagesInfo() != null && this.f48232g.getWriteImagesInfo().size() != 0 && this.f48232g.getWriteImagesInfo().isOriginalImg() && !c.a.s0.s.h0.b.k().h("original_img_up_tip", false)) {
-                c.a.s0.s.h0.b.k().u("original_img_up_tip", true);
+            if (l.z() && !l.H() && this.f48248g.getWriteImagesInfo() != null && this.f48248g.getWriteImagesInfo().size() != 0 && this.f48248g.getWriteImagesInfo().isOriginalImg() && !c.a.s0.s.i0.b.k().h("original_img_up_tip", false)) {
+                c.a.s0.s.i0.b.k().u("original_img_up_tip", true);
                 c.a.d.a.f<?> fVar = this.o;
                 if (fVar == null) {
                     X();
@@ -1523,7 +1523,7 @@ public class NewWriteModel extends BdBaseModel {
     public void setWriteData(WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, writeData) == null) {
-            this.f48232g = writeData;
+            this.f48248g = writeData;
         }
     }
 
@@ -1545,12 +1545,12 @@ public class NewWriteModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48230e = null;
-        this.f48231f = null;
-        this.f48232g = null;
-        this.f48233h = null;
-        this.f48234i = null;
-        this.f48235j = null;
+        this.f48246e = null;
+        this.f48247f = null;
+        this.f48248g = null;
+        this.f48249h = null;
+        this.f48250i = null;
+        this.f48251j = null;
         this.l = null;
         this.m = null;
         this.n = false;
@@ -1576,12 +1576,12 @@ public class NewWriteModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48230e = null;
-        this.f48231f = null;
-        this.f48232g = null;
-        this.f48233h = null;
-        this.f48234i = null;
-        this.f48235j = null;
+        this.f48246e = null;
+        this.f48247f = null;
+        this.f48248g = null;
+        this.f48249h = null;
+        this.f48250i = null;
+        this.f48251j = null;
         this.l = null;
         this.m = null;
         this.n = false;
@@ -1602,12 +1602,12 @@ public class NewWriteModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48230e = null;
-        this.f48231f = null;
-        this.f48232g = null;
-        this.f48233h = null;
-        this.f48234i = null;
-        this.f48235j = null;
+        this.f48246e = null;
+        this.f48247f = null;
+        this.f48248g = null;
+        this.f48249h = null;
+        this.f48250i = null;
+        this.f48251j = null;
         this.l = null;
         this.m = null;
         this.n = false;

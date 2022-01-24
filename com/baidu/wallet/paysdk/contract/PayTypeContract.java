@@ -30,10 +30,10 @@ import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public interface PayTypeContract {
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Presenter extends NetWorkPresenter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

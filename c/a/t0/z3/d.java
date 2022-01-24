@@ -16,13 +16,13 @@ public class d {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static MainTabScheduleStrategy f26108b;
+    public static MainTabScheduleStrategy f26135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f26109c;
+    public static boolean f26136c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final PriorityQueue<h> f26110d;
+    public static final PriorityQueue<h> f26137d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -87,7 +87,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f26111e;
+        public final /* synthetic */ h f26138e;
 
         public c(h hVar) {
             Interceptable interceptable = $ic;
@@ -104,14 +104,14 @@ public class d {
                     return;
                 }
             }
-            this.f26111e = hVar;
+            this.f26138e = hVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f26111e.c();
+                this.f26138e.c();
             }
         }
     }
@@ -129,16 +129,16 @@ public class d {
                 return;
             }
         }
-        f26108b = MainTabScheduleStrategy.FLUSHING;
-        f26109c = false;
-        f26110d = new PriorityQueue<>();
+        f26135b = MainTabScheduleStrategy.FLUSHING;
+        f26136c = false;
+        f26137d = new PriorityQueue<>();
     }
 
     public static void b(MainTabScheduleStrategy mainTabScheduleStrategy) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, mainTabScheduleStrategy) == null) {
-            f26108b = mainTabScheduleStrategy;
-            if (mainTabScheduleStrategy == MainTabScheduleStrategy.UNSCHEDULE || f26109c) {
+            f26135b = mainTabScheduleStrategy;
+            if (mainTabScheduleStrategy == MainTabScheduleStrategy.UNSCHEDULE || f26136c) {
                 return;
             }
             g(true);
@@ -157,22 +157,22 @@ public class d {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            f26109c = false;
-            if (f26110d.isEmpty() || f26108b == MainTabScheduleStrategy.UNSCHEDULE) {
+            f26136c = false;
+            if (f26137d.isEmpty() || f26135b == MainTabScheduleStrategy.UNSCHEDULE) {
                 return;
             }
-            if (f26108b == MainTabScheduleStrategy.FLUSHING) {
+            if (f26135b == MainTabScheduleStrategy.FLUSHING) {
                 e();
                 return;
             }
-            if (f26110d.peek() != null && a >= f26110d.peek().f26148e) {
-                h poll = f26110d.poll();
+            if (f26137d.peek() != null && a >= f26137d.peek().f26175e) {
+                h poll = f26137d.poll();
                 if (poll == null) {
                     return;
                 }
                 c(poll);
             }
-            if (f26108b == MainTabScheduleStrategy.SCHEDULE) {
+            if (f26135b == MainTabScheduleStrategy.SCHEDULE) {
                 g(false);
             }
         }
@@ -181,8 +181,8 @@ public class d {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            while (!f26110d.isEmpty()) {
-                h poll = f26110d.poll();
+            while (!f26137d.isEmpty()) {
+                h poll = f26137d.poll();
                 if (poll != null) {
                     poll.b();
                     poll.c();
@@ -196,7 +196,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(65542, null, hVar) == null) || hVar == null) {
             return;
         }
-        if (f26108b == MainTabScheduleStrategy.FLUSHING) {
+        if (f26135b == MainTabScheduleStrategy.FLUSHING) {
             if (!(hVar instanceof i)) {
                 hVar.d();
                 hVar.b();
@@ -205,8 +205,8 @@ public class d {
             return;
         }
         hVar.d();
-        f26110d.add(hVar);
-        if (f26108b == MainTabScheduleStrategy.UNSCHEDULE || f26109c) {
+        f26137d.add(hVar);
+        if (f26135b == MainTabScheduleStrategy.UNSCHEDULE || f26136c) {
             return;
         }
         g(false);
@@ -214,13 +214,14 @@ public class d {
 
     public static void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            f26109c = true;
-            if (z) {
-                c.a.d.f.m.e.a().postAtFrontOfQueue(new a());
-            } else {
-                c.a.d.f.m.e.a().post(new b());
-            }
+        if (!(interceptable == null || interceptable.invokeZ(65543, null, z) == null) || f26136c) {
+            return;
+        }
+        f26136c = true;
+        if (z) {
+            c.a.d.f.m.e.a().postAtFrontOfQueue(new a());
+        } else {
+            c.a.d.f.m.e.a().post(new b());
         }
     }
 }

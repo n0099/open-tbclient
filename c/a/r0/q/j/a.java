@@ -24,20 +24,20 @@ public class a {
     public static CookieManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f11498b;
+    public static String f11640b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.q.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0794a implements c {
+    public static class C0803a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Map a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f11499b;
+        public final /* synthetic */ e f11641b;
 
-        public C0794a(Map map, e eVar) {
+        public C0803a(Map map, e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public class a {
                 }
             }
             this.a = map;
-            this.f11499b = eVar;
+            this.f11641b = eVar;
         }
 
         @Override // c.a.r0.q.j.a.c
@@ -66,10 +66,10 @@ public class a {
                 if (map != null) {
                     postByteRequest.addHeaders(map);
                 }
-                if (!TextUtils.isEmpty(a.f11498b)) {
-                    postByteRequest.userAgent(a.f11498b);
+                if (!TextUtils.isEmpty(a.f11640b)) {
+                    postByteRequest.userAgent(a.f11640b);
                 }
-                postByteRequest.cookieManager(a.a).enableStat(true).build().executeStat(this.f11499b);
+                postByteRequest.cookieManager(a.a).enableStat(true).build().executeStat(this.f11641b);
             }
         }
     }
@@ -81,7 +81,7 @@ public class a {
         public final /* synthetic */ Map a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f11500b;
+        public final /* synthetic */ e f11642b;
 
         public b(Map map, e eVar) {
             Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class a {
                 }
             }
             this.a = map;
-            this.f11500b = eVar;
+            this.f11642b = eVar;
         }
 
         @Override // c.a.r0.q.j.a.c
@@ -107,13 +107,13 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
                 GetRequest.GetRequestBuilder requestSubFrom = c.a.r0.p.e.a.g().getRequest().url(f.j(str, this.a)).requestSubFrom(10);
-                if (!TextUtils.isEmpty(a.f11498b)) {
-                    requestSubFrom.userAgent(a.f11498b);
+                if (!TextUtils.isEmpty(a.f11640b)) {
+                    requestSubFrom.userAgent(a.f11640b);
                 }
                 if (map != null) {
                     requestSubFrom.addHeaders(map);
                 }
-                requestSubFrom.cookieManager(a.a).enableStat(true).build().executeStat(this.f11500b);
+                requestSubFrom.cookieManager(a.a).enableStat(true).build().executeStat(this.f11642b);
             }
         }
     }
@@ -141,7 +141,7 @@ public class a {
         if (b2 == null || !c.a.r0.p.e.a.g().c()) {
             return;
         }
-        f11498b = b2.a();
+        f11640b = b2.a();
     }
 
     @SuppressLint({"BDThrowableCheck"})
@@ -160,8 +160,8 @@ public class a {
             return;
         }
         GetRequest.GetRequestBuilder requestSubFrom = c.a.r0.p.e.a.g().getRequest().url(f.j(str, map)).requestSubFrom(10);
-        if (!TextUtils.isEmpty(f11498b)) {
-            requestSubFrom.userAgent(f11498b);
+        if (!TextUtils.isEmpty(f11640b)) {
+            requestSubFrom.userAgent(f11640b);
         }
         if (map2 != null) {
             requestSubFrom.addHeaders(map2);
@@ -181,7 +181,7 @@ public class a {
         }
         c.a.r0.q.a b2 = c.a.r0.q.c.b();
         if (PMSConstants.a(b2)) {
-            b2.m(f.j(str, map), jSONObject.toString(), new C0794a(map, eVar));
+            b2.m(f.j(str, map), jSONObject.toString(), new C0803a(map, eVar));
             return;
         }
         c.a.r0.p.c.h postStringRequest = c.a.r0.p.e.a.g().postStringRequest();
@@ -190,8 +190,8 @@ public class a {
         if (map2 != null) {
             postStringRequest.addHeaders(map2);
         }
-        if (!TextUtils.isEmpty(f11498b)) {
-            postStringRequest.userAgent(f11498b);
+        if (!TextUtils.isEmpty(f11640b)) {
+            postStringRequest.userAgent(f11640b);
         }
         postStringRequest.cookieManager(a).enableStat(true).build().executeStat(eVar);
     }

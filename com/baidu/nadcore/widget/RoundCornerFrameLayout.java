@@ -20,22 +20,22 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Path f37238e;
+    public Path f37266e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37239f;
+    public int f37267f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f37240g;
+    public int f37268g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37241h;
+    public int f37269h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f37242i;
+    public int f37270i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f37243j;
+    public boolean f37271j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundCornerFrameLayout(Context context) {
@@ -62,20 +62,20 @@ public class RoundCornerFrameLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (getWidth() == this.f37241h && getHeight() == this.f37242i && this.f37240g == this.f37239f) {
+            if (getWidth() == this.f37269h && getHeight() == this.f37270i && this.f37268g == this.f37267f) {
                 return false;
             }
-            this.f37241h = getWidth();
-            this.f37242i = getHeight();
-            this.f37240g = this.f37239f;
-            if (this.f37238e == null) {
+            this.f37269h = getWidth();
+            this.f37270i = getHeight();
+            this.f37268g = this.f37267f;
+            if (this.f37266e == null) {
                 Path path = new Path();
-                this.f37238e = path;
+                this.f37266e = path;
                 path.setFillType(Path.FillType.EVEN_ODD);
             }
-            Path path2 = this.f37238e;
-            RectF rectF = new RectF(0.0f, 0.0f, this.f37241h, this.f37242i);
-            int i2 = this.f37239f;
+            Path path2 = this.f37266e;
+            RectF rectF = new RectF(0.0f, 0.0f, this.f37269h, this.f37270i);
+            int i2 = this.f37267f;
             path2.addRoundRect(rectF, i2, i2, Path.Direction.CW);
             return true;
         }
@@ -98,7 +98,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Path path = new Path();
-            this.f37238e = path;
+            this.f37266e = path;
             path.setFillType(Path.FillType.EVEN_ODD);
         }
     }
@@ -117,9 +117,9 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            if (this.f37243j) {
+            if (this.f37271j) {
                 a();
-                canvas.clipPath(this.f37238e);
+                canvas.clipPath(this.f37266e);
             }
             super.onDraw(canvas);
         }
@@ -128,10 +128,10 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public void setCornerRadius(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            if (this.f37239f != i2) {
-                this.f37239f = i2;
+            if (this.f37267f != i2) {
+                this.f37267f = i2;
             }
-            this.f37243j = this.f37239f > 0;
+            this.f37271j = this.f37267f > 0;
         }
     }
 
@@ -175,7 +175,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f37243j = false;
+        this.f37271j = false;
         b(context, attributeSet, i2);
         c();
     }

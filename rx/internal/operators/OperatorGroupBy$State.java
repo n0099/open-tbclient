@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements f, k, d.a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3852313036005250360L;
@@ -137,7 +137,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                     if (j2 != Long.MAX_VALUE) {
                         a.g(this.requested, j3);
                     }
-                    this.parent.f61871i.request(j3);
+                    this.parent.f61916i.request(j3);
                 }
             }
             i2 = addAndGet(-i2);

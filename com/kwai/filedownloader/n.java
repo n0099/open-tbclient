@@ -61,7 +61,7 @@ public class n implements u {
                 return;
             }
         }
-        this.a = com.kwai.filedownloader.e.e.a().f58275d ? new o() : new p(((com.kwad.sdk.design.kwai.b) ServiceProvider.a(com.kwad.sdk.design.kwai.b.class)).a(FileDownloadServiceProxy.SeparateProcessServiceProxy.class));
+        this.a = com.kwai.filedownloader.e.e.a().f58320d ? new o() : new p(((com.kwad.sdk.design.kwai.b) ServiceProvider.a(com.kwad.sdk.design.kwai.b.class)).a(FileDownloadServiceProxy.SeparateProcessServiceProxy.class));
     }
 
     public /* synthetic */ n(AnonymousClass1 anonymousClass1) {

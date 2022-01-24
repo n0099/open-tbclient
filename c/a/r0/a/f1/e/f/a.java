@@ -16,33 +16,33 @@ public interface a {
     public static final c.a.r0.a.f1.e.f.b<Boolean> a = new d(Boolean.FALSE);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.a.r0.a.f1.e.f.b<Integer> f5833b = new e(0);
+    public static final c.a.r0.a.f1.e.f.b<Integer> f5975b = new e(0);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c.a.r0.a.f1.e.f.b<Long> f5834c = new f(0L);
+    public static final c.a.r0.a.f1.e.f.b<Long> f5976c = new f(0L);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c.a.r0.a.f1.e.f.b<Float> f5835d = new g(Float.valueOf(0.0f));
+    public static final c.a.r0.a.f1.e.f.b<Float> f5977d = new g(Float.valueOf(0.0f));
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c.a.r0.a.f1.e.f.b<String> f5836e = new h();
+    public static final c.a.r0.a.f1.e.f.b<String> f5978e = new h();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c.a.r0.a.f1.e.f.b<String[]> f5837f = new C0318a();
+    public static final c.a.r0.a.f1.e.f.b<String[]> f5979f = new C0327a();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final c.a.r0.a.f1.e.f.b<Bundle> f5838g = new b();
+    public static final c.a.r0.a.f1.e.f.b<Bundle> f5980g = new b();
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c.a.r0.a.f1.e.f.b<Parcelable> f5839h = new c();
+    public static final c.a.r0.a.f1.e.f.b<Parcelable> f5981h = new c();
 
     /* renamed from: c.a.r0.a.f1.e.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0318a extends c.a.r0.a.f1.e.f.b<String[]> {
+    public static class C0327a extends c.a.r0.a.f1.e.f.b<String[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0318a() {
+        public C0327a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

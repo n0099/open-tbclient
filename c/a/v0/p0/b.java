@@ -16,10 +16,10 @@ public class b extends Base64InputStream {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f26513e;
+    public boolean f26541e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f26514f;
+    public boolean f26542f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(InputStream inputStream, int i2) {
@@ -40,8 +40,8 @@ public class b extends Base64InputStream {
                 return;
             }
         }
-        this.f26513e = false;
-        this.f26514f = false;
+        this.f26541e = false;
+        this.f26542f = false;
     }
 
     @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
@@ -50,13 +50,13 @@ public class b extends Base64InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             int read = super.read();
-            if (!this.f26513e && read == 117) {
-                this.f26513e = true;
+            if (!this.f26541e && read == 117) {
+                this.f26541e = true;
                 return 31;
-            } else if (this.f26514f || read != 123) {
+            } else if (this.f26542f || read != 123) {
                 return read;
             } else {
-                this.f26514f = true;
+                this.f26542f = true;
                 return w0.o;
             }
         }
@@ -69,10 +69,10 @@ public class b extends Base64InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3)) == null) {
             int read = super.read(bArr, i2, i3);
-            if (!this.f26513e && read >= 2) {
+            if (!this.f26541e && read >= 2) {
                 bArr[i2] = 31;
                 bArr[i2 + 1] = -117;
-                this.f26513e = true;
+                this.f26541e = true;
             }
             return read;
         }

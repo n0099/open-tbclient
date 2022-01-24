@@ -24,18 +24,18 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f7616e;
+    public static final boolean f7758e;
     public transient /* synthetic */ FieldHolder $fh;
     public HttpManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7617b;
+    public String f7759b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7618c;
+    public String f7760c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.a.l0.n.a f7619d;
+    public c.a.r0.a.l0.n.a f7761d;
 
     /* loaded from: classes.dex */
     public class a implements Callback {
@@ -65,12 +65,12 @@ public class c {
         public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (c.f7616e) {
-                    String str = this.a.f7617b + " load failed";
+                if (c.f7758e) {
+                    String str = this.a.f7759b + " load failed";
                     iOException.printStackTrace();
                 }
-                if (this.a.f7619d != null) {
-                    this.a.f7619d.fail(-1, this.a.f7617b);
+                if (this.a.f7761d != null) {
+                    this.a.f7761d.fail(-1, this.a.f7759b);
                 }
             }
         }
@@ -83,7 +83,7 @@ public class c {
             String c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                if (TextUtils.isEmpty(this.a.f7618c)) {
+                if (TextUtils.isEmpty(this.a.f7760c)) {
                     boolean z = k.a;
                     return;
                 }
@@ -93,7 +93,7 @@ public class c {
                     byteStream = response.body().byteStream();
                     try {
                         try {
-                            c2 = c.a.r0.a.c1.b.f().c(this.a.f7617b);
+                            c2 = c.a.r0.a.c1.b.f().c(this.a.f7759b);
                         } catch (Exception unused) {
                             file = null;
                             fileOutputStream = null;
@@ -116,7 +116,7 @@ public class c {
                     c.a.r0.w.d.d(response);
                     return;
                 }
-                String str = this.a.f7618c + c2.substring(0, c2.lastIndexOf("/"));
+                String str = this.a.f7760c + c2.substring(0, c2.lastIndexOf("/"));
                 File file2 = new File(str);
                 if (!file2.exists() || !file2.isDirectory()) {
                     file2.mkdirs();
@@ -135,14 +135,14 @@ public class c {
                         } catch (Exception unused3) {
                             inputStream = byteStream;
                             try {
-                                if (c.f7616e) {
-                                    String str2 = this.a.f7617b + " load failed";
+                                if (c.f7758e) {
+                                    String str2 = this.a.f7759b + " load failed";
                                 }
                                 if (file != null) {
                                     file.delete();
                                 }
-                                if (this.a.f7619d != null) {
-                                    this.a.f7619d.fail(-1, this.a.f7617b);
+                                if (this.a.f7761d != null) {
+                                    this.a.f7761d.fail(-1, this.a.f7759b);
                                 }
                                 c.a.r0.w.d.d(inputStream);
                                 c.a.r0.w.d.d(fileOutputStream);
@@ -170,19 +170,19 @@ public class c {
                     }
                     String absolutePath = file3.getAbsolutePath();
                     if (file.renameTo(file3)) {
-                        if (c.f7616e) {
-                            String str3 = this.a.f7617b + " load rename success path = " + absolutePath;
+                        if (c.f7758e) {
+                            String str3 = this.a.f7759b + " load rename success path = " + absolutePath;
                         }
-                        if (this.a.f7619d != null) {
-                            this.a.f7619d.a(this.a.f7617b, absolutePath);
+                        if (this.a.f7761d != null) {
+                            this.a.f7761d.a(this.a.f7759b, absolutePath);
                         }
                     } else {
-                        if (c.f7616e) {
-                            String str4 = this.a.f7617b + " load rename error path = " + absolutePath;
+                        if (c.f7758e) {
+                            String str4 = this.a.f7759b + " load rename error path = " + absolutePath;
                         }
                         file.delete();
-                        if (this.a.f7619d != null) {
-                            this.a.f7619d.fail(-1, absolutePath);
+                        if (this.a.f7761d != null) {
+                            this.a.f7761d.fail(-1, absolutePath);
                         }
                     }
                     c.a.r0.w.d.d(byteStream);
@@ -208,7 +208,7 @@ public class c {
                 return;
             }
         }
-        f7616e = k.a;
+        f7758e = k.a;
     }
 
     public c(HttpManager httpManager, String str, String str2, c.a.r0.a.l0.n.a aVar) {
@@ -226,18 +226,18 @@ public class c {
                 return;
             }
         }
-        this.f7617b = "";
-        this.f7618c = "";
+        this.f7759b = "";
+        this.f7760c = "";
         this.a = httpManager;
-        this.f7618c = str;
-        this.f7617b = str2;
-        this.f7619d = aVar;
+        this.f7760c = str;
+        this.f7759b = str2;
+        this.f7761d = aVar;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.r0.a.c1.b.l().call(this.a, new Request.Builder().url(this.f7617b).build(), new a(this));
+            c.a.r0.a.c1.b.l().call(this.a, new Request.Builder().url(this.f7759b).build(), new a(this));
         }
     }
 }

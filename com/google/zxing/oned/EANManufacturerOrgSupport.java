@@ -5,6 +5,7 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
 import com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -156,7 +157,7 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{890}, "IN");
                     add(new int[]{893}, "VN");
                     add(new int[]{896}, "PK");
-                    add(new int[]{899}, "ID");
+                    add(new int[]{899}, UserSettingForceListListener.FORCE_LIST_ITEM_ID_KEY);
                     add(new int[]{900, CyberPlayerManager.MEDIA_INFO_CONNECT_BEGIN}, "AT");
                     add(new int[]{930, CyberPlayerManager.MEDIA_INFO_VIDEO_BITRATE}, "AU");
                     add(new int[]{CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE, 949}, "AZ");

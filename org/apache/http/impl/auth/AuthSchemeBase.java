@@ -11,7 +11,7 @@ import org.apache.http.auth.AuthScheme;
 import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class AuthSchemeBase implements AuthScheme {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

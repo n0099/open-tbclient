@@ -43,10 +43,10 @@ public class SelectTopicView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<String> f49973e;
+    public ArrayList<String> f50017e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AutoChangeLineView.b<String> f49974f;
+    public AutoChangeLineView.b<String> f50018f;
     public View mBottomLine;
     public AutoChangeLineView mCenterContent;
     public TextView mCenterContentTips;
@@ -116,8 +116,8 @@ public class SelectTopicView extends LinearLayout {
                 return;
             }
         }
-        this.f49973e = new ArrayList<>();
-        this.f49974f = new a();
+        this.f50017e = new ArrayList<>();
+        this.f50018f = new a();
         init();
     }
 
@@ -126,7 +126,7 @@ public class SelectTopicView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLLLI(65539, null, this$0, textView, obj, i2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             WorkPublishHotTopicSelectActivityConfig workPublishHotTopicSelectActivityConfig = new WorkPublishHotTopicSelectActivityConfig(this$0.getContext(), 25004, WorkPublishHotTopicSelectActivityConfig.FROM_POST_WORK_THREAD);
-            workPublishHotTopicSelectActivityConfig.setTopicList(this$0.f49973e);
+            workPublishHotTopicSelectActivityConfig.setTopicList(this$0.f50017e);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishHotTopicSelectActivityConfig));
         }
     }
@@ -136,7 +136,7 @@ public class SelectTopicView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, view) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             WorkPublishHotTopicSelectActivityConfig workPublishHotTopicSelectActivityConfig = new WorkPublishHotTopicSelectActivityConfig(this$0.getContext(), 25004, WorkPublishHotTopicSelectActivityConfig.FROM_POST_WORK_THREAD);
-            workPublishHotTopicSelectActivityConfig.setTopicList(this$0.f49973e);
+            workPublishHotTopicSelectActivityConfig.setTopicList(this$0.f50017e);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishHotTopicSelectActivityConfig));
         }
     }
@@ -145,7 +145,7 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bean) == null) {
             Intrinsics.checkNotNullParameter(bean, "bean");
-            this.f49973e = bean;
+            this.f50017e = bean;
             if (bean.isEmpty()) {
                 getMCenterContent().setVisibility(8);
                 getMCenterContentTips().setVisibility(0);
@@ -153,14 +153,14 @@ public class SelectTopicView extends LinearLayout {
             }
             getMCenterContent().setVisibility(0);
             getMCenterContentTips().setVisibility(8);
-            getMCenterContent().setLabels(bean, this.f49974f);
+            getMCenterContent().setLabels(bean, this.f50018f);
         }
     }
 
     public final AutoChangeLineView.b<String> getLabelTextProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49974f : (AutoChangeLineView.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50018f : (AutoChangeLineView.b) invokeV.objValue;
     }
 
     public final View getMBottomLine() {
@@ -302,7 +302,7 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             getMCenterContent().setLabelTextColor(SkinManager.getColor(d.CAM_X0105));
-            getMCenterContent().setLabels(this.f49973e, this.f49974f);
+            getMCenterContent().setLabels(this.f50017e, this.f50018f);
             SkinManager.setViewTextColor(getMLeftTitle(), d.CAM_X0105);
             WebPManager.setPureDrawable(getMRightArrow(), f.icon_list_arrow20_right, d.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), d.CAM_X0210);
@@ -314,7 +314,7 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
             Intrinsics.checkNotNullParameter(bVar, "<set-?>");
-            this.f49974f = bVar;
+            this.f50018f = bVar;
         }
     }
 
@@ -385,8 +385,8 @@ public class SelectTopicView extends LinearLayout {
                 return;
             }
         }
-        this.f49973e = new ArrayList<>();
-        this.f49974f = new a();
+        this.f50017e = new ArrayList<>();
+        this.f50018f = new a();
         init();
     }
 
@@ -409,8 +409,8 @@ public class SelectTopicView extends LinearLayout {
                 return;
             }
         }
-        this.f49973e = new ArrayList<>();
-        this.f49974f = new a();
+        this.f50017e = new ArrayList<>();
+        this.f50018f = new a();
         init();
     }
 }

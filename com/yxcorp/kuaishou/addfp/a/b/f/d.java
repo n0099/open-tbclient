@@ -24,25 +24,25 @@ public final class d {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61510b;
+    public String f61555b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61511c;
+    public String f61556c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f61512d;
+    public com.yxcorp.kuaishou.addfp.a.b.b f61557d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f61513e;
+    public Context f61558e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CountDownLatch f61514f;
+    public CountDownLatch f61559f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ServiceConnection f61515g;
+    public ServiceConnection f61560g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f61516h;
+    public boolean f61561h;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -58,11 +58,11 @@ public final class d {
             }
         }
         this.a = null;
-        this.f61510b = null;
-        this.f61511c = null;
-        this.f61514f = new CountDownLatch(1);
-        this.f61515g = new e(this);
-        this.f61516h = false;
+        this.f61555b = null;
+        this.f61556c = null;
+        this.f61559f = new CountDownLatch(1);
+        this.f61560g = new e(this);
+        this.f61561h = false;
     }
 
     private String a(String str) {
@@ -70,8 +70,8 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             try {
-                if (!TextUtils.isEmpty(this.f61511c) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f61510b)) {
-                    String a = this.a.a(this.f61510b, this.f61511c, str);
+                if (!TextUtils.isEmpty(this.f61556c) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f61555b)) {
+                    String a = this.a.a(this.f61555b, this.f61556c, str);
                     return TextUtils.isEmpty(a) ? "" : a;
                 }
                 return "";
@@ -90,7 +90,7 @@ public final class d {
                 try {
                     String a = a("OUID");
                     if (!TextUtils.isEmpty(a)) {
-                        this.f61512d.a(a);
+                        this.f61557d.a(a);
                         return;
                     }
                 } catch (Throwable th) {
@@ -98,7 +98,7 @@ public final class d {
                     return;
                 }
             }
-            this.f61512d.e();
+            this.f61557d.e();
         }
     }
 
@@ -119,7 +119,7 @@ public final class d {
     public final void a(Context context) {
         ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (serviceConnection = this.f61515g) == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (serviceConnection = this.f61560g) == null || context == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -130,10 +130,10 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
             try {
-                this.f61512d = bVar;
-                this.f61513e = context;
+                this.f61557d = bVar;
+                this.f61558e = context;
                 boolean b2 = b(context);
-                this.f61516h = b2;
+                this.f61561h = b2;
                 if (!b2) {
                     a(false);
                     return;
@@ -141,14 +141,14 @@ public final class d {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                if (!context.bindService(intent, this.f61515g, 1)) {
+                if (!context.bindService(intent, this.f61560g, 1)) {
                     a(false);
                     return;
                 }
-                if (TextUtils.isEmpty(this.f61510b)) {
-                    this.f61510b = context.getPackageName();
+                if (TextUtils.isEmpty(this.f61555b)) {
+                    this.f61555b = context.getPackageName();
                 }
-                if (TextUtils.isEmpty(this.f61511c) && (signatureArr = context.getPackageManager().getPackageInfo(this.f61510b, 64).signatures) != null && signatureArr.length > 0) {
+                if (TextUtils.isEmpty(this.f61556c) && (signatureArr = context.getPackageManager().getPackageInfo(this.f61555b, 64).signatures) != null && signatureArr.length > 0) {
                     byte[] byteArray = signatureArr[0].toByteArray();
                     MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
                     if (messageDigest != null) {
@@ -157,10 +157,10 @@ public final class d {
                         for (byte b3 : digest) {
                             sb.append(Integer.toHexString((b3 & 255) | 256).substring(1, 3));
                         }
-                        this.f61511c = sb.toString();
+                        this.f61556c = sb.toString();
                     }
                 }
-                this.f61514f.await(10L, TimeUnit.SECONDS);
+                this.f61559f.await(10L, TimeUnit.SECONDS);
                 if (this.a != null) {
                     a(true);
                 } else {
@@ -176,6 +176,6 @@ public final class d {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61516h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61561h : invokeV.booleanValue;
     }
 }

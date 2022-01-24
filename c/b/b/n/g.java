@@ -46,7 +46,7 @@ public class g extends e {
         if (!(interceptable == null || interceptable.invokeL(65538, null, application) == null) || (aVar = n.get(application)) == null) {
             return;
         }
-        for (int i2 = 0; i2 < aVar.f27361f; i2++) {
+        for (int i2 = 0; i2 < aVar.f27389f; i2++) {
             aVar.get(i2).w();
         }
     }
@@ -65,14 +65,14 @@ public class g extends e {
             }
             this.m = hVar;
             a();
-            c.b.b.f.f26941g.O(35866, 0, hVar.c(), hVar.getWidth(), hVar.getHeight(), hVar.getDepth(), 0, hVar.c(), hVar.e(), null);
+            c.b.b.f.f26969g.O(35866, 0, hVar.c(), hVar.getWidth(), hVar.getHeight(), hVar.getDepth(), 0, hVar.c(), hVar.e(), null);
             if (!hVar.a()) {
                 hVar.prepare();
             }
             hVar.d();
-            l(this.f27087g, this.f27088h);
-            m(this.f27089i, this.f27090j);
-            c.b.b.f.f26939e.N(this.f27085e, 0);
+            l(this.f27115g, this.f27116h);
+            m(this.f27117i, this.f27118j);
+            c.b.b.f.f26967e.N(this.f27113e, 0);
         }
     }
 
@@ -80,7 +80,7 @@ public class g extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (u()) {
-                this.f27086f = c.b.b.f.f26939e.a();
+                this.f27114f = c.b.b.f.f26967e.a();
                 v(this.m);
                 return;
             }

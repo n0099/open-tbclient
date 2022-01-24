@@ -17,7 +17,7 @@ public class DistrictSearch extends l {
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f35535b;
+    public boolean f35563b;
 
     public DistrictSearch() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class DistrictSearch extends l {
             }
         }
         this.a = null;
-        this.f35535b = false;
+        this.f35563b = false;
         this.a = new d();
     }
 
@@ -49,10 +49,10 @@ public class DistrictSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35535b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35563b) {
             return;
         }
-        this.f35535b = true;
+        this.f35563b = true;
         this.a.a();
         BMapManager.destroy();
     }

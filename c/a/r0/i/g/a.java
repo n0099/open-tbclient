@@ -30,26 +30,26 @@ public class a {
 
     /* renamed from: c.a.r0.i.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0720a extends StringResponseCallback {
+    public class C0729a extends StringResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.i.g.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f10752b;
+        public final /* synthetic */ a f10894b;
 
         /* renamed from: c.a.r0.i.g.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0721a extends TypeToken<ResultData<ReservationGameResultData>> {
+        public class C0730a extends TypeToken<ResultData<ReservationGameResultData>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0721a(C0720a c0720a) {
+            public C0730a(C0729a c0729a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0720a};
+                    Object[] objArr = {c0729a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -61,7 +61,7 @@ public class a {
             }
         }
 
-        public C0720a(a aVar, c.a.r0.i.g.b bVar) {
+        public C0729a(a aVar, c.a.r0.i.g.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public class a {
                     return;
                 }
             }
-            this.f10752b = aVar;
+            this.f10894b = aVar;
             this.a = bVar;
         }
 
@@ -88,7 +88,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) || TextUtils.isEmpty(str) || this.a == null) {
                 return;
             }
-            ResultData resultData = (ResultData) this.f10752b.a.fromJson(str, new C0721a(this).getType());
+            ResultData resultData = (ResultData) this.f10894b.a.fromJson(str, new C0730a(this).getType());
             if (resultData == null) {
                 this.a.onFail("result is null");
             } else if (resultData.errno == 0) {
@@ -178,7 +178,7 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(C0720a c0720a) {
+    public /* synthetic */ a(C0729a c0729a) {
         this();
     }
 
@@ -216,7 +216,7 @@ public class a {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("status", 2);
-                c.a.r0.p.e.a.g().getRequest().cookieManager(a).url(c2).addUrlParam("data", jSONObject.toString()).build().executeAsync(new C0720a(this, bVar));
+                c.a.r0.p.e.a.g().getRequest().cookieManager(a).url(c2).addUrlParam("data", jSONObject.toString()).build().executeAsync(new C0729a(this, bVar));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

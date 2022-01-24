@@ -17,16 +17,16 @@ public class c {
     public static final String a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f58457b;
+    public HashMap<String, String> f58502b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, String> f58458c;
+    public HashMap<String, String> f58503c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Object> f58459d;
+    public HashMap<String, Object> f58504d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, Object> f58460e;
+    public HashMap<String, Object> f58505e;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -43,10 +43,10 @@ public class c {
     }
 
     public c(a aVar) {
-        this.f58457b = new HashMap<>();
-        this.f58458c = new HashMap<>();
-        this.f58459d = new HashMap<>();
-        this.f58460e = new HashMap<>();
+        this.f58502b = new HashMap<>();
+        this.f58503c = new HashMap<>();
+        this.f58504d = new HashMap<>();
+        this.f58505e = new HashMap<>();
         e();
         if (aVar.a != null) {
             a(aVar.a);
@@ -62,28 +62,28 @@ public class c {
         if ((TextUtils.isEmpty(str) || obj == null) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f58459d.put(str, obj);
+        this.f58504d.put(str, obj);
     }
 
     private void a(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f58457b.put(str, str2);
+        this.f58502b.put(str, str2);
     }
 
     private void b(String str, Object obj) {
         if ((TextUtils.isEmpty(str) || obj == null) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f58460e.put(str, obj);
+        this.f58505e.put(str, obj);
     }
 
     private void b(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f58458c.put(str, str2);
+        this.f58503c.put(str, str2);
     }
 
     private long c(Context context) {
@@ -102,9 +102,9 @@ public class c {
     }
 
     private void e() {
-        b(b.f58453g, Build.BRAND);
-        b(b.f58454h, Build.MODEL);
-        b(b.f58456j, Build.VERSION.RELEASE);
+        b(b.f58498g, Build.BRAND);
+        b(b.f58499h, Build.MODEL);
+        b(b.f58501j, Build.VERSION.RELEASE);
         b(b.k, Build.DISPLAY);
         b(b.m, MzSystemUtils.getCurrentLanguage());
     }
@@ -121,26 +121,26 @@ public class c {
     }
 
     private void f(Context context) {
-        a(b.f58448b, MzSystemUtils.getDeviceId(context));
-        a(b.f58449c, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 0)));
-        a(b.f58450d, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 1)));
-        a(b.f58451e, MzSystemUtils.getLineNumber(context));
+        a(b.f58493b, MzSystemUtils.getDeviceId(context));
+        a(b.f58494c, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 0)));
+        a(b.f58495d, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 1)));
+        a(b.f58496e, MzSystemUtils.getLineNumber(context));
         b(b.n, MzSystemUtils.getOperator(context));
     }
 
     private void g(Context context) {
-        b(b.f58455i, com.meizu.cloud.pushsdk.base.c.b(context));
+        b(b.f58500i, com.meizu.cloud.pushsdk.base.c.b(context));
         b(b.z, (Object) MzSystemUtils.getNetWorkType(context));
         b(b.A, (Object) MzSystemUtils.getBSSID(context));
         b(b.E, MzSystemUtils.getWifiList(context));
     }
 
     public Map<String, String> a() {
-        return this.f58457b;
+        return this.f58502b;
     }
 
     public void a(int i2, int i3) {
-        this.f58458c.put(b.l, Integer.toString(i2) + "." + Integer.toString(i3));
+        this.f58503c.put(b.l, Integer.toString(i2) + "." + Integer.toString(i3));
     }
 
     public void a(Context context) {
@@ -152,7 +152,7 @@ public class c {
     }
 
     public Map<String, String> b() {
-        return this.f58458c;
+        return this.f58503c;
     }
 
     @TargetApi(19)
@@ -175,10 +175,10 @@ public class c {
     }
 
     public Map<String, Object> c() {
-        return this.f58459d;
+        return this.f58504d;
     }
 
     public Map<String, Object> d() {
-        return this.f58460e;
+        return this.f58505e;
     }
 }

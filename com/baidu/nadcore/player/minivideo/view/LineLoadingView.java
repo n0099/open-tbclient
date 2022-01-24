@@ -26,22 +26,22 @@ public final class LineLoadingView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37056e;
+    public int f37084e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37057f;
+    public int f37085f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f37058g;
+    public int f37086g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37059h;
+    public int f37087h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f37060i;
+    public int f37088i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f37061j;
+    public int f37089j;
     public String k;
     public Paint l;
     public boolean m;
@@ -54,7 +54,7 @@ public final class LineLoadingView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LineLoadingView f37062e;
+        public final /* synthetic */ LineLoadingView f37090e;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(LineLoadingView lineLoadingView) {
@@ -72,17 +72,17 @@ public final class LineLoadingView extends View {
                     return;
                 }
             }
-            this.f37062e = lineLoadingView;
+            this.f37090e = lineLoadingView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f37062e.m) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f37090e.m) {
                 return;
             }
-            this.f37062e.invalidate();
-            this.f37062e.post(this);
+            this.f37090e.invalidate();
+            this.f37090e.post(this);
         }
     }
 
@@ -110,11 +110,11 @@ public final class LineLoadingView extends View {
         this.l = new Paint();
         this.m = true;
         this.n = new a(this);
-        this.f37056e = f.c.e(context);
-        this.f37057f = f.c.a(context, 1.5f);
+        this.f37084e = f.c.e(context);
+        this.f37085f = f.c.a(context, 1.5f);
         int a2 = f.c.a(context, 100.0f);
-        this.f37061j = a2;
-        this.f37060i = a2;
+        this.f37089j = a2;
+        this.f37088i = a2;
         this.l.setStyle(Paint.Style.FILL_AND_STROKE);
         this.l.setAntiAlias(true);
     }
@@ -177,9 +177,9 @@ public final class LineLoadingView extends View {
             int mode = View.MeasureSpec.getMode(i2);
             int size = View.MeasureSpec.getSize(i2);
             if (mode != Integer.MIN_VALUE) {
-                return mode != 0 ? mode != 1073741824 ? z ? this.f37056e : this.f37057f : size : z ? this.f37056e : this.f37057f;
+                return mode != 0 ? mode != 1073741824 ? z ? this.f37084e : this.f37085f : size : z ? this.f37084e : this.f37085f;
             }
-            return Math.min(z ? this.f37056e : this.f37057f, size);
+            return Math.min(z ? this.f37084e : this.f37085f, size);
         }
         return invokeCommon.intValue;
     }
@@ -195,13 +195,13 @@ public final class LineLoadingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            int i2 = this.f37060i;
-            if (i2 < this.f37058g) {
-                this.f37060i = i2 + 30;
+            int i2 = this.f37088i;
+            if (i2 < this.f37086g) {
+                this.f37088i = i2 + 30;
             } else {
-                this.f37060i = this.f37061j;
+                this.f37088i = this.f37089j;
             }
-            int i3 = 255 - ((this.f37060i * 255) / this.f37058g);
+            int i3 = 255 - ((this.f37088i * 255) / this.f37086g);
             int i4 = i3 <= 255 ? i3 : 255;
             String hexString = Integer.toHexString(i4 >= 30 ? i4 : 30);
             Intrinsics.checkNotNullExpressionValue(hexString, "Integer.toHexString(currentColorValue)");
@@ -212,7 +212,7 @@ public final class LineLoadingView extends View {
                 Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
                 this.l.setColor(a('#' + hexString + substring));
                 if (canvas != null) {
-                    canvas.drawLine(d(this.f37058g) - d(this.f37060i), d(this.f37057f), d(this.f37058g) + d(this.f37060i), d(this.f37057f), this.l);
+                    canvas.drawLine(d(this.f37086g) - d(this.f37088i), d(this.f37085f), d(this.f37086g) + d(this.f37088i), d(this.f37085f), this.l);
                     return;
                 }
                 return;
@@ -235,8 +235,8 @@ public final class LineLoadingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048583, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f37058g = i2;
-            this.f37059h = i3;
+            this.f37086g = i2;
+            this.f37087h = i3;
             this.l.setStrokeWidth(i3);
         }
     }

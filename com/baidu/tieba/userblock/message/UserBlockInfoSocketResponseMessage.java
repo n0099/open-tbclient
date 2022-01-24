@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.GetUserBlackInfo.DataRes;
 import tbclient.GetUserBlackInfo.GetUserBlackInfoResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UserBlockInfoSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -35,22 +35,22 @@ public class o implements c.a.l.p<c.a.t0.g0.f0.m>, c.a.l.q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f17845e;
+    public TbPageContext<?> f17667e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f17846f;
+    public View f17668f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f17847g;
+    public View f17669g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBLottieAnimationView f17848h;
+    public TBLottieAnimationView f17670h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f17849i;
+    public TextView f17671i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f17850j;
+    public TextView f17672j;
     public TbImageSwitch k;
     public TextView l;
     public TextView m;
@@ -103,7 +103,7 @@ public class o implements c.a.l.p<c.a.t0.g0.f0.m>, c.a.l.q {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                HeadImageView headImageView = new HeadImageView(this.a.f17845e.getPageActivity());
+                HeadImageView headImageView = new HeadImageView(this.a.f17667e.getPageActivity());
                 headImageView.setLayoutParams(new ViewGroup.LayoutParams(o.r, o.r));
                 headImageView.setBorderWidth(o.s);
                 headImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
@@ -161,7 +161,7 @@ public class o implements c.a.l.p<c.a.t0.g0.f0.m>, c.a.l.q {
         this.o = 3;
         this.p = new ArrayList();
         this.q = new a(this);
-        this.f17845e = tbPageContext;
+        this.f17667e = tbPageContext;
         f(e());
     }
 
@@ -169,10 +169,10 @@ public class o implements c.a.l.p<c.a.t0.g0.f0.m>, c.a.l.q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f17846f == null) {
-                this.f17846f = LayoutInflater.from(this.f17845e.getPageActivity()).inflate(R.layout.card_voice_room_layout, (ViewGroup) null, false);
+            if (this.f17668f == null) {
+                this.f17668f = LayoutInflater.from(this.f17667e.getPageActivity()).inflate(R.layout.card_voice_room_layout, (ViewGroup) null, false);
             }
-            return this.f17846f;
+            return this.f17668f;
         }
         return (View) invokeV.objValue;
     }
@@ -180,10 +180,10 @@ public class o implements c.a.l.p<c.a.t0.g0.f0.m>, c.a.l.q {
     public final void f(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.f17847g = view.findViewById(R.id.voice_room_talking_layout);
-            this.f17848h = (TBLottieAnimationView) view.findViewById(R.id.voice_room_talking_lottie);
-            this.f17849i = (TextView) view.findViewById(R.id.voice_room_talking_text);
-            this.f17850j = (TextView) view.findViewById(R.id.card_voice_room_title);
+            this.f17669g = view.findViewById(R.id.voice_room_talking_layout);
+            this.f17670h = (TBLottieAnimationView) view.findViewById(R.id.voice_room_talking_lottie);
+            this.f17671i = (TextView) view.findViewById(R.id.voice_room_talking_text);
+            this.f17672j = (TextView) view.findViewById(R.id.card_voice_room_title);
             TbImageSwitch tbImageSwitch = (TbImageSwitch) view.findViewById(R.id.card_voice_room_talking_user_portrait);
             this.k = tbImageSwitch;
             int i2 = r;
@@ -195,7 +195,7 @@ public class o implements c.a.l.p<c.a.t0.g0.f0.m>, c.a.l.q {
             this.l = (TextView) view.findViewById(R.id.card_voice_room_talking_num);
             this.m = (TextView) view.findViewById(R.id.card_voice_room_online_num);
             this.n = (TextView) view.findViewById(R.id.card_voice_room_join);
-            onChangeSkinType(this.f17845e, TbadkCoreApplication.getInst().getSkinType());
+            onChangeSkinType(this.f17667e, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -207,9 +207,9 @@ public class o implements c.a.l.p<c.a.t0.g0.f0.m>, c.a.l.q {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) || mVar == null) {
             return;
         }
-        this.f17850j.setText(mVar.e0());
-        this.l.setText(String.format(this.f17845e.getResources().getString(R.string.voice_room_talking_num), mVar.f0()));
-        this.m.setText(String.format(this.f17845e.getResources().getString(R.string.voice_room_online_num), mVar.b0()));
+        this.f17672j.setText(mVar.e0());
+        this.l.setText(String.format(this.f17667e.getResources().getString(R.string.voice_room_talking_num), mVar.f0()));
+        this.m.setText(String.format(this.f17667e.getResources().getString(R.string.voice_room_online_num), mVar.b0()));
         if (!ListUtils.isEmpty(mVar.c0())) {
             if (mVar.c0().size() > 10) {
                 this.p = mVar.c0().subList(0, 10);
@@ -218,9 +218,9 @@ public class o implements c.a.l.p<c.a.t0.g0.f0.m>, c.a.l.q {
             }
         }
         this.k.requestViewUpdate();
-        this.f17848h.setRepeatCount(Integer.MAX_VALUE);
-        this.f17848h.setRepeatMode(1);
-        this.f17848h.playAnimation();
+        this.f17670h.setRepeatCount(Integer.MAX_VALUE);
+        this.f17670h.setRepeatMode(1);
+        this.f17670h.playAnimation();
     }
 
     @Override // c.a.l.q
@@ -236,15 +236,15 @@ public class o implements c.a.l.p<c.a.t0.g0.f0.m>, c.a.l.q {
                 }
                 gradientDrawable.setCornerRadius(25.0f);
                 e().setBackgroundDrawable(gradientDrawable);
-                c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f17847g);
+                c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f17669g);
                 d2.n(R.string.J_X01);
                 d2.f(R.color.CAM_X0605);
-                SkinManager.setLottieAnimation(this.f17848h, R.raw.lottie_voice_room_voicing_icon);
-                c.a.s0.s.u.c.d(this.f17849i).v(R.color.CAM_X0101);
+                SkinManager.setLottieAnimation(this.f17670h, R.raw.lottie_voice_room_voicing_icon);
+                c.a.s0.s.u.c.d(this.f17671i).v(R.color.CAM_X0101);
                 c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(this.m);
                 d3.v(R.color.CAM_X0620);
                 d3.A(R.string.F_X02);
-                c.a.s0.s.u.c d4 = c.a.s0.s.u.c.d(this.f17850j);
+                c.a.s0.s.u.c d4 = c.a.s0.s.u.c.d(this.f17672j);
                 d4.A(R.string.F_X02);
                 d4.v(R.color.CAM_X0101);
                 c.a.s0.s.u.c d5 = c.a.s0.s.u.c.d(this.l);

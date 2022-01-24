@@ -69,10 +69,10 @@ public class f extends c.a.d.n.e.a<c.a.t0.a0.j.b.a, AlaGameFrsLiveDoubleView.Ala
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, aVar, alaGameFrsLiveDoubleViewHolder})) == null) {
             alaGameFrsLiveDoubleViewHolder.mView.k(aVar);
             alaGameFrsLiveDoubleViewHolder.mView.t(this.n);
-            c.a.t0.a0.d.b().a(new StatisticItem("c12115").param("obj_id", aVar.f14848e.o1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, !StringUtils.isNull(aVar.f14848e.o1().appId) ? aVar.f14848e.o1().appId : ""));
-            e2 e2Var = aVar.f14849f;
+            c.a.t0.a0.d.b().a(new StatisticItem("c12115").param("obj_id", aVar.f14988e.p1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, !StringUtils.isNull(aVar.f14988e.p1().appId) ? aVar.f14988e.p1().appId : ""));
+            e2 e2Var = aVar.f14989f;
             if (e2Var != null) {
-                c.a.t0.a0.d.b().a(new StatisticItem("c12115").param("obj_id", aVar.f14849f.o1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(e2Var.o1().appId) ? "" : aVar.f14849f.o1().appId));
+                c.a.t0.a0.d.b().a(new StatisticItem("c12115").param("obj_id", aVar.f14989f.p1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(e2Var.p1().appId) ? "" : aVar.f14989f.p1().appId));
             }
             return alaGameFrsLiveDoubleViewHolder.getView();
         }

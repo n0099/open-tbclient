@@ -20,13 +20,13 @@ public class t0 implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f30449e;
+    public Context f30477e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f30450f;
+    public boolean f30478f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final BlockingQueue f30451g;
+    public final BlockingQueue f30479g;
 
     public t0(Context context) {
         Interceptable interceptable = $ic;
@@ -43,21 +43,21 @@ public class t0 implements ServiceConnection {
                 return;
             }
         }
-        this.f30450f = false;
-        this.f30451g = new LinkedBlockingQueue();
-        this.f30449e = context;
+        this.f30478f = false;
+        this.f30479g = new LinkedBlockingQueue();
+        this.f30477e = context;
     }
 
     public IBinder a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f30450f) {
+            if (this.f30478f) {
                 throw new IllegalStateException("Binder already consumed");
             }
-            IBinder iBinder = (IBinder) this.f30451g.take();
+            IBinder iBinder = (IBinder) this.f30479g.take();
             if (iBinder != null) {
-                this.f30450f = true;
+                this.f30478f = true;
             }
             return iBinder;
         }
@@ -69,12 +69,12 @@ public class t0 implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
             try {
-                this.f30451g.put(iBinder);
+                this.f30479g.put(iBinder);
                 String a = ((com.win.opensdk.a) com.win.opensdk.b.a(iBinder)).a();
                 if (TextUtils.isEmpty(a)) {
                     return;
                 }
-                m2.x(this.f30449e, a);
+                m2.x(this.f30477e, a);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             } catch (InterruptedException e3) {

@@ -147,11 +147,11 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 Collection entrySet = this.a.entrySet();
-                Comparator<? super K> comparator = this.f54629b;
+                Comparator<? super K> comparator = this.f54674b;
                 if (comparator != null) {
                     entrySet = Ordering.from(comparator).onKeys().immutableSortedCopy(entrySet);
                 }
-                return ImmutableSetMultimap.fromMapEntries(entrySet, this.f54630c);
+                return ImmutableSetMultimap.fromMapEntries(entrySet, this.f54675c);
             }
             return (ImmutableSetMultimap) invokeV.objValue;
         }
@@ -336,7 +336,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
                 }
                 try {
                     ImmutableMultimap.d.a.b(this, builder.a());
-                    ImmutableMultimap.d.f54631b.a(this, i2);
+                    ImmutableMultimap.d.f54676b.a(this, i2);
                     b.a.b(this, emptySet(comparator));
                     return;
                 } catch (IllegalArgumentException e2) {

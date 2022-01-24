@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC0979a mICrabSdk;
+    public InterfaceC0984a mICrabSdk;
 
     /* renamed from: c.a.t0.b4.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0979a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0984a {
         void a(Application application);
 
         void b(Exception exc);
@@ -54,17 +54,17 @@ public class a {
         this.mICrabSdk = getCrabSdk();
     }
 
-    private InterfaceC0979a getCrabSdk() {
+    private InterfaceC0984a getCrabSdk() {
         InterceptResult invokeV;
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (!isCrabSdkSwitchOn() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0979a.class)) == null) {
+            if (!isCrabSdkSwitchOn() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0984a.class)) == null) {
                 return null;
             }
-            return (InterfaceC0979a) runTask.getData();
+            return (InterfaceC0984a) runTask.getData();
         }
-        return (InterfaceC0979a) invokeV.objValue;
+        return (InterfaceC0984a) invokeV.objValue;
     }
 
     public static a getInstance() {
@@ -86,78 +86,78 @@ public class a {
     private boolean isCrabSdkSwitchOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? c.a.s0.s.h0.b.k().l("pref_key_crab_sdk_enable", 1) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? c.a.s0.s.i0.b.k().l("pref_key_crab_sdk_enable", 1) == 1 : invokeV.booleanValue;
     }
 
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        InterfaceC0979a interfaceC0979a;
+        InterfaceC0984a interfaceC0984a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, motionEvent, activity) == null) || (interfaceC0979a = this.mICrabSdk) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, motionEvent, activity) == null) || (interfaceC0984a = this.mICrabSdk) == null) {
             return;
         }
-        interfaceC0979a.f(motionEvent, activity);
+        interfaceC0984a.f(motionEvent, activity);
     }
 
     public void initSdk(Application application) {
-        InterfaceC0979a interfaceC0979a;
+        InterfaceC0984a interfaceC0984a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) || (interfaceC0979a = this.mICrabSdk) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) || (interfaceC0984a = this.mICrabSdk) == null) {
             return;
         }
-        interfaceC0979a.a(application);
+        interfaceC0984a.a(application);
     }
 
     public void onPause(Activity activity) {
-        InterfaceC0979a interfaceC0979a;
+        InterfaceC0984a interfaceC0984a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || (interfaceC0979a = this.mICrabSdk) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || (interfaceC0984a = this.mICrabSdk) == null) {
             return;
         }
-        interfaceC0979a.onPause(activity);
+        interfaceC0984a.onPause(activity);
     }
 
     public void onResume(Activity activity) {
-        InterfaceC0979a interfaceC0979a;
+        InterfaceC0984a interfaceC0984a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, activity) == null) || (interfaceC0979a = this.mICrabSdk) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, activity) == null) || (interfaceC0984a = this.mICrabSdk) == null) {
             return;
         }
-        interfaceC0979a.onResume(activity);
+        interfaceC0984a.onResume(activity);
     }
 
     public void setFlutterPath(String str) {
-        InterfaceC0979a interfaceC0979a;
+        InterfaceC0984a interfaceC0984a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (interfaceC0979a = this.mICrabSdk) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (interfaceC0984a = this.mICrabSdk) == null) {
             return;
         }
-        interfaceC0979a.c(str);
+        interfaceC0984a.c(str);
     }
 
     public void setLastFlutterPage(String str) {
-        InterfaceC0979a interfaceC0979a;
+        InterfaceC0984a interfaceC0984a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (interfaceC0979a = this.mICrabSdk) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (interfaceC0984a = this.mICrabSdk) == null) {
             return;
         }
-        interfaceC0979a.e(str);
+        interfaceC0984a.e(str);
     }
 
     public void setOpenFlutterPage(String str) {
-        InterfaceC0979a interfaceC0979a;
+        InterfaceC0984a interfaceC0984a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (interfaceC0979a = this.mICrabSdk) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (interfaceC0984a = this.mICrabSdk) == null) {
             return;
         }
-        interfaceC0979a.d(str);
+        interfaceC0984a.d(str);
     }
 
     public void uploadException(Exception exc) {
-        InterfaceC0979a interfaceC0979a;
+        InterfaceC0984a interfaceC0984a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, exc) == null) || (interfaceC0979a = this.mICrabSdk) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, exc) == null) || (interfaceC0984a = this.mICrabSdk) == null) {
             return;
         }
-        interfaceC0979a.b(exc);
+        interfaceC0984a.b(exc);
     }
 }

@@ -41,10 +41,10 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public static boolean f977a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f61465b = 1;
+    public static int f61510b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f61466c = 2;
+    public static int f61511c = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with other field name */
@@ -64,7 +64,7 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
             }
         }
         f975a = new LinkedBlockingQueue();
-        f976a = new ThreadPoolExecutor(a, f61465b, f61466c, TimeUnit.SECONDS, f975a);
+        f976a = new ThreadPoolExecutor(a, f61510b, f61511c, TimeUnit.SECONDS, f975a);
         f977a = false;
     }
 
@@ -126,19 +126,19 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                 if ("syncing".equals(ae.a(context).a(at.a))) {
                     MiPushClient.disablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f60886b))) {
+                if ("syncing".equals(ae.a(context).a(at.f60931b))) {
                     MiPushClient.enablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f60887c))) {
+                if ("syncing".equals(ae.a(context).a(at.f60932c))) {
                     MiPushClient.syncAssemblePushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f60888d))) {
+                if ("syncing".equals(ae.a(context).a(at.f60933d))) {
                     MiPushClient.syncAssembleFCMPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f60889e))) {
+                if ("syncing".equals(ae.a(context).a(at.f60934e))) {
                     MiPushClient.syncAssembleCOSPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f60890f))) {
+                if ("syncing".equals(ae.a(context).a(at.f60935f))) {
                     MiPushClient.syncAssembleFTOSPushToken(context);
                 }
                 if (HWPushHelper.needConnect() && HWPushHelper.shouldTryConnect(context)) {

@@ -6,9 +6,9 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import c.a.d.h.c;
 import c.a.s0.l0.f.b;
-import c.a.t0.b3.d;
-import c.a.t0.b3.e;
-import c.a.t0.b3.f;
+import c.a.t0.c3.d;
+import c.a.t0.c3.e;
+import c.a.t0.c3.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.pass.ecommerce.common.view.ToastUtil;
@@ -48,10 +48,10 @@ public class NpsPluginCenterActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BundleInfo f47366e;
+        public final /* synthetic */ BundleInfo f47394e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NpsPluginCenterActivity f47367f;
+        public final /* synthetic */ NpsPluginCenterActivity f47395f;
 
         public a(NpsPluginCenterActivity npsPluginCenterActivity, BundleInfo bundleInfo) {
             Interceptable interceptable = $ic;
@@ -68,15 +68,15 @@ public class NpsPluginCenterActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47367f = npsPluginCenterActivity;
-            this.f47366e = bundleInfo;
+            this.f47395f = npsPluginCenterActivity;
+            this.f47394e = bundleInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ToastUtil.show(this.f47366e.getPackageName());
+                ToastUtil.show(this.f47394e.getPackageName());
             }
         }
     }
@@ -150,7 +150,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
-            SkinManager.setBackgroundColor(this.mRootView, c.a.t0.b3.a.CAM_X0204);
+            SkinManager.setBackgroundColor(this.mRootView, c.a.t0.c3.a.CAM_X0204);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
             getLayoutMode().j(findViewById(16908290));
             NoDataView noDataView = this.mNoDataView;

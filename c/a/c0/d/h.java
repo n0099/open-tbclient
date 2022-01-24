@@ -159,7 +159,7 @@ public final class h {
     public static final int nad_videoplayer_video_next_tip = 2131692995;
     public static final int nad_videoplayer_view_changed_tip = 2131692996;
     public static final int nad_videoplayer_view_recover_tip = 2131692997;
-    public static final int search_menu_title = 2131694371;
-    public static final int status_bar_notification_info_overflow = 2131694668;
+    public static final int search_menu_title = 2131694377;
+    public static final int status_bar_notification_info_overflow = 2131694674;
     public transient /* synthetic */ FieldHolder $fh;
 }

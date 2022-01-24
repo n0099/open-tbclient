@@ -22,13 +22,13 @@ public final class c extends f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final g f26316h;
+    public final g f26344h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final long f26317i;
+    public final long f26345i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final ByteBuffer f26318j;
+    public final ByteBuffer f26346j;
     public final UploadDataProvider k;
     public long l;
 
@@ -44,7 +44,7 @@ public final class c extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f26319e;
+        public final /* synthetic */ c f26347e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -61,31 +61,31 @@ public final class c extends f {
                     return;
                 }
             }
-            this.f26319e = cVar;
+            this.f26347e = cVar;
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26319e.f26317i : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26347e.f26345i : invokeV.longValue;
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
         public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
-                if (byteBuffer.remaining() >= this.f26319e.f26318j.remaining()) {
-                    byteBuffer.put(this.f26319e.f26318j);
-                    this.f26319e.f26318j.clear();
+                if (byteBuffer.remaining() >= this.f26347e.f26346j.remaining()) {
+                    byteBuffer.put(this.f26347e.f26346j);
+                    this.f26347e.f26346j.clear();
                     uploadDataSink.c(false);
-                    this.f26319e.f26316h.quit();
+                    this.f26347e.f26344h.quit();
                     return;
                 }
-                int limit = this.f26319e.f26318j.limit();
-                this.f26319e.f26318j.limit(this.f26319e.f26318j.position() + byteBuffer.remaining());
-                byteBuffer.put(this.f26319e.f26318j);
-                this.f26319e.f26318j.limit(limit);
+                int limit = this.f26347e.f26346j.limit();
+                this.f26347e.f26346j.limit(this.f26347e.f26346j.position() + byteBuffer.remaining());
+                byteBuffer.put(this.f26347e.f26346j);
+                this.f26347e.f26346j.limit(limit);
                 uploadDataSink.c(false);
             }
         }
@@ -138,9 +138,9 @@ public final class c extends f {
             throw null;
         }
         if (j2 >= 0) {
-            this.f26317i = j2;
-            this.f26318j = ByteBuffer.allocate((int) Math.min(j2, m));
-            this.f26316h = gVar;
+            this.f26345i = j2;
+            this.f26346j = ByteBuffer.allocate((int) Math.min(j2, m));
+            this.f26344h = gVar;
             this.l = 0L;
             return;
         }
@@ -150,7 +150,7 @@ public final class c extends f {
     @Override // c.a.u0.b.e.f
     public void e() throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.l < this.f26317i) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.l < this.f26345i) {
             throw new ProtocolException("Content received is less than Content-Length.");
         }
     }
@@ -171,15 +171,15 @@ public final class c extends f {
 
     public final void l(int i2) throws ProtocolException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.l + i2 <= this.f26317i) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.l + i2 <= this.f26345i) {
             return;
         }
-        throw new ProtocolException("expected " + (this.f26317i - this.l) + " bytes but received " + i2);
+        throw new ProtocolException("expected " + (this.f26345i - this.l) + " bytes but received " + i2);
     }
 
     public final void m() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f26318j.hasRemaining()) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f26346j.hasRemaining()) {
             return;
         }
         n();
@@ -189,15 +189,15 @@ public final class c extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             c();
-            this.f26318j.flip();
-            this.f26316h.a();
+            this.f26346j.flip();
+            this.f26344h.a();
             a();
         }
     }
 
     public final void o() throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.l == this.f26317i) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.l == this.f26345i) {
             n();
         }
     }
@@ -209,7 +209,7 @@ public final class c extends f {
             c();
             l(1);
             m();
-            this.f26318j.put((byte) i2);
+            this.f26346j.put((byte) i2);
             this.l++;
             o();
         }
@@ -225,8 +225,8 @@ public final class c extends f {
                 int i4 = i3;
                 while (i4 > 0) {
                     m();
-                    int min = Math.min(i4, this.f26318j.remaining());
-                    this.f26318j.put(bArr, (i2 + i3) - i4, min);
+                    int min = Math.min(i4, this.f26346j.remaining());
+                    this.f26346j.put(bArr, (i2 + i3) - i4, min);
                     i4 -= min;
                 }
                 this.l += i3;

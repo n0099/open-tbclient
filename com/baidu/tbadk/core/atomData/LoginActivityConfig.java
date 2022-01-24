@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.b0.a;
+import c.a.s0.s.c0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,6 +29,7 @@ public class LoginActivityConfig extends IntentConfig {
     public static final String LOGIN_DIALOG_LOGIN_LISTENER = "login_dialog_login_listener";
     public static final String SCHEME = "scheme";
     public static final String SOCIAL_TYPE = "social_type";
+    public static final String STATISTIC_LOCATE = "statistic_locate";
     public static final String URL = "url";
     public static final String USER_INFO_CHANGED = "user_info_changed";
     public static long lastStartActivityTime;
@@ -122,9 +123,16 @@ public class LoginActivityConfig extends IntentConfig {
         }
     }
 
+    public void setStatisticLocate(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            getIntent().putExtra(STATISTIC_LOCATE, i2);
+        }
+    }
+
     public void setThirdPartyLoginForResult(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, str) == null) {
             getIntent().putExtra("social_type", i2);
             getIntent().putExtra("activity_id", str);
             setRequestCode(11043);
@@ -134,7 +142,7 @@ public class LoginActivityConfig extends IntentConfig {
 
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             getIntent().putExtra("url", str);
         }
     }

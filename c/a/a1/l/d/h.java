@@ -183,7 +183,7 @@ public class h {
                     if (i10 == 0) {
                         int i25 = i11;
                         if (i25 == 1) {
-                            i18 = com.alipay.sdk.encrypt.a.f30864g;
+                            i18 = com.alipay.sdk.encrypt.a.f30892g;
                             i16 = 127;
                             i17 = 2;
                         } else {
@@ -714,7 +714,7 @@ public class h {
                     int i109 = i16;
                     i23 = 0;
                     while (i23 < i108 * i82) {
-                        dArr14[(i82 * 0) + i23] = ((wrap.get(i23) & 255) + com.alipay.sdk.encrypt.a.f30864g) * 0.007874015748031496d;
+                        dArr14[(i82 * 0) + i23] = ((wrap.get(i23) & 255) + com.alipay.sdk.encrypt.a.f30892g) * 0.007874015748031496d;
                         i23++;
                         i109 = i109;
                     }
@@ -915,7 +915,7 @@ public class h {
                                         d24 = dArr7[0];
                                     }
                                     dArr7[0] = d24;
-                                    a = com.alipay.sdk.encrypt.a.f30864g;
+                                    a = com.alipay.sdk.encrypt.a.f30892g;
                                 } else {
                                     c2 = 0;
                                 }
@@ -2040,7 +2040,7 @@ public class h {
                                         d24 = dArr7[0];
                                     }
                                     dArr7[0] = d24;
-                                    a = com.alipay.sdk.encrypt.a.f30864g;
+                                    a = com.alipay.sdk.encrypt.a.f30892g;
                                 } else {
                                     c2 = 0;
                                 }

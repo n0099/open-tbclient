@@ -50,7 +50,7 @@ public abstract class ep extends en {
     public boolean f335a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CharSequence f61040b;
+    public CharSequence f61085b;
 
     /* renamed from: b  reason: collision with other field name */
     public boolean f336b;
@@ -148,7 +148,7 @@ public abstract class ep extends en {
             return;
         }
         super.setContentTitle(this.f332a);
-        super.setContentText(this.f61040b);
+        super.setContentText(this.f61085b);
     }
 
     /* renamed from: d  reason: collision with other method in class */
@@ -327,7 +327,7 @@ public abstract class ep extends en {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, charSequence)) == null) {
-            this.f61040b = charSequence;
+            this.f61085b = charSequence;
             return this;
         }
         return (ep) invokeL.objValue;
@@ -342,7 +342,7 @@ public abstract class ep extends en {
             return;
         }
         super.setContentTitle(this.f332a);
-        super.setContentText(this.f61040b);
+        super.setContentText(this.f61085b);
         Bitmap bitmap = this.f330a;
         if (bitmap != null) {
             super.setLargeIcon(bitmap);

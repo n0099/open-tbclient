@@ -10,14 +10,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
 import c.a.s0.s.u.c;
-import c.a.t0.s2.f;
-import c.a.t0.s2.h;
-import c.a.t0.s2.i;
-import c.a.t0.s2.j;
-import c.a.t0.s2.k;
-import c.a.t0.s2.l;
-import c.a.t0.s2.u.f.b1.g;
-import c.a.t0.s2.u.f.d;
+import c.a.t0.t2.f;
+import c.a.t0.t2.h;
+import c.a.t0.t2.i;
+import c.a.t0.t2.j;
+import c.a.t0.t2.k;
+import c.a.t0.t2.l;
+import c.a.t0.t2.u.f.c1.g;
+import c.a.t0.t2.u.f.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -111,7 +111,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommenFloorItemViewHolder f46451e;
+        public final /* synthetic */ PbCommenFloorItemViewHolder f46479e;
 
         public a(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
             Interceptable interceptable = $ic;
@@ -128,14 +128,14 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f46451e = pbCommenFloorItemViewHolder;
+            this.f46479e = pbCommenFloorItemViewHolder;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46451e.a.playAnimation();
+                this.f46479e.a.playAnimation();
             }
         }
     }
@@ -202,10 +202,10 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.mFeedBackImg = (ImageView) view.findViewById(i.pb_floor_feedback);
         this.pageFrom = i2;
         c.a.s0.s.q.f fVar = new c.a.s0.s.q.f();
-        fVar.f13371b = 5;
-        fVar.f13377h = 8;
-        fVar.f13376g = 2;
-        fVar.f13375f = i2;
+        fVar.f13557b = 5;
+        fVar.f13563h = 8;
+        fVar.f13562g = 2;
+        fVar.f13561f = i2;
         this.mPbFloorPraiseView.setStatisticData(fVar);
         this.mHeadPhotoView = (HeadImageView) view.findViewById(i.normal_user_photo);
         HeadPendantView headPendantView = (HeadPendantView) view.findViewById(i.pendant_user_photo);
@@ -222,25 +222,25 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.mReplyContentView = (SubPbLayout) view.findViewById(i.pb_post_footer_layout);
         this.mReplyCountView = (TextView) view.findViewById(i.pb_post_reply_count);
         this.mReplyCountView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, WebPManager.getPureDrawable(h.icon_pure_arrow12_right, SkinManager.getColor(f.CAM_X0107), null), (Drawable) null);
-        this.mReplyCountView.setCompoundDrawablePadding((int) TbadkCoreApplication.getInst().getResources().getDimension(c.a.t0.s2.g.tbds4));
-        this.mReplyCountView.setTextSize(0, n.f(TbadkCoreApplication.getInst(), c.a.t0.s2.g.T_X07));
+        this.mReplyCountView.setCompoundDrawablePadding((int) TbadkCoreApplication.getInst().getResources().getDimension(c.a.t0.t2.g.tbds4));
+        this.mReplyCountView.setTextSize(0, n.f(TbadkCoreApplication.getInst(), c.a.t0.t2.g.T_X07));
         this.mReplyView = (TextView) view.findViewById(i.pb_post_reply);
         this.mImagesView = (ConstrainImageGroup) view.findViewById(i.floor_images_content);
         this.mBottomLine = view.findViewById(i.pb_bottom_line);
         this.mFloorNum = (TextView) view.findViewById(i.floor_num);
         this.mPointRightFloor = (TextView) view.findViewById(i.point_between_floor_and_time);
         this.mPointRightPostTime = (TextView) view.findViewById(i.point_between_time_and_locate);
-        this.mImagesView.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.t0.s2.g.ds16));
+        this.mImagesView.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.t0.t2.g.ds16));
         this.mImagesView.setSingleImageRatio(0.75d);
-        this.mImagesView.setImageProcessor(new c.a.s0.g1.j.f(3));
-        d dVar = new d(this.mRichTextView.getLayoutStrategy());
-        dVar.j(n.f(TbadkCoreApplication.getInst().getContext(), c.a.t0.s2.g.tbds18));
-        dVar.o(TbConfig.getPostLineSpace(), 1.0f);
-        this.mRichTextView.setLayoutStrategy(dVar);
+        this.mImagesView.setImageProcessor(new c.a.s0.f1.j.f(3));
+        e eVar = new e(this.mRichTextView.getLayoutStrategy());
+        eVar.j(n.f(TbadkCoreApplication.getInst().getContext(), c.a.t0.t2.g.tbds18));
+        eVar.o(TbConfig.getPostLineSpace(), 1.0f);
+        this.mRichTextView.setLayoutStrategy(eVar);
         this.mRichTextView.setIsNeedResizeEmotion(true);
         this.mRichTextView.setTextSize(TbConfig.getContentSize());
         this.mHeadPhotoView.setIsRound(true);
-        this.mHeadPhotoView.setGodIconWidth(c.a.t0.s2.g.tbds36);
+        this.mHeadPhotoView.setGodIconWidth(c.a.t0.t2.g.tbds36);
         this.mHeadPhotoView.setPlaceHolder(1);
         this.mRichTextView.setDisplayImage(this.mIsShowImage, false);
         this.mRichTextView.setVoiceViewRes(j.voice_play_btn_new);
@@ -276,7 +276,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.uegFrameLayout = frameLayout;
         g gVar = new g(tbPageContext, frameLayout);
         this.pbHeadUegController = gVar;
-        gVar.f22677f = 3;
+        gVar.f22977f = 3;
         this.mMaskView = (MaskView) view.findViewById(i.mask_view_op);
     }
 
@@ -333,10 +333,10 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && z) {
             c.a.s0.s.q.f fVar = new c.a.s0.s.q.f();
-            fVar.f13371b = 12;
-            fVar.f13377h = 9;
-            fVar.f13376g = 3;
-            fVar.f13375f = this.pageFrom;
+            fVar.f13557b = 12;
+            fVar.f13563h = 9;
+            fVar.f13562g = 3;
+            fVar.f13561f = this.pageFrom;
             this.mPbFloorPraiseView.setStatisticData(fVar);
         }
     }

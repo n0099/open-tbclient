@@ -42,10 +42,10 @@ public class WriteThreadDelegateStatic extends b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
             cVar.a = new WriteThreadFragment();
-            cVar.f12789e = 9;
-            cVar.f12786b = j.send;
-            cVar.f12788d = f.icon_tabbar_add_n;
-            cVar.f12793i = c.f12785j;
+            cVar.f12933e = 9;
+            cVar.f12930b = j.send;
+            cVar.f12932d = f.icon_tabbar_add_n;
+            cVar.f12937i = c.f12929j;
             return cVar;
         }
         return (c) invokeV.objValue;

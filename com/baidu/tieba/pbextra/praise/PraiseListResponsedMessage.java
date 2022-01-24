@@ -1,6 +1,6 @@
 package com.baidu.tieba.pbextra.praise;
 
-import c.a.t0.t2.c.a;
+import c.a.t0.u2.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;

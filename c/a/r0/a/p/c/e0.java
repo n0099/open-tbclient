@@ -31,13 +31,13 @@ public class e0 implements y0 {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f8104b;
+    public static int f8246b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f8105c;
+    public static int f8247c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f8106d;
+    public static int f8248d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -47,7 +47,7 @@ public class e0 implements y0 {
         public final /* synthetic */ SubscribeHelper.i a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e0 f8107b;
+        public final /* synthetic */ e0 f8249b;
 
         public a(e0 e0Var, SubscribeHelper.i iVar) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class e0 implements y0 {
                     return;
                 }
             }
-            this.f8107b = e0Var;
+            this.f8249b = e0Var;
             this.a = iVar;
         }
 
@@ -77,7 +77,7 @@ public class e0 implements y0 {
                     if (jSONObject.optInt("errno") == 0) {
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
                         if (optJSONObject != null) {
-                            this.a.a(optJSONObject.optString("tip"), this.f8107b.i(optJSONObject.optJSONArray("list")), false);
+                            this.a.a(optJSONObject.optString("tip"), this.f8249b.i(optJSONObject.optJSONArray("list")), false);
                             return;
                         }
                     } else {
@@ -124,13 +124,24 @@ public class e0 implements y0 {
             this.a = aVar;
         }
 
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                boolean unused = e0.a;
+                c.a.r0.a.a2.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onFail(exc.toString());
+                }
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i2) {
             c.a.r0.a.a2.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) || (aVar = this.a) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i2) == null) || (aVar = this.a) == null) {
                 return;
             }
             if (jSONObject == null) {
@@ -142,11 +153,10 @@ public class e0 implements y0 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
         public JSONObject parseResponse(Response response, int i2) throws Exception {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i2)) == null) {
                 if (response == null || response.body() == null) {
                     return null;
                 }
@@ -160,18 +170,6 @@ public class e0 implements y0 {
                 return new JSONObject(string);
             }
             return (JSONObject) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                boolean unused = e0.a;
-                c.a.r0.a.a2.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onFail(exc.toString());
-                }
-            }
         }
     }
 
@@ -189,9 +187,9 @@ public class e0 implements y0 {
             }
         }
         a = c.a.r0.a.k.a;
-        f8104b = 0;
-        f8105c = 1;
-        f8106d = 2;
+        f8246b = 0;
+        f8247c = 1;
+        f8248d = 2;
     }
 
     public e0() {
@@ -273,9 +271,9 @@ public class e0 implements y0 {
             c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(m(), new b(new a(this, iVar)));
             aVar.a(c.a.r0.a.p1.f.a, jSONObject.toString());
             if (c.a.r0.p.e.a.g().c()) {
-                aVar.f11453f = true;
+                aVar.f11595f = true;
             }
-            aVar.f11454g = true;
+            aVar.f11596g = true;
             c.a.r0.p.e.a.g().e(aVar);
         }
     }
@@ -284,7 +282,7 @@ public class e0 implements y0 {
     public void c(@NonNull String str, c.a.r0.a.s0.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bVar) == null) {
-            String h2 = h(f8104b);
+            String h2 = h(f8246b);
             ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) c.a.r0.p.e.a.g().postFormRequest().url(h2)).cookieManager(c.a.r0.a.c1.a.q().a())).addParam("appkey", str).build().executeAsyncOnUIBack(new b(bVar));
         }
     }
@@ -315,10 +313,10 @@ public class e0 implements y0 {
                     e2.printStackTrace();
                 }
             }
-            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(h(f8106d), new b(bVar));
+            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(h(f8248d), new b(bVar));
             aVar.a(c.a.r0.a.p1.f.a, jSONObject.toString());
-            aVar.f11453f = true;
-            aVar.f11454g = true;
+            aVar.f11595f = true;
+            aVar.f11596g = true;
             c.a.r0.p.e.a.g().e(aVar);
         }
     }
@@ -327,7 +325,7 @@ public class e0 implements y0 {
     public void e(String str, c.a.r0.a.t1.l.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, aVar) == null) {
-            o(h(f8105c), str, aVar);
+            o(h(f8247c), str, aVar);
         }
     }
 
@@ -340,10 +338,10 @@ public class e0 implements y0 {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
             String str2 = "timestamp=" + TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
             String str3 = "delta=smartapp_formid";
-            if (i2 == f8104b) {
+            if (i2 == f8246b) {
                 sb = new StringBuilder(k());
                 str = "rasign=" + c.a.r0.a.d0.b.b().c(seconds);
-            } else if (i2 == f8106d) {
+            } else if (i2 == f8248d) {
                 sb = new StringBuilder(l());
                 str = "rasign=" + c.a.r0.a.d0.b.b().c(seconds);
             } else {

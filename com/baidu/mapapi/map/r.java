@@ -14,7 +14,7 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
     public final /* synthetic */ ViewGroup.LayoutParams a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f35473b;
+    public final /* synthetic */ SwipeDismissTouchListener f35501b;
 
     public r(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
                 return;
             }
         }
-        this.f35473b = swipeDismissTouchListener;
+        this.f35501b = swipeDismissTouchListener;
         this.a = layoutParams;
     }
 
@@ -41,7 +41,7 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
             this.a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-            view = this.f35473b.f35394e;
+            view = this.f35501b.f35422e;
             view.setLayoutParams(this.a);
         }
     }

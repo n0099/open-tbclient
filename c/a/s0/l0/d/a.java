@@ -13,13 +13,13 @@ public class a implements b {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12858b;
+    public boolean f13002b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f12859c;
+    public boolean f13003c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f12860d;
+    public boolean f13004d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,21 +35,21 @@ public class a implements b {
             }
         }
         this.a = false;
-        this.f12858b = false;
-        this.f12859c = true;
-        this.f12860d = true;
+        this.f13002b = false;
+        this.f13003c = true;
+        this.f13004d = true;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12859c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13003c : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12858b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13002b : invokeV.booleanValue;
     }
 
     public boolean c() {
@@ -61,20 +61,20 @@ public class a implements b {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12860d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13004d : invokeV.booleanValue;
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f12859c = z;
+            this.f13003c = z;
         }
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f12858b = z;
+            this.f13002b = z;
         }
     }
 
@@ -88,7 +88,7 @@ public class a implements b {
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f12860d = z;
+            this.f13004d = z;
         }
     }
 }

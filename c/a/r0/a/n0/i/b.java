@@ -22,13 +22,13 @@ public class b {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f7777b;
+    public static long f7919b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f7778c;
+    public static String f7920c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f7779d;
+    public static String f7921d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -37,7 +37,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Bundle f7780e;
+        public final /* synthetic */ Bundle f7922e;
 
         public a(Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -54,18 +54,18 @@ public class b {
                     return;
                 }
             }
-            this.f7780e = bundle;
+            this.f7922e = bundle;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a aVar = (c.a) new c.a().s(this.f7780e);
+                c.a aVar = (c.a) new c.a().s(this.f7922e);
                 f fVar = new f();
                 fVar.a = n.n(0);
-                fVar.f7977b = "launch";
-                fVar.f7980e = "repeatlaunch";
+                fVar.f8119b = "launch";
+                fVar.f8122e = "repeatlaunch";
                 fVar.a("launchInterval", Long.valueOf(aVar.l("launch_interval", -1L)));
                 fVar.j(aVar);
                 fVar.d(aVar.s0().getString(UBCCloudControlProcessor.UBC_KEY));
@@ -94,15 +94,15 @@ public class b {
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? System.currentTimeMillis() - f7777b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? System.currentTimeMillis() - f7919b : invokeV.longValue;
     }
 
     public static boolean b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - f7777b;
-            boolean z = currentTimeMillis < 800 && TextUtils.equals(f7778c, str) && TextUtils.equals(f7779d, str2);
+            long currentTimeMillis = System.currentTimeMillis() - f7919b;
+            boolean z = currentTimeMillis < 800 && TextUtils.equals(f7920c, str) && TextUtils.equals(f7921d, str2);
             if (a && z) {
                 String str3 = "CurrentLaunchInterval:" + currentTimeMillis + ",PreventSeriesLaunchInterval:800";
             }
@@ -114,7 +114,7 @@ public class b {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f7777b = System.currentTimeMillis();
+            f7919b = System.currentTimeMillis();
         }
     }
 
@@ -128,8 +128,8 @@ public class b {
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            f7778c = str;
-            f7779d = str2;
+            f7920c = str;
+            f7921d = str2;
         }
     }
 }

@@ -92,7 +92,7 @@ public class b {
             jSONObject.put("abTestSwitch", a2);
             jSONObject.put("userDataPath", c.a.r0.a.r0.a.USER_DATA_PATH);
             jSONObject.put("preloadId", g.U().a0());
-            jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.f38633d.h());
+            jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.f38661d.h());
             jSONObject.put("ttsExtractJSUrl", q.b().a());
             jSONObject.put("coreJSPath", g.U().c0());
             if (e.d()) {

@@ -25,19 +25,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public final class f implements d.InterfaceC0467d {
+public final class f implements d.InterfaceC0476d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f7759d;
+    public static final boolean f7901d;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.a.n0.d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f7760b;
+    public volatile boolean f7902b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f7761c;
+    public final boolean f7903c;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -45,7 +45,7 @@ public final class f implements d.InterfaceC0467d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a1 f7762e;
+        public final /* synthetic */ a1 f7904e;
 
         public a(f fVar, a1 a1Var) {
             Interceptable interceptable = $ic;
@@ -62,14 +62,14 @@ public final class f implements d.InterfaceC0467d {
                     return;
                 }
             }
-            this.f7762e = a1Var;
+            this.f7904e = a1Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7762e.b();
+                this.f7904e.b();
             }
         }
     }
@@ -110,13 +110,13 @@ public final class f implements d.InterfaceC0467d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f7763e;
+        public final /* synthetic */ int f7905e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bundle f7764f;
+        public final /* synthetic */ Bundle f7906f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f7765g;
+        public final /* synthetic */ f f7907g;
 
         public c(f fVar, int i2, Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -133,19 +133,19 @@ public final class f implements d.InterfaceC0467d {
                     return;
                 }
             }
-            this.f7765g = fVar;
-            this.f7763e = i2;
-            this.f7764f = bundle;
+            this.f7907g = fVar;
+            this.f7905e = i2;
+            this.f7906f = bundle;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (f.f7759d) {
-                    String str = "zygoteSwanProcess delay - run. switch: " + this.f7763e;
+                if (f.f7901d) {
+                    String str = "zygoteSwanProcess delay - run. switch: " + this.f7905e;
                 }
-                c.a.r0.a.y1.c.f.b.k(this.f7765g.a(), this.f7764f);
+                c.a.r0.a.y1.c.f.b.k(this.f7907g.a(), this.f7906f);
             }
         }
     }
@@ -186,7 +186,7 @@ public final class f implements d.InterfaceC0467d {
                 return;
             }
         }
-        f7759d = k.a;
+        f7901d = k.a;
     }
 
     public /* synthetic */ f(a aVar) {
@@ -215,13 +215,13 @@ public final class f implements d.InterfaceC0467d {
 
     public void e(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) || this.f7760b) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) || this.f7902b) {
             return;
         }
         synchronized (this) {
-            if (!this.f7760b) {
+            if (!this.f7902b) {
                 f(bundle);
-                this.f7760b = true;
+                this.f7902b = true;
             }
         }
     }
@@ -231,12 +231,12 @@ public final class f implements d.InterfaceC0467d {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             g(bundle);
             SwanLauncher.j().l(null);
-            b.C0297b.d();
+            b.C0306b.d();
             x0.a();
-            if (f7759d) {
-                String str = "swan_env_init_thread_pool_optimize: " + this.f7761c;
+            if (f7901d) {
+                String str = "swan_env_init_thread_pool_optimize: " + this.f7903c;
             }
-            if (this.f7761c) {
+            if (this.f7903c) {
                 ExecutorUtilsExt.postOnElastic(new a(this, c.a.r0.a.c1.a.s0()), "requestBatchRebateInfo", 2);
             } else {
                 ExecutorUtilsExt.postOnElastic(new b(this), "requestBatchRebateInfo", 2);
@@ -247,13 +247,13 @@ public final class f implements d.InterfaceC0467d {
     public final void g(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            boolean z = f7759d;
+            boolean z = f7901d;
             t g2 = c.a.r0.a.c1.a.g();
             if (g2 == null) {
                 return;
             }
             int a2 = g2.a();
-            if (f7759d) {
+            if (f7901d) {
                 String str = "zygoteSwanProcess switch : " + a2;
             }
             if (g2.e()) {
@@ -266,13 +266,13 @@ public final class f implements d.InterfaceC0467d {
                 bundle.putString("bundle_key_preload_preload_scene", "0");
             }
             if (bundle.getBoolean("bundle_key_preload_delay", false) && g2.f()) {
-                if (f7759d) {
+                if (f7901d) {
                     String str2 = "zygoteSwanProcess delay - start. switch: " + a2;
                 }
                 q0.b0(new c(this, a2, bundle), c.a.r0.a.c1.a.g().c());
                 return;
             }
-            if (f7759d) {
+            if (f7901d) {
                 String str3 = "zygoteSwanProcess start. switch: " + a2;
             }
             c.a.r0.a.y1.c.f.b.k(a(), bundle);
@@ -292,9 +292,9 @@ public final class f implements d.InterfaceC0467d {
                 return;
             }
         }
-        this.f7760b = false;
+        this.f7902b = false;
         c.a.r0.a.c1.a.g0().getSwitch("swan_env_init_thread_pool_optimize", true);
-        this.f7761c = true;
+        this.f7903c = true;
         this.a = new c.a.r0.a.n0.d(this);
         c.a.r0.a.w0.d.i();
         SwanFavorDataManager.h();

@@ -42,7 +42,7 @@ public class b extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            boolean h2 = SwanAppAllianceLoginHelper.f38633d.h();
+            boolean h2 = SwanAppAllianceLoginHelper.f38661d.h();
             if (h2) {
                 return h2;
             }

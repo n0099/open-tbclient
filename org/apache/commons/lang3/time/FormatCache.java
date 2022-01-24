@@ -16,7 +16,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class FormatCache<F extends Format> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NONE = -1;
@@ -24,7 +24,7 @@ public abstract class FormatCache<F extends Format> {
     public transient /* synthetic */ FieldHolder $fh;
     public final ConcurrentMap<MultipartKey, F> cInstanceCache;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class MultipartKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

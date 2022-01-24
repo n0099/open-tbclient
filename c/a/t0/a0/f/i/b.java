@@ -37,19 +37,19 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.a.c> {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f14728b;
+        public TbImageView f14868b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f14729c;
+        public TextView f14869c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f14730d;
+        public TextView f14870d;
 
         /* renamed from: e  reason: collision with root package name */
-        public LinearLayout f14731e;
+        public LinearLayout f14871e;
 
         /* renamed from: f  reason: collision with root package name */
-        public RelativeLayout f14732f;
+        public RelativeLayout f14872f;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -67,13 +67,13 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.a.c> {
                 }
             }
             this.a = view;
-            this.f14728b = (TbImageView) view.findViewById(R.id.imgSquareView);
-            this.f14729c = (TextView) view.findViewById(R.id.tvActiveTitle);
-            this.f14730d = (TextView) view.findViewById(R.id.tvActiveSubTitle);
-            this.f14731e = (LinearLayout) view.findViewById(R.id.llActiveInfoPanel);
-            this.f14732f = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
-            this.f14729c.setTypeface(Typeface.defaultFromStyle(1));
-            this.f14728b.setDefaultBgResource(c.a.t0.a0.f.i.a.a());
+            this.f14868b = (TbImageView) view.findViewById(R.id.imgSquareView);
+            this.f14869c = (TextView) view.findViewById(R.id.tvActiveTitle);
+            this.f14870d = (TextView) view.findViewById(R.id.tvActiveSubTitle);
+            this.f14871e = (LinearLayout) view.findViewById(R.id.llActiveInfoPanel);
+            this.f14872f = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
+            this.f14869c.setTypeface(Typeface.defaultFromStyle(1));
+            this.f14868b.setDefaultBgResource(c.a.t0.a0.f.i.a.a());
         }
     }
 
@@ -114,10 +114,10 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.a.c> {
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.m == i2) {
             return;
         }
-        SkinManager.setBackgroundResource(this.o.f14732f, R.drawable.addresslist_item_bg);
-        SkinManager.setViewTextColor(this.o.f14729c, R.color.CAM_X0111);
-        SkinManager.setViewTextColor(this.o.f14730d, R.color.CAM_X0111);
-        this.o.f14730d.setAlpha(0.9f);
+        SkinManager.setBackgroundResource(this.o.f14872f, R.drawable.addresslist_item_bg);
+        SkinManager.setViewTextColor(this.o.f14869c, R.color.CAM_X0111);
+        SkinManager.setViewTextColor(this.o.f14870d, R.color.CAM_X0111);
+        this.o.f14870d.setAlpha(0.9f);
         this.m = i2;
     }
 
@@ -125,16 +125,16 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.a.c> {
     public void onClick(View view) {
         c.a.t0.a0.f.a.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || view != j() || (cVar = this.n) == null || StringUtils.isNull(cVar.f14340j)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || view != j() || (cVar = this.n) == null || StringUtils.isNull(cVar.f14480j)) {
             return;
         }
-        t(this.n.f14340j);
+        t(this.n.f14480j);
     }
 
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int k = n.k(this.f17768g) / 2;
+            int k = n.k(this.f17590g) / 2;
             this.p = k;
             this.q = (k * 9) / 16;
             this.o = new a(j());
@@ -152,18 +152,18 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.a.c> {
         }
         this.n = cVar;
         int i2 = this.q;
-        int i3 = cVar.f14337g;
+        int i3 = cVar.f14477g;
         if (i3 > 0) {
-            i2 = (this.p * cVar.f14338h) / i3;
+            i2 = (this.p * cVar.f14478h) / i3;
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.f14732f.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.f14872f.getLayoutParams();
         layoutParams.width = this.p;
         layoutParams.height = i2;
-        this.o.f14732f.setLayoutParams(layoutParams);
-        this.o.f14728b.startLoad(this.n.f14336f, 10, false);
-        this.o.f14729c.setText(this.n.f14335e);
-        this.o.f14730d.setText(this.n.f14339i);
-        l(this.f17767f, TbadkCoreApplication.getInst().getSkinType());
+        this.o.f14872f.setLayoutParams(layoutParams);
+        this.o.f14868b.startLoad(this.n.f14476f, 10, false);
+        this.o.f14869c.setText(this.n.f14475e);
+        this.o.f14870d.setText(this.n.f14479i);
+        l(this.f17589f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void s(d dVar) {
@@ -176,9 +176,9 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.a.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                n.M(this.f17767f.getPageActivity(), R.string.url_is_null);
+                n.M(this.f17589f.getPageActivity(), R.string.url_is_null);
             } else {
-                UrlManager.getInstance().dealOneLinkWithDialog(this.f17767f, "", new String[]{str}, false, null, true);
+                UrlManager.getInstance().dealOneLinkWithDialog(this.f17589f, "", new String[]{str}, false, null, true);
             }
         }
     }

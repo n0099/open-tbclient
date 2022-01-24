@@ -6,15 +6,15 @@ public class a implements com.kwad.sdk.collector.model.a {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f55531b;
+    public Set<String> f55576b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f55532c;
+    public long f55577c;
 
     public a(b bVar, Set<String> set, long j2) {
         this.a = bVar;
-        this.f55531b = set;
-        this.f55532c = j2;
+        this.f55576b = set;
+        this.f55577c = j2;
     }
 
     public String a() {
@@ -26,7 +26,7 @@ public class a implements com.kwad.sdk.collector.model.a {
     }
 
     public Set<String> b() {
-        return this.f55531b;
+        return this.f55576b;
     }
 
     public b c() {

@@ -21,31 +21,31 @@ public class j1 {
     public static final long a = 60000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f55092b = 3600000;
+    public static final long f55137b = 3600000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f55093c = 86400000;
+    public static final long f55138c = 86400000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long f55094d = 604800000;
+    public static final long f55139d = 604800000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f55095e = 0;
+    public static final int f55140e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f55096f = 1;
+    public static final int f55141f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f55097g = 2;
+    public static final int f55142g = 2;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f55098h = 3;
+    public static final int f55143h = 3;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f55099i = 10000;
+    public static final int f55144i = 10000;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f55100j = 10001;
+    public static final int f55145j = 10001;
     public static final int k = 10002;
     public static final int l;
     public static final int m;
@@ -67,8 +67,8 @@ public class j1 {
             }
         }
         l = Integer.valueOf(q0.a).intValue();
-        m = Integer.valueOf(q0.f55210b).intValue();
-        n = Integer.valueOf(q0.f55211c).intValue();
+        m = Integer.valueOf(q0.f55255b).intValue();
+        n = Integer.valueOf(q0.f55256c).intValue();
     }
 
     public j1() {

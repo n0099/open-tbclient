@@ -29,13 +29,13 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final v f37217e;
+    public final v f37245e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IAdImageView.ImageScaleType f37218f;
+    public IAdImageView.ImageScaleType f37246f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Path f37219g;
+    public final Path f37247g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdImageView(@NonNull Context context) {
@@ -66,11 +66,11 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, q.AdImageView);
         int resourceId = obtainStyledAttributes.getResourceId(q.AdImageView_holder, 0);
         if (resourceId != 0) {
-            this.f37217e.a = resourceId;
+            this.f37245e.a = resourceId;
         }
         int resourceId2 = obtainStyledAttributes.getResourceId(q.AdImageView_errorHolder, 0);
         if (resourceId2 != 0) {
-            this.f37217e.f2135c = resourceId2;
+            this.f37245e.f2135c = resourceId2;
         }
         v.a aVar = new v.a();
         if (obtainStyledAttributes.getBoolean(q.AdImageView_circleType, false)) {
@@ -84,7 +84,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
                 aVar.f2137b = new float[]{obtainStyledAttributes.getDimensionPixelSize(q.AdImageView_leftTopRadius, 0), obtainStyledAttributes.getDimensionPixelSize(q.AdImageView_rightTopRadius, 0), obtainStyledAttributes.getDimensionPixelSize(q.AdImageView_leftBottomRadius, 0), obtainStyledAttributes.getDimensionPixelSize(q.AdImageView_rightBottomRadius, 0)};
             }
         }
-        this.f37217e.f2136d = aVar;
+        this.f37245e.f2136d = aVar;
         int i2 = obtainStyledAttributes.getInt(q.AdImageView_imageScaleType, -1);
         if (i2 >= 0) {
             setScaleType(IAdImageView.j0[i2]);
@@ -114,13 +114,13 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public v getConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37217e : (v) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37245e : (v) invokeV.objValue;
     }
 
     public IAdImageView.ImageScaleType getImageScaleType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37218f : (IAdImageView.ImageScaleType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37246f : (IAdImageView.ImageScaleType) invokeV.objValue;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -135,8 +135,8 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
             int width = getWidth();
             int height = getHeight();
             if (aVar.a) {
-                this.f37219g.addCircle(width / 2.0f, height / 2.0f, Math.min(width, height) / 2, Path.Direction.CCW);
-                canvas.clipPath(this.f37219g);
+                this.f37247g.addCircle(width / 2.0f, height / 2.0f, Math.min(width, height) / 2, Path.Direction.CCW);
+                canvas.clipPath(this.f37247g);
                 super.onDraw(canvas);
                 return;
             }
@@ -151,16 +151,16 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
             if (f2 >= max) {
                 float f3 = height;
                 if (f3 > max2) {
-                    this.f37219g.moveTo(fArr[0], 0.0f);
-                    this.f37219g.lineTo(f2 - fArr[1], 0.0f);
-                    this.f37219g.quadTo(f2, 0.0f, f2, fArr[1]);
-                    this.f37219g.lineTo(f2, f3 - fArr[3]);
-                    this.f37219g.quadTo(f2, f3, f2 - fArr[3], f3);
-                    this.f37219g.lineTo(fArr[2], f3);
-                    this.f37219g.quadTo(0.0f, f3, 0.0f, f3 - fArr[2]);
-                    this.f37219g.lineTo(0.0f, fArr[0]);
-                    this.f37219g.quadTo(0.0f, 0.0f, fArr[0], 0.0f);
-                    canvas.clipPath(this.f37219g);
+                    this.f37247g.moveTo(fArr[0], 0.0f);
+                    this.f37247g.lineTo(f2 - fArr[1], 0.0f);
+                    this.f37247g.quadTo(f2, 0.0f, f2, fArr[1]);
+                    this.f37247g.lineTo(f2, f3 - fArr[3]);
+                    this.f37247g.quadTo(f2, f3, f2 - fArr[3], f3);
+                    this.f37247g.lineTo(fArr[2], f3);
+                    this.f37247g.quadTo(0.0f, f3, 0.0f, f3 - fArr[2]);
+                    this.f37247g.lineTo(0.0f, fArr[0]);
+                    this.f37247g.quadTo(0.0f, 0.0f, fArr[0], 0.0f);
+                    canvas.clipPath(this.f37247g);
                 }
             }
             super.onDraw(canvas);
@@ -184,11 +184,11 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public void setBorder(float f2, @ColorInt int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
-            v.a aVar = this.f37217e.f2136d;
+            v.a aVar = this.f37245e.f2136d;
             if (aVar == null) {
                 aVar = new v.a();
             }
-            v vVar = this.f37217e;
+            v vVar = this.f37245e;
             v.a aVar2 = vVar.f2136d;
             aVar2.f2138c = f2;
             aVar2.f2139d = i2;
@@ -199,12 +199,12 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public void setCircle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            v.a aVar = this.f37217e.f2136d;
+            v.a aVar = this.f37245e.f2136d;
             if (aVar == null) {
                 aVar = new v.a();
             }
             aVar.a = true;
-            this.f37217e.f2136d = aVar;
+            this.f37245e.f2136d = aVar;
         }
     }
 
@@ -212,8 +212,8 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, imageScaleType) == null) {
             if (imageScaleType != null) {
-                if (this.f37218f != imageScaleType) {
-                    this.f37218f = imageScaleType;
+                if (this.f37246f != imageScaleType) {
+                    this.f37246f = imageScaleType;
                     requestLayout();
                     invalidate();
                     return;
@@ -227,20 +227,20 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public void setPlaceHolderDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, drawable) == null) {
-            this.f37217e.f2134b = drawable;
+            this.f37245e.f2134b = drawable;
         }
     }
 
     public void setRadius(float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            v.a aVar = this.f37217e.f2136d;
+            v.a aVar = this.f37245e.f2136d;
             if (aVar == null) {
                 aVar = new v.a();
             }
             aVar.a = false;
             aVar.f2137b = new float[]{f2, f3, f4, f5};
-            this.f37217e.f2136d = aVar;
+            this.f37245e.f2136d = aVar;
         }
     }
 
@@ -284,8 +284,8 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
                 return;
             }
         }
-        this.f37217e = new v();
-        this.f37219g = new Path();
+        this.f37245e = new v();
+        this.f37247g = new Path();
         a(attributeSet);
     }
 }

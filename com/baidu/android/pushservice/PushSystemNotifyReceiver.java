@@ -43,7 +43,7 @@ public class PushSystemNotifyReceiver extends BroadcastReceiver {
                         public final /* synthetic */ Context a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ PushSystemNotifyReceiver f31630b;
+                        public final /* synthetic */ PushSystemNotifyReceiver f31658b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -60,7 +60,7 @@ public class PushSystemNotifyReceiver extends BroadcastReceiver {
                                     return;
                                 }
                             }
-                            this.f31630b = this;
+                            this.f31658b = this;
                             this.a = context;
                         }
 

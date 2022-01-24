@@ -9,7 +9,7 @@ import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import org.apache.http.conn.routing.HttpRoute;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BasicPoolEntryRef extends WeakReference<BasicPoolEntry> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

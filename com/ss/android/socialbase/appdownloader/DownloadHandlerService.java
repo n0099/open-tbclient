@@ -15,7 +15,7 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DownloadHandlerService extends Service {
     public static final String a = DownloadHandlerService.class.getSimpleName();
 

@@ -17,10 +17,10 @@ public class a {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f58375b;
+    public static String f58420b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, String> f58376c;
+    public static final Map<String, String> f58421c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,12 +37,12 @@ public class a {
             }
         }
         HashMap hashMap = new HashMap();
-        f58376c = hashMap;
+        f58421c = hashMap;
         hashMap.put(IDevices.ABI_MIPS, IDevices.ABI_MIPS);
-        f58376c.put("mips64", "mips64");
-        f58376c.put("x86", "x86");
-        f58376c.put("x86_64", "x86_64");
-        f58376c.put("arm64", "arm64-v8a");
+        f58421c.put("mips64", "mips64");
+        f58421c.put("x86", "x86");
+        f58421c.put("x86_64", "x86_64");
+        f58421c.put("arm64", "arm64-v8a");
     }
 
     public static boolean a() {

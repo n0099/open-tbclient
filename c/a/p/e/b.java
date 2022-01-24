@@ -17,7 +17,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MethodChannel f4538e;
+    public MethodChannel f4680e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flutterPluginBinding) == null) {
             MethodChannel methodChannel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutter_performance_report_plugin");
-            this.f4538e = methodChannel;
+            this.f4680e = methodChannel;
             methodChannel.setMethodCallHandler(this);
         }
     }
@@ -53,7 +53,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, flutterPluginBinding) == null) {
-            this.f4538e.setMethodCallHandler(null);
+            this.f4680e.setMethodCallHandler(null);
         }
     }
 
@@ -62,7 +62,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, methodCall, result) == null) {
             HashMap<String, Object> hashMap = (HashMap) methodCall.arguments;
-            a.InterfaceC0221a a = a.b().a();
+            a.InterfaceC0230a a = a.b().a();
             String str = "uploadFpsData";
             if (!methodCall.method.equals("uploadFpsData")) {
                 if (methodCall.method.equals("uploadOpenPageData")) {

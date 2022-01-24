@@ -62,7 +62,7 @@ public class j extends c.a.t0.g0.a<c.a.t0.g0.f0.j> implements c.a.t0.t.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f17821e;
+        public final /* synthetic */ j f17643e;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -79,14 +79,14 @@ public class j extends c.a.t0.g0.a<c.a.t0.g0.f0.j> implements c.a.t0.t.e {
                     return;
                 }
             }
-            this.f17821e = jVar;
+            this.f17643e = jVar;
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewAttachedToWindow(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f17821e.F.playAnimation();
+                this.f17643e.F.playAnimation();
             }
         }
 
@@ -94,7 +94,7 @@ public class j extends c.a.t0.g0.a<c.a.t0.g0.f0.j> implements c.a.t0.t.e {
         public void onViewDetachedFromWindow(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                this.f17821e.F.cancelAnimation();
+                this.f17643e.F.cancelAnimation();
             }
         }
     }
@@ -105,7 +105,7 @@ public class j extends c.a.t0.g0.a<c.a.t0.g0.f0.j> implements c.a.t0.t.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f17822e;
+        public final /* synthetic */ j f17644e;
 
         public b(j jVar) {
             Interceptable interceptable = $ic;
@@ -122,16 +122,16 @@ public class j extends c.a.t0.g0.a<c.a.t0.g0.f0.j> implements c.a.t0.t.e {
                     return;
                 }
             }
-            this.f17822e = jVar;
+            this.f17644e = jVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17822e.g() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17644e.g() == null) {
                 return;
             }
-            this.f17822e.g().a(view, this.f17822e.o);
+            this.f17644e.g().a(view, this.f17644e.o);
         }
     }
 
@@ -167,14 +167,14 @@ public class j extends c.a.t0.g0.a<c.a.t0.g0.f0.j> implements c.a.t0.t.e {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             T t;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || (t = this.a.o) == 0 || ((c.a.t0.g0.f0.j) t).f17778e == null || ((c.a.t0.g0.f0.j) t).f17778e.v1() == null || this.a.C == null || !((String) customResponsedMessage.getData()).equals(((c.a.t0.g0.f0.j) this.a.o).f17778e.v1())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || (t = this.a.o) == 0 || ((c.a.t0.g0.f0.j) t).f17600e == null || ((c.a.t0.g0.f0.j) t).f17600e.w1() == null || this.a.C == null || !((String) customResponsedMessage.getData()).equals(((c.a.t0.g0.f0.j) this.a.o).f17600e.w1())) {
                 return;
             }
             j jVar = this.a;
             TextView textView = jVar.C;
-            String g0 = ((c.a.t0.g0.f0.j) jVar.o).f17778e.g0();
+            String h0 = ((c.a.t0.g0.f0.j) jVar.o).f17600e.h0();
             int i2 = R.color.CAM_X0109;
-            m.l(textView, g0, i2, i2);
+            m.l(textView, h0, i2, i2);
         }
     }
 
@@ -238,9 +238,9 @@ public class j extends c.a.t0.g0.a<c.a.t0.g0.f0.j> implements c.a.t0.t.e {
         T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (c.a.s0.s.k.c().g() && (t = this.o) != 0 && ((c.a.t0.g0.f0.j) t).getThreadData() != null && ((c.a.t0.g0.f0.j) this.o).getThreadData().o1() != null) {
+            if (c.a.s0.s.k.c().g() && (t = this.o) != 0 && ((c.a.t0.g0.f0.j) t).getThreadData() != null && ((c.a.t0.g0.f0.j) this.o).getThreadData().p1() != null) {
                 this.E.setPlaceHolder(3);
-                this.E.startLoad(((c.a.t0.g0.f0.j) this.o).getThreadData().o1().cover, 10, false);
+                this.E.startLoad(((c.a.t0.g0.f0.j) this.o).getThreadData().p1().cover, 10, false);
                 this.D.setVisibility(0);
                 return;
             }
@@ -297,7 +297,7 @@ public class j extends c.a.t0.g0.a<c.a.t0.g0.f0.j> implements c.a.t0.t.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str}) == null) {
             UrlManager urlManager = UrlManager.getInstance();
-            TbPageContext<?> tbPageContext = this.f17767f;
+            TbPageContext<?> tbPageContext = this.f17589f;
             urlManager.dealOneLink(tbPageContext, new String[]{"bdtiebalive://video/live?room_id=" + j3 + "&live_id=" + j2 + "&enterroom_type=1&from" + str});
         }
     }
@@ -333,31 +333,31 @@ public class j extends c.a.t0.g0.a<c.a.t0.g0.f0.j> implements c.a.t0.t.e {
                 this.B.setVisibility(0);
                 this.B.setData(((c.a.t0.g0.f0.j) this.o).getThreadData());
                 this.B.setUserAfterClickListener(this.M);
-                if (((c.a.t0.g0.f0.j) this.o).getThreadData().o1() != null) {
-                    this.C.setText(((c.a.t0.g0.f0.j) this.o).getThreadData().o1().friendRoomName);
+                if (((c.a.t0.g0.f0.j) this.o).getThreadData().p1() != null) {
+                    this.C.setText(((c.a.t0.g0.f0.j) this.o).getThreadData().p1().friendRoomName);
                 }
-                if (((c.a.t0.g0.f0.j) this.o).f17778e.o1().audience_count > 0) {
+                if (((c.a.t0.g0.f0.j) this.o).f17600e.p1().audience_count > 0) {
                     this.J.setVisibility(0);
                     this.G.setVisibility(0);
-                    this.G.setText(String.format(this.m.getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(((c.a.t0.g0.f0.j) this.o).f17778e.o1().audience_count)));
+                    this.G.setText(String.format(this.m.getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(((c.a.t0.g0.f0.j) this.o).f17600e.p1().audience_count)));
                 } else {
                     this.J.setVisibility(8);
                     this.G.setVisibility(8);
                 }
                 this.H.setVisibility(8);
-                if (((c.a.t0.g0.f0.j) this.o).f17778e.o1().openRecomReason == 1) {
-                    String str = ((c.a.t0.g0.f0.j) this.o).f17778e.o1().recomReason;
+                if (((c.a.t0.g0.f0.j) this.o).f17600e.p1().openRecomReason == 1) {
+                    String str = ((c.a.t0.g0.f0.j) this.o).f17600e.p1().recomReason;
                     if (!StringUtils.isNull(str)) {
                         this.H.setVisibility(0);
                         this.H.setText(str);
                     } else {
-                        String x0 = ((c.a.t0.g0.f0.j) this.o).f17778e.x0();
-                        String D0 = ((c.a.t0.g0.f0.j) this.o).f17778e.D0();
-                        if (UtilHelper.isDecimal(x0) && UtilHelper.isDecimal(D0) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                            AppPosInfo c2 = c.a.t0.j3.j0.a.e().c();
+                        String y0 = ((c.a.t0.g0.f0.j) this.o).f17600e.y0();
+                        String E0 = ((c.a.t0.g0.f0.j) this.o).f17600e.E0();
+                        if (UtilHelper.isDecimal(y0) && UtilHelper.isDecimal(E0) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
+                            AppPosInfo c2 = c.a.t0.k3.j0.a.e().c();
                             String str2 = c2.latitude;
                             String str3 = c2.longitude;
-                            if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && c.a.d.f.p.n.g(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(x0), Double.parseDouble(D0)) <= 50.0d) {
+                            if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && c.a.d.f.p.n.g(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(y0), Double.parseDouble(E0)) <= 50.0d) {
                                 this.H.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_recom_reason));
                                 this.H.setVisibility(0);
                             }
@@ -366,7 +366,7 @@ public class j extends c.a.t0.g0.a<c.a.t0.g0.f0.j> implements c.a.t0.t.e {
                 }
                 C(this.z);
                 l(this.m, TbadkCoreApplication.getInst().getSkinType());
-                if (m.k(((c.a.t0.g0.f0.j) this.o).f17778e.g0())) {
+                if (m.k(((c.a.t0.g0.f0.j) this.o).f17600e.h0())) {
                     SkinManager.setViewTextColor(this.C, R.color.CAM_X0109, 1);
                 } else {
                     SkinManager.setViewTextColor(this.C, R.color.CAM_X0105, 1);
@@ -427,7 +427,7 @@ public class j extends c.a.t0.g0.a<c.a.t0.g0.f0.j> implements c.a.t0.t.e {
     @Override // c.a.t0.g0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048589, this, tbPageContext, i2) == null) || this.f17766e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(1048589, this, tbPageContext, i2) == null) || this.f17588e == i2) {
             return;
         }
         v(tbPageContext, i2);
@@ -447,7 +447,7 @@ public class j extends c.a.t0.g0.a<c.a.t0.g0.f0.j> implements c.a.t0.t.e {
         SkinManager.setViewTextColor(this.H, R.color.CAM_X0101);
         this.B.onChangeSkinType(i(), TbadkCoreApplication.getInst().getSkinType());
         this.E.setPlaceHolder(3);
-        this.f17766e = i2;
+        this.f17588e = i2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -455,14 +455,14 @@ public class j extends c.a.t0.g0.a<c.a.t0.g0.f0.j> implements c.a.t0.t.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, view) == null) {
             if (view == this.A || view == this.p.getCommentContainer() || view == this.q.getCommentContainer()) {
-                N(((c.a.t0.g0.f0.j) this.o).getThreadData().o1().live_id, ((c.a.t0.g0.f0.j) this.o).getThreadData().o1().roomId, this.K ? AlaLiveRoomActivityConfig.FROM_TYPE_HOME_CONCERN_TAB : AlaLiveRoomActivityConfig.FROM_TYPE_HOME_REC_PLAY);
-                m.l(this.C, ((c.a.t0.g0.f0.j) this.o).f17778e.g0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                if (((c.a.t0.g0.f0.j) this.o).getThreadData() == null || ((c.a.t0.g0.f0.j) this.o).getThreadData().o1() == null) {
+                N(((c.a.t0.g0.f0.j) this.o).getThreadData().p1().live_id, ((c.a.t0.g0.f0.j) this.o).getThreadData().p1().roomId, this.K ? AlaLiveRoomActivityConfig.FROM_TYPE_HOME_CONCERN_TAB : AlaLiveRoomActivityConfig.FROM_TYPE_HOME_REC_PLAY);
+                m.l(this.C, ((c.a.t0.g0.f0.j) this.o).f17600e.h0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                if (((c.a.t0.g0.f0.j) this.o).getThreadData() == null || ((c.a.t0.g0.f0.j) this.o).getThreadData().p1() == null) {
                     return;
                 }
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.ALA_FRIEND_ROOM_CARD_CLICK);
                 statisticItem.param("obj_locate", this.K ? 2 : 1);
-                statisticItem.param("obj_param1", ((c.a.t0.g0.f0.j) this.o).getThreadData().o1().live_id);
+                statisticItem.param("obj_param1", ((c.a.t0.g0.f0.j) this.o).getThreadData().p1().live_id);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 TiebaStatic.log(statisticItem);
             }

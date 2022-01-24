@@ -22,7 +22,7 @@ public abstract class CollectFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CustomMessageListener f40100e;
+    public final CustomMessageListener f40128e;
     public boolean mIsEnableEdit;
 
     /* loaded from: classes11.dex */
@@ -82,7 +82,7 @@ public abstract class CollectFragment extends BaseFragment {
             }
         }
         this.mIsEnableEdit = false;
-        this.f40100e = new a(this, 2000994);
+        this.f40128e = new a(this, 2000994);
     }
 
     public abstract int getType();
@@ -100,7 +100,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onStart();
-            registerListener(this.f40100e);
+            registerListener(this.f40128e);
         }
     }
 
@@ -109,7 +109,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onStop();
-            MessageManager.getInstance().unRegisterListener(this.f40100e);
+            MessageManager.getInstance().unRegisterListener(this.f40128e);
         }
     }
 

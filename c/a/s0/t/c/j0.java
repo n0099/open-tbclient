@@ -14,7 +14,7 @@ public class j0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<Object> f13845b;
+    public ArrayList<Object> f13990b;
 
     public j0() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class j0 {
     public ArrayList<Object> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13845b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13990b : (ArrayList) invokeV.objValue;
     }
 
     public String b() {
@@ -47,7 +47,7 @@ public class j0 {
     public void c(ArrayList<Object> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.f13845b = arrayList;
+            this.f13990b = arrayList;
         }
     }
 }

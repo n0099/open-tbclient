@@ -1,6 +1,6 @@
 package com.baidu.tieba.pushdialog.data;
 
-import c.a.t0.f3.d.a;
+import c.a.t0.g3.d.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.pushdialog.PushDialogStatic;

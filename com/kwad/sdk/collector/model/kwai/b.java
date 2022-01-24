@@ -13,22 +13,22 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
     public static SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
 
     /* renamed from: b  reason: collision with root package name */
-    public long f55533b;
+    public long f55578b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55534c;
+    public String f55579c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f55535d;
+    public String f55580d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f55536e;
+    public long f55581e;
 
     public b(long j2, String str, String str2) {
-        this.f55533b = -1L;
-        this.f55533b = j2;
-        this.f55534c = str;
-        this.f55535d = str2;
+        this.f55578b = -1L;
+        this.f55578b = j2;
+        this.f55579c = str;
+        this.f55580d = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,7 +38,7 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
         if (bVar == null) {
             return 1;
         }
-        int i2 = ((this.f55536e - com.kwad.sdk.collector.model.c.c(bVar)) > 0L ? 1 : ((this.f55536e - com.kwad.sdk.collector.model.c.c(bVar)) == 0L ? 0 : -1));
+        int i2 = ((this.f55581e - com.kwad.sdk.collector.model.c.c(bVar)) > 0L ? 1 : ((this.f55581e - com.kwad.sdk.collector.model.c.c(bVar)) == 0L ? 0 : -1));
         if (i2 == 0) {
             return 0;
         }
@@ -49,8 +49,8 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
     @NonNull
     /* renamed from: a */
     public b clone() {
-        b bVar = new b(this.f55533b, this.f55534c, this.f55535d);
-        com.kwad.sdk.collector.model.c.a(bVar, this.f55536e);
+        b bVar = new b(this.f55578b, this.f55579c, this.f55580d);
+        com.kwad.sdk.collector.model.c.a(bVar, this.f55581e);
         return bVar;
     }
 
@@ -59,23 +59,23 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
     }
 
     public String b() {
-        return this.f55534c;
+        return this.f55579c;
     }
 
     public void b(long j2) {
-        this.f55533b = j2;
+        this.f55578b = j2;
     }
 
     public String c() {
-        return this.f55535d;
+        return this.f55580d;
     }
 
     public void c(long j2) {
-        this.f55536e = j2;
+        this.f55581e = j2;
     }
 
     public long d() {
-        return this.f55536e;
+        return this.f55581e;
     }
 
     @Override // com.kwad.sdk.collector.model.b
@@ -90,28 +90,28 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
             return false;
         }
         b bVar = (b) obj;
-        long j2 = this.f55533b;
-        if (j2 != bVar.f55533b) {
+        long j2 = this.f55578b;
+        if (j2 != bVar.f55578b) {
             return false;
         }
         if (j2 == 0) {
             j2 = 1;
         }
-        if (this.f55536e / j2 == bVar.f55536e / j2 && ae.a(this.f55534c, bVar.f55534c)) {
-            return ae.a(this.f55535d, bVar.f55535d);
+        if (this.f55581e / j2 == bVar.f55581e / j2 && ae.a(this.f55579c, bVar.f55579c)) {
+            return ae.a(this.f55580d, bVar.f55580d);
         }
         return false;
     }
 
     public int hashCode() {
-        long j2 = this.f55533b;
+        long j2 = this.f55578b;
         if (j2 == 0) {
             j2 = 1;
         }
-        long j3 = this.f55533b / j2;
-        String str = this.f55534c;
+        long j3 = this.f55578b / j2;
+        String str = this.f55579c;
         int hashCode = (str != null ? str.hashCode() : 1) * 31;
-        String str2 = this.f55535d;
+        String str2 = this.f55580d;
         return ((hashCode + (str2 != null ? str2.hashCode() : 1)) * 31) + ((int) (j3 ^ (j3 >>> 32)));
     }
 
@@ -122,9 +122,9 @@ public class b implements com.kwad.sdk.collector.model.b<b> {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "name", this.f55534c);
-        t.a(jSONObject, "packageName", this.f55535d);
-        t.a(jSONObject, "lastRunningTime", this.f55536e);
+        t.a(jSONObject, "name", this.f55579c);
+        t.a(jSONObject, "packageName", this.f55580d);
+        t.a(jSONObject, "lastRunningTime", this.f55581e);
         return jSONObject;
     }
 

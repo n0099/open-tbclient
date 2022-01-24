@@ -21,16 +21,16 @@ public class SimpleNavigationBar extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f63049e;
+    public TextView f63092e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f63050f;
+    public TextView f63093f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f63051g;
+    public ImageView f63094g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f63052h;
+    public c f63095h;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -38,7 +38,7 @@ public class SimpleNavigationBar extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SimpleNavigationBar f63053e;
+        public final /* synthetic */ SimpleNavigationBar f63096e;
 
         public a(SimpleNavigationBar simpleNavigationBar) {
             Interceptable interceptable = $ic;
@@ -55,16 +55,16 @@ public class SimpleNavigationBar extends FrameLayout {
                     return;
                 }
             }
-            this.f63053e = simpleNavigationBar;
+            this.f63096e = simpleNavigationBar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f63053e.f63052h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f63096e.f63095h == null) {
                 return;
             }
-            this.f63053e.f63052h.onBackPress();
+            this.f63096e.f63095h.onBackPress();
         }
     }
 
@@ -74,7 +74,7 @@ public class SimpleNavigationBar extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SimpleNavigationBar f63054e;
+        public final /* synthetic */ SimpleNavigationBar f63097e;
 
         public b(SimpleNavigationBar simpleNavigationBar) {
             Interceptable interceptable = $ic;
@@ -91,16 +91,16 @@ public class SimpleNavigationBar extends FrameLayout {
                     return;
                 }
             }
-            this.f63054e = simpleNavigationBar;
+            this.f63097e = simpleNavigationBar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f63054e.f63052h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f63097e.f63095h == null) {
                 return;
             }
-            this.f63054e.f63052h.onRightClick();
+            this.f63097e.f63095h.onRightClick();
         }
     }
 
@@ -136,18 +136,18 @@ public class SimpleNavigationBar extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             LayoutInflater.from(context).inflate(g.pay_ui_layout_navigation, (ViewGroup) this, true);
-            this.f63051g = (ImageView) findViewById(f.iv_back);
-            this.f63049e = (TextView) findViewById(f.tv_title);
-            this.f63050f = (TextView) findViewById(f.tv_right);
-            this.f63051g.setOnClickListener(new a(this));
-            this.f63050f.setOnClickListener(new b(this));
+            this.f63094g = (ImageView) findViewById(f.iv_back);
+            this.f63092e = (TextView) findViewById(f.tv_title);
+            this.f63093f = (TextView) findViewById(f.tv_right);
+            this.f63094g.setOnClickListener(new a(this));
+            this.f63093f.setOnClickListener(new b(this));
         }
     }
 
     public void setCallback(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f63052h = cVar;
+            this.f63095h = cVar;
         }
     }
 
@@ -156,17 +156,17 @@ public class SimpleNavigationBar extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null || str.isEmpty()) {
             return;
         }
-        this.f63050f.setText(str);
-        this.f63050f.setVisibility(0);
+        this.f63093f.setText(str);
+        this.f63093f.setVisibility(0);
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (str != null && !str.isEmpty()) {
-                this.f63049e.setText(str);
+                this.f63092e.setText(str);
             }
-            this.f63049e.setVisibility(0);
+            this.f63092e.setVisibility(0);
         }
     }
 

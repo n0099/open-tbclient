@@ -37,12 +37,12 @@ public class a {
 
     /* renamed from: c.a.s0.a.e0.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0822a implements c.a.j.h.b.f.b {
+    public static class C0831a implements c.a.j.h.b.f.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
 
-        public C0822a(Context context) {
+        public C0831a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,7 +142,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.j.h.b.f.a f12114e;
+        public final /* synthetic */ c.a.j.h.b.f.a f12256e;
 
         public d(c.a.j.h.b.f.a aVar) {
             Interceptable interceptable = $ic;
@@ -159,14 +159,14 @@ public class a {
                     return;
                 }
             }
-            this.f12114e = aVar;
+            this.f12256e = aVar;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                this.f12114e.onError();
+                this.f12256e.onError();
             }
         }
 
@@ -186,12 +186,12 @@ public class a {
                         if (closeableImage instanceof CloseableBitmap) {
                             Bitmap underlyingBitmap = ((CloseableBitmap) closeableImage).getUnderlyingBitmap();
                             if (underlyingBitmap != null && !underlyingBitmap.isRecycled()) {
-                                this.f12114e.a(underlyingBitmap.copy(underlyingBitmap.getConfig(), true));
+                                this.f12256e.a(underlyingBitmap.copy(underlyingBitmap.getConfig(), true));
                             } else {
-                                this.f12114e.onError();
+                                this.f12256e.onError();
                             }
                         } else {
-                            this.f12114e.onError();
+                            this.f12256e.onError();
                         }
                     } catch (Throwable th2) {
                         th = th2;
@@ -245,7 +245,7 @@ public class a {
         bVar.c(c.a.j.l.h.b.a.c());
         bVar.d(new c(context));
         bVar.f(new b());
-        bVar.e(new C0822a(context));
+        bVar.e(new C0831a(context));
         BDPTask.m.x(bVar.a());
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.model;
 
 import android.text.TextUtils;
 import c.a.d.a.f;
-import c.a.t0.m3.g;
+import c.a.t0.n3.g;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -49,22 +49,22 @@ public class MsgRemindModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity f47793e;
+    public BaseActivity f47821e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f47794f;
+    public e f47822f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f47795g;
+    public HttpMessageListener f47823g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.d.c.g.c f47796h;
+    public c.a.d.c.g.c f47824h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.d.c.g.c f47797i;
+    public c.a.d.c.g.c f47825i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.d.c.g.c f47798j;
+    public c.a.d.c.g.c f47826j;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -98,13 +98,13 @@ public class MsgRemindModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.f47793e.hideProgressBar();
+                this.a.f47821e.hideProgressBar();
                 if ((httpResponsedMessage instanceof FriendAndStrangerSwitchResMsg) && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
                     FriendAndStrangerReqMsg friendAndStrangerReqMsg = (FriendAndStrangerReqMsg) httpResponsedMessage.getOrginalMessage();
                     FriendAndStrangerSwitchResMsg friendAndStrangerSwitchResMsg = (FriendAndStrangerSwitchResMsg) httpResponsedMessage;
                     if (friendAndStrangerSwitchResMsg.getError() == 0) {
                         GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = friendAndStrangerReqMsg.mMaskType;
-                        c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+                        c.a.s0.s.i0.b k = c.a.s0.s.i0.b.k();
                         k.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", friendAndStrangerReqMsg.mMaskType);
                     }
                     int i2 = friendAndStrangerReqMsg.mMaskType;
@@ -157,7 +157,7 @@ public class MsgRemindModel extends BdBaseModel {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.a.f47793e.hideProgressBar();
+                this.a.f47821e.hideProgressBar();
                 if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage)) {
                     ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage;
                     RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) socketResponsedMessage.getOrginalMessage();
@@ -199,7 +199,7 @@ public class MsgRemindModel extends BdBaseModel {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.a.f47793e.hideProgressBar();
+                this.a.f47821e.hideProgressBar();
                 if ((socketResponsedMessage instanceof ResponseUpdateMaskMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskMessage)) {
                     ResponseUpdateMaskMessage responseUpdateMaskMessage = (ResponseUpdateMaskMessage) socketResponsedMessage;
                     this.a.y(4, responseUpdateMaskMessage.getError() == 0, ((RequestUpdateMaskMessage) socketResponsedMessage.getOrginalMessage()).isSettingMask(), responseUpdateMaskMessage.getErrorString());
@@ -240,7 +240,7 @@ public class MsgRemindModel extends BdBaseModel {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.a.f47793e.hideProgressBar();
+                this.a.f47821e.hideProgressBar();
                 if (socketResponsedMessage instanceof ResponseUpdateForumMask) {
                     ResponseUpdateForumMask responseUpdateForumMask = (ResponseUpdateForumMask) socketResponsedMessage;
                     this.a.y(7, responseUpdateForumMask.getError() == 0, !((RequestUpdateForumMask) socketResponsedMessage.getOrginalMessage()).getFlag(), responseUpdateForumMask.getErrorString());
@@ -272,15 +272,15 @@ public class MsgRemindModel extends BdBaseModel {
                 return;
             }
         }
-        this.f47795g = new a(this, CmdConfigHttp.CMD_FRIEND_AND_STRANGER_MSG_SWITCH);
-        this.f47796h = new b(this, 104102);
-        this.f47797i = new c(this, 104101);
-        this.f47798j = new d(this, 104106);
-        this.f47793e = baseActivity;
-        registerListener(this.f47797i);
-        registerListener(this.f47796h);
-        registerListener(this.f47798j);
-        registerListener(this.f47795g);
+        this.f47823g = new a(this, CmdConfigHttp.CMD_FRIEND_AND_STRANGER_MSG_SWITCH);
+        this.f47824h = new b(this, 104102);
+        this.f47825i = new c(this, 104101);
+        this.f47826j = new d(this, 104106);
+        this.f47821e = baseActivity;
+        registerListener(this.f47825i);
+        registerListener(this.f47824h);
+        registerListener(this.f47826j);
+        registerListener(this.f47823g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -307,34 +307,34 @@ public class MsgRemindModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
             if (z) {
-                BaseActivity baseActivity = this.f47793e;
+                BaseActivity baseActivity = this.f47821e;
                 baseActivity.showToast(baseActivity.getResources().getString(g.success));
-                e eVar = this.f47794f;
+                e eVar = this.f47822f;
                 if (eVar != null) {
                     eVar.a(i2, true, z2);
                     if (i2 != 14) {
                         if (c.a.s0.t.d.d.d().q() || c.a.s0.t.d.d.d().r() || c.a.s0.t.d.d.d().t() || c.a.s0.t.d.d.d().v() || c.a.s0.t.d.d.d().y() || c.a.s0.t.d.d.d().p() || c.a.s0.t.d.d.d().B()) {
                             return;
                         }
-                        this.f47794f.a(14, true, false);
+                        this.f47822f.a(14, true, false);
                         return;
                     }
-                    this.f47794f.a(2, true, z2);
-                    this.f47794f.a(3, true, z2);
-                    this.f47794f.a(4, true, z2);
-                    this.f47794f.a(5, true, z2);
-                    this.f47794f.a(1, true, z2);
-                    this.f47794f.a(20, true, z2);
+                    this.f47822f.a(2, true, z2);
+                    this.f47822f.a(3, true, z2);
+                    this.f47822f.a(4, true, z2);
+                    this.f47822f.a(5, true, z2);
+                    this.f47822f.a(1, true, z2);
+                    this.f47822f.a(20, true, z2);
                     return;
                 }
                 return;
             }
             if (!TextUtils.isEmpty(str)) {
-                this.f47793e.showToast(str);
+                this.f47821e.showToast(str);
             } else {
-                this.f47793e.showToast(g.setdefualt_error);
+                this.f47821e.showToast(g.setdefualt_error);
             }
-            e eVar2 = this.f47794f;
+            e eVar2 = this.f47822f;
             if (eVar2 != null) {
                 eVar2.a(i2, false, z2);
             }
@@ -347,7 +347,7 @@ public class MsgRemindModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), eVar}) == null) {
             if (i2 == 14 || i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5 || i2 == 1 || i2 == 7 || i2 == 8 || i2 == 9 || i2 == 20 || i2 == 6) {
-                this.f47794f = eVar;
+                this.f47822f = eVar;
                 if (i2 == 4) {
                     RequestUpdateMaskMessage requestUpdateMaskMessage = new RequestUpdateMaskMessage();
                     requestUpdateMaskMessage.setSettingMask(z);
@@ -388,7 +388,7 @@ public class MsgRemindModel extends BdBaseModel {
                     requestUpdateMaskInfoMessage2.setSettingMask(z);
                     sendMessage(requestUpdateMaskInfoMessage2);
                 }
-                this.f47793e.showProgressBar();
+                this.f47821e.showProgressBar();
             }
         }
     }

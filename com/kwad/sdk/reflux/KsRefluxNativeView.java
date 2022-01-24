@@ -22,7 +22,7 @@ public class KsRefluxNativeView extends FrameLayout {
     public RecyclerView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f57160b;
+    public b f57205b;
 
     /* loaded from: classes3.dex */
     public static class a extends RecyclerView.ViewHolder {
@@ -45,7 +45,7 @@ public class KsRefluxNativeView extends FrameLayout {
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<com.kwad.sdk.reflux.b> f57161b = new ArrayList();
+        public List<com.kwad.sdk.reflux.b> f57206b = new ArrayList();
 
         public b(Context context) {
             this.a = context;
@@ -73,14 +73,14 @@ public class KsRefluxNativeView extends FrameLayout {
             if (list == null) {
                 return;
             }
-            this.f57161b.clear();
-            a(this.f57161b, list);
+            this.f57206b.clear();
+            a(this.f57206b, list);
             notifyDataSetChanged();
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            return this.f57161b.size();
+            return this.f57206b.size();
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -90,12 +90,12 @@ public class KsRefluxNativeView extends FrameLayout {
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemViewType(int i2) {
-            return this.f57161b.get(i2).k();
+            return this.f57206b.get(i2).k();
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i2) {
-            com.kwad.sdk.reflux.b bVar = this.f57161b.get(i2);
+            com.kwad.sdk.reflux.b bVar = this.f57206b.get(i2);
             a aVar = (a) viewHolder;
             int itemViewType = aVar.getItemViewType();
             if (itemViewType == FeedType.FEED_TYPE_UNKNOWN.getType() || itemViewType == FeedType.FEED_TYPE_TEXT_ABOVE.getType() || itemViewType == FeedType.FEED_TYPE_TEXT_LEFT.getType()) {
@@ -170,12 +170,12 @@ public class KsRefluxNativeView extends FrameLayout {
         this.a = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 1, false));
         b bVar = new b(getContext());
-        this.f57160b = bVar;
+        this.f57205b = bVar;
         bVar.setHasStableIds(true);
-        this.a.setAdapter(this.f57160b);
+        this.a.setAdapter(this.f57205b);
     }
 
     public void a(List<com.kwad.sdk.reflux.b> list) {
-        this.f57160b.a(list);
+        this.f57205b.a(list);
     }
 }

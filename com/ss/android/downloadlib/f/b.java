@@ -4,7 +4,7 @@ import com.ss.android.downloadlib.addownload.b.f;
 import com.ss.android.socialbase.appdownloader.c.i;
 import com.ss.android.socialbase.appdownloader.c.j;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements j {
     @Override // com.ss.android.socialbase.appdownloader.c.j
     public void a(DownloadInfo downloadInfo, i iVar) {

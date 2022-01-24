@@ -7,13 +7,13 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.text.TextUtils;
 import c.a.t0.h.e.e;
-import c.a.t0.j3.a0;
-import c.a.t0.j3.f;
-import c.a.t0.j3.h;
-import c.a.t0.j3.j;
-import c.a.t0.j3.l;
-import c.a.t0.j3.x;
-import c.a.t0.j3.y;
+import c.a.t0.k3.a0;
+import c.a.t0.k3.f;
+import c.a.t0.k3.h;
+import c.a.t0.k3.j;
+import c.a.t0.k3.l;
+import c.a.t0.k3.x;
+import c.a.t0.k3.y;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
@@ -51,7 +51,7 @@ public class RecAppStatic {
             }
         }
 
-        @Override // c.a.t0.j3.l.a
+        @Override // c.a.t0.k3.l.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public class RecAppStatic {
             }
         }
         y.a.set(new a0());
-        c.a.t0.j3.g0.a.a.set(new x());
+        c.a.t0.k3.g0.a.a.set(new x());
         TbadkCoreApplication.getInst().setRecAppExist(true);
         c.a.t0.v.b.l().e(new a());
         e.b().c(1, new j());
@@ -155,7 +155,7 @@ public class RecAppStatic {
         inst.registerReceiver(bVar, intentFilter);
         f.t().b();
         f.t().f();
-        c.a.t0.v.g.i.a.a.set(new c.a.t0.j3.f0.b());
+        c.a.t0.v.g.i.a.a.set(new c.a.t0.k3.f0.b());
     }
 
     public RecAppStatic() {

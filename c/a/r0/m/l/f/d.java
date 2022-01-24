@@ -23,7 +23,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f11360e;
+        public final /* synthetic */ c f11502e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class d {
                     return;
                 }
             }
-            this.f11360e = cVar;
+            this.f11502e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -50,9 +50,9 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    d.c(this.f11360e);
+                    d.c(this.f11502e);
                 } else {
-                    this.f11360e.onFail();
+                    this.f11502e.onFail();
                 }
             }
         }
@@ -129,7 +129,7 @@ public class d {
             if (q0.M() && a0 != null) {
                 cVar.onSuccess();
             } else {
-                a0.x().requestPermissionsExt(0, new String[]{s.f55246g, s.f55247h}, new b(cVar));
+                a0.x().requestPermissionsExt(0, new String[]{s.f55291g, s.f55292h}, new b(cVar));
             }
         }
     }

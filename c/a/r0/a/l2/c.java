@@ -32,10 +32,10 @@ public class c {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f7653b;
+    public static volatile boolean f7795b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f7654c;
+    public static volatile boolean f7796c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -45,14 +45,14 @@ public class c {
 
         /* renamed from: c.a.r0.a.l2.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0453a implements Runnable {
+        public class RunnableC0462a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f7655e;
+            public final /* synthetic */ b f7797e;
 
-            public RunnableC0453a(a aVar, b bVar) {
+            public RunnableC0462a(a aVar, b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,14 +67,14 @@ public class c {
                         return;
                     }
                 }
-                this.f7655e = bVar;
+                this.f7797e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Choreographer.getInstance().postFrameCallback(this.f7655e);
+                    Choreographer.getInstance().postFrameCallback(this.f7797e);
                 }
             }
         }
@@ -85,36 +85,36 @@ public class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final ExecutorService f7656e;
+            public final ExecutorService f7798e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final AtomicInteger f7657f;
+            public final AtomicInteger f7799f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final List<Float> f7658g;
+            public final List<Float> f7800g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ boolean f7659h;
+            public final /* synthetic */ boolean f7801h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ int f7660i;
+            public final /* synthetic */ int f7802i;
 
             /* renamed from: j  reason: collision with root package name */
-            public final /* synthetic */ Timer f7661j;
+            public final /* synthetic */ Timer f7803j;
             public final /* synthetic */ c.a.r0.a.l2.b k;
             public final /* synthetic */ boolean l;
             public final /* synthetic */ b m;
 
             /* renamed from: c.a.r0.a.l2.c$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            public class RunnableC0454a implements Runnable {
+            public class RunnableC0463a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ b f7662e;
+                public final /* synthetic */ b f7804e;
 
-                public RunnableC0454a(b bVar) {
+                public RunnableC0463a(b bVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,7 +129,7 @@ public class c {
                             return;
                         }
                     }
-                    this.f7662e = bVar;
+                    this.f7804e = bVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -137,15 +137,15 @@ public class c {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                         float b2 = c.a.r0.a.e0.g.d.b();
-                        this.f7662e.k.f7640d.add(Long.valueOf(System.currentTimeMillis()));
-                        b bVar = this.f7662e;
-                        bVar.k.f7641e.add(Integer.valueOf(bVar.m.f7664f.get()));
-                        this.f7662e.k.f7642f.add(Float.valueOf(b2));
+                        this.f7804e.k.f7782d.add(Long.valueOf(System.currentTimeMillis()));
+                        b bVar = this.f7804e;
+                        bVar.k.f7783e.add(Integer.valueOf(bVar.m.f7806f.get()));
+                        this.f7804e.k.f7784f.add(Float.valueOf(b2));
                         e.c i2 = e.i();
-                        this.f7662e.k.f7644h.add(Float.valueOf(i2.a));
-                        this.f7662e.k.f7645i.add(Float.valueOf(i2.f5721b));
-                        this.f7662e.k.f7643g.add(Float.valueOf(i2.f5722c));
-                        this.f7662e.f7658g.add(n0.E() ? Float.valueOf(b2) : null);
+                        this.f7804e.k.f7786h.add(Float.valueOf(i2.a));
+                        this.f7804e.k.f7787i.add(Float.valueOf(i2.f5863b));
+                        this.f7804e.k.f7785g.add(Float.valueOf(i2.f5864c));
+                        this.f7804e.f7800g.add(n0.E() ? Float.valueOf(b2) : null);
                     }
                 }
             }
@@ -165,33 +165,33 @@ public class c {
                         return;
                     }
                 }
-                this.f7659h = z;
-                this.f7660i = i2;
-                this.f7661j = timer;
+                this.f7801h = z;
+                this.f7802i = i2;
+                this.f7803j = timer;
                 this.k = bVar;
                 this.l = z2;
                 this.m = bVar2;
-                this.f7656e = Executors.newCachedThreadPool();
-                this.f7657f = new AtomicInteger(0);
-                this.f7658g = new CopyOnWriteArrayList();
+                this.f7798e = Executors.newCachedThreadPool();
+                this.f7799f = new AtomicInteger(0);
+                this.f7800g = new CopyOnWriteArrayList();
             }
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f7659h && this.f7657f.getAndIncrement() >= this.f7660i) {
+                    if (this.f7801h && this.f7799f.getAndIncrement() >= this.f7802i) {
                         c.l(true);
                     }
-                    if (!c.f7653b) {
-                        this.f7661j.cancel();
-                        this.f7656e.shutdown();
+                    if (!c.f7795b) {
+                        this.f7803j.cancel();
+                        this.f7798e.shutdown();
                         c.a.r0.a.e0.d.b("SwanAppStabilityDataUtil", "采集静态数据");
-                        this.k.f7638b = e.e().floatValue();
-                        this.k.f7639c = c.a.r0.a.h0.q.b.k().m(c.a.r0.a.d2.d.J().getAppId(), true);
-                        this.k.a(this.f7658g);
+                        this.k.f7780b = e.e().floatValue();
+                        this.k.f7781c = c.a.r0.a.h0.q.b.k().m(c.a.r0.a.d2.d.J().getAppId(), true);
+                        this.k.a(this.f7800g);
                         c.a.r0.a.e0.d.i("SwanAppStabilityDataUtil", "采集结果：" + this.k);
-                        if (c.f7654c) {
+                        if (c.f7796c) {
                             c.a.r0.a.e0.d.b("SwanAppStabilityDataUtil", "发送JSMessage=" + this.k);
                             c.i(this.k);
                         }
@@ -201,7 +201,7 @@ public class c {
                         }
                         return;
                     }
-                    this.f7656e.submit(new RunnableC0454a(this));
+                    this.f7798e.submit(new RunnableC0463a(this));
                 }
             }
         }
@@ -231,7 +231,7 @@ public class c {
                 boolean z = d.e(0) == 1;
                 Timer timer = new Timer();
                 b bVar2 = new b(null);
-                q0.e0(new RunnableC0453a(this, bVar2));
+                q0.e0(new RunnableC0462a(this, bVar2));
                 timer.schedule(new b(this, f2, c2, timer, bVar, z, bVar2), 0L, bVar.a);
             }
         }
@@ -251,8 +251,8 @@ public class c {
             }
         }
         a = k.a;
-        f7653b = false;
-        f7654c = false;
+        f7795b = false;
+        f7796c = false;
     }
 
     public static boolean d() {
@@ -311,11 +311,11 @@ public class c {
     public static void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            if (f7653b) {
+            if (f7795b) {
                 c.a.r0.a.e0.d.i("SwanAppStabilityDataUtil", "#startObtainData 正在采集中，退出");
                 return;
             }
-            f7653b = true;
+            f7795b = true;
             c.a.r0.a.e0.d.i("SwanAppStabilityDataUtil", "#startObtainData 开始采集数据");
             ExecutorUtilsExt.postOnElastic(new a(), "稳定性工具链-设备数据采集", 3);
         }
@@ -324,8 +324,8 @@ public class c {
     public static void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            f7654c = z;
-            f7653b = false;
+            f7796c = z;
+            f7795b = false;
             d.b();
             c.a.r0.a.e0.d.b("SwanAppStabilityDataUtil", "#stopObtainData 已停止采集数据");
         }
@@ -337,10 +337,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f7663e;
+        public long f7805e;
 
         /* renamed from: f  reason: collision with root package name */
-        public AtomicInteger f7664f;
+        public AtomicInteger f7806f;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -348,7 +348,7 @@ public class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f7665e;
+            public final /* synthetic */ b f7807e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -365,14 +365,14 @@ public class c {
                         return;
                     }
                 }
-                this.f7665e = bVar;
+                this.f7807e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Choreographer.getInstance().removeFrameCallback(this.f7665e);
+                    Choreographer.getInstance().removeFrameCallback(this.f7807e);
                 }
             }
         }
@@ -390,8 +390,8 @@ public class c {
                     return;
                 }
             }
-            this.f7663e = -1L;
-            this.f7664f = new AtomicInteger(-1);
+            this.f7805e = -1L;
+            this.f7806f = new AtomicInteger(-1);
         }
 
         @Override // android.view.Choreographer.FrameCallback
@@ -399,16 +399,16 @@ public class c {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                if (!c.f7653b) {
+                if (!c.f7795b) {
                     q0.e0(new a(this));
                     return;
                 }
-                long j3 = this.f7663e;
-                if (j3 > 0 && this.f7664f.get() != (i2 = (int) (1.0E9d / (j2 - j3)))) {
-                    this.f7664f.set(i2);
-                    c.a.r0.a.e0.d.b("SwanAppStabilityDataUtil", "#doFrame fps=" + this.f7664f);
+                long j3 = this.f7805e;
+                if (j3 > 0 && this.f7806f.get() != (i2 = (int) (1.0E9d / (j2 - j3)))) {
+                    this.f7806f.set(i2);
+                    c.a.r0.a.e0.d.b("SwanAppStabilityDataUtil", "#doFrame fps=" + this.f7806f);
                 }
-                this.f7663e = j2;
+                this.f7805e = j2;
                 Choreographer.getInstance().postFrameCallback(this);
             }
         }

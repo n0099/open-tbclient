@@ -49,7 +49,7 @@ public class d<T extends c.a.s0.l0.b.c> extends a<T> {
             if (customMessage == null || !(customMessage instanceof WriteCacheMessage)) {
                 return null;
             }
-            WriteCacheRespMsg writeCacheRespMsg = new WriteCacheRespMsg(this.f12863e);
+            WriteCacheRespMsg writeCacheRespMsg = new WriteCacheRespMsg(this.f13007e);
             WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount == null) {
@@ -59,7 +59,7 @@ public class d<T extends c.a.s0.l0.b.c> extends a<T> {
             if (cVar != null) {
                 if (cVar instanceof c.a.s0.l0.b.b) {
                     c.a.s0.s.r.a.f();
-                    l<byte[]> e2 = c.a.s0.s.r.a.e(this.f12861f, currentAccount);
+                    l<byte[]> e2 = c.a.s0.s.r.a.e(this.f13005f, currentAccount);
                     if (writeCacheMessage.isClear()) {
                         c.a.s0.l0.b.c cVar2 = (c.a.s0.l0.b.c) writeCacheMessage.getData();
                         if (cVar2 == null) {
@@ -78,7 +78,7 @@ public class d<T extends c.a.s0.l0.b.c> extends a<T> {
                     }
                 } else if (cVar instanceof e) {
                     c.a.s0.s.r.a.f();
-                    l<String> h3 = c.a.s0.s.r.a.h(this.f12861f, currentAccount);
+                    l<String> h3 = c.a.s0.s.r.a.h(this.f13005f, currentAccount);
                     if (writeCacheMessage.isClear()) {
                         c.a.s0.l0.b.c cVar4 = (c.a.s0.l0.b.c) writeCacheMessage.getData();
                         if (cVar4 == null) {

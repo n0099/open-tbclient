@@ -1,7 +1,0 @@
-package c.a.s0.g1.j;
-
-import android.view.View;
-/* loaded from: classes6.dex */
-public interface e {
-    void a(View view, int i2, int i3, int i4, int i5);
-}

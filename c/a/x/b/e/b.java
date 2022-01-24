@@ -20,31 +20,31 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26609b;
+    public String f26637b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26610c;
+    public String f26638c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26611d;
+    public String f26639d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f26612e;
+    public int f26640e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26613f;
+    public int f26641f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f26614g;
+    public int f26642g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f26615h;
+    public int f26643h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f26616i;
+    public int f26644i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f26617j;
+    public int f26645j;
     public int k;
     public String l;
     public String m;
@@ -137,12 +137,12 @@ public class b {
     public void d(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
-            this.f26612e = i2;
-            this.f26613f = i3;
-            this.f26614g = i4;
-            this.f26615h = i5;
-            this.f26616i = i6;
-            this.f26617j = i7;
+            this.f26640e = i2;
+            this.f26641f = i3;
+            this.f26642g = i4;
+            this.f26643h = i5;
+            this.f26644i = i6;
+            this.f26645j = i7;
             this.k = i8;
         }
     }

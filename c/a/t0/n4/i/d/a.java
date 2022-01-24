@@ -15,31 +15,31 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f19869b;
+    public int f19970b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f19870c;
+    public int f19971c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f19871d;
+    public int f19972d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f19872e;
+    public long f19973e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f19873f;
+    public long f19974f;
 
     /* renamed from: g  reason: collision with root package name */
-    public double f19874g;
+    public double f19975g;
 
     /* renamed from: h  reason: collision with root package name */
-    public double f19875h;
+    public double f19976h;
 
     /* renamed from: i  reason: collision with root package name */
-    public double f19876i;
+    public double f19977i;
 
     /* renamed from: j  reason: collision with root package name */
-    public double f19877j;
+    public double f19978j;
     public String k;
 
     public a() {
@@ -60,15 +60,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, videoTemplateContent) == null) {
             this.a = videoTemplateContent.content;
-            this.f19869b = videoTemplateContent.type.intValue();
-            this.f19870c = videoTemplateContent.pic_width.intValue();
-            this.f19871d = videoTemplateContent.pic_height.intValue();
-            this.f19872e = videoTemplateContent.start_time.longValue();
-            this.f19873f = videoTemplateContent.end_time.longValue();
-            this.f19874g = videoTemplateContent.position_x.doubleValue();
-            this.f19875h = videoTemplateContent.position_y.doubleValue();
-            this.f19876i = videoTemplateContent.position_type.doubleValue();
-            this.f19877j = videoTemplateContent.text_size.doubleValue();
+            this.f19970b = videoTemplateContent.type.intValue();
+            this.f19971c = videoTemplateContent.pic_width.intValue();
+            this.f19972d = videoTemplateContent.pic_height.intValue();
+            this.f19973e = videoTemplateContent.start_time.longValue();
+            this.f19974f = videoTemplateContent.end_time.longValue();
+            this.f19975g = videoTemplateContent.position_x.doubleValue();
+            this.f19976h = videoTemplateContent.position_y.doubleValue();
+            this.f19977i = videoTemplateContent.position_type.doubleValue();
+            this.f19978j = videoTemplateContent.text_size.doubleValue();
             this.k = videoTemplateContent.text_color;
         }
     }
@@ -77,7 +77,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "AnniversaryContentData{content='" + this.a + ExtendedMessageFormat.QUOTE + ", type=" + this.f19869b + ", picWidth=" + this.f19870c + ", picHeight=" + this.f19871d + ", startTime=" + this.f19872e + ", endTime=" + this.f19873f + ", x=" + this.f19874g + ", y=" + this.f19875h + ", positionType=" + this.f19876i + ", textSize=" + this.f19877j + ", textColor='" + this.k + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "AnniversaryContentData{content='" + this.a + ExtendedMessageFormat.QUOTE + ", type=" + this.f19970b + ", picWidth=" + this.f19971c + ", picHeight=" + this.f19972d + ", startTime=" + this.f19973e + ", endTime=" + this.f19974f + ", x=" + this.f19975g + ", y=" + this.f19976h + ", positionType=" + this.f19977i + ", textSize=" + this.f19978j + ", textColor='" + this.k + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

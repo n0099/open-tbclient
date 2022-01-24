@@ -18,15 +18,15 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f26687d;
+    public static f f26715d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26688b;
+    public String f26716b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f26689c;
+    public b f26717c;
 
     /* loaded from: classes9.dex */
     public static class a {
@@ -64,17 +64,17 @@ public class f {
                 return;
             }
         }
-        this.f26688b = "day";
+        this.f26716b = "day";
     }
 
     public static f e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f26687d == null) {
-                f26687d = a.a;
+            if (f26715d == null) {
+                f26715d = a.a;
             }
-            return f26687d;
+            return f26715d;
         }
         return (f) invokeV.objValue;
     }
@@ -84,7 +84,7 @@ public class f {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), str})) == null) {
-            if (TextUtils.isEmpty(str) || (bVar = this.f26689c) == null) {
+            if (TextUtils.isEmpty(str) || (bVar = this.f26717c) == null) {
                 return -16777216;
             }
             return bVar.a(context, z, str);
@@ -97,15 +97,15 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             if (z) {
-                return c.a.x.b.g.b.a.a().f26632h;
+                return c.a.x.b.g.b.a.a().f26660h;
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26688b)) {
-                return c.a.x.b.g.b.a.a().f26630f;
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26716b)) {
+                return c.a.x.b.g.b.a.a().f26658f;
             }
-            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26688b)) {
-                return c.a.x.b.g.b.a.a().f26631g;
+            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26716b)) {
+                return c.a.x.b.g.b.a.a().f26659g;
             }
-            return c.a.x.b.g.b.a.a().f26629e;
+            return c.a.x.b.g.b.a.a().f26657e;
         }
         return invokeZ.intValue;
     }
@@ -117,10 +117,10 @@ public class f {
             if (z) {
                 return c.a.x.b.g.b.a.a().n;
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26688b)) {
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26716b)) {
                 return c.a.x.b.g.b.a.a().l;
             }
-            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26688b)) {
+            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26716b)) {
                 return c.a.x.b.g.b.a.a().m;
             }
             return c.a.x.b.g.b.a.a().k;
@@ -135,10 +135,10 @@ public class f {
             if (z) {
                 return c.a.x.b.g.b.a.a().t;
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26688b)) {
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26716b)) {
                 return c.a.x.b.g.b.a.a().r;
             }
-            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26688b)) {
+            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26716b)) {
                 return c.a.x.b.g.b.a.a().s;
             }
             return c.a.x.b.g.b.a.a().q;
@@ -153,10 +153,10 @@ public class f {
             if (z) {
                 return c.a.x.b.e.b.a().o;
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26688b)) {
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26716b)) {
                 return c.a.x.b.e.b.a().m;
             }
-            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26688b)) {
+            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26716b)) {
                 return c.a.x.b.e.b.a().n;
             }
             return c.a.x.b.e.b.a().l;
@@ -171,10 +171,10 @@ public class f {
             if (z) {
                 return c.a.x.b.e.b.a().s;
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26688b)) {
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26716b)) {
                 return c.a.x.b.e.b.a().q;
             }
-            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26688b)) {
+            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26716b)) {
                 return c.a.x.b.e.b.a().r;
             }
             return c.a.x.b.e.b.a().p;
@@ -189,10 +189,10 @@ public class f {
             if (z) {
                 return c.a.x.b.e.b.a().w;
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26688b)) {
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26716b)) {
                 return c.a.x.b.e.b.a().u;
             }
-            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26688b)) {
+            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26716b)) {
                 return c.a.x.b.e.b.a().v;
             }
             return c.a.x.b.e.b.a().t;
@@ -207,10 +207,10 @@ public class f {
             if (z) {
                 return c.a.x.b.e.b.a().A;
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26688b)) {
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26716b)) {
                 return c.a.x.b.e.b.a().y;
             }
-            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26688b)) {
+            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26716b)) {
                 return c.a.x.b.e.b.a().z;
             }
             return c.a.x.b.e.b.a().x;
@@ -223,13 +223,13 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
             if (z) {
-                return c.a.x.b.g.b.a.a().f26628d;
+                return c.a.x.b.g.b.a.a().f26656d;
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26688b)) {
-                return c.a.x.b.g.b.a.a().f26626b;
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26716b)) {
+                return c.a.x.b.g.b.a.a().f26654b;
             }
-            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26688b)) {
-                return c.a.x.b.g.b.a.a().f26627c;
+            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26716b)) {
+                return c.a.x.b.g.b.a.a().f26655c;
             }
             return c.a.x.b.g.b.a.a().a;
         }
@@ -241,13 +241,13 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
             if (z) {
-                return c.a.x.b.e.b.a().f26611d;
+                return c.a.x.b.e.b.a().f26639d;
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26688b)) {
-                return c.a.x.b.e.b.a().f26609b;
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26716b)) {
+                return c.a.x.b.e.b.a().f26637b;
             }
-            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26688b)) {
-                return c.a.x.b.e.b.a().f26610c;
+            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26716b)) {
+                return c.a.x.b.e.b.a().f26638c;
             }
             return c.a.x.b.e.b.a().a;
         }
@@ -259,15 +259,15 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
             if (z) {
-                return c.a.x.b.e.b.a().f26615h;
+                return c.a.x.b.e.b.a().f26643h;
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26688b)) {
-                return c.a.x.b.e.b.a().f26613f;
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26716b)) {
+                return c.a.x.b.e.b.a().f26641f;
             }
-            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26688b)) {
-                return c.a.x.b.e.b.a().f26614g;
+            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26716b)) {
+                return c.a.x.b.e.b.a().f26642g;
             }
-            return c.a.x.b.e.b.a().f26612e;
+            return c.a.x.b.e.b.a().f26640e;
         }
         return invokeZ.intValue;
     }
@@ -291,10 +291,10 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26688b)) {
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.f26716b)) {
                 return c.a.x.c.a.b.live_feed_page_search_icon_night;
             }
-            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26688b)) {
+            if (SkinManager.SKIN_TYPE_STR_DARK.equals(this.f26716b)) {
                 return c.a.x.c.a.b.live_feed_page_search_icon;
             }
             return c.a.x.c.a.b.live_feed_page_search_icon;
@@ -305,7 +305,7 @@ public class f {
     public String o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f26688b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f26716b : (String) invokeV.objValue;
     }
 
     public void p(String str, String str2) {
@@ -313,18 +313,18 @@ public class f {
         if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
             this.a = str;
             if (q(str2)) {
-                this.f26688b = str2;
+                this.f26716b = str2;
             }
             if ("baidu".equals(this.a)) {
-                this.f26689c = new c.a.x.k.a();
+                this.f26717c = new c.a.x.k.a();
             } else if ("haokan".equals(this.a)) {
-                this.f26689c = new c();
+                this.f26717c = new c();
             } else if ("quanmin".equals(this.a)) {
-                this.f26689c = new d();
+                this.f26717c = new d();
             } else if ("tieba".equals(this.a)) {
-                this.f26689c = new e();
+                this.f26717c = new e();
             }
-            this.f26689c.b(str2);
+            this.f26717c.b(str2);
         }
     }
 
@@ -337,8 +337,8 @@ public class f {
     public void r(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048592, this, str) == null) && q(str)) {
-            this.f26688b = str;
-            b bVar = this.f26689c;
+            this.f26716b = str;
+            b bVar = this.f26717c;
             if (bVar != null) {
                 bVar.b(str);
             }

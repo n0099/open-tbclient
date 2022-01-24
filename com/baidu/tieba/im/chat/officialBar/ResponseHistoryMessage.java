@@ -30,13 +30,13 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f44916b;
+        public int f44944b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f44917c;
+        public String f44945c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f44918d;
+        public int f44946d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -102,9 +102,9 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
                         aVar.a = m.getDateStringMouth(date);
-                        aVar.f44916b = msgInfo.type.intValue();
-                        aVar.f44917c = msgInfo.content;
-                        aVar.f44918d = msgInfo.id.intValue();
+                        aVar.f44944b = msgInfo.type.intValue();
+                        aVar.f44945c = msgInfo.content;
+                        aVar.f44946d = msgInfo.id.intValue();
                         this.msg.add(aVar);
                     }
                 }

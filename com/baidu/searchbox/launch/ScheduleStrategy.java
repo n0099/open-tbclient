@@ -35,7 +35,7 @@ public class ScheduleStrategy {
     public static final double INVALID = -1.0d;
     public static final String LOW_DEVICE_STICKINESS_KEY = "low_device_stickiness";
     public static final String MID_DEVICE_STICKINESS_KEY = "mid_device_stickiness";
-    public static String TAG = "ScheduleStrategy";
+    public static final String TAG = "ScheduleStrategy";
     public static Map<String, Double> businessPrivateThresholds;
     public static double commonStickinessThreshold;
     public static double deviceScore;

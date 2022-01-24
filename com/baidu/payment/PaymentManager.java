@@ -34,13 +34,13 @@ public class PaymentManager {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c.a.h0.b f37685b = null;
+    public static c.a.h0.b f37713b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c.a.h0.s.g.a f37686c = null;
+    public static c.a.h0.s.g.a f37714c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f37687d = 1;
+    public static int f37715d = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -155,10 +155,10 @@ public class PaymentManager {
         }
 
         @Override // com.baidu.poly.widget.CouponListDialog.d
-        public void a(boolean z, a.C0152a c0152a) {
+        public void a(boolean z, a.C0161a c0161a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, c0152a) == null) {
-                this.a.a(z, c0152a == null ? null : c0152a.a());
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, c0161a) == null) {
+                this.a.a(z, c0161a == null ? null : c0161a.a());
             }
         }
     }
@@ -188,10 +188,10 @@ public class PaymentManager {
         }
 
         @Override // c.a.h0.s.e.a
-        public void a(a.C0149a c0149a) {
+        public void a(a.C0158a c0158a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c0149a) == null) {
-                this.a.a(a.C0149a.a(c0149a));
+            if (interceptable == null || interceptable.invokeL(1048576, this, c0158a) == null) {
+                this.a.a(a.C0158a.a(c0158a));
             }
         }
     }
@@ -231,17 +231,17 @@ public class PaymentManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            c.a.h0.b bVar = f37685b;
+            c.a.h0.b bVar = f37713b;
             if (bVar != null) {
                 return bVar;
             }
-            f37687d = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
-            b.C0136b c0136b = new b.C0136b();
-            c0136b.g(f37687d);
-            c0136b.e(context.getApplicationContext());
-            c0136b.f(false);
-            c.a.h0.b d2 = c0136b.d();
-            f37685b = d2;
+            f37715d = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
+            b.C0145b c0145b = new b.C0145b();
+            c0145b.g(f37715d);
+            c0145b.e(context.getApplicationContext());
+            c0145b.f(false);
+            c.a.h0.b d2 = c0145b.d();
+            f37713b = d2;
             return d2;
         }
         return (c.a.h0.b) invokeL.objValue;
@@ -266,11 +266,11 @@ public class PaymentManager {
     public static void i(int i2, String str) {
         c.a.h0.s.g.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65543, null, i2, str) == null) || (aVar = f37686c) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(65543, null, i2, str) == null) || (aVar = f37714c) == null) {
             return;
         }
         aVar.onResult(i2, AppRuntime.getAppContext().getString(c.a.f0.d.quick_pay_result_title) + str);
-        f37686c = null;
+        f37714c = null;
     }
 
     public static boolean k() {
@@ -325,7 +325,7 @@ public class PaymentManager {
                 public final /* synthetic */ c.a.h0.s.g.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AnonymousClass2 f37688b;
+                public final /* synthetic */ AnonymousClass2 f37716b;
 
                 public a(AnonymousClass2 anonymousClass2, c.a.h0.s.g.a aVar) {
                     Interceptable interceptable = $ic;
@@ -342,7 +342,7 @@ public class PaymentManager {
                             return;
                         }
                     }
-                    this.f37688b = anonymousClass2;
+                    this.f37716b = anonymousClass2;
                     this.a = aVar;
                 }
 
@@ -351,7 +351,7 @@ public class PaymentManager {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                         c.a.h0.s.g.a aVar = this.a;
-                        PaymentManager.g(aVar, i2, this.f37688b.this$0.a.getString(c.a.f0.d.alipay_result_tiitle) + str);
+                        PaymentManager.g(aVar, i2, this.f37716b.this$0.a.getString(c.a.f0.d.alipay_result_tiitle) + str);
                     }
                 }
             }
@@ -364,7 +364,7 @@ public class PaymentManager {
                 public final /* synthetic */ c.a.h0.s.g.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AnonymousClass2 f37689b;
+                public final /* synthetic */ AnonymousClass2 f37717b;
 
                 public b(AnonymousClass2 anonymousClass2, c.a.h0.s.g.a aVar) {
                     Interceptable interceptable = $ic;
@@ -381,7 +381,7 @@ public class PaymentManager {
                             return;
                         }
                     }
-                    this.f37689b = anonymousClass2;
+                    this.f37717b = anonymousClass2;
                     this.a = aVar;
                 }
 
@@ -390,7 +390,7 @@ public class PaymentManager {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                         c.a.h0.s.g.a aVar = this.a;
-                        PaymentManager.g(aVar, i2, this.f37689b.this$0.a.getString(c.a.f0.d.wx_pay_result_title) + str);
+                        PaymentManager.g(aVar, i2, this.f37717b.this$0.a.getString(c.a.f0.d.wx_pay_result_title) + str);
                     }
                 }
             }
@@ -403,7 +403,7 @@ public class PaymentManager {
                 public final /* synthetic */ c.a.h0.s.g.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AnonymousClass2 f37690b;
+                public final /* synthetic */ AnonymousClass2 f37718b;
 
                 public c(AnonymousClass2 anonymousClass2, c.a.h0.s.g.a aVar) {
                     Interceptable interceptable = $ic;
@@ -420,7 +420,7 @@ public class PaymentManager {
                             return;
                         }
                     }
-                    this.f37690b = anonymousClass2;
+                    this.f37718b = anonymousClass2;
                     this.a = aVar;
                 }
 
@@ -429,7 +429,7 @@ public class PaymentManager {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                         c.a.h0.s.g.a aVar = this.a;
-                        PaymentManager.g(aVar, i2, this.f37690b.this$0.a.getString(c.a.f0.d.baifubao_pay_result_title) + str);
+                        PaymentManager.g(aVar, i2, this.f37718b.this$0.a.getString(c.a.f0.d.baifubao_pay_result_title) + str);
                     }
                 }
             }
@@ -442,7 +442,7 @@ public class PaymentManager {
                 public final /* synthetic */ c.a.h0.s.g.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AnonymousClass2 f37691b;
+                public final /* synthetic */ AnonymousClass2 f37719b;
 
                 public d(AnonymousClass2 anonymousClass2, c.a.h0.s.g.a aVar) {
                     Interceptable interceptable = $ic;
@@ -459,7 +459,7 @@ public class PaymentManager {
                             return;
                         }
                     }
-                    this.f37691b = anonymousClass2;
+                    this.f37719b = anonymousClass2;
                     this.a = aVar;
                 }
 
@@ -468,7 +468,7 @@ public class PaymentManager {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                         c.a.h0.s.g.a aVar = this.a;
-                        PaymentManager.g(aVar, i2, this.f37691b.this$0.a.getString(c.a.f0.d.chinapay_pay_result_title) + str);
+                        PaymentManager.g(aVar, i2, this.f37719b.this$0.a.getString(c.a.f0.d.chinapay_pay_result_title) + str);
                     }
                 }
             }
@@ -504,7 +504,7 @@ public class PaymentManager {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, activity2, bVar, aVar) == null) {
                     char c2 = 6;
-                    if (bVar == null || TextUtils.isEmpty(bVar.a) || bVar.f3676b == null) {
+                    if (bVar == null || TextUtils.isEmpty(bVar.a) || bVar.f3817b == null) {
                         PaymentManager.g(aVar, 6, this.this$0.a.getString(c.a.f0.d.order_info_error));
                         return;
                     }
@@ -567,10 +567,10 @@ public class PaymentManager {
                             if (activity3 == null) {
                                 activity3 = activity2;
                             }
-                            f2.a(activity3, bVar.f3676b.optString("orderInfo"), new a(this, aVar));
+                            f2.a(activity3, bVar.f3817b.optString("orderInfo"), new a(this, aVar));
                             break;
                         case 3:
-                            c.a.f0.b.f().e(activity2, bVar.f3676b, new b(this, aVar));
+                            c.a.f0.b.f().e(activity2, bVar.f3817b, new b(this, aVar));
                             break;
                         case 4:
                             c.a.f0.b f3 = c.a.f0.b.f();
@@ -578,15 +578,15 @@ public class PaymentManager {
                             if (activity4 == null) {
                                 activity4 = activity2;
                             }
-                            f3.b(activity4, bVar.f3676b.optString("orderInfo"), new c(this, aVar));
+                            f3.b(activity4, bVar.f3817b.optString("orderInfo"), new c(this, aVar));
                             break;
                         case 5:
-                            c.a.h0.s.g.a unused = PaymentManager.f37686c = aVar;
+                            c.a.h0.s.g.a unused = PaymentManager.f37714c = aVar;
                             c.a.f0.c.c();
-                            c.a.f0.b.f().d(activity2, bVar.f3676b);
+                            c.a.f0.b.f().d(activity2, bVar.f3817b);
                             break;
                         case 6:
-                            c.a.f0.b.f().c(activity2, bVar.f3676b, new d(this, aVar));
+                            c.a.f0.b.f().c(activity2, bVar.f3817b, new d(this, aVar));
                             break;
                         default:
                             aVar.onResult(3, this.this$0.a.getString(c.a.f0.d.unknow_pay_channel));

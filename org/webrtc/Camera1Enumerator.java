@@ -15,7 +15,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class Camera1Enumerator implements CameraEnumerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Camera1Enumerator";

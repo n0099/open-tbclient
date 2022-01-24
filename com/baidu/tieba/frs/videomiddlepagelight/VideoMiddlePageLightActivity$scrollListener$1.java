@@ -130,7 +130,7 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                         if (intValue < bdTypeRecyclerView3.getFirstCompletelyVisiblePosition()) {
                             e a = e.a();
                             final VideoMiddlePageLightActivity videoMiddlePageLightActivity = this.a;
-                            a.post(new Runnable() { // from class: c.a.t0.d1.c3.j
+                            a.post(new Runnable() { // from class: c.a.t0.e1.c3.j
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -152,7 +152,7 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                             if (intValue2 > bdTypeRecyclerView4.getLastCompletelyVisiblePosition()) {
                                 e a2 = e.a();
                                 final VideoMiddlePageLightActivity videoMiddlePageLightActivity2 = this.a;
-                                a2.post(new Runnable() { // from class: c.a.t0.d1.c3.e
+                                a2.post(new Runnable() { // from class: c.a.t0.e1.c3.e
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 

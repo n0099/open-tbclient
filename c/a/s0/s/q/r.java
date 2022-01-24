@@ -16,7 +16,7 @@ public class r {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f13479b;
+    public long f13665b;
 
     public r() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class r {
         }
         try {
             this.a = jSONObject.optString("book_id", "0");
-            this.f13479b = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
+            this.f13665b = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
             jSONObject.optInt("book_type", 0);
         } catch (Exception e2) {
             BdLog.e(e2.toString());
@@ -52,7 +52,7 @@ public class r {
             return;
         }
         this.a = bookThread.book_id;
-        this.f13479b = bookThread.chapter_id.longValue();
+        this.f13665b = bookThread.chapter_id.longValue();
         bookThread.book_type.intValue();
     }
 }

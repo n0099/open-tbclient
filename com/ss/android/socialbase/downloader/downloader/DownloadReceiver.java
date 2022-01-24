@@ -7,7 +7,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.ss.android.socialbase.downloader.notification.DownloadNotificationService;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DownloadReceiver extends BroadcastReceiver {
     public static final String a = DownloadReceiver.class.getSimpleName();
 

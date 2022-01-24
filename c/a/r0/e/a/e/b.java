@@ -18,28 +18,28 @@ public class b {
     public final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f10309b;
+    public Method f10451b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f10310c;
+    public Method f10452c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f10311d;
+    public Method f10453d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f10312e;
+    public Method f10454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Method f10313f;
+    public Method f10455f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Method f10314g;
+    public Method f10456g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Method f10315h;
+    public Method f10457h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f10316i;
+    public boolean f10458i;
 
     public b(Object obj) {
         Interceptable interceptable = $ic;
@@ -82,21 +82,21 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (c()) {
-                if (this.f10316i) {
-                    return this.f10309b != null;
+                if (this.f10458i) {
+                    return this.f10451b != null;
                 }
                 try {
-                    this.f10316i = true;
-                    if (this.f10309b == null) {
+                    this.f10458i = true;
+                    if (this.f10451b == null) {
                         Method i2 = c.a.r0.k.a.a.c.a.i(this.a.getClass(), "userRegBigLittle", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
-                        this.f10309b = i2;
+                        this.f10451b = i2;
                         if (i2 != null) {
                             i2.setAccessible(true);
                         }
                     }
                 } catch (Throwable unused) {
                 }
-                return this.f10309b != null;
+                return this.f10451b != null;
             }
             return false;
         }
@@ -113,15 +113,15 @@ public class b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && c()) {
             try {
-                if (this.f10313f == null) {
+                if (this.f10455f == null) {
                     Method i3 = c.a.r0.k.a.a.c.a.i(this.a.getClass(), "userDisable", Integer.TYPE);
-                    this.f10313f = i3;
+                    this.f10455f = i3;
                     if (i3 != null) {
                         i3.setAccessible(true);
                     }
                 }
-                if (this.f10313f != null) {
-                    this.f10313f.invoke(this.a, Integer.valueOf(i2));
+                if (this.f10455f != null) {
+                    this.f10455f.invoke(this.a, Integer.valueOf(i2));
                 }
             } catch (Throwable unused) {
             }
@@ -132,15 +132,15 @@ public class b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) && c()) {
             try {
-                if (this.f10312e == null) {
+                if (this.f10454e == null) {
                     Method i4 = c.a.r0.k.a.a.c.a.i(this.a.getClass(), "userEnableTimeoutMs", Integer.TYPE, Integer.TYPE);
-                    this.f10312e = i4;
+                    this.f10454e = i4;
                     if (i4 != null) {
                         i4.setAccessible(true);
                     }
                 }
-                if (this.f10312e != null) {
-                    this.f10312e.invoke(this.a, Integer.valueOf(i2), Integer.valueOf(i3));
+                if (this.f10454e != null) {
+                    this.f10454e.invoke(this.a, Integer.valueOf(i2), Integer.valueOf(i3));
                 }
             } catch (Throwable unused) {
             }
@@ -154,14 +154,14 @@ public class b {
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048580, this, i2, i3, i4, i5)) == null) {
             if (c()) {
                 try {
-                    if (this.f10309b == null) {
+                    if (this.f10451b == null) {
                         Method i6 = c.a.r0.k.a.a.c.a.i(this.a.getClass(), "userRegBigLittle", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
-                        this.f10309b = i6;
+                        this.f10451b = i6;
                         if (i6 != null) {
                             i6.setAccessible(true);
                         }
                     }
-                    if (this.f10309b == null || (invoke = this.f10309b.invoke(this.a, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5))) == null) {
+                    if (this.f10451b == null || (invoke = this.f10451b.invoke(this.a, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5))) == null) {
                         return -1;
                     }
                     return ((Integer) invoke).intValue();
@@ -180,14 +180,14 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (c()) {
                 try {
-                    if (this.f10310c == null) {
+                    if (this.f10452c == null) {
                         Method i2 = c.a.r0.k.a.a.c.a.i(this.a.getClass(), "userRegScn", new Class[0]);
-                        this.f10310c = i2;
+                        this.f10452c = i2;
                         if (i2 != null) {
                             i2.setAccessible(true);
                         }
                     }
-                    Object invoke = this.f10310c != null ? this.f10310c.invoke(this.a, new Object[0]) : null;
+                    Object invoke = this.f10452c != null ? this.f10452c.invoke(this.a, new Object[0]) : null;
                     if (invoke != null) {
                         return ((Integer) invoke).intValue();
                     }
@@ -204,15 +204,15 @@ public class b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) && c()) {
             try {
-                if (this.f10311d == null) {
+                if (this.f10453d == null) {
                     Method i8 = c.a.r0.k.a.a.c.a.i(this.a.getClass(), "userRegScnConfig", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
-                    this.f10311d = i8;
+                    this.f10453d = i8;
                     if (i8 != null) {
                         i8.setAccessible(true);
                     }
                 }
-                if (this.f10311d != null) {
-                    this.f10311d.invoke(this.a, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7));
+                if (this.f10453d != null) {
+                    this.f10453d.invoke(this.a, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7));
                 }
             } catch (Throwable unused) {
             }
@@ -223,15 +223,15 @@ public class b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048583, this, i2) == null) && c()) {
             try {
-                if (this.f10314g == null) {
+                if (this.f10456g == null) {
                     Method i3 = c.a.r0.k.a.a.c.a.i(this.a.getClass(), "userUnreg", Integer.TYPE);
-                    this.f10314g = i3;
+                    this.f10456g = i3;
                     if (i3 != null) {
                         i3.setAccessible(true);
                     }
                 }
-                if (this.f10314g != null) {
-                    this.f10314g.invoke(this.a, Integer.valueOf(i2));
+                if (this.f10456g != null) {
+                    this.f10456g.invoke(this.a, Integer.valueOf(i2));
                 }
             } catch (Throwable unused) {
             }
@@ -242,15 +242,15 @@ public class b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) && c()) {
             try {
-                if (this.f10315h == null) {
+                if (this.f10457h == null) {
                     Method i3 = c.a.r0.k.a.a.c.a.i(this.a.getClass(), "userUnregScn", Integer.TYPE);
-                    this.f10315h = i3;
+                    this.f10457h = i3;
                     if (i3 != null) {
                         i3.setAccessible(true);
                     }
                 }
-                if (this.f10315h != null) {
-                    this.f10315h.invoke(this.a, Integer.valueOf(i2));
+                if (this.f10457h != null) {
+                    this.f10457h.invoke(this.a, Integer.valueOf(i2));
                 }
             } catch (Throwable unused) {
             }

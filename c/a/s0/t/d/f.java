@@ -19,12 +19,12 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f13963c;
+    public static f f14103c;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13964b;
+    public String f14104b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f13963c == null) {
+            if (f14103c == null) {
                 synchronized (f.class) {
-                    if (f13963c == null) {
-                        f13963c = new f();
+                    if (f14103c == null) {
+                        f14103c = new f();
                     }
                 }
             }
-            return f13963c;
+            return f14103c;
         }
         return (f) invokeV.objValue;
     }
@@ -109,7 +109,7 @@ public class f {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13964b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14104b : (String) invokeV.objValue;
     }
 
     public boolean g() {
@@ -146,7 +146,7 @@ public class f {
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f13964b = str;
+            this.f14104b = str;
         }
     }
 
@@ -163,7 +163,7 @@ public class f {
         return (NavigationBarCoverTip) invokeLL.objValue;
     }
 
-    public Dialog l(TbPageContext tbPageContext, c.a.s0.g1.q.a.d.f fVar) {
+    public Dialog l(TbPageContext tbPageContext, c.a.s0.f1.q.a.d.f fVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, tbPageContext, fVar)) == null) {

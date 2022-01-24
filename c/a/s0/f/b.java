@@ -35,13 +35,13 @@ public class b {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f12449b;
+    public a f12596b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f12450c;
+    public c f12597c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Context f12451d;
+    public final Context f12598d;
 
     /* loaded from: classes6.dex */
     public class a extends BdAsyncTask<Object, Integer, List<c.a.s0.f.a>> {
@@ -50,7 +50,7 @@ public class b {
         public final c.a.s0.f.c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f12452b;
+        public final /* synthetic */ b f12599b;
 
         public a(b bVar, c.a.s0.f.c cVar) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class b {
                     return;
                 }
             }
-            this.f12452b = bVar;
+            this.f12599b = bVar;
             this.a = cVar;
         }
 
@@ -77,7 +77,7 @@ public class b {
         public List<c.a.s0.f.a> doInBackground(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) ? this.f12452b.f() : (List) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) ? this.f12599b.f() : (List) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -109,7 +109,7 @@ public class b {
 
     /* renamed from: c.a.s0.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0831b {
+    public interface InterfaceC0840b {
         void a(List<ImageFileInfo> list);
     }
 
@@ -120,25 +120,25 @@ public class b {
         public final d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f12453b;
+        public final String f12600b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12454c;
+        public String f12601c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<c.a.s0.f.a> f12455d;
+        public List<c.a.s0.f.a> f12602d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12456e;
+        public int f12603e;
 
         /* renamed from: f  reason: collision with root package name */
-        public InterfaceC0831b f12457f;
+        public InterfaceC0840b f12604f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f12458g;
+        public final /* synthetic */ b f12605g;
 
         /* loaded from: classes6.dex */
-        public class a implements InterfaceC0831b {
+        public class a implements InterfaceC0840b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -161,7 +161,7 @@ public class b {
                 this.a = cVar;
             }
 
-            @Override // c.a.s0.f.b.InterfaceC0831b
+            @Override // c.a.s0.f.b.InterfaceC0840b
             public void a(List<ImageFileInfo> list) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
@@ -185,11 +185,11 @@ public class b {
                     return;
                 }
             }
-            this.f12458g = bVar;
-            this.f12456e = 1;
-            this.f12457f = new a(this);
+            this.f12605g = bVar;
+            this.f12603e = 1;
+            this.f12604f = new a(this);
             this.a = dVar;
-            this.f12453b = str;
+            this.f12600b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -199,34 +199,34 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                if (TextUtils.isEmpty(this.f12453b)) {
+                if (TextUtils.isEmpty(this.f12600b)) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                if (this.f12453b.equals(c.a.s0.f.a.f12443f)) {
-                    List<c.a.s0.f.a> f2 = this.f12458g.f();
-                    this.f12455d = f2;
+                if (this.f12600b.equals(c.a.s0.f.a.f12590f)) {
+                    List<c.a.s0.f.a> f2 = this.f12605g.f();
+                    this.f12602d = f2;
                     if (f2 != null) {
                         for (c.a.s0.f.a aVar : f2) {
                             String b2 = aVar.b();
                             if (!TextUtils.isEmpty(b2)) {
-                                e(arrayList, this.f12457f, b2);
+                                e(arrayList, this.f12604f, b2);
                             }
                         }
                     }
                     return arrayList;
                 }
-                e(arrayList, this.f12457f, this.f12453b);
+                e(arrayList, this.f12604f, this.f12600b);
                 return arrayList;
             }
             return (List) invokeL.objValue;
         }
 
-        public final void d(List<ImageFileInfo> list, InterfaceC0831b interfaceC0831b, String str, Context context, Uri uri) {
+        public final void d(List<ImageFileInfo> list, InterfaceC0840b interfaceC0840b, String str, Context context, Uri uri) {
             boolean z;
             boolean z2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, interfaceC0831b, str, context, uri) == null) || list == null) {
+            if (!(interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, interfaceC0840b, str, context, uri) == null) || list == null) {
                 return;
             }
             Cursor cursor = null;
@@ -242,7 +242,7 @@ public class b {
                         do {
                             String string = query.getString(columnIndex);
                             try {
-                                this.f12454c = query.getString(columnIndex2);
+                                this.f12601c = query.getString(columnIndex2);
                                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                                 imageFileInfo.setAlbumnId(str);
                                 imageFileInfo.setContentUriStr(uri2);
@@ -260,7 +260,7 @@ public class b {
                                         imageFileInfo.setIsLong(z2);
                                         imageFileInfo.setModifyTime(StringHelper.getChineseFormatTimeString(file.lastModified()));
                                         list.add(imageFileInfo);
-                                        f(list, interfaceC0831b);
+                                        f(list, interfaceC0840b);
                                     } else {
                                         z = false;
                                     }
@@ -269,7 +269,7 @@ public class b {
                                     imageFileInfo.setIsLong(z2);
                                     imageFileInfo.setModifyTime(StringHelper.getChineseFormatTimeString(file.lastModified()));
                                     list.add(imageFileInfo);
-                                    f(list, interfaceC0831b);
+                                    f(list, interfaceC0840b);
                                 }
                             } catch (Exception e2) {
                                 e = e2;
@@ -304,35 +304,35 @@ public class b {
             }
         }
 
-        public final void e(List<ImageFileInfo> list, InterfaceC0831b interfaceC0831b, String str) {
+        public final void e(List<ImageFileInfo> list, InterfaceC0840b interfaceC0840b, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048579, this, list, interfaceC0831b, str) == null) || list == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048579, this, list, interfaceC0840b, str) == null) || list == null) {
                 return;
             }
-            d(list, interfaceC0831b, str, this.f12458g.f12451d, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            d(list, interfaceC0840b, str, this.f12605g.f12598d, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             if (list == null || list.size() <= 0) {
-                d(list, interfaceC0831b, str, this.f12458g.f12451d, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                d(list, interfaceC0840b, str, this.f12605g.f12598d, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
             }
         }
 
-        public final void f(List<ImageFileInfo> list, InterfaceC0831b interfaceC0831b) {
+        public final void f(List<ImageFileInfo> list, InterfaceC0840b interfaceC0840b) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048580, this, list, interfaceC0831b) == null) || list == null || interfaceC0831b == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048580, this, list, interfaceC0840b) == null) || list == null || interfaceC0840b == null) {
                 return;
             }
-            int i2 = this.f12456e;
+            int i2 = this.f12603e;
             if (i2 != 1 && i2 != 2) {
-                if (list.size() / this.f12456e > 500) {
-                    if (interfaceC0831b != null) {
-                        interfaceC0831b.a(list);
+                if (list.size() / this.f12603e > 500) {
+                    if (interfaceC0840b != null) {
+                        interfaceC0840b.a(list);
                     }
-                    this.f12456e++;
+                    this.f12603e++;
                 }
-            } else if (list.size() / this.f12456e > 50) {
-                if (interfaceC0831b != null) {
-                    interfaceC0831b.a(list);
+            } else if (list.size() / this.f12603e > 50) {
+                if (interfaceC0840b != null) {
+                    interfaceC0840b.a(list);
                 }
-                this.f12456e++;
+                this.f12603e++;
             }
         }
 
@@ -345,7 +345,7 @@ public class b {
                 super.onPostExecute(list);
                 d dVar = this.a;
                 if (dVar != null) {
-                    dVar.a(this.f12455d, list, this.f12454c);
+                    dVar.a(this.f12602d, list, this.f12601c);
                 }
             }
         }
@@ -361,7 +361,7 @@ public class b {
                 if (listArr.length <= 0 || (dVar = this.a) == null) {
                     return;
                 }
-                dVar.a(this.f12455d, listArr[0], this.f12454c);
+                dVar.a(this.f12602d, listArr[0], this.f12601c);
             }
         }
 
@@ -394,27 +394,27 @@ public class b {
             }
         }
         this.a = TbConfig.getTempDirName();
-        this.f12451d = context;
+        this.f12598d = context;
     }
 
     public void c() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f12449b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f12596b) == null) {
             return;
         }
         aVar.cancel();
-        this.f12449b = null;
+        this.f12596b = null;
     }
 
     public void d() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f12450c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f12597c) == null) {
             return;
         }
         cVar.cancel();
-        this.f12450c = null;
+        this.f12597c = null;
     }
 
     public final List<c.a.s0.f.a> e(Context context, List<c.a.s0.f.a> list, Uri uri, HashSet<String> hashSet) {
@@ -497,7 +497,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             HashSet<String> hashSet = new HashSet<>();
-            return e(this.f12451d, e(this.f12451d, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, hashSet), MediaStore.Images.Media.INTERNAL_CONTENT_URI, hashSet);
+            return e(this.f12598d, e(this.f12598d, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, hashSet), MediaStore.Images.Media.INTERNAL_CONTENT_URI, hashSet);
         }
         return (List) invokeV.objValue;
     }
@@ -511,9 +511,9 @@ public class b {
             }
             c();
             a aVar = new a(this, cVar);
-            this.f12449b = aVar;
+            this.f12596b = aVar;
             aVar.setPriority(3);
-            this.f12449b.execute(new Object[0]);
+            this.f12596b.execute(new Object[0]);
             return true;
         }
         return invokeL.booleanValue;
@@ -553,9 +553,9 @@ public class b {
             }
             d();
             c cVar = new c(this, str, dVar);
-            this.f12450c = cVar;
+            this.f12597c = cVar;
             cVar.setPriority(3);
-            this.f12450c.execute(new Void[0]);
+            this.f12597c.execute(new Void[0]);
             return true;
         }
         return invokeLL.booleanValue;

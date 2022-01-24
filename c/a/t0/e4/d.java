@@ -20,15 +20,15 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static BlockPopInfo f17263c;
+    public static BlockPopInfo f17447c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static BlockPopInfo f17264d;
+    public static BlockPopInfo f17448d;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f17265b;
+    public CustomMessageListener f17449b;
 
     /* loaded from: classes7.dex */
     public class a implements a.e {
@@ -66,10 +66,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfo f17266e;
+        public final /* synthetic */ BlockPopInfo f17450e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f17267f;
+        public final /* synthetic */ d f17451f;
 
         public b(d dVar, BlockPopInfo blockPopInfo) {
             Interceptable interceptable = $ic;
@@ -86,15 +86,15 @@ public class d {
                     return;
                 }
             }
-            this.f17267f = dVar;
-            this.f17266e = blockPopInfo;
+            this.f17451f = dVar;
+            this.f17450e = blockPopInfo;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f17267f.e(this.f17266e);
+                this.f17451f.e(this.f17450e);
             }
         }
     }
@@ -152,7 +152,7 @@ public class d {
             }
         }
         c cVar = new c(this, 2005016);
-        this.f17265b = cVar;
+        this.f17449b = cVar;
         this.a = tbPageContext;
         tbPageContext.registerListener(cVar);
     }
@@ -160,14 +160,14 @@ public class d {
     public static void f(BlockPopInfo blockPopInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, blockPopInfo) == null) {
-            f17264d = blockPopInfo;
+            f17448d = blockPopInfo;
         }
     }
 
     public static void g(BlockPopInfo blockPopInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, blockPopInfo) == null) {
-            f17263c = blockPopInfo;
+            f17447c = blockPopInfo;
         }
     }
 
@@ -202,13 +202,13 @@ public class d {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b(f17264d) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b(f17448d) : invokeV.booleanValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b(f17263c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b(f17447c) : invokeV.booleanValue;
     }
 
     public final void e(BlockPopInfo blockPopInfo) {

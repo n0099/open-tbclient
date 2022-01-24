@@ -4,6 +4,7 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ala.ILoginListener;
+import com.baidu.tbadk.core.util.LoginPostStatisticHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,19 +17,22 @@ public class t0 {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13499b;
+    public String f13685b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13500c;
+    public String f13686c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13501d;
+    public String f13687d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13502e;
+    public String f13688e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ILoginListener f13503f;
+    public LoginPostStatisticHelper.StatisticData f13689f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ILoginListener f13690g;
 
     public t0(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -45,55 +49,54 @@ public class t0 {
                 return;
             }
         }
-        this.f13499b = null;
-        this.f13500c = null;
-        this.f13501d = null;
-        this.f13502e = null;
+        this.f13685b = null;
+        this.f13686c = null;
+        this.f13687d = null;
+        this.f13688e = null;
         this.a = context;
-        this.f13500c = str;
+        this.f13686c = str;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13500c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13686c : (String) invokeV.objValue;
     }
 
     public ILoginListener b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13503f : (ILoginListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13690g : (ILoginListener) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13501d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13687d : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13502e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13688e : (String) invokeV.objValue;
     }
 
-    public String e() {
+    public LoginPostStatisticHelper.StatisticData e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13499b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13689f : (LoginPostStatisticHelper.StatisticData) invokeV.objValue;
     }
 
-    public void f(ILoginListener iLoginListener) {
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, iLoginListener) == null) {
-            this.f13503f = iLoginListener;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13685b : (String) invokeV.objValue;
     }
 
-    public void g(String str) {
+    public void g(ILoginListener iLoginListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f13501d = str;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iLoginListener) == null) {
+            this.f13690g = iLoginListener;
         }
     }
 
@@ -106,14 +109,28 @@ public class t0 {
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f13502e = str;
+            this.f13687d = str;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f13499b = str;
+            this.f13688e = str;
+        }
+    }
+
+    public void j(LoginPostStatisticHelper.StatisticData statisticData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, statisticData) == null) {
+            this.f13689f = statisticData;
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.f13685b = str;
         }
     }
 }

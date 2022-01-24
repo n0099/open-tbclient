@@ -13,10 +13,10 @@ public class a {
     public DownloadState a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10490b;
+    public String f10632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f10491c;
+    public int f10633c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a {
             }
         }
         this.a = DownloadState.NOT_START;
-        this.f10491c = Integer.parseInt("0");
+        this.f10633c = Integer.parseInt("0");
     }
 
     public static a a(String str, String str2) {
@@ -40,7 +40,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
             a aVar = new a();
-            aVar.f10490b = str2;
+            aVar.f10632b = str2;
             return aVar;
         }
         return (a) invokeLL.objValue;

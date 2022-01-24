@@ -21,13 +21,13 @@ public class d {
     public static ThreadPoolExecutor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static LinkedBlockingQueue<Runnable> f4451b;
+    public static LinkedBlockingQueue<Runnable> f4592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ThreadFactory f4452c;
+    public static final ThreadFactory f4593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final RejectedExecutionHandler f4453d;
+    public static final RejectedExecutionHandler f4594d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -36,15 +36,15 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f4454e;
+        public final AtomicInteger f4595e;
 
         /* renamed from: c.a.m0.a.m.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0214a implements Thread.UncaughtExceptionHandler {
+        public class C0223a implements Thread.UncaughtExceptionHandler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0214a(a aVar) {
+            public C0223a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,7 +82,7 @@ public class d {
                     return;
                 }
             }
-            this.f4454e = new AtomicInteger(1);
+            this.f4595e = new AtomicInteger(1);
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -90,8 +90,8 @@ public class d {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, "TaskScheduler #" + this.f4454e.getAndIncrement());
-                thread.setUncaughtExceptionHandler(new C0214a(this));
+                Thread thread = new Thread(runnable, "TaskScheduler #" + this.f4595e.getAndIncrement());
+                thread.setUncaughtExceptionHandler(new C0223a(this));
                 return thread;
             }
             return (Thread) invokeL.objValue;
@@ -123,8 +123,8 @@ public class d {
             if (interceptable == null || interceptable.invokeLL(1048576, this, runnable, threadPoolExecutor) == null) {
                 synchronized (this) {
                     if (d.a == null) {
-                        LinkedBlockingQueue unused = d.f4451b = new LinkedBlockingQueue();
-                        ThreadPoolExecutor unused2 = d.a = new ThreadPoolExecutor(5, 5, 60L, TimeUnit.SECONDS, d.f4451b, d.f4452c);
+                        LinkedBlockingQueue unused = d.f4592b = new LinkedBlockingQueue();
+                        ThreadPoolExecutor unused2 = d.a = new ThreadPoolExecutor(5, 5, 60L, TimeUnit.SECONDS, d.f4592b, d.f4593c);
                     }
                 }
                 d.a.execute(runnable);
@@ -145,22 +145,22 @@ public class d {
                 return;
             }
         }
-        f4452c = new a();
-        f4453d = new b();
+        f4593c = new a();
+        f4594d = new b();
     }
 
     public static ScheduledThreadPoolExecutor f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? new ScheduledThreadPoolExecutor(i2, f4452c) : (ScheduledThreadPoolExecutor) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? new ScheduledThreadPoolExecutor(i2, f4593c) : (ScheduledThreadPoolExecutor) invokeI.objValue;
     }
 
     public static ThreadPoolExecutor g(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65543, null, i2, i3)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f4452c);
-            threadPoolExecutor.setRejectedExecutionHandler(f4453d);
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f4593c);
+            threadPoolExecutor.setRejectedExecutionHandler(f4594d);
             return threadPoolExecutor;
         }
         return (ThreadPoolExecutor) invokeII.objValue;

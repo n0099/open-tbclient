@@ -44,7 +44,7 @@ public class AiAppsShareDelegateActivity extends ProcessDelegateBaseActivity {
                 } else if (i4 == 2) {
                     this.mDelegation.mResult.putBoolean("share_result", false);
                     this.mDelegation.mResult.putString("callBack", this.mDelegation.mParams.getString("errorCallback", ""));
-                    this.mDelegation.mResult.putString("info", f.f30928j);
+                    this.mDelegation.mResult.putString("info", f.f30956j);
                 }
                 exit();
                 return;

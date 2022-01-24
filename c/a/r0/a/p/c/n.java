@@ -102,17 +102,17 @@ public class n extends c.a.r0.a.c1.d.a {
                 return null;
             }
             HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
-            for (Map.Entry<String, String> entry : c.a.r0.a.d0.b.b().f5512d.entrySet()) {
+            for (Map.Entry<String, String> entry : c.a.r0.a.d0.b.b().f5654d.entrySet()) {
                 addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
             }
             HttpUrl build = addPathSegments.build();
             c.a.r0.p.d.a aVar = new c.a.r0.p.d.a();
-            aVar.f11449b = "POST";
+            aVar.f11591b = "POST";
             aVar.a = c.a.r0.a.d0.c.w(build.toString(), true);
-            aVar.f11451d = c.a.r0.a.h2.c.d.b(map);
-            aVar.f11453f = true;
-            aVar.f11454g = true;
-            aVar.f11455h = false;
+            aVar.f11593d = c.a.r0.a.h2.c.d.b(map);
+            aVar.f11595f = true;
+            aVar.f11596g = true;
+            aVar.f11597h = false;
             HttpRequestBuilder a = c.a.r0.p.e.b.a(aVar);
             c.a.r0.p.e.a.g().u(a, aVar);
             return a.build();

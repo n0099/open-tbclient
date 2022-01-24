@@ -20,22 +20,22 @@ public class i implements c.a.d.n.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14132e;
+    public String f14272e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14133f;
+    public String f14273f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14134g;
+    public String f14274g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14135h;
+    public int f14275h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14136i;
+    public int f14276i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f14137j;
+    public String f14277j;
     public String k;
     public List<h> l;
     public String m;
@@ -77,12 +77,12 @@ public class i implements c.a.d.n.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f14132e = jSONObject.optString("user_id");
-        this.f14133f = jSONObject.optString("name_show");
-        this.f14134g = jSONObject.optString("user_portrait");
-        this.f14135h = jSONObject.optInt("user_gender");
-        this.f14136i = jSONObject.optInt("user_age", 0);
-        this.f14137j = jSONObject.optString("user_constellation");
+        this.f14272e = jSONObject.optString("user_id");
+        this.f14273f = jSONObject.optString("name_show");
+        this.f14274g = jSONObject.optString("user_portrait");
+        this.f14275h = jSONObject.optInt("user_gender");
+        this.f14276i = jSONObject.optInt("user_age", 0);
+        this.f14277j = jSONObject.optString("user_constellation");
         this.k = jSONObject.optString("distance");
         JSONArray optJSONArray = jSONObject.optJSONArray("favorite_forum_list");
         if (optJSONArray != null && optJSONArray.length() != 0) {

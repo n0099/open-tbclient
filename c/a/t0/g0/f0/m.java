@@ -41,23 +41,23 @@ public class m extends k {
         if (e2Var == null) {
             return;
         }
-        this.f17778e = e2Var;
+        this.f17600e = e2Var;
         String str = e2Var.E;
         e2Var.getTitle();
-        VoiceRoom G1 = e2Var.G1();
-        if (G1 != null) {
-            this.U0 = G1.room_name;
-            this.V0 = g0(G1);
-            this.W0 = String.valueOf(G1.talker_num);
-            this.X0 = String.valueOf(G1.joined_num);
-            this.Y0 = G1.room_id.longValue();
+        VoiceRoom H1 = e2Var.H1();
+        if (H1 != null) {
+            this.U0 = H1.room_name;
+            this.V0 = g0(H1);
+            this.W0 = String.valueOf(H1.talker_num);
+            this.X0 = String.valueOf(H1.joined_num);
+            this.Y0 = H1.room_id.longValue();
         }
     }
 
     public static boolean Y(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, e2Var)) == null) ? (e2Var == null || e2Var.G1() == null || e2Var.G1().room_id.longValue() <= 0 || StringUtils.isNull(e2Var.G1().room_name)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, e2Var)) == null) ? (e2Var == null || e2Var.H1() == null || e2Var.H1().room_id.longValue() <= 0 || StringUtils.isNull(e2Var.H1().room_name)) ? false : true : invokeL.booleanValue;
     }
 
     public String b0() {
@@ -113,7 +113,7 @@ public class m extends k {
             if (!this.G) {
                 return k.M0;
             }
-            return e2.u3;
+            return e2.v3;
         }
         return (BdUniqueId) invokeV.objValue;
     }

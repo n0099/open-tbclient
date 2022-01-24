@@ -15,7 +15,7 @@ public final class c implements Runnable {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final g f53014b;
+    public final g f53059b;
 
     public c(g gVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class c implements Runnable {
             }
         }
         this.a = false;
-        this.f53014b = gVar;
+        this.f53059b = gVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:49:0x00b4 A[Catch: Exception -> 0x00bf, all -> 0x00cd, TryCatch #0 {Exception -> 0x00bf, blocks: (B:23:0x0036, B:25:0x0049, B:27:0x004f, B:28:0x006f, B:30:0x0075, B:49:0x00b4, B:50:0x00b7, B:33:0x007f, B:35:0x0083, B:36:0x008c, B:38:0x0094, B:39:0x0099, B:41:0x009d, B:43:0x00a7, B:44:0x00ac, B:51:0x00ba), top: B:65:0x0036, outer: #1 }] */
@@ -48,19 +48,19 @@ public final class c implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                if (this.a && g.a().f53036d) {
+                if (this.a && g.a().f53081d) {
                     return;
                 }
-                if (System.currentTimeMillis() - this.f53014b.a < 300000) {
+                if (System.currentTimeMillis() - this.f53059b.a < 300000) {
                     return;
                 }
                 if (d.a(Zeus.getAppApplication())) {
                     for (int i2 = 0; i2 < 2; i2++) {
                         try {
                             ZeusLogger.d(ZeusLogger.TAG_DOWNLOAD, "Skip! useInternalNetworkImpl = false!");
-                            PluginProvider pluginProvider = com.bytedance.pangle.g.a().f53081b.getPluginProvider();
+                            PluginProvider pluginProvider = com.bytedance.pangle.g.a().f53126b.getPluginProvider();
                             if (pluginProvider != null && (providePluginConfig = pluginProvider.providePluginConfig()) != null) {
-                                this.f53014b.a = System.currentTimeMillis();
+                                this.f53059b.a = System.currentTimeMillis();
                                 ZeusLogger.i(ZeusLogger.TAG_DOWNLOAD, "handlePlugins, pluginSize = " + providePluginConfig.size());
                                 for (int i3 = 0; i3 < providePluginConfig.size(); i3++) {
                                     PluginDownloadBean pluginDownloadBean = providePluginConfig.get(i3);

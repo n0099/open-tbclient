@@ -143,18 +143,18 @@ public final class R {
     /* loaded from: classes11.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int bdvideoplayer_seekbar = 0x7f0903a8;
-        public static final int bt_retry = 0x7f09046f;
-        public static final int center = 0x7f090680;
-        public static final int left = 0x7f091425;
-        public static final int main_duration_text = 0x7f0915a8;
-        public static final int main_progress_text = 0x7f0915ac;
-        public static final int main_view_seekbar = 0x7f0915b9;
-        public static final int play_error_layout_retry = 0x7f091af0;
-        public static final int progress = 0x7f091bbd;
-        public static final int right = 0x7f091d4f;
-        public static final int time = 0x7f09230c;
-        public static final int tv_error = 0x7f0924f2;
+        public static final int bdvideoplayer_seekbar = 0x7f0903a9;
+        public static final int bt_retry = 0x7f090470;
+        public static final int center = 0x7f090681;
+        public static final int left = 0x7f091440;
+        public static final int main_duration_text = 0x7f0915c3;
+        public static final int main_progress_text = 0x7f0915c7;
+        public static final int main_view_seekbar = 0x7f0915d4;
+        public static final int play_error_layout_retry = 0x7f091b0a;
+        public static final int progress = 0x7f091bd7;
+        public static final int right = 0x7f091d72;
+        public static final int time = 0x7f09232b;
+        public static final int tv_error = 0x7f09250f;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

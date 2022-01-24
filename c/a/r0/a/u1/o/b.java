@@ -23,7 +23,7 @@ public class b {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9426b;
+    public boolean f9568b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class b {
                 return viewGroup2;
             }
             ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(e.a0().x()).inflate(g.swan_app_startup_window, viewGroup);
-            this.f9426b = true;
+            this.f9568b = true;
             return viewGroup3;
         }
         return (ViewGroup) invokeV.objValue;
@@ -67,7 +67,7 @@ public class b {
 
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f9426b) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f9568b) {
             d();
         }
     }
@@ -82,7 +82,7 @@ public class b {
         if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
             ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
         }
-        this.f9426b = false;
+        this.f9568b = false;
     }
 
     public void e() {
@@ -135,7 +135,7 @@ public class b {
 
     public void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f9426b) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f9568b) {
             return;
         }
         b();

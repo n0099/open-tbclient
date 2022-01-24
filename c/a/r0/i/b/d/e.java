@@ -18,13 +18,13 @@ public class e extends c.a.r0.a.y1.a.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10705f;
+    public String f10847f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f10706g;
+    public String f10848g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONObject f10707h;
+    public JSONObject f10849h;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -32,10 +32,10 @@ public class e extends c.a.r0.a.y1.a.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f10708e;
+        public final /* synthetic */ JSONObject f10850e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f10709f;
+        public final /* synthetic */ e f10851f;
 
         public a(e eVar, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public class e extends c.a.r0.a.y1.a.a.a {
                     return;
                 }
             }
-            this.f10709f = eVar;
-            this.f10708e = jSONObject;
+            this.f10851f = eVar;
+            this.f10850e = jSONObject;
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -62,8 +62,8 @@ public class e extends c.a.r0.a.y1.a.a.a {
             char c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.i.b.a.n().G(this.f10709f.f10707h);
-                String str = this.f10709f.f10705f;
+                c.a.r0.i.b.a.n().G(this.f10851f.f10849h);
+                String str = this.f10851f.f10847f;
                 switch (str.hashCode()) {
                     case -1261560102:
                         if (str.equals("queryStatus")) {
@@ -127,31 +127,31 @@ public class e extends c.a.r0.a.y1.a.a.a {
                 }
                 switch (c2) {
                     case 0:
-                        this.f10709f.w(this.f10708e);
+                        this.f10851f.w(this.f10850e);
                         return;
                     case 1:
-                        this.f10709f.t(this.f10708e);
+                        this.f10851f.t(this.f10850e);
                         return;
                     case 2:
-                        this.f10709f.s();
+                        this.f10851f.s();
                         return;
                     case 3:
-                        this.f10709f.r(this.f10708e);
+                        this.f10851f.r(this.f10850e);
                         return;
                     case 4:
-                        this.f10709f.v(this.f10708e);
+                        this.f10851f.v(this.f10850e);
                         return;
                     case 5:
-                        this.f10709f.p(this.f10708e);
+                        this.f10851f.p(this.f10850e);
                         return;
                     case 6:
-                        this.f10709f.u();
+                        this.f10851f.u();
                         return;
                     case 7:
-                        this.f10709f.q();
+                        this.f10851f.q();
                         return;
                     default:
-                        this.f10709f.setResult(new c.a.r0.i.b.g.a(31009, "invalid operation"));
+                        this.f10851f.setResult(new c.a.r0.i.b.g.a(31009, "invalid operation"));
                         return;
                 }
             }
@@ -209,17 +209,17 @@ public class e extends c.a.r0.a.y1.a.a.a {
     public void setResult(c.a.r0.i.b.g.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, bVar) == null) {
-            this.f9685d.clear();
+            this.f9827d.clear();
             if (bVar != null) {
-                this.f9685d.putString("functionType", bVar.a());
-                this.f9685d.putString("resultData", bVar.b());
-                this.f9685d.putInt("resultStatus", bVar.c());
+                this.f9827d.putString("functionType", bVar.a());
+                this.f9827d.putString("resultData", bVar.b());
+                this.f9827d.putInt("resultStatus", bVar.c());
                 if (bVar.d()) {
-                    if (!TextUtils.equals(this.f10705f, "startDownload")) {
-                        c.a.r0.i.b.i.c.a(this.f10706g, this.f10705f, "success", null, new c.a.r0.i.b.i.a(this.f10707h));
+                    if (!TextUtils.equals(this.f10847f, "startDownload")) {
+                        c.a.r0.i.b.i.c.a(this.f10848g, this.f10847f, "success", null, new c.a.r0.i.b.i.a(this.f10849h));
                     }
                 } else {
-                    c.a.r0.i.b.i.c.a(this.f10706g, this.f10705f, com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(bVar.c()), new c.a.r0.i.b.i.a(this.f10707h));
+                    c.a.r0.i.b.i.c.a(this.f10848g, this.f10847f, com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(bVar.c()), new c.a.r0.i.b.i.a(this.f10849h));
                 }
             }
             c();
@@ -230,11 +230,11 @@ public class e extends c.a.r0.a.y1.a.a.a {
     public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            this.f10705f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
-            this.f10707h = w.d(bundle.getString("ubc_params", ""));
+            this.f10847f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
+            this.f10849h = w.d(bundle.getString("ubc_params", ""));
             JSONObject d2 = w.d(bundle.getString("data", ""));
-            this.f10706g = d2.optString("packageName");
-            c.a.r0.i.b.c.b.f10688d.execute(new a(this, d2));
+            this.f10848g = d2.optString("packageName");
+            c.a.r0.i.b.c.b.f10830d.execute(new a(this, d2));
         }
     }
 

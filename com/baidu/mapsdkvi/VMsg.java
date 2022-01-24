@@ -17,13 +17,13 @@ public class VMsg {
     public static final String a = "VMsg";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f36117b;
+    public static Handler f36145b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HandlerThread f36118c;
+    public static HandlerThread f36146c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static VMsg f36119d;
+    public static VMsg f36147d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -74,7 +74,7 @@ public class VMsg {
                 return;
             }
         }
-        f36119d = new VMsg();
+        f36147d = new VMsg();
     }
 
     public VMsg() {
@@ -98,33 +98,33 @@ public class VMsg {
     public static void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            f36118c.quit();
-            f36118c = null;
-            f36117b.removeCallbacksAndMessages(null);
-            f36117b = null;
+            f36146c.quit();
+            f36146c = null;
+            f36145b.removeCallbacksAndMessages(null);
+            f36145b = null;
         }
     }
 
     public static VMsg getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f36119d : (VMsg) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f36147d : (VMsg) invokeV.objValue;
     }
 
     public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             HandlerThread handlerThread = new HandlerThread("VIMsgThread");
-            f36118c = handlerThread;
+            f36146c = handlerThread;
             handlerThread.start();
-            f36117b = new a(f36118c.getLooper());
+            f36145b = new a(f36146c.getLooper());
         }
     }
 
     public static void postMessage(int i2, int i3, int i4, long j2) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) || (handler = f36117b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) || (handler = f36145b) == null) {
             return;
         }
         Message.obtain(handler, i2, i3, i4, j2 == 0 ? null : Long.valueOf(j2)).sendToTarget();

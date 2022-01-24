@@ -20,16 +20,16 @@ public class e<T> implements o.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public w<String, b> f27268e;
+    public w<String, b> f27296e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.b.b.q.a<b> f27269f;
+    public c.b.b.q.a<b> f27297f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.b.b.q.a<a> f27270g;
+    public c.b.b.q.a<a> f27298g;
 
     /* renamed from: h  reason: collision with root package name */
-    public T f27271h;
+    public T f27299h;
 
     /* loaded from: classes9.dex */
     public static class a<T> implements o.c {
@@ -37,10 +37,10 @@ public class e<T> implements o.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f27272e;
+        public String f27300e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Class<T> f27273f;
+        public Class<T> f27301f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -60,10 +60,10 @@ public class e<T> implements o.c {
         public void a(o oVar, JsonValue jsonValue) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, oVar, jsonValue) == null) {
-                this.f27272e = (String) oVar.l(BreakpointSQLiteKey.FILENAME, String.class, jsonValue);
+                this.f27300e = (String) oVar.l(BreakpointSQLiteKey.FILENAME, String.class, jsonValue);
                 String str = (String) oVar.l("type", String.class, jsonValue);
                 try {
-                    this.f27273f = c.b.b.q.p0.b.a(str);
+                    this.f27301f = c.b.b.q.p0.b.a(str);
                 } catch (ReflectionException e2) {
                     throw new GdxRuntimeException("Class not found: " + str, e2);
                 }
@@ -77,10 +77,10 @@ public class e<T> implements o.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public l f27274e;
+        public l f27302e;
 
         /* renamed from: f  reason: collision with root package name */
-        public e f27275f;
+        public e f27303f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class e<T> implements o.c {
                 }
             }
             new w();
-            this.f27274e = new l();
+            this.f27302e = new l();
         }
 
         @Override // c.b.b.q.o.c
@@ -104,7 +104,7 @@ public class e<T> implements o.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, oVar, jsonValue) == null) {
                 w wVar = (w) oVar.l("data", w.class, jsonValue);
-                this.f27274e.b((int[]) oVar.l("indices", int[].class, jsonValue));
+                this.f27302e.b((int[]) oVar.l("indices", int[].class, jsonValue));
             }
         }
     }
@@ -122,9 +122,9 @@ public class e<T> implements o.c {
                 return;
             }
         }
-        this.f27268e = new w<>();
-        this.f27269f = new c.b.b.q.a<>(true, 3, b.class);
-        this.f27270g = new c.b.b.q.a<>();
+        this.f27296e = new w<>();
+        this.f27297f = new c.b.b.q.a<>(true, 3, b.class);
+        this.f27298g = new c.b.b.q.a<>();
     }
 
     @Override // c.b.b.q.o.c
@@ -132,26 +132,26 @@ public class e<T> implements o.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, oVar, jsonValue) == null) {
             w<String, b> wVar = (w) oVar.l("unique", w.class, jsonValue);
-            this.f27268e = wVar;
+            this.f27296e = wVar;
             w.a<String, b> b2 = wVar.b();
             b2.d();
             while (b2.hasNext()) {
-                ((b) b2.next().f27524b).f27275f = this;
+                ((b) b2.next().f27552b).f27303f = this;
             }
             c.b.b.q.a<b> aVar = (c.b.b.q.a) oVar.m("data", c.b.b.q.a.class, b.class, jsonValue);
-            this.f27269f = aVar;
+            this.f27297f = aVar;
             a.b<b> it = aVar.iterator();
             while (it.hasNext()) {
-                it.next().f27275f = this;
+                it.next().f27303f = this;
             }
-            this.f27270g.b((c.b.b.q.a) oVar.m("assets", c.b.b.q.a.class, a.class, jsonValue));
-            this.f27271h = (T) oVar.l("resource", null, jsonValue);
+            this.f27298g.b((c.b.b.q.a) oVar.m("assets", c.b.b.q.a.class, a.class, jsonValue));
+            this.f27299h = (T) oVar.l("resource", null, jsonValue);
         }
     }
 
     public c.b.b.q.a<a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27270g : (c.b.b.q.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27298g : (c.b.b.q.a) invokeV.objValue;
     }
 }

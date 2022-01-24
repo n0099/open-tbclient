@@ -43,28 +43,28 @@ public class a {
     public final Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.i0.b.b f3739b;
+    public c.a.i0.b.b f3880b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3740c;
+    public int f3881c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f3741d;
+    public volatile boolean f3882d;
 
     /* renamed from: c.a.i0.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0157a extends c.a.c0.u.p.c<String> {
+    public class C0166a extends c.a.c0.u.p.c<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f3742b;
+        public final /* synthetic */ long f3883b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ long f3743c;
+        public final /* synthetic */ long f3884c;
 
-        public C0157a(a aVar, String str, long j2, long j3) {
+        public C0166a(a aVar, String str, long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,8 +80,8 @@ public class a {
                 }
             }
             this.a = str;
-            this.f3742b = j2;
-            this.f3743c = j3;
+            this.f3883b = j2;
+            this.f3884c = j3;
         }
 
         @Override // c.a.c0.u.p.a
@@ -90,7 +90,7 @@ public class a {
             if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i2) == null) {
                 g gVar = g.a;
                 gVar.e("Afd", "update接口 " + exc.getMessage());
-                BaseVM.m(this.a, this.f3742b, this.f3743c, exc.getMessage(), "update");
+                BaseVM.m(this.a, this.f3883b, this.f3884c, exc.getMessage(), "update");
             }
         }
 
@@ -106,7 +106,7 @@ public class a {
         public void b(Headers headers, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i2) == null) {
-                BaseVM.m(this.a, this.f3742b, this.f3743c, BasicPushStatus.SUCCESS_CODE, "update");
+                BaseVM.m(this.a, this.f3883b, this.f3884c, BasicPushStatus.SUCCESS_CODE, "update");
                 try {
                     c.a.i0.b.f.a.b(str, this.a);
                 } catch (ParseError e2) {
@@ -129,16 +129,16 @@ public class a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f3744b;
+        public final /* synthetic */ long f3885b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ long f3745c;
+        public final /* synthetic */ long f3886c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.i0.b.b f3746d;
+        public final /* synthetic */ c.a.i0.b.b f3887d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f3747e;
+        public final /* synthetic */ a f3888e;
 
         public b(a aVar, String str, long j2, long j3, c.a.i0.b.b bVar) {
             Interceptable interceptable = $ic;
@@ -155,11 +155,11 @@ public class a {
                     return;
                 }
             }
-            this.f3747e = aVar;
+            this.f3888e = aVar;
             this.a = str;
-            this.f3744b = j2;
-            this.f3745c = j3;
-            this.f3746d = bVar;
+            this.f3885b = j2;
+            this.f3886c = j3;
+            this.f3887d = bVar;
         }
 
         @Override // c.a.c0.u.p.a
@@ -168,11 +168,11 @@ public class a {
             if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i2) == null) {
                 g gVar = g.a;
                 gVar.e("Afd", "query接口 " + exc.getMessage());
-                BaseVM.m(this.a, this.f3744b, this.f3745c, exc.getMessage(), "query");
-                if (!this.f3747e.f3741d) {
-                    if (this.f3747e.a != null) {
-                        this.f3747e.a.removeCallbacksAndMessages(null);
-                        this.f3747e.a.post(new c(this.f3747e, this.a));
+                BaseVM.m(this.a, this.f3885b, this.f3886c, exc.getMessage(), "query");
+                if (!this.f3888e.f3882d) {
+                    if (this.f3888e.a != null) {
+                        this.f3888e.a.removeCallbacksAndMessages(null);
+                        this.f3888e.a.post(new c(this.f3888e, this.a));
                         return;
                     }
                     return;
@@ -180,7 +180,7 @@ public class a {
                 g gVar2 = g.a;
                 StringBuilder sb = new StringBuilder();
                 sb.append("query接口 error 超时：");
-                sb.append(System.currentTimeMillis() - this.f3744b);
+                sb.append(System.currentTimeMillis() - this.f3885b);
                 sb.append(" cause : ");
                 sb.append(exc);
                 gVar2.e("Afd", sb.toString() == null ? "unknow" : exc.getMessage());
@@ -199,25 +199,25 @@ public class a {
         public void b(Headers headers, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i2) == null) {
-                BaseVM.m(this.a, this.f3744b, this.f3745c, BasicPushStatus.SUCCESS_CODE, "query");
-                if (!this.f3747e.f3741d) {
-                    this.f3747e.a.removeCallbacksAndMessages(null);
+                BaseVM.m(this.a, this.f3885b, this.f3886c, BasicPushStatus.SUCCESS_CODE, "query");
+                if (!this.f3888e.f3882d) {
+                    this.f3888e.a.removeCallbacksAndMessages(null);
                     try {
                         List<c.a.i0.b.f.g> b2 = c.a.i0.b.f.a.b(str, this.a);
                         if (b2 != null && b2.size() > 0 && b2.get(0) != null) {
-                            this.f3746d.b(b2.get(0));
+                            this.f3887d.b(b2.get(0));
                         } else {
-                            this.f3746d.a(new Throwable("no ad"));
+                            this.f3887d.a(new Throwable("no ad"));
                         }
                         return;
                     } catch (ParseError e2) {
                         e2.printStackTrace();
-                        this.f3746d.a(e2);
+                        this.f3887d.a(e2);
                         return;
                     }
                 }
                 g gVar = g.a;
-                gVar.e("Afd", "query接口 response 超时：" + (System.currentTimeMillis() - this.f3744b));
+                gVar.e("Afd", "query接口 response 超时：" + (System.currentTimeMillis() - this.f3885b));
             }
         }
 
@@ -234,10 +234,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f3748e;
+        public final String f3889e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f3749f;
+        public final /* synthetic */ a f3890f;
 
         public c(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -254,26 +254,26 @@ public class a {
                     return;
                 }
             }
-            this.f3749f = aVar;
-            this.f3748e = str;
+            this.f3890f = aVar;
+            this.f3889e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3749f.f3741d = true;
+                this.f3890f.f3882d = true;
                 g.a.e("Afd", "执行超时回调");
-                c.a.i0.b.f.g l = c.a.i0.b.f.e.l(TextUtils.equals(c.a.i0.a.b.d.a().e(), this.f3748e));
-                if (this.f3749f.f3739b == null) {
+                c.a.i0.b.f.g l = c.a.i0.b.f.e.l(TextUtils.equals(c.a.i0.a.b.d.a().e(), this.f3889e));
+                if (this.f3890f.f3880b == null) {
                     return;
                 }
                 if (l == null) {
-                    this.f3749f.f3739b.a(new Throwable("no ad"));
+                    this.f3890f.f3880b.a(new Throwable("no ad"));
                     return;
                 }
                 l.C = 2;
-                this.f3749f.f3739b.b(l);
+                this.f3890f.f3880b.b(l);
             }
         }
     }
@@ -292,8 +292,8 @@ public class a {
             }
         }
         this.a = new Handler(Looper.getMainLooper());
-        this.f3740c = 5000;
-        this.f3741d = false;
+        this.f3881c = 5000;
+        this.f3882d = false;
     }
 
     public final void e(JSONObject jSONObject) {
@@ -371,16 +371,16 @@ public class a {
             if (p != null && p.size() > 0) {
                 for (c.a.i0.b.f.g gVar : p) {
                     JSONObject jSONObject4 = new JSONObject();
-                    jSONObject4.put("k", gVar.f3782c);
-                    if (!TextUtils.isEmpty(gVar.f3782c)) {
+                    jSONObject4.put("k", gVar.f3923c);
+                    if (!TextUtils.isEmpty(gVar.f3923c)) {
                         int e2 = c.a.i0.b.f.e.e(gVar);
                         String str3 = "onAdSuccess: " + e2;
                         if (e2 == 0) {
                             if (equals && gVar.h()) {
-                                c.a.c0.x.a.b(arrayList, gVar.f3782c);
+                                c.a.c0.x.a.b(arrayList, gVar.f3923c);
                             }
                             if (!equals && gVar.f()) {
-                                c.a.c0.x.a.b(arrayList, gVar.f3782c);
+                                c.a.c0.x.a.b(arrayList, gVar.f3923c);
                             }
                         }
                     }
@@ -486,18 +486,18 @@ public class a {
             long currentTimeMillis = System.currentTimeMillis();
             c.a.i0.b.f.b.a(String.valueOf(currentTimeMillis));
             c.a.c0.u.s.d i2 = i("query", str, currentTimeMillis);
-            i2.f2319f = this.f3740c;
+            i2.f2319f = this.f3881c;
             JSONObject d2 = c.a.i0.a.b.d.a().d();
             if (d2 != null && d2.has("query_response_thread")) {
                 i2.h(d2.optInt("query_response_thread", 0) == 0);
             }
             c.a.c0.u.g.b().a().a(i2, new b(this, str, currentTimeMillis, System.currentTimeMillis(), bVar));
-            this.f3739b = bVar;
-            this.f3741d = false;
-            this.f3740c = c.a.i0.a.b.d.a().f() - f.k();
+            this.f3880b = bVar;
+            this.f3882d = false;
+            this.f3881c = c.a.i0.a.b.d.a().f() - f.k();
             Handler handler = this.a;
             if (handler != null) {
-                handler.postDelayed(new c(this, str), this.f3740c);
+                handler.postDelayed(new c(this, str), this.f3881c);
             }
         }
     }
@@ -511,7 +511,7 @@ public class a {
                 optString = c.a.i0.a.b.d.a().e();
             }
             String str = optString;
-            c.a.c0.u.g.b().a().a(i("update", str, currentTimeMillis), new C0157a(this, str, currentTimeMillis, System.currentTimeMillis()));
+            c.a.c0.u.g.b().a().a(i("update", str, currentTimeMillis), new C0166a(this, str, currentTimeMillis, System.currentTimeMillis()));
         }
     }
 }

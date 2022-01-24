@@ -68,9 +68,9 @@ public class f extends c.a.r0.m.l.a<c.a.r0.a.i1.c.e> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar)) == null) {
             Bundle bundle = new Bundle();
-            bundle.putString("slaveId", eVar.f5309g);
-            bundle.putDouble("latitude", eVar.n.f7214e);
-            bundle.putDouble("longitude", eVar.n.f7215f);
+            bundle.putString("slaveId", eVar.f5451g);
+            bundle.putDouble("latitude", eVar.n.f7356e);
+            bundle.putDouble("longitude", eVar.n.f7357f);
             bundle.putDouble(AnimationProperty.SCALE, eVar.o);
             bundle.putString("name", eVar.D);
             bundle.putString("address", eVar.E);

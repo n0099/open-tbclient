@@ -35,15 +35,15 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f12193c = null;
+    public static b f12335c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f12194d = true;
+    public static boolean f12336d = true;
     public transient /* synthetic */ FieldHolder $fh;
     public UserData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbHttpMessageTask f12195b;
+    public TbHttpMessageTask f12337b;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -51,7 +51,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f12196e;
+        public final /* synthetic */ b f12338e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -68,17 +68,17 @@ public class b {
                     return;
                 }
             }
-            this.f12196e = bVar;
+            this.f12338e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                GetUserInfoRequstData c2 = this.f12196e.c();
+                GetUserInfoRequstData c2 = this.f12338e.c();
                 c2.setNetType(NetMessage.NetType.HTTP);
-                if (this.f12196e.f12195b != null) {
-                    new HttpClient.a(c2.getHttpMessage(), this.f12196e.f12195b).execute(new HttpMessage[0]);
+                if (this.f12338e.f12337b != null) {
+                    new HttpClient.a(c2.getHttpMessage(), this.f12338e.f12337b).execute(new HttpMessage[0]);
                 }
             }
         }
@@ -86,14 +86,14 @@ public class b {
 
     /* renamed from: c.a.s0.a0.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0824b implements Runnable {
+    public class RunnableC0833b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f12197e;
+        public final /* synthetic */ AccountData f12339e;
 
-        public RunnableC0824b(b bVar, AccountData accountData) {
+        public RunnableC0833b(b bVar, AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,14 +108,14 @@ public class b {
                     return;
                 }
             }
-            this.f12197e = accountData;
+            this.f12339e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.g(this.f12197e);
+                c.g(this.f12339e);
             }
         }
     }
@@ -153,14 +153,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f12193c == null) {
+            if (f12335c == null) {
                 synchronized (b.class) {
-                    if (f12193c == null) {
-                        f12193c = new b();
+                    if (f12335c == null) {
+                        f12335c = new b();
                     }
                 }
             }
-            return f12193c;
+            return f12335c;
         }
         return (b) invokeV.objValue;
     }
@@ -189,12 +189,12 @@ public class b {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.t0.w3.f0.a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = c.a.t0.w3.f0.a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
-            this.f12195b = c2;
+            c.a.t0.x3.f0.a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = c.a.t0.x3.f0.a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
+            this.f12337b = c2;
             c2.setTimeOut(c.a.d.c.j.b.d().b());
-            this.f12195b.setRetry(c.a.d.c.j.b.d().a());
-            this.f12195b.setConnectTimeOut(c.a.d.c.j.b.d().c());
+            this.f12337b.setRetry(c.a.d.c.j.b.d().a());
+            this.f12337b.setConnectTimeOut(c.a.d.c.j.b.d().c());
         }
     }
 
@@ -208,9 +208,9 @@ public class b {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (f12194d) {
+            if (f12336d) {
                 g();
-                f12194d = false;
+                f12336d = false;
                 return;
             }
             MessageManager.getInstance().sendMessage(c());
@@ -263,7 +263,7 @@ public class b {
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            h.a().c(new RunnableC0824b(this, currentAccountObj));
+            h.a().c(new RunnableC0833b(this, currentAccountObj));
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247, payMemberInfoData));
         }
     }

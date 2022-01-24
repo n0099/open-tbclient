@@ -79,7 +79,7 @@ public class AlaSquareActiveAllAdapter extends a<c, SquareActiveAllViewHolder> {
             }
             bVar.k(cVar);
             if (i2 == this.n) {
-                bVar.j().setAnimation(AnimationUtils.loadAnimation(this.f3258e, R.anim.list_anim));
+                bVar.j().setAnimation(AnimationUtils.loadAnimation(this.f3360e, R.anim.list_anim));
             }
             return squareActiveAllViewHolder.getView();
         }

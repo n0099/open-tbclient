@@ -13,7 +13,7 @@ public final class c extends a.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f12027b;
+    public static final c f12169b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public final class c extends a.c {
                 return;
             }
         }
-        f12027b = new c();
+        f12169b = new c();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

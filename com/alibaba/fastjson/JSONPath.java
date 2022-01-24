@@ -1,7 +1,6 @@
 package com.alibaba.fastjson;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexerBase;
@@ -928,7 +927,7 @@ public class JSONPath implements JSONAware {
                         }
                         if (readSegement instanceof PropertySegment) {
                             PropertySegment propertySegment = (PropertySegment) readSegement;
-                            if (!propertySegment.deep && propertySegment.propertyName.equals(ProxyConfig.MATCH_ALL_SCHEMES)) {
+                            if (!propertySegment.deep && propertySegment.propertyName.equals("*")) {
                             }
                         }
                         int i2 = this.level;
@@ -1757,7 +1756,7 @@ public class JSONPath implements JSONAware {
                     }
                 } else if (c2 == '!') {
                     next();
-                    accept(a.f30865h);
+                    accept(a.f30893h);
                     operator = Operator.NE;
                 } else if (c2 == '<') {
                     next();
@@ -2692,7 +2691,7 @@ public class JSONPath implements JSONAware {
                 context.object = new JSONArray();
             }
             if (jSONLexerBase.token() == 14) {
-                if (ProxyConfig.MATCH_ALL_SCHEMES.equals(this.propertyName)) {
+                if ("*".equals(this.propertyName)) {
                     return;
                 }
                 jSONLexerBase.nextToken();
@@ -4305,7 +4304,7 @@ public class JSONPath implements JSONAware {
     public void init() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.segments == null) {
-            if (ProxyConfig.MATCH_ALL_SCHEMES.equals(this.path)) {
+            if ("*".equals(this.path)) {
                 this.segments = new Segment[]{WildCardSegment.instance};
                 return;
             }

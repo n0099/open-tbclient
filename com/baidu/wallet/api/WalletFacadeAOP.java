@@ -25,7 +25,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
     public static final String TAG = "WalletFacadeAOP";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f50396b;
+    public static final List<String> f50441b;
     public transient /* synthetic */ FieldHolder $fh;
     public final IWalletFacade a;
 
@@ -144,7 +144,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                 return;
             }
         }
-        f50396b = new ArrayList(Arrays.asList("doPay", "doBind", "doRNAuth", "doCheckPwd", "doBindCardIndependent", "checkPwd", StatServiceEvent.GET_WALLET_OUTER_INTERFACE, "accessWalletEntry", "preOrderPay", "getPayMethod", "changePayMethod", "gotoWalletService"));
+        f50441b = new ArrayList(Arrays.asList("doPay", "doBind", "doRNAuth", "doCheckPwd", "doBindCardIndependent", "checkPwd", StatServiceEvent.GET_WALLET_OUTER_INTERFACE, "accessWalletEntry", "preOrderPay", "getPayMethod", "changePayMethod", "gotoWalletService"));
     }
 
     public WalletFacadeAOP(IWalletFacade iWalletFacade) {
@@ -175,7 +175,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
-            List<String> list = f50396b;
+            List<String> list = f50441b;
             if (list != null && list.contains(str)) {
                 if ("gotoWalletService".equals(str)) {
                     return EntranceService.SHARE;

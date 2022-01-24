@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.base.datamodel.UserData;
 import java.io.Serializable;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class CardAddResponse extends DirectPayContentResponse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHECK_PWD_TYPE_DIGIT = "digit";
@@ -25,7 +25,7 @@ public class CardAddResponse extends DirectPayContentResponse {
     public int request_type;
     public SupportPwdInfo[] support_pwd_info;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class ConfirmWindow implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class CardAddResponse extends DirectPayContentResponse {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class CustomerSvcCfg implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public class CardAddResponse extends DirectPayContentResponse {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class QuickBindCardList implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class CardAddResponse extends DirectPayContentResponse {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class QuickBindCardTypeList implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public class CardAddResponse extends DirectPayContentResponse {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class SupportPwdInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public class CardAddResponse extends DirectPayContentResponse {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static CardAddResponse a;

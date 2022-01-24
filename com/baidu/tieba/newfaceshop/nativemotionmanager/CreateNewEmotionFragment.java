@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.d.f.p.n;
-import c.a.t0.n2.g.e;
+import c.a.t0.o2.g.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -27,10 +27,10 @@ public class CreateNewEmotionFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.n2.h.f.a f46202e;
+    public c.a.t0.o2.h.f.a f46230e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f46203f;
+    public CustomMessageListener f46231f;
 
     /* loaded from: classes12.dex */
     public class a extends CustomMessageListener {
@@ -65,35 +65,35 @@ public class CreateNewEmotionFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof HashMap)) {
                 HashMap hashMap = (HashMap) customResponsedMessage.getData();
-                if (this.a.f46202e == null) {
+                if (this.a.f46230e == null) {
                     return;
                 }
                 if (hashMap == null || hashMap.isEmpty()) {
-                    if (this.a.f46202e != null) {
-                        this.a.f46202e.i();
+                    if (this.a.f46230e != null) {
+                        this.a.f46230e.i();
                     }
                 } else if (!hashMap.containsKey("upload_result")) {
-                    if (this.a.f46202e != null) {
-                        this.a.f46202e.i();
+                    if (this.a.f46230e != null) {
+                        this.a.f46230e.i();
                     }
                 } else if (hashMap.get("upload_result") == null || !(hashMap.get("upload_result") instanceof Boolean)) {
-                    if (this.a.f46202e != null) {
-                        this.a.f46202e.i();
+                    if (this.a.f46230e != null) {
+                        this.a.f46230e.i();
                     }
                 } else if (!((Boolean) hashMap.get("upload_result")).booleanValue()) {
-                    if (this.a.f46202e != null) {
+                    if (this.a.f46230e != null) {
                         String str = (String) hashMap.get("upload_msg");
                         if (!TextUtils.isEmpty(str)) {
                             n.K(this.a.getActivity(), str);
                         } else {
                             n.K(this.a.getActivity(), this.a.getString(R.string.emotion_error_default_net_tip));
                         }
-                        this.a.f46202e.l();
+                        this.a.f46230e.l();
                     }
                 } else {
                     BdToast.c(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.face_group_upload_success)).q();
-                    if (this.a.f46202e != null) {
-                        this.a.f46202e.i();
+                    if (this.a.f46230e != null) {
+                        this.a.f46230e.i();
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921054));
                 }
@@ -114,20 +114,20 @@ public class CreateNewEmotionFragment extends BaseFragment {
                 return;
             }
         }
-        this.f46203f = new a(this, 2921040);
+        this.f46231f = new a(this, 2921040);
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46202e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46230e == null) {
             return;
         }
         if (e.l().r()) {
-            this.f46202e.j();
+            this.f46230e.j();
         } else if (e.l().k() == null) {
-            this.f46202e.i();
+            this.f46230e.i();
         } else {
-            this.f46202e.m(getString(R.string.emotion_draft_tip));
+            this.f46230e.m(getString(R.string.emotion_draft_tip));
         }
     }
 
@@ -149,7 +149,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.t0.n2.h.f.a aVar = this.f46202e;
+            c.a.t0.o2.h.f.a aVar = this.f46230e;
             if (aVar != null) {
                 aVar.g(i2);
             }
@@ -161,9 +161,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            registerListener(this.f46203f);
-            c.a.t0.n2.h.f.a aVar = new c.a.t0.n2.h.f.a(getPageContext(), j());
-            this.f46202e = aVar;
+            registerListener(this.f46231f);
+            c.a.t0.o2.h.f.a aVar = new c.a.t0.o2.h.f.a(getPageContext(), j());
+            this.f46230e = aVar;
             return aVar.f();
         }
         return (View) invokeLLL.objValue;
@@ -174,7 +174,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            c.a.t0.n2.h.f.a aVar = this.f46202e;
+            c.a.t0.o2.h.f.a aVar = this.f46230e;
             if (aVar != null) {
                 aVar.h();
             }

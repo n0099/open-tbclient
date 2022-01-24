@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.animated.impl;
 import android.graphics.Rect;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
 import com.facebook.imagepipeline.animated.base.AnimatedImageResult;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface AnimatedDrawableBackendProvider {
     AnimatedDrawableBackend get(AnimatedImageResult animatedImageResult, Rect rect);
 }

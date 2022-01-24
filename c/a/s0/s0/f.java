@@ -16,28 +16,28 @@ public class f extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f13734b;
+    public long f13879b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f13735c;
+    public long f13880c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f13736d;
+    public long f13881d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13737e;
+    public int f13882e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f13738f;
+    public long f13883f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13739g;
+    public int f13884g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f13740h;
+    public b f13885h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Handler f13741i;
+    public final Handler f13886i;
 
     /* loaded from: classes6.dex */
     public class a extends Handler {
@@ -70,9 +70,9 @@ public class f extends g {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.a.f13740h = new b(this.a);
-                this.a.f13740h.setSelfExecute(true);
-                this.a.f13740h.execute(new String[0]);
+                this.a.f13885h = new b(this.a);
+                this.a.f13885h.setSelfExecute(true);
+                this.a.f13885h.execute(new String[0]);
             }
         }
     }
@@ -115,7 +115,7 @@ public class f extends g {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                this.a.f13739g = k.d().a();
+                this.a.f13884g = k.d().a();
                 this.a.e();
                 return Boolean.TRUE;
             }
@@ -136,8 +136,8 @@ public class f extends g {
                 return;
             }
         }
-        this.f13740h = null;
-        this.f13741i = new a(this, Looper.getMainLooper());
+        this.f13885h = null;
+        this.f13886i = new a(this, Looper.getMainLooper());
     }
 
     public final void e() {
@@ -152,7 +152,7 @@ public class f extends g {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f13741i.sendEmptyMessage(0);
+            this.f13886i.sendEmptyMessage(0);
         }
     }
 }

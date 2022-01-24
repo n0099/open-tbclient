@@ -45,31 +45,31 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CyberPlayer f33405b;
+    public CyberPlayer f33433b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Uri f33406c;
+    public Uri f33434c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f33407d;
+    public Map<String, String> f33435d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f33408e;
+    public int f33436e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f33409f;
+    public int f33437f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f33410g;
+    public int f33438g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f33411h;
+    public int f33439h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f33412i;
+    public int f33440i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f33413j;
+    public int f33441j;
     public int k;
     public HashMap<String, String> l;
     public CyberPlayerManager.HttpDNS m;
@@ -148,10 +148,10 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                 return;
             }
         }
-        this.f33409f = 3;
-        this.f33411h = 0;
-        this.f33412i = 0;
-        this.f33413j = 0;
+        this.f33437f = 3;
+        this.f33439h = 0;
+        this.f33440i = 0;
+        this.f33441j = 0;
         this.k = 0;
         this.l = new HashMap<>();
         this.z = 0;
@@ -187,11 +187,11 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
             @Override // com.baidu.cyberplayer.sdk.i.a
             public void a(int i4, int i5) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeII(1048576, this, i4, i5) == null) || this.a.f33405b == null) {
+                if (!(interceptable2 == null || interceptable2.invokeII(1048576, this, i4, i5) == null) || this.a.f33433b == null) {
                     return;
                 }
                 try {
-                    this.a.f33405b.updateDisplaySize(i4, i5);
+                    this.a.f33433b.updateDisplaySize(i4, i5);
                 } catch (Exception unused) {
                 }
             }
@@ -206,13 +206,13 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                         public final /* synthetic */ Buffer a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ int f33415b;
+                        public final /* synthetic */ int f33443b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ int f33416c;
+                        public final /* synthetic */ int f33444c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass1 f33417d;
+                        public final /* synthetic */ AnonymousClass1 f33445d;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -229,10 +229,10 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                                     return;
                                 }
                             }
-                            this.f33417d = this;
+                            this.f33445d = this;
                             this.a = buffer;
-                            this.f33415b = i4;
-                            this.f33416c = i5;
+                            this.f33443b = i4;
+                            this.f33444c = i5;
                         }
 
                         @Override // java.lang.Runnable
@@ -241,15 +241,15 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                             if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.a == null) {
                                 return;
                             }
-                            Bitmap createBitmap = Bitmap.createBitmap(this.f33415b, this.f33416c, Bitmap.Config.ARGB_8888);
+                            Bitmap createBitmap = Bitmap.createBitmap(this.f33443b, this.f33444c, Bitmap.Config.ARGB_8888);
                             createBitmap.copyPixelsFromBuffer(this.a);
                             Bitmap a = o.a(createBitmap);
                             CyberLog.d("CyberVideoView", "onTakeSnapShot rotate bmp finished");
-                            synchronized (this.f33417d.a.y) {
-                                for (int i6 = 0; i6 < this.f33417d.a.y.size(); i6++) {
-                                    ((ICyberVideoView.OnSnapShotCompleteListener) this.f33417d.a.y.get(i6)).onSnapShotComplete(a);
+                            synchronized (this.f33445d.a.y) {
+                                for (int i6 = 0; i6 < this.f33445d.a.y.size(); i6++) {
+                                    ((ICyberVideoView.OnSnapShotCompleteListener) this.f33445d.a.y.get(i6)).onSnapShotComplete(a);
                                 }
-                                this.f33417d.a.y.clear();
+                                this.f33445d.a.y.clear();
                             }
                         }
                     });
@@ -266,7 +266,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                         public final /* synthetic */ long a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass1 f33414b;
+                        public final /* synthetic */ AnonymousClass1 f33442b;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -283,7 +283,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                                     return;
                                 }
                             }
-                            this.f33414b = this;
+                            this.f33442b = this;
                             this.a = j2;
                         }
 
@@ -291,17 +291,17 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                         public void run() {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                if (Build.VERSION.SDK_INT <= 16 && this.f33414b.a.f33405b != null && this.f33414b.a.f33405b.getDecodeMode() == 4) {
-                                    this.f33414b.a.f33405b.sendCommand(1002, 0, this.a, null);
+                                if (Build.VERSION.SDK_INT <= 16 && this.f33442b.a.f33433b != null && this.f33442b.a.f33433b.getDecodeMode() == 4) {
+                                    this.f33442b.a.f33433b.sendCommand(1002, 0, this.a, null);
                                 }
-                                if (this.f33414b.a.f33405b == null || this.f33414b.a.E <= 0) {
+                                if (this.f33442b.a.f33433b == null || this.f33442b.a.E <= 0) {
                                     return;
                                 }
-                                long j3 = this.a - this.f33414b.a.E;
+                                long j3 = this.a - this.f33442b.a.E;
                                 HashMap hashMap = new HashMap();
                                 hashMap.put("type", "20513");
                                 hashMap.put("surface_drawed", "" + j3);
-                                this.f33414b.a.f33405b.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
+                                this.f33442b.a.f33433b.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
                             }
                         }
                     });
@@ -318,15 +318,15 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                     CyberLog.d("CyberVideoView", "onSurfaceReady renderType:" + i4);
                     if (i4 == 0) {
                         if (Build.VERSION.SDK_INT < 16) {
-                            if (this.a.f33405b != null && this.a.v != null && (d3 = this.a.v.d()) != null) {
-                                this.a.f33405b.setSurface(d3);
+                            if (this.a.f33433b != null && this.a.v != null && (d3 = this.a.v.d()) != null) {
+                                this.a.f33433b.setSurface(d3);
                             }
                             return true;
                         }
                         return false;
                     }
                     if (i4 == 1) {
-                        if (this.a.f33405b == null || this.a.v == null) {
+                        if (this.a.f33433b == null || this.a.v == null) {
                             return false;
                         }
                         d2 = this.a.v.d();
@@ -334,7 +334,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                         if (d2 == null) {
                             return false;
                         }
-                    } else if (i4 != 2 || this.a.f33405b == null || this.a.v == null) {
+                    } else if (i4 != 2 || this.a.f33433b == null || this.a.v == null) {
                         return false;
                     } else {
                         d2 = this.a.v.d();
@@ -342,9 +342,9 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                         if (d2 == null) {
                             return false;
                         }
-                        CyberLog.d("CyberVideoView", "onSurfaceReady mCyberPlayer:" + this.a.f33405b);
+                        CyberLog.d("CyberVideoView", "onSurfaceReady mCyberPlayer:" + this.a.f33433b);
                     }
-                    this.a.f33405b.setSurface(d2);
+                    this.a.f33433b.setSurface(d2);
                     return false;
                 }
                 return invokeI.booleanValue;
@@ -378,10 +378,10 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                 return;
             }
         }
-        this.f33409f = 3;
-        this.f33411h = 0;
-        this.f33412i = 0;
-        this.f33413j = 0;
+        this.f33437f = 3;
+        this.f33439h = 0;
+        this.f33440i = 0;
+        this.f33441j = 0;
         this.k = 0;
         this.l = new HashMap<>();
         this.z = 0;
@@ -417,11 +417,11 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
             @Override // com.baidu.cyberplayer.sdk.i.a
             public void a(int i42, int i5) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeII(1048576, this, i42, i5) == null) || this.a.f33405b == null) {
+                if (!(interceptable2 == null || interceptable2.invokeII(1048576, this, i42, i5) == null) || this.a.f33433b == null) {
                     return;
                 }
                 try {
-                    this.a.f33405b.updateDisplaySize(i42, i5);
+                    this.a.f33433b.updateDisplaySize(i42, i5);
                 } catch (Exception unused) {
                 }
             }
@@ -436,13 +436,13 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                         public final /* synthetic */ Buffer a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ int f33415b;
+                        public final /* synthetic */ int f33443b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ int f33416c;
+                        public final /* synthetic */ int f33444c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass1 f33417d;
+                        public final /* synthetic */ AnonymousClass1 f33445d;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -459,10 +459,10 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                                     return;
                                 }
                             }
-                            this.f33417d = this;
+                            this.f33445d = this;
                             this.a = buffer;
-                            this.f33415b = i42;
-                            this.f33416c = i5;
+                            this.f33443b = i42;
+                            this.f33444c = i5;
                         }
 
                         @Override // java.lang.Runnable
@@ -471,15 +471,15 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                             if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.a == null) {
                                 return;
                             }
-                            Bitmap createBitmap = Bitmap.createBitmap(this.f33415b, this.f33416c, Bitmap.Config.ARGB_8888);
+                            Bitmap createBitmap = Bitmap.createBitmap(this.f33443b, this.f33444c, Bitmap.Config.ARGB_8888);
                             createBitmap.copyPixelsFromBuffer(this.a);
                             Bitmap a = o.a(createBitmap);
                             CyberLog.d("CyberVideoView", "onTakeSnapShot rotate bmp finished");
-                            synchronized (this.f33417d.a.y) {
-                                for (int i6 = 0; i6 < this.f33417d.a.y.size(); i6++) {
-                                    ((ICyberVideoView.OnSnapShotCompleteListener) this.f33417d.a.y.get(i6)).onSnapShotComplete(a);
+                            synchronized (this.f33445d.a.y) {
+                                for (int i6 = 0; i6 < this.f33445d.a.y.size(); i6++) {
+                                    ((ICyberVideoView.OnSnapShotCompleteListener) this.f33445d.a.y.get(i6)).onSnapShotComplete(a);
                                 }
-                                this.f33417d.a.y.clear();
+                                this.f33445d.a.y.clear();
                             }
                         }
                     });
@@ -496,7 +496,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                         public final /* synthetic */ long a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass1 f33414b;
+                        public final /* synthetic */ AnonymousClass1 f33442b;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -513,7 +513,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                                     return;
                                 }
                             }
-                            this.f33414b = this;
+                            this.f33442b = this;
                             this.a = j2;
                         }
 
@@ -521,17 +521,17 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                         public void run() {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                if (Build.VERSION.SDK_INT <= 16 && this.f33414b.a.f33405b != null && this.f33414b.a.f33405b.getDecodeMode() == 4) {
-                                    this.f33414b.a.f33405b.sendCommand(1002, 0, this.a, null);
+                                if (Build.VERSION.SDK_INT <= 16 && this.f33442b.a.f33433b != null && this.f33442b.a.f33433b.getDecodeMode() == 4) {
+                                    this.f33442b.a.f33433b.sendCommand(1002, 0, this.a, null);
                                 }
-                                if (this.f33414b.a.f33405b == null || this.f33414b.a.E <= 0) {
+                                if (this.f33442b.a.f33433b == null || this.f33442b.a.E <= 0) {
                                     return;
                                 }
-                                long j3 = this.a - this.f33414b.a.E;
+                                long j3 = this.a - this.f33442b.a.E;
                                 HashMap hashMap = new HashMap();
                                 hashMap.put("type", "20513");
                                 hashMap.put("surface_drawed", "" + j3);
-                                this.f33414b.a.f33405b.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
+                                this.f33442b.a.f33433b.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
                             }
                         }
                     });
@@ -548,15 +548,15 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                     CyberLog.d("CyberVideoView", "onSurfaceReady renderType:" + i42);
                     if (i42 == 0) {
                         if (Build.VERSION.SDK_INT < 16) {
-                            if (this.a.f33405b != null && this.a.v != null && (d3 = this.a.v.d()) != null) {
-                                this.a.f33405b.setSurface(d3);
+                            if (this.a.f33433b != null && this.a.v != null && (d3 = this.a.v.d()) != null) {
+                                this.a.f33433b.setSurface(d3);
                             }
                             return true;
                         }
                         return false;
                     }
                     if (i42 == 1) {
-                        if (this.a.f33405b == null || this.a.v == null) {
+                        if (this.a.f33433b == null || this.a.v == null) {
                             return false;
                         }
                         d2 = this.a.v.d();
@@ -564,7 +564,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                         if (d2 == null) {
                             return false;
                         }
-                    } else if (i42 != 2 || this.a.f33405b == null || this.a.v == null) {
+                    } else if (i42 != 2 || this.a.f33433b == null || this.a.v == null) {
                         return false;
                     } else {
                         d2 = this.a.v.d();
@@ -572,9 +572,9 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                         if (d2 == null) {
                             return false;
                         }
-                        CyberLog.d("CyberVideoView", "onSurfaceReady mCyberPlayer:" + this.a.f33405b);
+                        CyberLog.d("CyberVideoView", "onSurfaceReady mCyberPlayer:" + this.a.f33433b);
                     }
-                    this.a.f33405b.setSurface(d2);
+                    this.a.f33433b.setSurface(d2);
                     return false;
                 }
                 return invokeI.booleanValue;
@@ -609,9 +609,9 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                 setFocusableInTouchMode(true);
                 requestFocus();
             }
-            this.f33411h = 0;
-            this.f33412i = 0;
-            this.f33413j = 0;
+            this.f33439h = 0;
+            this.f33440i = 0;
+            this.f33441j = 0;
             this.k = 0;
             int i2 = this.w;
             if (i2 != 0) {
@@ -665,59 +665,59 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.f33406c == null) {
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.f33434c == null) {
             return;
         }
         this.E = System.currentTimeMillis();
         l.b();
         d();
         try {
-            if (this.f33405b == null) {
-                this.f33405b = new CyberPlayer(this.z, this.m, this.A);
+            if (this.f33433b == null) {
+                this.f33433b = new CyberPlayer(this.z, this.m, this.A);
             }
-            this.f33405b.setOnPreparedListener(this);
-            this.f33405b.setOnCompletionListener(this);
-            this.f33405b.setOnVideoSizeChangedListener(this);
-            this.f33405b.setOnSeekCompleteListener(this);
-            this.f33405b.setOnBufferingUpdateListener(this);
-            this.f33405b.setOnErrorListener(this);
-            this.f33405b.setOnInfoListener(this);
-            this.f33405b.setOnMediaSourceChangedListener(this);
+            this.f33433b.setOnPreparedListener(this);
+            this.f33433b.setOnCompletionListener(this);
+            this.f33433b.setOnVideoSizeChangedListener(this);
+            this.f33433b.setOnSeekCompleteListener(this);
+            this.f33433b.setOnBufferingUpdateListener(this);
+            this.f33433b.setOnErrorListener(this);
+            this.f33433b.setOnInfoListener(this);
+            this.f33433b.setOnMediaSourceChangedListener(this);
             if (this.G != null) {
-                this.f33405b.setPlayJson(this.G);
+                this.f33433b.setPlayJson(this.G);
             }
             if (this.H != null) {
-                this.f33405b.setClarityInfo(this.H);
+                this.f33433b.setClarityInfo(this.H);
             }
             if (this.l != null) {
                 for (String str : this.l.keySet()) {
-                    this.f33405b.setOption(str, this.l.get(str));
+                    this.f33433b.setOption(str, this.l.get(str));
                 }
             }
-            CyberPlayer cyberPlayer = this.f33405b;
+            CyberPlayer cyberPlayer = this.f33433b;
             cyberPlayer.setOption(CyberPlayerManager.OPT_CLIENT_SET_URL_TIME, "" + this.E);
             if (this.F) {
-                this.f33405b.setOption("mediacodec-config-need-retry", 1L);
+                this.f33433b.setOption("mediacodec-config-need-retry", 1L);
             }
-            this.f33405b.setDataSource(this.a, this.f33406c, this.f33407d);
-            this.f33405b.prepareAsync();
-            this.f33411h = 1;
+            this.f33433b.setDataSource(this.a, this.f33434c, this.f33435d);
+            this.f33433b.prepareAsync();
+            this.f33439h = 1;
             if (this.v != null) {
                 Surface d2 = this.v.d();
-                CyberLog.d("CyberVideoView", "openVideo s:" + d2 + " mCyberPlayer:" + this.f33405b);
+                CyberLog.d("CyberVideoView", "openVideo s:" + d2 + " mCyberPlayer:" + this.f33433b);
                 if (d2 != null) {
-                    this.f33405b.setSurface(d2);
+                    this.f33433b.setSurface(d2);
                 }
             }
-            this.f33405b.setScreenOnWhilePlaying(true);
+            this.f33433b.setScreenOnWhilePlaying(true);
             if (this.B) {
-                this.f33405b.muteOrUnmuteAudio(this.B);
+                this.f33433b.muteOrUnmuteAudio(this.B);
             }
             if (this.D != 1.0f) {
-                this.f33405b.setSpeed(this.D);
+                this.f33433b.setSpeed(this.D);
             }
             if (this.C) {
-                this.f33405b.setLooping(this.C);
+                this.f33433b.setLooping(this.C);
             }
             c();
         } catch (Exception e2) {
@@ -727,16 +727,16 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     }
 
     private void c() {
-        ArrayList<a.C1798a> b2;
+        ArrayList<a.C1799a> b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.f33405b == null || (b2 = this.x.b()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.f33433b == null || (b2 = this.x.b()) == null) {
             return;
         }
         int size = b2.size();
         for (int i2 = 0; i2 < size; i2++) {
-            a.C1798a c1798a = b2.get(i2);
-            if (c1798a != null && c1798a.a() != null) {
-                this.f33405b.setExternalInfo(c1798a.a(), c1798a.b());
+            a.C1799a c1799a = b2.get(i2);
+            if (c1799a != null && c1799a.a() != null) {
+                this.f33433b.setExternalInfo(c1799a.a(), c1799a.b());
             }
         }
     }
@@ -745,8 +745,8 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             this.F = false;
-            if (this.f33405b != null) {
-                if (this.w == 1 && CyberCfgManager.getInstance().a("textureview_player_reuse", false) && !a(this.f33405b)) {
+            if (this.f33433b != null) {
+                if (this.w == 1 && CyberCfgManager.getInstance().a("textureview_player_reuse", false) && !a(this.f33433b)) {
                     e();
                     CyberLog.i("CyberVideoView", "handlerLastPlay called reset last player");
                 } else {
@@ -764,35 +764,35 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     private void e() {
         CyberPlayer cyberPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || (cyberPlayer = this.f33405b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || (cyberPlayer = this.f33433b) == null) {
             return;
         }
-        if (this.f33411h != -1) {
+        if (this.f33439h != -1) {
             cyberPlayer.reset();
         } else {
             cyberPlayer.release();
-            this.f33405b = null;
+            this.f33433b = null;
         }
-        this.f33411h = 0;
-        this.f33412i = 0;
-        this.f33413j = 0;
+        this.f33439h = 0;
+        this.f33440i = 0;
+        this.f33441j = 0;
         this.k = 0;
     }
 
     private void f() {
         CyberPlayer cyberPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || (cyberPlayer = this.f33405b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || (cyberPlayer = this.f33433b) == null) {
             return;
         }
         if (cyberPlayer.getDecodeMode() == 4) {
-            this.f33405b.reset();
+            this.f33433b.reset();
         }
-        this.f33405b.release();
-        this.f33405b = null;
-        this.f33411h = 0;
-        this.f33412i = 0;
-        this.f33413j = 0;
+        this.f33433b.release();
+        this.f33433b = null;
+        this.f33439h = 0;
+        this.f33440i = 0;
+        this.f33441j = 0;
         this.k = 0;
     }
 
@@ -809,33 +809,33 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) ? (this.f33405b == null || (i2 = this.f33411h) == -1 || i2 == 0 || i2 == 1) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) ? (this.f33433b == null || (i2 = this.f33439h) == -1 || i2 == 0 || i2 == 1) ? false : true : invokeV.booleanValue;
     }
 
     private boolean i() {
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) ? (this.f33405b == null || (i2 = this.f33411h) == 0 || i2 == 1) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) ? (this.f33433b == null || (i2 = this.f33439h) == 0 || i2 == 1) ? false : true : invokeV.booleanValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void changeProxyDynamic(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f33405b != null && TextUtils.isEmpty(o.c())) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f33433b != null && TextUtils.isEmpty(o.c())) {
             HashMap<String, String> hashMap = this.l;
             String str2 = hashMap != null ? hashMap.get(CyberPlayerManager.OPT_HTTP_PROXY) : null;
             if (TextUtils.isEmpty(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return;
                 }
-                this.f33405b.changeProxyDynamic(null, false);
+                this.f33433b.changeProxyDynamic(null, false);
             } else if (str.equals(str2)) {
                 return;
             } else {
-                this.f33405b.changeProxyDynamic(str, true);
+                this.f33433b.changeProxyDynamic(str, true);
             }
-            this.f33405b.seekTo(getCurrentPosition() - 500);
+            this.f33433b.seekTo(getCurrentPosition() - 500);
             HashMap<String, String> hashMap2 = this.l;
             if (hashMap2 != null) {
                 hashMap2.put(CyberPlayerManager.OPT_HTTP_PROXY, str);
@@ -864,10 +864,10 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                     this.y.clear();
                 }
             }
-            Map<String, String> map = this.f33407d;
+            Map<String, String> map = this.f33435d;
             if (map != null) {
                 map.clear();
-                this.f33407d = null;
+                this.f33435d = null;
             }
             this.m = null;
             this.n = null;
@@ -902,7 +902,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (i()) {
-                return this.f33405b.getCurrentPosition();
+                return this.f33433b.getCurrentPosition();
             }
             return 0;
         }
@@ -914,7 +914,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (i()) {
-                return this.f33405b.getCurrentPositionSync();
+                return this.f33433b.getCurrentPositionSync();
             }
             return 0;
         }
@@ -924,14 +924,14 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public CyberPlayer getCyberPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f33405b : (CyberPlayer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f33433b : (CyberPlayer) invokeV.objValue;
     }
 
     public int getDecodeMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            CyberPlayer cyberPlayer = this.f33405b;
+            CyberPlayer cyberPlayer = this.f33433b;
             return cyberPlayer != null ? cyberPlayer.getDecodeMode() : this.z;
         }
         return invokeV.intValue;
@@ -941,8 +941,8 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            CyberPlayer cyberPlayer = this.f33405b;
-            if (cyberPlayer == null || this.f33411h == 0) {
+            CyberPlayer cyberPlayer = this.f33433b;
+            if (cyberPlayer == null || this.f33439h == 0) {
                 return -1L;
             }
             return cyberPlayer.getDownloadSpeed();
@@ -956,7 +956,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (i()) {
-                return this.f33405b.getDuration();
+                return this.f33433b.getDuration();
             }
             return -1;
         }
@@ -969,7 +969,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (i()) {
-                return this.f33405b.getPlayedTime();
+                return this.f33433b.getPlayedTime();
             }
             return -1L;
         }
@@ -993,7 +993,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public int getVideoWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f33413j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f33441j : invokeV.intValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
@@ -1007,7 +1007,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? h() && this.f33411h == 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? h() && this.f33439h == 3 : invokeV.booleanValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
@@ -1016,7 +1016,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.B = z;
             CyberLog.i("CyberVideoView", "muteOrUnmuteAudio flag:" + z);
-            CyberPlayer cyberPlayer = this.f33405b;
+            CyberPlayer cyberPlayer = this.f33433b;
             if (cyberPlayer != null) {
                 cyberPlayer.muteOrUnmuteAudio(z);
             } else {
@@ -1039,8 +1039,8 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public void onCompletion() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f33411h = 5;
-            this.f33412i = 5;
+            this.f33439h = 5;
+            this.f33440i = 5;
             CyberPlayerManager.OnCompletionListener onCompletionListener = this.p;
             if (onCompletionListener != null) {
                 onCompletionListener.onCompletion();
@@ -1053,8 +1053,8 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048594, this, i2, i3, obj)) == null) {
-            this.f33411h = -1;
-            this.f33412i = -1;
+            this.f33439h = -1;
+            this.f33440i = -1;
             CyberPlayerManager.OnErrorListener onErrorListener = this.s;
             if (onErrorListener != null) {
                 return onErrorListener.onError(i2, i3, obj);
@@ -1071,7 +1071,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         i iVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048595, this, i2, i3, obj)) == null) {
-            if (i2 == 10001 && (cyberPlayer = this.f33405b) != null && cyberPlayer.getDecodeMode() != 4 && (iVar = this.v) != null) {
+            if (i2 == 10001 && (cyberPlayer = this.f33433b) != null && cyberPlayer.getDecodeMode() != 4 && (iVar = this.v) != null) {
                 iVar.setRawFrameRotation(i3);
             }
             CyberPlayerManager.OnInfoListener onInfoListener = this.t;
@@ -1095,25 +1095,25 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public void onPrepared() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f33411h = 2;
+            this.f33439h = 2;
             CyberPlayerManager.OnPreparedListener onPreparedListener = this.n;
             if (onPreparedListener != null) {
                 onPreparedListener.onPrepared();
             }
-            int i2 = this.f33408e;
+            int i2 = this.f33436e;
             if (i2 > 0) {
-                seekTo(i2, this.f33409f);
+                seekTo(i2, this.f33437f);
             }
-            this.f33408e = -1;
-            int i3 = this.f33410g;
+            this.f33436e = -1;
+            int i3 = this.f33438g;
             if (i3 != Integer.MIN_VALUE) {
                 switchMediaSource(i3);
-                this.f33410g = Integer.MIN_VALUE;
+                this.f33438g = Integer.MIN_VALUE;
             }
-            CyberLog.i("CyberVideoView", "onPrepared mTargetState::" + this.f33412i);
-            if (this.f33412i == 3 && this.f33411h == 2) {
+            CyberLog.i("CyberVideoView", "onPrepared mTargetState::" + this.f33440i);
+            if (this.f33440i == 3 && this.f33439h == 2) {
                 start();
-            } else if (this.f33412i == 4 && this.f33411h == 2) {
+            } else if (this.f33440i == 4 && this.f33439h == 2) {
                 pause();
             }
         }
@@ -1133,12 +1133,12 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public void onVideoSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048599, this, i2, i3, i4, i5) == null) {
-            this.f33413j = i2;
+            this.f33441j = i2;
             this.k = i3;
             CyberLog.d("CyberVideoView", "onVideoSizeChanged num:" + i4 + " den:" + i5 + " width:" + i2 + " height:" + i3);
             i iVar = this.v;
             if (iVar != null) {
-                iVar.a(this.f33413j, this.k, i4, i5);
+                iVar.a(this.f33441j, this.k, i4, i5);
             }
             CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener = this.o;
             if (onVideoSizeChangedListener != null) {
@@ -1152,15 +1152,15 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             if (h()) {
-                this.f33405b.pause();
-                this.f33411h = 4;
+                this.f33433b.pause();
+                this.f33439h = 4;
             } else {
-                CyberPlayer cyberPlayer = this.f33405b;
+                CyberPlayer cyberPlayer = this.f33433b;
                 if (cyberPlayer != null) {
                     cyberPlayer.sendCommand(1000, 0, 0L, null);
                 }
             }
-            this.f33412i = 4;
+            this.f33440i = 4;
         }
     }
 
@@ -1173,23 +1173,23 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
             this.A = true;
             this.C = false;
             this.D = 1.0f;
-            this.f33408e = -1;
-            this.f33410g = Integer.MIN_VALUE;
-            this.f33406c = null;
-            this.f33407d = null;
+            this.f33436e = -1;
+            this.f33438g = Integer.MIN_VALUE;
+            this.f33434c = null;
+            this.f33435d = null;
             this.m = null;
             this.G = null;
             this.H = null;
             this.z = 0;
-            if (this.f33411h == -1 && (cyberPlayer = this.f33405b) != null) {
+            if (this.f33439h == -1 && (cyberPlayer = this.f33433b) != null) {
                 cyberPlayer.release();
-                this.f33405b = null;
+                this.f33433b = null;
             }
-            this.f33411h = 0;
-            this.f33412i = 0;
-            this.f33413j = 0;
+            this.f33439h = 0;
+            this.f33440i = 0;
+            this.f33441j = 0;
             this.k = 0;
-            CyberPlayer cyberPlayer2 = this.f33405b;
+            CyberPlayer cyberPlayer2 = this.f33433b;
             if (cyberPlayer2 != null) {
                 cyberPlayer2.reset();
             }
@@ -1211,28 +1211,28 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void seekTo(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048602, this, i2) == null) || this.f33405b == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048602, this, i2) == null) || this.f33433b == null) {
             return;
         }
         if (h()) {
-            this.f33405b.seekTo(i2);
+            this.f33433b.seekTo(i2);
         } else {
-            this.f33408e = i2;
+            this.f33436e = i2;
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
     public void seekTo(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048603, this, i2, i3) == null) || this.f33405b == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048603, this, i2, i3) == null) || this.f33433b == null) {
             return;
         }
         if (h()) {
-            this.f33405b.seekTo(i2, i3);
+            this.f33433b.seekTo(i2, i3);
             return;
         }
-        this.f33409f = i3;
-        this.f33408e = i2;
+        this.f33437f = i3;
+        this.f33436e = i2;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
@@ -1243,7 +1243,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                 CyberLog.w("CyberVideoView", "setClarityInfo is null");
                 return;
             }
-            CyberPlayer cyberPlayer = this.f33405b;
+            CyberPlayer cyberPlayer = this.f33433b;
             if (cyberPlayer != null) {
                 cyberPlayer.setClarityInfo(str);
             } else {
@@ -1270,7 +1270,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         if (!(interceptable == null || interceptable.invokeLL(1048606, this, str, obj) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        CyberPlayer cyberPlayer = this.f33405b;
+        CyberPlayer cyberPlayer = this.f33433b;
         if (cyberPlayer != null) {
             cyberPlayer.setExternalInfo(str, obj);
         } else {
@@ -1290,7 +1290,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
             this.C = z;
-            CyberPlayer cyberPlayer = this.f33405b;
+            CyberPlayer cyberPlayer = this.f33433b;
             if (cyberPlayer != null) {
                 cyberPlayer.setLooping(z);
             }
@@ -1365,7 +1365,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public void setOption(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048617, this, str, str2) == null) {
-            if (this.f33411h != 0) {
+            if (this.f33439h != 0) {
                 CyberLog.i("CyberVideoView", "Do not set option when the video player playing");
                 return;
             }
@@ -1373,9 +1373,9 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
             if (hashMap != null) {
                 hashMap.put(str, str2);
             }
-            if (this.f33405b != null) {
+            if (this.f33433b != null) {
                 if (str == null || !str.equals(CyberPlayerManager.OPT_HTTP_PROXY) || TextUtils.isEmpty(o.c())) {
-                    this.f33405b.setOption(str, str2);
+                    this.f33433b.setOption(str, str2);
                 }
             }
         }
@@ -1389,7 +1389,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                 CyberLog.w("CyberVideoView", "setPlayJson is null");
                 return;
             }
-            CyberPlayer cyberPlayer = this.f33405b;
+            CyberPlayer cyberPlayer = this.f33433b;
             if (cyberPlayer != null) {
                 cyberPlayer.setPlayJson(str);
             } else {
@@ -1412,7 +1412,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         if (interceptable == null || interceptable.invokeF(1048620, this, f2) == null) {
             CyberLog.i("CyberVideoView", "setSpeed()");
             this.D = f2;
-            CyberPlayer cyberPlayer = this.f33405b;
+            CyberPlayer cyberPlayer = this.f33433b;
             if (cyberPlayer != null) {
                 cyberPlayer.setSpeed(f2);
             } else {
@@ -1460,9 +1460,9 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public void setVideoURI(Uri uri, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048625, this, uri, map) == null) {
-            this.f33406c = uri;
-            this.f33407d = map;
-            this.f33408e = -1;
+            this.f33434c = uri;
+            this.f33435d = map;
+            this.f33436e = -1;
             b();
             requestLayout();
             invalidate();
@@ -1482,17 +1482,17 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
-            CyberLog.i("CyberVideoView", "start mCyberPlayer:" + this.f33405b + " mCurrentState:" + this.f33411h);
+            CyberLog.i("CyberVideoView", "start mCyberPlayer:" + this.f33433b + " mCurrentState:" + this.f33439h);
             if (h()) {
-                this.f33405b.start();
-                this.f33411h = 3;
+                this.f33433b.start();
+                this.f33439h = 3;
             } else {
-                CyberPlayer cyberPlayer = this.f33405b;
+                CyberPlayer cyberPlayer = this.f33433b;
                 if (cyberPlayer != null) {
                     cyberPlayer.sendCommand(1000, 1, 0L, null);
                 }
             }
-            this.f33412i = 3;
+            this.f33440i = 3;
         }
     }
 
@@ -1500,13 +1500,13 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public void stopPlayback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
-            CyberPlayer cyberPlayer = this.f33405b;
+            CyberPlayer cyberPlayer = this.f33433b;
             if (cyberPlayer != null) {
                 cyberPlayer.stop();
-                this.f33405b.release();
-                this.f33405b = null;
-                this.f33411h = 0;
-                this.f33412i = 0;
+                this.f33433b.release();
+                this.f33433b = null;
+                this.f33439h = 0;
+                this.f33440i = 0;
             }
             HashMap<String, String> hashMap = this.l;
             if (hashMap != null) {
@@ -1531,9 +1531,9 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
             if (h()) {
-                this.f33405b.switchMediaSource(i2);
+                this.f33433b.switchMediaSource(i2);
             } else {
-                this.f33410g = i2;
+                this.f33438g = i2;
             }
         }
     }

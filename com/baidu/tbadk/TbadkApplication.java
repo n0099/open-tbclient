@@ -9,7 +9,7 @@ import android.net.Uri;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.c;
-import c.a.s0.s.h0.b;
+import c.a.s0.s.i0.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -208,7 +208,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
     }
 
-    @Override // com.baidu.tbadk.core.TbadkCoreApplication, android.app.Application
+    @Override // com.baidu.tbadk.core.TbadkCoreApplication, com.baidu.adp.base.BdBaseApplication, android.app.Application
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {

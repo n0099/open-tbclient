@@ -24,7 +24,7 @@ public final class e {
     public static Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3720b;
+    public static String f3861b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public final class e {
                 return;
             }
         }
-        f3720b = a();
+        f3861b = a();
         a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
     }
 
@@ -171,13 +171,13 @@ public final class e {
     public static String k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? b(f3720b, str.getBytes()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? b(f3861b, str.getBytes()) : (String) invokeL.objValue;
     }
 
     public static String l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? f(f3720b, Base64.decode(str, 0)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? f(f3861b, Base64.decode(str, 0)) : (String) invokeL.objValue;
     }
 
     public static Key m(String str) {

@@ -64,13 +64,13 @@ public class a extends c.a.c0.k0.a0.a {
     public final void g(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, logType, str, adBaseModel) == null) || adBaseModel == null || (iVar = adBaseModel.f37016d) == null || TextUtils.isEmpty(iVar.f2233b)) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, logType, str, adBaseModel) == null) || adBaseModel == null || (iVar = adBaseModel.f37044d) == null || TextUtils.isEmpty(iVar.f2233b)) {
             return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
         clogBuilder.r(logType);
         clogBuilder.g(str);
-        clogBuilder.m(adBaseModel.f37016d.f2233b);
+        clogBuilder.m(adBaseModel.f37044d.f2233b);
         c.a.c0.a0.a.b(clogBuilder);
     }
 

@@ -2,7 +2,7 @@ package com.baidu.tieba.hottopic.holder;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.t0.q1.e;
+import c.a.t0.r1.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

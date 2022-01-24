@@ -11,7 +11,7 @@ public interface c {
     public static final ServiceReference a = new ServiceReference("nad.core", "splash.host");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f3736b = new a();
+    public static final c f3877b = new a();
 
     /* loaded from: classes.dex */
     public static class a implements c {

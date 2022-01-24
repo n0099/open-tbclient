@@ -28,24 +28,24 @@ public class CameraSurfaceView extends SurfaceView {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f37605e = "CameraPreview";
+    public static final String f37633e = "CameraPreview";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f37606f = 480;
+    public static final int f37634f = 480;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f37607g = 640;
+    public static final int f37635g = 640;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f37608b;
+    public a f37636b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f37609c;
+    public Point f37637c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Path f37610d;
+    public Path f37638d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CameraSurfaceView(Context context) {
@@ -71,8 +71,8 @@ public class CameraSurfaceView extends SurfaceView {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            this.f37610d = new Path();
-            this.f37609c = new Point();
+            this.f37638d = new Path();
+            this.f37637c = new Point();
         }
     }
 
@@ -107,9 +107,9 @@ public class CameraSurfaceView extends SurfaceView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                canvas.clipPath(this.f37610d);
+                canvas.clipPath(this.f37638d);
             } else {
-                canvas.clipPath(this.f37610d, Region.Op.REPLACE);
+                canvas.clipPath(this.f37638d, Region.Op.REPLACE);
             }
             super.draw(canvas);
         }
@@ -147,15 +147,15 @@ public class CameraSurfaceView extends SurfaceView {
             super.onMeasure(i2, i3);
             int size = View.MeasureSpec.getSize(i2);
             int size2 = View.MeasureSpec.getSize(i3);
-            Point point = this.f37609c;
+            Point point = this.f37637c;
             int i4 = size >> 1;
             point.x = i4;
             int i5 = size2 >> 1;
             point.y = i5;
             int min = Math.min(i4, i5);
-            this.f37610d.reset();
-            Path path = this.f37610d;
-            Point point2 = this.f37609c;
+            this.f37638d.reset();
+            Path path = this.f37638d;
+            Point point2 = this.f37637c;
             path.addCircle(point2.x, point2.y, min, Path.Direction.CCW);
             setMeasuredDimension(size, size2);
         }
@@ -168,7 +168,7 @@ public class CameraSurfaceView extends SurfaceView {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f37611b;
+        public int f37639b;
 
         public a(int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -186,14 +186,14 @@ public class CameraSurfaceView extends SurfaceView {
                 }
             }
             this.a = i2;
-            this.f37611b = i3;
+            this.f37639b = i3;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "CameraSize{width=" + this.a + ", height=" + this.f37611b + ExtendedMessageFormat.END_FE;
+                return "CameraSize{width=" + this.a + ", height=" + this.f37639b + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -214,7 +214,7 @@ public class CameraSurfaceView extends SurfaceView {
                 }
             }
             this.a = size.width;
-            this.f37611b = size.height;
+            this.f37639b = size.height;
         }
     }
 
@@ -244,32 +244,32 @@ public class CameraSurfaceView extends SurfaceView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parameters)) == null) {
-            a aVar = this.f37608b;
+            a aVar = this.f37636b;
             if (aVar != null) {
                 return aVar;
             }
             List<a> b2 = b(parameters);
-            this.f37608b = new a(640, 480);
+            this.f37636b = new a(640, 480);
             if (b2 != null && b2.size() != 0) {
                 float f2 = 2.0f;
                 float f3 = 1.0f;
                 for (a aVar2 : b2) {
                     ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                    float f4 = aVar2.f37611b;
+                    float f4 = aVar2.f37639b;
                     float f5 = f4 / layoutParams.width;
                     float f6 = aVar2.a / f4;
                     if (f6 >= 1.0f && f6 <= f2 && f5 >= f3) {
-                        this.f37608b = aVar2;
+                        this.f37636b = aVar2;
                         f3 = f5;
                         f2 = f6;
                     }
                 }
-                if (this.f37608b == null) {
-                    this.f37608b = new a(640, 480);
+                if (this.f37636b == null) {
+                    this.f37636b = new a(640, 480);
                 }
-                return this.f37608b;
+                return this.f37636b;
             }
-            return this.f37608b;
+            return this.f37636b;
         }
         return (a) invokeL.objValue;
     }

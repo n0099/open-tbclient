@@ -2,8 +2,8 @@ package com.baidu.tieba.pb.pb.godreply;
 
 import c.a.d.a.f;
 import c.a.d.n.e.n;
-import c.a.t0.s2.r.w;
-import c.a.t0.s2.u.f.d0;
+import c.a.t0.t2.r.w;
+import c.a.t0.t2.u.f.e0;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -22,25 +22,25 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PbModel f46421e;
+    public PbModel f46449e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f46422f;
+    public boolean f46450f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f46423g;
+    public int f46451g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46424h;
+    public int f46452h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d0.b f46425i;
+    public e0.b f46453i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final d0.b f46426j;
+    public final e0.b f46454j;
 
     /* loaded from: classes12.dex */
-    public class a implements d0.b {
+    public class a implements e0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreGodReplyModel a;
@@ -63,24 +63,24 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
             this.a = moreGodReplyModel;
         }
 
-        @Override // c.a.t0.s2.u.f.d0.b
+        @Override // c.a.t0.t2.u.f.e0.b
         public void a(int i2, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, str2) == null) {
-                this.a.f46422f = false;
-                if (this.a.f46425i != null) {
-                    this.a.f46425i.a(i2, str, str2);
+                this.a.f46450f = false;
+                if (this.a.f46453i != null) {
+                    this.a.f46453i.a(i2, str, str2);
                 }
             }
         }
 
-        @Override // c.a.t0.s2.u.f.d0.b
+        @Override // c.a.t0.t2.u.f.e0.b
         public void onSuccess(List<PostData> list) {
             w T;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                this.a.f46422f = false;
-                if (this.a.f46421e != null && this.a.f46421e.R0() != null && (T = this.a.f46421e.R0().T()) != null) {
+                this.a.f46450f = false;
+                if (this.a.f46449e != null && this.a.f46449e.R0() != null && (T = this.a.f46449e.R0().T()) != null) {
                     List<PostData> list2 = T.a;
                     int size = list2.size();
                     if (!ListUtils.isEmpty(list)) {
@@ -90,14 +90,14 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
                             }
                         }
                     }
-                    this.a.f46421e.Z1(this.a.f46421e.R0(), size);
+                    this.a.f46449e.Z1(this.a.f46449e.R0(), size);
                 }
-                if (this.a.f46423g > 0) {
+                if (this.a.f46451g > 0) {
                     MoreGodReplyModel moreGodReplyModel = this.a;
-                    moreGodReplyModel.f46424h = moreGodReplyModel.f46423g;
+                    moreGodReplyModel.f46452h = moreGodReplyModel.f46451g;
                 }
-                if (this.a.f46425i != null) {
-                    this.a.f46425i.onSuccess(list);
+                if (this.a.f46453i != null) {
+                    this.a.f46453i.onSuccess(list);
                 }
             }
         }
@@ -121,17 +121,17 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
                 return;
             }
         }
-        this.f46422f = false;
-        this.f46423g = -1;
-        this.f46424h = -1;
-        this.f46426j = new a(this);
+        this.f46450f = false;
+        this.f46451g = -1;
+        this.f46452h = -1;
+        this.f46454j = new a(this);
         if (pbModel == null) {
             return;
         }
-        this.f46421e = pbModel;
-        d0 N0 = pbModel.N0();
+        this.f46449e = pbModel;
+        e0 N0 = pbModel.N0();
         if (N0 != null) {
-            N0.f(this.f46426j);
+            N0.f(this.f46454j);
         }
     }
 
@@ -161,12 +161,12 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PbModel pbModel = this.f46421e;
+            PbModel pbModel = this.f46449e;
             ArrayList arrayList = null;
             if (pbModel == null) {
                 return null;
             }
-            c.a.t0.s2.r.f R0 = pbModel.R0();
+            c.a.t0.t2.r.f R0 = pbModel.R0();
             if (R0 != null && R0.T() != null && !ListUtils.isEmpty(R0.T().a)) {
                 w T = R0.T();
                 arrayList = new ArrayList();
@@ -190,23 +190,23 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
     public PbModel E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46421e : (PbModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46449e : (PbModel) invokeV.objValue;
     }
 
     public boolean F() {
         InterceptResult invokeV;
-        c.a.t0.s2.r.f R0;
+        c.a.t0.t2.r.f R0;
         w T;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            PbModel pbModel = this.f46421e;
+            PbModel pbModel = this.f46449e;
             if (pbModel == null || (R0 = pbModel.R0()) == null || (T = R0.T()) == null) {
                 return false;
             }
-            if (this.f46424h < 0) {
-                this.f46424h = T.a();
+            if (this.f46452h < 0) {
+                this.f46452h = T.a();
             }
-            return T.f22463b.size() > this.f46424h && T.a.size() < 100;
+            return T.f22742b.size() > this.f46452h && T.a.size() < 100;
         }
         return invokeV.booleanValue;
     }
@@ -214,7 +214,7 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
     public boolean G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46422f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46450f : invokeV.booleanValue;
     }
 
     public boolean H() {
@@ -222,33 +222,33 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
         w T;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.a.t0.s2.r.f R0 = this.f46421e.R0();
+            c.a.t0.t2.r.f R0 = this.f46449e.R0();
             if (R0 == null || (T = R0.T()) == null) {
                 return false;
             }
-            if (this.f46424h < 0) {
-                this.f46424h = T.a();
+            if (this.f46452h < 0) {
+                this.f46452h = T.a();
             }
-            List<Long> list = T.f22463b;
+            List<Long> list = T.f22742b;
             int size = list.size();
-            int i2 = this.f46424h;
+            int i2 = this.f46452h;
             if (size <= i2 || T.a.size() >= 100) {
                 return false;
             }
             int min = Math.min(100, Math.min(i2 + 20, size));
-            this.f46423g = min;
-            this.f46422f = true;
-            this.f46421e.N0().c(list.subList(i2, min));
+            this.f46451g = min;
+            this.f46450f = true;
+            this.f46449e.N0().c(list.subList(i2, min));
             String str = "load from " + i2 + " to " + min;
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public void I(d0.b bVar) {
+    public void I(e0.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f46425i = bVar;
+            this.f46453i = bVar;
         }
     }
 
@@ -257,7 +257,7 @@ public class MoreGodReplyModel extends BdBaseModel<f> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            this.f46422f = false;
+            this.f46450f = false;
             return false;
         }
         return invokeV.booleanValue;

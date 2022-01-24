@@ -17,16 +17,16 @@ public class d {
     public c.a.d.a.f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<c.a.d.n.e.a> f14742b;
+    public final List<c.a.d.n.e.a> f14882b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeMultiColumnListView f14743c;
+    public BdTypeMultiColumnListView f14883c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f14744d;
+    public e f14884d;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f14745e;
+    public h f14885e;
 
     public d(c.a.d.a.f fVar, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
         Interceptable interceptable = $ic;
@@ -43,31 +43,31 @@ public class d {
                 return;
             }
         }
-        this.f14742b = new ArrayList();
+        this.f14882b = new ArrayList();
         this.a = fVar;
-        this.f14743c = bdTypeMultiColumnListView;
+        this.f14883c = bdTypeMultiColumnListView;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f14744d = new e((TbPageContext) this.a, c.a.t0.a0.g.b.c.f14754f);
-            this.f14745e = new h((TbPageContext) this.a, c.a.t0.a0.g.b.c.f14755g);
-            this.f14742b.add(this.f14744d);
-            this.f14742b.add(this.f14745e);
-            this.f14743c.addAdapters(this.f14742b);
+            this.f14884d = new e((TbPageContext) this.a, c.a.t0.a0.g.b.c.f14894f);
+            this.f14885e = new h((TbPageContext) this.a, c.a.t0.a0.g.b.c.f14895g);
+            this.f14882b.add(this.f14884d);
+            this.f14882b.add(this.f14885e);
+            this.f14883c.addAdapters(this.f14882b);
         }
     }
 
     public void b(c.a.t0.a0.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            e eVar2 = this.f14744d;
+            e eVar2 = this.f14884d;
             if (eVar2 != null) {
                 eVar2.b0(eVar);
             }
-            h hVar = this.f14745e;
+            h hVar = this.f14885e;
             if (hVar != null) {
                 hVar.b0(eVar);
             }
@@ -77,7 +77,7 @@ public class d {
     public void c(List<n> list) {
         BdTypeMultiColumnListView bdTypeMultiColumnListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeMultiColumnListView = this.f14743c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeMultiColumnListView = this.f14883c) == null) {
             return;
         }
         bdTypeMultiColumnListView.setData(list);

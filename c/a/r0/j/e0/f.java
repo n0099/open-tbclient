@@ -19,17 +19,17 @@ public class f extends EventTargetImpl implements c.a.y.c.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f10953h;
+    public static final boolean f11095h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f10954e;
+    public int f11096e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f10955f;
+    public c f11097f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f10956g;
+    public String f11098g;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class f extends EventTargetImpl implements c.a.y.c.c {
                 return;
             }
         }
-        f10953h = k.a;
+        f11095h = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,8 +65,8 @@ public class f extends EventTargetImpl implements c.a.y.c.c {
                 return;
             }
         }
-        this.f10954e = -1;
-        this.f10955f = new c();
+        this.f11096e = -1;
+        this.f11097f = new c();
         g.a().b().s(this);
     }
 
@@ -74,7 +74,7 @@ public class f extends EventTargetImpl implements c.a.y.c.c {
     public void onError(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            if (f10953h) {
+            if (f11095h) {
                 String str = "onError:" + i2;
             }
             x("error", new b("internal error"));
@@ -85,9 +85,9 @@ public class f extends EventTargetImpl implements c.a.y.c.c {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            x("pause", this.f10955f);
+            x("pause", this.f11097f);
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-            eVar.f7977b = "pause";
+            eVar.f8119b = "pause";
             n.h(eVar);
         }
     }
@@ -96,9 +96,9 @@ public class f extends EventTargetImpl implements c.a.y.c.c {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            x("resume", this.f10955f);
+            x("resume", this.f11097f);
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-            eVar.f7977b = "resume";
+            eVar.f8119b = "resume";
             n.h(eVar);
         }
     }
@@ -107,10 +107,10 @@ public class f extends EventTargetImpl implements c.a.y.c.c {
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i2 = this.f10954e;
-            x("start", i2 == -1 ? this.f10955f : new d(i2));
+            int i2 = this.f11096e;
+            x("start", i2 == -1 ? this.f11097f : new d(i2));
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-            eVar.f7977b = "start";
+            eVar.f8119b = "start";
             n.h(eVar);
         }
     }
@@ -119,12 +119,12 @@ public class f extends EventTargetImpl implements c.a.y.c.c {
     public void w(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
-            if (f10953h) {
-                String str2 = "schemeVideoPath:" + this.f10956g;
+            if (f11095h) {
+                String str2 = "schemeVideoPath:" + this.f11098g;
             }
-            x(IntentConfig.STOP, new e(this.f10956g));
+            x(IntentConfig.STOP, new e(this.f11098g));
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
-            eVar.f7977b = IntentConfig.STOP;
+            eVar.f8119b = IntentConfig.STOP;
             eVar.a("dura", String.valueOf(i2 / 1000.0f));
             n.h(eVar);
         }
@@ -133,7 +133,7 @@ public class f extends EventTargetImpl implements c.a.y.c.c {
     public final void x(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
-            if (f10953h) {
+            if (f11095h) {
                 String str2 = "dispatchEvent:" + str;
             }
             dispatchEvent(new JSEvent(str, obj));
@@ -143,14 +143,14 @@ public class f extends EventTargetImpl implements c.a.y.c.c {
     public void y(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f10954e = i2;
+            this.f11096e = i2;
         }
     }
 
     public void z(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f10956g = str;
+            this.f11098g = str;
         }
     }
 }

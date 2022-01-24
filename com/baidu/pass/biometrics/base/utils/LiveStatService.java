@@ -32,19 +32,19 @@ public final class LiveStatService {
     public static final Map<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37499b = "4854";
+    public static final String f37527b = "4854";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f37500c = "page";
+    public static final String f37528c = "page";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f37501d = "source";
+    public static final String f37529d = "source";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f37502e = "ext";
+    public static final String f37530e = "ext";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f37503f = "living_recog";
+    public static final String f37531f = "living_recog";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -153,7 +153,7 @@ public final class LiveStatService {
                 jSONObject.put("page", "living_recog");
                 jSONObject.put("source", BeanConstants.tpl);
                 jSONObject.put("ext", jSONObject2);
-                ServiceManager.getInstance().getIsAccountManager().getUbcUploadImplCallback().onEvent(f37499b, jSONObject);
+                ServiceManager.getInstance().getIsAccountManager().getUbcUploadImplCallback().onEvent(f37527b, jSONObject);
             }
         } catch (Throwable unused) {
         }

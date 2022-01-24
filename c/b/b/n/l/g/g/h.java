@@ -12,10 +12,10 @@ public class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27256b;
+    public String f27284b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.b.b.q.b<String, Matrix4> f27257c;
+    public c.b.b.q.b<String, Matrix4> f27285c;
 
     public h() {
         Interceptable interceptable = $ic;

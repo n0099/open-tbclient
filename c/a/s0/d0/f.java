@@ -41,31 +41,31 @@ public class f {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12318b;
+    public int f12463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12319c;
+    public int f12464c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12320d;
+    public int f12465d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12321e;
+    public int f12466e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f12322f;
+    public boolean f12467f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12323g;
+    public String f12468g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NetWork f12324h;
+    public NetWork f12469h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f12325i;
+    public a f12470i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f12326j;
+    public b f12471j;
     public Object k;
     public e l;
     public boolean m;
@@ -100,15 +100,15 @@ public class f {
             }
         }
         this.a = 512000;
-        this.f12323g = "1";
-        this.f12324h = null;
+        this.f12468g = "1";
+        this.f12469h = null;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f12322f = true;
-            NetWork netWork = this.f12324h;
+            this.f12467f = true;
+            NetWork netWork = this.f12469h;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -125,14 +125,14 @@ public class f {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f12323g = str;
+            this.f12468g = str;
         }
     }
 
     public void d(a aVar, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, obj) == null) {
-            this.f12325i = aVar;
+            this.f12470i = aVar;
             this.k = obj;
             if (aVar != null) {
                 this.a = 10240;
@@ -143,7 +143,7 @@ public class f {
     public void e(b bVar, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, bVar, obj) == null) {
-            this.f12326j = bVar;
+            this.f12471j = bVar;
             this.k = obj;
         }
     }
@@ -151,10 +151,10 @@ public class f {
     public void f(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
-            this.f12318b = i2;
-            this.f12319c = i3;
-            this.f12320d = i4;
-            this.f12321e = i5;
+            this.f12463b = i2;
+            this.f12464c = i3;
+            this.f12465d = i4;
+            this.f12466e = i5;
         }
     }
 
@@ -223,7 +223,7 @@ public class f {
     /* JADX WARN: Code restructure failed: missing block: B:159:0x03a7, code lost:
         r3.append("|startChunk=");
         r3.append(r7);
-        c.a.t0.w3.s0.c.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
+        c.a.t0.x3.s0.c.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
      */
     /* JADX WARN: Code restructure failed: missing block: B:160:0x03c2, code lost:
         r15 = r4;
@@ -378,7 +378,7 @@ public class f {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             String str5 = str;
             String str6 = "    p = ";
-            c.a.t0.w3.s0.c.a("发帖：正在上传图片 = " + str5);
+            c.a.t0.x3.s0.c.a("发帖：正在上传图片 = " + str5);
             BitmapFactory.Options options2 = new BitmapFactory.Options();
             boolean z3 = true;
             options2.inJustDecodeBounds = true;
@@ -421,9 +421,9 @@ public class f {
                     try {
                         imageUploadResult7.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
                         imageUploadResult7.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.file_size_over);
-                        c.a.t0.w3.s0.c.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
+                        c.a.t0.x3.s0.c.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
                         c.a.d.f.m.a.b(null);
-                        this.f12324h = null;
+                        this.f12469h = null;
                         return imageUploadResult7;
                     } catch (Exception e4) {
                         e = e4;
@@ -435,7 +435,7 @@ public class f {
                         netWork = null;
                     }
                 } else {
-                    c.a.t0.w3.s0.c.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
+                    c.a.t0.x3.s0.c.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
                     String b2 = t.b(FileHelper.GetStreamFromFile(file));
                     sb3.append("path=");
                     sb3.append(str5);
@@ -455,15 +455,15 @@ public class f {
                                 try {
                                     try {
                                         sb3.append("|width=");
-                                        sb3.append(this.f12318b);
+                                        sb3.append(this.f12463b);
                                         sb3.append("|height=");
-                                        sb3.append(this.f12319c);
+                                        sb3.append(this.f12464c);
                                         sb3.append("|smallWidth=");
-                                        sb3.append(this.f12320d);
+                                        sb3.append(this.f12465d);
                                         sb3.append("|smallHeight=");
-                                        sb3.append(this.f12321e);
+                                        sb3.append(this.f12466e);
                                         sb3.append("|groupId=");
-                                        sb3.append(this.f12323g);
+                                        sb3.append(this.f12468g);
                                         int i7 = 1;
                                         int i8 = 0;
                                         imageUploadResult = null;
@@ -476,7 +476,7 @@ public class f {
                                                 break;
                                             }
                                             try {
-                                                if (this.f12322f == z3) {
+                                                if (this.f12467f == z3) {
                                                     break;
                                                 }
                                                 if (i9 > 0) {
@@ -500,7 +500,7 @@ public class f {
                                                                 c2 = 0;
                                                                 exc = e;
                                                                 imageUploadResult6 = imageUploadResult3;
-                                                                if (!this.f12322f) {
+                                                                if (!this.f12467f) {
                                                                 }
                                                                 if (imageUploadResult6 != null) {
                                                                 }
@@ -511,7 +511,7 @@ public class f {
                                                                 Object[] objArr = new Object[2];
                                                                 objArr[c2] = "comment";
                                                                 objArr[1] = sb.toString();
-                                                                c.a.s0.s.b0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr);
+                                                                c.a.s0.s.c0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr);
                                                                 StringBuilder sb4 = new StringBuilder();
                                                                 sb4.append("发帖：正在上传图片 上传失败 = ");
                                                                 sb4.append(r3);
@@ -520,11 +520,11 @@ public class f {
                                                                 sb4.append(str2);
                                                                 str3 = str;
                                                                 sb4.append(str3);
-                                                                c.a.t0.w3.s0.c.a(sb4.toString());
+                                                                c.a.t0.x3.s0.c.a(sb4.toString());
                                                                 c.a.d.f.m.a.b(randomAccessFile);
-                                                                this.f12324h = netWork;
+                                                                this.f12469h = netWork;
                                                                 imageUploadResult = imageUploadResult2;
-                                                                c.a.t0.w3.s0.c.a("发帖：上传图片 结束      p = " + str3);
+                                                                c.a.t0.x3.s0.c.a("发帖：上传图片 结束      p = " + str3);
                                                                 return imageUploadResult;
                                                             }
                                                         } catch (Throwable th4) {
@@ -534,7 +534,7 @@ public class f {
                                                             th = th;
                                                             randomAccessFile6 = randomAccessFile5;
                                                             c.a.d.f.m.a.b(randomAccessFile6);
-                                                            this.f12324h = netWork;
+                                                            this.f12469h = netWork;
                                                             throw th;
                                                         }
                                                     } else if (i9 == 0) {
@@ -557,7 +557,7 @@ public class f {
                                                             c2 = 0;
                                                             exc = e;
                                                             imageUploadResult6 = imageUploadResult3;
-                                                            if (!this.f12322f) {
+                                                            if (!this.f12467f) {
                                                             }
                                                             if (imageUploadResult6 != null) {
                                                             }
@@ -568,7 +568,7 @@ public class f {
                                                             Object[] objArr2 = new Object[2];
                                                             objArr2[c2] = "comment";
                                                             objArr2[1] = sb.toString();
-                                                            c.a.s0.s.b0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr2);
+                                                            c.a.s0.s.c0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr2);
                                                             StringBuilder sb42 = new StringBuilder();
                                                             sb42.append("发帖：正在上传图片 上传失败 = ");
                                                             sb42.append(r3);
@@ -577,11 +577,11 @@ public class f {
                                                             sb42.append(str2);
                                                             str3 = str;
                                                             sb42.append(str3);
-                                                            c.a.t0.w3.s0.c.a(sb42.toString());
+                                                            c.a.t0.x3.s0.c.a(sb42.toString());
                                                             c.a.d.f.m.a.b(randomAccessFile);
-                                                            this.f12324h = netWork;
+                                                            this.f12469h = netWork;
                                                             imageUploadResult = imageUploadResult2;
-                                                            c.a.t0.w3.s0.c.a("发帖：上传图片 结束      p = " + str3);
+                                                            c.a.t0.x3.s0.c.a("发帖：上传图片 结束      p = " + str3);
                                                             return imageUploadResult;
                                                         }
                                                     }
@@ -599,7 +599,7 @@ public class f {
                                                         c2 = 0;
                                                         exc = e;
                                                         imageUploadResult6 = imageUploadResult;
-                                                        if (!this.f12322f) {
+                                                        if (!this.f12467f) {
                                                         }
                                                         if (imageUploadResult6 != null) {
                                                         }
@@ -610,7 +610,7 @@ public class f {
                                                         Object[] objArr22 = new Object[2];
                                                         objArr22[c2] = "comment";
                                                         objArr22[1] = sb.toString();
-                                                        c.a.s0.s.b0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr22);
+                                                        c.a.s0.s.c0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr22);
                                                         StringBuilder sb422 = new StringBuilder();
                                                         sb422.append("发帖：正在上传图片 上传失败 = ");
                                                         sb422.append(r3);
@@ -619,24 +619,24 @@ public class f {
                                                         sb422.append(str2);
                                                         str3 = str;
                                                         sb422.append(str3);
-                                                        c.a.t0.w3.s0.c.a(sb422.toString());
+                                                        c.a.t0.x3.s0.c.a(sb422.toString());
                                                         c.a.d.f.m.a.b(randomAccessFile);
-                                                        this.f12324h = netWork;
+                                                        this.f12469h = netWork;
                                                         imageUploadResult = imageUploadResult2;
-                                                        c.a.t0.w3.s0.c.a("发帖：上传图片 结束      p = " + str3);
+                                                        c.a.t0.x3.s0.c.a("发帖：上传图片 结束      p = " + str3);
                                                         return imageUploadResult;
                                                     }
                                                 }
                                                 NetWork netWork4 = new NetWork(TbConfig.UPLOAD_IMG_URL);
-                                                this.f12324h = netWork4;
+                                                this.f12469h = netWork4;
                                                 netWork4.addPostData("resourceId", str7);
-                                                this.f12324h.addPostData("chunkNo", String.valueOf(i7));
+                                                this.f12469h.addPostData("chunkNo", String.valueOf(i7));
                                                 if (i9 >= 0) {
                                                     try {
                                                         randomAccessFile3 = randomAccessFile7;
                                                         try {
                                                             try {
-                                                                this.f12324h.addPostData("isFinish", String.valueOf(1));
+                                                                this.f12469h.addPostData("isFinish", String.valueOf(1));
                                                             } catch (Exception e8) {
                                                                 e = e8;
                                                                 exc = e;
@@ -648,7 +648,7 @@ public class f {
                                                                 str2 = str6;
                                                                 netWork = null;
                                                                 imageUploadResult6 = imageUploadResult8;
-                                                                if (!this.f12322f) {
+                                                                if (!this.f12467f) {
                                                                 }
                                                                 if (imageUploadResult6 != null) {
                                                                 }
@@ -659,7 +659,7 @@ public class f {
                                                                 Object[] objArr222 = new Object[2];
                                                                 objArr222[c2] = "comment";
                                                                 objArr222[1] = sb.toString();
-                                                                c.a.s0.s.b0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr222);
+                                                                c.a.s0.s.c0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr222);
                                                                 StringBuilder sb4222 = new StringBuilder();
                                                                 sb4222.append("发帖：正在上传图片 上传失败 = ");
                                                                 sb4222.append(r3);
@@ -668,11 +668,11 @@ public class f {
                                                                 sb4222.append(str2);
                                                                 str3 = str;
                                                                 sb4222.append(str3);
-                                                                c.a.t0.w3.s0.c.a(sb4222.toString());
+                                                                c.a.t0.x3.s0.c.a(sb4222.toString());
                                                                 c.a.d.f.m.a.b(randomAccessFile);
-                                                                this.f12324h = netWork;
+                                                                this.f12469h = netWork;
                                                                 imageUploadResult = imageUploadResult2;
-                                                                c.a.t0.w3.s0.c.a("发帖：上传图片 结束      p = " + str3);
+                                                                c.a.t0.x3.s0.c.a("发帖：上传图片 结束      p = " + str3);
                                                                 return imageUploadResult;
                                                             }
                                                         } catch (Throwable th5) {
@@ -682,7 +682,7 @@ public class f {
                                                             netWork = null;
                                                             randomAccessFile6 = randomAccessFile4;
                                                             c.a.d.f.m.a.b(randomAccessFile6);
-                                                            this.f12324h = netWork;
+                                                            this.f12469h = netWork;
                                                             throw th;
                                                         }
                                                     } catch (Exception e9) {
@@ -696,59 +696,59 @@ public class f {
                                                         netWork = null;
                                                         randomAccessFile6 = randomAccessFile4;
                                                         c.a.d.f.m.a.b(randomAccessFile6);
-                                                        this.f12324h = netWork;
+                                                        this.f12469h = netWork;
                                                         throw th;
                                                     }
                                                 } else {
                                                     randomAccessFile3 = randomAccessFile7;
-                                                    this.f12324h.addPostData("isFinish", String.valueOf(0));
+                                                    this.f12469h.addPostData("isFinish", String.valueOf(0));
                                                 }
                                                 if (this.m) {
-                                                    this.f12324h.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(1));
+                                                    this.f12469h.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(1));
                                                 } else {
-                                                    this.f12324h.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(0));
+                                                    this.f12469h.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(0));
                                                 }
-                                                this.f12324h.addPostData("size", String.valueOf(length));
-                                                this.f12324h.addPostData("width", String.valueOf(options2.outWidth));
-                                                this.f12324h.addPostData("height", String.valueOf(options2.outHeight));
-                                                if (this.f12320d > 0 && this.f12321e > 0) {
-                                                    this.f12324h.addPostData("smallWidth", String.valueOf(this.f12320d));
-                                                    this.f12324h.addPostData("smallHeight", String.valueOf(this.f12321e));
+                                                this.f12469h.addPostData("size", String.valueOf(length));
+                                                this.f12469h.addPostData("width", String.valueOf(options2.outWidth));
+                                                this.f12469h.addPostData("height", String.valueOf(options2.outHeight));
+                                                if (this.f12465d > 0 && this.f12466e > 0) {
+                                                    this.f12469h.addPostData("smallWidth", String.valueOf(this.f12465d));
+                                                    this.f12469h.addPostData("smallHeight", String.valueOf(this.f12466e));
                                                 }
                                                 try {
                                                     try {
-                                                        this.f12324h.addPostData(TbEnum.SystemMessage.KEY_GROUP_ID, String.valueOf(this.f12323g));
-                                                        this.f12324h.addPostData("alt", "json");
+                                                        this.f12469h.addPostData(TbEnum.SystemMessage.KEY_GROUP_ID, String.valueOf(this.f12468g));
+                                                        this.f12469h.addPostData("alt", "json");
                                                         if (bArr != null) {
-                                                            this.f12324h.addPostData("chunk", bArr);
+                                                            this.f12469h.addPostData("chunk", bArr);
                                                         }
                                                         if (z) {
-                                                            this.f12324h.addPostData("saveOrigin", "1");
+                                                            this.f12469h.addPostData("saveOrigin", "1");
                                                         } else {
-                                                            this.f12324h.addPostData("saveOrigin", "0");
+                                                            this.f12469h.addPostData("saveOrigin", "0");
                                                         }
                                                         if (this.q != 0) {
-                                                            this.f12324h.addPostData("pic_water_type", String.valueOf(this.q));
+                                                            this.f12469h.addPostData("pic_water_type", String.valueOf(this.q));
                                                         }
                                                         if (z2) {
                                                             int b3 = k.c().b();
                                                             if (b3 != 0) {
-                                                                this.f12324h.addPostData("pic_water_type", String.valueOf(b3));
+                                                                this.f12469h.addPostData("pic_water_type", String.valueOf(b3));
                                                             }
                                                             String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
                                                             if (!StringUtils.isNull(currentAccountName) && b3 == 1) {
-                                                                this.f12324h.addPostData("user_name", currentAccountName);
+                                                                this.f12469h.addPostData("user_name", currentAccountName);
                                                             }
                                                             String a3 = k.c().a();
                                                             if (!StringUtils.isNull(a3)) {
                                                                 if (b3 == 2) {
-                                                                    this.f12324h.addPostData("forum_name", a3);
+                                                                    this.f12469h.addPostData("forum_name", a3);
                                                                 }
                                                                 a2 = k.c().a();
                                                                 if (!StringUtils.isNull(a2)) {
-                                                                    this.f12324h.addPostData("small_flow_fname", a2);
+                                                                    this.f12469h.addPostData("small_flow_fname", a2);
                                                                 }
-                                                                postMultiNetData = this.f12324h.postMultiNetData(true);
+                                                                postMultiNetData = this.f12469h.postMultiNetData(true);
                                                                 parser = ImageUploadResult.parser(postMultiNetData);
                                                                 if (postMultiNetData != null || parser == null) {
                                                                     break;
@@ -770,7 +770,7 @@ public class f {
                                                                             str2 = str6;
                                                                             netWork = null;
                                                                             imageUploadResult6 = imageUploadResult82;
-                                                                            if (!this.f12322f) {
+                                                                            if (!this.f12467f) {
                                                                             }
                                                                             if (imageUploadResult6 != null) {
                                                                             }
@@ -781,7 +781,7 @@ public class f {
                                                                             Object[] objArr2222 = new Object[2];
                                                                             objArr2222[c2] = "comment";
                                                                             objArr2222[1] = sb.toString();
-                                                                            c.a.s0.s.b0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr2222);
+                                                                            c.a.s0.s.c0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr2222);
                                                                             StringBuilder sb42222 = new StringBuilder();
                                                                             sb42222.append("发帖：正在上传图片 上传失败 = ");
                                                                             sb42222.append(r3);
@@ -790,18 +790,18 @@ public class f {
                                                                             sb42222.append(str2);
                                                                             str3 = str;
                                                                             sb42222.append(str3);
-                                                                            c.a.t0.w3.s0.c.a(sb42222.toString());
+                                                                            c.a.t0.x3.s0.c.a(sb42222.toString());
                                                                             c.a.d.f.m.a.b(randomAccessFile);
-                                                                            this.f12324h = netWork;
+                                                                            this.f12469h = netWork;
                                                                             imageUploadResult = imageUploadResult2;
-                                                                            c.a.t0.w3.s0.c.a("发帖：上传图片 结束      p = " + str3);
+                                                                            c.a.t0.x3.s0.c.a("发帖：上传图片 结束      p = " + str3);
                                                                             return imageUploadResult;
                                                                         }
                                                                     }
                                                                     try {
                                                                         try {
                                                                             if (parser.error_code != ImageUploadResult.CHUNK_ERROR) {
-                                                                                c.a.t0.w3.s0.c.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + str6 + str5);
+                                                                                c.a.t0.x3.s0.c.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + str6 + str5);
                                                                                 if (i7 == parser.chunkNo || parser.chunkNo <= 0) {
                                                                                     break;
                                                                                 }
@@ -831,8 +831,8 @@ public class f {
                                                                                         if (this.o != null) {
                                                                                             this.o.hasUploadFileSize += i4;
                                                                                         }
-                                                                                        c.a.t0.w3.s0.c.a("发帖：正在上传图片 已上传 = " + j8 + str6 + str5);
-                                                                                        if (this.f12325i != null) {
+                                                                                        c.a.t0.x3.s0.c.a("发帖：正在上传图片 已上传 = " + j8 + str6 + str5);
+                                                                                        if (this.f12470i != null) {
                                                                                             try {
                                                                                                 RandomAccessFile randomAccessFile8 = randomAccessFile3;
                                                                                                 j3 = j8;
@@ -860,11 +860,11 @@ public class f {
                                                                                                 netWork = null;
                                                                                                 randomAccessFile6 = randomAccessFile4;
                                                                                                 c.a.d.f.m.a.b(randomAccessFile6);
-                                                                                                this.f12324h = netWork;
+                                                                                                this.f12469h = netWork;
                                                                                                 throw th;
                                                                                             }
                                                                                             try {
-                                                                                                this.f12325i.a(str, this.k, j3, j5);
+                                                                                                this.f12470i.a(str, this.k, j3, j5);
                                                                                             } catch (Exception e12) {
                                                                                                 exc = e12;
                                                                                                 str2 = str6;
@@ -876,7 +876,7 @@ public class f {
                                                                                                 netWork = null;
                                                                                                 randomAccessFile6 = randomAccessFile;
                                                                                                 c.a.d.f.m.a.b(randomAccessFile6);
-                                                                                                this.f12324h = netWork;
+                                                                                                this.f12469h = netWork;
                                                                                                 throw th;
                                                                                             }
                                                                                         } else {
@@ -893,13 +893,13 @@ public class f {
                                                                                             j3 = j8;
                                                                                         }
                                                                                         try {
-                                                                                            if (this.f12326j != null) {
+                                                                                            if (this.f12471j != null) {
                                                                                                 long j11 = j3;
                                                                                                 str2 = str6;
                                                                                                 c2 = 0;
                                                                                                 netWork = netWork2;
                                                                                                 i5 = i10;
-                                                                                                this.f12326j.a(str, this.k, j11, j5, i2, i3);
+                                                                                                this.f12471j.a(str, this.k, j11, j5, i2, i3);
                                                                                             } else {
                                                                                                 i5 = i10;
                                                                                                 str2 = str6;
@@ -934,7 +934,7 @@ public class f {
                                                                                             netWork = netWork2;
                                                                                             exc = e;
                                                                                             imageUploadResult6 = imageUploadResult5;
-                                                                                            if (!this.f12322f) {
+                                                                                            if (!this.f12467f) {
                                                                                             }
                                                                                             if (imageUploadResult6 != null) {
                                                                                             }
@@ -945,7 +945,7 @@ public class f {
                                                                                             Object[] objArr22222 = new Object[2];
                                                                                             objArr22222[c2] = "comment";
                                                                                             objArr22222[1] = sb.toString();
-                                                                                            c.a.s0.s.b0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr22222);
+                                                                                            c.a.s0.s.c0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr22222);
                                                                                             StringBuilder sb422222 = new StringBuilder();
                                                                                             sb422222.append("发帖：正在上传图片 上传失败 = ");
                                                                                             sb422222.append(r3);
@@ -954,11 +954,11 @@ public class f {
                                                                                             sb422222.append(str2);
                                                                                             str3 = str;
                                                                                             sb422222.append(str3);
-                                                                                            c.a.t0.w3.s0.c.a(sb422222.toString());
+                                                                                            c.a.t0.x3.s0.c.a(sb422222.toString());
                                                                                             c.a.d.f.m.a.b(randomAccessFile);
-                                                                                            this.f12324h = netWork;
+                                                                                            this.f12469h = netWork;
                                                                                             imageUploadResult = imageUploadResult2;
-                                                                                            c.a.t0.w3.s0.c.a("发帖：上传图片 结束      p = " + str3);
+                                                                                            c.a.t0.x3.s0.c.a("发帖：上传图片 结束      p = " + str3);
                                                                                             return imageUploadResult;
                                                                                         } catch (Throwable th9) {
                                                                                             th = th9;
@@ -966,7 +966,7 @@ public class f {
                                                                                             th = th;
                                                                                             randomAccessFile6 = randomAccessFile;
                                                                                             c.a.d.f.m.a.b(randomAccessFile6);
-                                                                                            this.f12324h = netWork;
+                                                                                            this.f12469h = netWork;
                                                                                             throw th;
                                                                                         }
                                                                                     }
@@ -980,7 +980,7 @@ public class f {
                                                                                     netWork = null;
                                                                                     exc = e;
                                                                                     imageUploadResult6 = imageUploadResult5;
-                                                                                    if (!this.f12322f) {
+                                                                                    if (!this.f12467f) {
                                                                                     }
                                                                                     if (imageUploadResult6 != null) {
                                                                                     }
@@ -991,7 +991,7 @@ public class f {
                                                                                     Object[] objArr222222 = new Object[2];
                                                                                     objArr222222[c2] = "comment";
                                                                                     objArr222222[1] = sb.toString();
-                                                                                    c.a.s0.s.b0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr222222);
+                                                                                    c.a.s0.s.c0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr222222);
                                                                                     StringBuilder sb4222222 = new StringBuilder();
                                                                                     sb4222222.append("发帖：正在上传图片 上传失败 = ");
                                                                                     sb4222222.append(r3);
@@ -1000,11 +1000,11 @@ public class f {
                                                                                     sb4222222.append(str2);
                                                                                     str3 = str;
                                                                                     sb4222222.append(str3);
-                                                                                    c.a.t0.w3.s0.c.a(sb4222222.toString());
+                                                                                    c.a.t0.x3.s0.c.a(sb4222222.toString());
                                                                                     c.a.d.f.m.a.b(randomAccessFile);
-                                                                                    this.f12324h = netWork;
+                                                                                    this.f12469h = netWork;
                                                                                     imageUploadResult = imageUploadResult2;
-                                                                                    c.a.t0.w3.s0.c.a("发帖：上传图片 结束      p = " + str3);
+                                                                                    c.a.t0.x3.s0.c.a("发帖：上传图片 结束      p = " + str3);
                                                                                     return imageUploadResult;
                                                                                 }
                                                                             }
@@ -1014,7 +1014,7 @@ public class f {
                                                                             e = e15;
                                                                             exc = e;
                                                                             imageUploadResult6 = imageUploadResult5;
-                                                                            if (!this.f12322f) {
+                                                                            if (!this.f12467f) {
                                                                             }
                                                                             if (imageUploadResult6 != null) {
                                                                             }
@@ -1025,7 +1025,7 @@ public class f {
                                                                             Object[] objArr2222222 = new Object[2];
                                                                             objArr2222222[c2] = "comment";
                                                                             objArr2222222[1] = sb.toString();
-                                                                            c.a.s0.s.b0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr2222222);
+                                                                            c.a.s0.s.c0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr2222222);
                                                                             StringBuilder sb42222222 = new StringBuilder();
                                                                             sb42222222.append("发帖：正在上传图片 上传失败 = ");
                                                                             sb42222222.append(r3);
@@ -1034,11 +1034,11 @@ public class f {
                                                                             sb42222222.append(str2);
                                                                             str3 = str;
                                                                             sb42222222.append(str3);
-                                                                            c.a.t0.w3.s0.c.a(sb42222222.toString());
+                                                                            c.a.t0.x3.s0.c.a(sb42222222.toString());
                                                                             c.a.d.f.m.a.b(randomAccessFile);
-                                                                            this.f12324h = netWork;
+                                                                            this.f12469h = netWork;
                                                                             imageUploadResult = imageUploadResult2;
-                                                                            c.a.t0.w3.s0.c.a("发帖：上传图片 结束      p = " + str3);
+                                                                            c.a.t0.x3.s0.c.a("发帖：上传图片 结束      p = " + str3);
                                                                             return imageUploadResult;
                                                                         }
                                                                     } catch (Throwable th10) {
@@ -1046,7 +1046,7 @@ public class f {
                                                                         th = th;
                                                                         randomAccessFile6 = randomAccessFile;
                                                                         c.a.d.f.m.a.b(randomAccessFile6);
-                                                                        this.f12324h = netWork;
+                                                                        this.f12469h = netWork;
                                                                         throw th;
                                                                     }
                                                                     RandomAccessFile randomAccessFile9 = randomAccessFile3;
@@ -1067,7 +1067,7 @@ public class f {
                                                         a2 = k.c().a();
                                                         if (!StringUtils.isNull(a2)) {
                                                         }
-                                                        postMultiNetData = this.f12324h.postMultiNetData(true);
+                                                        postMultiNetData = this.f12469h.postMultiNetData(true);
                                                         parser = ImageUploadResult.parser(postMultiNetData);
                                                         if (postMultiNetData != null) {
                                                             break;
@@ -1094,7 +1094,7 @@ public class f {
                                                         netWork = null;
                                                         exc = e;
                                                         imageUploadResult6 = imageUploadResult;
-                                                        if (!this.f12322f) {
+                                                        if (!this.f12467f) {
                                                         }
                                                         if (imageUploadResult6 != null) {
                                                         }
@@ -1105,7 +1105,7 @@ public class f {
                                                         Object[] objArr22222222 = new Object[2];
                                                         objArr22222222[c2] = "comment";
                                                         objArr22222222[1] = sb.toString();
-                                                        c.a.s0.s.b0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr22222222);
+                                                        c.a.s0.s.c0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr22222222);
                                                         StringBuilder sb422222222 = new StringBuilder();
                                                         sb422222222.append("发帖：正在上传图片 上传失败 = ");
                                                         sb422222222.append(r3);
@@ -1114,11 +1114,11 @@ public class f {
                                                         sb422222222.append(str2);
                                                         str3 = str;
                                                         sb422222222.append(str3);
-                                                        c.a.t0.w3.s0.c.a(sb422222222.toString());
+                                                        c.a.t0.x3.s0.c.a(sb422222222.toString());
                                                         c.a.d.f.m.a.b(randomAccessFile);
-                                                        this.f12324h = netWork;
+                                                        this.f12469h = netWork;
                                                         imageUploadResult = imageUploadResult2;
-                                                        c.a.t0.w3.s0.c.a("发帖：上传图片 结束      p = " + str3);
+                                                        c.a.t0.x3.s0.c.a("发帖：上传图片 结束      p = " + str3);
                                                         return imageUploadResult;
                                                     }
                                                 } catch (Throwable th11) {
@@ -1128,7 +1128,7 @@ public class f {
                                                     th = th;
                                                     randomAccessFile6 = randomAccessFile;
                                                     c.a.d.f.m.a.b(randomAccessFile6);
-                                                    this.f12324h = netWork;
+                                                    this.f12469h = netWork;
                                                     throw th;
                                                 }
                                             } catch (Exception e18) {
@@ -1141,7 +1141,7 @@ public class f {
                                         imageUploadResult = imageUploadResult5;
                                         randomAccessFile2 = randomAccessFile;
                                         c.a.d.f.m.a.b(randomAccessFile2);
-                                        this.f12324h = netWork;
+                                        this.f12469h = netWork;
                                         str3 = str;
                                     } catch (Throwable th12) {
                                         th = th12;
@@ -1166,7 +1166,7 @@ public class f {
                                 netWork3 = netWork;
                                 randomAccessFile = netWork3;
                                 imageUploadResult6 = netWork3;
-                                if (!this.f12322f) {
+                                if (!this.f12467f) {
                                 }
                                 if (imageUploadResult6 != null) {
                                 }
@@ -1177,7 +1177,7 @@ public class f {
                                 Object[] objArr222222222 = new Object[2];
                                 objArr222222222[c2] = "comment";
                                 objArr222222222[1] = sb.toString();
-                                c.a.s0.s.b0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr222222222);
+                                c.a.s0.s.c0.a.a("img", -1L, -1, "imageUpload", r3, r2, objArr222222222);
                                 StringBuilder sb4222222222 = new StringBuilder();
                                 sb4222222222.append("发帖：正在上传图片 上传失败 = ");
                                 sb4222222222.append(r3);
@@ -1186,11 +1186,11 @@ public class f {
                                 sb4222222222.append(str2);
                                 str3 = str;
                                 sb4222222222.append(str3);
-                                c.a.t0.w3.s0.c.a(sb4222222222.toString());
+                                c.a.t0.x3.s0.c.a(sb4222222222.toString());
                                 c.a.d.f.m.a.b(randomAccessFile);
-                                this.f12324h = netWork;
+                                this.f12469h = netWork;
                                 imageUploadResult = imageUploadResult2;
-                                c.a.t0.w3.s0.c.a("发帖：上传图片 结束      p = " + str3);
+                                c.a.t0.x3.s0.c.a("发帖：上传图片 结束      p = " + str3);
                                 return imageUploadResult;
                             } catch (Throwable th13) {
                                 th = th13;
@@ -1198,10 +1198,10 @@ public class f {
                                 th = th;
                                 randomAccessFile6 = netWork;
                                 c.a.d.f.m.a.b(randomAccessFile6);
-                                this.f12324h = netWork;
+                                this.f12469h = netWork;
                                 throw th;
                             }
-                            c.a.t0.w3.s0.c.a("发帖：上传图片 结束      p = " + str3);
+                            c.a.t0.x3.s0.c.a("发帖：上传图片 结束      p = " + str3);
                             return imageUploadResult;
                         }
                         ImageUploadResult imageUploadResult9 = new ImageUploadResult();
@@ -1211,16 +1211,16 @@ public class f {
                         imageUploadResult = imageUploadResult9;
                         randomAccessFile2 = null;
                         c.a.d.f.m.a.b(randomAccessFile2);
-                        this.f12324h = netWork;
+                        this.f12469h = netWork;
                         str3 = str;
-                        c.a.t0.w3.s0.c.a("发帖：上传图片 结束      p = " + str3);
+                        c.a.t0.x3.s0.c.a("发帖：上传图片 结束      p = " + str3);
                         return imageUploadResult;
                     } catch (Throwable th14) {
                         th = th14;
                         th = th;
                         randomAccessFile6 = netWork;
                         c.a.d.f.m.a.b(randomAccessFile6);
-                        this.f12324h = netWork;
+                        this.f12469h = netWork;
                         throw th;
                     }
                     str2 = "    p = ";
@@ -1230,7 +1230,7 @@ public class f {
                 }
                 exc = e;
                 imageUploadResult6 = imageUploadResult3;
-                if (!this.f12322f) {
+                if (!this.f12467f) {
                     sb.append("|request cancelled.");
                 } else {
                     BdLog.e(exc.getMessage());
@@ -1247,7 +1247,7 @@ public class f {
                 Object[] objArr2222222222 = new Object[2];
                 objArr2222222222[c2] = "comment";
                 objArr2222222222[1] = sb.toString();
-                c.a.s0.s.b0.a.a("img", -1L, -1, "imageUpload", i11, message, objArr2222222222);
+                c.a.s0.s.c0.a.a("img", -1L, -1, "imageUpload", i11, message, objArr2222222222);
                 StringBuilder sb42222222222 = new StringBuilder();
                 sb42222222222.append("发帖：正在上传图片 上传失败 = ");
                 sb42222222222.append(i11);
@@ -1256,14 +1256,14 @@ public class f {
                 sb42222222222.append(str2);
                 str3 = str;
                 sb42222222222.append(str3);
-                c.a.t0.w3.s0.c.a(sb42222222222.toString());
+                c.a.t0.x3.s0.c.a(sb42222222222.toString());
                 c.a.d.f.m.a.b(randomAccessFile);
-                this.f12324h = netWork;
+                this.f12469h = netWork;
                 imageUploadResult = imageUploadResult2;
-                c.a.t0.w3.s0.c.a("发帖：上传图片 结束      p = " + str3);
+                c.a.t0.x3.s0.c.a("发帖：上传图片 结束      p = " + str3);
                 return imageUploadResult;
             }
-            c.a.t0.w3.s0.c.a("发帖：正在上传图片 失败 = " + str5);
+            c.a.t0.x3.s0.c.a("发帖：正在上传图片 失败 = " + str5);
             ImageUploadResult imageUploadResult10 = new ImageUploadResult();
             imageUploadResult10.error_code = -1007;
             imageUploadResult10.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.file_size_over);
@@ -1282,7 +1282,7 @@ public class f {
         for (int i2 = 0; i2 < chosedFiles.size(); i2++) {
             ImageFileInfo imageFileInfo = chosedFiles.get(i2);
             if (imageFileInfo != null && !imageFileInfo.isAlreadyUploadedToServer()) {
-                if (this.f12322f) {
+                if (this.f12467f) {
                     return;
                 }
                 ImageUploadResult j2 = j(imageFileInfo, writeImagesInfo.isOriginalImg() || imageFileInfo.isGif(), z);
@@ -1299,7 +1299,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048591, this, writeImagesInfo, z)) == null) {
             f fVar = this;
-            c.a.t0.w3.s0.c.a("发帖： 上传批量图片到server");
+            c.a.t0.x3.s0.c.a("发帖： 上传批量图片到server");
             ErrorData errorData = new ErrorData();
             if (writeImagesInfo != null && writeImagesInfo.size() != 0) {
                 LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
@@ -1330,7 +1330,7 @@ public class f {
                         g gVar = new g(hVar, linkedList, writeImagesInfo, z, i2);
                         gVar.c(fVar.n);
                         ArrayList arrayList3 = arrayList;
-                        gVar.b(fVar.a, fVar.f12318b, fVar.f12319c, fVar.f12320d, fVar.f12321e, fVar.f12322f, fVar.q, fVar.f12323g, fVar.f12325i, fVar.f12326j, fVar.k, fVar.m, fVar.p);
+                        gVar.b(fVar.a, fVar.f12463b, fVar.f12464c, fVar.f12465d, fVar.f12466e, fVar.f12467f, fVar.q, fVar.f12468g, fVar.f12470i, fVar.f12471j, fVar.k, fVar.m, fVar.p);
                         arrayList2.add(gVar);
                         arrayList3.add(new FutureTask<>(gVar));
                         i2++;
@@ -1355,7 +1355,7 @@ public class f {
                         }
                     }
                     executorService.shutdown();
-                    return hVar2.f12334c;
+                    return hVar2.f12479c;
                 }
                 LinkedList linkedList2 = linkedList;
                 int i4 = 0;
@@ -1363,15 +1363,15 @@ public class f {
                     LinkedList linkedList3 = linkedList2;
                     ImageFileInfo imageFileInfo2 = (ImageFileInfo) linkedList3.get(i4);
                     imageFileInfo2.setTempUploadFileName(null);
-                    c.a.t0.w3.s0.c.a("发帖：发送图片 上传图片 = " + i4 + " = " + imageFileInfo2.toJson().toString());
-                    if (this.f12322f) {
+                    c.a.t0.x3.s0.c.a("发帖：发送图片 上传图片 = " + i4 + " = " + imageFileInfo2.toJson().toString());
+                    if (this.f12467f) {
                         break;
                     }
                     boolean isOriginalImg = imageFileInfo2.getImageType() == 1 ? false : writeImagesInfo.isOriginalImg();
-                    c.a.t0.w3.s0.a.m(this.n, imageFileInfo2);
+                    c.a.t0.x3.s0.a.m(this.n, imageFileInfo2);
                     int i5 = i4 + 1;
                     ImageUploadResult k = k(imageFileInfo2, isOriginalImg, z, i5, linkedList3.size());
-                    c.a.t0.w3.s0.a.d(this.n, imageFileInfo2, k);
+                    c.a.t0.x3.s0.a.d(this.n, imageFileInfo2, k);
                     if (k != null) {
                         UploadedImageInfo uploadedPicInfo = k.getUploadedPicInfo();
                         if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
@@ -1383,22 +1383,22 @@ public class f {
                         } else {
                             errorData.setError_code(k.error_code);
                             errorData.setError_msg(k.error_msg);
-                            c.a.t0.w3.s0.c.a("发帖：发送图片 上传图片 错误 1= " + i4 + " = " + imageFileInfo2.toJson().toString());
+                            c.a.t0.x3.s0.c.a("发帖：发送图片 上传图片 错误 1= " + i4 + " = " + imageFileInfo2.toJson().toString());
                             return errorData;
                         }
                     } else {
                         errorData.setError_code(-52);
                         errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
-                        c.a.t0.w3.s0.c.a("发帖：发送图片 上传图片 错误 2= " + i4 + " = " + imageFileInfo2.toJson().toString());
+                        c.a.t0.x3.s0.c.a("发帖：发送图片 上传图片 错误 2= " + i4 + " = " + imageFileInfo2.toJson().toString());
                         return errorData;
                     }
                 }
-                c.a.t0.w3.s0.c.a("发帖：发送图片 上传图片 成功返回");
+                c.a.t0.x3.s0.c.a("发帖：发送图片 上传图片 成功返回");
                 return null;
             }
             errorData.setError_code(-1002);
             errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
-            c.a.t0.w3.s0.c.a("发帖：发送图片 上传图片 错误 无图");
+            c.a.t0.x3.s0.c.a("发帖：发送图片 上传图片 错误 无图");
             return errorData;
         }
         return (ErrorData) invokeLZ.objValue;

@@ -6,7 +6,7 @@ import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f implements com.ss.android.socialbase.downloader.network.h {
     @Override // com.ss.android.socialbase.downloader.network.h
     public com.ss.android.socialbase.downloader.network.g a(String str, List<com.ss.android.socialbase.downloader.model.c> list) throws IOException {

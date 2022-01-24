@@ -29,31 +29,31 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f7638b;
+    public float f7780b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<String> f7639c;
+    public Set<String> f7781c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<Long> f7640d;
+    public List<Long> f7782d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<Integer> f7641e;
+    public List<Integer> f7783e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<Float> f7642f;
+    public List<Float> f7784f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Float> f7643g;
+    public List<Float> f7785g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<Float> f7644h;
+    public List<Float> f7786h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<Float> f7645i;
+    public List<Float> f7787i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a f7646j;
+    public a f7788j;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -62,22 +62,22 @@ public class b {
         public volatile long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f7647b;
+        public float f7789b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f7648c;
+        public float f7790c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f7649d;
+        public float f7791d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f7650e;
+        public float f7792e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f7651f;
+        public float f7793f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f7652g;
+        public int f7794g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class b {
                 if (O == null) {
                     return 0L;
                 }
-                return O.f8160c;
+                return O.f8302c;
             }
             return invokeV.longValue;
         }
@@ -240,7 +240,7 @@ public class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "VerificationData{mFmp=" + this.a + ", mMainPkgSize=" + this.f7647b + ", mIdleCpuAvg=" + this.f7648c + ", mFpsAvg=" + this.f7649d + ", mLaunchDiffMem=" + this.f7650e + ", mRunningDiffMem=" + this.f7651f + ", mLaunchRequestCount=" + this.f7652g + ExtendedMessageFormat.END_FE;
+                return "VerificationData{mFmp=" + this.a + ", mMainPkgSize=" + this.f7789b + ", mIdleCpuAvg=" + this.f7790c + ", mFpsAvg=" + this.f7791d + ", mLaunchDiffMem=" + this.f7792e + ", mRunningDiffMem=" + this.f7793f + ", mLaunchRequestCount=" + this.f7794g + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -260,30 +260,30 @@ public class b {
             }
         }
         this.a = 500;
-        this.f7638b = 0.0f;
-        this.f7639c = new ConcurrentSkipListSet();
-        this.f7640d = new CopyOnWriteArrayList();
-        this.f7641e = new CopyOnWriteArrayList();
-        this.f7642f = new CopyOnWriteArrayList();
-        this.f7643g = new CopyOnWriteArrayList();
-        this.f7644h = new CopyOnWriteArrayList();
-        this.f7645i = new CopyOnWriteArrayList();
-        this.f7646j = new a();
+        this.f7780b = 0.0f;
+        this.f7781c = new ConcurrentSkipListSet();
+        this.f7782d = new CopyOnWriteArrayList();
+        this.f7783e = new CopyOnWriteArrayList();
+        this.f7784f = new CopyOnWriteArrayList();
+        this.f7785g = new CopyOnWriteArrayList();
+        this.f7786h = new CopyOnWriteArrayList();
+        this.f7787i = new CopyOnWriteArrayList();
+        this.f7788j = new a();
     }
 
     public void a(List<Float> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            a aVar = this.f7646j;
+            a aVar = this.f7788j;
             Pair<Long, Long> b2 = b(10000);
             long longValue = ((Long) b2.first).longValue();
             aVar.a = ((Long) b2.second).longValue();
-            aVar.f7648c = a.e(list);
-            aVar.f7647b = a.g();
-            aVar.f7650e = a.f(this.f7645i, this.f7640d, longValue);
-            aVar.f7651f = a.i(this.f7645i, this.f7640d, longValue);
-            aVar.f7652g = a.h(longValue);
-            aVar.f7649d = a.b(this.f7641e);
+            aVar.f7790c = a.e(list);
+            aVar.f7789b = a.g();
+            aVar.f7792e = a.f(this.f7787i, this.f7782d, longValue);
+            aVar.f7793f = a.i(this.f7787i, this.f7782d, longValue);
+            aVar.f7794g = a.h(longValue);
+            aVar.f7791d = a.b(this.f7783e);
         }
     }
 
@@ -327,22 +327,22 @@ public class b {
             TreeMap treeMap = new TreeMap();
             try {
                 treeMap.put("obtainInterval", String.valueOf(this.a));
-                treeMap.put("totalMem", String.valueOf(this.f7638b));
-                treeMap.put("prelinkUrlList", JSONObject.wrap(this.f7639c).toString());
-                treeMap.put("timestampList", JSONObject.wrap(this.f7640d).toString());
-                treeMap.put("fpsList", JSONObject.wrap(this.f7641e).toString());
-                treeMap.put("cpuList", JSONObject.wrap(this.f7642f).toString());
-                treeMap.put("deviceMemList", JSONObject.wrap(this.f7643g).toString());
-                treeMap.put("hostMemList", JSONObject.wrap(this.f7644h).toString());
-                treeMap.put("mnpMemList", JSONObject.wrap(this.f7645i).toString());
+                treeMap.put("totalMem", String.valueOf(this.f7780b));
+                treeMap.put("prelinkUrlList", JSONObject.wrap(this.f7781c).toString());
+                treeMap.put("timestampList", JSONObject.wrap(this.f7782d).toString());
+                treeMap.put("fpsList", JSONObject.wrap(this.f7783e).toString());
+                treeMap.put("cpuList", JSONObject.wrap(this.f7784f).toString());
+                treeMap.put("deviceMemList", JSONObject.wrap(this.f7785g).toString());
+                treeMap.put("hostMemList", JSONObject.wrap(this.f7786h).toString());
+                treeMap.put("mnpMemList", JSONObject.wrap(this.f7787i).toString());
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("fmp", String.valueOf(this.f7646j.a));
-                jSONObject.put("mainPkgSize", String.valueOf(this.f7646j.f7647b));
-                jSONObject.put("idleCpuAvg", String.valueOf(this.f7646j.f7648c));
-                jSONObject.put("fpsAvg", String.valueOf(this.f7646j.f7649d));
-                jSONObject.put("launchMemDiff", String.valueOf(this.f7646j.f7650e));
-                jSONObject.put("runningMemDiff", String.valueOf(this.f7646j.f7651f));
-                jSONObject.put("launchRequestCount", String.valueOf(this.f7646j.f7652g));
+                jSONObject.put("fmp", String.valueOf(this.f7788j.a));
+                jSONObject.put("mainPkgSize", String.valueOf(this.f7788j.f7789b));
+                jSONObject.put("idleCpuAvg", String.valueOf(this.f7788j.f7790c));
+                jSONObject.put("fpsAvg", String.valueOf(this.f7788j.f7791d));
+                jSONObject.put("launchMemDiff", String.valueOf(this.f7788j.f7792e));
+                jSONObject.put("runningMemDiff", String.valueOf(this.f7788j.f7793f));
+                jSONObject.put("launchRequestCount", String.valueOf(this.f7788j.f7794g));
                 treeMap.put("verificationData", jSONObject.toString());
             } catch (Exception e2) {
                 c.a.r0.a.e0.d.l("SwanAppStabilityData", "#toMap 出错", e2);
@@ -356,7 +356,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "SwanAppStabilityData{mObtainInterval=" + this.a + ", mTotalMem=" + this.f7638b + ", mPrelinkUrlList=" + this.f7639c + ", mTimestampList=" + this.f7640d + ", mFpsList=" + this.f7641e + ", mCpuList=" + this.f7642f + ", mDeviceMemList=" + this.f7643g + ", mHostMemList=" + this.f7644h + ", mMnpMemList=" + this.f7645i + ", mVerificationData=" + this.f7646j + ExtendedMessageFormat.END_FE;
+            return "SwanAppStabilityData{mObtainInterval=" + this.a + ", mTotalMem=" + this.f7780b + ", mPrelinkUrlList=" + this.f7781c + ", mTimestampList=" + this.f7782d + ", mFpsList=" + this.f7783e + ", mCpuList=" + this.f7784f + ", mDeviceMemList=" + this.f7785g + ", mHostMemList=" + this.f7786h + ", mMnpMemList=" + this.f7787i + ", mVerificationData=" + this.f7788j + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

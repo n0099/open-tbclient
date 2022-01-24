@@ -3,7 +3,7 @@ package com.baidu.tbadk.widget.layout;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import c.a.s0.g1.j.e;
+import c.a.s0.f1.j.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +16,7 @@ public class ObservedChangeFrameLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f41358e;
+    public e f41386e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ObservedChangeFrameLayout(Context context) {
@@ -41,7 +41,7 @@ public class ObservedChangeFrameLayout extends FrameLayout {
     public e getOnSizeChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41358e : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41386e : (e) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -49,7 +49,7 @@ public class ObservedChangeFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            e eVar = this.f41358e;
+            e eVar = this.f41386e;
             if (eVar != null) {
                 eVar.a(this, i2, i3, i4, i5);
             }
@@ -59,7 +59,7 @@ public class ObservedChangeFrameLayout extends FrameLayout {
     public void setOnSizeChangeListener(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f41358e = eVar;
+            this.f41386e = eVar;
         }
     }
 

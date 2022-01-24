@@ -21,14 +21,14 @@ public class r {
     public static final Object a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f58336c;
+    public static final Object f58381c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public w f58337b;
+    public w f58382b;
 
     /* renamed from: d  reason: collision with root package name */
-    public v f58338d;
+    public v f58383d;
 
     /* loaded from: classes3.dex */
     public static final class a {
@@ -67,7 +67,7 @@ public class r {
             }
         }
         a = new Object();
-        f58336c = new Object();
+        f58381c = new Object();
     }
 
     public r() {
@@ -183,14 +183,14 @@ public class r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f58337b == null) {
+            if (this.f58382b == null) {
                 synchronized (a) {
-                    if (this.f58337b == null) {
-                        this.f58337b = new ab();
+                    if (this.f58382b == null) {
+                        this.f58382b = new ab();
                     }
                 }
             }
-            return this.f58337b;
+            return this.f58382b;
         }
         return (w) invokeV.objValue;
     }
@@ -199,16 +199,16 @@ public class r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f58338d == null) {
-                synchronized (f58336c) {
-                    if (this.f58338d == null) {
+            if (this.f58383d == null) {
+                synchronized (f58381c) {
+                    if (this.f58383d == null) {
                         z zVar = new z();
-                        this.f58338d = zVar;
+                        this.f58383d = zVar;
                         a(zVar);
                     }
                 }
             }
-            return this.f58338d;
+            return this.f58383d;
         }
         return (v) invokeV.objValue;
     }

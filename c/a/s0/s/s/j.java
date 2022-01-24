@@ -30,31 +30,31 @@ public class j {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RoundLinearLayout f13611b;
+    public RoundLinearLayout f13798b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f13612c;
+    public LinearLayout f13799c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f13613d;
+    public LinearLayout f13800d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EMTextView f13614e;
+    public EMTextView f13801e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f13615f;
+    public View f13802f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f13616g;
+    public TextView f13803g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f13617h;
+    public View f13804h;
 
     /* renamed from: i  reason: collision with root package name */
-    public MaxHeightScrollView f13618i;
+    public MaxHeightScrollView f13805i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f13619j;
+    public String f13806j;
     public SpannableStringBuilder k;
     public List<? extends i> l;
     public e m;
@@ -67,7 +67,7 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f13620e;
+        public final /* synthetic */ j f13807e;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -84,14 +84,14 @@ public class j {
                     return;
                 }
             }
-            this.f13620e = jVar;
+            this.f13807e = jVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f13620e.n.onClick();
+                this.f13807e.n.onClick();
             }
         }
     }
@@ -102,7 +102,7 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f13621e;
+        public final /* synthetic */ j f13808e;
 
         public b(j jVar) {
             Interceptable interceptable = $ic;
@@ -119,14 +119,14 @@ public class j {
                     return;
                 }
             }
-            this.f13621e = jVar;
+            this.f13808e = jVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f13621e.n.onClick();
+                this.f13808e.n.onClick();
             }
         }
     }
@@ -187,15 +187,15 @@ public class j {
         }
         h();
         this.l = list;
-        this.f13612c.removeAllViews();
-        this.f13613d.removeAllViews();
+        this.f13799c.removeAllViews();
+        this.f13800d.removeAllViews();
         if (list.size() < 2) {
             z = false;
         } else {
             z = ((g) list.get(0)).e() == -1;
             if (((g) list.get(1)).e() == -2) {
                 z2 = true;
-                this.f13615f.setVisibility(!z ? 0 : 8);
+                this.f13802f.setVisibility(!z ? 0 : 8);
                 int i2 = z ? 0 : z2 ? 4 : 3;
                 boolean z3 = list.size() - i2 > 4;
                 for (int i3 = 0; i3 < list.size(); i3++) {
@@ -204,16 +204,16 @@ public class j {
                     gVar.d();
                     if (gVar != null) {
                         if (i3 < i2) {
-                            this.f13612c.addView(gVar.getView());
+                            this.f13799c.addView(gVar.getView());
                         } else {
-                            this.f13613d.addView(gVar.getView());
+                            this.f13800d.addView(gVar.getView());
                         }
                     }
                 }
             }
         }
         z2 = false;
-        this.f13615f.setVisibility(!z ? 0 : 8);
+        this.f13802f.setVisibility(!z ? 0 : 8);
         if (z) {
         }
         if (list.size() - i2 > 4) {
@@ -228,10 +228,10 @@ public class j {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             p();
             if (this.n != null) {
-                this.f13616g.setOnClickListener(new b(this));
+                this.f13803g.setOnClickListener(new b(this));
             }
             i();
-            return this.f13611b;
+            return this.f13798b;
         }
         return (View) invokeV.objValue;
     }
@@ -245,32 +245,32 @@ public class j {
     public View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13611b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13798b : (View) invokeV.objValue;
     }
 
     public ViewGroup f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13612c : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13799c : (ViewGroup) invokeV.objValue;
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(this.a).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
-            this.f13611b = roundLinearLayout;
+            this.f13798b = roundLinearLayout;
             c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(roundLinearLayout);
             d2.n(R.string.J_X14);
             d2.f(R.color.CAM_X0204);
-            this.f13612c = (LinearLayout) this.f13611b.findViewById(R.id.content_view);
-            this.f13614e = (EMTextView) this.f13611b.findViewById(R.id.title);
-            View findViewById = this.f13611b.findViewById(R.id.title_divide_line);
-            this.f13615f = findViewById;
+            this.f13799c = (LinearLayout) this.f13798b.findViewById(R.id.content_view);
+            this.f13801e = (EMTextView) this.f13798b.findViewById(R.id.title);
+            View findViewById = this.f13798b.findViewById(R.id.title_divide_line);
+            this.f13802f = findViewById;
             findViewById.setVisibility(8);
-            this.f13617h = this.f13611b.findViewById(R.id.dialog_header);
+            this.f13804h = this.f13798b.findViewById(R.id.dialog_header);
             this.l = new ArrayList();
-            this.f13616g = (TextView) this.f13611b.findViewById(R.id.dialog_bottom_cancel_button);
-            this.f13618i = (MaxHeightScrollView) this.f13611b.findViewById(R.id.max_height_scroll_view);
+            this.f13803g = (TextView) this.f13798b.findViewById(R.id.dialog_bottom_cancel_button);
+            this.f13805i = (MaxHeightScrollView) this.f13798b.findViewById(R.id.max_height_scroll_view);
         }
     }
 
@@ -285,24 +285,24 @@ public class j {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.o = true;
             RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(this.a).inflate(R.layout.popup_dialog_view_horizal, (ViewGroup) null);
-            this.f13611b = roundLinearLayout;
+            this.f13798b = roundLinearLayout;
             c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(roundLinearLayout);
             d2.n(R.string.J_X14);
             d2.f(R.color.CAM_X0204);
-            this.f13612c = (LinearLayout) this.f13611b.findViewById(R.id.content_view);
-            this.f13613d = (LinearLayout) this.f13611b.findViewById(R.id.content_view_second);
-            this.f13614e = (EMTextView) this.f13611b.findViewById(R.id.title);
-            View findViewById = this.f13611b.findViewById(R.id.title_divide_line);
-            this.f13615f = findViewById;
+            this.f13799c = (LinearLayout) this.f13798b.findViewById(R.id.content_view);
+            this.f13800d = (LinearLayout) this.f13798b.findViewById(R.id.content_view_second);
+            this.f13801e = (EMTextView) this.f13798b.findViewById(R.id.title);
+            View findViewById = this.f13798b.findViewById(R.id.title_divide_line);
+            this.f13802f = findViewById;
             findViewById.setVisibility(8);
-            this.f13617h = this.f13611b.findViewById(R.id.dialog_header);
+            this.f13804h = this.f13798b.findViewById(R.id.dialog_header);
             this.l = new ArrayList();
-            this.f13616g = (TextView) this.f13611b.findViewById(R.id.dialog_bottom_cancel_button);
+            this.f13803g = (TextView) this.f13798b.findViewById(R.id.dialog_bottom_cancel_button);
             int k = (c.a.d.f.p.n.k(this.a) - (g.q * 4)) / 2;
-            ((LinearLayout.LayoutParams) this.f13612c.getLayoutParams()).leftMargin = k;
-            ((LinearLayout.LayoutParams) this.f13612c.getLayoutParams()).rightMargin = k;
-            ((FrameLayout.LayoutParams) this.f13613d.getLayoutParams()).leftMargin = k;
-            ((FrameLayout.LayoutParams) this.f13613d.getLayoutParams()).rightMargin = k;
+            ((LinearLayout.LayoutParams) this.f13799c.getLayoutParams()).leftMargin = k;
+            ((LinearLayout.LayoutParams) this.f13799c.getLayoutParams()).rightMargin = k;
+            ((FrameLayout.LayoutParams) this.f13800d.getLayoutParams()).leftMargin = k;
+            ((FrameLayout.LayoutParams) this.f13800d.getLayoutParams()).rightMargin = k;
         }
     }
 
@@ -310,15 +310,15 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.o) {
-                SkinManager.setBackgroundColor(this.f13615f, R.color.CAM_X0203);
+                SkinManager.setBackgroundColor(this.f13802f, R.color.CAM_X0203);
             } else {
-                SkinManager.setViewTextColor(this.f13614e, R.color.CAM_X0109);
-                SkinManager.setBackgroundColor(this.f13615f, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(this.f13801e, R.color.CAM_X0109);
+                SkinManager.setBackgroundColor(this.f13802f, R.color.CAM_X0204);
             }
-            SkinManager.setBackgroundColor(this.f13614e, R.color.CAM_X0206);
-            SkinManager.setBackgroundColor(this.f13617h, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f13616g, R.color.CAM_X0204);
-            SkinManager.setViewTextColorSelector(this.f13616g, R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.f13801e, R.color.CAM_X0206);
+            SkinManager.setBackgroundColor(this.f13804h, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f13803g, R.color.CAM_X0204);
+            SkinManager.setViewTextColorSelector(this.f13803g, R.color.CAM_X0107);
             List<? extends i> list = this.l;
             if (list != null) {
                 for (i iVar : list) {
@@ -334,11 +334,11 @@ public class j {
             return;
         }
         this.l = list;
-        this.f13612c.removeAllViews();
+        this.f13799c.removeAllViews();
         for (int i2 = 0; i2 < list.size(); i2++) {
             i iVar = list.get(i2);
             if (iVar != null) {
-                this.f13612c.addView(iVar.getView());
+                this.f13799c.addView(iVar.getView());
             }
         }
     }
@@ -357,11 +357,11 @@ public class j {
     public void l(int i2) {
         MaxHeightScrollView maxHeightScrollView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (maxHeightScrollView = this.f13618i) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (maxHeightScrollView = this.f13805i) == null) {
             return;
         }
         maxHeightScrollView.setMaxHeight(i2);
-        this.f13618i.setVerticalScrollBarEnabled(true);
+        this.f13805i.setVerticalScrollBarEnabled(true);
     }
 
     public void m(c cVar) {
@@ -369,7 +369,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
             this.n = cVar;
-            if (cVar == null || (textView = this.f13616g) == null) {
+            if (cVar == null || (textView = this.f13803g) == null) {
                 return;
             }
             textView.setOnClickListener(new a(this));
@@ -393,12 +393,12 @@ public class j {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            if (!StringUtils.isNull(this.f13619j)) {
-                this.f13614e.setVisibility(0);
-                this.f13614e.setText(this.f13619j);
+            if (!StringUtils.isNull(this.f13806j)) {
+                this.f13801e.setVisibility(0);
+                this.f13801e.setText(this.f13806j);
             } else if (this.k != null) {
-                this.f13614e.setVisibility(0);
-                this.f13614e.setText(this.k);
+                this.f13801e.setVisibility(0);
+                this.f13801e.setText(this.k);
             }
         }
     }
@@ -406,7 +406,7 @@ public class j {
     public void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f13619j = str;
+            this.f13806j = str;
         }
     }
 }

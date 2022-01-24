@@ -23,7 +23,7 @@ public class b {
                 return;
             }
         }
-        c.a.s0.s.h0.b.k().l("nani_key_download_show_position", 3);
+        c.a.s0.s.i0.b.k().l("nani_key_download_show_position", 3);
         new HashSet();
     }
 }

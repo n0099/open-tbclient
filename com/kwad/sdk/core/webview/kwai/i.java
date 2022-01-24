@@ -6,14 +6,14 @@ public final class i extends com.kwad.sdk.core.response.kwai.a implements com.kw
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56483b;
+    public String f56528b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56484c;
+    public String f56529c;
 
     public long a() {
         try {
-            return new JSONObject(this.f56484c).optLong("creativeId", -1L);
+            return new JSONObject(this.f56529c).optLong("creativeId", -1L);
         } catch (Exception unused) {
             return -1L;
         }

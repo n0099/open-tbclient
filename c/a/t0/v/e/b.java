@@ -24,7 +24,7 @@ public class b {
     public final Map<PlaceId, List<AdvertAppInfo>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<PlaceId, Long> f24462b;
+    public final Map<PlaceId, Long> f24167b;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -34,7 +34,7 @@ public class b {
 
     /* renamed from: c.a.t0.v.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1482b {
+    public static class C1465b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class b {
     public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1482b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1465b.a : (b) invokeV.objValue;
     }
 
     public void a(@NonNull PlaceId placeId, @NonNull List<AdvertAppInfo> list) {
@@ -77,7 +77,7 @@ public class b {
                 }
             }
             list2.addAll(list);
-            this.f24462b.put(placeId, Long.valueOf(System.currentTimeMillis()));
+            this.f24167b.put(placeId, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
@@ -87,11 +87,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, placeId)) == null) {
             List<AdvertAppInfo> list = this.a.get(placeId);
-            if (c.a.t0.x1.o.k.a.e(list)) {
+            if (c.a.t0.y1.o.k.a.e(list)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList(list);
-            c.a.t0.x1.o.k.a.c(list);
+            c.a.t0.y1.o.k.a.c(list);
             return arrayList;
         }
         return (List) invokeL.objValue;
@@ -103,7 +103,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, placeId)) == null) {
             List<AdvertAppInfo> list = this.a.get(placeId);
-            if (c.a.t0.x1.o.k.a.e(list)) {
+            if (c.a.t0.y1.o.k.a.e(list)) {
                 return null;
             }
             return list.remove(0);
@@ -115,7 +115,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, placeId)) == null) {
-            Long l = this.f24462b.get(placeId);
+            Long l = this.f24167b.get(placeId);
             if (l == null) {
                 return 0L;
             }
@@ -127,7 +127,7 @@ public class b {
     public boolean f(@NonNull PlaceId placeId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, placeId)) == null) ? !c.a.t0.x1.o.k.a.e(this.a.get(placeId)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, placeId)) == null) ? !c.a.t0.y1.o.k.a.e(this.a.get(placeId)) : invokeL.booleanValue;
     }
 
     public b() {
@@ -144,6 +144,6 @@ public class b {
             }
         }
         this.a = new ConcurrentHashMap();
-        this.f24462b = new ConcurrentHashMap();
+        this.f24167b = new ConcurrentHashMap();
     }
 }

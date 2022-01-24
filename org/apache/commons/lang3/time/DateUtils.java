@@ -18,7 +18,7 @@ import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DateUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MILLIS_PER_DAY = 86400000;
@@ -35,7 +35,7 @@ public class DateUtils {
     public static final int[][] fields;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class DateIterator implements Iterator<Calendar> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class DateUtils {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class ModifyType {
         public static final /* synthetic */ ModifyType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

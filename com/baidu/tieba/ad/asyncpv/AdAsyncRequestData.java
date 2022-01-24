@@ -4,8 +4,8 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import c.a.d.f.p.l;
-import c.a.s0.e1.h;
-import c.a.s0.e1.i;
+import c.a.s0.d1.h;
+import c.a.s0.d1.i;
 import c.a.t0.l.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.common.param.CommonUrlParamManager;
@@ -129,7 +129,7 @@ public class AdAsyncRequestData extends HttpMessage {
             if (c.a.t0.a.h().y()) {
                 jSONArray.put(create(AdExtParam.KEY_NAD_CORE_VERSION, "4.4.3.3"));
             }
-            if (!c.a.t0.x1.o.k.a.f(map)) {
+            if (!c.a.t0.y1.o.k.a.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(create(entry.getKey(), entry.getValue()));
                 }

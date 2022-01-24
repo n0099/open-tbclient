@@ -66,7 +66,7 @@ public class h extends b<c.a.t0.n0.g> {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f17766e != i2) {
+            if (this.f17588e != i2) {
                 SkinManager.setBackgroundResource(j(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.z, R.color.CAM_X0205);
                 SkinManager.setViewTextColor(this.o, R.color.CAM_X0105, 1);
@@ -75,7 +75,7 @@ public class h extends b<c.a.t0.n0.g> {
                 SkinManager.setViewTextColor(this.x, R.color.CAM_X0107, 1);
                 s(this.y);
             }
-            this.f17766e = i2;
+            this.f17588e = i2;
         }
     }
 
@@ -107,7 +107,7 @@ public class h extends b<c.a.t0.n0.g> {
             this.m.setDefaultBgResource(R.color.CAM_X0205);
             this.m.setDrawBorder(true);
             this.m.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.m.setBorderWidth(this.f17768g.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.m.setBorderWidth(this.f17590g.getResources().getDimensionPixelSize(R.dimen.tbds1));
             this.m.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds26));
             j().setOnClickListener(this);
             this.z = view.findViewById(R.id.divider_line);
@@ -128,7 +128,7 @@ public class h extends b<c.a.t0.n0.g> {
         this.p.setText(gVar.g().title_small);
         this.q.setText(String.valueOf(gVar.g().game_score));
         s(gVar);
-        this.x.setText(this.f17768g.getResources().getString(R.string.frs_game_score_user_score_num, StringHelper.numberUniform(gVar.g().game_score_num)));
+        this.x.setText(this.f17590g.getResources().getString(R.string.frs_game_score_user_score_num, StringHelper.numberUniform(gVar.g().game_score_num)));
     }
 
     public final void s(c.a.t0.n0.g gVar) {

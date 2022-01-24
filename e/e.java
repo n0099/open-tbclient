@@ -21,10 +21,10 @@ public class e<TResult> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Executor f61587i;
+    public static final Executor f61632i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static volatile f f61588j;
+    public static volatile f f61633j;
     public static e<?> k;
     public static e<Boolean> l;
     public static e<Boolean> m;
@@ -32,25 +32,25 @@ public class e<TResult> {
     public final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61589b;
+    public boolean f61634b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f61590c;
+    public boolean f61635c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TResult f61591d;
+    public TResult f61636d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Exception f61592e;
+    public Exception f61637e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f61593f;
+    public boolean f61638f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f61594g;
+    public g f61639g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<e.d<TResult, Void>> f61595h;
+    public List<e.d<TResult, Void>> f61640h;
 
     /* loaded from: classes4.dex */
     public class a implements e.d<TResult, Void> {
@@ -59,13 +59,13 @@ public class e<TResult> {
         public final /* synthetic */ e.f a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e.d f61596b;
+        public final /* synthetic */ e.d f61641b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Executor f61597c;
+        public final /* synthetic */ Executor f61642c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ e.c f61598d;
+        public final /* synthetic */ e.c f61643d;
 
         public a(e eVar, e.f fVar, e.d dVar, Executor executor, e.c cVar) {
             Interceptable interceptable = $ic;
@@ -83,9 +83,9 @@ public class e<TResult> {
                 }
             }
             this.a = fVar;
-            this.f61596b = dVar;
-            this.f61597c = executor;
-            this.f61598d = cVar;
+            this.f61641b = dVar;
+            this.f61642c = executor;
+            this.f61643d = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -95,7 +95,7 @@ public class e<TResult> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
-                e.d(this.a, this.f61596b, eVar, this.f61597c, this.f61598d);
+                e.d(this.a, this.f61641b, eVar, this.f61642c, this.f61643d);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -109,13 +109,13 @@ public class e<TResult> {
         public final /* synthetic */ e.f a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e.d f61599b;
+        public final /* synthetic */ e.d f61644b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Executor f61600c;
+        public final /* synthetic */ Executor f61645c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ e.c f61601d;
+        public final /* synthetic */ e.c f61646d;
 
         public b(e eVar, e.f fVar, e.d dVar, Executor executor, e.c cVar) {
             Interceptable interceptable = $ic;
@@ -133,9 +133,9 @@ public class e<TResult> {
                 }
             }
             this.a = fVar;
-            this.f61599b = dVar;
-            this.f61600c = executor;
-            this.f61601d = cVar;
+            this.f61644b = dVar;
+            this.f61645c = executor;
+            this.f61646d = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -145,7 +145,7 @@ public class e<TResult> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
-                e.c(this.a, this.f61599b, eVar, this.f61600c, this.f61601d);
+                e.c(this.a, this.f61644b, eVar, this.f61645c, this.f61646d);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -158,16 +158,16 @@ public class e<TResult> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f61602e;
+        public final /* synthetic */ e.c f61647e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e.f f61603f;
+        public final /* synthetic */ e.f f61648f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e.d f61604g;
+        public final /* synthetic */ e.d f61649g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f61605h;
+        public final /* synthetic */ e f61650h;
 
         public c(e.c cVar, e.f fVar, e.d dVar, e eVar) {
             Interceptable interceptable = $ic;
@@ -184,10 +184,10 @@ public class e<TResult> {
                     return;
                 }
             }
-            this.f61602e = cVar;
-            this.f61603f = fVar;
-            this.f61604g = dVar;
-            this.f61605h = eVar;
+            this.f61647e = cVar;
+            this.f61648f = fVar;
+            this.f61649g = dVar;
+            this.f61650h = eVar;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: e.f */
@@ -196,17 +196,17 @@ public class e<TResult> {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.c cVar = this.f61602e;
+                e.c cVar = this.f61647e;
                 if (cVar != null && cVar.a()) {
-                    this.f61603f.b();
+                    this.f61648f.b();
                     return;
                 }
                 try {
-                    this.f61603f.setResult(this.f61604g.then(this.f61605h));
+                    this.f61648f.setResult(this.f61649g.then(this.f61650h));
                 } catch (CancellationException unused) {
-                    this.f61603f.b();
+                    this.f61648f.b();
                 } catch (Exception e2) {
-                    this.f61603f.c(e2);
+                    this.f61648f.c(e2);
                 }
             }
         }
@@ -218,16 +218,16 @@ public class e<TResult> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f61606e;
+        public final /* synthetic */ e.c f61651e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e.f f61607f;
+        public final /* synthetic */ e.f f61652f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e.d f61608g;
+        public final /* synthetic */ e.d f61653g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f61609h;
+        public final /* synthetic */ e f61654h;
 
         /* loaded from: classes4.dex */
         public class a implements e.d<TContinuationResult, Void> {
@@ -262,17 +262,17 @@ public class e<TResult> {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
-                    e.c cVar = this.a.f61606e;
+                    e.c cVar = this.a.f61651e;
                     if (cVar != null && cVar.a()) {
-                        this.a.f61607f.b();
+                        this.a.f61652f.b();
                         return null;
                     }
                     if (eVar.n()) {
-                        this.a.f61607f.b();
+                        this.a.f61652f.b();
                     } else if (eVar.p()) {
-                        this.a.f61607f.c(eVar.k());
+                        this.a.f61652f.c(eVar.k());
                     } else {
-                        this.a.f61607f.setResult(eVar.l());
+                        this.a.f61652f.setResult(eVar.l());
                     }
                     return null;
                 }
@@ -295,32 +295,32 @@ public class e<TResult> {
                     return;
                 }
             }
-            this.f61606e = cVar;
-            this.f61607f = fVar;
-            this.f61608g = dVar;
-            this.f61609h = eVar;
+            this.f61651e = cVar;
+            this.f61652f = fVar;
+            this.f61653g = dVar;
+            this.f61654h = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.c cVar = this.f61606e;
+                e.c cVar = this.f61651e;
                 if (cVar != null && cVar.a()) {
-                    this.f61607f.b();
+                    this.f61652f.b();
                     return;
                 }
                 try {
-                    e eVar = (e) this.f61608g.then(this.f61609h);
+                    e eVar = (e) this.f61653g.then(this.f61654h);
                     if (eVar == null) {
-                        this.f61607f.setResult(null);
+                        this.f61652f.setResult(null);
                     } else {
                         eVar.e(new a(this));
                     }
                 } catch (CancellationException unused) {
-                    this.f61607f.b();
+                    this.f61652f.b();
                 } catch (Exception e2) {
-                    this.f61607f.c(e2);
+                    this.f61652f.c(e2);
                 }
             }
         }
@@ -328,20 +328,20 @@ public class e<TResult> {
 
     /* renamed from: e.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class RunnableC2269e implements Runnable {
+    public static class RunnableC2275e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e.c f61610e;
+        public final /* synthetic */ e.c f61655e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e.f f61611f;
+        public final /* synthetic */ e.f f61656f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Callable f61612g;
+        public final /* synthetic */ Callable f61657g;
 
-        public RunnableC2269e(e.c cVar, e.f fVar, Callable callable) {
+        public RunnableC2275e(e.c cVar, e.f fVar, Callable callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -356,9 +356,9 @@ public class e<TResult> {
                     return;
                 }
             }
-            this.f61610e = cVar;
-            this.f61611f = fVar;
-            this.f61612g = callable;
+            this.f61655e = cVar;
+            this.f61656f = fVar;
+            this.f61657g = callable;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: e.f */
@@ -367,17 +367,17 @@ public class e<TResult> {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.c cVar = this.f61610e;
+                e.c cVar = this.f61655e;
                 if (cVar != null && cVar.a()) {
-                    this.f61611f.b();
+                    this.f61656f.b();
                     return;
                 }
                 try {
-                    this.f61611f.setResult(this.f61612g.call());
+                    this.f61656f.setResult(this.f61657g.call());
                 } catch (CancellationException unused) {
-                    this.f61611f.b();
+                    this.f61656f.b();
                 } catch (Exception e2) {
-                    this.f61611f.c(e2);
+                    this.f61656f.c(e2);
                 }
             }
         }
@@ -402,7 +402,7 @@ public class e<TResult> {
             }
         }
         e.b.a();
-        f61587i = e.b.b();
+        f61632i = e.b.b();
         e.a.c();
         k = new e<>((Object) null);
         l = new e<>(Boolean.TRUE);
@@ -424,7 +424,7 @@ public class e<TResult> {
             }
         }
         this.a = new Object();
-        this.f61595h = new ArrayList();
+        this.f61640h = new ArrayList();
     }
 
     public static <TContinuationResult, TResult> void c(e.f<TContinuationResult> fVar, e.d<TResult, e<TContinuationResult>> dVar, e<TResult> eVar, Executor executor, e.c cVar) {
@@ -486,13 +486,13 @@ public class e<TResult> {
     public static f m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? f61588j : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? f61633j : (f) invokeV.objValue;
     }
 
     public <TContinuationResult> e<TContinuationResult> e(e.d<TResult, TContinuationResult> dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) ? f(dVar, f61587i, null) : (e) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) ? f(dVar, f61632i, null) : (e) invokeL.objValue;
     }
 
     public <TContinuationResult> e<TContinuationResult> f(e.d<TResult, TContinuationResult> dVar, Executor executor, e.c cVar) {
@@ -504,7 +504,7 @@ public class e<TResult> {
             synchronized (this.a) {
                 o = o();
                 if (!o) {
-                    this.f61595h.add(new a(this, fVar, dVar, executor, cVar));
+                    this.f61640h.add(new a(this, fVar, dVar, executor, cVar));
                 }
             }
             if (o) {
@@ -518,7 +518,7 @@ public class e<TResult> {
     public <TContinuationResult> e<TContinuationResult> g(e.d<TResult, e<TContinuationResult>> dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar)) == null) ? h(dVar, f61587i, null) : (e) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar)) == null) ? h(dVar, f61632i, null) : (e) invokeL.objValue;
     }
 
     public <TContinuationResult> e<TContinuationResult> h(e.d<TResult, e<TContinuationResult>> dVar, Executor executor, e.c cVar) {
@@ -530,7 +530,7 @@ public class e<TResult> {
             synchronized (this.a) {
                 o = o();
                 if (!o) {
-                    this.f61595h.add(new b(this, fVar, dVar, executor, cVar));
+                    this.f61640h.add(new b(this, fVar, dVar, executor, cVar));
                 }
             }
             if (o) {
@@ -547,14 +547,14 @@ public class e<TResult> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this.a) {
-                if (this.f61592e != null) {
-                    this.f61593f = true;
-                    if (this.f61594g != null) {
-                        this.f61594g.a();
-                        this.f61594g = null;
+                if (this.f61637e != null) {
+                    this.f61638f = true;
+                    if (this.f61639g != null) {
+                        this.f61639g.a();
+                        this.f61639g = null;
                     }
                 }
-                exc = this.f61592e;
+                exc = this.f61637e;
             }
             return exc;
         }
@@ -567,7 +567,7 @@ public class e<TResult> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this.a) {
-                tresult = this.f61591d;
+                tresult = this.f61636d;
             }
             return tresult;
         }
@@ -580,7 +580,7 @@ public class e<TResult> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this.a) {
-                z = this.f61590c;
+                z = this.f61635c;
             }
             return z;
         }
@@ -593,7 +593,7 @@ public class e<TResult> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this.a) {
-                z = this.f61589b;
+                z = this.f61634b;
             }
             return z;
         }
@@ -617,7 +617,7 @@ public class e<TResult> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             synchronized (this.a) {
-                for (e.d<TResult, Void> dVar : this.f61595h) {
+                for (e.d<TResult, Void> dVar : this.f61640h) {
                     try {
                         dVar.then(this);
                     } catch (RuntimeException e2) {
@@ -626,7 +626,7 @@ public class e<TResult> {
                         throw new RuntimeException(e3);
                     }
                 }
-                this.f61595h = null;
+                this.f61640h = null;
             }
         }
     }
@@ -636,11 +636,11 @@ public class e<TResult> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             synchronized (this.a) {
-                if (this.f61589b) {
+                if (this.f61634b) {
                     return false;
                 }
-                this.f61589b = true;
-                this.f61590c = true;
+                this.f61634b = true;
+                this.f61635c = true;
                 this.a.notifyAll();
                 q();
                 return true;
@@ -654,16 +654,16 @@ public class e<TResult> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, exc)) == null) {
             synchronized (this.a) {
-                if (this.f61589b) {
+                if (this.f61634b) {
                     return false;
                 }
-                this.f61589b = true;
-                this.f61592e = exc;
-                this.f61593f = false;
+                this.f61634b = true;
+                this.f61637e = exc;
+                this.f61638f = false;
                 this.a.notifyAll();
                 q();
-                if (!this.f61593f && m() != null) {
-                    this.f61594g = new g(this);
+                if (!this.f61638f && m() != null) {
+                    this.f61639g = new g(this);
                 }
                 return true;
             }
@@ -676,11 +676,11 @@ public class e<TResult> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, tresult)) == null) {
             synchronized (this.a) {
-                if (this.f61589b) {
+                if (this.f61634b) {
                     return false;
                 }
-                this.f61589b = true;
-                this.f61591d = tresult;
+                this.f61634b = true;
+                this.f61636d = tresult;
                 this.a.notifyAll();
                 q();
                 return true;
@@ -695,7 +695,7 @@ public class e<TResult> {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, callable, executor, cVar)) == null) {
             e.f fVar = new e.f();
             try {
-                executor.execute(new RunnableC2269e(cVar, fVar, callable));
+                executor.execute(new RunnableC2275e(cVar, fVar, callable));
             } catch (Exception e2) {
                 fVar.c(new ExecutorException(e2));
             }
@@ -720,20 +720,20 @@ public class e<TResult> {
             }
         }
         this.a = new Object();
-        this.f61595h = new ArrayList();
+        this.f61640h = new ArrayList();
         t(tresult);
     }
 
     public static <TResult> e<TResult> call(Callable<TResult> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, callable)) == null) ? call(callable, f61587i, null) : (e) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, callable)) == null) ? call(callable, f61632i, null) : (e) invokeL.objValue;
     }
 
     public static <TResult> e<TResult> call(Callable<TResult> callable, e.c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, callable, cVar)) == null) ? call(callable, f61587i, cVar) : (e) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, callable, cVar)) == null) ? call(callable, f61632i, cVar) : (e) invokeLL.objValue;
     }
 
     public e(boolean z) {
@@ -752,7 +752,7 @@ public class e<TResult> {
             }
         }
         this.a = new Object();
-        this.f61595h = new ArrayList();
+        this.f61640h = new ArrayList();
         if (z) {
             r();
         } else {

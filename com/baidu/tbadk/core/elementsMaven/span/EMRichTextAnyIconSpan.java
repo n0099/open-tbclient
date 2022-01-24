@@ -29,22 +29,22 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40204e;
+    public int f40232e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IconType f40205f;
+    public IconType f40233f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40206g;
+    public int f40234g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40207h;
+    public int f40235h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f40208i;
+    public int f40236i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f40209j;
+    public int f40237j;
     public int k;
     @Px
     public int l;
@@ -142,9 +142,9 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
                 return;
             }
         }
-        this.f40204e = i2;
-        this.f40205f = iconType;
-        this.f40206g = i3;
+        this.f40232e = i2;
+        this.f40233f = iconType;
+        this.f40234g = i3;
         c(m);
     }
 
@@ -158,22 +158,22 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f40208i = i2;
+            this.f40236i = i2;
         }
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f40208i = i2;
-            this.f40209j = i2;
+            this.f40236i = i2;
+            this.f40237j = i2;
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f40209j = i2;
+            this.f40237j = i2;
         }
     }
 
@@ -183,21 +183,21 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
         float dimenPixelSize;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) {
-            IconType iconType = this.f40205f;
+            IconType iconType = this.f40233f;
             if (iconType == IconType.WEBP) {
-                drawable = WebPManager.getPureDrawable(this.f40204e, SkinManager.getColor(this.f40206g), WebPManager.ResourceStateType.NORMAL_PRESS);
+                drawable = WebPManager.getPureDrawable(this.f40232e, SkinManager.getColor(this.f40234g), WebPManager.ResourceStateType.NORMAL_PRESS);
             } else if (iconType == IconType.SVG) {
-                drawable = SvgManager.getInstance().getPureDrawable(this.f40204e, this.f40206g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                drawable = SvgManager.getInstance().getPureDrawable(this.f40232e, this.f40234g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
-                drawable = SkinManager.getDrawable(this.f40204e);
+                drawable = SkinManager.getDrawable(this.f40232e);
             }
             if (drawable == null) {
                 return;
             }
-            int i7 = this.f40207h;
+            int i7 = this.f40235h;
             drawable.setBounds(0, 0, i7, i7);
             canvas.save();
-            float f3 = f2 + this.f40208i;
+            float f3 = f2 + this.f40236i;
             float f4 = this.k;
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
             if (a.b(charSequence)) {
@@ -222,7 +222,7 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f40207h = i2;
+            this.f40235h = i2;
         }
     }
 
@@ -231,10 +231,10 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) {
-            if (this.f40207h == 0) {
-                this.f40207h = (int) paint.getTextSize();
+            if (this.f40235h == 0) {
+                this.f40235h = (int) paint.getTextSize();
             }
-            return this.f40208i + this.f40209j + this.f40207h;
+            return this.f40236i + this.f40237j + this.f40235h;
         }
         return invokeCommon.intValue;
     }

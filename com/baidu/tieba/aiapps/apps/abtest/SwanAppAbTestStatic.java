@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.PopupWindow;
+import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
 import c.a.r0.a.l;
 import c.a.r0.a.z2.q0;
@@ -57,7 +59,10 @@ public class SwanAppAbTestStatic {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c.a.s0.k0.i f41826b;
+    public static String f41846b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static c.a.s0.k0.i f41847c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes12.dex */
@@ -89,7 +94,11 @@ public class SwanAppAbTestStatic {
                 if (privacyPolicyEvent == null) {
                     return true;
                 }
-                SwanAppAbTestStatic.f();
+                SwanAppAbTestStatic.e();
+                if (!TextUtils.isEmpty(SwanAppAbTestStatic.f41846b) && TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    c.a.r0.g.m.b.a(SwanAppAbTestStatic.f41846b);
+                    SwanAppAbTestStatic.f41846b = null;
+                }
                 return true;
             }
             return invokeL.booleanValue;
@@ -97,39 +106,11 @@ public class SwanAppAbTestStatic {
     }
 
     /* loaded from: classes12.dex */
-    public static class b implements Runnable {
+    public static class b implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SwanAppAbTestStatic.e();
-            }
-        }
-    }
-
-    /* loaded from: classes12.dex */
-    public static class c implements CustomMessageTask.CustomRunnable<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,8 +136,8 @@ public class SwanAppAbTestStatic {
                     }
                     String data = customMessage.getData();
                     if (PermissionUtil.isAgreePrivacyPolicy()) {
-                        SwanAppAbTestStatic.f();
-                        SwanAppAbTestStatic.d(data);
+                        SwanAppAbTestStatic.e();
+                        SwanAppAbTestStatic.c(data);
                     }
                 }
                 return null;
@@ -166,12 +147,12 @@ public class SwanAppAbTestStatic {
     }
 
     /* loaded from: classes12.dex */
-    public static class d extends CustomMessageListener {
+    public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(int i2) {
+        public c(int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -211,11 +192,11 @@ public class SwanAppAbTestStatic {
     }
 
     /* loaded from: classes12.dex */
-    public static class e implements UrlManager.UrlDealListener {
+    public static class d implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public e() {
+        public d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -273,7 +254,7 @@ public class SwanAppAbTestStatic {
     }
 
     /* loaded from: classes12.dex */
-    public static class f extends CustomMessageListener {
+    public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -282,12 +263,12 @@ public class SwanAppAbTestStatic {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public a(f fVar) {
+            public a(e eVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {fVar};
+                    Object[] objArr = {eVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -344,7 +325,7 @@ public class SwanAppAbTestStatic {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(int i2) {
+        public e(int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -382,11 +363,11 @@ public class SwanAppAbTestStatic {
     }
 
     /* loaded from: classes12.dex */
-    public static class g implements CustomMessageTask.CustomRunnable<String> {
+    public static class f implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public g() {
+        public f() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -411,6 +392,45 @@ public class SwanAppAbTestStatic {
                 TbadkCoreApplication.getInst().setSdk_ver(a);
                 TbadkCoreApplication.getInst().setFramework_ver(Long.toString(f2));
                 TbadkCoreApplication.getInst().setSwan_game_ver(Long.toString(f3));
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes12.dex */
+    public static class g implements CustomMessageTask.CustomRunnable<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                String a = l.a();
+                if (TbadkCoreApplication.getInst().getSwan_game_ver() == null) {
+                    long f2 = c.a.r0.a.q2.b.f(0);
+                    long f3 = c.a.r0.a.q2.b.f(1);
+                    TbadkCoreApplication.getInst().setSdk_ver(a);
+                    TbadkCoreApplication.getInst().setFramework_ver(Long.toString(f2));
+                    TbadkCoreApplication.getInst().setSwan_game_ver(Long.toString(f3));
+                    return null;
+                }
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -494,23 +514,22 @@ public class SwanAppAbTestStatic {
                 return;
             }
         }
-        f41826b = new a();
-        if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-            c.a.d.f.m.e.a().postDelayed(new b(), 10000L);
-        } else {
-            e();
-        }
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new c());
+        f41847c = new a();
+        d();
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        MessageManager.getInstance().registerListener(new d(2921377));
-        UrlManager.getInstance().addListener(new e());
+        MessageManager.getInstance().registerListener(new c(2921377));
+        UrlManager.getInstance().addListener(new d());
         TbadkCoreApplication.getInst().RegisterIntent(AiAppGuideActivityConfig.class, AiAppGuideActivity.class);
         MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_SMART_APP_BROWSE_HISTORY, TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_BROWSE_HISTORY));
-        MessageManager.getInstance().registerListener(new f(2921410));
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2921512, new g());
+        MessageManager.getInstance().registerListener(new e(2921410));
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(2921666, new f());
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
+        CustomMessageTask customMessageTask3 = new CustomMessageTask(2921512, new g());
+        customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask3);
     }
 
     public SwanAppAbTestStatic() {
@@ -527,9 +546,9 @@ public class SwanAppAbTestStatic {
         }
     }
 
-    public static void d(String str) {
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK_map_v5_4_4.so"))) {
                 RequestParams requestParams = new RequestParams();
                 requestParams.setRunType(c.a.d.l.e.a);
@@ -541,25 +560,25 @@ public class SwanAppAbTestStatic {
             statisticItem.param("obj_id", str);
             TiebaStatic.log(statisticItem);
             Uri parse = Uri.parse(str);
-            g(parse);
+            f(parse);
             SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), parse);
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            if (PermissionUtil.isAgreePrivacyPolicy()) {
+                e();
+                return;
+            }
+            c.a.s0.k0.h.f().m(PrivacyPolicyEvent.class, f41847c, BdUniqueId.gen());
         }
     }
 
     public static void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            if (PermissionUtil.isAgreePrivacyPolicy()) {
-                f();
-                return;
-            }
-            c.a.s0.k0.h.f().m(PrivacyPolicyEvent.class, f41826b, BdUniqueId.gen());
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, null) == null) || a) {
+        if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || a) {
             return;
         }
         a = true;
@@ -577,10 +596,10 @@ public class SwanAppAbTestStatic {
         q0.b0(new i(), 3000L);
     }
 
-    public static void g(Uri uri) {
+    public static void f(Uri uri) {
         List<String> pathSegments;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, uri) == null) || uri == null || (pathSegments = uri.getPathSegments()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, uri) == null) || uri == null || (pathSegments = uri.getPathSegments()) == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_BROWSE_HISTORY);

@@ -22,22 +22,22 @@ public final class b implements Comparable<b> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f19214e;
+    public final long f19477e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f19215f;
+    public final long f19478f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f19216g;
+    public final String f19479g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CharSequence f19217h;
+    public CharSequence f19480h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f19218i;
+    public final int f19481i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f19219j;
+    public final int f19482j;
     public final int k;
     public final int l;
     public final int m;
@@ -120,12 +120,12 @@ public final class b implements Comparable<b> {
         Intrinsics.checkNotNullParameter(content, "content");
         Intrinsics.checkNotNullParameter(contentSpan, "contentSpan");
         Intrinsics.checkNotNullParameter(postData, "postData");
-        this.f19214e = j2;
-        this.f19215f = j3;
-        this.f19216g = content;
-        this.f19217h = contentSpan;
-        this.f19218i = i2;
-        this.f19219j = i3;
+        this.f19477e = j2;
+        this.f19478f = j3;
+        this.f19479g = content;
+        this.f19480h = contentSpan;
+        this.f19481i = i2;
+        this.f19482j = i3;
         this.k = i4;
         this.l = i5;
         this.m = i6;
@@ -144,7 +144,7 @@ public final class b implements Comparable<b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, other)) == null) {
             Intrinsics.checkNotNullParameter(other, "other");
-            return (int) (this.f19215f - other.f19215f);
+            return (int) (this.f19478f - other.f19478f);
         }
         return invokeL.intValue;
     }
@@ -152,13 +152,13 @@ public final class b implements Comparable<b> {
     public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19216g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19479g : (String) invokeV.objValue;
     }
 
     public final CharSequence d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19217h : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19480h : (CharSequence) invokeV.objValue;
     }
 
     public final float e() {
@@ -170,7 +170,7 @@ public final class b implements Comparable<b> {
     public final long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19214e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19477e : invokeV.longValue;
     }
 
     public final int g() {
@@ -194,13 +194,13 @@ public final class b implements Comparable<b> {
     public final int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f19218i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f19481i : invokeV.intValue;
     }
 
     public final long k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f19215f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f19478f : invokeV.longValue;
     }
 
     public final PostData l() {
@@ -218,7 +218,7 @@ public final class b implements Comparable<b> {
     public final int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f19219j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f19482j : invokeV.intValue;
     }
 
     public final Long o() {
@@ -244,7 +244,7 @@ public final class b implements Comparable<b> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return "Danmaku{id: " + this.f19214e + ", content: " + StringsKt___StringsKt.take(this.f19216g, 5) + ", position: " + this.f19215f + ", mode: " + this.f19218i + ", rank: " + this.n + ExtendedMessageFormat.END_FE;
+            return "Danmaku{id: " + this.f19477e + ", content: " + StringsKt___StringsKt.take(this.f19479g, 5) + ", position: " + this.f19478f + ", mode: " + this.f19481i + ", rank: " + this.n + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

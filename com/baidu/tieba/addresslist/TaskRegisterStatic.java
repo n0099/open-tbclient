@@ -1,6 +1,6 @@
 package com.baidu.tieba.addresslist;
 
-import c.a.t0.s1.c;
+import c.a.t0.t1.c;
 import c.a.t0.x.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;

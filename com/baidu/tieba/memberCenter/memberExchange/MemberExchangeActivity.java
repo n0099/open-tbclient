@@ -27,7 +27,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
     public String descStr;
     public String dueDate;
     public HttpMessageListener getTCodeInfoListener;
-    public c.a.t0.f2.d.a mView;
+    public c.a.t0.g2.d.a mView;
     public String memberImage;
     public String memberLevelIcon;
     public String memberName;
@@ -161,7 +161,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
             }
             initTask();
             initListener();
-            c.a.t0.f2.d.a aVar = new c.a.t0.f2.d.a(this);
+            c.a.t0.g2.d.a aVar = new c.a.t0.g2.d.a(this);
             this.mView = aVar;
             aVar.a(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
         }

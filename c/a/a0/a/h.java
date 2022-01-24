@@ -134,7 +134,7 @@ public class h {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (context != null && (packageManager = context.getPackageManager()) != null) {
                 try {
-                    if (packageManager.checkPermission(s.f55248i, context.getPackageName()) == 0) {
+                    if (packageManager.checkPermission(s.f55293i, context.getPackageName()) == 0) {
                         return packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
                     }
                     return false;

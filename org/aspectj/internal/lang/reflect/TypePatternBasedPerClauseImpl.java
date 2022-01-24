@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.aspectj.lang.reflect.PerClauseKind;
 import org.aspectj.lang.reflect.TypePattern;
 import org.aspectj.lang.reflect.TypePatternBasedPerClause;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TypePatternBasedPerClauseImpl extends PerClauseImpl implements TypePatternBasedPerClause {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

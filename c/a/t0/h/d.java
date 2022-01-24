@@ -14,7 +14,7 @@ public class d {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f17949b;
+    public View f18222b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -33,13 +33,13 @@ public class d {
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17949b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18222b : (View) invokeV.objValue;
     }
 
     public void b(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.f17949b = view;
+            this.f18222b = view;
         }
     }
 }

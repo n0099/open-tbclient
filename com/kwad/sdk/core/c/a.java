@@ -18,7 +18,7 @@ public class a {
     public static volatile a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SimpleDateFormat f55617b = new SimpleDateFormat("yyyy-MM-dd");
+    public static SimpleDateFormat f55662b = new SimpleDateFormat("yyyy-MM-dd");
 
     public static a a() {
         if (a == null) {
@@ -112,7 +112,7 @@ public class a {
             return;
         }
         long j2 = context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).getLong("ksadsdk_local_ad_task_info_date", -1L);
-        if (j2 > 0 && !f55617b.format(new Date(j2)).equals(f55617b.format(new Date()))) {
+        if (j2 > 0 && !f55662b.format(new Date(j2)).equals(f55662b.format(new Date()))) {
             c();
         }
     }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class b implements a.InterfaceC1206a {
+public final class b implements a.InterfaceC1214a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +27,7 @@ public final class b implements a.InterfaceC1206a {
         }
     }
 
-    @Override // c.a.t0.m0.h.i.a.InterfaceC1206a
+    @Override // c.a.t0.m0.h.i.a.InterfaceC1214a
     public void a(c.a.t0.m0.e.a item, long j2, c.a.t0.m0.j.b displayer, c.a.t0.m0.a config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j2), displayer, config}) == null) {

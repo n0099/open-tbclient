@@ -14,10 +14,10 @@ public class e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15644b;
+    public String f15792b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f15645c;
+    public String f15793c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class e {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15645c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15793c : (String) invokeV.objValue;
     }
 
     public String b() {
@@ -48,7 +48,7 @@ public class e {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15644b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15792b : (String) invokeV.objValue;
     }
 
     public void d(ThemeRecommand themeRecommand) {
@@ -57,8 +57,8 @@ public class e {
             return;
         }
         this.a = themeRecommand.icon;
-        this.f15644b = themeRecommand.tip_text;
-        this.f15645c = themeRecommand.button_text;
+        this.f15792b = themeRecommand.tip_text;
+        this.f15793c = themeRecommand.button_text;
         String str = themeRecommand.button_url;
     }
 }

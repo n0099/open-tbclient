@@ -1,7 +1,6 @@
 package c.a.r0.a.d0;
 
 import android.annotation.SuppressLint;
-import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,6 +25,6 @@ public class a {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? BaseUrlManager.ONLINE_URL : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "https://mbd.baidu.com" : (String) invokeV.objValue;
     }
 }

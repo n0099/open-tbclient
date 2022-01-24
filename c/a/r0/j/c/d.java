@@ -15,31 +15,31 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10836b;
+    public String f10978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10837c;
+    public String f10979c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f10838d;
+    public float f10980d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f10839e;
+    public boolean f10981e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f10840f;
+    public boolean f10982f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f10841g;
+    public boolean f10983g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f10842h;
+    public int f10984h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f10843i;
+    public float f10985i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f10844j;
+    public String f10986j;
 
     static {
         InterceptResult invokeClinit;
@@ -71,21 +71,21 @@ public class d {
             }
         }
         this.a = "";
-        this.f10836b = "";
-        this.f10837c = "";
-        this.f10838d = 0.0f;
-        this.f10839e = false;
-        this.f10840f = false;
-        this.f10841g = true;
-        this.f10842h = 0;
-        this.f10843i = 1.0f;
+        this.f10978b = "";
+        this.f10979c = "";
+        this.f10980d = 0.0f;
+        this.f10981e = false;
+        this.f10982f = false;
+        this.f10983g = true;
+        this.f10984h = 0;
+        this.f10985i = 1.0f;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "url : " + this.f10837c + "; AutoPlay : " + this.f10839e + "; Volume :" + this.f10843i + "; Loop : " + this.f10840f + "; startTime : " + this.f10838d + "; ObeyMute : " + this.f10841g + "; pos : " + this.f10842h;
+            return "url : " + this.f10979c + "; AutoPlay : " + this.f10981e + "; Volume :" + this.f10985i + "; Loop : " + this.f10982f + "; startTime : " + this.f10980d + "; ObeyMute : " + this.f10983g + "; pos : " + this.f10984h;
         }
         return (String) invokeV.objValue;
     }

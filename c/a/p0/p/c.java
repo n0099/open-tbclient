@@ -15,7 +15,7 @@ public class c implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f4750e;
+    public a f4892e;
 
     public c(a aVar) {
         Interceptable interceptable = $ic;
@@ -32,15 +32,15 @@ public class c implements ServiceConnection {
                 return;
             }
         }
-        this.f4750e = aVar;
+        this.f4892e = aVar;
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.f4750e.a = a.AbstractBinderC1873a.a(iBinder);
-            c.a.p0.n.b bVar = this.f4750e.f4748e;
+            this.f4892e.a = a.AbstractBinderC1879a.a(iBinder);
+            c.a.p0.n.b bVar = this.f4892e.f4890e;
             if (bVar != null) {
                 bVar.a();
             }
@@ -51,9 +51,9 @@ public class c implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            a aVar = this.f4750e;
+            a aVar = this.f4892e;
             aVar.a = null;
-            c.a.p0.n.b bVar = aVar.f4748e;
+            c.a.p0.n.b bVar = aVar.f4890e;
             if (bVar != null) {
                 bVar.a();
             }

@@ -70,7 +70,7 @@ public class IdentityReviewActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IdentityReviewActivity f42220e;
+        public final /* synthetic */ IdentityReviewActivity f42241e;
 
         public a(IdentityReviewActivity identityReviewActivity) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class IdentityReviewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42220e = identityReviewActivity;
+            this.f42241e = identityReviewActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -95,20 +95,20 @@ public class IdentityReviewActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == R.id.identity_card_positive) {
-                    IdentityReviewActivity identityReviewActivity = this.f42220e;
+                    IdentityReviewActivity identityReviewActivity = this.f42241e;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity, identityReviewActivity.positiveImgePath, "IDCardFront", 101)));
                 } else if (view.getId() == R.id.identity_card_negative) {
-                    IdentityReviewActivity identityReviewActivity2 = this.f42220e;
+                    IdentityReviewActivity identityReviewActivity2 = this.f42241e;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity2, identityReviewActivity2.negativeImagePath, "IDCardBack", 102)));
                 } else if (view.getId() == R.id.bottom_next_button) {
-                    IdentityReviewActivity identityReviewActivity3 = this.f42220e;
+                    IdentityReviewActivity identityReviewActivity3 = this.f42241e;
                     new c.a.t0.c0.c.a(identityReviewActivity3.positiveImgePath, 1, identityReviewActivity3.mModel).execute(new Void[0]);
-                    this.f42220e.needRetry = true;
-                    this.f42220e.mToastDialog = new ToastDialog(this.f42220e);
-                    this.f42220e.mToastDialog.setCancelable(true);
-                    this.f42220e.mToastDialog.setCanceledOnTouchOutside(false);
-                    this.f42220e.mToastDialog.setMessage(TbadkCoreApplication.getInst().getString(R.string.check_id_card));
-                    g.i(this.f42220e.mToastDialog, this.f42220e);
+                    this.f42241e.needRetry = true;
+                    this.f42241e.mToastDialog = new ToastDialog(this.f42241e);
+                    this.f42241e.mToastDialog.setCancelable(true);
+                    this.f42241e.mToastDialog.setCanceledOnTouchOutside(false);
+                    this.f42241e.mToastDialog.setMessage(TbadkCoreApplication.getInst().getString(R.string.check_id_card));
+                    g.i(this.f42241e.mToastDialog, this.f42241e);
                 }
             }
         }

@@ -30,10 +30,10 @@ public class ApollonLog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<a> f32678b;
+        public final List<a> f32706b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f32679c;
+        public boolean f32707c;
 
         /* loaded from: classes10.dex */
         public static class a {
@@ -42,10 +42,10 @@ public class ApollonLog {
             public final String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final long f32680b;
+            public final long f32708b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final long f32681c;
+            public final long f32709c;
 
             public a(String str, long j2, long j3) {
                 Interceptable interceptable = $ic;
@@ -63,8 +63,8 @@ public class ApollonLog {
                     }
                 }
                 this.a = str;
-                this.f32680b = j2;
-                this.f32681c = j3;
+                this.f32708b = j2;
+                this.f32709c = j3;
             }
         }
 
@@ -97,20 +97,20 @@ public class ApollonLog {
                     return;
                 }
             }
-            this.f32678b = new ArrayList();
-            this.f32679c = false;
+            this.f32706b = new ArrayList();
+            this.f32707c = false;
         }
 
         private long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-                if (this.f32678b.size() == 0) {
+                if (this.f32706b.size() == 0) {
                     return 0L;
                 }
-                long j2 = this.f32678b.get(0).f32681c;
-                List<a> list = this.f32678b;
-                return list.get(list.size() - 1).f32681c - j2;
+                long j2 = this.f32706b.get(0).f32709c;
+                List<a> list = this.f32706b;
+                return list.get(list.size() - 1).f32709c - j2;
             }
             return invokeV.longValue;
         }
@@ -119,8 +119,8 @@ public class ApollonLog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
                 synchronized (this) {
-                    if (!this.f32679c) {
-                        this.f32678b.add(new a(str, j2, SystemClock.elapsedRealtime()));
+                    if (!this.f32707c) {
+                        this.f32706b.add(new a(str, j2, SystemClock.elapsedRealtime()));
                     } else {
                         throw new IllegalStateException("Marker added to finished log");
                     }
@@ -130,7 +130,7 @@ public class ApollonLog {
 
         public void finalize() throws Throwable {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f32679c) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f32707c) {
                 return;
             }
             finish("Request on the loose");
@@ -141,16 +141,16 @@ public class ApollonLog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
                 synchronized (this) {
-                    this.f32679c = true;
+                    this.f32707c = true;
                     long a2 = a();
                     if (a2 <= 0) {
                         return;
                     }
-                    long j2 = this.f32678b.get(0).f32681c;
+                    long j2 = this.f32706b.get(0).f32709c;
                     ApollonLog.d("(%-4d ms) %s", Long.valueOf(a2), str);
-                    for (a aVar : this.f32678b) {
-                        long j3 = aVar.f32681c;
-                        ApollonLog.d("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(aVar.f32680b), aVar.a);
+                    for (a aVar : this.f32706b) {
+                        long j3 = aVar.f32709c;
+                        ApollonLog.d("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(aVar.f32708b), aVar.a);
                         j2 = j3;
                     }
                 }

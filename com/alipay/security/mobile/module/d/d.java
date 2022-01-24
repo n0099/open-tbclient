@@ -21,10 +21,10 @@ public final class d {
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31004b = "";
+    public static String f31032b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f31005c = "";
+    public static String f31033c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,8 +58,8 @@ public final class d {
         if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
             synchronized (d.class) {
                 a = str;
-                f31004b = str2;
-                f31005c = str3;
+                f31032b = str2;
+                f31033c = str3;
             }
         }
     }
@@ -87,9 +87,9 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
             synchronized (d.class) {
-                if (!com.alipay.security.mobile.module.a.a.a(f31004b) && !com.alipay.security.mobile.module.a.a.a(f31005c)) {
+                if (!com.alipay.security.mobile.module.a.a.a(f31032b) && !com.alipay.security.mobile.module.a.a.a(f31033c)) {
                     StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append(f31005c);
+                    stringBuffer.append(f31033c);
                     Iterator<String> it = list.iterator();
                     while (it.hasNext()) {
                         stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR + it.next());
@@ -100,7 +100,7 @@ public final class d {
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        File file2 = new File(a, f31004b);
+                        File file2 = new File(a, f31032b);
                         if (!file2.exists()) {
                             file2.createNewFile();
                         }

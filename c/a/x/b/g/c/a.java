@@ -17,16 +17,16 @@ public abstract class a {
     public static final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f26635b;
+    public static final a f26663b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.x.b.g.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1596a extends a {
+    public static class C1597a extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1596a() {
+        public C1597a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,10 +61,10 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Interpolator f26636c;
+        public final Interpolator f26664c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Interpolator f26637d;
+        public final Interpolator f26665d;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public b() {
@@ -88,14 +88,14 @@ public abstract class a {
         public float a(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? this.f26636c.getInterpolation(f2) : invokeF.floatValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? this.f26664c.getInterpolation(f2) : invokeF.floatValue;
         }
 
         @Override // c.a.x.b.g.c.a
         public float b(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? this.f26637d.getInterpolation(f2) : invokeF.floatValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? this.f26665d.getInterpolation(f2) : invokeF.floatValue;
         }
 
         @Override // c.a.x.b.g.c.a
@@ -120,8 +120,8 @@ public abstract class a {
                     return;
                 }
             }
-            this.f26636c = new AccelerateInterpolator(f2);
-            this.f26637d = new DecelerateInterpolator(f2);
+            this.f26664c = new AccelerateInterpolator(f2);
+            this.f26665d = new DecelerateInterpolator(f2);
         }
     }
 
@@ -139,7 +139,7 @@ public abstract class a {
             }
         }
         a = new b();
-        f26635b = new C1596a();
+        f26663b = new C1597a();
     }
 
     public a() {
@@ -164,7 +164,7 @@ public abstract class a {
                 if (i2 != 1) {
                     return a;
                 }
-                return f26635b;
+                return f26663b;
             }
             return a;
         }

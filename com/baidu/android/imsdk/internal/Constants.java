@@ -322,7 +322,7 @@ public final class Constants {
         URL_SOCKET_SERVER = "pimc.baidu.com";
         URL_SOCKET_PORT = 8100;
         IM_ENV = 0;
-        mSdkPermissions = new String[]{s.a, s.f55242c, "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", s.f55247h, s.f55243d};
+        mSdkPermissions = new String[]{s.a, s.f55287c, "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", s.f55292h, s.f55288d};
     }
 
     public Constants() {

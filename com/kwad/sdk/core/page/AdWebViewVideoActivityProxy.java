@@ -38,8 +38,8 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
     public ViewGroup mWebDownloadContainer;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public a.C2100a getAdClickConfig(boolean z) {
-        return new a.C2100a(getActivity()).a(z).b(false).a(this.mAdTemplate).d(false);
+    public a.C2106a getAdClickConfig(boolean z) {
+        return new a.C2106a(getActivity()).a(z).b(false).a(this.mAdTemplate).d(false);
     }
 
     private void initView() {

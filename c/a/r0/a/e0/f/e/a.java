@@ -43,41 +43,41 @@ public class a extends z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Set<String> f5649g;
+    public static Set<String> f5791g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Set<String> f5650h;
+    public static Set<String> f5792h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f5651c;
+    public c f5793c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ExecutorService f5652d;
+    public ExecutorService f5794d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f5653e;
+    public int f5795e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a f5654f;
+    public c.a f5796f;
 
     /* renamed from: c.a.r0.a.e0.f.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0300a implements n.b {
+    public class C0309a implements n.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UnitedSchemeEntity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f5655b;
+        public final /* synthetic */ Context f5797b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5656c;
+        public final /* synthetic */ CallbackHandler f5798c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f5657d;
+        public final /* synthetic */ a f5799d;
 
-        public C0300a(a aVar, UnitedSchemeEntity unitedSchemeEntity, Context context, CallbackHandler callbackHandler) {
+        public C0309a(a aVar, UnitedSchemeEntity unitedSchemeEntity, Context context, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,10 +92,10 @@ public class a extends z {
                     return;
                 }
             }
-            this.f5657d = aVar;
+            this.f5799d = aVar;
             this.a = unitedSchemeEntity;
-            this.f5655b = context;
-            this.f5656c = callbackHandler;
+            this.f5797b = context;
+            this.f5798c = callbackHandler;
         }
 
         @Override // c.a.r0.a.p.d.n.b
@@ -104,13 +104,13 @@ public class a extends z {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
                     c.a.r0.a.e0.d.c("DebuggerLaunchAction", "Authentication Success");
-                    a.f5650h.add(this.f5657d.o(this.f5655b));
-                    this.f5657d.p(this.f5655b, this.a, this.f5656c);
+                    a.f5792h.add(this.f5799d.o(this.f5797b));
+                    this.f5799d.p(this.f5797b, this.a, this.f5798c);
                     return;
                 }
                 c.a.r0.a.e0.d.c("DebuggerLaunchAction", "Authentication Fail : Not developer");
                 this.a.result = UnitedSchemeUtility.wrapCallbackParams(401);
-                this.f5657d.v(this.f5655b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
+                this.f5799d.v(this.f5797b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
             }
         }
 
@@ -120,7 +120,7 @@ public class a extends z {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
                 c.a.r0.a.e0.d.d("DebuggerLaunchAction", "onFail : Authentication exception :", exc);
                 this.a.result = UnitedSchemeUtility.wrapCallbackParams(401);
-                this.f5657d.v(this.f5655b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
+                this.f5799d.v(this.f5797b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
             }
         }
     }
@@ -131,22 +131,22 @@ public class a extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f5658e;
+        public final /* synthetic */ Context f5800e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5659f;
+        public final /* synthetic */ String f5801f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ File f5660g;
+        public final /* synthetic */ File f5802g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5661h;
+        public final /* synthetic */ UnitedSchemeEntity f5803h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5662i;
+        public final /* synthetic */ CallbackHandler f5804i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ a f5663j;
+        public final /* synthetic */ a f5805j;
 
         public b(a aVar, Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -163,19 +163,19 @@ public class a extends z {
                     return;
                 }
             }
-            this.f5663j = aVar;
-            this.f5658e = context;
-            this.f5659f = str;
-            this.f5660g = file;
-            this.f5661h = unitedSchemeEntity;
-            this.f5662i = callbackHandler;
+            this.f5805j = aVar;
+            this.f5800e = context;
+            this.f5801f = str;
+            this.f5802g = file;
+            this.f5803h = unitedSchemeEntity;
+            this.f5804i = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5663j.w(this.f5658e, this.f5659f, this.f5660g, this.f5661h, this.f5662i);
+                this.f5805j.w(this.f5800e, this.f5801f, this.f5802g, this.f5803h, this.f5804i);
             }
         }
     }
@@ -193,7 +193,7 @@ public class a extends z {
                 return;
             }
         }
-        f5650h = new HashSet();
+        f5792h = new HashSet();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -226,16 +226,16 @@ public class a extends z {
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo != null && optParamsAsJo.length() > 0 && equals) {
                 c b2 = c.b(optParamsAsJo);
-                this.f5651c = b2;
+                this.f5793c = b2;
                 if (b2 == null) {
-                    boolean z = z.f6201b;
+                    boolean z = z.f6343b;
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;
                 } else if (!u()) {
                     v(context, "404");
                     return false;
-                } else if (!SwanAppAllianceLoginHelper.f38633d.f() && !t().contains(c.a.r0.a.c1.a.h0().h(context)) && !f5650h.contains(o(context))) {
-                    c.a.r0.a.m.b.b(this.f5651c.a, new C0300a(this, unitedSchemeEntity, context, callbackHandler));
+                } else if (!SwanAppAllianceLoginHelper.f38661d.f() && !t().contains(c.a.r0.a.c1.a.h0().h(context)) && !f5792h.contains(o(context))) {
+                    c.a.r0.a.m.b.b(this.f5793c.a, new C0309a(this, unitedSchemeEntity, context, callbackHandler));
                     return true;
                 } else {
                     p(context, unitedSchemeEntity, callbackHandler);
@@ -253,7 +253,7 @@ public class a extends z {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return c.a.r0.a.c1.a.h0().h(context) + this.f5651c.a;
+            return c.a.r0.a.c1.a.h0().h(context) + this.f5793c.a;
         }
         return (String) invokeL.objValue;
     }
@@ -266,19 +266,19 @@ public class a extends z {
             if (b2.exists()) {
                 b2.delete();
             }
-            this.f5652d = Executors.newFixedThreadPool(4);
-            this.f5653e = 0;
-            for (int i2 = 0; i2 < this.f5651c.f5665b.length(); i2++) {
-                String a = this.f5651c.a(i2);
+            this.f5794d = Executors.newFixedThreadPool(4);
+            this.f5795e = 0;
+            for (int i2 = 0; i2 < this.f5793c.f5807b.length(); i2++) {
+                String a = this.f5793c.a(i2);
                 if (TextUtils.isEmpty(a)) {
-                    int i3 = this.f5653e + 1;
-                    this.f5653e = i3;
-                    if (i3 >= this.f5651c.f5665b.length()) {
+                    int i3 = this.f5795e + 1;
+                    this.f5795e = i3;
+                    if (i3 >= this.f5793c.f5807b.length()) {
                         c.a.r0.a.e0.d.c("DebuggerLaunchAction", "IPs are invalid");
                         v(context, "404");
                     }
                 } else {
-                    this.f5652d.execute(new b(this, context, a, b2, unitedSchemeEntity, callbackHandler));
+                    this.f5794d.execute(new b(this, context, a, b2, unitedSchemeEntity, callbackHandler));
                 }
             }
         }
@@ -302,10 +302,10 @@ public class a extends z {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f5654f == null && this.f5651c != null) {
-                this.f5654f = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().v0(this.f5651c.a)).A0(false)).R0(this.f5651c.f5667d)).K0("baiduboxapp://swan/" + this.f5651c.a)).P0("1");
+            if (this.f5796f == null && this.f5793c != null) {
+                this.f5796f = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().v0(this.f5793c.a)).A0(false)).R0(this.f5793c.f5809d)).K0("baiduboxapp://swan/" + this.f5793c.a)).P0("1");
             }
-            return this.f5654f;
+            return this.f5796f;
         }
         return (c.a) invokeV.objValue;
     }
@@ -342,18 +342,18 @@ public class a extends z {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (f5649g == null) {
-                f5649g = new HashSet();
+            if (f5791g == null) {
+                f5791g = new HashSet();
                 try {
                     JSONArray jSONArray = new JSONArray(h.a().getString("authWlist", ""));
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        f5649g.add(jSONArray.optString(i2));
+                        f5791g.add(jSONArray.optString(i2));
                     }
                 } catch (JSONException unused) {
-                    boolean z = z.f6201b;
+                    boolean z = z.f6343b;
                 }
             }
-            return f5649g;
+            return f5791g;
         }
         return (Set) invokeV.objValue;
     }
@@ -362,8 +362,8 @@ public class a extends z {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            JSONArray jSONArray = this.f5651c.f5665b;
-            return (jSONArray == null || jSONArray.length() <= 0 || TextUtils.isEmpty(this.f5651c.f5666c)) ? false : true;
+            JSONArray jSONArray = this.f5793c.f5807b;
+            return (jSONArray == null || jSONArray.length() <= 0 || TextUtils.isEmpty(this.f5793c.f5808c)) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -399,9 +399,9 @@ public class a extends z {
                     g1.putExtra("remoteDebugUrl", str);
                     context.startActivity(g1);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    if (this.f5652d != null) {
-                        this.f5652d.shutdownNow();
-                        this.f5652d = null;
+                    if (this.f5794d != null) {
+                        this.f5794d.shutdownNow();
+                        this.f5794d = null;
                     }
                     d.m(r);
                     d.g().h("downloadsuccess");
@@ -411,9 +411,9 @@ public class a extends z {
                 }
             } catch (IOException unused) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                int i2 = this.f5653e + 1;
-                this.f5653e = i2;
-                if (i2 >= this.f5651c.f5665b.length()) {
+                int i2 = this.f5795e + 1;
+                this.f5795e = i2;
+                if (i2 >= this.f5793c.f5807b.length()) {
                     c.a.r0.a.e0.d.c("DebuggerLaunchAction", "IPs are invalid");
                     v(context, "404");
                     d.g().h("downloadfail");

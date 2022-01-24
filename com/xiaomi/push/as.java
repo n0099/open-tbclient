@@ -44,25 +44,25 @@ public class as implements ar, InvocationHandler {
     public Method f135a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class f60911b;
+    public Class f60956b;
 
     /* renamed from: b  reason: collision with other field name */
     public Method f136b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f60912c;
+    public Method f60957c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f60913d;
+    public Method f60958d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f60914e;
+    public Method f60959e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Method f60915f;
+    public Method f60960f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Method f60916g;
+    public Method f60961g;
 
     /* loaded from: classes4.dex */
     public class a {
@@ -77,13 +77,13 @@ public class as implements ar, InvocationHandler {
         public String f138a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f60917b;
+        public String f60962b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f60918c;
+        public String f60963c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f60919d;
+        public String f60964d;
 
         public a(as asVar) {
             Interceptable interceptable = $ic;
@@ -103,9 +103,9 @@ public class as implements ar, InvocationHandler {
             this.a = asVar;
             this.f137a = null;
             this.f138a = null;
-            this.f60917b = null;
-            this.f60918c = null;
-            this.f60919d = null;
+            this.f60962b = null;
+            this.f60963c = null;
+            this.f60964d = null;
         }
 
         public /* synthetic */ a(as asVar, at atVar) {
@@ -116,7 +116,7 @@ public class as implements ar, InvocationHandler {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!TextUtils.isEmpty(this.f138a) || !TextUtils.isEmpty(this.f60917b) || !TextUtils.isEmpty(this.f60918c) || !TextUtils.isEmpty(this.f60919d)) {
+                if (!TextUtils.isEmpty(this.f138a) || !TextUtils.isEmpty(this.f60962b) || !TextUtils.isEmpty(this.f60963c) || !TextUtils.isEmpty(this.f60964d)) {
                     this.f137a = Boolean.TRUE;
                 }
                 return this.f137a != null;
@@ -157,14 +157,14 @@ public class as implements ar, InvocationHandler {
             }
         }
         this.f133a = null;
-        this.f60911b = null;
+        this.f60956b = null;
         this.f135a = null;
         this.f136b = null;
-        this.f60912c = null;
-        this.f60913d = null;
-        this.f60914e = null;
-        this.f60915f = null;
-        this.f60916g = null;
+        this.f60957c = null;
+        this.f60958d = null;
+        this.f60959e = null;
+        this.f60960f = null;
+        this.f60961g = null;
         this.f134a = new Object();
         this.f129a = 0;
         this.f130a = 0L;
@@ -262,13 +262,13 @@ public class as implements ar, InvocationHandler {
             }
             this.f133a = a2;
             this.f135a = a(a2, "InitSdk", Context.class, cls);
-            this.f60911b = cls;
+            this.f60956b = cls;
             this.f136b = a(cls2, "getUDID", new Class[0]);
-            this.f60912c = a(cls2, "getOAID", new Class[0]);
-            this.f60913d = a(cls2, "getVAID", new Class[0]);
-            this.f60914e = a(cls2, "getAAID", new Class[0]);
-            this.f60915f = a(cls2, "isSupported", new Class[0]);
-            this.f60916g = a(cls2, "shutDown", new Class[0]);
+            this.f60957c = a(cls2, "getOAID", new Class[0]);
+            this.f60958d = a(cls2, "getVAID", new Class[0]);
+            this.f60959e = a(cls2, "getAAID", new Class[0]);
+            this.f60960f = a(cls2, "isSupported", new Class[0]);
+            this.f60961g = a(cls2, "shutDown", new Class[0]);
         }
     }
 
@@ -315,14 +315,14 @@ public class as implements ar, InvocationHandler {
         if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             long j2 = -elapsedRealtime;
-            Class cls = this.f60911b;
+            Class cls = this.f60956b;
             if (cls != null) {
                 try {
                     ClassLoader classLoader = cls.getClassLoader();
                     if (classLoader == null) {
                         classLoader = context.getClassLoader();
                     }
-                    a(this.f135a, this.f133a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.f60911b}, this));
+                    a(this.f135a, this.f133a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.f60956b}, this));
                 } catch (Throwable th) {
                     b("call init sdk error:" + th);
                 }
@@ -375,7 +375,7 @@ public class as implements ar, InvocationHandler {
             if (this.f132a == null) {
                 return null;
             }
-            return this.f132a.f60917b;
+            return this.f132a.f60962b;
         }
         return (String) invokeV.objValue;
     }
@@ -389,7 +389,7 @@ public class as implements ar, InvocationHandler {
             if (this.f132a == null) {
                 return null;
             }
-            return this.f132a.f60918c;
+            return this.f132a.f60963c;
         }
         return (String) invokeV.objValue;
     }
@@ -403,7 +403,7 @@ public class as implements ar, InvocationHandler {
             if (this.f132a == null) {
                 return null;
             }
-            return this.f132a.f60919d;
+            return this.f132a.f60964d;
         }
         return (String) invokeV.objValue;
     }
@@ -425,11 +425,11 @@ public class as implements ar, InvocationHandler {
                     Object obj2 = objArr[i2];
                     if (obj2 != null && !a(obj2)) {
                         aVar.f138a = (String) a(this.f136b, obj2, new Object[0]);
-                        aVar.f60917b = (String) a(this.f60912c, obj2, new Object[0]);
-                        aVar.f60918c = (String) a(this.f60913d, obj2, new Object[0]);
-                        aVar.f60919d = (String) a(this.f60914e, obj2, new Object[0]);
-                        aVar.f137a = (Boolean) a(this.f60915f, obj2, new Object[0]);
-                        a(this.f60916g, obj2, new Object[0]);
+                        aVar.f60962b = (String) a(this.f60957c, obj2, new Object[0]);
+                        aVar.f60963c = (String) a(this.f60958d, obj2, new Object[0]);
+                        aVar.f60964d = (String) a(this.f60959e, obj2, new Object[0]);
+                        aVar.f137a = (Boolean) a(this.f60960f, obj2, new Object[0]);
+                        a(this.f60961g, obj2, new Object[0]);
                         if (aVar.a()) {
                             StringBuilder sb = new StringBuilder();
                             sb.append("has get succ, check duplicate:");

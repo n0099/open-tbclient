@@ -24,29 +24,29 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<c.a.s0.z0.a.b> f14293e;
+    public ArrayList<c.a.s0.z0.a.b> f14433e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f14294f;
+    public TbPageContext<?> f14434f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14295g;
+    public int f14435g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14296h;
+    public int f14436h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14297i;
+    public int f14437i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f14298j;
+    public int f14438j;
     public int k;
     public int l;
     public int m;
 
     /* renamed from: c.a.s0.z0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C0912a {
+    public static /* synthetic */ class C0922a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -58,7 +58,7 @@ public class a extends BaseAdapter {
         public LinearLayout a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f14299b;
+        public TbImageView f14439b;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(a aVar, C0912a c0912a) {
+        public /* synthetic */ b(a aVar, C0922a c0922a) {
             this(aVar);
         }
     }
@@ -96,18 +96,18 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f14293e = null;
-        this.f14294f = null;
-        this.f14295g = -1;
+        this.f14433e = null;
+        this.f14434f = null;
+        this.f14435g = -1;
         this.l = 0;
         this.m = 0;
-        this.f14294f = tbPageContext;
-        this.f14293e = new ArrayList<>();
-        this.f14296h = SkinManager.getColor(R.color.common_color_10043);
-        this.f14297i = SkinManager.getColor(R.color.CAM_X0302);
-        this.f14298j = n.f(tbPageContext.getPageActivity(), R.dimen.ds1);
-        this.k = n.f(this.f14294f.getPageActivity(), R.dimen.ds4);
-        this.l = n.f(this.f14294f.getPageActivity(), R.dimen.ds36);
+        this.f14434f = tbPageContext;
+        this.f14433e = new ArrayList<>();
+        this.f14436h = SkinManager.getColor(R.color.common_color_10043);
+        this.f14437i = SkinManager.getColor(R.color.CAM_X0302);
+        this.f14438j = n.f(tbPageContext.getPageActivity(), R.dimen.ds1);
+        this.k = n.f(this.f14434f.getPageActivity(), R.dimen.ds4);
+        this.l = n.f(this.f14434f.getPageActivity(), R.dimen.ds36);
     }
 
     public int a(int i2) {
@@ -126,14 +126,14 @@ public class a extends BaseAdapter {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f14295g = i2;
+            this.f14435g = i2;
         }
     }
 
     public void c(ArrayList<c.a.s0.z0.a.b> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.f14293e = arrayList;
+            this.f14433e = arrayList;
             if (arrayList != null) {
                 if (arrayList.size() % 4 == 0) {
                     this.m = arrayList.size() / 4;
@@ -149,7 +149,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<c.a.s0.z0.a.b> arrayList = this.f14293e;
+            ArrayList<c.a.s0.z0.a.b> arrayList = this.f14433e;
             if (arrayList != null) {
                 return arrayList.size();
             }
@@ -163,11 +163,11 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            ArrayList<c.a.s0.z0.a.b> arrayList = this.f14293e;
+            ArrayList<c.a.s0.z0.a.b> arrayList = this.f14433e;
             if (arrayList == null || i2 >= arrayList.size()) {
                 return null;
             }
-            return this.f14293e.get(i2);
+            return this.f14433e.get(i2);
         }
         return invokeI.objValue;
     }
@@ -186,7 +186,7 @@ public class a extends BaseAdapter {
     public int getItemViewType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? i2 == this.f14295g ? 1 : 0 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? i2 == this.f14435g ? 1 : 0 : invokeI.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -197,10 +197,10 @@ public class a extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
             int itemViewType = getItemViewType(i2);
             if (view == null) {
-                view = LayoutInflater.from(this.f14294f.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
+                view = LayoutInflater.from(this.f14434f.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
                 bVar = new b(this, null);
                 bVar.a = (LinearLayout) view.findViewById(R.id.photo_container);
-                bVar.f14299b = (TbImageView) view.findViewById(R.id.photo);
+                bVar.f14439b = (TbImageView) view.findViewById(R.id.photo);
             } else {
                 bVar = (b) view.getTag();
             }
@@ -211,18 +211,18 @@ public class a extends BaseAdapter {
             } else {
                 bVar.a.setPadding(0, 0, 0, 0);
             }
-            bVar.f14299b.setDrawerType(0);
-            bVar.f14299b.setBorderSurroundContent(true);
-            bVar.f14299b.setDrawBorder(true);
+            bVar.f14439b.setDrawerType(0);
+            bVar.f14439b.setBorderSurroundContent(true);
+            bVar.f14439b.setDrawBorder(true);
             if (itemViewType == 0) {
-                bVar.f14299b.setBorderColor(this.f14296h);
-                bVar.f14299b.setBorderWidth(this.f14298j);
+                bVar.f14439b.setBorderColor(this.f14436h);
+                bVar.f14439b.setBorderWidth(this.f14438j);
             } else {
-                bVar.f14299b.setBorderColor(this.f14297i);
-                bVar.f14299b.setBorderWidth(this.k);
+                bVar.f14439b.setBorderColor(this.f14437i);
+                bVar.f14439b.setBorderWidth(this.k);
             }
-            bVar.f14299b.setDefaultResource(R.drawable.transparent_bg);
-            bVar.f14299b.startLoad(this.f14293e.get(i2).a(), 10, false);
+            bVar.f14439b.setDefaultResource(R.drawable.transparent_bg);
+            bVar.f14439b.startLoad(this.f14433e.get(i2).a(), 10, false);
             view.setTag(bVar);
             return view;
         }

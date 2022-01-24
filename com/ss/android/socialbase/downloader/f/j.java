@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.f;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.ss.android.socialbase.downloader.exception.BaseException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class j extends BaseException {
     public int a;
 

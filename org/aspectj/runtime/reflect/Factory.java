@@ -1,7 +1,6 @@
 package org.aspectj.runtime.reflect;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,7 +27,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.aspectj.lang.reflect.SourceLocation;
 import org.aspectj.lang.reflect.UnlockSignature;
 import org.aspectj.runtime.reflect.JoinPointImpl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Factory {
     public static /* synthetic */ Interceptable $ic;
     public static Object[] NO_ARGS;
@@ -100,7 +99,7 @@ public final class Factory {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, classLoader)) == null) {
-            if (str.equals(ProxyConfig.MATCH_ALL_SCHEMES)) {
+            if (str.equals("*")) {
                 return null;
             }
             Class cls = (Class) prims.get(str);

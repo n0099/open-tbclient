@@ -48,12 +48,12 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int l = c.a.s0.s.h0.b.k().l("pref_key_fun_ad_first_floor_min", 2);
-            int l2 = c.a.s0.s.h0.b.k().l("pref_key_fun_ad_first_floor_max", 3);
+            int l = c.a.s0.s.i0.b.k().l("pref_key_fun_ad_first_floor_min", 2);
+            int l2 = c.a.s0.s.i0.b.k().l("pref_key_fun_ad_first_floor_max", 3);
             if (l < l2) {
-                a = c.a.t0.p1.a.a.a(l, l2);
+                a = c.a.t0.q1.a.a.a(l, l2);
             } else {
-                a = c.a.t0.p1.a.a.a(l2, l);
+                a = c.a.t0.q1.a.a.a(l2, l);
             }
             if (a < 0) {
                 a = 2;
@@ -66,19 +66,19 @@ public class e {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a.s0.s.h0.b.k().l("fun_ad_big_image_density", 6) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a.s0.s.i0.b.k().l("fun_ad_big_image_density", 6) : invokeV.intValue;
     }
 
     public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.a.s0.s.h0.b.k().l("fun_ad_big_image_floor", 5) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.a.s0.s.i0.b.k().l("fun_ad_big_image_floor", 5) : invokeV.intValue;
     }
 
     public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c.a.s0.s.h0.b.k().l("fun_ad_big_image_size", 1) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c.a.s0.s.i0.b.k().l("fun_ad_big_image_size", 1) : invokeV.intValue;
     }
 
     public static int e() {
@@ -97,7 +97,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            int l = c.a.s0.s.h0.b.k().l("pref_key_fun_ad_density", 6);
+            int l = c.a.s0.s.i0.b.k().l("pref_key_fun_ad_density", 6);
             if (l > 0) {
                 return l;
             }
@@ -109,26 +109,26 @@ public class e {
     public static int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? c.a.s0.s.h0.b.k().l("pref_key_fun_ad_frs_density", 5) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? c.a.s0.s.i0.b.k().l("pref_key_fun_ad_frs_density", 5) : invokeV.intValue;
     }
 
     public static int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? c.a.s0.s.h0.b.k().l("pref_key_fun_ad_frs_first_floor", 2) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? c.a.s0.s.i0.b.k().l("pref_key_fun_ad_frs_first_floor", 2) : invokeV.intValue;
     }
 
     public static int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? c.a.s0.s.h0.b.k().l("key_pb_comment_bear_density", 6) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? c.a.s0.s.i0.b.k().l("key_pb_comment_bear_density", 6) : invokeV.intValue;
     }
 
     public static int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            int l = c.a.s0.s.h0.b.k().l("key_pb_comment_bear_first", 4);
+            int l = c.a.s0.s.i0.b.k().l("key_pb_comment_bear_first", 4);
             if (l <= 0) {
                 return 4;
             }
@@ -140,20 +140,20 @@ public class e {
     public static int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? c.a.s0.s.h0.b.k().l("key_pb_comment_bear_maxsize", 1) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? c.a.s0.s.i0.b.k().l("key_pb_comment_bear_maxsize", 1) : invokeV.intValue;
     }
 
     public static int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? c.a.s0.s.h0.b.k().l("key_video_middle_density", 4) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? c.a.s0.s.i0.b.k().l("key_video_middle_density", 4) : invokeV.intValue;
     }
 
     public static int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            int l = c.a.s0.s.h0.b.k().l("key_video_middle_first", 2);
+            int l = c.a.s0.s.i0.b.k().l("key_video_middle_first", 2);
             if (l <= 0) {
                 return 2;
             }
@@ -170,32 +170,32 @@ public class e {
         try {
             int optInt = jSONObject.optInt("frs_bear_first_floor", 2);
             int optInt2 = jSONObject.optInt("frs_bear_density", 5);
-            c.a.s0.s.h0.b.k().w("pref_key_fun_ad_frs_first_floor", optInt);
-            c.a.s0.s.h0.b.k().w("pref_key_fun_ad_frs_density", optInt2);
+            c.a.s0.s.i0.b.k().w("pref_key_fun_ad_frs_first_floor", optInt);
+            c.a.s0.s.i0.b.k().w("pref_key_fun_ad_frs_density", optInt2);
             int optInt3 = jSONObject.optInt("index_bear_density", 6);
             int optInt4 = jSONObject.optInt("index_bear_first_floor_max", 3);
             int optInt5 = jSONObject.optInt("index_bear_first_floor_min", 2);
-            c.a.s0.s.h0.b.k().w("pref_key_fun_ad_density", optInt3);
-            c.a.s0.s.h0.b.k().w("pref_key_fun_ad_first_floor_max", optInt4);
-            c.a.s0.s.h0.b.k().w("pref_key_fun_ad_first_floor_min", optInt5);
+            c.a.s0.s.i0.b.k().w("pref_key_fun_ad_density", optInt3);
+            c.a.s0.s.i0.b.k().w("pref_key_fun_ad_first_floor_max", optInt4);
+            c.a.s0.s.i0.b.k().w("pref_key_fun_ad_first_floor_min", optInt5);
             int optInt6 = jSONObject.optInt("video_bear_density", 4);
             int optInt7 = jSONObject.optInt("video_bear_first_floor", 2);
-            c.a.s0.s.h0.b.k().w("key_video_middle_density", optInt6);
-            c.a.s0.s.h0.b.k().w("key_video_middle_first", optInt7);
+            c.a.s0.s.i0.b.k().w("key_video_middle_density", optInt6);
+            c.a.s0.s.i0.b.k().w("key_video_middle_first", optInt7);
             int optInt8 = jSONObject.optInt("pb_comment_bear_density", 6);
             int optInt9 = jSONObject.optInt("pb_comment_bear_first_floor", 4);
             int optInt10 = jSONObject.optInt("pb_comment_bear_max_size", 1);
-            c.a.s0.s.h0.b.k().w("key_pb_comment_bear_density", optInt8);
-            c.a.s0.s.h0.b.k().w("key_pb_comment_bear_first", optInt9);
-            c.a.s0.s.h0.b.k().w("key_pb_comment_bear_maxsize", optInt10);
+            c.a.s0.s.i0.b.k().w("key_pb_comment_bear_density", optInt8);
+            c.a.s0.s.i0.b.k().w("key_pb_comment_bear_first", optInt9);
+            c.a.s0.s.i0.b.k().w("key_pb_comment_bear_maxsize", optInt10);
             int optInt11 = jSONObject.optInt("picpage_bear_first_floor", 5);
             int optInt12 = jSONObject.optInt("picpage_bear_density", 6);
             int optInt13 = jSONObject.optInt("picpage_bear_max_size", 1);
             int optInt14 = jSONObject.optInt("picpage_bear_last_frame_switch", 0);
-            c.a.s0.s.h0.b.k().w("fun_ad_big_image_floor", optInt11);
-            c.a.s0.s.h0.b.k().w("fun_ad_big_image_density", optInt12);
-            c.a.s0.s.h0.b.k().w("fun_ad_big_image_size", optInt13);
-            c.a.s0.s.h0.b.k().w("fun_ad_big_image_switch", optInt14);
+            c.a.s0.s.i0.b.k().w("fun_ad_big_image_floor", optInt11);
+            c.a.s0.s.i0.b.k().w("fun_ad_big_image_density", optInt12);
+            c.a.s0.s.i0.b.k().w("fun_ad_big_image_size", optInt13);
+            c.a.s0.s.i0.b.k().w("fun_ad_big_image_switch", optInt14);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

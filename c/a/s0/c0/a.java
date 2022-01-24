@@ -11,12 +11,12 @@ public interface a {
 
     /* renamed from: c.a.s0.c0.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0826a {
+    public static class C0835a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
-        public C0826a(int i2, int i3) {
+        public C0835a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +46,7 @@ public interface a {
 
     String b(String str);
 
-    C0826a c(Context context, String str);
+    C0835a c(Context context, String str);
 
     int d(String str);
 

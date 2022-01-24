@@ -24,29 +24,29 @@ public class a extends ActivityDelegation implements c.a.r0.a.m.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f25927e;
+    public BdUniqueId f25908e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.z.b.f.d.a f25928f;
+    public c.a.t0.z.b.f.d.a f25909f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Activity f25929g;
+    public Activity f25910g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, String> f25930h;
+    public Map<String, String> f25911h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f25931i;
+    public CustomMessageListener f25912i;
 
     /* renamed from: c.a.t0.z.b.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1566a extends CustomMessageListener {
+    public class C1565a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1566a(a aVar, int i2) {
+        public C1565a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -76,11 +76,11 @@ public class a extends ActivityDelegation implements c.a.r0.a.m.a {
             Object data = customResponsedMessage.getData();
             if (data instanceof f) {
                 f fVar = (f) data;
-                if (getTag() == fVar.a || fVar.f12971g) {
-                    this.a.mResult.putInt("result_code", fVar.f12966b);
-                    this.a.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, fVar.f12967c);
-                    if (this.a.f25928f != null) {
-                        this.a.f25928f.a(this.a.mResult);
+                if (getTag() == fVar.a || fVar.f13115g) {
+                    this.a.mResult.putInt("result_code", fVar.f13110b);
+                    this.a.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, fVar.f13111c);
+                    if (this.a.f25909f != null) {
+                        this.a.f25909f.a(this.a.mResult);
                     }
                     this.a.finish();
                 }
@@ -101,21 +101,21 @@ public class a extends ActivityDelegation implements c.a.r0.a.m.a {
                 return;
             }
         }
-        this.f25927e = BdUniqueId.gen();
-        this.f25931i = new C1566a(this, 2921393);
+        this.f25908e = BdUniqueId.gen();
+        this.f25912i = new C1565a(this, 2921393);
     }
 
     public void b(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.f25929g = activity;
+            this.f25910g = activity;
         }
     }
 
     public void c(c.a.t0.z.b.f.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f25928f = aVar;
+            this.f25909f = aVar;
         }
     }
 
@@ -123,8 +123,8 @@ public class a extends ActivityDelegation implements c.a.r0.a.m.a {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f25928f = null;
-            MessageManager.getInstance().unRegisterListener(this.f25931i);
+            this.f25909f = null;
+            MessageManager.getInstance().unRegisterListener(this.f25912i);
             super.finish();
         }
     }
@@ -134,28 +134,28 @@ public class a extends ActivityDelegation implements c.a.r0.a.m.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.f25931i.setTag(this.f25927e);
-            MessageManager.getInstance().registerListener(this.f25931i);
+            this.f25912i.setTag(this.f25908e);
+            MessageManager.getInstance().registerListener(this.f25912i);
             int i2 = this.mParams.getInt("type");
             String string = this.mParams.getString("orderInfo");
             f fVar = new f();
-            fVar.a = this.f25927e;
-            fVar.f12966b = i2;
-            fVar.f12967c = string;
-            fVar.f12969e = (Map) this.mParams.getSerializable("params");
-            fVar.f12970f = this.f25930h;
+            fVar.a = this.f25908e;
+            fVar.f13110b = i2;
+            fVar.f13111c = string;
+            fVar.f13113e = (Map) this.mParams.getSerializable("params");
+            fVar.f13114f = this.f25911h;
             if (getAgent() != null) {
-                fVar.f12968d = getAgent();
+                fVar.f13112d = getAgent();
             } else {
-                Activity activity = this.f25929g;
+                Activity activity = this.f25910g;
                 if (activity != null) {
-                    fVar.f12968d = activity;
+                    fVar.f13112d = activity;
                 } else {
-                    fVar.f12968d = TbadkCoreApplication.getInst().getCurrentActivity();
+                    fVar.f13112d = TbadkCoreApplication.getInst().getCurrentActivity();
                 }
             }
             CustomMessage customMessage = new CustomMessage(2921393, fVar);
-            customMessage.setTag(this.f25927e);
+            customMessage.setTag(this.f25908e);
             boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
             this.mResult.putInt("result_code", sendMessage ? 0 : 1);
             Bundle bundle = this.mResult;

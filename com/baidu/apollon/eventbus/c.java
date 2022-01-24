@@ -17,13 +17,13 @@ public final class c extends Handler {
     public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f32432b;
+    public final int f32460b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f32433c;
+    public final b f32461c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f32434d;
+    public boolean f32462d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, Looper looper, int i2) {
@@ -43,8 +43,8 @@ public final class c extends Handler {
                 return;
             }
         }
-        this.f32433c = bVar;
-        this.f32432b = i2;
+        this.f32461c = bVar;
+        this.f32460b = i2;
         this.a = new e();
     }
 
@@ -54,8 +54,8 @@ public final class c extends Handler {
             d a = d.a(gVar, event);
             synchronized (this) {
                 this.a.a(a);
-                if (!this.f32434d) {
-                    this.f32434d = true;
+                if (!this.f32462d) {
+                    this.f32462d = true;
                     if (!sendMessage(obtainMessage())) {
                         throw new EventBusException("Could not send handler message");
                     }
@@ -76,20 +76,20 @@ public final class c extends Handler {
                         synchronized (this) {
                             a = this.a.a();
                             if (a == null) {
-                                this.f32434d = false;
+                                this.f32462d = false;
                                 return;
                             }
                         }
                     }
-                    this.f32433c.a(a);
-                } while (SystemClock.uptimeMillis() - uptimeMillis < this.f32432b);
+                    this.f32461c.a(a);
+                } while (SystemClock.uptimeMillis() - uptimeMillis < this.f32460b);
                 if (sendMessage(obtainMessage())) {
-                    this.f32434d = true;
+                    this.f32462d = true;
                     return;
                 }
                 throw new EventBusException("Could not send handler message");
             } finally {
-                this.f32434d = false;
+                this.f32462d = false;
             }
         }
     }

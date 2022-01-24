@@ -35,10 +35,10 @@ public final class b {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8051b;
+    public static String f8193b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f8052c;
+    public static final Set<String> f8194c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -87,8 +87,8 @@ public final class b {
             }
         }
         a = k.a;
-        f8051b = "/aiapp";
-        f8052c = new HashSet(Arrays.asList("extension_core", "js_native", "swan_core"));
+        f8193b = "/aiapp";
+        f8194c = new HashSet(Arrays.asList("extension_core", "js_native", "swan_core"));
     }
 
     public static File A() {
@@ -116,7 +116,7 @@ public final class b {
             String d2 = L.M() != null ? L.M().d() : "";
             if (!TextUtils.isEmpty(d2)) {
                 String d3 = f.d(d2.getBytes(), false);
-                if (D(str + f8051b + File.separator + d3)) {
+                if (D(str + f8193b + File.separator + d3)) {
                     boolean z = a;
                     return d3;
                 }
@@ -168,7 +168,7 @@ public final class b {
             if (i2 != 1) {
                 M = i2 != 2 ? str : L(str, eVar, eVar.j0());
             } else {
-                M = M(str, eVar.f5537f);
+                M = M(str, eVar.f5679f);
             }
             return M == null ? str : M;
         }
@@ -266,8 +266,8 @@ public final class b {
                 if (a && z) {
                     String str3 = "relative path : " + str;
                     i2 = d.b.e();
-                } else if (!TextUtils.isEmpty(eVar.f5537f) && !TextUtils.isEmpty(str2) && s(str) == PathType.RELATIVE) {
-                    i2 = d.e.i(eVar.f5537f, str2);
+                } else if (!TextUtils.isEmpty(eVar.f5679f) && !TextUtils.isEmpty(str2) && s(str) == PathType.RELATIVE) {
+                    i2 = d.e.i(eVar.f5679f, str2);
                 }
                 if (i2.exists()) {
                     String replace = str.replace("//", "/");
@@ -418,7 +418,7 @@ public final class b {
     public static long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? c.a.r0.w.d.c(o(), f8052c) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? c.a.r0.w.d.c(o(), f8194c) : invokeV.longValue;
     }
 
     public static long h() {
@@ -559,7 +559,7 @@ public final class b {
             if (X != null && !TextUtils.isEmpty(X.I()) && X.getType() == 1) {
                 return X.I() + "_dev";
             }
-            return eVar.f5537f;
+            return eVar.f5679f;
         }
         return (String) invokeL.objValue;
     }
@@ -588,7 +588,7 @@ public final class b {
                 if (a) {
                     String str2 = "——> getSwanAppStoreDirectory: " + AppRuntime.getAppContext().getExternalFilesDir(null);
                 }
-                String str3 = AppRuntime.getAppContext().getExternalFilesDir(null) + f8051b + "/store" + File.separator + "aiapp_" + str;
+                String str3 = AppRuntime.getAppContext().getExternalFilesDir(null) + f8193b + "/store" + File.separator + "aiapp_" + str;
                 m(str3);
                 return str3;
             } catch (Exception e2) {
@@ -609,7 +609,7 @@ public final class b {
                 if (a) {
                     r0 = "——> getSwanAppStoreDirectory: " + AppRuntime.getAppContext().getExternalFilesDir(null);
                 }
-                return AppRuntime.getAppContext().getExternalFilesDir(null) + f8051b;
+                return AppRuntime.getAppContext().getExternalFilesDir(null) + f8193b;
             }
             return null;
         }
@@ -626,7 +626,7 @@ public final class b {
             if (a) {
                 String str2 = "——> getSwanAppTmpDirectory: " + AppRuntime.getAppContext().getExternalCacheDir();
             }
-            String str3 = AppRuntime.getAppContext().getExternalCacheDir() + f8051b + "/tmp" + File.separator + "aiapp_" + str;
+            String str3 = AppRuntime.getAppContext().getExternalCacheDir() + f8193b + "/tmp" + File.separator + "aiapp_" + str;
             m(str3);
             return str3;
         }
@@ -640,7 +640,7 @@ public final class b {
             if (a) {
                 r0 = "——> getSwanAppTmpDirectory: " + AppRuntime.getAppContext().getExternalCacheDir();
             }
-            return AppRuntime.getAppContext().getExternalCacheDir() + f8051b;
+            return AppRuntime.getAppContext().getExternalCacheDir() + f8193b;
         }
         return (String) invokeV.objValue;
     }
@@ -661,7 +661,7 @@ public final class b {
             if (C == null) {
                 return null;
             }
-            String str2 = absolutePath + f8051b + "/usr" + File.separator + C + File.separator + "aiapp_" + str;
+            String str2 = absolutePath + f8193b + "/usr" + File.separator + C + File.separator + "aiapp_" + str;
             m(str2);
             return str2;
         }

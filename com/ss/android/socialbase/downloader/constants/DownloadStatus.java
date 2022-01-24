@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DownloadStatus {
     public static final int CANCELED = -4;
     public static final int CONNECTED = 3;

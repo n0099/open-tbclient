@@ -1232,7 +1232,7 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            String a = au.a().a(str, au.a.f36463b);
+            String a = au.a().a(str, au.a.f36491b);
             return a == null ? "" : a;
         }
         return (String) invokeL.objValue;

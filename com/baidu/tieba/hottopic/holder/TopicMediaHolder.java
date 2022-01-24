@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.t0.q1.e;
+import c.a.t0.r1.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.widget.ForeDrawableImageView;
 import com.baidu.tieba.hottopic.view.TopicVideoControllerView;

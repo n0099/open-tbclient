@@ -26,23 +26,23 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f9890d;
+    public static final boolean f10032d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static b f9891e;
+    public static b f10033e;
     public transient /* synthetic */ FieldHolder $fh;
     public Bitmap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, c> f9892b;
+    public HashMap<String, c> f10034b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f9893c;
+    public List<String> f10035c;
 
     static {
         InterceptResult invokeClinit;
@@ -57,7 +57,7 @@ public class b {
                 return;
             }
         }
-        f9890d = k.a;
+        f10032d = k.a;
     }
 
     public b() {
@@ -73,22 +73,22 @@ public class b {
                 return;
             }
         }
-        this.f9892b = new HashMap<>();
-        this.f9893c = new ArrayList();
+        this.f10034b = new HashMap<>();
+        this.f10035c = new ArrayList();
     }
 
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f9891e == null) {
+            if (f10033e == null) {
                 synchronized (b.class) {
-                    if (f9891e == null) {
-                        f9891e = new b();
+                    if (f10033e == null) {
+                        f10033e = new b();
                     }
                 }
             }
-            return f9891e;
+            return f10033e;
         }
         return (b) invokeV.objValue;
     }
@@ -98,7 +98,7 @@ public class b {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HashMap<String, c> hashMap = this.f9892b;
+            HashMap<String, c> hashMap = this.f10034b;
             if (hashMap == null || (cVar = hashMap.get(str)) == null) {
                 return null;
             }
@@ -110,7 +110,7 @@ public class b {
     public List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9893c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10035c : (List) invokeV.objValue;
     }
 
     public Bitmap d() {
@@ -123,7 +123,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> list = this.f9893c;
+            List<String> list = this.f10035c;
             return list != null && list.size() > 0;
         }
         return invokeV.booleanValue;
@@ -132,14 +132,14 @@ public class b {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (f9890d) {
+            if (f10032d) {
                 String str2 = "get emoji info from " + str;
             }
             File file = new File(str);
             if (file.exists() && file.isDirectory()) {
                 String E = c.a.r0.w.d.E(new File(str + File.separator + "emoji.json"));
                 if (TextUtils.isEmpty(E)) {
-                    boolean z = f9890d;
+                    boolean z = f10032d;
                     return;
                 }
                 try {
@@ -156,8 +156,8 @@ public class b {
                         this.a = BitmapFactory.decodeFile(str + File.separator + optString);
                     }
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
-                    this.f9893c.clear();
-                    this.f9892b.clear();
+                    this.f10035c.clear();
+                    this.f10034b.clear();
                     if (optJSONArray2 != null) {
                         int length = optJSONArray2.length();
                         for (int i2 = 0; i2 < length; i2++) {
@@ -166,8 +166,8 @@ public class b {
                             String optString3 = jSONObject.optString("text");
                             Bitmap decodeFile = BitmapFactory.decodeFile(str + File.separator + jSONObject.optString("icon"));
                             if (!TextUtils.isEmpty(optString3) && decodeFile != null) {
-                                this.f9893c.add(optString3);
-                                this.f9892b.put(optString3, new c(optString2, optString3, decodeFile));
+                                this.f10035c.add(optString3);
+                                this.f10034b.put(optString3, new c(optString2, optString3, decodeFile));
                             }
                         }
                         return;
@@ -178,7 +178,7 @@ public class b {
                     return;
                 }
             }
-            boolean z2 = f9890d;
+            boolean z2 = f10032d;
         }
     }
 
@@ -187,7 +187,7 @@ public class b {
         Object aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, charSequence, textView)) == null) {
-            boolean z = f9890d;
+            boolean z = f10032d;
             SpannableString spannableString = new SpannableString(charSequence);
             Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
             while (matcher.find()) {

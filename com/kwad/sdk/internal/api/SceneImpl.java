@@ -272,13 +272,13 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         a aVar2 = new a();
         this.mKsAdLabel = aVar2;
         aVar2.a = aVar.a();
-        this.mKsAdLabel.f56993b = aVar.b();
-        this.mKsAdLabel.f56994c = aVar.c();
-        this.mKsAdLabel.f56995d = aVar.d();
-        this.mKsAdLabel.f56996e = aVar.e();
-        this.mKsAdLabel.f56997f = aVar.f();
-        this.mKsAdLabel.f56998g = aVar.g();
-        this.mKsAdLabel.f56999h = aVar.h();
+        this.mKsAdLabel.f57038b = aVar.b();
+        this.mKsAdLabel.f57039c = aVar.c();
+        this.mKsAdLabel.f57040d = aVar.d();
+        this.mKsAdLabel.f57041e = aVar.e();
+        this.mKsAdLabel.f57042f = aVar.f();
+        this.mKsAdLabel.f57043g = aVar.g();
+        this.mKsAdLabel.f57044h = aVar.h();
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -332,7 +332,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         t.a(jSONObject, "height", this.height);
         a aVar = this.mKsAdLabel;
         if (aVar != null) {
-            long j2 = aVar.f56999h;
+            long j2 = aVar.f57044h;
             if (j2 != 0) {
                 t.a(jSONObject, "cpmBidFloor", j2);
             }

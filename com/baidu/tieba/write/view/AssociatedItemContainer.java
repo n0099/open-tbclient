@@ -34,10 +34,10 @@ public final class AssociatedItemContainer extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f49693e;
+    public c f49712e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f49694f;
+    public b f49713f;
 
     /* loaded from: classes13.dex */
     public static final class a {
@@ -165,7 +165,7 @@ public final class AssociatedItemContainer extends LinearLayout {
             });
             itemCardView.setData(itemData, 10, "", false);
             addView(itemCardView);
-            b bVar = this.f49694f;
+            b bVar = this.f49713f;
             if (bVar == null) {
                 return;
             }
@@ -176,13 +176,13 @@ public final class AssociatedItemContainer extends LinearLayout {
     public final b getOnAddedListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49694f : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49713f : (b) invokeV.objValue;
     }
 
     public final c getOnDeletedListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49693e : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49712e : (c) invokeV.objValue;
     }
 
     public final void onChangeSkin() {
@@ -199,14 +199,14 @@ public final class AssociatedItemContainer extends LinearLayout {
     public final void setOnAddedListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f49694f = bVar;
+            this.f49713f = bVar;
         }
     }
 
     public final void setOnDeletedListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f49693e = cVar;
+            this.f49712e = cVar;
         }
     }
 

@@ -30,16 +30,16 @@ public class a implements c {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f14271b;
+    public ImageView f14411b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f14272c;
+    public ImageView f14412c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f14273d;
+    public TextView f14413d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f14274e;
+    public LinearLayout f14414e;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -58,11 +58,11 @@ public class a implements c {
         }
         View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
         this.a = inflate;
-        this.f14271b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
-        this.f14273d = (TextView) this.a.findViewById(R.id.floating_view_title);
-        this.f14272c = (ImageView) this.a.findViewById(R.id.floating_view_arrow);
-        this.f14274e = (LinearLayout) this.a.findViewById(R.id.floating_view_main);
-        this.f14273d.setText(R.string.frs_forum_bcast_return_info);
+        this.f14411b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
+        this.f14413d = (TextView) this.a.findViewById(R.id.floating_view_title);
+        this.f14412c = (ImageView) this.a.findViewById(R.id.floating_view_arrow);
+        this.f14414e = (LinearLayout) this.a.findViewById(R.id.floating_view_main);
+        this.f14413d.setText(R.string.frs_forum_bcast_return_info);
         changeSkin();
     }
 
@@ -72,10 +72,10 @@ public class a implements c {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
-        SkinManager.setViewTextColor(this.f14273d, R.color.CAM_X0101);
-        SkinManager.setImageResource(this.f14271b, R.drawable.pic_float_return_broadcast32);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f14272c, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(w0.A).tlRadius(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.f14274e);
+        SkinManager.setViewTextColor(this.f14413d, R.color.CAM_X0101);
+        SkinManager.setImageResource(this.f14411b, R.drawable.pic_float_return_broadcast32);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f14412c, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(w0.A).tlRadius(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.f14414e);
     }
 
     @Override // c.a.s0.y.c

@@ -32,6 +32,7 @@ import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.LogUtil;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,31 +116,31 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
     public CustomAutoTextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f51034b;
+    public TextView f51079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f51035c;
+    public TextView f51080c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FlowLayout f51036d;
+    public FlowLayout f51081d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f51037e;
+    public ImageView f51082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f51038f;
+    public RelativeLayout f51083f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f51039g;
+    public FrameLayout f51084g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<String> f51040h;
+    public ArrayList<String> f51085h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ContactAssociationAdapter f51041i;
+    public ContactAssociationAdapter f51086i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f51042j;
+    public boolean f51087j;
     public StringBuilder k;
     public boolean l;
     public e m;
@@ -170,7 +171,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                 return;
             }
         }
-        this.f51042j = false;
+        this.f51087j = false;
         this.l = false;
         this.t = new PriceInfo[]{new PriceInfo(Constants.DEFAULT_UIN, null, null), new PriceInfo("2000", null, null), new PriceInfo("3000", null, null), new PriceInfo("5000", null, null), new PriceInfo("10000", null, null), new PriceInfo("20000", null, null), new PriceInfo("30000", null, null), new PriceInfo("50000", null, null)};
         this.w = "";
@@ -225,7 +226,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                     public final /* synthetic */ MenuItemInfo a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass1 f51043b;
+                    public final /* synthetic */ AnonymousClass1 f51088b;
 
                     {
                         Interceptable interceptable3 = $ic;
@@ -242,7 +243,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                                 return;
                             }
                         }
-                        this.f51043b = this;
+                        this.f51088b = this;
                         this.a = menuItemInfo;
                     }
 
@@ -257,7 +258,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                     public void onSuccess(int i5, String str) {
                         Interceptable interceptable3 = $ic;
                         if (interceptable3 == null || interceptable3.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i5, str) == null) {
-                            BaiduWalletDelegate.getInstance().openH5Module(this.f51043b.a.mAct, this.a.link_url, false);
+                            BaiduWalletDelegate.getInstance().openH5Module(this.f51088b.a.mAct, this.a.link_url, false);
                         }
                     }
                 }));
@@ -293,11 +294,11 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
     public void displayHistoryList(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            ArrayList<String> arrayList = this.f51040h;
+            ArrayList<String> arrayList = this.f51085h;
             if (arrayList != null && arrayList.size() > 0) {
                 this.y.setListViewState(z, true);
                 if (z) {
-                    this.y.displayHistoryData(this.f51040h);
+                    this.y.displayHistoryData(this.f51085h);
                     return;
                 }
                 return;
@@ -490,7 +491,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
-            if (view == this.f51038f) {
+            if (view == this.f51083f) {
                 DXMSdkSAUtils.onEventWithValues("mobileRechargeAddressbookClick", com.baidu.wallet.fastpay.a.a.a().b());
                 g();
                 return;
@@ -498,12 +499,12 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
             CustomAutoTextView customAutoTextView = this.a;
             if (view == customAutoTextView) {
                 customAutoTextView.setCursorVisible(true);
-                if (TextUtils.isDigitsOnly(this.a.getText().toString()) || this.f51042j) {
+                if (TextUtils.isDigitsOnly(this.a.getText().toString()) || this.f51087j) {
                     return;
                 }
-                this.f51042j = true;
-                this.f51037e.setImageResource(ResUtils.drawable(this.mAct, "wallet_fp_contacts_close_selector"));
-                AccessibilityUtils.setContentDescription(this.f51037e, "清除");
+                this.f51087j = true;
+                this.f51082e.setImageResource(ResUtils.drawable(this.mAct, "wallet_fp_contacts_close_selector"));
+                AccessibilityUtils.setContentDescription(this.f51082e, "清除");
             }
         }
     }
@@ -532,30 +533,30 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
             this.I = (int) (DisplayUtils.getDisplayHeight(this.mAct) * 0.14d);
             k();
             ArrayList<String> a = com.baidu.wallet.fastpay.b.a.a(this.mAct);
-            this.f51040h = a;
+            this.f51085h = a;
             if (a == null) {
-                this.f51040h = new ArrayList<>();
+                this.f51085h = new ArrayList<>();
             }
-            this.f51039g = (FrameLayout) findViewById(ResUtils.id(this.mAct, "wallet_promotion"));
+            this.f51084g = (FrameLayout) findViewById(ResUtils.id(this.mAct, "wallet_promotion"));
             this.a = (CustomAutoTextView) findViewById(ResUtils.id(this.mAct, "wallet_phone"));
             a();
             this.a.setImeOptions(6);
             this.a.setDropDownBackgroundResource(ResUtils.drawable(this.mAct, "wallet_base_auto_bg_input_translucent"));
-            this.f51041i = new ContactAssociationAdapter(this.mAct, true);
+            this.f51086i = new ContactAssociationAdapter(this.mAct, true);
             this.s = (RelativeLayout) findViewById(ResUtils.id(this.mAct, "wallet_face_operator_maintaining"));
             FlowLayout flowLayout = (FlowLayout) findViewById(ResUtils.id(this.mAct, "wallet_face_layout"));
-            this.f51036d = flowLayout;
+            this.f51081d = flowLayout;
             flowLayout.setHorizontalSpacing(DisplayUtils.dip2px(this.mAct, 10.0f));
-            this.f51036d.setVerticalSpacing(DisplayUtils.dip2px(this.mAct, -1.5f));
-            this.f51036d.setHorizontalChildNum(3);
-            this.f51036d.setChildViewHeight(DisplayUtils.dip2px(this.mAct, 78.0f));
+            this.f51081d.setVerticalSpacing(DisplayUtils.dip2px(this.mAct, -1.5f));
+            this.f51081d.setHorizontalChildNum(3);
+            this.f51081d.setChildViewHeight(DisplayUtils.dip2px(this.mAct, 78.0f));
             this.n = (RelativeLayout) findViewById(ResUtils.id(this.mAct, "wallet_display_translucent"));
-            this.f51037e = (ImageView) findViewById(ResUtils.id(this.mAct, "wallet_contacts"));
+            this.f51082e = (ImageView) findViewById(ResUtils.id(this.mAct, "wallet_contacts"));
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(ResUtils.id(this.mAct, "wallet_fp_rl_contacts"));
-            this.f51038f = relativeLayout;
+            this.f51083f = relativeLayout;
             relativeLayout.setOnClickListener(this);
-            this.f51034b = (TextView) findViewById(ResUtils.id(this.mAct, "wallet_operator"));
-            this.f51035c = (TextView) findViewById(ResUtils.id(this.mAct, "wallet_host"));
+            this.f51079b = (TextView) findViewById(ResUtils.id(this.mAct, "wallet_operator"));
+            this.f51080c = (TextView) findViewById(ResUtils.id(this.mAct, "wallet_host"));
             this.p = (ScrollView) findViewById(ResUtils.id(this.mAct, "wallet_mobile_sv_charge"));
             TextView textView = (TextView) findViewById(ResUtils.id(this.mAct, "wallet_fp_text"));
             this.A = textView;
@@ -680,7 +681,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                         } else {
                             this.a.n.setVisibility(8);
                         }
-                        this.a.y.displayContactInfoData(this.a.f51041i.getContractInfo());
+                        this.a.y.displayContactInfoData(this.a.f51086i.getContractInfo());
                     }
                 }
             }) { // from class: com.baidu.wallet.fastpay.ui.ChargeActivity.18
@@ -689,7 +690,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                 public final /* synthetic */ Filter.FilterListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ChargeActivity f51047b;
+                public final /* synthetic */ ChargeActivity f51092b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -706,7 +707,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                             return;
                         }
                     }
-                    this.f51047b = this;
+                    this.f51092b = this;
                     this.a = r7;
                 }
 
@@ -715,59 +716,59 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) {
                         com.baidu.wallet.core.utils.LogUtil.d("ChargerFragment", "afterTextChanged. s = " + editable.toString());
-                        if (this.f51047b.k.toString().replace(" ", "").equals(editable.toString().replace(" ", ""))) {
+                        if (this.f51092b.k.toString().replace(" ", "").equals(editable.toString().replace(" ", ""))) {
                             return;
                         }
-                        if (this.f51047b.a.getText().length() != 0) {
-                            if (this.f51047b.a.getText().length() >= 4 && this.f51047b.a.getText().length() < 13) {
-                                this.f51047b.f51041i.getFilter().filter(this.f51047b.a.getText(), this.a);
+                        if (this.f51092b.a.getText().length() != 0) {
+                            if (this.f51092b.a.getText().length() >= 4 && this.f51092b.a.getText().length() < 13) {
+                                this.f51092b.f51086i.getFilter().filter(this.f51092b.a.getText(), this.a);
                             } else {
-                                this.f51047b.displayHistoryList(false);
+                                this.f51092b.displayHistoryList(false);
                             }
                         } else {
-                            this.f51047b.displayHistoryList(true);
+                            this.f51092b.displayHistoryList(true);
                         }
-                        if (!TextUtils.isEmpty(this.f51047b.x) && editable.toString().equals(this.f51047b.x)) {
-                            this.f51047b.b();
+                        if (!TextUtils.isEmpty(this.f51092b.x) && editable.toString().equals(this.f51092b.x)) {
+                            this.f51092b.b();
                             return;
                         }
-                        this.f51047b.x = "";
-                        if (this.f51047b.k.length() == 13 && editable.length() < 13) {
-                            this.f51047b.f51034b.setText("");
-                            this.f51047b.f51035c.setText("");
-                            this.f51047b.a((QueryLocationResponse) null);
+                        this.f51092b.x = "";
+                        if (this.f51092b.k.length() == 13 && editable.length() < 13) {
+                            this.f51092b.f51079b.setText("");
+                            this.f51092b.f51080c.setText("");
+                            this.f51092b.a((QueryLocationResponse) null);
                         }
-                        this.f51047b.k.delete(0, this.f51047b.k.length());
-                        this.f51047b.k.append(this.f51047b.a.getText().toString());
-                        this.f51047b.i();
-                        if (this.f51047b.k.length() != 13) {
-                            if (this.f51047b.l) {
+                        this.f51092b.k.delete(0, this.f51092b.k.length());
+                        this.f51092b.k.append(this.f51092b.a.getText().toString());
+                        this.f51092b.i();
+                        if (this.f51092b.k.length() != 13) {
+                            if (this.f51092b.l) {
                                 return;
                             }
-                            this.f51047b.f();
+                            this.f51092b.f();
                             return;
                         }
-                        com.baidu.wallet.core.utils.LogUtil.d("ChargerFragment", "afterTextChanged. mobile = " + ((Object) this.f51047b.k));
-                        String replace = this.f51047b.a.getText().toString().replace(" ", "");
+                        com.baidu.wallet.core.utils.LogUtil.d("ChargerFragment", "afterTextChanged. mobile = " + ((Object) this.f51092b.k));
+                        String replace = this.f51092b.a.getText().toString().replace(" ", "");
                         if (!com.baidu.wallet.fastpay.sdk.a.a().a(replace)) {
-                            this.f51047b.a(false);
-                            this.f51047b.a((QueryLocationResponse) null);
+                            this.f51092b.a(false);
+                            this.f51092b.a((QueryLocationResponse) null);
                         } else {
-                            ChargeActivity chargeActivity = this.f51047b;
+                            ChargeActivity chargeActivity = this.f51092b;
                             chargeActivity.mDialogMsg = "";
-                            if (chargeActivity.f51042j) {
-                                this.f51047b.f51042j = false;
-                                this.f51047b.f51037e.setImageResource(ResUtils.drawable(this.f51047b.mAct, "wallet_base_fp_contacts_selector1"));
-                                AccessibilityUtils.setContentDescription(this.f51047b.f51037e, "通讯录");
+                            if (chargeActivity.f51087j) {
+                                this.f51092b.f51087j = false;
+                                this.f51092b.f51082e.setImageResource(ResUtils.drawable(this.f51092b.mAct, "wallet_base_fp_contacts_selector1"));
+                                AccessibilityUtils.setContentDescription(this.f51092b.f51082e, "通讯录");
                             }
-                            this.f51047b.a.setCursorVisible(false);
-                            this.f51047b.a(replace);
-                            GlobalUtils.hideKeyboard(this.f51047b.mAct.getActivity());
+                            this.f51092b.a.setCursorVisible(false);
+                            this.f51092b.a(replace);
+                            GlobalUtils.hideKeyboard(this.f51092b.mAct.getActivity());
                         }
-                        if (this.f51047b.f51040h.contains(this.f51047b.k.toString()) || this.f51047b.k.toString().equals(this.f51047b.w)) {
+                        if (this.f51092b.f51085h.contains(this.f51092b.k.toString()) || this.f51092b.k.toString().equals(this.f51092b.w)) {
                             return;
                         }
-                        PhoneContactsMananger.getInstance(DxmApplicationContextImpl.getApplicationContext(this.f51047b.mAct)).loadFixPhoneList(this.f51047b.k.toString(), 1, true, this.f51047b);
+                        PhoneContactsMananger.getInstance(DxmApplicationContextImpl.getApplicationContext(this.f51092b.mAct)).loadFixPhoneList(this.f51092b.k.toString(), 1, true, this.f51092b);
                     }
                 }
 
@@ -865,7 +866,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                             }
                             return false;
                         } else {
-                            List<ContractInfo> contractInfo = this.a.f51041i.getContractInfo();
+                            List<ContractInfo> contractInfo = this.a.f51086i.getContractInfo();
                             if (this.a.a.getText().length() != 13 && contractInfo.size() > 0) {
                                 this.a.n.setVisibility(0);
                                 this.a.y.displayContactInfoData(contractInfo);
@@ -910,16 +911,16 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                         }
                         this.a.o.setBackgroundColor(ResUtils.getColor(this.a.mAct, z ? "wallet_fp_divide_line_5d667a" : "wallet_fp_divide_line_E9EDF7"));
                         this.a.a.setCursorVisible(z);
-                        if (!z || this.a.f51042j || TextUtils.isDigitsOnly(this.a.a.getText().toString())) {
+                        if (!z || this.a.f51087j || TextUtils.isDigitsOnly(this.a.a.getText().toString())) {
                             return;
                         }
                         ChargeActivity chargeActivity = this.a;
                         if (chargeActivity.mAct == null) {
                             return;
                         }
-                        chargeActivity.f51042j = true;
-                        this.a.f51037e.setImageResource(ResUtils.drawable(this.a.mAct, "wallet_fp_contacts_close_selector"));
-                        AccessibilityUtils.setContentDescription(this.a.f51037e, "清除");
+                        chargeActivity.f51087j = true;
+                        this.a.f51082e.setImageResource(ResUtils.drawable(this.a.mAct, "wallet_fp_contacts_close_selector"));
+                        AccessibilityUtils.setContentDescription(this.a.f51082e, "清除");
                     }
                 }
             });
@@ -955,32 +956,32 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
     }
 
     @Override // com.baidu.wallet.fastpay.sdk.a.b
-    public void onFastPayFail(int i2, int i3, a.C1986a c1986a) {
+    public void onFastPayFail(int i2, int i3, a.C1992a c1992a) {
         BeanActivity beanActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048591, this, i2, i3, c1986a) == null) || (beanActivity = this.mAct) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048591, this, i2, i3, c1992a) == null) || (beanActivity = this.mAct) == null) {
             return;
         }
-        beanActivity.runOnUiThread(new Runnable(this, i2, i3, c1986a) { // from class: com.baidu.wallet.fastpay.ui.ChargeActivity.3
+        beanActivity.runOnUiThread(new Runnable(this, i2, i3, c1992a) { // from class: com.baidu.wallet.fastpay.ui.ChargeActivity.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f51051b;
+            public final /* synthetic */ int f51096b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ a.C1986a f51052c;
+            public final /* synthetic */ a.C1992a f51097c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ ChargeActivity f51053d;
+            public final /* synthetic */ ChargeActivity f51098d;
 
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3), c1986a};
+                    Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3), c1992a};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i4 = newInitContext.flag;
                     if ((i4 & 1) != 0) {
@@ -990,17 +991,17 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                         return;
                     }
                 }
-                this.f51053d = this;
+                this.f51098d = this;
                 this.a = i2;
-                this.f51051b = i3;
-                this.f51052c = c1986a;
+                this.f51096b = i3;
+                this.f51097c = c1992a;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f51053d.a(this.a, this.f51051b, this.f51052c);
+                    this.f51098d.a(this.a, this.f51096b, this.f51097c);
                 }
             }
         });
@@ -1019,13 +1020,13 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
             public final /* synthetic */ int a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f51048b;
+            public final /* synthetic */ int f51093b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Object f51049c;
+            public final /* synthetic */ Object f51094c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ ChargeActivity f51050d;
+            public final /* synthetic */ ChargeActivity f51095d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1042,17 +1043,17 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                         return;
                     }
                 }
-                this.f51050d = this;
+                this.f51095d = this;
                 this.a = i2;
-                this.f51048b = i3;
-                this.f51049c = obj;
+                this.f51093b = i3;
+                this.f51094c = obj;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f51050d.a(this.a, this.f51048b, this.f51049c);
+                    this.f51095d.a(this.a, this.f51093b, this.f51094c);
                 }
             }
         });
@@ -1078,7 +1079,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                 public final /* synthetic */ PromptDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ChargeActivity f51045b;
+                public final /* synthetic */ ChargeActivity f51090b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1095,7 +1096,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                             return;
                         }
                     }
-                    this.f51045b = this;
+                    this.f51090b = this;
                     this.a = promptDialog;
                 }
 
@@ -1103,8 +1104,8 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f51045b.f51040h = new ArrayList();
-                        com.baidu.wallet.fastpay.b.a.b(this.f51045b.mAct);
+                        this.f51090b.f51085h = new ArrayList();
+                        com.baidu.wallet.fastpay.b.a.b(this.f51090b.mAct);
                         this.a.dismiss();
                     }
                 }
@@ -1115,7 +1116,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                 public final /* synthetic */ PromptDialog a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ChargeActivity f51046b;
+                public final /* synthetic */ ChargeActivity f51091b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1132,7 +1133,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                             return;
                         }
                     }
-                    this.f51046b = this;
+                    this.f51091b = this;
                     this.a = promptDialog;
                 }
 
@@ -1140,8 +1141,8 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f51046b.i();
-                        this.f51046b.displayHistoryList(true);
+                        this.f51091b.i();
+                        this.f51091b.displayHistoryList(true);
                         this.a.dismiss();
                     }
                 }
@@ -1175,11 +1176,11 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
             return;
         }
         if (contractInfo != null) {
-            updateTipText(1, ResUtils.getColor(this.mAct, "wallet_fp_tip_text_color"), (TextUtils.isEmpty(contractInfo.getName()) || TextUtils.equals(contractInfo.getName().replace(" ", ""), this.a.getText().toString().replace(" ", ""))) ? buildTipMsg(this.f51035c.getText().toString()) : buildTipMsg(contractInfo.getName(), " | ", this.f51035c.getText().toString()));
+            updateTipText(1, ResUtils.getColor(this.mAct, "wallet_fp_tip_text_color"), (TextUtils.isEmpty(contractInfo.getName()) || TextUtils.equals(contractInfo.getName().replace(" ", ""), this.a.getText().toString().replace(" ", ""))) ? buildTipMsg(this.f51080c.getText().toString()) : buildTipMsg(contractInfo.getName(), " | ", this.f51080c.getText().toString()));
             updateTipText(2, ResUtils.getColor(this.mAct, "wallet_fp_tip_text_color"), "");
             return;
         }
-        updateTipText(1, ResUtils.getColor(this.mAct, "wallet_fp_tip_text_error_color"), buildTipMsg(ResUtils.getString(this.mAct, "wallet_fp_exclude_contacts"), " | ", this.f51035c.getText().toString()));
+        updateTipText(1, ResUtils.getColor(this.mAct, "wallet_fp_tip_text_error_color"), buildTipMsg(ResUtils.getString(this.mAct, "wallet_fp_exclude_contacts"), " | ", this.f51080c.getText().toString()));
         updateTipText(2, ResUtils.getColor(this.mAct, "wallet_fp_tip_text_color"), "");
     }
 
@@ -1207,7 +1208,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
     public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeILL(1048599, this, i2, strArr, iArr) == null) && i2 == 16) {
-            ContactAssociationAdapter contactAssociationAdapter = this.f51041i;
+            ContactAssociationAdapter contactAssociationAdapter = this.f51086i;
             if (contactAssociationAdapter != null) {
                 contactAssociationAdapter.loadPhoneContact();
             }
@@ -1273,14 +1274,14 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048604, this, i2, i3, str) == null) {
             if (i2 == 1) {
-                this.f51034b.setTextColor(i3);
-                this.f51034b.setText(str);
+                this.f51079b.setTextColor(i3);
+                this.f51079b.setText(str);
             } else if (i2 != 2) {
-                this.f51034b.setTextColor(i3);
-                this.f51034b.setText(str);
+                this.f51079b.setTextColor(i3);
+                this.f51079b.setText(str);
             } else {
-                this.f51035c.setTextColor(i3);
-                this.f51035c.setText(str);
+                this.f51080c.setTextColor(i3);
+                this.f51080c.setText(str);
             }
         }
     }
@@ -1345,8 +1346,8 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                 } else {
                     this.a.setText(this.w);
                 }
-            } else if (!this.f51040h.isEmpty()) {
-                String str = this.f51040h.get(0);
+            } else if (!this.f51085h.isEmpty()) {
+                String str = this.f51085h.get(0);
                 if (str.length() > 13) {
                     this.a.setText(str.substring(0, 13));
                 } else {
@@ -1365,7 +1366,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65573, this) == null) {
             this.a.setPadding(DisplayUtils.dip2px(this.mAct, 15.0f), 0, 0, 0);
-            this.f51034b.setText("");
+            this.f51079b.setText("");
             this.l = true;
         }
     }
@@ -1376,9 +1377,9 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
         if (!(interceptable == null || interceptable.invokeV(65575, this) == null) || CheckUtils.isFastDoubleClick()) {
             return;
         }
-        if (this.f51042j) {
+        if (this.f51087j) {
             this.a.setText("");
-            this.f51034b.setText("");
+            this.f51079b.setText("");
             GlobalUtils.showInputMethod(this.mAct, this.a);
             return;
         }
@@ -1435,11 +1436,11 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                     hashMap.put("param_key_price", this.a.v.sell_price);
                     hashMap.put("userType", String.valueOf(WalletLoginHelper.getInstance().getLoginType()));
                     com.baidu.wallet.fastpay.sdk.a.a().a(2, hashMap, this.a);
-                    if (this.a.f51040h == null) {
-                        this.a.f51040h = new ArrayList();
+                    if (this.a.f51085h == null) {
+                        this.a.f51085h = new ArrayList();
                     }
-                    if (!this.a.f51040h.contains(this.a.a.getText().toString())) {
-                        this.a.f51040h.add(0, this.a.a.getText().toString());
+                    if (!this.a.f51085h.contains(this.a.a.getText().toString())) {
+                        this.a.f51085h.add(0, this.a.a.getText().toString());
                     }
                     ChargeActivity chargeActivity2 = this.a;
                     com.baidu.wallet.fastpay.b.a.a(chargeActivity2.mAct, chargeActivity2.a.getText().toString());
@@ -1454,16 +1455,16 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65579, this) == null) {
             if (this.k.length() > 0) {
-                if (this.f51042j) {
+                if (this.f51087j) {
                     return;
                 }
-                this.f51042j = true;
-                this.f51037e.setImageResource(ResUtils.drawable(this.mAct, "wallet_fp_contacts_close_selector"));
-                AccessibilityUtils.setContentDescription(this.f51037e, "清除");
-            } else if (this.f51042j) {
-                this.f51042j = false;
-                this.f51037e.setImageResource(ResUtils.drawable(this.mAct, "wallet_base_fp_contacts_selector1"));
-                AccessibilityUtils.setContentDescription(this.f51037e, "通讯录");
+                this.f51087j = true;
+                this.f51082e.setImageResource(ResUtils.drawable(this.mAct, "wallet_fp_contacts_close_selector"));
+                AccessibilityUtils.setContentDescription(this.f51082e, "清除");
+            } else if (this.f51087j) {
+                this.f51087j = false;
+                this.f51082e.setImageResource(ResUtils.drawable(this.mAct, "wallet_base_fp_contacts_selector1"));
+                AccessibilityUtils.setContentDescription(this.f51082e, "通讯录");
             }
         }
     }
@@ -1659,15 +1660,15 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                     c(true);
                 } else {
                     this.mDialogMsg = "";
-                    if (this.f51042j) {
-                        this.f51042j = false;
-                        this.f51037e.setImageResource(ResUtils.drawable(this.mAct, "wallet_base_fp_contacts_selector1"));
-                        AccessibilityUtils.setContentDescription(this.f51037e, "通讯录");
+                    if (this.f51087j) {
+                        this.f51087j = false;
+                        this.f51082e.setImageResource(ResUtils.drawable(this.mAct, "wallet_base_fp_contacts_selector1"));
+                        AccessibilityUtils.setContentDescription(this.f51082e, "通讯录");
                     }
                     this.a.setCursorVisible(false);
                     GlobalUtils.hideKeyboard(this.mAct.getActivity());
                 }
-                if (this.f51040h.contains(this.k.toString()) || this.k.toString().equals(this.w)) {
+                if (this.f51085h.contains(this.k.toString()) || this.k.toString().equals(this.w)) {
                     return;
                 }
                 PhoneContactsMananger.getInstance(DxmApplicationContextImpl.getApplicationContext(this.mAct)).loadFixPhoneList(this.k.toString(), 1, true, this);
@@ -1704,7 +1705,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                                     public final /* synthetic */ MoreServiceItemInfo a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ ChargeActivity f51054b;
+                                    public final /* synthetic */ ChargeActivity f51099b;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -1721,7 +1722,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                                                 return;
                                             }
                                         }
-                                        this.f51054b = this;
+                                        this.f51099b = this;
                                         this.a = moreServiceItemInfo;
                                     }
 
@@ -1734,11 +1735,11 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                                             DXMSdkSAUtils.onEventWithValues("mobileRechargeClickService", arrayList);
                                             int i2 = this.a.link_type;
                                             if (i2 == 1) {
-                                                BaiduWalletDelegate.getInstance().openH5Module(this.f51054b.mAct, this.a.link_url);
+                                                BaiduWalletDelegate.getInstance().openH5Module(this.f51099b.mAct, this.a.link_url);
                                             } else if (i2 != 3) {
-                                                BaiduWalletDelegate.getInstance().openH5Module(this.f51054b.mAct, this.a.link_url);
+                                                BaiduWalletDelegate.getInstance().openH5Module(this.f51099b.mAct, this.a.link_url);
                                             } else {
-                                                BaiduWalletServiceController.getInstance().gotoWalletService(this.f51054b.mAct, this.a.link_url, (String) null);
+                                                BaiduWalletServiceController.getInstance().gotoWalletService(this.f51099b.mAct, this.a.link_url, (String) null);
                                             }
                                         }
                                     }
@@ -1809,20 +1810,20 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
     private void b(PromotionInfoResponse promotionInfoResponse) {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65558, this, promotionInfoResponse) == null) || (frameLayout = this.f51039g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65558, this, promotionInfoResponse) == null) || (frameLayout = this.f51084g) == null) {
             return;
         }
         if (promotionInfoResponse == null) {
             frameLayout.setVisibility(8);
         } else if (TextUtils.isEmpty(promotionInfoResponse.promotion_txt)) {
-            this.f51039g.setVisibility(8);
+            this.f51084g.setVisibility(8);
         } else {
             CommonPromotionView createAdapterView = new a(getActivity(), promotionInfoResponse).createAdapterView(getActivity());
             if (createAdapterView == null) {
                 return;
             }
-            this.f51039g.addView(createAdapterView, new FrameLayout.LayoutParams(-1, -2));
-            this.f51039g.setVisibility(0);
+            this.f51084g.addView(createAdapterView, new FrameLayout.LayoutParams(-1, -2));
+            this.f51084g.setVisibility(0);
         }
     }
 
@@ -1848,9 +1849,9 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                     inflate.findViewById(ResUtils.id(this.mAct, "wallet_fp_item_price")).setEnabled(false);
                     ((TextView) inflate.findViewById(ResUtils.id(this.mAct, "wallet_fp_item_price"))).setText(ResUtils.getString(this.mAct, "wallet_fp_lack_good"));
                 }
-                this.f51036d.addView(inflate);
+                this.f51081d.addView(inflate);
             }
-            this.f51036d.setVisibility(0);
+            this.f51081d.setVisibility(0);
         }
     }
 
@@ -1901,28 +1902,28 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2, int i3, a.C1986a c1986a) {
+    public void a(int i2, int i3, a.C1992a c1992a) {
         BeanActivity beanActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(65545, this, i2, i3, c1986a) == null) || (beanActivity = this.mAct) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(65545, this, i2, i3, c1992a) == null) || (beanActivity = this.mAct) == null) {
             return;
         }
         if (i2 != 1) {
             if (i2 == 2) {
                 WalletGlobalUtils.safeDismissDialog(beanActivity, 0);
-                int i4 = c1986a.a;
+                int i4 = c1992a.a;
                 if (i4 != 5140 && i4 != 5139) {
                     if (i4 == 5003) {
                         WalletLoginHelper.getInstance().handlerWalletError(5003);
                         AccountManager.getInstance(this.mAct).logout();
                         WalletLoginHelper.getInstance().logout(false);
                     }
-                    GlobalUtils.toast(this.mAct, c1986a.f51032b);
+                    GlobalUtils.toast(this.mAct, c1992a.f51077b);
                     return;
                 }
                 HashMap hashMap = new HashMap();
                 hashMap.put("sdk_from", "1");
-                hashMap.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, c1986a.a == 5140 ? "9" : "0");
+                hashMap.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, c1992a.a == 5140 ? "9" : "0");
                 LocalRouter.getInstance(this.mAct).route(this.mAct, new RouterRequest().provider("dxmPay").action("enterDoRnAuth").data(hashMap), new RouterCallback(this) { // from class: com.baidu.wallet.fastpay.ui.ChargeActivity.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -1967,7 +1968,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                             HashMap hashMap3 = new HashMap();
                             hashMap3.put("provider", "dxmPay");
                             hashMap3.put("action", "enterDoRnAuth");
-                            hashMap3.put("errMsg", (String) hashMap2.get("errorMsg"));
+                            hashMap3.put(StatConstants.KEY_EXT_ERR_MSG, (String) hashMap2.get("errorMsg"));
                             DXMSdkSAUtils.onEventEndWithValues("sdk_router_error", i5, hashMap3.values());
                         }
                     }
@@ -1978,18 +1979,18 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
         }
         this.x = "";
         WalletGlobalUtils.safeDismissDialog(beanActivity, -1);
-        int i5 = c1986a.a;
+        int i5 = c1992a.a;
         if (i5 == -4) {
-            updateTipText(1, ResUtils.getColor(this.mAct, "wallet_fp_tip_text_error_color"), buildTipMsg(c1986a.f51032b));
+            updateTipText(1, ResUtils.getColor(this.mAct, "wallet_fp_tip_text_error_color"), buildTipMsg(c1992a.f51077b));
             updateTipText(2, ResUtils.getColor(this.mAct, "bd_wallet_text_gray"), "");
             a((QueryLocationResponse) null);
         } else if (19030 == i5) {
             a(true);
-            updateTipText(1, ResUtils.getColor(this.mAct, "wallet_fp_tip_text_error_color"), buildTipMsg(c1986a.f51032b));
+            updateTipText(1, ResUtils.getColor(this.mAct, "wallet_fp_tip_text_error_color"), buildTipMsg(c1992a.f51077b));
             updateTipText(2, ResUtils.getColor(this.mAct, "bd_wallet_text_gray"), "");
             a((QueryLocationResponse) null);
         } else {
-            updateTipText(1, ResUtils.getColor(this.mAct, "wallet_fp_tip_text_error_color"), buildTipMsg(c1986a.f51032b));
+            updateTipText(1, ResUtils.getColor(this.mAct, "wallet_fp_tip_text_error_color"), buildTipMsg(c1992a.f51077b));
             updateTipText(2, ResUtils.getColor(this.mAct, "bd_wallet_text_gray"), "");
             a((QueryLocationResponse) null);
         }
@@ -2070,8 +2071,8 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
             }
             if (this.u == null) {
                 b(true);
-                this.f51036d.setVisibility(0);
-                this.f51036d.removeAllViews();
+                this.f51081d.setVisibility(0);
+                this.f51081d.removeAllViews();
                 if (queryLocationResponse == null) {
                     c(true);
                     return;
@@ -2084,13 +2085,13 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
             PriceInfo[] priceInfoArr = this.u;
             if (priceInfoArr.length <= 0) {
                 b(false);
-                this.f51036d.setVisibility(8);
+                this.f51081d.setVisibility(8);
                 return;
             }
             this.u = a(priceInfoArr);
             b(true);
-            this.f51036d.setVisibility(0);
-            this.f51036d.removeAllViews();
+            this.f51081d.setVisibility(0);
+            this.f51081d.removeAllViews();
             int length = this.u.length;
             FastPayFacePromotionInfoResponse[] fastPayFacePromotionInfoResponseArr = queryLocationResponse.promotion_info;
             int i2 = 0;
@@ -2134,7 +2135,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ChargeActivity f51044b;
+                    public final /* synthetic */ ChargeActivity f51089b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -2151,7 +2152,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                                 return;
                             }
                         }
-                        this.f51044b = this;
+                        this.f51089b = this;
                         this.a = str;
                     }
 
@@ -2159,7 +2160,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                     public void onClick(View view) {
                         String str3;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f51044b.isFastDoubleClick()) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f51089b.isFastDoubleClick()) {
                             return;
                         }
                         try {
@@ -2170,16 +2171,16 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                         ArrayList arrayList = new ArrayList(Arrays.asList(str3));
                         arrayList.addAll(com.baidu.wallet.fastpay.a.a.a().b());
                         DXMSdkSAUtils.onEventWithValues("mobileRechargeChooseDenomination", arrayList);
-                        this.f51044b.a.setCursorVisible(false);
-                        GlobalUtils.hideKeyboard(this.f51044b.mAct.getActivity());
-                        if (this.f51044b.f51042j) {
-                            this.f51044b.f51042j = false;
-                            this.f51044b.f51037e.setImageResource(ResUtils.drawable(this.f51044b.mAct, "wallet_base_fp_contacts_selector1"));
-                            AccessibilityUtils.setContentDescription(this.f51044b.f51037e, "通讯录");
+                        this.f51089b.a.setCursorVisible(false);
+                        GlobalUtils.hideKeyboard(this.f51089b.mAct.getActivity());
+                        if (this.f51089b.f51087j) {
+                            this.f51089b.f51087j = false;
+                            this.f51089b.f51082e.setImageResource(ResUtils.drawable(this.f51089b.mAct, "wallet_base_fp_contacts_selector1"));
+                            AccessibilityUtils.setContentDescription(this.f51089b.f51082e, "通讯录");
                         }
-                        this.f51044b.v = (PriceInfo) view.getTag();
-                        if (this.f51044b.v.isExist) {
-                            this.f51044b.h();
+                        this.f51089b.v = (PriceInfo) view.getTag();
+                        if (this.f51089b.v.isExist) {
+                            this.f51089b.h();
                         }
                     }
                 });
@@ -2187,7 +2188,7 @@ public class ChargeActivity extends BeanActivity implements View.OnClickListener
                 if (!this.u[i2].isExist) {
                     setPriceUnused(inflate);
                 }
-                this.f51036d.addView(inflate);
+                this.f51081d.addView(inflate);
                 i2++;
                 viewGroup = null;
             }

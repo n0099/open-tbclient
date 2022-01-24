@@ -100,22 +100,22 @@ public class RetrieveFileData {
             if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("info")) == null) {
                 return null;
             }
-            String optString = jSONObject.optString(JOB_ID);
+            String optString = jSONObject.optString("jobId");
             String optString2 = jSONObject.optString("type");
             String optString3 = jSONObject.optString("version");
             try {
-                longValue = Long.valueOf(jSONObject.optString(EXPIRED)).longValue();
+                longValue = Long.valueOf(jSONObject.optString("expiredTime")).longValue();
             } catch (Exception e2) {
-                LogUtils.d(TAG, e2.toString());
+                LogUtils.d("FetchFileData", e2.toString());
             }
             if (longValue < System.currentTimeMillis() / 1000) {
-                LogUtils.d(TAG, "retrieve--> 文件回捞命令过期");
+                LogUtils.d("FetchFileData", "retrieve--> 文件回捞命令过期");
                 RetrieveReportImpl.getInstance(context).reportDispatch(optString2, optString, optString3, jSONObject, "1", null);
                 return null;
             } else if ("file".equals(optString2)) {
                 try {
                     str = new String(Utility.decrypt(AES_PATH_IV, String.format("aperf_%s", optString3), Base64.decode(optJSONObject.optString("path"), 0)));
-                    LogUtils.d(TAG, "解密后的path路径：" + str);
+                    LogUtils.d("FetchFileData", "解密后的path路径：" + str);
                 } catch (Exception e3) {
                     e3.printStackTrace();
                     str = null;
@@ -127,7 +127,7 @@ public class RetrieveFileData {
                     } else {
                         arrayList.add(str);
                     }
-                    return new RetrieveFileBean(optString, optString2, optString3, longValue, arrayList, str, optJSONObject.optLong(MAX_FILE_SIZE));
+                    return new RetrieveFileBean(optString, optString2, optString3, longValue, arrayList, str, optJSONObject.optLong("maxTotalFileSize"));
                 }
                 return null;
             } else {

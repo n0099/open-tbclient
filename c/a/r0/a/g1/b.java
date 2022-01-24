@@ -45,34 +45,34 @@ public abstract class b implements d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f6209j;
+    public static final boolean f6351j;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.a.p.e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.d2.n.b f6210b;
+    public c.a.r0.a.d2.n.b f6352b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6211c;
+    public String f6353c;
     @Deprecated
 
     /* renamed from: d  reason: collision with root package name */
-    public SwanAppActivity f6212d;
+    public SwanAppActivity f6354d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f6213e;
+    public e f6355e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FullScreenFloatView f6214f;
+    public FullScreenFloatView f6356f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SwanAppPropertyWindow f6215g;
+    public SwanAppPropertyWindow f6357g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f6216h;
+    public boolean f6358h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f6217i;
+    public boolean f6359i;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -80,10 +80,10 @@ public abstract class b implements d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f6218e;
+        public final /* synthetic */ boolean f6360e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f6219f;
+        public final /* synthetic */ b f6361f;
 
         public a(b bVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -100,21 +100,21 @@ public abstract class b implements d {
                     return;
                 }
             }
-            this.f6219f = bVar;
-            this.f6218e = z;
+            this.f6361f = bVar;
+            this.f6360e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             SwanAppActivity swanAppActivity;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (swanAppActivity = this.f6219f.f6212d) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (swanAppActivity = this.f6361f.f6354d) == null) {
                 return;
             }
             int taskId = swanAppActivity.getTaskId();
-            this.f6219f.f6212d.finish();
-            if (this.f6218e) {
-                this.f6219f.f6212d.overridePendingTransition(0, c.a.r0.a.a.aiapps_slide_out_to_right_zadjustment_top);
+            this.f6361f.f6354d.finish();
+            if (this.f6360e) {
+                this.f6361f.f6354d.overridePendingTransition(0, c.a.r0.a.a.aiapps_slide_out_to_right_zadjustment_top);
             }
             c.a.r0.a.z2.c.m().l(taskId);
         }
@@ -122,12 +122,12 @@ public abstract class b implements d {
 
     /* renamed from: c.a.r0.a.g1.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0341b implements FullScreenFloatView.c {
+    public class C0350b implements FullScreenFloatView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C0341b(b bVar) {
+        public C0350b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,7 +174,7 @@ public abstract class b implements d {
                 return;
             }
         }
-        f6209j = k.a;
+        f6351j = k.a;
     }
 
     public b() {
@@ -190,10 +190,10 @@ public abstract class b implements d {
                 return;
             }
         }
-        this.f6210b = new c.a.r0.a.d2.n.b();
+        this.f6352b = new c.a.r0.a.d2.n.b();
         c.a.r0.a.h0.u.g.U();
         e eVar = new e();
-        this.f6213e = eVar;
+        this.f6355e = eVar;
         eVar.h(this);
     }
 
@@ -290,7 +290,7 @@ public abstract class b implements d {
     public void I() {
         e eVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && k() && (eVar = this.f6213e) != null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && k() && (eVar = this.f6355e) != null) {
             eVar.i();
         }
     }
@@ -305,13 +305,13 @@ public abstract class b implements d {
             if (activity == null) {
                 return null;
             }
-            if (this.f6215g == null && (viewGroup = (ViewGroup) activity.findViewById(c.a.r0.a.f.ai_apps_activity_root)) != null) {
+            if (this.f6357g == null && (viewGroup = (ViewGroup) activity.findViewById(c.a.r0.a.f.ai_apps_activity_root)) != null) {
                 SwanAppPropertyWindow swanAppPropertyWindow = new SwanAppPropertyWindow(activity);
-                this.f6215g = swanAppPropertyWindow;
+                this.f6357g = swanAppPropertyWindow;
                 swanAppPropertyWindow.setVisibility(8);
-                viewGroup.addView(this.f6215g);
+                viewGroup.addView(this.f6357g);
             }
-            return this.f6215g;
+            return this.f6357g;
         }
         return (SwanAppPropertyWindow) invokeL.objValue;
     }
@@ -320,7 +320,7 @@ public abstract class b implements d {
     public void K(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f6211c = str;
+            this.f6353c = str;
         }
     }
 
@@ -352,7 +352,7 @@ public abstract class b implements d {
             Q();
             c.a.r0.a.d2.e L = c.a.r0.a.d2.e.L();
             b.a X = L != null ? L.X() : null;
-            return X != null && ((f6209j && X.n0()) || c.a.r0.a.v.a.g(X) || c.a.r0.a.v.a.d(X));
+            return X != null && ((f6351j && X.n0()) || c.a.r0.a.v.a.g(X) || c.a.r0.a.v.a.d(X));
         }
         return invokeV.booleanValue;
     }
@@ -362,17 +362,17 @@ public abstract class b implements d {
     public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f6217i = true;
-            e eVar = this.f6213e;
+            this.f6359i = true;
+            e eVar = this.f6355e;
             if (eVar != null) {
                 eVar.j();
-                this.f6213e = null;
+                this.f6355e = null;
             }
             c.a.r0.a.y1.a.b.b.a.b().d();
             U();
             c.a.r0.a.u1.l.g.a.e().g(c.a.r0.a.d2.d.J().getAppId());
             c.a.r0.a.p2.b.u(true);
-            this.f6212d = null;
+            this.f6354d = null;
         }
     }
 
@@ -389,14 +389,14 @@ public abstract class b implements d {
     @SuppressLint({"BDThrowableCheck"})
     public void Q() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && getActivity() == null && f6209j) {
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && getActivity() == null && f6351j) {
             throw new IllegalStateException("AiBaseController: This method should be called after setActivityRef");
         }
     }
 
     public final void R(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || this.f6212d == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || this.f6354d == null) {
             return;
         }
         q0.e0(new a(this, z));
@@ -420,7 +420,7 @@ public abstract class b implements d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            SwanAppActivity swanAppActivity = this.f6212d;
+            SwanAppActivity swanAppActivity = this.f6354d;
             if (swanAppActivity == null) {
                 return null;
             }
@@ -432,11 +432,11 @@ public abstract class b implements d {
     public final void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            FullScreenFloatView fullScreenFloatView = this.f6214f;
+            FullScreenFloatView fullScreenFloatView = this.f6356f;
             if (fullScreenFloatView != null) {
                 ViewParent parent = fullScreenFloatView.getParent();
                 if (parent instanceof ViewGroup) {
-                    ((ViewGroup) parent).removeView(this.f6214f);
+                    ((ViewGroup) parent).removeView(this.f6356f);
                 }
             }
             c.a.r0.a.p.e.a aVar = this.a;
@@ -475,7 +475,7 @@ public abstract class b implements d {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.f6216h = true;
+            this.f6358h = true;
         }
     }
 
@@ -495,7 +495,7 @@ public abstract class b implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048601, this, str, swanAppConfigData, str2)) == null) {
             if (swanAppConfigData != null && !TextUtils.isEmpty(str2)) {
-                return this.f6210b.b(str2, str, swanAppConfigData.f39343e);
+                return this.f6352b.b(str2, str, swanAppConfigData.f39371e);
             }
             return f(str);
         }
@@ -518,12 +518,12 @@ public abstract class b implements d {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
             SwanAppConfigData s = s();
             if (s == null) {
-                if (f6209j) {
+                if (f6351j) {
                     String str2 = "#getPageWindowConfig mConfigData=null stack=" + Log.getStackTraceString(new Exception());
                 }
                 return c.a.r0.a.d2.n.g.d();
             }
-            return this.f6210b.b(z(), str, s.f39343e);
+            return this.f6352b.b(z(), str, s.f39371e);
         }
         return (c.a.r0.a.d2.n.g) invokeL.objValue;
     }
@@ -551,7 +551,7 @@ public abstract class b implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
             Q();
-            c.a.r0.a.z2.c.m().x(this.f6212d);
+            c.a.r0.a.z2.c.m().x(this.f6354d);
             R(false);
         }
     }
@@ -577,12 +577,12 @@ public abstract class b implements d {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, str)) == null) {
             SwanAppConfigData s = s();
             if (s == null) {
-                if (f6209j) {
+                if (f6351j) {
                     String str2 = "#obtainNewWindowConfig mConfigData=null stack=" + Log.getStackTraceString(new Exception());
                 }
                 return c.a.r0.a.d2.n.g.d();
             }
-            return this.f6210b.a(z(), str, s.f39343e);
+            return this.f6352b.a(z(), str, s.f39371e);
         }
         return (c.a.r0.a.d2.n.g) invokeL.objValue;
     }
@@ -591,7 +591,7 @@ public abstract class b implements d {
     public void l(SwanAppActivity swanAppActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, swanAppActivity) == null) {
-            this.f6212d = swanAppActivity;
+            this.f6354d = swanAppActivity;
         }
     }
 
@@ -612,15 +612,15 @@ public abstract class b implements d {
             if (activity == null) {
                 return null;
             }
-            if (this.f6214f == null) {
+            if (this.f6356f == null) {
                 FullScreenFloatView a2 = c.a.r0.a.c2.a.a.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
-                this.f6214f = a2;
+                this.f6356f = a2;
                 a2.setFloatButtonText(activity.getString(c.a.r0.a.h.aiapps_sconsole));
-                this.f6214f.setFloatImageBackground(c.a.r0.a.e.aiapps_float_view_button_shape);
-                this.f6214f.setVisibility(8);
-                this.f6214f.setDragImageListener(new C0341b(this));
+                this.f6356f.setFloatImageBackground(c.a.r0.a.e.aiapps_float_view_button_shape);
+                this.f6356f.setVisibility(8);
+                this.f6356f.setDragImageListener(new C0350b(this));
             }
-            return this.f6214f;
+            return this.f6356f;
         }
         return (FullScreenFloatView) invokeL.objValue;
     }
@@ -639,7 +639,7 @@ public abstract class b implements d {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            this.f6216h = false;
+            this.f6358h = false;
         }
     }
 
@@ -650,7 +650,7 @@ public abstract class b implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             c.a.r0.a.p.e.a b2 = c.a.r0.a.e0.c.b();
-            SwanAppActivity swanAppActivity = this.f6212d;
+            SwanAppActivity swanAppActivity = this.f6354d;
             if (swanAppActivity != null) {
                 b2.G((ViewGroup) swanAppActivity.findViewById(c.a.r0.a.f.ai_apps_activity_root));
             }
@@ -682,11 +682,11 @@ public abstract class b implements d {
     @Override // c.a.r0.a.g1.d
     public void registerReceiver(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048616, this, context) == null) || this.f6213e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048616, this, context) == null) || this.f6355e == null) {
             return;
         }
         Q();
-        this.f6213e.c(context);
+        this.f6355e.c(context);
     }
 
     @Override // c.a.r0.a.g1.d
@@ -727,7 +727,7 @@ public abstract class b implements d {
     public void unregisterReceiver(Context context) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048620, this, context) == null) || (eVar = this.f6213e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048620, this, context) == null) || (eVar = this.f6355e) == null) {
             return;
         }
         eVar.f(context);
@@ -743,8 +743,8 @@ public abstract class b implements d {
             if (TextUtils.isEmpty(f0)) {
                 return;
             }
-            this.f6216h = true;
-            this.f6213e.j();
+            this.f6358h = true;
+            this.f6355e.j();
             Bundle bundle = new Bundle();
             bundle.putString("app_id", f0);
             bundle.putInt("task_id", getActivity().getTaskId());
@@ -808,10 +808,10 @@ public abstract class b implements d {
                 return;
             }
             c.a.r0.a.o0.d.h hVar = new c.a.r0.a.o0.d.h();
-            hVar.f8043c = eVar.f8035b;
-            hVar.f8044d = z;
-            if (f6209j) {
-                String str = "handleNativeMessage data: " + eVar.f8035b + " ; needEncode = " + z;
+            hVar.f8185c = eVar.f8177b;
+            hVar.f8186d = z;
+            if (f6351j) {
+                String str = "handleNativeMessage data: " + eVar.f8177b + " ; needEncode = " + z;
             }
             m(eVar.a, hVar);
             c.a.r0.a.u1.g.a("postMessage", "handleNativeMessage end.");
@@ -822,6 +822,6 @@ public abstract class b implements d {
     public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? TextUtils.isEmpty(this.f6211c) ? "" : this.f6211c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? TextUtils.isEmpty(this.f6353c) ? "" : this.f6353c : (String) invokeV.objValue;
     }
 }

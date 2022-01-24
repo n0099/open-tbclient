@@ -14,22 +14,22 @@ public class e extends a {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f5079b;
+    public float f5221b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f5080c;
+    public float f5222c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f5081d;
+    public float f5223d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f5082e;
+    public float f5224e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f5083f;
+    public float f5225f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5084g;
+    public boolean f5226g;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class e extends a {
                 return;
             }
         }
-        this.f5084g = false;
+        this.f5226g = false;
     }
 
     @Override // c.a.r0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) && this.f5084g) {
-            bVar.f5075j.cubicTo(this.a, this.f5079b, this.f5080c, this.f5081d, this.f5082e, this.f5083f);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) && this.f5226g) {
+            bVar.f5217j.cubicTo(this.a, this.f5221b, this.f5222c, this.f5223d, this.f5224e, this.f5225f);
         }
     }
 
@@ -62,11 +62,11 @@ public class e extends a {
             return;
         }
         this.a = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(0));
-        this.f5079b = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(1));
-        this.f5080c = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(2));
-        this.f5081d = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(3));
-        this.f5082e = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(4));
-        this.f5083f = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(5));
-        this.f5084g = true;
+        this.f5221b = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(1));
+        this.f5222c = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(2));
+        this.f5223d = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(3));
+        this.f5224e = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(4));
+        this.f5225f = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(5));
+        this.f5226g = true;
     }
 }

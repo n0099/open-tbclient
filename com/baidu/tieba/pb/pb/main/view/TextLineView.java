@@ -8,10 +8,10 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import c.a.s0.s.u.c;
-import c.a.t0.s2.f;
-import c.a.t0.s2.g;
-import c.a.t0.s2.l;
-import c.a.t0.s2.n;
+import c.a.t0.t2.f;
+import c.a.t0.t2.g;
+import c.a.t0.t2.l;
+import c.a.t0.t2.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,22 +24,22 @@ public class TextLineView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f46716e;
+    public Paint f46744e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46717f;
+    public int f46745f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f46718g;
+    public int f46746g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46719h;
+    public int f46747h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46720i;
+    public int f46748i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f46721j;
+    public int f46749j;
     public RectF k;
     public int l;
     public int m;
@@ -84,15 +84,15 @@ public class TextLineView extends TextView {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f46716e == null) {
-                this.f46716e = new Paint();
+            if (this.f46744e == null) {
+                this.f46744e = new Paint();
             }
-            this.f46716e.setAntiAlias(true);
-            this.f46716e.setStyle(Paint.Style.FILL);
+            this.f46744e.setAntiAlias(true);
+            this.f46744e.setStyle(Paint.Style.FILL);
             if (isSelected()) {
-                this.f46716e.setColor(SkinManager.getColor(f.transparent));
+                this.f46744e.setColor(SkinManager.getColor(f.transparent));
             } else {
-                this.f46716e.setColor(SkinManager.getColor(f.transparent));
+                this.f46744e.setColor(SkinManager.getColor(f.transparent));
             }
         }
     }
@@ -118,11 +118,11 @@ public class TextLineView extends TextView {
             RectF rectF = this.k;
             int i2 = this.n;
             int i3 = this.m;
-            int i4 = this.f46719h;
-            rectF.set(i2 + 0, (i3 - i4) - this.f46717f, this.l - i2, i3 - i4);
+            int i4 = this.f46747h;
+            rectF.set(i2 + 0, (i3 - i4) - this.f46745f, this.l - i2, i3 - i4);
             RectF rectF2 = this.k;
             int i5 = this.o;
-            canvas.drawRoundRect(rectF2, i5, i5, this.f46716e);
+            canvas.drawRoundRect(rectF2, i5, i5, this.f46744e);
         }
     }
 
@@ -133,7 +133,7 @@ public class TextLineView extends TextView {
             super.onSizeChanged(i2, i3, i4, i5);
             this.l = i2;
             this.m = i3;
-            this.n = (i2 - this.f46721j) / 2;
+            this.n = (i2 - this.f46749j) / 2;
         }
     }
 
@@ -167,14 +167,14 @@ public class TextLineView extends TextView {
             }
         }
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n.TextLineView);
-        this.f46717f = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_height, 0);
-        this.f46718g = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_top_margin, 0);
-        this.f46719h = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_bottom_margin, 0);
-        this.f46720i = obtainStyledAttributes.getColor(n.TextLineView_text_selected_color, SkinManager.getColor(f.CAM_X0105));
+        this.f46745f = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_height, 0);
+        this.f46746g = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_top_margin, 0);
+        this.f46747h = obtainStyledAttributes.getDimensionPixelSize(n.TextLineView_bottom_line_bottom_margin, 0);
+        this.f46748i = obtainStyledAttributes.getColor(n.TextLineView_text_selected_color, SkinManager.getColor(f.CAM_X0105));
         obtainStyledAttributes.getColor(n.TextLineView_text_unselected_color, SkinManager.getColor(f.CAM_X0108));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f46718g + this.f46717f + this.f46719h);
-        setTextColor(this.f46720i);
-        this.f46721j = c.a.d.f.p.n.f(context, g.ds56);
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.f46746g + this.f46745f + this.f46747h);
+        setTextColor(this.f46748i);
+        this.f46749j = c.a.d.f.p.n.f(context, g.ds56);
         this.k = new RectF();
         this.o = c.a.d.f.p.n.f(getContext(), g.ds4);
         obtainStyledAttributes.recycle();

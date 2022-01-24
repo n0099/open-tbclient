@@ -3,7 +3,6 @@ package com.baidu.ar.auth;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.android.imsdk.retrieve.RetrieveFileData;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +33,7 @@ public class e {
             fVar.jL = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
             fVar.jM = jSONObject.optString("apiKey");
             fVar.jO = jSONObject.optInt("grantedAll", 0) == 1;
-            fVar.jP = jSONObject.has(RetrieveFileData.EXPIRED) ? new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(jSONObject.getString(RetrieveFileData.EXPIRED)).getTime() : 0L;
+            fVar.jP = jSONObject.has("expiredTime") ? new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(jSONObject.getString("expiredTime")).getTime() : 0L;
             JSONArray optJSONArray = jSONObject.optJSONArray("pkgs");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();

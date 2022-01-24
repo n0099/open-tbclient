@@ -1,7 +1,7 @@
 package com.ss.android.download.api.model;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DeepLink {
     public long id;
     public JSONObject json;

@@ -68,7 +68,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                     if (optJSONObject2 != null) {
                         e2 e2Var = new e2();
-                        e2Var.b3(optJSONObject2);
+                        e2Var.c3(optJSONObject2);
                         this.followList.add(e2Var);
                     }
                 }
@@ -91,7 +91,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i5);
                     if (optJSONObject4 != null) {
                         e2 e2Var2 = new e2();
-                        e2Var2.b3(optJSONObject4);
+                        e2Var2.c3(optJSONObject4);
                         this.recommendList.add(e2Var2);
                     }
                 }

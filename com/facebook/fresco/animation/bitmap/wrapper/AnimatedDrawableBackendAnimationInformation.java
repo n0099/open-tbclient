@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.fresco.animation.backend.AnimationInformation;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AnimatedDrawableBackendAnimationInformation implements AnimationInformation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

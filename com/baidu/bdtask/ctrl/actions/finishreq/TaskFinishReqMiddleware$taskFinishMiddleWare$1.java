@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
-import com.tachikoma.core.event.base.TKBaseEvent;
 import java.util.Set;
 import kotlin.Metadata;
 import kotlin.Unit;
@@ -25,14 +24,14 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
-@Metadata(bv = {1, 0, 2}, d1 = {"\u0000(\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001aH\u00122\u00120\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\u0003\u0012\b\b\u0004\u0012\u0004\b\b(\u0005\u0012\u0004\u0012\u00020\u00060\u0001j\u0011`\u0007¢\u0006\f\b\u0003\u0012\b\b\u0004\u0012\u0004\b\b(\b\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00060\u00010\u000124\u0010\t\u001a0\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\u0003\u0012\b\b\u0004\u0012\u0004\b\b(\u0005\u0012\u0004\u0012\u00020\u00060\u0001j\u0011`\u0007¢\u0006\f\b\u0003\u0012\b\b\u0004\u0012\u0004\b\b(\b2\u000e\u0010\n\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\f0\u000bH\n¢\u0006\u0002\b\r"}, d2 = {"<anonymous>", "Lkotlin/Function1;", "Lcom/baidu/bdtask/framework/redux/Action;", "Lkotlin/ParameterName;", "name", "action", "", "Lcom/baidu/bdtask/framework/redux/DispatchFunction;", TKBaseEvent.TK_DISPATCH_EVENT_NAME, "<anonymous parameter 0>", "getState", "Lkotlin/Function0;", "Lcom/baidu/bdtask/ctrl/BDPTaskState;", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 2}, d1 = {"\u0000(\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001aH\u00122\u00120\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\u0003\u0012\b\b\u0004\u0012\u0004\b\b(\u0005\u0012\u0004\u0012\u00020\u00060\u0001j\u0011`\u0007¢\u0006\f\b\u0003\u0012\b\b\u0004\u0012\u0004\b\b(\b\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00060\u00010\u000124\u0010\t\u001a0\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\u0003\u0012\b\b\u0004\u0012\u0004\b\b(\u0005\u0012\u0004\u0012\u00020\u00060\u0001j\u0011`\u0007¢\u0006\f\b\u0003\u0012\b\b\u0004\u0012\u0004\b\b(\b2\u000e\u0010\n\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\f0\u000bH\n¢\u0006\u0002\b\r"}, d2 = {"<anonymous>", "Lkotlin/Function1;", "Lcom/baidu/bdtask/framework/redux/Action;", "Lkotlin/ParameterName;", "name", "action", "", "Lcom/baidu/bdtask/framework/redux/DispatchFunction;", "dispatch", "<anonymous parameter 0>", "getState", "Lkotlin/Function0;", "Lcom/baidu/bdtask/ctrl/BDPTaskState;", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes10.dex */
 public final class TaskFinishReqMiddleware$taskFinishMiddleWare$1 extends Lambda implements Function2<Function1<? super a, ? extends Unit>, Function0<? extends com.baidu.bdtask.ctrl.b>, Function1<? super Function1<? super a, ? extends Unit>, ? extends Function1<? super a, ? extends Unit>>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ b this$0;
 
-    @Metadata(bv = {1, 0, 2}, d1 = {"\u0000 \n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00030\u000124\u0010\u0004\u001a0\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\u0007\u0012\u0004\u0012\u00020\u00030\u0001j\u0011`\b¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\tH\n¢\u0006\u0002\b\n"}, d2 = {"<anonymous>", "Lkotlin/Function1;", "Lcom/baidu/bdtask/framework/redux/Action;", "", "next", "Lkotlin/ParameterName;", "name", "action", "Lcom/baidu/bdtask/framework/redux/DispatchFunction;", TKBaseEvent.TK_DISPATCH_EVENT_NAME, "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 2}, d1 = {"\u0000 \n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00030\u000124\u0010\u0004\u001a0\u0012\u0013\u0012\u00110\u0002¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\u0007\u0012\u0004\u0012\u00020\u00030\u0001j\u0011`\b¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\tH\n¢\u0006\u0002\b\n"}, d2 = {"<anonymous>", "Lkotlin/Function1;", "Lcom/baidu/bdtask/framework/redux/Action;", "", "next", "Lkotlin/ParameterName;", "name", "action", "Lcom/baidu/bdtask/framework/redux/DispatchFunction;", "dispatch", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
     /* renamed from: com.baidu.bdtask.ctrl.actions.finishreq.TaskFinishReqMiddleware$taskFinishMiddleWare$1$1  reason: invalid class name */
     /* loaded from: classes10.dex */
     public static final class AnonymousClass1 extends Lambda implements Function1<Function1<? super a, ? extends Unit>, Function1<? super a, ? extends Unit>> {
@@ -44,14 +43,14 @@ public final class TaskFinishReqMiddleware$taskFinishMiddleWare$1 extends Lambda
         @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "", "action", "Lcom/baidu/bdtask/framework/redux/Action;", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
         /* renamed from: com.baidu.bdtask.ctrl.actions.finishreq.TaskFinishReqMiddleware$taskFinishMiddleWare$1$1$1  reason: invalid class name and collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static final class C17791 extends Lambda implements Function1<c.a.j.h.a.a, Unit> {
+        public static final class C17801 extends Lambda implements Function1<c.a.j.h.a.a, Unit> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Function1 $next;
             public final /* synthetic */ AnonymousClass1 this$0;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C17791(AnonymousClass1 anonymousClass1, Function1 function1) {
+            public C17801(AnonymousClass1 anonymousClass1, Function1 function1) {
                 super(1);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -96,11 +95,11 @@ public final class TaskFinishReqMiddleware$taskFinishMiddleWare$1 extends Lambda
                                 TaskInfo taskInfo = k.getTaskInfo();
                                 TaskStatus taskStatus = k.getTaskStatus();
                                 if (taskStatus.isCompleted()) {
-                                    set = this.this$0.this$0.this$0.f32952b;
+                                    set = this.this$0.this$0.this$0.f32980b;
                                     if (set.contains(taskInfo.getSingleKey())) {
                                         return;
                                     }
-                                    set2 = this.this$0.this$0.this$0.f32952b;
+                                    set2 = this.this$0.this$0.this$0.f32980b;
                                     set2.add(taskInfo.getSingleKey());
                                     Ref.ObjectRef objectRef = new Ref.ObjectRef();
                                     objectRef.element = null;
@@ -131,20 +130,20 @@ public final class TaskFinishReqMiddleware$taskFinishMiddleWare$1 extends Lambda
                 public final /* synthetic */ TaskInfo a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Ref.ObjectRef f32949b;
+                public final /* synthetic */ Ref.ObjectRef f32977b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ C17791 f32950c;
+                public final /* synthetic */ C17801 f32978c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ c.a.j.h.a.a f32951d;
+                public final /* synthetic */ c.a.j.h.a.a f32979d;
 
-                public a(TaskInfo taskInfo, Ref.ObjectRef objectRef, C17791 c17791, c.a.j.h.a.a aVar) {
+                public a(TaskInfo taskInfo, Ref.ObjectRef objectRef, C17801 c17801, c.a.j.h.a.a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {taskInfo, objectRef, c17791, aVar};
+                        Object[] objArr = {taskInfo, objectRef, c17801, aVar};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -155,9 +154,9 @@ public final class TaskFinishReqMiddleware$taskFinishMiddleWare$1 extends Lambda
                         }
                     }
                     this.a = taskInfo;
-                    this.f32949b = objectRef;
-                    this.f32950c = c17791;
-                    this.f32951d = aVar;
+                    this.f32977b = objectRef;
+                    this.f32978c = c17801;
+                    this.f32979d = aVar;
                 }
 
                 @Override // c.a.j.f.g.b
@@ -165,13 +164,13 @@ public final class TaskFinishReqMiddleware$taskFinishMiddleWare$1 extends Lambda
                     Set set;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, taskResponseData) == null) {
-                        set = this.f32950c.this$0.this$0.this$0.f32952b;
+                        set = this.f32978c.this$0.this$0.this$0.f32980b;
                         set.remove(this.a.getSingleKey());
-                        Function1 function1 = this.f32950c.$next;
-                        c.a.j.h.a.a aVar = this.f32951d;
+                        Function1 function1 = this.f32978c.$next;
+                        c.a.j.h.a.a aVar = this.f32979d;
                         c.a.j.f.c.f.a aVar2 = (c.a.j.f.c.f.a) aVar;
                         aVar2.h(taskResponseData.deepCopy());
-                        TaskInfo taskInfo = (TaskInfo) this.f32949b.element;
+                        TaskInfo taskInfo = (TaskInfo) this.f32977b.element;
                         aVar2.g(taskInfo != null ? taskInfo.deepCopy() : null);
                         function1.invoke(aVar);
                     }
@@ -187,7 +186,7 @@ public final class TaskFinishReqMiddleware$taskFinishMiddleWare$1 extends Lambda
                         if (d2.isEmpty() || TextUtils.isEmpty(nextActive.getTaskInfo())) {
                             return;
                         }
-                        this.f32949b.element = new c.a.j.i.b(nextActive.getTaskInfo()).a();
+                        this.f32977b.element = new c.a.j.i.b(nextActive.getTaskInfo()).a();
                         DebugTrace.a.c(new TaskFinishReqMiddleware$taskFinishMiddleWare$1$1$1$$special$$inlined$let$lambda$1$1(this));
                     }
                 }
@@ -197,10 +196,10 @@ public final class TaskFinishReqMiddleware$taskFinishMiddleWare$1 extends Lambda
                     Set set;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
-                        set = this.f32950c.this$0.this$0.this$0.f32952b;
+                        set = this.f32978c.this$0.this$0.this$0.f32980b;
                         set.remove(this.a.getSingleKey());
-                        Function1 function1 = this.f32950c.$next;
-                        c.a.j.h.a.a aVar = this.f32951d;
+                        Function1 function1 = this.f32978c.$next;
+                        c.a.j.h.a.a aVar = this.f32979d;
                         c.a.j.f.c.f.a aVar2 = (c.a.j.f.c.f.a) aVar;
                         aVar2.b(i2);
                         aVar2.c(str);
@@ -243,7 +242,7 @@ public final class TaskFinishReqMiddleware$taskFinishMiddleWare$1 extends Lambda
         public final Function1<a, Unit> invoke2(Function1<? super a, Unit> function1) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, function1)) == null) ? new C17791(this, function1) : (Function1) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, function1)) == null) ? new C17801(this, function1) : (Function1) invokeL.objValue;
         }
     }
 

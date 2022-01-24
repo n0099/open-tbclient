@@ -26,22 +26,22 @@ public class BannerDownloadView extends AppCompatTextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f37003e;
+    public float f37031e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37004f;
+    public int f37032f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f37005g;
+    public float f37033g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37006h;
+    public int f37034h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f37007i;
+    public int f37035i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f37008j;
+    public String f37036j;
     public float k;
     public int l;
     public int m;
@@ -70,9 +70,9 @@ public class BannerDownloadView extends AppCompatTextView {
                 return;
             }
         }
-        this.f37003e = 0.0f;
-        this.f37004f = -1;
-        this.f37005g = 10.0f;
+        this.f37031e = 0.0f;
+        this.f37032f = -1;
+        this.f37033g = 10.0f;
         this.k = 1.0f;
         this.l = 0;
         this.m = 0;
@@ -110,14 +110,14 @@ public class BannerDownloadView extends AppCompatTextView {
             rectF.left = i2;
             rectF.top = i2;
             rectF.bottom = getMeasuredHeight() - this.m;
-            this.q.right = getMeasuredWidth() * this.f37003e;
+            this.q.right = getMeasuredWidth() * this.f37031e;
             RectF rectF2 = this.q;
             float f2 = rectF2.right;
             int i3 = this.l;
             if (f2 < i3 * 2) {
                 rectF2.right = i3 * 2;
             }
-            this.n.setShader(new LinearGradient(0.0f, 0.0f, this.q.right, 0.0f, new int[]{this.f37006h, this.f37007i}, (float[]) null, Shader.TileMode.CLAMP));
+            this.n.setShader(new LinearGradient(0.0f, 0.0f, this.q.right, 0.0f, new int[]{this.f37034h, this.f37035i}, (float[]) null, Shader.TileMode.CLAMP));
             RectF rectF3 = this.q;
             int i4 = this.l;
             canvas.drawRoundRect(rectF3, i4, i4, this.n);
@@ -129,8 +129,8 @@ public class BannerDownloadView extends AppCompatTextView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             Paint.FontMetrics fontMetrics = this.p.getFontMetrics();
             float f2 = fontMetrics.descent;
-            float measuredWidth = (getMeasuredWidth() - this.p.measureText(this.f37008j)) / 2.0f;
-            canvas.drawText(this.f37008j, measuredWidth, (float) (((getHeight() / 2) - f2) + ((f2 - fontMetrics.ascent) / 2.0f) + 0.5d), this.p);
+            float measuredWidth = (getMeasuredWidth() - this.p.measureText(this.f37036j)) / 2.0f;
+            canvas.drawText(this.f37036j, measuredWidth, (float) (((getHeight() / 2) - f2) + ((f2 - fontMetrics.ascent) / 2.0f) + 0.5d), this.p);
         }
     }
 
@@ -142,13 +142,13 @@ public class BannerDownloadView extends AppCompatTextView {
             int color2 = getResources().getColor(b.nad_download_button_fg_start);
             int dimensionPixelSize = getResources().getDimensionPixelSize(c.nad_progress_button_radian);
             this.m = getResources().getDimensionPixelSize(c.nad_progress_button_frame);
-            this.f37006h = obtainStyledAttributes.getInteger(i.nad_progress_nad_btn_foreground, color2);
-            this.f37007i = obtainStyledAttributes.getColor(i.nad_progress_nad_btn_foreground_end, getResources().getColor(b.nad_download_button_fg_end));
-            this.f37004f = obtainStyledAttributes.getColor(i.nad_progress_nad_btn_textColor, color);
+            this.f37034h = obtainStyledAttributes.getInteger(i.nad_progress_nad_btn_foreground, color2);
+            this.f37035i = obtainStyledAttributes.getColor(i.nad_progress_nad_btn_foreground_end, getResources().getColor(b.nad_download_button_fg_end));
+            this.f37032f = obtainStyledAttributes.getColor(i.nad_progress_nad_btn_textColor, color);
             this.k = obtainStyledAttributes.getFloat(i.nad_progress_nad_btn_max, this.k);
-            this.f37003e = obtainStyledAttributes.getFloat(i.nad_progress_nad_btn_progress, 0.0f);
-            this.f37008j = obtainStyledAttributes.getString(i.nad_progress_nad_btn_text);
-            this.f37005g = obtainStyledAttributes.getDimension(i.nad_progress_nad_btn_textSize, (int) getResources().getDimension(c.nad_progress_button_font_size));
+            this.f37031e = obtainStyledAttributes.getFloat(i.nad_progress_nad_btn_progress, 0.0f);
+            this.f37036j = obtainStyledAttributes.getString(i.nad_progress_nad_btn_text);
+            this.f37033g = obtainStyledAttributes.getDimension(i.nad_progress_nad_btn_textSize, (int) getResources().getDimension(c.nad_progress_button_font_size));
             this.l = obtainStyledAttributes.getDimensionPixelSize(i.nad_progress_nad_btn_radius, dimensionPixelSize);
             obtainStyledAttributes.recycle();
             e();
@@ -159,8 +159,8 @@ public class BannerDownloadView extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.p.setAntiAlias(true);
-            this.p.setTextSize(this.f37005g);
-            this.p.setColor(this.f37004f);
+            this.p.setTextSize(this.f37033g);
+            this.p.setColor(this.f37032f);
             this.n.setAntiAlias(true);
             this.n.setStyle(Paint.Style.FILL);
             this.o.setAntiAlias(true);
@@ -174,11 +174,11 @@ public class BannerDownloadView extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f37003e > 0.0f) {
+            if (this.f37031e > 0.0f) {
                 b(canvas);
             }
             a(canvas);
-            if (TextUtils.isEmpty(this.f37008j)) {
+            if (TextUtils.isEmpty(this.f37036j)) {
                 return;
             }
             c(canvas);
@@ -187,29 +187,29 @@ public class BannerDownloadView extends AppCompatTextView {
 
     public void setProgress(float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048582, this, f2) == null) || f2 < 0.0f || f2 > this.k || f2 == this.f37003e) {
+        if (!(interceptable == null || interceptable.invokeF(1048582, this, f2) == null) || f2 < 0.0f || f2 > this.k || f2 == this.f37031e) {
             return;
         }
-        this.f37003e = f2;
+        this.f37031e = f2;
         postInvalidate();
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || str == null || str.equals(this.f37008j)) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || str == null || str.equals(this.f37036j)) {
             return;
         }
-        this.f37008j = str;
+        this.f37036j = str;
         postInvalidate();
     }
 
     @Override // android.widget.TextView
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || i2 == this.f37004f) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || i2 == this.f37032f) {
             return;
         }
-        this.f37004f = i2;
+        this.f37032f = i2;
         e();
         postInvalidate();
     }
@@ -233,9 +233,9 @@ public class BannerDownloadView extends AppCompatTextView {
                 return;
             }
         }
-        this.f37003e = 0.0f;
-        this.f37004f = -1;
-        this.f37005g = 10.0f;
+        this.f37031e = 0.0f;
+        this.f37032f = -1;
+        this.f37033g = 10.0f;
         this.k = 1.0f;
         this.l = 0;
         this.m = 0;

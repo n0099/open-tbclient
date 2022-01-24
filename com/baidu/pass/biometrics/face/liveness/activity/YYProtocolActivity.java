@@ -33,7 +33,7 @@ public class YYProtocolActivity extends Activity implements NoProguard {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f37559b;
+    public WebView f37587b;
 
     /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
@@ -94,10 +94,10 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             this.a = (ImageView) findViewById(R.id.iv_back);
             WebView webView = (WebView) findViewById(R.id.webView);
-            this.f37559b = webView;
+            this.f37587b = webView;
             webView.setWebChromeClient(new WebChromeClient());
-            this.f37559b.setWebViewClient(new WebViewClient());
-            this.f37559b.loadUrl(PassBioEnv.YY_PERSONAL_INFO_PROTOCOL);
+            this.f37587b.setWebViewClient(new WebViewClient());
+            this.f37587b.loadUrl(PassBioEnv.YY_PERSONAL_INFO_PROTOCOL);
         }
     }
 
@@ -166,10 +166,10 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            WebView webView = this.f37559b;
+            WebView webView = this.f37587b;
             if (webView != null) {
                 webView.destroy();
-                this.f37559b = null;
+                this.f37587b = null;
             }
         }
     }

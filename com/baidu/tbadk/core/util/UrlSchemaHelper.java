@@ -68,6 +68,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_LIVE_MY_CONCERN_LIST = "com.baidu.tieba://unidispatch/liveconcernlist";
     public static final String SCHEMA_LIVE_SDK = "bdtiebalive://";
     public static final String SCHEMA_NAITVE_H5 = "com.baidu.tieba://unidispatch/tbwebview";
+    public static final String SCHEMA_PATH_FROM_FORUM_SQUARE = "/forumsquare";
     public static final String SCHEMA_TB_FLUTTER = "flt://";
     public static final String SCHEMA_TYPE_BAIJIAHAO_PB = "isbaijiahao=1";
     public static final String SCHEMA_TYPE_BAR_VOTE = "tieba://election?";

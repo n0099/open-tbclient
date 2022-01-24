@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.e1.p0;
+import c.a.s0.d1.p0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.CustomToast;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -33,7 +33,7 @@ import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes13.dex */
-public class VideoControllerLayout extends RelativeLayout implements View.OnTouchListener, c.a.t0.w0.c.b {
+public class VideoControllerLayout extends RelativeLayout implements View.OnTouchListener, c.a.t0.x0.c.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TAB_PHOTO = 1;
     public static final int TAB_RECORD = 2;
@@ -43,22 +43,22 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f49540e;
+    public RelativeLayout f49559e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CaptureRecordButton f49541f;
+    public CaptureRecordButton f49560f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49542g;
+    public TextView f49561g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.l0.c.a f49543h;
+    public c.a.t0.l0.c.a f49562h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.w0.c.a f49544i;
+    public c.a.t0.x0.c.a f49563i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.t0.e0.a.a f49545j;
+    public c.a.t0.e0.a.a f49564j;
     public long k;
     public boolean l;
     public List<ObjectAnimator> m;
@@ -80,7 +80,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoControllerLayout f49546f;
+        public final /* synthetic */ VideoControllerLayout f49565f;
 
         public a(VideoControllerLayout videoControllerLayout) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
                     return;
                 }
             }
-            this.f49546f = videoControllerLayout;
+            this.f49565f = videoControllerLayout;
         }
 
         @Override // c.a.t0.n4.m.e.a, android.animation.Animator.AnimatorListener
@@ -105,8 +105,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                if ((this.f49546f.f49543h == null || !this.f49546f.f49543h.c()) && this.f49546f.n != null) {
-                    this.f49546f.n.onStartRecord();
+                if ((this.f49565f.f49562h == null || !this.f49565f.f49562h.c()) && this.f49565f.n != null) {
+                    this.f49565f.n.onStartRecord();
                 }
             }
         }
@@ -118,10 +118,10 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f49547e;
+        public final /* synthetic */ long f49566e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoControllerLayout f49548f;
+        public final /* synthetic */ VideoControllerLayout f49567f;
 
         public b(VideoControllerLayout videoControllerLayout, long j2) {
             Interceptable interceptable = $ic;
@@ -138,16 +138,16 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
                     return;
                 }
             }
-            this.f49548f = videoControllerLayout;
-            this.f49547e = j2;
+            this.f49567f = videoControllerLayout;
+            this.f49566e = j2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f49548f.l && this.f49548f.k == this.f49547e) {
-                this.f49548f.q = true;
-                this.f49548f.s();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f49567f.l && this.f49567f.k == this.f49566e) {
+                this.f49567f.q = true;
+                this.f49567f.s();
             }
         }
     }
@@ -158,7 +158,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoControllerLayout f49549f;
+        public final /* synthetic */ VideoControllerLayout f49568f;
 
         public c(VideoControllerLayout videoControllerLayout) {
             Interceptable interceptable = $ic;
@@ -175,16 +175,16 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
                     return;
                 }
             }
-            this.f49549f = videoControllerLayout;
+            this.f49568f = videoControllerLayout;
         }
 
         @Override // c.a.t0.n4.m.e.a, android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f49549f.n == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f49568f.n == null) {
                 return;
             }
-            this.f49549f.n.onShowEffectLayout();
+            this.f49568f.n.onShowEffectLayout();
         }
     }
 
@@ -194,13 +194,13 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f49550f;
+        public final /* synthetic */ boolean f49569f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.n4.m.e.a f49551g;
+        public final /* synthetic */ c.a.t0.n4.m.e.a f49570g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ VideoControllerLayout f49552h;
+        public final /* synthetic */ VideoControllerLayout f49571h;
 
         public d(VideoControllerLayout videoControllerLayout, boolean z, c.a.t0.n4.m.e.a aVar) {
             Interceptable interceptable = $ic;
@@ -217,27 +217,27 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
                     return;
                 }
             }
-            this.f49552h = videoControllerLayout;
-            this.f49550f = z;
-            this.f49551g = aVar;
+            this.f49571h = videoControllerLayout;
+            this.f49569f = z;
+            this.f49570g = aVar;
         }
 
         @Override // c.a.t0.n4.m.e.a, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f20023e) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f20124e) {
                 return;
             }
-            this.f49552h.v.setVisibility(8);
-            if (this.f49552h.f49545j == null || this.f49552h.f49545j.getProgress() <= 0.0f) {
-                this.f49552h.f49542g.setVisibility(8);
+            this.f49571h.v.setVisibility(8);
+            if (this.f49571h.f49564j == null || this.f49571h.f49564j.getProgress() <= 0.0f) {
+                this.f49571h.f49561g.setVisibility(8);
             } else {
-                this.f49552h.f49542g.setVisibility(0);
+                this.f49571h.f49561g.setVisibility(0);
             }
-            if (this.f49552h.n != null) {
-                this.f49552h.n.a(this.f49550f);
+            if (this.f49571h.n != null) {
+                this.f49571h.n.a(this.f49569f);
             }
-            c.a.t0.n4.m.e.a aVar = this.f49551g;
+            c.a.t0.n4.m.e.a aVar = this.f49570g;
             if (aVar != null) {
                 aVar.onAnimationEnd(animator);
             }
@@ -311,13 +311,13 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
     public TextView getRecordTimeView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f49542g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f49561g : (TextView) invokeV.objValue;
     }
 
     public c.a.t0.n4.m.a getRecrodButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f49541f : (c.a.t0.n4.m.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f49560f : (c.a.t0.n4.m.a) invokeV.objValue;
     }
 
     public void hideEffectLayout(c.a.t0.n4.m.e.a aVar, boolean z) {
@@ -338,17 +338,17 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
                 objectAnimator.reverse();
             }
         }
-        c.a.t0.e0.a.a aVar2 = this.f49545j;
+        c.a.t0.e0.a.a aVar2 = this.f49564j;
         if (aVar2 != null && aVar2.getProgress() > 0.0f) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f49541f.getLayer2(), AnimationProperty.OPACITY, 0.0f, 1.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f49560f.getLayer2(), AnimationProperty.OPACITY, 0.0f, 1.0f);
             ofFloat.setDuration(100L);
             ofFloat.reverse();
-            ObjectAnimator.ofFloat(this.f49541f.getLayer1(), AnimationProperty.SCALE_X, 0.388f, 0.276f).setDuration(320L).reverse();
-            ObjectAnimator.ofFloat(this.f49541f.getLayer1(), AnimationProperty.SCALE_Y, 0.388f, 0.276f).setDuration(320L).reverse();
+            ObjectAnimator.ofFloat(this.f49560f.getLayer1(), AnimationProperty.SCALE_X, 0.388f, 0.276f).setDuration(320L).reverse();
+            ObjectAnimator.ofFloat(this.f49560f.getLayer1(), AnimationProperty.SCALE_Y, 0.388f, 0.276f).setDuration(320L).reverse();
             return;
         }
-        ObjectAnimator.ofFloat(this.f49541f.getLayer1(), AnimationProperty.SCALE_X, 1.0f, 0.681f).setDuration(320L).reverse();
-        ObjectAnimator.ofFloat(this.f49541f.getLayer1(), AnimationProperty.SCALE_Y, 1.0f, 0.681f).setDuration(320L).reverse();
+        ObjectAnimator.ofFloat(this.f49560f.getLayer1(), AnimationProperty.SCALE_X, 1.0f, 0.681f).setDuration(320L).reverse();
+        ObjectAnimator.ofFloat(this.f49560f.getLayer1(), AnimationProperty.SCALE_Y, 1.0f, 0.681f).setDuration(320L).reverse();
     }
 
     public boolean init() {
@@ -361,12 +361,12 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
             c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(recordEffectLayout);
             d2.n(R.string.J_X14);
             d2.f(R.color.CAM_X0214);
-            this.f49540e = (RelativeLayout) findViewById(R.id.layout_record);
+            this.f49559e = (RelativeLayout) findViewById(R.id.layout_record);
             CaptureRecordButton captureRecordButton = (CaptureRecordButton) findViewById(R.id.layout_record_button);
-            this.f49541f = captureRecordButton;
+            this.f49560f = captureRecordButton;
             captureRecordButton.setOnTouchListener(this);
             TextView textView = (TextView) findViewById(R.id.layout_record_time);
-            this.f49542g = textView;
+            this.f49561g = textView;
             c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(textView);
             d3.A(R.string.F_X02);
             d3.y(R.array.S_O_X001);
@@ -459,14 +459,14 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
                 if (action != 1) {
                     return;
                 }
-                this.f49541f.stopTakePhotoAnimator();
+                this.f49560f.stopTakePhotoAnimator();
             } else if (this.v.getVisibility() == 0) {
                 hideEffectLayout(null, true);
             } else {
                 e eVar = this.n;
                 if (eVar != null) {
                     eVar.onTakePhoto();
-                    this.f49541f.startTakePhotoAnimator();
+                    this.f49560f.startTakePhotoAnimator();
                 }
             }
         }
@@ -565,7 +565,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
                         return;
                     }
                     this.l = false;
-                    if (this.f49543h.c()) {
+                    if (this.f49562h.c()) {
                         stopRecord();
                         return;
                     }
@@ -579,7 +579,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
             if (eVar != null) {
                 eVar.hideMinVideoTips();
             }
-            c.a.t0.w0.c.a aVar = this.f49544i;
+            c.a.t0.x0.c.a aVar = this.f49563i;
             if (aVar != null && aVar.g()) {
                 this.p = true;
                 CustomToast.newInstance().showToast(R.string.music_is_downloading);
@@ -598,13 +598,13 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
             ArrayList arrayList = new ArrayList();
             this.m = arrayList;
             arrayList.add(ObjectAnimator.ofFloat(this.v, AnimationProperty.TRANSLATE_Y, UtilHelper.getDimenPixelSize(R.dimen.tbds656), 0.0f));
-            this.m.add(ObjectAnimator.ofFloat(this.f49540e, AnimationProperty.TRANSLATE_Y, 0.0f, UtilHelper.getDimenPixelSize(R.dimen.tbds207)));
-            this.m.add(ObjectAnimator.ofFloat(this.f49541f.getPause(), AnimationProperty.SCALE_X, 1.0f, 0.681f));
-            this.m.add(ObjectAnimator.ofFloat(this.f49541f.getPause(), AnimationProperty.SCALE_Y, 1.0f, 0.681f));
-            this.m.add(ObjectAnimator.ofFloat(this.f49541f.getLayer2(), AnimationProperty.SCALE_X, 0.8f, 0.57f));
-            this.m.add(ObjectAnimator.ofFloat(this.f49541f.getLayer2(), AnimationProperty.SCALE_Y, 0.8f, 0.57f));
-            this.m.add(ObjectAnimator.ofFloat(this.f49541f.getLayer3(), AnimationProperty.SCALE_X, 1.0f, 0.57f));
-            this.m.add(ObjectAnimator.ofFloat(this.f49541f.getLayer3(), AnimationProperty.SCALE_Y, 1.0f, 0.57f));
+            this.m.add(ObjectAnimator.ofFloat(this.f49559e, AnimationProperty.TRANSLATE_Y, 0.0f, UtilHelper.getDimenPixelSize(R.dimen.tbds207)));
+            this.m.add(ObjectAnimator.ofFloat(this.f49560f.getPause(), AnimationProperty.SCALE_X, 1.0f, 0.681f));
+            this.m.add(ObjectAnimator.ofFloat(this.f49560f.getPause(), AnimationProperty.SCALE_Y, 1.0f, 0.681f));
+            this.m.add(ObjectAnimator.ofFloat(this.f49560f.getLayer2(), AnimationProperty.SCALE_X, 0.8f, 0.57f));
+            this.m.add(ObjectAnimator.ofFloat(this.f49560f.getLayer2(), AnimationProperty.SCALE_Y, 0.8f, 0.57f));
+            this.m.add(ObjectAnimator.ofFloat(this.f49560f.getLayer3(), AnimationProperty.SCALE_X, 1.0f, 0.57f));
+            this.m.add(ObjectAnimator.ofFloat(this.f49560f.getLayer3(), AnimationProperty.SCALE_Y, 1.0f, 0.57f));
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.v, AnimationProperty.OPACITY, 0.0f, 1.0f);
             ofFloat.setStartDelay(120L);
             this.m.add(ofFloat);
@@ -617,7 +617,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
             return;
         }
         this.v.setVisibility(0);
-        this.f49542g.setVisibility(8);
+        this.f49561g.setVisibility(8);
         q();
         for (int i2 = 0; i2 < this.m.size(); i2++) {
             ObjectAnimator objectAnimator = this.m.get(i2);
@@ -631,17 +631,17 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
                 objectAnimator.start();
             }
         }
-        c.a.t0.e0.a.a aVar = this.f49545j;
+        c.a.t0.e0.a.a aVar = this.f49564j;
         if (aVar != null && aVar.getProgress() > 0.0f) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f49541f.getLayer2(), AnimationProperty.OPACITY, 0.0f, 1.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f49560f.getLayer2(), AnimationProperty.OPACITY, 0.0f, 1.0f);
             ofFloat.setDuration(320L);
             ofFloat.start();
-            ObjectAnimator.ofFloat(this.f49541f.getLayer1(), AnimationProperty.SCALE_X, 0.388f, 0.276f).setDuration(320L).start();
-            ObjectAnimator.ofFloat(this.f49541f.getLayer1(), AnimationProperty.SCALE_Y, 0.388f, 0.276f).setDuration(320L).start();
+            ObjectAnimator.ofFloat(this.f49560f.getLayer1(), AnimationProperty.SCALE_X, 0.388f, 0.276f).setDuration(320L).start();
+            ObjectAnimator.ofFloat(this.f49560f.getLayer1(), AnimationProperty.SCALE_Y, 0.388f, 0.276f).setDuration(320L).start();
             return;
         }
-        ObjectAnimator.ofFloat(this.f49541f.getLayer1(), AnimationProperty.SCALE_X, 1.0f, 0.681f).setDuration(320L).start();
-        ObjectAnimator.ofFloat(this.f49541f.getLayer1(), AnimationProperty.SCALE_Y, 1.0f, 0.681f).setDuration(320L).start();
+        ObjectAnimator.ofFloat(this.f49560f.getLayer1(), AnimationProperty.SCALE_X, 1.0f, 0.681f).setDuration(320L).start();
+        ObjectAnimator.ofFloat(this.f49560f.getLayer1(), AnimationProperty.SCALE_Y, 1.0f, 0.681f).setDuration(320L).start();
     }
 
     public void resetEffect() {
@@ -665,11 +665,11 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            c.a.t0.l0.c.a aVar = this.f49543h;
+            c.a.t0.l0.c.a aVar = this.f49562h;
             if (aVar == null || !aVar.c()) {
-                c.a.t0.e0.a.a aVar2 = this.f49545j;
+                c.a.t0.e0.a.a aVar2 = this.f49564j;
                 if (aVar2 != null && aVar2.getProgress() > 0.0f) {
-                    this.f49541f.resumeRecordAnimator();
+                    this.f49560f.resumeRecordAnimator();
                 }
                 if (this.v.getCurrentBeautyItem() != null) {
                     this.r.add(this.v.getCurrentBeautyItem());
@@ -733,10 +733,10 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
         if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
             this.x = i2;
             if (i2 == 1) {
-                this.f49541f.getLayer1().setVisibility(8);
+                this.f49560f.getLayer1().setVisibility(8);
             } else if (i2 != 2) {
             } else {
-                this.f49541f.getLayer1().setVisibility(0);
+                this.f49560f.getLayer1().setVisibility(0);
             }
         }
     }
@@ -762,7 +762,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
     public void setDurationManager(c.a.t0.e0.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, aVar) == null) {
-            this.f49545j = aVar;
+            this.f49564j = aVar;
         }
     }
 
@@ -813,7 +813,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
         }
     }
 
-    @Override // c.a.t0.w0.c.b
+    @Override // c.a.t0.x0.c.b
     public void setMusicData(List<MusicData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, list) == null) {
@@ -829,10 +829,10 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
         }
     }
 
-    public void setMusicManager(c.a.t0.w0.c.a aVar) {
+    public void setMusicManager(c.a.t0.x0.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, aVar) == null) {
-            this.f49544i = aVar;
+            this.f49563i = aVar;
         }
     }
 
@@ -855,7 +855,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
     public void setRecordManager(c.a.t0.l0.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, aVar) == null) {
-            this.f49543h = aVar;
+            this.f49562h = aVar;
         }
     }
 
@@ -885,26 +885,26 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
     public void startRecordAnimator() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
-            this.f49542g.setVisibility(0);
-            this.f49541f.startRecordAnimator(this.q);
+            this.f49561g.setVisibility(0);
+            this.f49560f.startRecordAnimator(this.q);
         }
     }
 
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
-            c.a.t0.l0.c.a aVar = this.f49543h;
+            c.a.t0.l0.c.a aVar = this.f49562h;
             if (aVar != null && !aVar.c()) {
-                c.a.t0.e0.a.a aVar2 = this.f49545j;
-                if (aVar2 == null || aVar2.getProgress() < this.f49545j.getMaxDuration()) {
+                c.a.t0.e0.a.a aVar2 = this.f49564j;
+                if (aVar2 == null || aVar2.getProgress() < this.f49564j.getMaxDuration()) {
                     return;
                 }
-                this.f49541f.pauseRecordAnimator();
+                this.f49560f.pauseRecordAnimator();
                 return;
             }
-            c.a.t0.e0.a.a aVar3 = this.f49545j;
+            c.a.t0.e0.a.a aVar3 = this.f49564j;
             if (aVar3 != null && aVar3.getProgress() > 0.0f) {
-                this.f49541f.pauseRecordAnimator();
+                this.f49560f.pauseRecordAnimator();
             }
             e eVar = this.n;
             if (eVar != null) {
@@ -916,8 +916,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
     public void stopRecordAnimator() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
-            this.f49541f.stopRecordAnimator();
-            this.f49542g.setVisibility(8);
+            this.f49560f.stopRecordAnimator();
+            this.f49561g.setVisibility(8);
         }
     }
 

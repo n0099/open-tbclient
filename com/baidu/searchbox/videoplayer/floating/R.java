@@ -12,8 +12,8 @@ public final class R {
     /* loaded from: classes11.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int floating_click_view_id = 0x7f090ba1;
-        public static final int floating_click_view_tag = 0x7f090ba2;
+        public static final int floating_click_view_id = 0x7f090ba4;
+        public static final int floating_click_view_tag = 0x7f090ba5;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -34,10 +34,10 @@ public final class R {
     /* loaded from: classes11.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int player_floating_close_tips = 0x7f0f1039;
-        public static final int player_floating_close_warning = 0x7f0f103a;
-        public static final int player_floating_permission_message = 0x7f0f103b;
-        public static final int player_floating_permission_title = 0x7f0f103c;
+        public static final int player_floating_close_tips = 0x7f0f103b;
+        public static final int player_floating_close_warning = 0x7f0f103c;
+        public static final int player_floating_permission_message = 0x7f0f103d;
+        public static final int player_floating_permission_title = 0x7f0f103e;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

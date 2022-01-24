@@ -3,6 +3,7 @@ package c.a.r0.a.j1.f;
 import android.text.TextUtils;
 import c.a.r0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -21,33 +22,33 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7466c;
+    public static final boolean f7608c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f7467d;
+    public static String f7609d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f7468e;
+    public static String f7610e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f7469f;
+    public static String f7611f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f7470g;
+    public static String f7612g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f7471h;
+    public static String f7613h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f7472i;
+    public static String f7614i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f7473j;
+    public static String f7615j;
     public transient /* synthetic */ FieldHolder $fh;
     public CallbackHandler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public UnitedSchemeEntity f7474b;
+    public UnitedSchemeEntity f7616b;
 
     static {
         InterceptResult invokeClinit;
@@ -62,7 +63,7 @@ public class b {
                 return;
             }
         }
-        f7466c = k.a;
+        f7608c = k.a;
     }
 
     public b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
@@ -81,14 +82,14 @@ public class b {
             }
         }
         this.a = callbackHandler;
-        this.f7474b = unitedSchemeEntity;
-        f7467d = str;
-        f7468e = str2;
-        f7469f = str3;
-        f7470g = str4;
-        f7471h = str5;
-        f7472i = str6;
-        f7473j = str7;
+        this.f7616b = unitedSchemeEntity;
+        f7609d = str;
+        f7610e = str2;
+        f7611f = str3;
+        f7612g = str4;
+        f7613h = str5;
+        f7614i = str6;
+        f7615j = str7;
     }
 
     public static b a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, b bVar) {
@@ -131,8 +132,8 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        UnitedSchemeUtility.safeCallback(this.a, this.f7474b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
-        if (f7466c) {
+        UnitedSchemeUtility.safeCallback(this.a, this.f7616b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+        if (f7608c) {
             String str2 = "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString();
         }
     }
@@ -145,10 +146,10 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("errCode", Integer.valueOf(i2));
-            jSONObject.putOpt("errMsg", str);
+            jSONObject.putOpt(StatConstants.KEY_EXT_ERR_MSG, str);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        c(f7471h, jSONObject);
+        c(f7613h, jSONObject);
     }
 }

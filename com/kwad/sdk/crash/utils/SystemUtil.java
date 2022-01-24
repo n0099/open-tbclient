@@ -26,19 +26,19 @@ public class SystemUtil {
     public static volatile String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Boolean f56553b;
+    public static volatile Boolean f56598b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f56554c;
+    public static long f56599c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f56555d;
+    public static long f56600d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f56556e;
+    public static int f56601e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static LEVEL f56557f;
+    public static LEVEL f56602f;
 
     /* loaded from: classes3.dex */
     public enum LEVEL {
@@ -65,19 +65,19 @@ public class SystemUtil {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f56558b;
+        public long f56603b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f56559c;
+        public long f56604c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f56560d;
+        public long f56605d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f56561e;
+        public long f56606e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f56562f;
+        public int f56607f;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:46:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -271,11 +271,11 @@ public class SystemUtil {
     }
 
     public static boolean b(Context context) {
-        if (f56553b == null) {
+        if (f56598b == null) {
             String a2 = a(context);
-            f56553b = Boolean.valueOf(!TextUtils.isEmpty(a2) && a2.equals(context.getPackageName()));
+            f56598b = Boolean.valueOf(!TextUtils.isEmpty(a2) && a2.equals(context.getPackageName()));
         }
-        return f56553b.booleanValue();
+        return f56598b.booleanValue();
     }
 
     public static long c(Context context) {
@@ -300,15 +300,15 @@ public class SystemUtil {
                             if (readLine.startsWith("VmSize") && readLine.contains("kB")) {
                                 String a3 = a(readLine, "VmSize");
                                 if (a3 != null) {
-                                    aVar.f56558b = Long.valueOf(a3).longValue();
+                                    aVar.f56603b = Long.valueOf(a3).longValue();
                                 }
                             } else if (readLine.startsWith("VmRSS:") && readLine.contains("kB")) {
                                 String a4 = a(readLine, "VmRSS:");
                                 if (a4 != null) {
-                                    aVar.f56559c = Long.valueOf(a4).longValue();
+                                    aVar.f56604c = Long.valueOf(a4).longValue();
                                 }
                             } else if (readLine.startsWith("Threads:") && (a2 = a(readLine, "Threads:")) != null) {
-                                aVar.f56562f = Integer.valueOf(a2).intValue();
+                                aVar.f56607f = Integer.valueOf(a2).intValue();
                             }
                         }
                     } catch (IOException e2) {

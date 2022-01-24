@@ -14,7 +14,7 @@ public class a implements c.a.s0.s.w.b.a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15625b;
+    public String f15773b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class a implements c.a.s0.s.w.b.a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15625b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15773b : (String) invokeV.objValue;
     }
 
     public void c(ThemeCarousel themeCarousel) {
@@ -50,6 +50,6 @@ public class a implements c.a.s0.s.w.b.a {
             return;
         }
         this.a = themeCarousel.pic_url;
-        this.f15625b = themeCarousel.active_url;
+        this.f15773b = themeCarousel.active_url;
     }
 }

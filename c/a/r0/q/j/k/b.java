@@ -61,18 +61,18 @@ public class b extends c.a.r0.q.j.d<c.a.r0.q.j.l.b> {
                 return false;
             }
             for (b.a aVar : bVar.a) {
-                if (TextUtils.isEmpty(aVar.f11551b)) {
+                if (TextUtils.isEmpty(aVar.f11693b)) {
                     return false;
                 }
                 if (aVar.a == 0) {
-                    if (aVar.f11553d == null && aVar.f11556g == null && aVar.f11554e == null) {
+                    if (aVar.f11695d == null && aVar.f11698g == null && aVar.f11696e == null) {
                         return false;
                     }
-                    g gVar = aVar.f11553d;
+                    g gVar = aVar.f11695d;
                     if (gVar != null && !gVar.a()) {
                         return false;
                     }
-                    PMSAppInfo pMSAppInfo = aVar.f11556g;
+                    PMSAppInfo pMSAppInfo = aVar.f11698g;
                     if (pMSAppInfo != null && !pMSAppInfo.checkValid()) {
                         return false;
                     }
@@ -92,7 +92,7 @@ public class b extends c.a.r0.q.j.d<c.a.r0.q.j.l.b> {
         PMSAppInfo pMSAppInfo2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
-            this.f11505e.F();
+            this.f11647e.F();
             c.a.r0.q.p.g gVar = new c.a.r0.q.p.g();
             Map<String, PMSAppInfo> v = c.a.r0.q.g.a.i().v();
             ArrayList arrayList = new ArrayList();
@@ -101,48 +101,48 @@ public class b extends c.a.r0.q.j.d<c.a.r0.q.j.l.b> {
                 if (aVar != null) {
                     int i2 = aVar.a;
                     if (i2 != 0) {
-                        this.f11505e.w().o(aVar, v.get(aVar.f11551b), new c.a.r0.q.i.b(i2, aVar.f11551b + "，Server返回错误"));
+                        this.f11647e.w().o(aVar, v.get(aVar.f11693b), new c.a.r0.q.i.b(i2, aVar.f11693b + "，Server返回错误"));
                     } else {
-                        List<c.a.r0.q.i.h> list2 = aVar.f11554e;
+                        List<c.a.r0.q.i.h> list2 = aVar.f11696e;
                         if (list2 != null) {
                             for (c.a.r0.q.i.h hVar : list2) {
                                 if (hVar != null) {
-                                    hVar.o = aVar.f11551b;
+                                    hVar.o = aVar.f11693b;
                                 }
                             }
-                            p(aVar.f11554e, gVar);
-                            arrayList.addAll(aVar.f11554e);
+                            p(aVar.f11696e, gVar);
+                            arrayList.addAll(aVar.f11696e);
                         }
-                        list = g(aVar.f11555f);
+                        list = g(aVar.f11697f);
                         if (list != null) {
                             n(list, gVar);
                         }
-                        if (aVar.f11553d != null && (pMSAppInfo2 = aVar.f11556g) != null) {
-                            pMSAppInfo2.appId = aVar.f11551b;
-                            this.f11505e.w().l(aVar.f11556g);
-                            o(aVar.f11553d, gVar);
+                        if (aVar.f11695d != null && (pMSAppInfo2 = aVar.f11698g) != null) {
+                            pMSAppInfo2.appId = aVar.f11693b;
+                            this.f11647e.w().l(aVar.f11698g);
+                            o(aVar.f11695d, gVar);
                         } else {
-                            PMSAppInfo pMSAppInfo3 = v.get(aVar.f11551b);
+                            PMSAppInfo pMSAppInfo3 = v.get(aVar.f11693b);
                             if (pMSAppInfo3 == null) {
-                                PMSAppInfo pMSAppInfo4 = aVar.f11556g;
+                                PMSAppInfo pMSAppInfo4 = aVar.f11698g;
                                 if (pMSAppInfo4 != null) {
-                                    pMSAppInfo4.appId = aVar.f11551b;
-                                    List<c.a.r0.q.i.h> list3 = aVar.f11554e;
+                                    pMSAppInfo4.appId = aVar.f11693b;
+                                    List<c.a.r0.q.i.h> list3 = aVar.f11696e;
                                     if (list3 != null && !list3.isEmpty()) {
-                                        aVar.f11556g.copySubPkgInfo(aVar.f11554e.get(0));
+                                        aVar.f11698g.copySubPkgInfo(aVar.f11696e.get(0));
                                     }
-                                    this.f11505e.w().p(aVar.f11556g, null);
+                                    this.f11647e.w().p(aVar.f11698g, null);
                                 } else {
-                                    this.f11505e.w().o(aVar, null, new c.a.r0.q.i.b(aVar.a, aVar.f11551b + "，本地记录不存在"));
+                                    this.f11647e.w().o(aVar, null, new c.a.r0.q.i.b(aVar.a, aVar.f11693b + "，本地记录不存在"));
                                 }
-                            } else if (aVar.f11553d == null && (pMSAppInfo = aVar.f11556g) != null) {
-                                pMSAppInfo.appId = aVar.f11551b;
-                                this.f11505e.w().p(aVar.f11556g, pMSAppInfo3);
+                            } else if (aVar.f11695d == null && (pMSAppInfo = aVar.f11698g) != null) {
+                                pMSAppInfo.appId = aVar.f11693b;
+                                this.f11647e.w().p(aVar.f11698g, pMSAppInfo3);
                             } else {
-                                g gVar2 = aVar.f11553d;
-                                if (gVar2 != null && aVar.f11556g == null) {
-                                    aVar.f11557h = true;
-                                    aVar.f11556g = pMSAppInfo3;
+                                g gVar2 = aVar.f11695d;
+                                if (gVar2 != null && aVar.f11698g == null) {
+                                    aVar.f11699h = true;
+                                    aVar.f11698g = pMSAppInfo3;
                                     o(gVar2, gVar);
                                 }
                             }
@@ -151,10 +151,10 @@ public class b extends c.a.r0.q.j.d<c.a.r0.q.j.l.b> {
                 }
             }
             if (gVar.n() == 0) {
-                this.f11505e.G();
+                this.f11647e.G();
             } else {
-                this.f11505e.H(gVar);
-                c.a.r0.q.j.i.a.a(bVar, arrayList, list, this.f11505e);
+                this.f11647e.H(gVar);
+                c.a.r0.q.j.i.a.a(bVar, arrayList, list, this.f11647e);
             }
             return null;
         }

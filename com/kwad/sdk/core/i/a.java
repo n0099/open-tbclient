@@ -10,17 +10,17 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public class a {
-    public static Map<String, WeakReference<C2104a>> a = new ConcurrentHashMap();
+    public static Map<String, WeakReference<C2110a>> a = new ConcurrentHashMap();
 
     /* renamed from: com.kwad.sdk.core.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2104a {
+    public static class C2110a {
         public HandlerThread a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f55856b;
+        public Handler f55901b;
 
-        public C2104a(String str) {
+        public C2110a(String str) {
             String str2;
             if (TextUtils.isEmpty(str)) {
                 str2 = "ksad-HandlerThread";
@@ -30,11 +30,11 @@ public class a {
             HandlerThread handlerThread = new HandlerThread(str2);
             this.a = handlerThread;
             handlerThread.start();
-            this.f55856b = new Handler(this.a.getLooper());
+            this.f55901b = new Handler(this.a.getLooper());
         }
 
         public Handler a() {
-            return this.f55856b;
+            return this.f55901b;
         }
     }
 
@@ -47,15 +47,15 @@ public class a {
     }
 
     @NonNull
-    public static C2104a a(String str) {
+    public static C2110a a(String str) {
         if (str == null) {
-            return new C2104a(null);
+            return new C2110a(null);
         }
-        WeakReference<C2104a> weakReference = a.get(str);
+        WeakReference<C2110a> weakReference = a.get(str);
         if (weakReference == null || weakReference.get() == null) {
-            C2104a c2104a = new C2104a(str);
-            a.put(str, new WeakReference<>(c2104a));
-            return c2104a;
+            C2110a c2110a = new C2110a(str);
+            a.put(str, new WeakReference<>(c2110a));
+            return c2110a;
         }
         return weakReference.get();
     }

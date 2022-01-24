@@ -20,18 +20,18 @@ public class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Locale f27422d;
+    public static final Locale f27450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f27423e;
+    public static boolean f27451e;
     public transient /* synthetic */ FieldHolder $fh;
     public k a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Locale f27424b;
+    public Locale f27452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public w<String, String> f27425c;
+    public w<String, String> f27453c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,8 +46,8 @@ public class k {
                 return;
             }
         }
-        f27422d = new Locale("", "", "");
-        f27423e = false;
+        f27450d = new Locale("", "", "");
+        f27451e = false;
     }
 
     public k() {
@@ -117,7 +117,7 @@ public class k {
                 j2 = j(aVar, str, e2, 0, kVar);
                 if (j2 != null) {
                     Locale g2 = j2.g();
-                    boolean equals = g2.equals(f27422d);
+                    boolean equals = g2.equals(f27450d);
                     if (!equals || g2.equals(locale) || (e2.size() == 1 && g2.equals(e2.get(0)))) {
                         break;
                     } else if (equals && kVar == null) {
@@ -151,7 +151,7 @@ public class k {
                 }
                 arrayList.add(locale);
             }
-            arrayList.add(f27422d);
+            arrayList.add(f27450d);
             return arrayList;
         }
         return (List) invokeL.objValue;
@@ -208,7 +208,7 @@ public class k {
             Locale locale = list.get(i2);
             if (i2 != list.size() - 1) {
                 kVar2 = j(aVar, str, list, i2 + 1, kVar);
-            } else if (kVar != null && locale.equals(f27422d)) {
+            } else if (kVar != null && locale.equals(f27450d)) {
                 return kVar;
             } else {
                 kVar2 = null;
@@ -228,7 +228,7 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, aVar, locale)) == null) {
             j0 j0Var = new j0(aVar.g());
-            if (!locale.equals(f27422d)) {
+            if (!locale.equals(f27450d)) {
                 String language = locale.getLanguage();
                 String country = locale.getCountry();
                 String variant = locale.getVariant();
@@ -261,14 +261,14 @@ public class k {
     public Locale g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27424b : (Locale) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27452b : (Locale) invokeV.objValue;
     }
 
     public void h(Reader reader) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reader) == null) {
             w<String, String> wVar = new w<>();
-            this.f27425c = wVar;
+            this.f27453c = wVar;
             b0.a(wVar, reader);
         }
     }
@@ -276,8 +276,8 @@ public class k {
     public final void k(Locale locale) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locale) == null) {
-            this.f27424b = locale;
-            new k0(locale, !f27423e);
+            this.f27452b = locale;
+            new k0(locale, !f27451e);
         }
     }
 }

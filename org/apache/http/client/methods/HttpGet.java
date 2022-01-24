@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URI;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HttpGet extends HttpRequestBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String METHOD_NAME = "GET";

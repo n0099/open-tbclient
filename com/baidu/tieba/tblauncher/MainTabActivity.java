@@ -78,6 +78,7 @@ import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.util.GameCenterHelper;
+import com.baidu.tbadk.core.util.LoginPostStatisticHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.PreLoadImageHelper;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -139,7 +140,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONObject;
 import protobuf.ConfigVersion;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a, VoiceManager.j, UserIconBox.c, FrsCommonImageLayout.e, IVideoNeedPreload {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DOUBLE_BACK_TIME = 2000;
@@ -163,7 +164,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
     public boolean doRefresh;
     public CustomMessageListener enterImageViewActivityListener;
     public long exitTime;
-    public c.a.t0.t3.i.a fetchStampController;
+    public c.a.t0.u3.i.a fetchStampController;
     public boolean isAccountStatChanged;
     public boolean isCheckNewUserRedPackageRunnable;
     public boolean isCreated;
@@ -181,7 +182,6 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
     public final CustomMessageListener mAddTablistener;
     public CustomMessageListener mAdvertSdkSplashClickListener;
     public c.a.t0.b mAppEntranceModel;
-    public final CustomMessageListener mBackHomeListener;
     public CustomMessageListener mBackgroundChangeListener;
     public c.a.s0.a.e mBdTokenController;
     public c.a.t0.e4.b mCancelController;
@@ -199,6 +199,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
     public CustomMessageListener mGameCenterInitListener;
     public volatile boolean mIsAdd;
     public boolean mIsSplashClick;
+    public boolean mLastKeyBoardVisible;
     public long mLastSyncTime;
     public c.a.t0.k0.g mLikeFirstForumTipsController;
     public CustomMessageListener mLikeForumListener;
@@ -228,7 +229,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
     public final CustomMessageListener mToHotTopicListener;
     public boolean mTouchable;
     public c.a.t0.e4.d mUegForwardCheckController;
-    public l1 mUpdateReceiver;
+    public k1 mUpdateReceiver;
     public c.a.d.f.k.b<TbImageView> mUserIconPool;
     public CustomMessageListener mVideoChannelNoticeListener;
     public final CustomMessageListener mVideoClickListener;
@@ -257,7 +258,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
     public Timer youngsterUseTimer;
     public CustomMessageListener youngsterUseTimerListener;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -296,93 +297,32 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                 this.a.mPreUserId = e2.getUserId();
                 this.a.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.getPageContext().getPageActivity(), "", TbWebViewActivityConfig.GOD_INVITE_JUMP_URL + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, true)));
             }
-            if (c.a.s0.s.h0.b.k().h("key_new_god_invited_my_tab_red_tip_showed", false) || !TbadkCoreApplication.isLogin() || e2 == null || e2.getUserId() == null || e2.getUserId().equals(this.a.mPreUserId) || e2.getNewGodData() == null || !e2.getNewGodData().isNewGodInvited()) {
+            if (c.a.s0.s.i0.b.k().h("key_new_god_invited_my_tab_red_tip_showed", false) || !TbadkCoreApplication.isLogin() || e2 == null || e2.getUserId() == null || e2.getUserId().equals(this.a.mPreUserId) || e2.getNewGodData() == null || !e2.getNewGodData().isNewGodInvited()) {
                 return;
             }
-            c.a.t0.k3.a.v().L(11, true, true);
+            c.a.t0.l3.a.v().L(11, true, true);
             TiebaStatic.log(new StatisticItem("c13688").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 0));
-            c.a.s0.s.h0.b.k().u("key_new_god_invited_my_tab_red_tip_showed", true);
+            c.a.s0.s.i0.b.k().u("key_new_god_invited_my_tab_red_tip_showed", true);
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class a0 implements g.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Intent a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48283b;
-
-        public a0(MainTabActivity mainTabActivity, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity, intent};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f48283b = mainTabActivity;
-            this.a = intent;
-        }
-
-        @Override // c.a.s0.a.g.b
-        public void onCallBack(HashMap<String, Object> hashMap) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) || hashMap == null || this.a == null) {
-                return;
-            }
-            Object obj = hashMap.get(c.a.s0.a.g.G);
-            int intValue = obj instanceof Integer ? ((Integer) obj).intValue() : -1;
-            Object obj2 = hashMap.get(c.a.s0.a.g.H);
-            String str = obj2 instanceof String ? (String) obj2 : null;
-            Object obj3 = hashMap.get(c.a.s0.a.g.F);
-            String str2 = obj3 instanceof String ? (String) obj3 : null;
-            Object obj4 = hashMap.get(c.a.s0.a.g.c0);
-            String str3 = obj4 instanceof String ? (String) obj4 : null;
-            if (intValue != -1) {
-                this.a.putExtra("is_from_scheme", true);
-                this.a.putExtra("locate_type", intValue);
-                this.a.putExtra("sub_locate_type", str);
-                this.a.putExtra("sub_tab_name", str2);
-                this.a.putExtra("sub_tab_code", str3);
-                c.a.s0.s.d0.b.f13009b = intValue;
-                Object obj5 = hashMap.get(c.a.s0.a.g.I);
-                String str4 = obj5 instanceof String ? (String) obj5 : null;
-                Object obj6 = hashMap.get(c.a.s0.a.g.J);
-                String str5 = obj6 instanceof String ? (String) obj6 : null;
-                this.a.putExtra(c.a.s0.a.g.I, str4);
-                this.a.putExtra(c.a.s0.a.g.J, str5);
-            }
-            c.a.s0.a.d.y().N(true);
-            if (intValue == 1 && "ForumSquare".equals(str)) {
-                c.a.s0.s.d0.b.f13010c = c.a.s0.s.d0.b.f13012e;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921528));
-            }
-        }
-    }
-
-    /* loaded from: classes12.dex */
-    public class a1 implements Runnable {
+    /* loaded from: classes13.dex */
+    public class a0 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48284e;
+        public final /* synthetic */ String f48293e;
 
-        public a1(MainTabActivity mainTabActivity) {
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ MainTabActivity f48294f;
+
+        public a0(MainTabActivity mainTabActivity, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity};
+                Object[] objArr = {mainTabActivity, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -392,23 +332,59 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     return;
                 }
             }
-            this.f48284e = mainTabActivity;
+            this.f48294f = mainTabActivity;
+            this.f48293e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                    this.f48284e.isCheckNewUserRedPackageRunnable = true;
-                } else {
-                    this.f48284e.checkNewUserRedPackage();
-                }
+                c.a.d.e.a.b().d();
+                UrlManager.getInstance().dealOneLink(this.f48294f.getPageContext(), new String[]{this.f48293e});
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
+    public class a1 extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MainTabActivity a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a1(MainTabActivity mainTabActivity, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mainTabActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mainTabActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && !TbSingleton.getInstance().isNewUserRedPackageShowed() && this.a.isResumed && TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
+                c.a.d.f.m.e.a().removeCallbacks(this.a.mCheckNewUserRedPackageRunnable);
+                c.a.d.f.m.e.a().postDelayed(this.a.mCheckNewUserRedPackageRunnable, 200L);
+            }
+        }
+    }
+
+    /* loaded from: classes13.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -446,23 +422,20 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b0 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f48285e;
+        public final /* synthetic */ MainTabActivity f48295e;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48286f;
-
-        public b0(MainTabActivity mainTabActivity, String str) {
+        public b0(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity, str};
+                Object[] objArr = {mainTabActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -472,39 +445,75 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     return;
                 }
             }
-            this.f48286f = mainTabActivity;
-            this.f48285e = str;
+            this.f48295e = mainTabActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.d.e.a.b().d();
-                UrlManager.getInstance().dealOneLink(this.f48286f.getPageContext(), new String[]{this.f48285e});
+                this.f48295e.firstLoginInterestGuide();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class b1 extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class b1 implements c.a.t0.u3.h.a<c.a.t0.u3.d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b1(MainTabActivity mainTabActivity, int i2) {
-            super(i2);
+        /* loaded from: classes13.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ c.a.t0.u3.d f48296e;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ b1 f48297f;
+
+            public a(b1 b1Var, c.a.t0.u3.d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {b1Var, dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f48297f = b1Var;
+                this.f48296e = dVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                c.a.t0.u3.d dVar;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dVar = this.f48296e) == null) {
+                    return;
+                }
+                this.f48297f.a.showStampDialog(dVar);
+            }
+        }
+
+        public b1(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity, Integer.valueOf(i2)};
+                Object[] objArr = {mainTabActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -514,17 +523,17 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // c.a.t0.u3.h.a
+        /* renamed from: b */
+        public void a(c.a.t0.u3.d dVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && !TbSingleton.getInstance().isNewUserRedPackageShowed() && this.a.isResumed && TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
-                c.a.d.f.m.e.a().removeCallbacks(this.a.mCheckNewUserRedPackageRunnable);
-                c.a.d.f.m.e.a().postDelayed(this.a.mCheckNewUserRedPackageRunnable, 200L);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+                this.a.runOnUiThread(new a(this, dVar));
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -568,13 +577,13 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class c0 implements Runnable {
+    /* loaded from: classes13.dex */
+    public class c0 implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48287e;
+        public final /* synthetic */ MainTabActivity f48298e;
 
         public c0(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
@@ -591,19 +600,20 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     return;
                 }
             }
-            this.f48287e = mainTabActivity;
+            this.f48298e = mainTabActivity;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // c.a.s0.s.s.a.e
+        public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48287e.firstLoginInterestGuide();
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                aVar.dismiss();
+                this.f48298e.processBeforeGoBack();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class c1 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -645,7 +655,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -653,156 +663,6 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(MainTabActivity mainTabActivity, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mainTabActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921611 || this.a.mViewController == null || this.a.mViewController.z() == null) {
-                return;
-            }
-            this.a.mViewController.z().tbSelectionChanged(0, false);
-        }
-    }
-
-    /* loaded from: classes12.dex */
-    public class d0 implements a.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48288e;
-
-        public d0(MainTabActivity mainTabActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f48288e = mainTabActivity;
-        }
-
-        @Override // c.a.s0.s.s.a.e
-        public void onClick(c.a.s0.s.s.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.dismiss();
-                this.f48288e.processBeforeGoBack();
-            }
-        }
-    }
-
-    /* loaded from: classes12.dex */
-    public class d1 implements c.a.t0.t3.h.a<c.a.t0.t3.d> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MainTabActivity a;
-
-        /* loaded from: classes12.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.t0.t3.d f48289e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d1 f48290f;
-
-            public a(d1 d1Var, c.a.t0.t3.d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {d1Var, dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f48290f = d1Var;
-                this.f48289e = dVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                c.a.t0.t3.d dVar;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dVar = this.f48289e) == null) {
-                    return;
-                }
-                this.f48290f.a.showStampDialog(dVar);
-            }
-        }
-
-        public d1(MainTabActivity mainTabActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mainTabActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.t0.t3.h.a
-        /* renamed from: b */
-        public void a(c.a.t0.t3.d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-                this.a.runOnUiThread(new a(this, dVar));
-            }
-        }
-    }
-
-    /* loaded from: classes12.dex */
-    public class e extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MainTabActivity a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -863,15 +723,15 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class e0 implements a.e {
+    /* loaded from: classes13.dex */
+    public class d0 implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48291e;
+        public final /* synthetic */ MainTabActivity f48299e;
 
-        public e0(MainTabActivity mainTabActivity) {
+        public d0(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -886,7 +746,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     return;
                 }
             }
-            this.f48291e = mainTabActivity;
+            this.f48299e = mainTabActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -894,27 +754,27 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 try {
-                    this.f48291e.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
+                    this.f48299e.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
                     aVar.dismiss();
                 } catch (Exception unused) {
-                    this.f48291e.showToast(c.a.t0.z3.q.goto_developActivity_error_toast);
+                    this.f48299e.showToast(c.a.t0.z3.q.goto_developActivity_error_toast);
                 }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class e1 implements View.OnClickListener {
+    /* loaded from: classes13.dex */
+    public class d1 implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.b f48292e;
+        public final /* synthetic */ c.a.s0.s.s.b f48300e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48293f;
+        public final /* synthetic */ MainTabActivity f48301f;
 
-        public e1(MainTabActivity mainTabActivity, c.a.s0.s.s.b bVar) {
+        public d1(MainTabActivity mainTabActivity, c.a.s0.s.s.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -929,27 +789,27 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     return;
                 }
             }
-            this.f48293f = mainTabActivity;
-            this.f48292e = bVar;
+            this.f48301f = mainTabActivity;
+            this.f48300e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48292e.a();
+                this.f48300e.a();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class f extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(MainTabActivity mainTabActivity, int i2) {
+        public e(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -984,14 +844,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class f0 extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class e0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f0(MainTabActivity mainTabActivity, int i2) {
+        public e0(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1028,18 +888,18 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class f1 implements View.OnClickListener {
+    /* loaded from: classes13.dex */
+    public class e1 implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.b f48294e;
+        public final /* synthetic */ c.a.s0.s.s.b f48302e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48295f;
+        public final /* synthetic */ MainTabActivity f48303f;
 
-        public f1(MainTabActivity mainTabActivity, c.a.s0.s.s.b bVar) {
+        public e1(MainTabActivity mainTabActivity, c.a.s0.s.s.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1054,29 +914,29 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     return;
                 }
             }
-            this.f48295f = mainTabActivity;
-            this.f48294e = bVar;
+            this.f48303f = mainTabActivity;
+            this.f48302e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48294e.a();
-                UrlManager.getInstance().dealOneLink(this.f48295f.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?user_id=" + TbadkCoreApplication.getCurrentAccount()});
-                this.f48295f.statisticStampClick();
+                this.f48302e.a();
+                UrlManager.getInstance().dealOneLink(this.f48303f.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?user_id=" + TbadkCoreApplication.getCurrentAccount()});
+                this.f48303f.statisticStampClick();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class g extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(MainTabActivity mainTabActivity, int i2) {
+        public f(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1110,12 +970,181 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                 if (this.a.mIsAdd || this.a.mRecomPostTopic == null || !TbadkCoreApplication.isLogin()) {
                     return;
                 }
-                this.a.mMainTabTopicTipController.j(this.a.mRecomPostTopic.a, this.a.mRecomPostTopic.f13466b, this.a.mRecomPostTopic.f13467c);
+                this.a.mMainTabTopicTipController.j(this.a.mRecomPostTopic.a, this.a.mRecomPostTopic.f13652b, this.a.mRecomPostTopic.f13653c);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
+    public class f0 implements ShareSuccessReplyToServerModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MainTabActivity a;
+
+        /* loaded from: classes13.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ CustomDialogData f48304e;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ f0 f48305f;
+
+            public a(f0 f0Var, CustomDialogData customDialogData) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {f0Var, customDialogData};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f48305f = f0Var;
+                this.f48304e = customDialogData;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    c.a.t0.t2.t.c.a(this.f48305f.a.getPageContext(), this.f48304e).show();
+                }
+            }
+        }
+
+        public f0(MainTabActivity mainTabActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mainTabActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mainTabActivity;
+        }
+
+        @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.b
+        public void b(CustomDialogData customDialogData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customDialogData) == null) {
+                c.a.d.f.m.e.a().postDelayed(new a(this, customDialogData), 1000L);
+            }
+        }
+    }
+
+    /* loaded from: classes13.dex */
+    public class f1 implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ c.a.s0.s.s.b f48306e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ c.a.t0.u3.d f48307f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ MainTabActivity f48308g;
+
+        public f1(MainTabActivity mainTabActivity, c.a.s0.s.s.b bVar, c.a.t0.u3.d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mainTabActivity, bVar, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f48308g = mainTabActivity;
+            this.f48306e = bVar;
+            this.f48307f = dVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f48306e.a();
+                c.a.t0.u3.g gVar = new c.a.t0.u3.g();
+                c.a.t0.u3.d dVar = this.f48307f;
+                if (dVar != null) {
+                    gVar.g(dVar.a());
+                    gVar.h(this.f48307f.b());
+                }
+                new c.a.t0.u3.f(this.f48308g, gVar).a();
+                this.f48308g.statisticStampShareClick();
+            }
+        }
+    }
+
+    /* loaded from: classes13.dex */
+    public class g extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MainTabActivity a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public g(MainTabActivity mainTabActivity, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mainTabActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mainTabActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+                return;
+            }
+            c.a.d.f.m.e.a().removeCallbacks(this.a.startPollVideoMsg);
+            c.a.d.f.m.e.a().postDelayed(this.a.startPollVideoMsg, (customResponsedMessage.getData() instanceof Integer ? ((Integer) customResponsedMessage.getData()).intValue() : 0) * 1000);
+        }
+    }
+
+    /* loaded from: classes13.dex */
     public class g0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1152,65 +1181,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class g1 implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.b f48296e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.t3.d f48297f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48298g;
-
-        public g1(MainTabActivity mainTabActivity, c.a.s0.s.s.b bVar, c.a.t0.t3.d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity, bVar, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f48298g = mainTabActivity;
-            this.f48296e = bVar;
-            this.f48297f = dVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48296e.a();
-                c.a.t0.t3.g gVar = new c.a.t0.t3.g();
-                c.a.t0.t3.d dVar = this.f48297f;
-                if (dVar != null) {
-                    gVar.g(dVar.a());
-                    gVar.h(this.f48297f.b());
-                }
-                new c.a.t0.t3.f(this.f48298g, gVar).a();
-                this.f48298g.statisticStampShareClick();
-            }
-        }
-    }
-
-    /* loaded from: classes12.dex */
-    public class h extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class g1 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public h(MainTabActivity mainTabActivity, int i2) {
+        public g1(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1234,60 +1212,23 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.s0.u.m)) {
+                if (ViewHelper.checkUpIsLogin(this.a.getPageContext().getPageActivity(), LoginPostStatisticHelper.newStatisticData(3).setType(2))) {
+                    this.a.showWriteThreadView();
+                }
             }
-            c.a.d.f.m.e.a().removeCallbacks(this.a.startPollVideoMsg);
-            c.a.d.f.m.e.a().postDelayed(this.a.startPollVideoMsg, (customResponsedMessage.getData() instanceof Integer ? ((Integer) customResponsedMessage.getData()).intValue() : 0) * 1000);
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class h0 implements ShareSuccessReplyToServerModel.b {
+    /* loaded from: classes13.dex */
+    public class h implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MainTabActivity a;
 
-        /* loaded from: classes12.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ MainTabActivity f48309e;
 
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomDialogData f48299e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ h0 f48300f;
-
-            public a(h0 h0Var, CustomDialogData customDialogData) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {h0Var, customDialogData};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f48300f = h0Var;
-                this.f48299e = customDialogData;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.t0.s2.t.c.a(this.f48300f.a.getPageContext(), this.f48299e).show();
-                }
-            }
-        }
-
-        public h0(MainTabActivity mainTabActivity) {
+        public h(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1302,26 +1243,94 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     return;
                 }
             }
-            this.a = mainTabActivity;
+            this.f48309e = mainTabActivity;
         }
 
-        @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.b
-        public void a() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.b
-        public void b(CustomDialogData customDialogData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customDialogData) == null) {
-                c.a.d.f.m.e.a().postDelayed(new a(this, customDialogData), 1000L);
+                if (!c.a.s0.g1.b.c.d()) {
+                    VideoRedIconRequest videoRedIconRequest = new VideoRedIconRequest();
+                    if (this.f48309e.mViewController != null && this.f48309e.mViewController.z() != null && this.f48309e.mViewController.z().getCurrentTabType() == 22) {
+                        videoRedIconRequest.setCallFrom("video_tab");
+                    }
+                    this.f48309e.sendMessage(videoRedIconRequest);
+                }
+                int videoRedIconInterval = TbSingleton.getInstance().getVideoRedIconInterval();
+                if (videoRedIconInterval > 5) {
+                    c.a.d.f.m.e.a().postDelayed(this.f48309e.startPollVideoMsg, videoRedIconInterval * 1000);
+                }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
+    public class h0 implements a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Thread2GroupShareView f48310e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ long f48311f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ String f48312g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ String f48313h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public final /* synthetic */ String f48314i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public final /* synthetic */ ShareFromPBMsgData f48315j;
+        public final /* synthetic */ MainTabActivity k;
+
+        public h0(MainTabActivity mainTabActivity, Thread2GroupShareView thread2GroupShareView, long j2, String str, String str2, String str3, ShareFromPBMsgData shareFromPBMsgData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mainTabActivity, thread2GroupShareView, Long.valueOf(j2), str, str2, str3, shareFromPBMsgData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.k = mainTabActivity;
+            this.f48310e = thread2GroupShareView;
+            this.f48311f = j2;
+            this.f48312g = str;
+            this.f48313h = str2;
+            this.f48314i = str3;
+            this.f48315j = shareFromPBMsgData;
+        }
+
+        @Override // c.a.s0.s.s.a.e
+        public void onClick(c.a.s0.s.s.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+                this.k.HidenSoftKeyPad((InputMethodManager) this.k.getSystemService("input_method"), this.f48310e.getChatMsgView());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.k.getPageContext().getPageActivity(), this.f48311f, this.f48312g, this.f48313h, this.f48314i, 0, this.f48310e.getLeaveMsg(), this.f48315j.toChatMessageContent())));
+                aVar.dismiss();
+                ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
+                if (shareItem == null || shareItem.e() == null) {
+                    return;
+                }
+                Bundle e2 = shareItem.e();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).param("obj_source", 1).param("obj_type", e2.getInt("obj_type")).param("obj_param1", 3).param("fid", e2.getString("fid")).param("tid", e2.getString("tid")).param("obj_locate", 5));
+            }
+        }
+    }
+
+    /* loaded from: classes13.dex */
     public class h1 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1352,167 +1361,20 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.s0.u.m) && ViewHelper.checkUpIsLogin(this.a.getPageContext().getPageActivity())) {
-                this.a.showWriteThreadView();
-            }
-        }
-    }
-
-    /* loaded from: classes12.dex */
-    public class i implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48301e;
-
-        public i(MainTabActivity mainTabActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f48301e = mainTabActivity;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!c.a.s0.h1.b.c.d()) {
-                    VideoRedIconRequest videoRedIconRequest = new VideoRedIconRequest();
-                    if (this.f48301e.mViewController != null && this.f48301e.mViewController.z() != null && this.f48301e.mViewController.z().getCurrentTabType() == 22) {
-                        videoRedIconRequest.setCallFrom("video_tab");
-                    }
-                    this.f48301e.sendMessage(videoRedIconRequest);
-                }
-                int videoRedIconInterval = TbSingleton.getInstance().getVideoRedIconInterval();
-                if (videoRedIconInterval > 5) {
-                    c.a.d.f.m.e.a().postDelayed(this.f48301e.startPollVideoMsg, videoRedIconInterval * 1000);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes12.dex */
-    public class i0 implements a.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f48302e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f48303f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f48304g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f48305h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f48306i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ ShareFromPBMsgData f48307j;
-        public final /* synthetic */ MainTabActivity k;
-
-        public i0(MainTabActivity mainTabActivity, Thread2GroupShareView thread2GroupShareView, long j2, String str, String str2, String str3, ShareFromPBMsgData shareFromPBMsgData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity, thread2GroupShareView, Long.valueOf(j2), str, str2, str3, shareFromPBMsgData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.k = mainTabActivity;
-            this.f48302e = thread2GroupShareView;
-            this.f48303f = j2;
-            this.f48304g = str;
-            this.f48305h = str2;
-            this.f48306i = str3;
-            this.f48307j = shareFromPBMsgData;
-        }
-
-        @Override // c.a.s0.s.s.a.e
-        public void onClick(c.a.s0.s.s.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.k.HidenSoftKeyPad((InputMethodManager) this.k.getSystemService("input_method"), this.f48302e.getChatMsgView());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.k.getPageContext().getPageActivity(), this.f48303f, this.f48304g, this.f48305h, this.f48306i, 0, this.f48302e.getLeaveMsg(), this.f48307j.toChatMessageContent())));
-                aVar.dismiss();
-                ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
-                if (shareItem == null || shareItem.e() == null) {
-                    return;
-                }
-                Bundle e2 = shareItem.e();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).param("obj_source", 1).param("obj_type", e2.getInt("obj_type")).param("obj_param1", 3).param("fid", e2.getString("fid")).param("tid", e2.getString("tid")).param("obj_locate", 5));
-            }
-        }
-    }
-
-    /* loaded from: classes12.dex */
-    public class i1 extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MainTabActivity a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public i1(MainTabActivity mainTabActivity, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mainTabActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.t0.w3.s0.f) && ((c.a.t0.w3.s0.f) customResponsedMessage.getData()).f25029b && this.a.mLikeForumNum == 0) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.t0.x3.s0.f) && ((c.a.t0.x3.s0.f) customResponsedMessage.getData()).f25288b && this.a.mLikeForumNum == 0) {
                 this.a.createLikeFirstForumTips();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class j extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class i extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public j(MainTabActivity mainTabActivity, int i2) {
+        public i(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1543,18 +1405,18 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class j0 implements a.e {
+    /* loaded from: classes13.dex */
+    public class i0 implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Thread2GroupShareView f48308e;
+        public final /* synthetic */ Thread2GroupShareView f48316e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48309f;
+        public final /* synthetic */ MainTabActivity f48317f;
 
-        public j0(MainTabActivity mainTabActivity, Thread2GroupShareView thread2GroupShareView) {
+        public i0(MainTabActivity mainTabActivity, Thread2GroupShareView thread2GroupShareView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1569,28 +1431,28 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     return;
                 }
             }
-            this.f48309f = mainTabActivity;
-            this.f48308e = thread2GroupShareView;
+            this.f48317f = mainTabActivity;
+            this.f48316e = thread2GroupShareView;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f48309f.HidenSoftKeyPad((InputMethodManager) this.f48309f.getSystemService("input_method"), this.f48308e.getChatMsgView());
+                this.f48317f.HidenSoftKeyPad((InputMethodManager) this.f48317f.getSystemService("input_method"), this.f48316e.getChatMsgView());
                 aVar.dismiss();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class j1 extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class i1 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public j1(MainTabActivity mainTabActivity, int i2) {
+        public i1(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1642,14 +1504,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class k extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class j extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public k(MainTabActivity mainTabActivity, int i2) {
+        public j(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1673,25 +1535,21 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && c.a.s0.s.e0.b.b() == null) {
+                c.a.t0.z3.b bVar = new c.a.t0.z3.b();
+                bVar.g(this.a);
+                c.a.s0.s.e0.b.h(bVar);
             }
-            c.a.s0.x.v.f.a aVar = customResponsedMessage.getData() instanceof c.a.s0.x.v.f.a ? (c.a.s0.x.v.f.a) customResponsedMessage.getData() : null;
-            if (aVar == null || aVar.b() != 0) {
-                return;
-            }
-            MainTabActivity mainTabActivity = this.a;
-            new c.a.s0.x.v.e(mainTabActivity, mainTabActivity.findViewById(c.a.t0.z3.o.tab_host), aVar).m();
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class k0 extends c.a.s0.q0.b {
+    /* loaded from: classes13.dex */
+    public class j0 extends c.a.s0.q0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
-        public k0(MainTabActivity mainTabActivity) {
+        public j0(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1737,14 +1595,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class k1 extends c.a.d.c.g.c {
+    /* loaded from: classes13.dex */
+    public class j1 extends c.a.d.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public k1(MainTabActivity mainTabActivity, int i2) {
+        public j1(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1779,14 +1637,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class l extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class k extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public l(MainTabActivity mainTabActivity, int i2) {
+        public k(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1810,22 +1668,26 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && c.a.s0.s.d0.b.b() == null) {
-                c.a.t0.z3.b bVar = new c.a.t0.z3.b();
-                bVar.g(this.a);
-                c.a.s0.s.d0.b.h(bVar);
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
+                return;
             }
+            c.a.s0.x.v.f.a aVar = customResponsedMessage.getData() instanceof c.a.s0.x.v.f.a ? (c.a.s0.x.v.f.a) customResponsedMessage.getData() : null;
+            if (aVar == null || aVar.b() != 0) {
+                return;
+            }
+            MainTabActivity mainTabActivity = this.a;
+            new c.a.s0.x.v.e(mainTabActivity, mainTabActivity.findViewById(c.a.t0.z3.o.tab_host), aVar).m();
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class l0 extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class k0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public l0(MainTabActivity mainTabActivity, int i2) {
+        public k0(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1852,9 +1714,9 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
                 this.a.isAccountStatChanged = true;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
-                c.a.s0.s.h0.b.k().D("key_feedback_tip");
-                c.a.s0.s.h0.b.k().D("key_feedback_tip_show");
-                c.a.s0.s.h0.b.k().D("key_feedback_tip_tab_show");
+                c.a.s0.s.i0.b.k().D("key_feedback_tip");
+                c.a.s0.s.i0.b.k().D("key_feedback_tip_show");
+                c.a.s0.s.i0.b.k().D("key_feedback_tip_tab_show");
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
                 if (this.a.mBdTokenController != null) {
                     this.a.mBdTokenController.l(UtilHelper.getClipBoardContent());
@@ -1869,13 +1731,13 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class l1 extends BroadcastReceiver {
+    /* loaded from: classes13.dex */
+    public class k1 extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity this$0;
 
-        public l1(MainTabActivity mainTabActivity) {
+        public k1(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1901,28 +1763,28 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             }
         }
 
-        public /* synthetic */ l1(MainTabActivity mainTabActivity, k kVar) {
+        public /* synthetic */ k1(MainTabActivity mainTabActivity, k kVar) {
             this(mainTabActivity);
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class m extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class l extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes13.dex */
         public class a implements c.a.s0.s.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public a(m mVar) {
+            public a(l lVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {mVar};
+                    Object[] objArr = {lVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -1944,7 +1806,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public m(MainTabActivity mainTabActivity, int i2) {
+        public l(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1979,14 +1841,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class m0 extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class l0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public m0(MainTabActivity mainTabActivity, int i2) {
+        public l0(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -2017,15 +1879,15 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class n implements Runnable {
+    /* loaded from: classes13.dex */
+    public class m implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48310e;
+        public final /* synthetic */ MainTabActivity f48318e;
 
-        public n(MainTabActivity mainTabActivity) {
+        public m(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2040,26 +1902,26 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     return;
                 }
             }
-            this.f48310e = mainTabActivity;
+            this.f48318e = mainTabActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48310e.mTouchable = true;
+                this.f48318e.mTouchable = true;
             }
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class n0 extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class m0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public n0(MainTabActivity mainTabActivity, int i2) {
+        public m0(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -2105,18 +1967,18 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class o implements Runnable {
+    /* loaded from: classes13.dex */
+    public class n implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Bundle f48311e;
+        public final /* synthetic */ Bundle f48319e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48312f;
+        public final /* synthetic */ MainTabActivity f48320f;
 
-        public o(MainTabActivity mainTabActivity, Bundle bundle) {
+        public n(MainTabActivity mainTabActivity, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2131,27 +1993,27 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     return;
                 }
             }
-            this.f48312f = mainTabActivity;
-            this.f48311e = bundle;
+            this.f48320f = mainTabActivity;
+            this.f48319e = bundle;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48312f.onSecondCreate(this.f48311e);
+                this.f48320f.onSecondCreate(this.f48319e);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class o0 extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class n0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public o0(MainTabActivity mainTabActivity, int i2) {
+        public n0(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -2189,13 +2051,13 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class p extends c.a.s0.e1.k0<Object> {
+    /* loaded from: classes13.dex */
+    public class o extends c.a.s0.d1.k0<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
-        public p(MainTabActivity mainTabActivity) {
+        public o(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2213,7 +2075,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             this.a = mainTabActivity;
         }
 
-        @Override // c.a.s0.e1.k0
+        @Override // c.a.s0.d1.k0
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2225,7 +2087,79 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
+    public class o0 extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MainTabActivity a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public o0(MainTabActivity mainTabActivity, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mainTabActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mainTabActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.mIsSplashClick = true;
+            }
+        }
+    }
+
+    /* loaded from: classes13.dex */
+    public class p implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ MainTabActivity f48321e;
+
+        public p(MainTabActivity mainTabActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mainTabActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f48321e = mainTabActivity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                c.a.s0.k.a.a();
+            }
+        }
+    }
+
+    /* loaded from: classes13.dex */
     public class p0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2256,19 +2190,77 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.mIsSplashClick = true;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+                boolean z = false;
+                if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                    c.a.d.h.c.e();
+                    c.a.d.h.c.i();
+                    this.a.lastDay = UtilHelper.getCurrentDay();
+                    c.a.s0.s.i0.b.k().x("last_resume_time", TbSingleton.getInstance().getLastResumeTime());
+                    if (!this.a.isEnterImageViewActivity) {
+                        this.a.stopYoungsterUseTimeTask();
+                        return;
+                    } else {
+                        this.a.isEnterImageViewActivity = false;
+                        return;
+                    }
+                }
+                String currentDay = UtilHelper.getCurrentDay();
+                if (!StringUtils.isNull(currentDay) && !currentDay.equals(this.a.lastDay)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+                }
+                if (this.a.mCancelController == null) {
+                    this.a.mCancelController = new c.a.t0.e4.b();
+                }
+                this.a.mCancelController.c(this.a.mCancelController.f17441c);
+                this.a.mCancelController.f17441c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
+                if (c.a.s0.g1.b.c.d()) {
+                    int i2 = Calendar.getInstance().get(11);
+                    c.a.s0.g1.b.c.a = (i2 >= 23 || i2 < 7) ? true : true;
+                    this.a.stopYoungsterUseTimeTask();
+                    this.a.startYoungsterUseTimeTask();
+                }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class q implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48313e;
+        public final /* synthetic */ MainTabActivity f48322e;
+
+        /* loaded from: classes13.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(q qVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {qVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    c.a.d.h.c.b();
+                }
+            }
+        }
 
         public q(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
@@ -2285,19 +2277,19 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     return;
                 }
             }
-            this.f48313e = mainTabActivity;
+            this.f48322e = mainTabActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.s0.k.a.a();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
+                new Thread(new a(this)).start();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class q0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2328,106 +2320,61 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                boolean z = false;
-                if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    c.a.d.h.c.e();
-                    c.a.d.h.c.i();
-                    this.a.lastDay = UtilHelper.getCurrentDay();
-                    c.a.s0.s.h0.b.k().x("last_resume_time", TbSingleton.getInstance().getLastResumeTime());
-                    if (!this.a.isEnterImageViewActivity) {
-                        this.a.stopYoungsterUseTimeTask();
-                        return;
-                    } else {
-                        this.a.isEnterImageViewActivity = false;
-                        return;
-                    }
-                }
-                String currentDay = UtilHelper.getCurrentDay();
-                if (!StringUtils.isNull(currentDay) && !currentDay.equals(this.a.lastDay)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
-                }
-                if (this.a.mCancelController == null) {
-                    this.a.mCancelController = new c.a.t0.e4.b();
-                }
-                this.a.mCancelController.c(this.a.mCancelController.f17257c);
-                this.a.mCancelController.f17257c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
-                if (c.a.s0.h1.b.c.d()) {
-                    int i2 = Calendar.getInstance().get(11);
-                    c.a.s0.h1.b.c.a = (i2 >= 23 || i2 < 7) ? true : true;
-                    this.a.stopYoungsterUseTimeTask();
-                    this.a.startYoungsterUseTimeTask();
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.isEnterImageViewActivity = true;
             }
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class r implements Runnable {
+    /* loaded from: classes13.dex */
+    public class r extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MainTabActivity a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48314e;
-
-        /* loaded from: classes12.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(r rVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {rVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.d.h.c.b();
-                }
-            }
-        }
-
-        public r(MainTabActivity mainTabActivity) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public r(MainTabActivity mainTabActivity, int i2, int i3) {
+            super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity};
+                Object[] objArr = {mainTabActivity, Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48314e = mainTabActivity;
+            this.a = mainTabActivity;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // c.a.d.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                new Thread(new a(this)).start();
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
+                if (z || (responsedMessage instanceof ProfileHttpResponseMessage)) {
+                    if (responsedMessage.getOrginalMessage() != null) {
+                        this.a.getUniqueId();
+                    }
+                    if (z) {
+                        this.a.onResponseMessage((ProfileSocketResponseMessage) responsedMessage);
+                    }
+                    if (responsedMessage instanceof ProfileHttpResponseMessage) {
+                        this.a.onResponseMessage((ProfileHttpResponseMessage) responsedMessage);
+                    }
+                }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class r0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2480,99 +2427,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class s extends c.a.d.c.g.a {
+    /* loaded from: classes13.dex */
+    public class s extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public s(MainTabActivity mainTabActivity, int i2, int i3) {
-            super(i2, i3);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity, Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mainTabActivity;
-        }
-
-        @Override // c.a.d.c.g.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
-                if (z || (responsedMessage instanceof ProfileHttpResponseMessage)) {
-                    if (responsedMessage.getOrginalMessage() != null) {
-                        this.a.getUniqueId();
-                    }
-                    if (z) {
-                        this.a.onResponseMessage((ProfileSocketResponseMessage) responsedMessage);
-                    }
-                    if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                        this.a.onResponseMessage((ProfileHttpResponseMessage) responsedMessage);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes12.dex */
-    public class s0 extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MainTabActivity a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public s0(MainTabActivity mainTabActivity, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mainTabActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.isEnterImageViewActivity = true;
-            }
-        }
-    }
-
-    /* loaded from: classes12.dex */
-    public class t extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MainTabActivity a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public t(MainTabActivity mainTabActivity, int i2) {
+        public s(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -2602,14 +2464,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class t0 extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class s0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public t0(MainTabActivity mainTabActivity, int i2) {
+        public s0(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -2642,14 +2504,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class u extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class t extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public u(MainTabActivity mainTabActivity, int i2) {
+        public t(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -2700,14 +2562,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class u0 extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class t0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public u0(MainTabActivity mainTabActivity, int i2) {
+        public t0(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -2736,7 +2598,88 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
+    public class u extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MainTabActivity a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public u(MainTabActivity mainTabActivity, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mainTabActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mainTabActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.a.mViewController == null || this.a.mViewController.z() == null || this.a.mViewController.z().getCurrentTabType() == 22) {
+                return;
+            }
+            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                this.a.videoChannelNoticeNeedShow = true;
+            } else {
+                this.a.doVideoChannelNoticeShow();
+            }
+        }
+    }
+
+    /* loaded from: classes13.dex */
+    public class u0 extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ MainTabActivity f48323e;
+
+        public u0(MainTabActivity mainTabActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mainTabActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f48323e = mainTabActivity;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                c.a.s0.g1.b.c.a = true;
+                this.f48323e.stopYoungsterUseTimeTask();
+                this.f48323e.startYoungsterUseTimePeriodTask();
+                this.f48323e.youngsterNightTimer.cancel();
+                this.f48323e.youngsterNightTimer = null;
+            }
+        }
+    }
+
+    /* loaded from: classes13.dex */
     public class v extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2781,13 +2724,52 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class v0 extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48315e;
+        public final /* synthetic */ MainTabActivity f48324e;
+
+        /* loaded from: classes13.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ v0 f48325e;
+
+            public a(v0 v0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {v0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f48325e = v0Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.f48325e.f48324e.stopYoungsterUseTimeTask();
+                    if (c.a.s0.g1.b.b.e()) {
+                        return;
+                    }
+                    this.f48325e.f48324e.startYoungsterUseTimePeriodTask();
+                }
+            }
+        }
 
         public v0(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
@@ -2804,127 +2786,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     return;
                 }
             }
-            this.f48315e = mainTabActivity;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.s0.h1.b.c.a = true;
-                this.f48315e.stopYoungsterUseTimeTask();
-                this.f48315e.startYoungsterUseTimePeriodTask();
-                this.f48315e.youngsterNightTimer.cancel();
-                this.f48315e.youngsterNightTimer = null;
-            }
-        }
-    }
-
-    /* loaded from: classes12.dex */
-    public class w extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MainTabActivity a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public w(MainTabActivity mainTabActivity, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mainTabActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.a.mViewController == null || this.a.mViewController.z() == null || this.a.mViewController.z().getCurrentTabType() == 22) {
-                return;
-            }
-            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                this.a.videoChannelNoticeNeedShow = true;
-            } else {
-                this.a.doVideoChannelNoticeShow();
-            }
-        }
-    }
-
-    /* loaded from: classes12.dex */
-    public class w0 extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48316e;
-
-        /* loaded from: classes12.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ w0 f48317e;
-
-            public a(w0 w0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {w0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f48317e = w0Var;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f48317e.f48316e.stopYoungsterUseTimeTask();
-                    if (c.a.s0.h1.b.b.e()) {
-                        return;
-                    }
-                    this.f48317e.f48316e.startYoungsterUseTimePeriodTask();
-                }
-            }
-        }
-
-        public w0(MainTabActivity mainTabActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mainTabActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f48316e = mainTabActivity;
+            this.f48324e = mainTabActivity;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -2936,14 +2798,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class x extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class w extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public x(MainTabActivity mainTabActivity, int i2) {
+        public w(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -2978,28 +2840,28 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class x0 extends TimerTask {
+    /* loaded from: classes13.dex */
+    public class w0 extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MainTabActivity f48318e;
+        public final /* synthetic */ MainTabActivity f48326e;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes13.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ x0 f48319e;
+            public final /* synthetic */ w0 f48327e;
 
-            public a(x0 x0Var) {
+            public a(w0 w0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {x0Var};
+                    Object[] objArr = {w0Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -3009,19 +2871,19 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                         return;
                     }
                 }
-                this.f48319e = x0Var;
+                this.f48327e = w0Var;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.s0.h1.b.b.e()) {
-                    this.f48319e.f48318e.stopYoungsterUseTimeTask();
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.s0.g1.b.b.e()) {
+                    this.f48327e.f48326e.stopYoungsterUseTimeTask();
                 }
             }
         }
 
-        public x0(MainTabActivity mainTabActivity) {
+        public w0(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -3036,7 +2898,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     return;
                 }
             }
-            this.f48318e = mainTabActivity;
+            this.f48326e = mainTabActivity;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -3048,13 +2910,13 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class y implements CheckRealNameModel.b {
+    /* loaded from: classes13.dex */
+    public class x implements CheckRealNameModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
-        public y(MainTabActivity mainTabActivity) {
+        public x(MainTabActivity mainTabActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -3082,14 +2944,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class y0 extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class x0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public y0(MainTabActivity mainTabActivity, int i2) {
+        public x0(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -3118,22 +2980,22 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                 return;
             }
             c.a.s0.u0.a.h(pVar);
-            if (StringUtils.isNull(pVar.f14156c)) {
+            if (StringUtils.isNull(pVar.f14296c)) {
                 UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{pVar.a});
             } else {
-                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{pVar.a, pVar.f14156c});
+                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{pVar.a, pVar.f14296c});
             }
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class z extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class y extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public z(MainTabActivity mainTabActivity, int i2) {
+        public y(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -3172,14 +3034,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class z0 extends CustomMessageListener {
+    /* loaded from: classes13.dex */
+    public class y0 extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public z0(MainTabActivity mainTabActivity, int i2) {
+        public y0(MainTabActivity mainTabActivity, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -3207,6 +3069,109 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                 return;
             }
             this.a.mWriteTab.C();
+        }
+    }
+
+    /* loaded from: classes13.dex */
+    public class z implements g.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Intent a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ MainTabActivity f48328b;
+
+        public z(MainTabActivity mainTabActivity, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mainTabActivity, intent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f48328b = mainTabActivity;
+            this.a = intent;
+        }
+
+        @Override // c.a.s0.a.g.b
+        public void onCallBack(HashMap<String, Object> hashMap) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) || hashMap == null || this.a == null) {
+                return;
+            }
+            Object obj = hashMap.get(c.a.s0.a.g.G);
+            int intValue = obj instanceof Integer ? ((Integer) obj).intValue() : -1;
+            Object obj2 = hashMap.get(c.a.s0.a.g.H);
+            String str = obj2 instanceof String ? (String) obj2 : null;
+            Object obj3 = hashMap.get(c.a.s0.a.g.F);
+            String str2 = obj3 instanceof String ? (String) obj3 : null;
+            Object obj4 = hashMap.get(c.a.s0.a.g.c0);
+            String str3 = obj4 instanceof String ? (String) obj4 : null;
+            if (intValue != -1) {
+                this.a.putExtra("is_from_scheme", true);
+                this.a.putExtra("locate_type", intValue);
+                this.a.putExtra("sub_locate_type", str);
+                this.a.putExtra("sub_tab_name", str2);
+                this.a.putExtra("sub_tab_code", str3);
+                c.a.s0.s.e0.b.f13195b = intValue;
+                Object obj5 = hashMap.get(c.a.s0.a.g.I);
+                String str4 = obj5 instanceof String ? (String) obj5 : null;
+                Object obj6 = hashMap.get(c.a.s0.a.g.J);
+                String str5 = obj6 instanceof String ? (String) obj6 : null;
+                this.a.putExtra(c.a.s0.a.g.I, str4);
+                this.a.putExtra(c.a.s0.a.g.J, str5);
+            }
+            c.a.s0.a.d.y().N(true);
+            if (intValue == 1 && "ForumSquare".equals(str)) {
+                c.a.s0.s.e0.b.f13196c = c.a.s0.s.e0.b.f13198e;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921528));
+            }
+        }
+    }
+
+    /* loaded from: classes13.dex */
+    public class z0 implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ MainTabActivity f48329e;
+
+        public z0(MainTabActivity mainTabActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mainTabActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f48329e = mainTabActivity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                    this.f48329e.isCheckNewUserRedPackageRunnable = true;
+                } else {
+                    this.f48329e.checkNewUserRedPackage();
+                }
+            }
         }
     }
 
@@ -3242,49 +3207,49 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         this.isCreated = false;
         this.isEnterImageViewActivity = false;
         this.isCheckNewUserRedPackageRunnable = false;
+        this.mLastKeyBoardVisible = false;
         this.mLocalInputListener = new k(this, 2921654);
         this.mEditorListener = new v(this, 2010045);
         this.mCloseMainTablistener = new g0(this, 2001377);
         this.skinTypeChangeListener = new r0(this, 2001304);
         this.bigdayModifyNavbarListener = new c1(this, 2921348);
-        this.showWriteThreadListener = new h1(this, 2921452);
-        this.mLikeForumListener = new i1(this, 2001437);
-        this.mEnterForumTabClickListener = new j1(this, 2001384);
-        this.mOnlineListener = new k1(this, 1001);
+        this.showWriteThreadListener = new g1(this, 2921452);
+        this.mLikeForumListener = new h1(this, 2001437);
+        this.mEnterForumTabClickListener = new i1(this, 2001384);
+        this.mOnlineListener = new j1(this, 1001);
         this.mPersonInfoChangeListener = new a(this, 2001247);
         this.mShowPostVideoSuccessListener = new b(this, 2001374);
         this.mVideoClickListener = new c(this, 2921610);
-        this.mBackHomeListener = new d(this, 2921611);
-        this.mAddTablistener = new e(this, 2007002);
-        this.mRefreshTablistener = new f(this, 2007013);
-        this.mRefreshTiplistener = new g(this, 2921333);
-        this.mStartPollVideoMsgListener = new h(this, 2921579);
-        this.startPollVideoMsg = new i(this);
-        this.mForceConfirmListener = new j(this, 2921543);
-        this.mSetMainTabInstListener = new l(this, 2007005);
-        this.mShowGoBackShouBaiListener = new m(this, 2921380);
-        this.mPersonInfoMsgListener = new s(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
-        this.updateMainTabProfileListener = new t(this, 2921504);
-        this.mCategoryUpdateListener = new u(this, 2921491);
+        this.mAddTablistener = new d(this, 2007002);
+        this.mRefreshTablistener = new e(this, 2007013);
+        this.mRefreshTiplistener = new f(this, 2921333);
+        this.mStartPollVideoMsgListener = new g(this, 2921579);
+        this.startPollVideoMsg = new h(this);
+        this.mForceConfirmListener = new i(this, 2921543);
+        this.mSetMainTabInstListener = new j(this, 2007005);
+        this.mShowGoBackShouBaiListener = new l(this, 2921380);
+        this.mPersonInfoMsgListener = new r(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+        this.updateMainTabProfileListener = new s(this, 2921504);
+        this.mCategoryUpdateListener = new t(this, 2921491);
         this.videoChannelNoticeNeedShow = false;
-        this.mVideoChannelNoticeListener = new w(this, 2921567);
+        this.mVideoChannelNoticeListener = new u(this, 2921567);
         this.myCreateCenterTipNeedShow = false;
-        this.mMyCreateCenterListener = new x(this, 2921538);
-        this.checkRealNameCallBack = new y(this);
-        this.networkChangedListener = new z(this, 2000994);
-        this.mAccountChangedListener = new l0(this, 2005016);
-        this.mGameCenterInitListener = new m0(this, 2016509);
-        this.mSplashCloseListener = new n0(this, 2921636);
-        this.mSyncFinishListener = new o0(this, 2001371);
-        this.mAdvertSdkSplashClickListener = new p0(this, 2016311);
-        this.mBackgroundChangeListener = new q0(this, 2001011);
-        this.enterImageViewActivityListener = new s0(this, 2010000);
-        this.youngsterUseTimerListener = new t0(this, 2921561);
-        this.mYoungsterModeChangeListener = new u0(this, 2921509);
-        this.mToHotTopicListener = new y0(this, 2016493);
-        this.mOnScreenSizeChangeListener = new z0(this, 2921414);
-        this.mCheckNewUserRedPackageRunnable = new a1(this);
-        this.showNewUserRedPackageListener = new b1(this, 2921532);
+        this.mMyCreateCenterListener = new w(this, 2921538);
+        this.checkRealNameCallBack = new x(this);
+        this.networkChangedListener = new y(this, 2000994);
+        this.mAccountChangedListener = new k0(this, 2005016);
+        this.mGameCenterInitListener = new l0(this, 2016509);
+        this.mSplashCloseListener = new m0(this, 2921636);
+        this.mSyncFinishListener = new n0(this, 2001371);
+        this.mAdvertSdkSplashClickListener = new o0(this, 2016311);
+        this.mBackgroundChangeListener = new p0(this, 2001011);
+        this.enterImageViewActivityListener = new q0(this, 2010000);
+        this.youngsterUseTimerListener = new s0(this, 2921561);
+        this.mYoungsterModeChangeListener = new t0(this, 2921509);
+        this.mToHotTopicListener = new x0(this, 2016493);
+        this.mOnScreenSizeChangeListener = new y0(this, 2921414);
+        this.mCheckNewUserRedPackageRunnable = new z0(this);
+        this.showNewUserRedPackageListener = new a1(this, 2921532);
     }
 
     private void callWindowMissed() {
@@ -3338,11 +3303,11 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
     public void checkCommitInterestInfo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65603, this) == null) {
-            String q2 = c.a.s0.s.h0.b.k().q("user_interest_info", null);
+            String q2 = c.a.s0.s.i0.b.k().q("user_interest_info", null);
             if (TextUtils.isEmpty(q2)) {
                 return;
             }
-            c.a.s0.s.h0.b.k().D("user_interest_info");
+            c.a.s0.s.i0.b.k().D("user_interest_info");
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
             httpMessage.addParam("interestList", q2);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
@@ -3371,11 +3336,11 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65606, this) == null) {
             String str = "check_real_name" + TbConfig.getVersion();
-            if (!c.a.s0.s.h0.b.k().h(str, true) || StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) || !c.a.d.f.p.n.C() || (checkRealNameModel = this.mCheckRealNameModel) == null) {
+            if (!c.a.s0.s.i0.b.k().h(str, true) || StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) || !c.a.d.f.p.n.C() || (checkRealNameModel = this.mCheckRealNameModel) == null) {
                 return;
             }
             checkRealNameModel.x(CheckRealNameModel.TYPE_APP_FIRST_START);
-            c.a.s0.s.h0.b.k().u(str, false);
+            c.a.s0.s.i0.b.k().u(str, false);
         }
     }
 
@@ -3438,11 +3403,11 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                 c.a.s0.a.d.y().N(true);
             }
         } else if (!StringUtils.isNULL(dataString) && dataString.startsWith(c.a.s0.a.g.a)) {
-            c.a.s0.a.g.b().e(intent.getData(), new a0(this, intent));
+            c.a.s0.a.g.b().f(intent.getData(), new z(this, intent));
         }
         String stringExtra = intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME);
         if (!StringUtils.isNull(stringExtra)) {
-            c.a.d.f.m.e.a().postDelayed(new b0(this, stringExtra), this.isCreated ? 0L : DeviceInfoUtil.getMainTabActJumpOtherDelayTime());
+            c.a.d.f.m.e.a().postDelayed(new a0(this, stringExtra), this.isCreated ? 0L : DeviceInfoUtil.getMainTabActJumpOtherDelayTime());
             getIntent().removeExtra(MainTabActivityConfig.TARGET_SCHEME);
             GrowthStatsUtil.statisticChannel("push", stringExtra);
         } else if (StringUtils.isNull(SchemaRouteActivity.targetSchemeAction)) {
@@ -3466,14 +3431,14 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
     public void clearConcernCacheWhenVersionUpdate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65609, this) == null) {
-            String str = c.a.s0.s.h0.b.o("key_is_clear_concern_cache_when_version_update") + "_" + TbConfig.getVersion();
-            if (c.a.s0.s.h0.b.k().h(str, false)) {
+            String str = c.a.s0.s.i0.b.o("key_is_clear_concern_cache_when_version_update") + "_" + TbConfig.getVersion();
+            if (c.a.s0.s.i0.b.k().h(str, false)) {
                 return;
             }
             c.a.s0.s.r.a.f();
             try {
                 c.a.s0.s.r.a.e("tb.concern_page", TbadkCoreApplication.getCurrentAccount()).g("0", null);
-                c.a.s0.s.h0.b.k().u(str, true);
+                c.a.s0.s.i0.b.k().u(str, true);
             } catch (Exception e2) {
                 BdLog.e(e2, true);
             }
@@ -3493,8 +3458,8 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65611, null) == null) {
             c.a.s0.i0.c cVar = new c.a.s0.i0.c();
-            cVar.f12791g = "";
-            cVar.f12789e = 22;
+            cVar.f12935g = "";
+            cVar.f12933e = 22;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, cVar));
         }
     }
@@ -3573,7 +3538,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             this.isExecuteFirstLoginInterestGuide = true;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InterestGuideActivityConfig(this)));
         }
-        c.a.s0.s.h0.b.k().x("key_app_launch_time", System.currentTimeMillis());
+        c.a.s0.s.i0.b.k().x("key_app_launch_time", System.currentTimeMillis());
         firstLoginTest();
     }
 
@@ -3583,12 +3548,12 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             return;
         }
         TbSingleton.getInstance().setHasPerformedFirstLoginTest(true);
-        if (c.a.s0.b.d.m()) {
+        if (c.a.s0.b.d.n()) {
             if (TbadkCoreApplication.isLogin() || LoginActivity.class.getName().equals(c.a.d.f.p.n.v())) {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2921535, this));
-        } else if (c.a.s0.b.d.n()) {
+        } else if (c.a.s0.b.d.o()) {
             if (TbadkApplication.getInst().isNeedNewUserLead()) {
                 InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this, 4);
                 interestGuideActivityConfig.setRequestCode(25060);
@@ -3655,7 +3620,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         if (interceptable == null || (invokeV = interceptable.invokeV(65621, this)) == null) {
             int i2 = Calendar.getInstance().get(11);
             if (i2 < 23 && i2 >= 7) {
-                c.a.s0.h1.b.c.a = false;
+                c.a.s0.g1.b.c.a = false;
                 Timer timer = this.youngsterNightTimer;
                 if (timer != null) {
                     timer.cancel();
@@ -3668,10 +3633,10 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                 Date time = calendar.getTime();
                 Timer timer2 = new Timer();
                 this.youngsterNightTimer = timer2;
-                timer2.schedule(new v0(this), time, 1000L);
+                timer2.schedule(new u0(this), time, 1000L);
                 return false;
             }
-            c.a.s0.h1.b.c.a = true;
+            c.a.s0.g1.b.c.a = true;
             stopYoungsterUseTimeTask();
             startYoungsterUseTimePeriodTask();
             return true;
@@ -3725,7 +3690,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65626, this, bundle) == null) {
             if (TbadkCoreApplication.getInst().getIsFirstUse()) {
-                c.a.s0.e1.n0.b(new p(this), null);
+                c.a.s0.d1.n0.b(new o(this), null);
             }
             Window window = getWindow();
             window.setBackgroundDrawable(new ColorDrawable(0));
@@ -3738,7 +3703,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             if (handlerExitApp(getIntent())) {
                 return;
             }
-            c.a.s0.s.d0.b.f13010c = c.a.s0.s.d0.b.f13011d;
+            c.a.s0.s.e0.b.f13196c = c.a.s0.s.e0.b.f13197d;
             if (getIntent() != null) {
                 c.a.t0.z3.j jVar = new c.a.t0.z3.j(getPageContext());
                 this.mPushInsertThreadController = jVar;
@@ -3752,7 +3717,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                 this.mFrom = getIntent().getStringExtra("from");
             }
             c.a.t0.z3.b bVar = new c.a.t0.z3.b();
-            c.a.s0.s.d0.b.h(bVar);
+            c.a.s0.s.e0.b.h(bVar);
             bVar.g(this);
             if (getGpuSwich()) {
                 CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
@@ -3820,8 +3785,8 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             if (TbadkCoreApplication.isLogin()) {
                 c.a.s0.a0.b.d().h();
             }
-            int l2 = c.a.s0.s.h0.b.k().l("app_restart_times", 0);
-            c.a.s0.s.h0.b.k().w("app_restart_times", ((l2 > 100 || l2 < 0) ? 100 : 100) + 1);
+            int l2 = c.a.s0.s.i0.b.k().l("app_restart_times", 0);
+            c.a.s0.s.i0.b.k().w("app_restart_times", ((l2 > 100 || l2 < 0) ? 100 : 100) + 1);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.CHECK_REAL_NAME_START_STAMP_KEY);
             CheckRealNameModel checkRealNameModel = new CheckRealNameModel(getPageContext());
             this.mCheckRealNameModel = checkRealNameModel;
@@ -3835,7 +3800,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             TiebaStatic.log(new StatisticItem("c14261").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_type", skinType == 4 ? 2 : skinType == 1 ? 1 : 0));
             if (TbSingleton.getInstance().isEnableBenchmark() && TbSingleton.getInstance().getCpuFlopsDuration() <= 0) {
-                c.a.d.f.m.e.a().postDelayed(new q(this), 5000L);
+                c.a.d.f.m.e.a().postDelayed(new p(this), 5000L);
             }
             MessageManager.getInstance().registerListener(this.mToHotTopicListener);
             TbSingleton.getInstance().startOneGame();
@@ -3853,26 +3818,26 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.UPDATE_PROFILE_INFO_START_STAMP_KEY);
             updateProfileInfo();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.UPDATE_PROFILE_INFO_END_STAMP_KEY);
-            if (c.a.s0.b.d.S()) {
-                c.a.t0.e1.a.i().B(this, "6051001980-1210572494", c.a.t0.e1.a.b("personalize", "1"));
+            if (c.a.s0.b.d.X()) {
+                c.a.t0.f1.a.i().B(this, "6051001980-1210572494", c.a.t0.f1.a.b("personalize", "1"));
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.TRY_LOAD_NATIVE_FUN_START_STAMP_KEY);
-            if (c.a.s0.b.d.o() && c.a.s0.b.d.u()) {
-                c.a.t0.e1.a.i().C(this, c.a.t0.e1.e.c.e().d("frs_feed"), c.a.t0.e1.a.b("frs", "1"), "");
+            if (c.a.s0.b.d.s() && c.a.s0.b.d.z()) {
+                c.a.t0.f1.a.i().C(this, c.a.t0.f1.e.c.e().d("frs_feed"), c.a.t0.f1.a.b("frs", "1"), "");
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.TRY_LOAD_NATIVE_FUN_END_STAMP_KEY);
             TbSingleton.getInstance().getChannelConfigModel().e();
             TbSingleton.getInstance().setActiveTimeStamp();
-            if (c.a.s0.h1.b.c.d()) {
-                c.a.s0.h1.b.b.a = false;
-                c.a.s0.h1.b.a.a();
+            if (c.a.s0.g1.b.c.d()) {
+                c.a.s0.g1.b.b.a = false;
+                c.a.s0.g1.b.a.a();
                 if (!handlerYoungsterNightTask()) {
                     startYoungsterUseTimeTask();
                 }
             }
             this.isCreated = true;
-            c.a.d.f.m.e.a().postDelayed(new r(this), 1000L);
-            int l3 = c.a.s0.s.h0.b.k().l("key_fps_time", 2);
+            c.a.d.f.m.e.a().postDelayed(new q(this), 1000L);
+            int l3 = c.a.s0.s.i0.b.k().l("key_fps_time", 2);
             BdTracesManager.INSTANCE.init(new BdTracesConfig().newBuilder().fpsEnable((l3 <= 0 || !BdTracesManager.INSTANCE.isActiveUploadType()) ? false : false).debug(false).timeSliceMs(l3 * 1000).build());
         }
     }
@@ -3885,7 +3850,6 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             registerListener(this.mAddTablistener);
             this.mVideoClickListener.setPriority(2);
             registerListener(this.mVideoClickListener);
-            registerListener(this.mBackHomeListener);
             registerListener(this.mRefreshTablistener);
             registerListener(this.mRefreshTiplistener);
             registerListener(this.mForceConfirmListener);
@@ -3894,7 +3858,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             registerListener(this.mPersonInfoChangeListener);
             registerListener(this.skinTypeChangeListener);
             registerListener(this.bigdayModifyNavbarListener);
-            this.mUpdateReceiver = new l1(this, null);
+            this.mUpdateReceiver = new k1(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
             registerReceiver(this.mUpdateReceiver, intentFilter);
@@ -3935,7 +3899,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
     private void registerNavigationBarEditStateListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65628, this) == null) {
-            registerListener(new f0(this, 2007009));
+            registerListener(new e0(this, 2007009));
         }
     }
 
@@ -3944,7 +3908,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65629, this) == null) {
             if (this.fetchStampController == null) {
-                this.fetchStampController = new c.a.t0.t3.i.a(getPageContext(), new d1(this));
+                this.fetchStampController = new c.a.t0.u3.i.a(getPageContext(), new b1(this));
             }
             this.fetchStampController.b();
         }
@@ -3981,8 +3945,8 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         thread2GroupShareView.setData(shareFromPBMsgData);
         aVar.setContentViewSize(1);
         aVar.setContentView(thread2GroupShareView);
-        aVar.setPositiveButton(c.a.t0.z3.q.share, new i0(this, thread2GroupShareView, j2, str, str2, str3, shareFromPBMsgData));
-        aVar.setNegativeButton(c.a.t0.z3.q.cancel, new j0(this, thread2GroupShareView));
+        aVar.setPositiveButton(c.a.t0.z3.q.share, new h0(this, thread2GroupShareView, j2, str, str2, str3, shareFromPBMsgData));
+        aVar.setNegativeButton(c.a.t0.z3.q.cancel, new i0(this, thread2GroupShareView));
         aVar.setCanceledOnTouchOutside(true);
         aVar.create(getPageContext()).show();
         if (c.a.d.f.p.m.isEmpty(shareFromPBMsgData.getImageUrl())) {
@@ -4004,7 +3968,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void showStampDialog(c.a.t0.t3.d dVar) {
+    public void showStampDialog(c.a.t0.u3.d dVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65633, this, dVar) == null) && !this.isShowedNewStyleStampDialog && TbadkCoreApplication.isLogin() && this.mCurrentTabIndex.intValue() == 4) {
             NewStyleStampDialogView newStyleStampDialogView = new NewStyleStampDialogView(this);
@@ -4014,9 +3978,9 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             bVar.d();
             statisticStampDialogShow();
             this.isShowedNewStyleStampDialog = true;
-            newStyleStampDialogView.getImgStampDialogCancelView().setOnClickListener(new e1(this, bVar));
-            newStyleStampDialogView.getStampDialogLookView().setOnClickListener(new f1(this, bVar));
-            newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new g1(this, bVar, dVar));
+            newStyleStampDialogView.getImgStampDialogCancelView().setOnClickListener(new d1(this, bVar));
+            newStyleStampDialogView.getStampDialogLookView().setOnClickListener(new e1(this, bVar));
+            newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new f1(this, bVar, dVar));
         }
     }
 
@@ -4025,9 +3989,9 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65634, this) == null) && this.youngsterUseTimer == null) {
             this.youngsterUseTimer = new Timer();
-            x0 x0Var = new x0(this);
-            this.youngsterUseTimeTask = x0Var;
-            this.youngsterUseTimer.schedule(x0Var, 1000L, 1000L);
+            w0 w0Var = new w0(this);
+            this.youngsterUseTimeTask = w0Var;
+            this.youngsterUseTimer.schedule(w0Var, 1000L, 1000L);
         }
     }
 
@@ -4036,9 +4000,9 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65635, this) == null) && this.youngsterUseTimer == null) {
             this.youngsterUseTimer = new Timer();
-            w0 w0Var = new w0(this);
-            this.youngsterUseTimeTask = w0Var;
-            this.youngsterUseTimer.schedule(w0Var, c.a.s0.h1.b.b.c() ? 1000L : YOUNGSTER_USE_TIME_MAX);
+            v0 v0Var = new v0(this);
+            this.youngsterUseTimeTask = v0Var;
+            this.youngsterUseTimer.schedule(v0Var, c.a.s0.g1.b.b.c() ? 1000L : YOUNGSTER_USE_TIME_MAX);
         }
     }
 
@@ -4085,9 +4049,9 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
     private void unregReceiver() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65640, this) == null) {
-            l1 l1Var = this.mUpdateReceiver;
-            if (l1Var != null) {
-                unregisterReceiver(l1Var);
+            k1 k1Var = this.mUpdateReceiver;
+            if (k1Var != null) {
+                unregisterReceiver(k1Var);
             }
             PackageChangedReceiver packageChangedReceiver = this.packageChangedReceiver;
             if (packageChangedReceiver != null) {
@@ -4099,7 +4063,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
     public void checkBackgroundPermissionDialog(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            new c.a.s0.s.s.a(activity).setTitle(c.a.t0.z3.q.confirm_title).setCancelable(false).setMessageId(c.a.t0.z3.q.background_process_permission).setPositiveButton(c.a.t0.z3.q.now_goto_setting, new e0(this)).setNegativeButton(c.a.t0.z3.q.next_time, new d0(this)).create(c.a.d.a.j.a(activity)).show();
+            new c.a.s0.s.s.a(activity).setTitle(c.a.t0.z3.q.confirm_title).setCancelable(false).setMessageId(c.a.t0.z3.q.background_process_permission).setPositiveButton(c.a.t0.z3.q.now_goto_setting, new d0(this)).setNegativeButton(c.a.t0.z3.q.next_time, new c0(this)).create(c.a.d.a.j.a(activity)).show();
         }
     }
 
@@ -4246,10 +4210,10 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                 if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getInst().getActivityPrizeData().h()) {
                     String c2 = TbadkCoreApplication.getInst().getActivityPrizeData().c();
                     if (!StringUtils.isNull(c2)) {
-                        c.a.s0.s.h0.b k2 = c.a.s0.s.h0.b.k();
+                        c.a.s0.s.i0.b k2 = c.a.s0.s.i0.b.k();
                         if (k2.h("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), true)) {
                             UrlManager.getInstance().dealOneLink((TbPageContext<?>) getPageContext(), new String[]{c2}, true);
-                            c.a.s0.s.h0.b k3 = c.a.s0.s.h0.b.k();
+                            c.a.s0.s.i0.b k3 = c.a.s0.s.i0.b.k();
                             k3.u("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), false);
                         }
                     }
@@ -4405,7 +4369,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
     public c.a.s0.q0.b getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? new k0(this) : (c.a.s0.q0.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? new j0(this) : (c.a.s0.q0.b) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
@@ -4530,7 +4494,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     c.a.t0.s.d();
                 }
             }
-            if (c.a.s0.f1.a.c(i2, i3, intent)) {
+            if (c.a.s0.e1.a.c(i2, i3, intent)) {
                 return;
             }
             if (i3 != -1) {
@@ -4554,12 +4518,12 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             } else if (i2 == 23007) {
                 handleShareFriendForum(intent);
             } else if (i2 == 13011) {
-                c.a.t0.i3.a.g().m(getPageContext());
+                c.a.t0.j3.a.g().m(getPageContext());
             } else if (i2 == 24007) {
                 int intExtra = intent.getIntExtra("extra_share_status", 2);
                 int intExtra2 = intent.getIntExtra("extra_show_channel", 1);
                 if (intExtra == 1) {
-                    c.a.t0.i3.a.g().m(getPageContext());
+                    c.a.t0.j3.a.g().m(getPageContext());
                     ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
                     if (shareItem != null) {
@@ -4578,10 +4542,10 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                     if (shareItem == null || (str = shareItem.t) == null || (shareSuccessReplyToServerModel = this.mShareSuccessReplyToServerModel) == null) {
                         return;
                     }
-                    shareSuccessReplyToServerModel.w(str, intExtra2, new h0(this));
+                    shareSuccessReplyToServerModel.w(str, intExtra2, new f0(this));
                 }
             } else if (i2 == 25059) {
-                if (c.a.s0.b.d.m()) {
+                if (c.a.s0.b.d.n()) {
                     if (TbadkApplication.getInst().isNeedNewUserLead() && TbadkCoreApplication.isLogin()) {
                         InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this, 4);
                         interestGuideActivityConfig.setRequestCode(25060);
@@ -4593,7 +4557,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                 }
                 c.a.t0.s.d();
             } else if (i2 == 25060) {
-                if (c.a.s0.b.d.n()) {
+                if (c.a.s0.b.d.o()) {
                     if (TbadkCoreApplication.isLogin()) {
                         return;
                     }
@@ -4638,6 +4602,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             return;
         }
         super.onConfigurationChanged(configuration);
+        c.a.t0.z3.r.a().b(configuration);
         if (TbadkCoreApplication.getInst().getSkinType() != 1 && (runTask = MessageManager.getInstance().runTask(2001281, String.class)) != null && !StringUtils.isNull((String) runTask.getData())) {
             SkinManager.setDayOrDarkSkinTypeWithSystemMode(true, false);
         }
@@ -4671,9 +4636,9 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_HOME_FRAGMENT_CONTROLLER_START_STAMP_KEY);
             this.mViewController = new c.a.t0.z3.f(this);
             if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                c.a.t0.z3.r.b(this).a(getIntent() == null ? -5L : getIntent().getLongExtra("splash_unique_id", -4L));
+                c.a.t0.z3.r.a().e(this, getIntent() == null ? -5L : getIntent().getLongExtra("splash_unique_id", -4L));
             }
-            this.mHandler.post(new n(this));
+            this.mHandler.post(new m(this));
             int loadInt = TbadkSettings.getInst().loadInt("skin_", 0);
             if (loadInt != 1) {
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001281, String.class);
@@ -4684,7 +4649,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                 TbadkCoreApplication.getInst().setSkinTypeValue(loadInt);
                 TbadkCoreApplication.getInst().SendSkinTypeBroadcast(loadInt);
             }
-            c.a.t0.z3.c.b(new o(this, bundle), 0);
+            c.a.t0.z3.c.b(new n(this, bundle), 0);
             c.a.s0.s0.l.b().y(System.currentTimeMillis());
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_CREATE_END_STAMP_KEY);
         }
@@ -4707,7 +4672,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             if (inputMethodManager != null && getCurrentFocus() != null) {
                 inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 2);
             }
-            c.a.s0.s.j0.a aVar = this.mWaitingDialog;
+            c.a.s0.s.k0.a aVar = this.mWaitingDialog;
             if (aVar != null) {
                 aVar.h(false);
                 this.mWaitingDialog = null;
@@ -4729,7 +4694,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                 super.onDestroy();
             } catch (Exception unused) {
             }
-            c.a.s0.s.d0.b.h(null);
+            c.a.s0.s.e0.b.h(null);
             c.a.s0.y.d.h().l();
             VoiceManager voiceManager = getVoiceManager();
             this.mVoiceManager = voiceManager;
@@ -4756,16 +4721,16 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             if (fVar2 != null && fVar2.y() != null) {
                 this.mViewController.y().onDestory();
             }
-            if (c.a.s0.b.d.k0()) {
-                c.a.t0.e1.a.i().d("6061002332-203360688");
+            if (c.a.s0.b.d.p0()) {
+                c.a.t0.f1.a.i().d("6061002332-203360688");
             }
-            if (c.a.s0.b.d.l0()) {
-                c.a.t0.e1.a.i().c("6061002410-390177882");
+            if (c.a.s0.b.d.q0()) {
+                c.a.t0.f1.a.i().c("6061002410-390177882");
             }
             if (this.tiePlusEventController != null) {
                 getLifecycle().removeObserver(this.tiePlusEventController);
             }
-            c.a.t0.w1.c.b().c();
+            c.a.t0.x1.c.b().c();
             BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask("key_res_del");
             if (searchTask instanceof c.a.d.l.f) {
                 searchTask.cancel();
@@ -4819,9 +4784,12 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
     public void onKeyboardVisibilityChanged(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048611, this, z2) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921645, Boolean.valueOf(z2)));
-            this.isKeyboardVisible = z2;
-            boolean z3 = this.isEditorVisible || z2;
+            if (this.mLastKeyBoardVisible != z2) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921645, Boolean.valueOf(z2)));
+                this.isKeyboardVisible = z2;
+                this.mLastKeyBoardVisible = z2;
+            }
+            boolean z3 = this.isEditorVisible || this.isKeyboardVisible;
             c.a.t0.z3.f fVar = this.mViewController;
             if (fVar != null) {
                 fVar.G(z3);
@@ -4881,7 +4849,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
                 }
                 c.a.t0.z3.f fVar3 = this.mViewController;
                 if (fVar3 != null && fVar3.z() != null && (tabSpecByType = this.mViewController.z().getTabSpecByType(intExtra)) != null) {
-                    Fragment fragment = tabSpecByType.f40268c;
+                    Fragment fragment = tabSpecByType.f40296c;
                     if (fragment instanceof c.a.s0.s.g) {
                         ((c.a.s0.s.g) fragment).setCurrentSubTab(intent);
                     }
@@ -4896,6 +4864,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
             super.onPause();
+            c.a.t0.z3.r.a().c();
             this.isResumed = false;
             LogoActivityConfig.isFirst = false;
             if (this.needAnim) {
@@ -4957,16 +4926,17 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_START_STAMP_KEY);
             super.onResume();
+            c.a.t0.z3.r.a().d();
             this.isResumed = true;
             int i2 = this.mOnResumeExecuteForSplashCount + 1;
             this.mOnResumeExecuteForSplashCount = i2;
             if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && i2 > 1 && this.mIsSplashClick) {
-                c.a.d.f.m.e.a().postDelayed(new c0(this), 500L);
+                c.a.d.f.m.e.a().postDelayed(new b0(this), 500L);
                 this.mIsSplashClick = false;
                 this.mOnResumeExecuteForSplashCount = 2;
             }
             if (this.doRefresh) {
-                c.a.s0.e1.t0.g(this.mWeakContext);
+                c.a.s0.d1.t0.g(this.mWeakContext);
                 this.doRefresh = false;
             }
             if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && (fVar = this.mViewController) != null && fVar.y() != null) {
@@ -5013,8 +4983,8 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             if (PermissionUtil.checkLocationForTieba(this)) {
                 return;
             }
-            c.a.s0.s.h0.b.k().u("key_post_thread_has_request_location", false);
-            c.a.s0.s.h0.b.k().u("key_home_common_tab_fragment_has_request_location_local", false);
+            c.a.s0.s.i0.b.k().u("key_post_thread_has_request_location", false);
+            c.a.s0.s.i0.b.k().u("key_home_common_tab_fragment_has_request_location_local", false);
         }
     }
 
@@ -5133,7 +5103,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
     public void showMemberTip(PayMemberInfoData payMemberInfoData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048624, this, payMemberInfoData) == null) && TbadkCoreApplication.getInst().appResponseToIntentClass(MemberPayActivityConfig.class) && payMemberInfoData != null) {
-            if ((payMemberInfoData.y() == 1 || payMemberInfoData.y() == 2) && c.a.s0.s.h0.b.k().h("show_member_deid_line", true)) {
+            if ((payMemberInfoData.y() == 1 || payMemberInfoData.y() == 2) && c.a.s0.s.i0.b.k().h("show_member_deid_line", true)) {
                 long w2 = payMemberInfoData.w() * 1000;
                 if (w2 < System.currentTimeMillis()) {
                     if (StringUtils.isNull(payMemberInfoData.x())) {
@@ -5211,7 +5181,7 @@ public class MainTabActivity extends BaseFragmentActivity implements c.a.t0.z3.a
             if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
                 return false;
             }
-            return c.a.s0.e1.t0.a(1);
+            return c.a.s0.d1.t0.a(1);
         }
         return invokeV.booleanValue;
     }

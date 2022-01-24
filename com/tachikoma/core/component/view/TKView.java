@@ -21,7 +21,6 @@ import com.tachikoma.core.component.TKYogaLayout;
 import com.tachikoma.core.event.TKEventProcess;
 import com.tachikoma.core.event.base.GestureUtils;
 import com.tachikoma.core.event.base.IBaseEvent;
-import com.tachikoma.core.event.base.TKBaseEvent;
 import com.tachikoma.core.event.guesture.TKDispatchEvent;
 import com.tachikoma.core.manager.TKModuleManager;
 import java.util.ArrayList;
@@ -103,7 +102,7 @@ public class TKView extends TKBase<TKYogaLayout> {
     public void addEventListener(String str, V8Function v8Function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, v8Function) == null) {
-            if (TKBaseEvent.TK_DISPATCH_EVENT_NAME.equals(str)) {
+            if ("dispatch".equals(str)) {
                 getView().registerDispatchListener(new TKYogaLayout.DisPatchEventListener(this) { // from class: com.tachikoma.core.component.view.TKView.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +130,7 @@ public class TKView extends TKBase<TKYogaLayout> {
                     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, motionEvent)) == null) ? this.this$0.dispatchTouchEvent(TKBaseEvent.TK_DISPATCH_EVENT_NAME, new TKEventProcess.EventInterface(this, motionEvent) { // from class: com.tachikoma.core.component.view.TKView.1.1
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, motionEvent)) == null) ? this.this$0.dispatchTouchEvent("dispatch", new TKEventProcess.EventInterface(this, motionEvent) { // from class: com.tachikoma.core.component.view.TKView.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass1 this$1;
@@ -161,11 +160,11 @@ public class TKView extends TKBase<TKYogaLayout> {
                                 Interceptable interceptable3 = $ic;
                                 if ((interceptable3 == null || interceptable3.invokeL(1048576, this, iBaseEvent) == null) && (iBaseEvent instanceof TKDispatchEvent)) {
                                     TKDispatchEvent tKDispatchEvent = (TKDispatchEvent) iBaseEvent;
-                                    tKDispatchEvent.setType(TKBaseEvent.TK_DISPATCH_EVENT_NAME);
+                                    tKDispatchEvent.setType("dispatch");
                                     tKDispatchEvent.setPosition(new HashMap<String, Float>(this) { // from class: com.tachikoma.core.component.view.TKView.1.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ C22431 this$2;
+                                        public final /* synthetic */ C22491 this$2;
 
                                         {
                                             Interceptable interceptable4 = $ic;

@@ -46,7 +46,7 @@ public class gs implements av.b.a {
         }
         this.f459a = false;
         this.f456a = xMPushService;
-        this.f458a = av.c.f61429b;
+        this.f458a = av.c.f61474b;
         this.f457a = bVar;
     }
 
@@ -84,7 +84,7 @@ public class gs implements av.b.a {
                 m429a.d(this.f457a.f919b);
                 m429a.f353b = 1;
                 try {
-                    m429a.a((byte) Integer.parseInt(this.f457a.f61423g));
+                    m429a.a((byte) Integer.parseInt(this.f457a.f61468g));
                 } catch (NumberFormatException unused) {
                 }
                 gx.m427a().a(m429a);
@@ -125,7 +125,7 @@ public class gs implements av.b.a {
     public void a(av.c cVar, av.c cVar2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, i2) == null) {
-            if (!this.f459a && cVar == av.c.f61429b) {
+            if (!this.f459a && cVar == av.c.f61474b) {
                 this.f458a = cVar2;
                 this.a = i2;
                 this.f459a = true;

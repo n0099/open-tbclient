@@ -28,13 +28,13 @@ public final class j {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final a f30018b;
+        public final a f30046b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f30019c;
+        public a f30047c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f30020d;
+        public boolean f30048d;
 
         /* loaded from: classes9.dex */
         public static final class a {
@@ -43,10 +43,10 @@ public final class j {
             public String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public Object f30021b;
+            public Object f30049b;
 
             /* renamed from: c  reason: collision with root package name */
-            public a f30022c;
+            public a f30050c;
 
             public a() {
                 Interceptable interceptable = $ic;
@@ -116,8 +116,8 @@ public final class j {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 a aVar = new a(null);
-                this.f30019c.f30022c = aVar;
-                this.f30019c = aVar;
+                this.f30047c.f30050c = aVar;
+                this.f30047c = aVar;
                 return aVar;
             }
             return (a) invokeV.objValue;
@@ -127,7 +127,7 @@ public final class j {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                e().f30021b = obj;
+                e().f30049b = obj;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -138,7 +138,7 @@ public final class j {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, obj)) == null) {
                 a e2 = e();
-                e2.f30021b = obj;
+                e2.f30049b = obj;
                 n.p(str);
                 e2.a = str;
                 return this;
@@ -160,19 +160,19 @@ public final class j {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                boolean z = this.f30020d;
+                boolean z = this.f30048d;
                 StringBuilder sb = new StringBuilder(32);
                 sb.append(this.a);
                 sb.append(ExtendedMessageFormat.START_FE);
                 String str = "";
-                for (a aVar = this.f30018b.f30022c; aVar != null; aVar = aVar.f30022c) {
-                    Object obj = aVar.f30021b;
+                for (a aVar = this.f30046b.f30050c; aVar != null; aVar = aVar.f30050c) {
+                    Object obj = aVar.f30049b;
                     if (!z || obj != null) {
                         sb.append(str);
                         String str2 = aVar.a;
                         if (str2 != null) {
                             sb.append(str2);
-                            sb.append(com.alipay.sdk.encrypt.a.f30865h);
+                            sb.append(com.alipay.sdk.encrypt.a.f30893h);
                         }
                         if (obj != null && obj.getClass().isArray()) {
                             String deepToString = Arrays.deepToString(new Object[]{obj});
@@ -205,9 +205,9 @@ public final class j {
                 }
             }
             a aVar = new a(null);
-            this.f30018b = aVar;
-            this.f30019c = aVar;
-            this.f30020d = false;
+            this.f30046b = aVar;
+            this.f30047c = aVar;
+            this.f30048d = false;
             n.p(str);
             this.a = str;
         }

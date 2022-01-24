@@ -41,28 +41,28 @@ public class CyberCoreLoaderManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<a> f33527b;
+    public List<a> f33555b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f33528c;
+    public final Object f33556c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ExecutorService f33529d;
+    public ExecutorService f33557d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f33530e;
+    public volatile int f33558e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f33531f;
+    public Context f33559f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f33532g;
+    public long f33560g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f33533h;
+    public long f33561h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f33534i;
+    public Handler f33562i;
 
     /* loaded from: classes10.dex */
     public class a {
@@ -71,10 +71,10 @@ public class CyberCoreLoaderManager {
         public final /* synthetic */ CyberCoreLoaderManager a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f33538b;
+        public int f33566b;
 
         /* renamed from: c  reason: collision with root package name */
-        public CyberPlayerManager.InstallListener f33539c;
+        public CyberPlayerManager.InstallListener f33567c;
 
         public a(CyberCoreLoaderManager cyberCoreLoaderManager, int i2, CyberPlayerManager.InstallListener installListener) {
             Interceptable interceptable = $ic;
@@ -92,8 +92,8 @@ public class CyberCoreLoaderManager {
                 }
             }
             this.a = cyberCoreLoaderManager;
-            this.f33538b = i2;
-            this.f33539c = installListener;
+            this.f33566b = i2;
+            this.f33567c = installListener;
         }
     }
 
@@ -110,11 +110,11 @@ public class CyberCoreLoaderManager {
                 return;
             }
         }
-        this.f33528c = new Object();
-        this.f33530e = 0;
-        this.f33532g = -1L;
-        this.f33533h = -1L;
-        this.f33534i = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager.1
+        this.f33556c = new Object();
+        this.f33558e = 0;
+        this.f33560g = -1L;
+        this.f33561h = -1L;
+        this.f33562i = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CyberCoreLoaderManager a;
@@ -147,34 +147,34 @@ public class CyberCoreLoaderManager {
                     int i4 = message.what;
                     int i5 = 0;
                     if (i4 == 0) {
-                        synchronized (this.a.f33528c) {
-                            while (i5 < this.a.f33527b.size()) {
-                                a aVar = (a) this.a.f33527b.get(i5);
-                                if (aVar.f33539c != null && CyberPlayerManager.isCoreLoaded(aVar.f33538b)) {
-                                    aVar.f33539c.onInstallSuccess(message.arg1, CyberPlayerManager.getCoreVersion());
+                        synchronized (this.a.f33556c) {
+                            while (i5 < this.a.f33555b.size()) {
+                                a aVar = (a) this.a.f33555b.get(i5);
+                                if (aVar.f33567c != null && CyberPlayerManager.isCoreLoaded(aVar.f33566b)) {
+                                    aVar.f33567c.onInstallSuccess(message.arg1, CyberPlayerManager.getCoreVersion());
                                 }
                                 i5++;
                             }
                             this.a.b(message.arg1);
                         }
                     } else if (i4 == 1) {
-                        synchronized (this.a.f33528c) {
-                            while (i5 < this.a.f33527b.size()) {
-                                a aVar2 = (a) this.a.f33527b.get(i5);
-                                if (aVar2.f33539c != null) {
-                                    aVar2.f33539c.onInstallError(message.arg1, message.arg2, (String) message.obj);
+                        synchronized (this.a.f33556c) {
+                            while (i5 < this.a.f33555b.size()) {
+                                a aVar2 = (a) this.a.f33555b.get(i5);
+                                if (aVar2.f33567c != null) {
+                                    aVar2.f33567c.onInstallError(message.arg1, message.arg2, (String) message.obj);
                                 }
                                 i5++;
                             }
                             this.a.b(message.arg1);
                         }
                     } else if (i4 == 2) {
-                        while (i5 < this.a.f33527b.size()) {
-                            a aVar3 = (a) this.a.f33527b.get(i5);
-                            if (aVar3.f33539c != null) {
-                                aVar3.f33539c.onInstallProgress(message.arg1, message.arg2);
-                                if (aVar3.f33539c instanceof CyberPlayerManager.InstallListener2) {
-                                    ((CyberPlayerManager.InstallListener2) aVar3.f33539c).onInstallInfo(103, message.arg2, null);
+                        while (i5 < this.a.f33555b.size()) {
+                            a aVar3 = (a) this.a.f33555b.get(i5);
+                            if (aVar3.f33567c != null) {
+                                aVar3.f33567c.onInstallProgress(message.arg1, message.arg2);
+                                if (aVar3.f33567c instanceof CyberPlayerManager.InstallListener2) {
+                                    ((CyberPlayerManager.InstallListener2) aVar3.f33567c).onInstallInfo(103, message.arg2, null);
                                 }
                             }
                             i5++;
@@ -185,10 +185,10 @@ public class CyberCoreLoaderManager {
                             ((CyberPlayerManager.InstallListener) obj).onInstallSuccess(message.arg1, CyberPlayerManager.getCoreVersion());
                         }
                     } else if (i4 == 4) {
-                        for (int i6 = 0; i6 < this.a.f33527b.size(); i6++) {
-                            a aVar4 = (a) this.a.f33527b.get(i6);
-                            if (aVar4.f33539c != null && (aVar4.f33539c instanceof CyberPlayerManager.InstallListener2)) {
-                                ((CyberPlayerManager.InstallListener2) aVar4.f33539c).onInstallInfo(message.arg1, 0, message.obj);
+                        for (int i6 = 0; i6 < this.a.f33555b.size(); i6++) {
+                            a aVar4 = (a) this.a.f33555b.get(i6);
+                            if (aVar4.f33567c != null && (aVar4.f33567c instanceof CyberPlayerManager.InstallListener2)) {
+                                ((CyberPlayerManager.InstallListener2) aVar4.f33567c).onInstallInfo(message.arg1, 0, message.obj);
                             }
                         }
                     }
@@ -196,8 +196,8 @@ public class CyberCoreLoaderManager {
                 }
             }
         };
-        this.f33527b = new ArrayList();
-        this.f33529d = Executors.newSingleThreadExecutor();
+        this.f33555b = new ArrayList();
+        this.f33557d = Executors.newSingleThreadExecutor();
     }
 
     public static synchronized CyberCoreLoaderManager a() {
@@ -261,10 +261,10 @@ public class CyberCoreLoaderManager {
                 long a3 = com.baidu.cyberplayer.sdk.loader.a.a().a(0);
                 long a4 = com.baidu.cyberplayer.sdk.loader.a.a().a(1);
                 long a5 = com.baidu.cyberplayer.sdk.loader.a.a().a(2);
-                if (this.f33532g > 0) {
-                    hashMap.put("install_t_ms", String.valueOf(System.currentTimeMillis() - this.f33532g));
+                if (this.f33560g > 0) {
+                    hashMap.put("install_t_ms", String.valueOf(System.currentTimeMillis() - this.f33560g));
                 }
-                long j2 = this.f33533h;
+                long j2 = this.f33561h;
                 if (j2 >= 0) {
                     hashMap.put("init_dp_t_ms", String.valueOf(j2));
                 }
@@ -279,9 +279,9 @@ public class CyberCoreLoaderManager {
                 }
                 hashMap.put("install_type", String.valueOf(CyberPlayerManager.getInstallType()));
             }
-            this.f33532g = -1L;
+            this.f33560g = -1L;
             o.h();
-            b.a(this.f33531f, (int) DpStatConstants.ACTION_LIB_LOAD_RESULT, hashMap);
+            b.a(this.f33559f, (int) DpStatConstants.ACTION_LIB_LOAD_RESULT, hashMap);
         }
     }
 
@@ -292,9 +292,9 @@ public class CyberCoreLoaderManager {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        DpSessionDatasUploader.getInstance().a(this.f33531f);
+        DpSessionDatasUploader.getInstance().a(this.f33559f);
         com.baidu.cyberplayer.sdk.statistics.a.a().b();
-        this.f33533h = System.currentTimeMillis() - currentTimeMillis;
+        this.f33561h = System.currentTimeMillis() - currentTimeMillis;
         com.baidu.cyberplayer.sdk.loader.a.a().a(str, i2, map, new CyberPlayerManager.InstallListener2(this) { // from class: com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -323,12 +323,12 @@ public class CyberCoreLoaderManager {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i3, i4, str2) == null) {
                     this.a.a(i4, str2);
-                    Message obtainMessage = this.a.f33534i.obtainMessage();
+                    Message obtainMessage = this.a.f33562i.obtainMessage();
                     obtainMessage.what = 1;
                     obtainMessage.arg1 = i3;
                     obtainMessage.arg2 = i4;
                     obtainMessage.obj = str2;
-                    this.a.f33534i.sendMessage(obtainMessage);
+                    this.a.f33562i.sendMessage(obtainMessage);
                 }
             }
 
@@ -336,7 +336,7 @@ public class CyberCoreLoaderManager {
             public void onInstallInfo(int i3, int i4, Object obj) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, i4, obj) == null) {
-                    Message obtainMessage = this.a.f33534i.obtainMessage();
+                    Message obtainMessage = this.a.f33562i.obtainMessage();
                     switch (i3) {
                         case 100:
                         case 101:
@@ -345,7 +345,7 @@ public class CyberCoreLoaderManager {
                             obtainMessage.arg1 = i3;
                             obtainMessage.arg2 = i4;
                             obtainMessage.obj = obj;
-                            this.a.f33534i.sendMessage(obtainMessage);
+                            this.a.f33562i.sendMessage(obtainMessage);
                             return;
                         default:
                             return;
@@ -357,11 +357,11 @@ public class CyberCoreLoaderManager {
             public void onInstallProgress(int i3, int i4) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeII(Constants.METHOD_SEND_USER_MSG, this, i3, i4) == null) {
-                    Message obtainMessage = this.a.f33534i.obtainMessage();
+                    Message obtainMessage = this.a.f33562i.obtainMessage();
                     obtainMessage.what = 2;
                     obtainMessage.arg1 = i3;
                     obtainMessage.arg2 = i4;
-                    this.a.f33534i.sendMessage(obtainMessage);
+                    this.a.f33562i.sendMessage(obtainMessage);
                 }
             }
 
@@ -374,10 +374,10 @@ public class CyberCoreLoaderManager {
                         g.a().a(CyberPlayerManager.getRemoteServiceClass(), CyberPlayerManager.getClientID(), CyberPlayerManager.getInstallType(), this.a.a(CyberPlayerManager.getInstallOpts()));
                     }
                     this.a.c();
-                    Message obtainMessage = this.a.f33534i.obtainMessage();
+                    Message obtainMessage = this.a.f33562i.obtainMessage();
                     obtainMessage.what = 0;
                     obtainMessage.arg1 = i3;
-                    this.a.f33534i.sendMessage(obtainMessage);
+                    this.a.f33562i.sendMessage(obtainMessage);
                 }
             }
         });
@@ -387,9 +387,9 @@ public class CyberCoreLoaderManager {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i2)) == null) {
-            synchronized (this.f33528c) {
-                if (i2 != (this.f33530e & i2)) {
-                    this.f33530e = i2 | this.f33530e;
+            synchronized (this.f33556c) {
+                if (i2 != (this.f33558e & i2)) {
+                    this.f33558e = i2 | this.f33558e;
                     return true;
                 }
                 return false;
@@ -402,13 +402,13 @@ public class CyberCoreLoaderManager {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65548, this, i2) == null) {
-            Iterator<a> it = this.f33527b.iterator();
+            Iterator<a> it = this.f33555b.iterator();
             while (it.hasNext()) {
-                if (it.next().f33538b == i2) {
+                if (it.next().f33566b == i2) {
                     it.remove();
                 }
             }
-            this.f33530e = (i2 ^ Integer.MAX_VALUE) & this.f33530e;
+            this.f33558e = (i2 ^ Integer.MAX_VALUE) & this.f33558e;
         }
     }
 
@@ -448,23 +448,23 @@ public class CyberCoreLoaderManager {
     public void a(String str, int i2, Map<String, String> map, CyberPlayerManager.InstallListener installListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048576, this, str, i2, map, installListener) == null) {
-            if (this.f33532g == -1) {
-                this.f33532g = System.currentTimeMillis();
+            if (this.f33560g == -1) {
+                this.f33560g = System.currentTimeMillis();
             }
-            this.f33531f = CyberPlayerManager.getApplicationContext();
-            synchronized (this.f33528c) {
+            this.f33559f = CyberPlayerManager.getApplicationContext();
+            synchronized (this.f33556c) {
                 if (CyberPlayerManager.isCoreLoaded(i2)) {
                     if (installListener != null) {
-                        Message obtainMessage = this.f33534i.obtainMessage();
+                        Message obtainMessage = this.f33562i.obtainMessage();
                         obtainMessage.what = 3;
                         obtainMessage.arg1 = i2;
                         obtainMessage.obj = installListener;
-                        this.f33534i.sendMessage(obtainMessage);
+                        this.f33562i.sendMessage(obtainMessage);
                     }
                     return;
                 }
                 if (installListener != null) {
-                    this.f33527b.add(new a(this, i2, installListener));
+                    this.f33555b.add(new a(this, i2, installListener));
                 }
                 if (a(i2)) {
                     boolean z = false;
@@ -482,19 +482,19 @@ public class CyberCoreLoaderManager {
                     if (z) {
                         a(str, i2, map);
                     } else {
-                        this.f33529d.submit(new Runnable(this, str, i2, map) { // from class: com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager.2
+                        this.f33557d.submit(new Runnable(this, str, i2, map) { // from class: com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ String a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ int f33535b;
+                            public final /* synthetic */ int f33563b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ Map f33536c;
+                            public final /* synthetic */ Map f33564c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ CyberCoreLoaderManager f33537d;
+                            public final /* synthetic */ CyberCoreLoaderManager f33565d;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -511,17 +511,17 @@ public class CyberCoreLoaderManager {
                                         return;
                                     }
                                 }
-                                this.f33537d = this;
+                                this.f33565d = this;
                                 this.a = str;
-                                this.f33535b = i2;
-                                this.f33536c = map;
+                                this.f33563b = i2;
+                                this.f33564c = map;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    this.f33537d.a(this.a, this.f33535b, this.f33536c);
+                                    this.f33565d.a(this.a, this.f33563b, this.f33564c);
                                     SilentDownloaderManager.getInstance().a();
                                 }
                             }

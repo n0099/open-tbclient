@@ -4,7 +4,7 @@ public interface a {
 
     /* renamed from: c.a.t0.n4.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC1254a {
+    public interface InterfaceC1249a {
         float a();
 
         void b(float f2);
@@ -32,7 +32,7 @@ public interface a {
 
     void setMinDuration(int i2);
 
-    void setOnProgressListener(InterfaceC1254a interfaceC1254a);
+    void setOnProgressListener(InterfaceC1249a interfaceC1249a);
 
     void setProgress(long j2);
 

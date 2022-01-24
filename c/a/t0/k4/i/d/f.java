@@ -35,19 +35,19 @@ public class f extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18866e;
+    public Context f19099e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18867f;
+    public String f19100f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f18868g;
+    public String f19101g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f18869h;
+    public e f19102h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.c f18870i;
+    public b.c f19103i;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -55,7 +55,7 @@ public class f extends Thread {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f18871e;
+        public final /* synthetic */ f f19104e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -72,14 +72,14 @@ public class f extends Thread {
                     return;
                 }
             }
-            this.f18871e = fVar;
+            this.f19104e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f18871e.k();
+                this.f19104e.k();
             }
         }
     }
@@ -102,11 +102,11 @@ public class f extends Thread {
                 return;
             }
         }
-        this.f18866e = context;
-        this.f18867f = str;
-        this.f18868g = str2;
-        this.f18869h = eVar;
-        this.f18870i = cVar;
+        this.f19099e = context;
+        this.f19100f = str;
+        this.f19101g = str2;
+        this.f19102h = eVar;
+        this.f19103i = cVar;
     }
 
     public static String g(MediaFormat mediaFormat) {
@@ -167,7 +167,7 @@ public class f extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             MediaExtractor mediaExtractor = new MediaExtractor();
-            mediaExtractor.setDataSource(this.f18867f);
+            mediaExtractor.setDataSource(this.f19100f);
             return mediaExtractor;
         }
         return (MediaExtractor) invokeV.objValue;
@@ -234,7 +234,7 @@ public class f extends Thread {
             boolean z4 = false;
             boolean z5 = false;
             while (!z3 && h()) {
-                if (z2 || !((mediaFormat4 == null || this.f18869h.b()) && h() && (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) != i5)) {
+                if (z2 || !((mediaFormat4 == null || this.f19102h.b()) && h() && (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) != i5)) {
                     j2 = 10000;
                     i2 = i7;
                 } else {
@@ -256,7 +256,7 @@ public class f extends Thread {
                     }
                     z2 = z6;
                 }
-                if (!z4 && ((mediaFormat4 == null || this.f18869h.b()) && h() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, j2)) != -1)) {
+                if (!z4 && ((mediaFormat4 == null || this.f19102h.b()) && h() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, j2)) != -1)) {
                     if (dequeueOutputBuffer == -3) {
                         outputBuffers = mediaCodec.getOutputBuffers();
                     } else if (dequeueOutputBuffer == -2) {
@@ -278,7 +278,7 @@ public class f extends Thread {
                                 mediaCodec2.signalEndOfInputStream();
                                 byteBufferArr = outputBuffers;
                                 z4 = true;
-                                if (z3 && ((mediaFormat4 == null || this.f18869h.b()) && h())) {
+                                if (z3 && ((mediaFormat4 == null || this.f19102h.b()) && h())) {
                                     int dequeueOutputBuffer2 = mediaCodec2.dequeueOutputBuffer(bufferInfo2, j2);
                                     if (dequeueOutputBuffer2 == -1) {
                                         i3 = i2;
@@ -300,7 +300,7 @@ public class f extends Thread {
                                                 mediaCodec2.releaseOutputBuffer(dequeueOutputBuffer2, false);
                                             } else {
                                                 if (bufferInfo2.size != 0) {
-                                                    this.f18869h.g(i3, byteBuffer2, bufferInfo2);
+                                                    this.f19102h.g(i3, byteBuffer2, bufferInfo2);
                                                 }
                                                 if ((bufferInfo2.flags & 4) != 0) {
                                                     z = false;
@@ -315,14 +315,14 @@ public class f extends Thread {
                                             i7 = i3;
                                         } else {
                                             j(InnerVideoProcessor.TAG, "muxer: adding video track.");
-                                            i7 = this.f18869h.a(mediaFormat);
+                                            i7 = this.f19102h.a(mediaFormat);
                                             z5 = true;
                                         }
-                                        if (!this.f18869h.b() && z5) {
-                                            this.f18869h.d();
-                                            if (!this.f18869h.e()) {
-                                                synchronized (this.f18869h) {
-                                                    while (!this.f18869h.b()) {
+                                        if (!this.f19102h.b() && z5) {
+                                            this.f19102h.d();
+                                            if (!this.f19102h.e()) {
+                                                synchronized (this.f19102h) {
+                                                    while (!this.f19102h.b()) {
                                                         try {
                                                             mediaFormat3 = mediaFormat;
                                                         } catch (InterruptedException e2) {
@@ -330,7 +330,7 @@ public class f extends Thread {
                                                             mediaFormat3 = mediaFormat;
                                                         }
                                                         try {
-                                                            this.f18869h.wait(100L);
+                                                            this.f19102h.wait(100L);
                                                         } catch (InterruptedException e3) {
                                                             e = e3;
                                                             e.printStackTrace();
@@ -359,9 +359,9 @@ public class f extends Thread {
                                 if (mediaFormat != null) {
                                 }
                                 i7 = i3;
-                                if (!this.f18869h.b()) {
-                                    this.f18869h.d();
-                                    if (!this.f18869h.e()) {
+                                if (!this.f19102h.b()) {
+                                    this.f19102h.d();
+                                    if (!this.f19102h.e()) {
                                     }
                                 }
                                 mediaFormat2 = mediaFormat;
@@ -378,7 +378,7 @@ public class f extends Thread {
                             if (mediaFormat != null) {
                             }
                             i7 = i3;
-                            if (!this.f18869h.b()) {
+                            if (!this.f19102h.b()) {
                             }
                             mediaFormat2 = mediaFormat;
                             outputBuffers = byteBufferArr;
@@ -396,7 +396,7 @@ public class f extends Thread {
                 if (mediaFormat != null) {
                 }
                 i7 = i3;
-                if (!this.f18869h.b()) {
+                if (!this.f19102h.b()) {
                 }
                 mediaFormat2 = mediaFormat;
                 outputBuffers = byteBufferArr;
@@ -414,7 +414,7 @@ public class f extends Thread {
         if (r0 == null) goto L42;
      */
     /* JADX WARN: Code restructure failed: missing block: B:60:0x010c, code lost:
-        r0.onGenFilterVideoRecordError(229, c.a.t0.h2.a.a(r1));
+        r0.onGenFilterVideoRecordError(229, c.a.t0.i2.a.a(r1));
      */
     /* JADX WARN: Removed duplicated region for block: B:144:0x020f A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:145:0x0210  */
@@ -466,7 +466,7 @@ public class f extends Thread {
             int integer = trackFormat.getInteger("width");
             int integer2 = trackFormat.getInteger("height");
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            mediaMetadataRetriever.setDataSource(this.f18867f);
+            mediaMetadataRetriever.setDataSource(this.f19100f);
             if (TextUtils.equals(mediaMetadataRetriever.extractMetadata(24), "90")) {
                 integer2 = integer;
                 integer = integer2;
@@ -482,7 +482,7 @@ public class f extends Thread {
                 gVar = new g(atomicReference.get());
                 try {
                     gVar.c();
-                    hVar = new h(this.f18866e, this.f18868g, integer, integer2);
+                    hVar = new h(this.f19099e, this.f19101g, integer, integer2);
                     try {
                         mediaCodec2 = b(trackFormat, hVar.d());
                     } catch (Exception e3) {
@@ -499,9 +499,9 @@ public class f extends Thread {
                                 mediaExtractor.release();
                             } catch (Exception e4) {
                                 exc2 = e4;
-                                b.c cVar2 = this.f18870i;
+                                b.c cVar2 = this.f19103i;
                                 if (cVar2 != null) {
-                                    cVar2.onGenFilterVideoRecordError(225, c.a.t0.h2.a.a(exc2));
+                                    cVar2.onGenFilterVideoRecordError(225, c.a.t0.i2.a.a(exc2));
                                 }
                             }
                         }
@@ -513,9 +513,9 @@ public class f extends Thread {
                                 if (exc2 == null) {
                                     exc2 = e5;
                                 }
-                                b.c cVar3 = this.f18870i;
+                                b.c cVar3 = this.f19103i;
                                 if (cVar3 != null) {
-                                    cVar3.onGenFilterVideoRecordError(Constants.METHOD_MEDIA_NOTIFY, c.a.t0.h2.a.a(e5));
+                                    cVar3.onGenFilterVideoRecordError(Constants.METHOD_MEDIA_NOTIFY, c.a.t0.i2.a.a(e5));
                                 }
                             }
                         }
@@ -525,9 +525,9 @@ public class f extends Thread {
                             if (exc2 == null) {
                                 exc2 = e6;
                             }
-                            b.c cVar4 = this.f18870i;
+                            b.c cVar4 = this.f19103i;
                             if (cVar4 != null) {
-                                cVar4.onGenFilterVideoRecordError(w0.z, c.a.t0.h2.a.a(e6));
+                                cVar4.onGenFilterVideoRecordError(w0.z, c.a.t0.i2.a.a(e6));
                             }
                         }
                         if (mediaCodec != null) {
@@ -538,9 +538,9 @@ public class f extends Thread {
                                 if (exc2 == null) {
                                     exc2 = e7;
                                 }
-                                b.c cVar5 = this.f18870i;
+                                b.c cVar5 = this.f19103i;
                                 if (cVar5 != null) {
-                                    cVar5.onGenFilterVideoRecordError(228, c.a.t0.h2.a.a(e7));
+                                    cVar5.onGenFilterVideoRecordError(228, c.a.t0.i2.a.a(e7));
                                 }
                             }
                         }
@@ -551,7 +551,7 @@ public class f extends Thread {
                             if (exc2 == null) {
                                 exc2 = exc;
                             }
-                            cVar = this.f18870i;
+                            cVar = this.f19103i;
                         }
                     } catch (Exception e9) {
                         e = e9;
@@ -559,17 +559,17 @@ public class f extends Thread {
                         gVar = gVar;
                         try {
                             e.printStackTrace();
-                            if ((Build.VERSION.SDK_INT >= 21 || !(e instanceof MediaCodec.CodecException) || m.isEmpty(e.getMessage()) || !e.getMessage().contains("0xfffffff3")) && this.f18870i != null) {
-                                this.f18870i.onGenFilterVideoRecordError(w0.Q, c.a.t0.h2.a.a(e));
+                            if ((Build.VERSION.SDK_INT >= 21 || !(e instanceof MediaCodec.CodecException) || m.isEmpty(e.getMessage()) || !e.getMessage().contains("0xfffffff3")) && this.f19103i != null) {
+                                this.f19103i.onGenFilterVideoRecordError(w0.Q, c.a.t0.i2.a.a(e));
                             }
                             if (mediaExtractor != null) {
                                 try {
                                     mediaExtractor.release();
                                 } catch (Exception e10) {
                                     exc2 = e10;
-                                    b.c cVar6 = this.f18870i;
+                                    b.c cVar6 = this.f19103i;
                                     if (cVar6 != null) {
-                                        cVar6.onGenFilterVideoRecordError(225, c.a.t0.h2.a.a(exc2));
+                                        cVar6.onGenFilterVideoRecordError(225, c.a.t0.i2.a.a(exc2));
                                     }
                                 }
                             }
@@ -581,9 +581,9 @@ public class f extends Thread {
                                     if (exc2 == null) {
                                         exc2 = e11;
                                     }
-                                    b.c cVar7 = this.f18870i;
+                                    b.c cVar7 = this.f19103i;
                                     if (cVar7 != null) {
-                                        cVar7.onGenFilterVideoRecordError(Constants.METHOD_MEDIA_NOTIFY, c.a.t0.h2.a.a(e11));
+                                        cVar7.onGenFilterVideoRecordError(Constants.METHOD_MEDIA_NOTIFY, c.a.t0.i2.a.a(e11));
                                     }
                                 }
                             }
@@ -594,9 +594,9 @@ public class f extends Thread {
                                     if (exc2 == null) {
                                         exc2 = e12;
                                     }
-                                    b.c cVar8 = this.f18870i;
+                                    b.c cVar8 = this.f19103i;
                                     if (cVar8 != null) {
-                                        cVar8.onGenFilterVideoRecordError(w0.z, c.a.t0.h2.a.a(e12));
+                                        cVar8.onGenFilterVideoRecordError(w0.z, c.a.t0.i2.a.a(e12));
                                     }
                                 }
                             }
@@ -608,9 +608,9 @@ public class f extends Thread {
                                     if (exc2 == null) {
                                         exc2 = e13;
                                     }
-                                    b.c cVar9 = this.f18870i;
+                                    b.c cVar9 = this.f19103i;
                                     if (cVar9 != null) {
-                                        cVar9.onGenFilterVideoRecordError(228, c.a.t0.h2.a.a(e13));
+                                        cVar9.onGenFilterVideoRecordError(228, c.a.t0.i2.a.a(e13));
                                     }
                                 }
                             }
@@ -622,7 +622,7 @@ public class f extends Thread {
                                     if (exc2 == null) {
                                         exc2 = exc;
                                     }
-                                    cVar = this.f18870i;
+                                    cVar = this.f19103i;
                                 }
                             }
                             if (exc2 != null) {
@@ -634,9 +634,9 @@ public class f extends Thread {
                                     mediaExtractor.release();
                                 } catch (Exception e15) {
                                     exc2 = e15;
-                                    b.c cVar10 = this.f18870i;
+                                    b.c cVar10 = this.f19103i;
                                     if (cVar10 != null) {
-                                        cVar10.onGenFilterVideoRecordError(225, c.a.t0.h2.a.a(exc2));
+                                        cVar10.onGenFilterVideoRecordError(225, c.a.t0.i2.a.a(exc2));
                                     }
                                 }
                             }
@@ -648,9 +648,9 @@ public class f extends Thread {
                                     if (exc2 == null) {
                                         exc2 = e16;
                                     }
-                                    b.c cVar11 = this.f18870i;
+                                    b.c cVar11 = this.f19103i;
                                     if (cVar11 != null) {
-                                        cVar11.onGenFilterVideoRecordError(Constants.METHOD_MEDIA_NOTIFY, c.a.t0.h2.a.a(e16));
+                                        cVar11.onGenFilterVideoRecordError(Constants.METHOD_MEDIA_NOTIFY, c.a.t0.i2.a.a(e16));
                                     }
                                 }
                             }
@@ -661,9 +661,9 @@ public class f extends Thread {
                                     if (exc2 == null) {
                                         exc2 = e17;
                                     }
-                                    b.c cVar12 = this.f18870i;
+                                    b.c cVar12 = this.f19103i;
                                     if (cVar12 != null) {
-                                        cVar12.onGenFilterVideoRecordError(w0.z, c.a.t0.h2.a.a(e17));
+                                        cVar12.onGenFilterVideoRecordError(w0.z, c.a.t0.i2.a.a(e17));
                                     }
                                 }
                             }
@@ -674,9 +674,9 @@ public class f extends Thread {
                                 } catch (Exception e18) {
                                     if (exc2 == null) {
                                     }
-                                    b.c cVar13 = this.f18870i;
+                                    b.c cVar13 = this.f19103i;
                                     if (cVar13 != null) {
-                                        cVar13.onGenFilterVideoRecordError(228, c.a.t0.h2.a.a(e18));
+                                        cVar13.onGenFilterVideoRecordError(228, c.a.t0.i2.a.a(e18));
                                     }
                                 }
                             }
@@ -684,9 +684,9 @@ public class f extends Thread {
                                 try {
                                     gVar.d();
                                 } catch (Exception e19) {
-                                    b.c cVar14 = this.f18870i;
+                                    b.c cVar14 = this.f19103i;
                                     if (cVar14 != null) {
-                                        cVar14.onGenFilterVideoRecordError(229, c.a.t0.h2.a.a(e19));
+                                        cVar14.onGenFilterVideoRecordError(229, c.a.t0.i2.a.a(e19));
                                     }
                                 }
                             }
@@ -737,7 +737,7 @@ public class f extends Thread {
             e.printStackTrace();
             if (Build.VERSION.SDK_INT >= 21) {
             }
-            this.f18870i.onGenFilterVideoRecordError(w0.Q, c.a.t0.h2.a.a(e));
+            this.f19103i.onGenFilterVideoRecordError(w0.Q, c.a.t0.i2.a.a(e));
             if (mediaExtractor != null) {
             }
             if (mediaCodec2 != null) {

@@ -13,28 +13,28 @@ public class c {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f18795b;
+    public static final String f19028b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f18796c;
+    public static final String f19029c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f18797d;
+    public static final String f19030d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f18798e;
+    public static final String f19031e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f18799f;
+    public static final String f19032f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f18800g;
+    public static final String f19033g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f18801h;
+    public static final String f19034h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f18802i;
+    public static final String f19035i;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,17 +56,17 @@ public class c {
         sb.append("/");
         sb.append("tieba");
         sb.append("/videoCover.jpg");
-        f18795b = sb.toString();
-        f18796c = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/" + SevenZipUtils.FILE_NAME_TEMP;
-        f18797d = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/" + SevenZipUtils.FILE_NAME_TEMP;
-        f18798e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/temp/";
-        f18799f = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/temp/";
+        f19028b = sb.toString();
+        f19029c = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/" + SevenZipUtils.FILE_NAME_TEMP;
+        f19030d = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/" + SevenZipUtils.FILE_NAME_TEMP;
+        f19031e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/temp/";
+        f19032f = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/temp/";
         StringBuilder sb2 = new StringBuilder();
         sb2.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
         sb2.append("/");
         sb2.append("DCIM/tieba/");
-        f18800g = sb2.toString();
-        f18801h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.pendant/";
-        f18802i = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/takepic/";
+        f19033g = sb2.toString();
+        f19034h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.pendant/";
+        f19035i = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/takepic/";
     }
 }

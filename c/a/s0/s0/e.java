@@ -35,13 +35,13 @@ public class e extends m {
             a.b("action", "time_t");
             f(a, hVar);
             a.b("ishttp", hVar.s ? "1" : "0");
-            a.b("issuccess", hVar.f13742b ? "1" : "0");
+            a.b("issuccess", hVar.f13887b ? "1" : "0");
             a.b("nettype", k.d().f());
-            a.b("ct", String.valueOf(hVar.f13745e));
+            a.b("ct", String.valueOf(hVar.f13890e));
             a.b("wt", String.valueOf(hVar.p));
-            a.b("qt", String.valueOf(hVar.f13746f));
-            a.b("connt", String.valueOf(hVar.f13747g));
-            a.b("rwt", String.valueOf(hVar.f13748h));
+            a.b("qt", String.valueOf(hVar.f13891f));
+            a.b("connt", String.valueOf(hVar.f13892g));
+            a.b("rwt", String.valueOf(hVar.f13893h));
             a.b("dect", String.valueOf(hVar.k));
             a.b("parset", String.valueOf(hVar.l));
             a.b("rendert", String.valueOf(hVar.o));
@@ -99,14 +99,14 @@ public class e extends m {
                     if (z) {
                         a.b("put", String.valueOf(hVar.B));
                     } else {
-                        a.b(b.c.f32581c, String.valueOf(hVar.C));
+                        a.b(b.c.f32609c, String.valueOf(hVar.C));
                     }
                     a.b("ishttp", hVar.s ? "1" : "0");
-                    a.b("issuccess", hVar.f13742b ? "1" : "0");
+                    a.b("issuccess", hVar.f13887b ? "1" : "0");
                     a.b("nettype", k.d().f());
-                    a.b("qt", String.valueOf(hVar.f13746f));
-                    a.b("connt", String.valueOf(hVar.f13747g));
-                    a.b("rwt", String.valueOf(hVar.f13748h));
+                    a.b("qt", String.valueOf(hVar.f13891f));
+                    a.b("connt", String.valueOf(hVar.f13892g));
+                    a.b("rwt", String.valueOf(hVar.f13893h));
                     a.b("dect", String.valueOf(hVar.k));
                     a.b("parset", String.valueOf(hVar.l));
                     a.b("rendert", String.valueOf(hVar.o));

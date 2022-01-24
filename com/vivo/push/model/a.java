@@ -14,7 +14,7 @@ public final class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60715b;
+    public String f60760b;
 
     public a(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class a {
             }
         }
         this.a = str;
-        this.f60715b = str2;
+        this.f60760b = str2;
     }
 
     public final String a() {
@@ -44,7 +44,7 @@ public final class a {
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60715b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60760b : (String) invokeV.objValue;
     }
 
     public final boolean equals(Object obj) {
@@ -85,7 +85,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "ConfigItem{mKey='" + this.a + ExtendedMessageFormat.QUOTE + ", mValue='" + this.f60715b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "ConfigItem{mKey='" + this.a + ExtendedMessageFormat.QUOTE + ", mValue='" + this.f60760b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

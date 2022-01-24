@@ -16,12 +16,12 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f60735c;
+    public static volatile a f60780c;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f60736b;
+    public byte[] f60781b;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -41,21 +41,21 @@ public class a {
         x.b().a(ContextDelegate.getContext(context));
         x b2 = x.b();
         this.a = b2.c();
-        this.f60736b = b2.d();
+        this.f60781b = b2.d();
     }
 
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f60735c == null) {
+            if (f60780c == null) {
                 synchronized (a.class) {
-                    if (f60735c == null) {
-                        f60735c = new a(context.getApplicationContext());
+                    if (f60780c == null) {
+                        f60780c = new a(context.getApplicationContext());
                     }
                 }
             }
-            return f60735c;
+            return f60780c;
         }
         return (a) invokeL.objValue;
     }
@@ -70,7 +70,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            byte[] bArr = this.f60736b;
+            byte[] bArr = this.f60781b;
             return (bArr == null || bArr.length <= 0) ? x.b().d() : bArr;
         }
         return (byte[]) invokeV.objValue;

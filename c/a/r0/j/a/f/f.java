@@ -1,5 +1,6 @@
 package c.a.r0.j.a.f;
 
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,7 +32,7 @@ public class f {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("errCode", str);
-                jSONObject.put("errMsg", com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
                 jSONObject.put("errDes", c.a.r0.h.i.s.b.a(str));
             } catch (Exception e2) {
                 e2.printStackTrace();

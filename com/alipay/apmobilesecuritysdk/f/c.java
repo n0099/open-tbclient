@@ -44,9 +44,9 @@ public final class c implements Runnable {
             try {
                 Process.setThreadPriority(0);
                 while (!linkedList.isEmpty()) {
-                    linkedList2 = this.a.f30717c;
+                    linkedList2 = this.a.f30745c;
                     Runnable runnable = (Runnable) linkedList2.get(0);
-                    linkedList3 = this.a.f30717c;
+                    linkedList3 = this.a.f30745c;
                     linkedList3.remove(0);
                     if (runnable != null) {
                         runnable.run();
@@ -54,10 +54,10 @@ public final class c implements Runnable {
                 }
             } catch (Exception unused) {
             } catch (Throwable th) {
-                this.a.f30716b = null;
+                this.a.f30744b = null;
                 throw th;
             }
-            this.a.f30716b = null;
+            this.a.f30744b = null;
         }
     }
 }

@@ -8,9 +8,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.s0.g1.q.a.d.f;
-import c.a.t0.y2.e;
-import c.a.t0.y2.g;
+import c.a.s0.f1.q.a.d.f;
+import c.a.t0.z2.e;
+import c.a.t0.z2.g;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -46,7 +46,7 @@ public class PersonConstellationActivity extends BaseActivity {
     public TextView mShowStatusTipView;
     public BdSwitchView.b mSwitchChangeListener;
     public BdSwitchView mSwitchView;
-    public c.a.s0.g1.q.a.f.b mTimePickerView;
+    public c.a.s0.f1.q.a.f.b mTimePickerView;
     public f mTimeSelectListener;
 
     /* loaded from: classes12.dex */
@@ -55,7 +55,7 @@ public class PersonConstellationActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonConstellationActivity f47170e;
+        public final /* synthetic */ PersonConstellationActivity f47198e;
 
         public a(PersonConstellationActivity personConstellationActivity) {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class PersonConstellationActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47170e = personConstellationActivity;
+            this.f47198e = personConstellationActivity;
         }
 
         @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
@@ -80,9 +80,9 @@ public class PersonConstellationActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, view, switchState) == null) {
                 if (switchState == BdSwitchView.SwitchState.OFF) {
-                    this.f47170e.mShowStatus = 2;
+                    this.f47198e.mShowStatus = 2;
                 } else {
-                    this.f47170e.mShowStatus = 1;
+                    this.f47198e.mShowStatus = 1;
                 }
             }
         }
@@ -94,7 +94,7 @@ public class PersonConstellationActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonConstellationActivity f47171e;
+        public final /* synthetic */ PersonConstellationActivity f47199e;
 
         public b(PersonConstellationActivity personConstellationActivity) {
             Interceptable interceptable = $ic;
@@ -111,28 +111,28 @@ public class PersonConstellationActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47171e = personConstellationActivity;
+            this.f47199e = personConstellationActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f47171e.mCompleteLayout) {
-                    this.f47171e.finishActivity();
-                } else if (view != this.f47171e.mBackImg) {
-                    if (view == this.f47171e.mBirthdayLayout) {
-                        this.f47171e.showTimePicker();
+                if (view == this.f47199e.mCompleteLayout) {
+                    this.f47199e.finishActivity();
+                } else if (view != this.f47199e.mBackImg) {
+                    if (view == this.f47199e.mBirthdayLayout) {
+                        this.f47199e.showTimePicker();
                     }
                 } else {
-                    this.f47171e.finish();
+                    this.f47199e.finish();
                 }
             }
         }
     }
 
     /* loaded from: classes12.dex */
-    public class c implements c.a.s0.g1.q.a.d.a {
+    public class c implements c.a.s0.f1.q.a.d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonConstellationActivity a;
@@ -143,7 +143,7 @@ public class PersonConstellationActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f47172e;
+            public final /* synthetic */ c f47200e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -160,16 +160,16 @@ public class PersonConstellationActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f47172e = cVar;
+                this.f47200e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47172e.a.mTimePickerView == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47200e.a.mTimePickerView == null) {
                     return;
                 }
-                this.f47172e.a.mTimePickerView.f();
+                this.f47200e.a.mTimePickerView.f();
             }
         }
 
@@ -179,7 +179,7 @@ public class PersonConstellationActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f47173e;
+            public final /* synthetic */ c f47201e;
 
             public b(c cVar) {
                 Interceptable interceptable = $ic;
@@ -196,17 +196,17 @@ public class PersonConstellationActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f47173e = cVar;
+                this.f47201e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47173e.a.mTimePickerView == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47201e.a.mTimePickerView == null) {
                     return;
                 }
-                this.f47173e.a.mTimePickerView.A();
-                this.f47173e.a.mTimePickerView.f();
+                this.f47201e.a.mTimePickerView.A();
+                this.f47201e.a.mTimePickerView.f();
             }
         }
 
@@ -228,16 +228,16 @@ public class PersonConstellationActivity extends BaseActivity {
             this.a = personConstellationActivity;
         }
 
-        @Override // c.a.s0.g1.q.a.d.a
+        @Override // c.a.s0.f1.q.a.d.a
         public void a(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                SkinManager.setBackgroundResource(view, c.a.t0.y2.c.person_birthday_select_top_bg);
-                TextView textView = (TextView) view.findViewById(c.a.t0.y2.d.person_constellation_cancle);
+                SkinManager.setBackgroundResource(view, c.a.t0.z2.c.person_birthday_select_top_bg);
+                TextView textView = (TextView) view.findViewById(c.a.t0.z2.d.person_constellation_cancle);
                 textView.setOnClickListener(new a(this));
-                SkinManager.setViewTextColor(textView, c.a.t0.y2.a.CAM_X0105, 1, TbadkCoreApplication.getInst().getSkinType());
-                TextView textView2 = (TextView) view.findViewById(c.a.t0.y2.d.person_constellation_birthday_complete);
-                SkinManager.setViewTextColor(textView2, c.a.t0.y2.a.CAM_X0302, 1, TbadkCoreApplication.getInst().getSkinType());
+                SkinManager.setViewTextColor(textView, c.a.t0.z2.a.CAM_X0105, 1, TbadkCoreApplication.getInst().getSkinType());
+                TextView textView2 = (TextView) view.findViewById(c.a.t0.z2.d.person_constellation_birthday_complete);
+                SkinManager.setViewTextColor(textView2, c.a.t0.z2.a.CAM_X0302, 1, TbadkCoreApplication.getInst().getSkinType());
                 textView2.setOnClickListener(new b(this));
             }
         }
@@ -267,7 +267,7 @@ public class PersonConstellationActivity extends BaseActivity {
             this.a = personConstellationActivity;
         }
 
-        @Override // c.a.s0.g1.q.a.d.f
+        @Override // c.a.s0.f1.q.a.d.f
         public void a(Date date, View view) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, date, view) == null) || date == null) {
@@ -350,13 +350,13 @@ public class PersonConstellationActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-            this.mSwitchView.setBackgroundRes(SkinManager.getBitmap(c.a.t0.y2.c.bg_switch_open), SkinManager.getBitmap(c.a.t0.y2.c.bg_switch_close), SkinManager.getBitmap(c.a.t0.y2.c.btn_handle));
-            SkinManager.setViewTextColor(this.mBirthdayLabel, c.a.t0.y2.a.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.mShowStatusLabel, c.a.t0.y2.a.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.mConsNameView, c.a.t0.y2.a.CAM_X0109, 1, i2);
-            SkinManager.setViewTextColor(this.mBirthdayView, c.a.t0.y2.a.CAM_X0109, 1, i2);
-            SkinManager.setViewTextColor(this.mShowStatusTipView, c.a.t0.y2.a.CAM_X0109, 1, i2);
-            SkinManager.setBackgroundResource(this.mRootView, c.a.t0.y2.a.CAM_X0201, i2);
+            this.mSwitchView.setBackgroundRes(SkinManager.getBitmap(c.a.t0.z2.c.bg_switch_open), SkinManager.getBitmap(c.a.t0.z2.c.bg_switch_close), SkinManager.getBitmap(c.a.t0.z2.c.btn_handle));
+            SkinManager.setViewTextColor(this.mBirthdayLabel, c.a.t0.z2.a.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.mShowStatusLabel, c.a.t0.z2.a.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.mConsNameView, c.a.t0.z2.a.CAM_X0109, 1, i2);
+            SkinManager.setViewTextColor(this.mBirthdayView, c.a.t0.z2.a.CAM_X0109, 1, i2);
+            SkinManager.setViewTextColor(this.mShowStatusTipView, c.a.t0.z2.a.CAM_X0109, 1, i2);
+            SkinManager.setBackgroundResource(this.mRootView, c.a.t0.z2.a.CAM_X0201, i2);
         }
     }
 
@@ -367,34 +367,34 @@ public class PersonConstellationActivity extends BaseActivity {
             super.onCreate(bundle);
             setContentView(e.person_constellation_layout);
             initData();
-            this.mRootView = (RelativeLayout) findViewById(c.a.t0.y2.d.person_constellation_root_view);
-            NavigationBar navigationBar = (NavigationBar) findViewById(c.a.t0.y2.d.view_navigation_bar);
+            this.mRootView = (RelativeLayout) findViewById(c.a.t0.z2.d.person_constellation_root_view);
+            NavigationBar navigationBar = (NavigationBar) findViewById(c.a.t0.z2.d.view_navigation_bar);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(g.person_constellation_title)).setTextSize(0, getResources().getDimensionPixelSize(c.a.t0.y2.b.tbfontsize44));
+            navigationBar.setCenterTextTitle(getResources().getString(g.person_constellation_title)).setTextSize(0, getResources().getDimensionPixelSize(c.a.t0.z2.b.tbfontsize44));
             View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.navigation_right_button_layout, (View.OnClickListener) null);
             this.mCompleteLayout = addCustomView;
-            TextView textView = (TextView) addCustomView.findViewById(c.a.t0.y2.d.right_textview);
+            TextView textView = (TextView) addCustomView.findViewById(c.a.t0.z2.d.right_textview);
             this.mCompleteView = textView;
-            textView.setTextSize(0, getResources().getDimensionPixelSize(c.a.t0.y2.b.tbfontsize44));
+            textView.setTextSize(0, getResources().getDimensionPixelSize(c.a.t0.z2.b.tbfontsize44));
             this.mCompleteView.setText(getPageContext().getString(g.person_constellation_complete));
-            SkinManager.setViewTextColor(this.mCompleteView, c.a.t0.y2.a.navi_op_text, 1);
+            SkinManager.setViewTextColor(this.mCompleteView, c.a.t0.z2.a.navi_op_text, 1);
             this.mCompleteLayout.setOnClickListener(this.mClickListener);
             ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, e.view_topbar_icon, (View.OnClickListener) null);
             this.mBackImg = imageView;
             imageView.setOnClickListener(this.mClickListener);
-            SkinManager.setImageResource(this.mBackImg, c.a.t0.y2.c.selector_topbar_return_black);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(c.a.t0.y2.d.person_constellation_switch);
+            SkinManager.setImageResource(this.mBackImg, c.a.t0.z2.c.selector_topbar_return_black);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(c.a.t0.z2.d.person_constellation_switch);
             this.mSwitchView = bdSwitchView;
             bdSwitchView.setOnSwitchStateChangeListener(this.mSwitchChangeListener);
             n.b(getPageContext().getPageActivity(), this.mSwitchView, 10, 10, 10, 10);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(c.a.t0.y2.d.person_constellation_birthday);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(c.a.t0.z2.d.person_constellation_birthday);
             this.mBirthdayLayout = relativeLayout;
             relativeLayout.setOnClickListener(this.mClickListener);
-            this.mConsNameView = (TextView) findViewById(c.a.t0.y2.d.constellation_name);
-            this.mBirthdayView = (TextView) findViewById(c.a.t0.y2.d.constellation_birthday);
-            this.mBirthdayLabel = (TextView) findViewById(c.a.t0.y2.d.birthday_label);
-            this.mShowStatusLabel = (TextView) findViewById(c.a.t0.y2.d.person_constellation_permission_label);
-            TextView textView2 = (TextView) findViewById(c.a.t0.y2.d.person_constellation_tip);
+            this.mConsNameView = (TextView) findViewById(c.a.t0.z2.d.constellation_name);
+            this.mBirthdayView = (TextView) findViewById(c.a.t0.z2.d.constellation_birthday);
+            this.mBirthdayLabel = (TextView) findViewById(c.a.t0.z2.d.birthday_label);
+            this.mShowStatusLabel = (TextView) findViewById(c.a.t0.z2.d.person_constellation_permission_label);
+            TextView textView2 = (TextView) findViewById(c.a.t0.z2.d.person_constellation_tip);
             this.mShowStatusTipView = textView2;
             if (this.mBirthdayTime == 0) {
                 textView2.setVisibility(0);
@@ -418,7 +418,7 @@ public class PersonConstellationActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.mTimePickerView == null) {
-                c.a.s0.g1.q.a.b.a aVar = new c.a.s0.g1.q.a.b.a(getActivity(), this.mTimeSelectListener);
+                c.a.s0.f1.q.a.b.a aVar = new c.a.s0.f1.q.a.b.a(getActivity(), this.mTimeSelectListener);
                 aVar.k(e.person_birthday_select_layout, new c(this));
                 aVar.f(18);
                 aVar.p(new boolean[]{true, true, true, false, false, false});
@@ -426,11 +426,11 @@ public class PersonConstellationActivity extends BaseActivity {
                 aVar.l(2.0f);
                 aVar.o(0, 0, 0, 0, 0, 0);
                 aVar.b(false);
-                aVar.i(SkinManager.getColor(c.a.t0.y2.a.CAM_X0206));
-                aVar.m(SkinManager.getColor(c.a.t0.y2.a.CAM_X0105));
-                aVar.n(SkinManager.getColor(c.a.t0.y2.a.CAM_X0109));
-                aVar.d(SkinManager.getColor(c.a.t0.y2.a.black_alpha30));
-                aVar.e(SkinManager.getColor(c.a.t0.y2.a.CAM_X0201));
+                aVar.i(SkinManager.getColor(c.a.t0.z2.a.CAM_X0206));
+                aVar.m(SkinManager.getColor(c.a.t0.z2.a.CAM_X0105));
+                aVar.n(SkinManager.getColor(c.a.t0.z2.a.CAM_X0109));
+                aVar.d(SkinManager.getColor(c.a.t0.z2.a.black_alpha30));
+                aVar.e(SkinManager.getColor(c.a.t0.z2.a.CAM_X0201));
                 aVar.c(false);
                 aVar.h(this.mRootView);
                 this.mTimePickerView = aVar.a();

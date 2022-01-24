@@ -26,28 +26,28 @@ public class c {
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f12916b;
+    public final View f13060b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ThreadAchievementShareInfo.ParamBean f12917c;
+    public final ThreadAchievementShareInfo.ParamBean f13061c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f12918d;
+    public TbImageView f13062d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f12919e;
+    public ImageView f13063e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12920f;
+    public TextView f13064f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12921g;
+    public TextView f13065g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f12922h;
+    public TextView f13066h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f12923i;
+    public TextView f13067i;
 
     public c(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         Interceptable interceptable = $ic;
@@ -65,8 +65,8 @@ public class c {
             }
         }
         this.a = context;
-        this.f12916b = LayoutInflater.from(context).inflate(R.layout.video_interaction_achievement, (ViewGroup) null);
-        this.f12917c = threadAchievementShareInfo.getParams();
+        this.f13060b = LayoutInflater.from(context).inflate(R.layout.video_interaction_achievement, (ViewGroup) null);
+        this.f13061c = threadAchievementShareInfo.getParams();
         c();
         b();
     }
@@ -74,39 +74,39 @@ public class c {
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12916b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13060b : (View) invokeV.objValue;
     }
 
     public final void b() {
         ThreadAchievementShareInfo.ParamBean paramBean;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (paramBean = this.f12917c) == null || paramBean.getVideo_info() == null || TextUtils.isEmpty(this.f12917c.getVideo_info().getThumbnail_url())) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (paramBean = this.f13061c) == null || paramBean.getVideo_info() == null || TextUtils.isEmpty(this.f13061c.getVideo_info().getThumbnail_url())) {
             return;
         }
-        this.f12918d.startLoad(this.f12917c.getVideo_info().getThumbnail_url(), 10, false);
-        this.f12923i.setText(StringHelper.numFormatOverWanWithNegative(this.f12917c.getAgree_num()));
-        this.f12920f.setText(StringHelper.numFormatOverWanWithNegative(this.f12917c.getPost_num()));
+        this.f13062d.startLoad(this.f13061c.getVideo_info().getThumbnail_url(), 10, false);
+        this.f13067i.setText(StringHelper.numFormatOverWanWithNegative(this.f13061c.getAgree_num()));
+        this.f13064f.setText(StringHelper.numFormatOverWanWithNegative(this.f13061c.getPost_num()));
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f12920f = (TextView) this.f12916b.findViewById(R.id.comment_num);
-            this.f12921g = (TextView) this.f12916b.findViewById(R.id.comment_desc);
-            this.f12922h = (TextView) this.f12916b.findViewById(R.id.praise_desc);
-            TextView textView = (TextView) this.f12916b.findViewById(R.id.praise_num);
-            this.f12923i = textView;
+            this.f13064f = (TextView) this.f13060b.findViewById(R.id.comment_num);
+            this.f13065g = (TextView) this.f13060b.findViewById(R.id.comment_desc);
+            this.f13066h = (TextView) this.f13060b.findViewById(R.id.praise_desc);
+            TextView textView = (TextView) this.f13060b.findViewById(R.id.praise_num);
+            this.f13067i = textView;
             textView.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.f12920f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.f12922h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.f12921g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            TbImageView tbImageView = (TbImageView) this.f12916b.findViewById(R.id.video_img);
-            this.f12918d = tbImageView;
+            this.f13064f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.f13066h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.f13065g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            TbImageView tbImageView = (TbImageView) this.f13060b.findViewById(R.id.video_img);
+            this.f13062d = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.f12918d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f12918d.setPlaceHolder(2);
-            ImageView imageView = (ImageView) this.f12916b.findViewById(R.id.play_icon);
-            this.f12919e = imageView;
+            this.f13062d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f13062d.setPlaceHolder(2);
+            ImageView imageView = (ImageView) this.f13060b.findViewById(R.id.play_icon);
+            this.f13063e = imageView;
             imageView.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, null));
         }
     }

@@ -6,7 +6,6 @@ import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsUploadConfig;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsWriteConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiOptions;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -116,7 +115,7 @@ public class BdStatSwitchData implements Serializable {
                 bdStatistisUploadChilidItem.subType = optJSONObject3.optString("type");
                 bdStatistisUploadChilidItem.isUpload = optJSONObject3.optInt("is_upload", 0) != 0;
                 bdStatistisUploadChilidItem.isWifi = optJSONObject3.optInt("is_only_wifi", 0) != 0;
-                bdStatistisUploadChilidItem.percent = optJSONObject3.optInt(SapiOptions.KEY_CACHE_PERCENT);
+                bdStatistisUploadChilidItem.percent = optJSONObject3.optInt("percent");
                 bdStatisticsUploadConfigItem.childItem.put(bdStatistisUploadChilidItem.subType, bdStatistisUploadChilidItem);
                 arrayList.add(bdStatistisUploadChilidItem.subType);
                 this.mChildTypes.put(bdStatisticsWriteConfigItem.type, arrayList);

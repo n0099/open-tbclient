@@ -12,17 +12,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static int a = 8;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f59760b;
+    public static volatile c f59805b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<Integer, Bitmap> f59761c;
+    public a<Integer, Bitmap> f59806c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a<K, T> extends LinkedHashMap<K, T> {
         public final int a;
 
@@ -38,9 +38,9 @@ public class c {
     }
 
     public c() {
-        this.f59761c = null;
+        this.f59806c = null;
         int i2 = a;
-        this.f59761c = new a<>(i2, i2 / 2);
+        this.f59806c = new a<>(i2, i2 / 2);
     }
 
     public static ByteArrayOutputStream b(InputStream inputStream) throws IOException {
@@ -58,18 +58,18 @@ public class c {
     }
 
     public static c a() {
-        if (f59760b == null) {
+        if (f59805b == null) {
             synchronized (c.class) {
-                if (f59760b == null) {
-                    f59760b = new c();
+                if (f59805b == null) {
+                    f59805b = new c();
                 }
             }
         }
-        return f59760b;
+        return f59805b;
     }
 
     public Bitmap a(int i2) {
-        return this.f59761c.get(Integer.valueOf(i2));
+        return this.f59806c.get(Integer.valueOf(i2));
     }
 
     public void a(final int i2, final String str) {
@@ -142,7 +142,7 @@ public class c {
                                 int a3 = com.ss.android.socialbase.appdownloader.c.a(com.ss.android.socialbase.downloader.downloader.c.N(), 44.0f);
                                 options.inSampleSize = c.a(a3, a3, options);
                                 options.inJustDecodeBounds = false;
-                                c.this.f59761c.put(Integer.valueOf(i2), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
+                                c.this.f59806c.put(Integer.valueOf(i2), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
                                 f.a(inputStream, byteArrayOutputStream, byteArrayInputStream, byteArrayInputStream2);
                             } catch (Exception e5) {
                                 e2 = e5;

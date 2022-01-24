@@ -110,12 +110,12 @@ public class c {
 
     /* renamed from: c.a.s0.s.x.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0889c extends CustomMessageListener {
+    public static class C0898c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0889c(int i2) {
+        public C0898c(int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -152,9 +152,9 @@ public class c {
             aVar.setPriority(Integer.MIN_VALUE);
             MessageManager.getInstance().addMessageRule(aVar);
             MessageManager.getInstance().addResponsedMessageRule(new b(0));
-            C0889c c0889c = new C0889c(2000999);
-            c0889c.setPriority(Integer.MIN_VALUE);
-            MessageManager.getInstance().registerListener(c0889c);
+            C0898c c0898c = new C0898c(2000999);
+            c0898c.setPriority(Integer.MIN_VALUE);
+            MessageManager.getInstance().registerListener(c0898c);
         }
     }
 }

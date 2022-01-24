@@ -17,7 +17,7 @@ public final class x extends com.vivo.push.o {
     public HashMap<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f60655b;
+    public long f60700b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x() {
@@ -49,7 +49,7 @@ public final class x extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             aVar.a("ReporterCommand.EXTRA_PARAMS", this.a);
-            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.f60655b);
+            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.f60700b);
         }
     }
 
@@ -58,7 +58,7 @@ public final class x extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             this.a = (HashMap) aVar.d("ReporterCommand.EXTRA_PARAMS");
-            this.f60655b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.f60655b);
+            this.f60700b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.f60700b);
         }
     }
 
@@ -67,7 +67,7 @@ public final class x extends com.vivo.push.o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "ReporterCommand（" + this.f60655b + SmallTailInfo.EMOTION_SUFFIX;
+            return "ReporterCommand（" + this.f60700b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -90,7 +90,7 @@ public final class x extends com.vivo.push.o {
                 return;
             }
         }
-        this.f60655b = j2;
+        this.f60700b = j2;
     }
 
     public final void d() {
@@ -101,7 +101,7 @@ public final class x extends com.vivo.push.o {
                 return;
             }
             StringBuilder sb = new StringBuilder("report message reportType:");
-            sb.append(this.f60655b);
+            sb.append(this.f60700b);
             sb.append(",msgId:");
             String str = this.a.get("messageID");
             if (TextUtils.isEmpty(str)) {

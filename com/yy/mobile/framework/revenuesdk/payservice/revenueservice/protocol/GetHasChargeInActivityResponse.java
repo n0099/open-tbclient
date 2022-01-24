@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -58,8 +59,8 @@ public class GetHasChargeInActivityResponse implements IBaseJsonResponse {
                         this.result = jSONObject.optInt("result");
                         this.message = jSONObject.optString("message");
                         this.activityId = jSONObject.optInt("activityId");
-                        this.startTime = jSONObject.optString("startTime");
-                        this.endTime = jSONObject.optString("endTime");
+                        this.startTime = jSONObject.optString(FetchLog.START_TIME);
+                        this.endTime = jSONObject.optString(FetchLog.END_TIME);
                         this.hasCharge = jSONObject.optBoolean("hasCharge");
                         this.tip = jSONObject.optString("tip");
                         this.chargeCount = jSONObject.optInt("chargeCount");

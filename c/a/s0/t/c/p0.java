@@ -1,99 +1,82 @@
 package c.a.s0.t.c;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.FrsPage.DataRes;
 /* loaded from: classes6.dex */
 public class p0 {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f13876b;
+    public static final p0 f14021b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final boolean a;
 
-    /* renamed from: c  reason: collision with root package name */
-    public long f13877c;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-92419224, "Lc/a/s0/t/c/p0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-92419224, "Lc/a/s0/t/c/p0;");
+                return;
+            }
+        }
+        f14021b = new p0(false);
+    }
 
-    /* renamed from: d  reason: collision with root package name */
-    public long f13878d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f13879e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f13880f;
-
-    public p0() {
+    public p0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = z;
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    @NonNull
+    public static p0 b(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13877c : invokeV.longValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13880f : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13879e : (String) invokeV.objValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13878d : invokeV.longValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13876b : invokeV.longValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || c.a.d.f.p.m.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            return new p0((jSONObject != null ? jSONObject.optInt("voice_room_config") : 0) == 1);
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.a = jSONObject.optString("splash_video_url");
-            this.f13876b = jSONObject.optLong("splash_video_start_time") * 1000;
-            this.f13877c = jSONObject.optLong("splash_video_end_time") * 1000;
-            this.f13878d = jSONObject.optLong("splash_video_interval_time") * 1000;
-            this.f13879e = jSONObject.optString("splash_video_h5_url");
-            this.f13880f = jSONObject.optString("splash_video_h5_text");
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        return (p0) invokeL.objValue;
+    }
+
+    @NonNull
+    public static p0 c(@Nullable DataRes dataRes) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dataRes)) == null) {
+            return new p0((dataRes != null ? dataRes.voice_room_config.intValue() : 0) == 1);
         }
+        return (p0) invokeL.objValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

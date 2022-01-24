@@ -299,7 +299,7 @@ public class p {
                 str = "";
             } else {
                 z = hVar.a;
-                str = hVar.f39361b;
+                str = hVar.f39389b;
             }
             sb.append("is server on: ");
             sb.append(i2);
@@ -327,7 +327,7 @@ public class p {
             if (a) {
                 r0 = "获取内存信息耗时: " + ((System.nanoTime() - nanoTime) / 1000000) + " ms";
             }
-            return "设备总内存：" + g2.f5725c + " M，设备剩余内存：" + g2.f5726d + " M，小程序启动占用内存：" + g2.a + " M，宿主APP占用内存：" + g2.f5724b + " M\n";
+            return "设备总内存：" + g2.f5867c + " M，设备剩余内存：" + g2.f5868d + " M，小程序启动占用内存：" + g2.a + " M，宿主APP占用内存：" + g2.f5866b + " M\n";
         }
         return (String) invokeV.objValue;
     }

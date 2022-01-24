@@ -32,9 +32,9 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i2), str2, Boolean.valueOf(z)}) == null) {
             c.a.r0.j.g0.i.a aVar = new c.a.r0.j.g0.i.a();
-            aVar.f11021b = str;
-            aVar.f11022c = i2;
-            aVar.f11023d = z ? 1 : 0;
+            aVar.f11163b = str;
+            aVar.f11164c = i2;
+            aVar.f11165d = z ? 1 : 0;
             aVar.a = str2;
             b.c().a(new a(100000, aVar));
         }
@@ -80,9 +80,9 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i2), str2, Boolean.valueOf(z)}) == null) {
             c.a.r0.j.g0.i.a aVar = new c.a.r0.j.g0.i.a();
-            aVar.f11021b = str;
-            aVar.f11022c = i2;
-            aVar.f11023d = z ? 1 : 0;
+            aVar.f11163b = str;
+            aVar.f11164c = i2;
+            aVar.f11165d = z ? 1 : 0;
             aVar.a = str2;
             b.c().a(new a(70000, aVar));
         }
@@ -92,7 +92,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
             c.a.r0.j.g0.i.b bVar = new c.a.r0.j.g0.i.b();
-            bVar.f11024b = str;
+            bVar.f11166b = str;
             bVar.a = str2;
             b.c().a(new a(30000, bVar));
         }
@@ -102,8 +102,8 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65545, null, str, i2, str2) == null) {
             c.a.r0.j.g0.i.c cVar = new c.a.r0.j.g0.i.c();
-            cVar.f11025b = str;
-            cVar.f11026c = i2;
+            cVar.f11167b = str;
+            cVar.f11168c = i2;
             cVar.a = str2;
             b.c().a(new a(80000, cVar));
         }
@@ -113,9 +113,9 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i2), str2, Boolean.valueOf(z)}) == null) {
             c.a.r0.j.g0.i.a aVar = new c.a.r0.j.g0.i.a();
-            aVar.f11021b = str;
-            aVar.f11022c = i2;
-            aVar.f11023d = z ? 1 : 0;
+            aVar.f11163b = str;
+            aVar.f11164c = i2;
+            aVar.f11165d = z ? 1 : 0;
             aVar.a = str2;
             b.c().a(new a(110000, aVar));
         }

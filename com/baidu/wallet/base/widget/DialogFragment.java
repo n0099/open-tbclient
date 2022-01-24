@@ -190,13 +190,13 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f50606b;
+                public final /* synthetic */ int f50651b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f50607c;
+                public final /* synthetic */ String f50652c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DialogFragment f50608d;
+                public final /* synthetic */ DialogFragment f50653d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -213,19 +213,19 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                             return;
                         }
                     }
-                    this.f50608d = this;
+                    this.f50653d = this;
                     this.a = i2;
-                    this.f50606b = i3;
-                    this.f50607c = str;
+                    this.f50651b = i3;
+                    this.f50652c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || ((BaseFragment) this.f50608d).mAct == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || ((BaseFragment) this.f50653d).mAct == null) {
                         return;
                     }
-                    this.f50608d.handleFailure(this.a, this.f50606b, this.f50607c);
+                    this.f50653d.handleFailure(this.a, this.f50651b, this.f50652c);
                 }
             });
         }
@@ -251,13 +251,13 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
             public final /* synthetic */ int a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Object f50603b;
+            public final /* synthetic */ Object f50648b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f50604c;
+            public final /* synthetic */ String f50649c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ DialogFragment f50605d;
+            public final /* synthetic */ DialogFragment f50650d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -274,19 +274,19 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                         return;
                     }
                 }
-                this.f50605d = this;
+                this.f50650d = this;
                 this.a = i2;
-                this.f50603b = obj;
-                this.f50604c = str;
+                this.f50648b = obj;
+                this.f50649c = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || ((BaseFragment) this.f50605d).mAct == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || ((BaseFragment) this.f50650d).mAct == null) {
                     return;
                 }
-                this.f50605d.handleResponse(this.a, this.f50603b, this.f50604c);
+                this.f50650d.handleResponse(this.a, this.f50648b, this.f50649c);
             }
         });
     }

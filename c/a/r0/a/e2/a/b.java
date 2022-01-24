@@ -29,7 +29,7 @@ public final class b {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f5778b;
+    public static final Set<String> f5920b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public final class b {
             }
         }
         a = k.a;
-        f5778b = Sets.newHashSet("https", "wss");
+        f5920b = Sets.newHashSet("https", "wss");
     }
 
     public static boolean a(String str) {
@@ -142,7 +142,7 @@ public final class b {
                     if (L == null) {
                         return 1;
                     }
-                    String str9 = L.f5537f;
+                    String str9 = L.f5679f;
                     if (TextUtils.isEmpty(str9)) {
                         return 1;
                     }
@@ -154,7 +154,7 @@ public final class b {
                         long currentTimeMillis = System.currentTimeMillis();
                         try {
                             host = new URI(str2).getHost();
-                            list = L.k0().c(e.f0(), str, false).f5786b;
+                            list = L.k0().c(e.f0(), str, false).f5928b;
                             z = b(host, list);
                         } catch (URISyntaxException e2) {
                             e = e2;
@@ -203,7 +203,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            for (String str2 : f5778b) {
+            for (String str2 : f5920b) {
                 if (str.startsWith(str2)) {
                     return true;
                 }

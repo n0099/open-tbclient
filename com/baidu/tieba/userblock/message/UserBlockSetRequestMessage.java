@@ -1,6 +1,6 @@
 package com.baidu.tieba.userblock.message;
 
-import c.a.s0.e1.b0;
+import c.a.s0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PermissionList;
 import tbclient.SetUserBlack.DataReq;
 import tbclient.SetUserBlack.SetUserBlackReqIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UserBlockSetRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import com.dxmpay.apollon.utils.ResUtils;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class SuccessImageViewNew extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ALLDegree = 359;
@@ -33,31 +33,31 @@ public class SuccessImageViewNew extends View {
     public PathMeasure a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PathMeasure f52465b;
+    public PathMeasure f52510b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Animation f52466c;
+    public Animation f52511c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Animation f52467d;
+    public Animation f52512d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f52468e;
+    public Paint f52513e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f52469f;
+    public float f52514f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f52470g;
+    public float f52515g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f52471h;
+    public float f52516h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f52472i;
+    public float f52517i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final RectF f52473j;
+    public final RectF f52518j;
     public Path k;
     public Path l;
     public Path m;
@@ -65,7 +65,7 @@ public class SuccessImageViewNew extends View {
     public int o;
     public a p;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a();
     }
@@ -104,8 +104,8 @@ public class SuccessImageViewNew extends View {
             }
         }
         this.a = new PathMeasure();
-        this.f52465b = new PathMeasure();
-        this.f52473j = new RectF();
+        this.f52510b = new PathMeasure();
+        this.f52518j = new RectF();
         this.k = new Path();
         this.n = 0;
         this.o = StatD / ALLDegree;
@@ -135,13 +135,13 @@ public class SuccessImageViewNew extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f52471h == 0.0f) {
+            if (this.f52516h == 0.0f) {
                 return;
             }
             if (this.n == 1 && (path = this.m) != null) {
-                canvas.drawPath(path, this.f52468e);
+                canvas.drawPath(path, this.f52513e);
             }
-            canvas.drawPath(this.k, this.f52468e);
+            canvas.drawPath(this.k, this.f52513e);
             canvas.save();
         }
     }
@@ -152,14 +152,14 @@ public class SuccessImageViewNew extends View {
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
             if (getMeasuredWidth() > getMeasuredHeight()) {
-                this.f52471h = getMeasuredHeight();
+                this.f52516h = getMeasuredHeight();
             } else {
-                this.f52471h = getMeasuredWidth();
+                this.f52516h = getMeasuredWidth();
             }
-            float f2 = this.f52471h;
-            this.f52469f = f2 / 2.0f;
-            this.f52470g = f2 / 2.0f;
-            this.f52472i = (f2 - dip2px(4.0f)) / 2.0f;
+            float f2 = this.f52516h;
+            this.f52514f = f2 / 2.0f;
+            this.f52515g = f2 / 2.0f;
+            this.f52517i = (f2 - dip2px(4.0f)) / 2.0f;
             b();
         }
     }
@@ -182,23 +182,23 @@ public class SuccessImageViewNew extends View {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.f52471h == 0.0f) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.f52516h == 0.0f) {
             return;
         }
         if (this.l == null) {
-            RectF rectF = this.f52473j;
-            float f2 = this.f52469f;
-            float f3 = this.f52472i;
+            RectF rectF = this.f52518j;
+            float f2 = this.f52514f;
+            float f3 = this.f52517i;
             rectF.left = f2 - f3;
-            float f4 = this.f52470g;
+            float f4 = this.f52515g;
             rectF.top = f4 - f3;
             rectF.right = f2 + f3;
             rectF.bottom = f4 + f3;
             Path path = new Path();
             this.l = path;
-            path.addArc(this.f52473j, 0.0f, 320.0f);
+            path.addArc(this.f52518j, 0.0f, 320.0f);
             this.l.rLineTo(0.0f, 0.0f);
-            this.f52465b = new PathMeasure(this.l, false);
+            this.f52510b = new PathMeasure(this.l, false);
         }
         if (this.m == null) {
             PathMeasure pathMeasure = new PathMeasure(this.l, true);
@@ -208,9 +208,9 @@ public class SuccessImageViewNew extends View {
             String str2 = "path1 pos" + fArr[0] + GlideException.IndentedAppendable.INDENT + fArr[1];
             Path path2 = new Path();
             this.m = path2;
-            float f5 = (this.f52472i * 3.0f) / 7.0f;
-            path2.moveTo(this.f52469f - f5, this.f52470g - ((2.0f * f5) / 5.0f));
-            this.m.lineTo(this.f52469f, this.f52470g + ((f5 * 3.0f) / 5.0f));
+            float f5 = (this.f52517i * 3.0f) / 7.0f;
+            path2.moveTo(this.f52514f - f5, this.f52515g - ((2.0f * f5) / 5.0f));
+            this.m.lineTo(this.f52514f, this.f52515g + ((f5 * 3.0f) / 5.0f));
             this.m.rMoveTo(0.0f, 0.0f);
             this.m.lineTo(fArr[0], fArr[1]);
             this.a = new PathMeasure(this.m, false);
@@ -221,13 +221,13 @@ public class SuccessImageViewNew extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             Paint paint = new Paint();
-            this.f52468e = paint;
+            this.f52513e = paint;
             paint.setAntiAlias(true);
-            this.f52468e.setColor(ResUtils.getColor(getContext(), "wallet_fp_main_327de7"));
-            this.f52468e.setStrokeWidth(dip2px(4.0f));
-            this.f52468e.setStyle(Paint.Style.STROKE);
-            this.f52468e.setStrokeJoin(Paint.Join.ROUND);
-            this.f52468e.setStrokeCap(Paint.Cap.ROUND);
+            this.f52513e.setColor(ResUtils.getColor(getContext(), "wallet_fp_main_327de7"));
+            this.f52513e.setStrokeWidth(dip2px(4.0f));
+            this.f52513e.setStyle(Paint.Style.STROKE);
+            this.f52513e.setStrokeJoin(Paint.Join.ROUND);
+            this.f52513e.setStrokeCap(Paint.Cap.ROUND);
         }
     }
 
@@ -251,8 +251,8 @@ public class SuccessImageViewNew extends View {
             }
         }
         this.a = new PathMeasure();
-        this.f52465b = new PathMeasure();
-        this.f52473j = new RectF();
+        this.f52510b = new PathMeasure();
+        this.f52518j = new RectF();
         this.k = new Path();
         this.n = 0;
         this.o = StatD / ALLDegree;
@@ -291,7 +291,7 @@ public class SuccessImageViewNew extends View {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f4), transformation}) == null) {
                         SuccessImageViewNew successImageViewNew = this.a;
-                        if (successImageViewNew.f52466c != null) {
+                        if (successImageViewNew.f52511c != null) {
                             successImageViewNew.k.reset();
                             float length = this.a.a.getLength();
                             float f5 = f4 * length;
@@ -305,14 +305,14 @@ public class SuccessImageViewNew extends View {
                     }
                 }
             };
-            this.f52466c = animation;
+            this.f52511c = animation;
             animation.setAnimationListener(new Animation.AnimationListener(this, j2) { // from class: com.baidu.wallet.paysdk.ui.widget.SuccessImageViewNew.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ long a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SuccessImageViewNew f52474b;
+                public final /* synthetic */ SuccessImageViewNew f52519b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -329,7 +329,7 @@ public class SuccessImageViewNew extends View {
                             return;
                         }
                     }
-                    this.f52474b = this;
+                    this.f52519b = this;
                     this.a = j2;
                 }
 
@@ -337,8 +337,8 @@ public class SuccessImageViewNew extends View {
                 public void onAnimationEnd(Animation animation2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation2) == null) {
-                        this.f52474b.n = 1;
-                        this.f52474b.b(0.0f, 1.0f, this.a);
+                        this.f52519b.n = 1;
+                        this.f52519b.b(0.0f, 1.0f, this.a);
                     }
                 }
 
@@ -356,10 +356,10 @@ public class SuccessImageViewNew extends View {
                     }
                 }
             });
-            this.f52466c.setInterpolator(new AccelerateDecelerateInterpolator());
-            this.f52466c.setDuration(j2);
-            this.f52466c.setRepeatCount(0);
-            startAnimation(this.f52466c);
+            this.f52511c.setInterpolator(new AccelerateDecelerateInterpolator());
+            this.f52511c.setDuration(j2);
+            this.f52511c.setRepeatCount(0);
+            startAnimation(this.f52511c);
         }
     }
 
@@ -383,8 +383,8 @@ public class SuccessImageViewNew extends View {
             }
         }
         this.a = new PathMeasure();
-        this.f52465b = new PathMeasure();
-        this.f52473j = new RectF();
+        this.f52510b = new PathMeasure();
+        this.f52518j = new RectF();
         this.k = new Path();
         this.n = 0;
         this.o = StatD / ALLDegree;
@@ -424,12 +424,12 @@ public class SuccessImageViewNew extends View {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f4), transformation}) == null) {
                         SuccessImageViewNew successImageViewNew = this.a;
-                        if (successImageViewNew.f52467d != null) {
+                        if (successImageViewNew.f52512d != null) {
                             successImageViewNew.k.reset();
-                            float length = this.a.f52465b.getLength();
+                            float length = this.a.f52510b.getLength();
                             float f5 = f4 * length;
                             SuccessImageViewNew successImageViewNew2 = this.a;
-                            successImageViewNew2.f52465b.getSegment(length - f5, length, successImageViewNew2.k, true);
+                            successImageViewNew2.f52510b.getSegment(length - f5, length, successImageViewNew2.k, true);
                             String str = SuccessImageViewNew.TAG;
                             String str2 = "length " + length + "currentLengthCircle " + f5;
                             this.a.k.rLineTo(0.0f, 0.0f);
@@ -438,7 +438,7 @@ public class SuccessImageViewNew extends View {
                     }
                 }
             };
-            this.f52467d = animation;
+            this.f52512d = animation;
             animation.setAnimationListener(new Animation.AnimationListener(this) { // from class: com.baidu.wallet.paysdk.ui.widget.SuccessImageViewNew.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -486,10 +486,10 @@ public class SuccessImageViewNew extends View {
                     }
                 }
             });
-            this.f52467d.setInterpolator(new LinearInterpolator());
-            this.f52467d.setDuration(j2);
-            this.f52467d.setRepeatCount(0);
-            startAnimation(this.f52467d);
+            this.f52512d.setInterpolator(new LinearInterpolator());
+            this.f52512d.setDuration(j2);
+            this.f52512d.setRepeatCount(0);
+            startAnimation(this.f52512d);
         }
     }
 }

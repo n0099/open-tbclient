@@ -34,22 +34,22 @@ public class b extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5955e;
+        public final /* synthetic */ CallbackHandler f6097e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5956f;
+        public final /* synthetic */ String f6098f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5957g;
+        public final /* synthetic */ UnitedSchemeEntity f6099g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f5958h;
+        public final /* synthetic */ String f6100h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f5959i;
+        public final /* synthetic */ String f6101i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f5960j;
+        public final /* synthetic */ String f6102j;
         public final /* synthetic */ String k;
         public final /* synthetic */ b l;
 
@@ -69,12 +69,12 @@ public class b extends z {
                 }
             }
             this.l = bVar;
-            this.f5955e = callbackHandler;
-            this.f5956f = str;
-            this.f5957g = unitedSchemeEntity;
-            this.f5958h = str2;
-            this.f5959i = str3;
-            this.f5960j = str4;
+            this.f6097e = callbackHandler;
+            this.f6098f = str;
+            this.f6099g = unitedSchemeEntity;
+            this.f6100h = str2;
+            this.f6101i = str3;
+            this.f6102j = str4;
             this.k = str5;
         }
 
@@ -85,9 +85,9 @@ public class b extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (d.h(iVar)) {
-                    this.l.m(this.f5957g, this.f5955e, this.f5958h, this.f5959i, this.f5960j, this.k, this.f5956f);
+                    this.l.m(this.f6099g, this.f6097e, this.f6100h, this.f6101i, this.f6102j, this.k, this.f6098f);
                 } else {
-                    d.q(iVar, this.f5955e, this.f5956f);
+                    d.q(iVar, this.f6097e, this.f6098f);
                 }
             }
         }
@@ -95,31 +95,31 @@ public class b extends z {
 
     /* renamed from: c.a.r0.a.f2.f.g0.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0325b implements i.n.b<Boolean> {
+    public class C0334b implements i.n.b<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5961e;
+        public final /* synthetic */ String f6103e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b.C0471b f5962f;
+        public final /* synthetic */ b.C0480b f6104f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5963g;
+        public final /* synthetic */ CallbackHandler f6105g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5964h;
+        public final /* synthetic */ UnitedSchemeEntity f6106h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f5965i;
+        public final /* synthetic */ String f6107i;
 
-        public C0325b(b bVar, String str, b.C0471b c0471b, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str2) {
+        public C0334b(b bVar, String str, b.C0480b c0480b, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, str, c0471b, callbackHandler, unitedSchemeEntity, str2};
+                Object[] objArr = {bVar, str, c0480b, callbackHandler, unitedSchemeEntity, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -129,11 +129,11 @@ public class b extends z {
                     return;
                 }
             }
-            this.f5961e = str;
-            this.f5962f = c0471b;
-            this.f5963g = callbackHandler;
-            this.f5964h = unitedSchemeEntity;
-            this.f5965i = str2;
+            this.f6103e = str;
+            this.f6104f = c0480b;
+            this.f6105g = callbackHandler;
+            this.f6106h = unitedSchemeEntity;
+            this.f6107i = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -144,19 +144,19 @@ public class b extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
                 if (bool.booleanValue()) {
-                    if (!TextUtils.isEmpty(this.f5961e) && (L = e.L()) != null && (z = L.z()) != null) {
-                        z.Z(8, new SwanAppDeleteInfo(this.f5961e).setPurgerScenes(c.a.r0.a.n0.l.c.m(this.f5962f).c()));
+                    if (!TextUtils.isEmpty(this.f6103e) && (L = e.L()) != null && (z = L.z()) != null) {
+                        z.Z(8, new SwanAppDeleteInfo(this.f6103e).setPurgerScenes(c.a.r0.a.n0.l.c.m(this.f6104f).c()));
                     }
                     c.a.r0.a.e0.d.i("history", "remove success");
-                    if (z.f6201b) {
-                        String str = "RMSwanHistory --- success & appid : " + this.f5961e;
+                    if (z.f6343b) {
+                        String str = "RMSwanHistory --- success & appid : " + this.f6103e;
                     }
-                    UnitedSchemeUtility.safeCallback(this.f5963g, this.f5964h, UnitedSchemeUtility.wrapCallbackParams(0).toString(), this.f5965i);
+                    UnitedSchemeUtility.safeCallback(this.f6105g, this.f6106h, UnitedSchemeUtility.wrapCallbackParams(0).toString(), this.f6107i);
                     return;
                 }
                 c.a.r0.a.e0.d.o("history", "execute fail --- no match app id");
-                boolean unused = z.f6201b;
-                UnitedSchemeUtility.safeCallback(this.f5963g, this.f5964h, UnitedSchemeUtility.wrapCallbackParams(1001, "no match app id").toString(), this.f5965i);
+                boolean unused = z.f6343b;
+                UnitedSchemeUtility.safeCallback(this.f6105g, this.f6106h, UnitedSchemeUtility.wrapCallbackParams(1001, "no match app id").toString(), this.f6107i);
             }
         }
     }
@@ -167,23 +167,23 @@ public class b extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5966e;
+        public final /* synthetic */ String f6108e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5967f;
+        public final /* synthetic */ String f6109f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f5968g;
+        public final /* synthetic */ String f6110g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b.C0471b f5969h;
+        public final /* synthetic */ b.C0480b f6111h;
 
-        public c(b bVar, String str, String str2, String str3, b.C0471b c0471b) {
+        public c(b bVar, String str, String str2, String str3, b.C0480b c0480b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, str, str2, str3, c0471b};
+                Object[] objArr = {bVar, str, str2, str3, c0480b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -193,10 +193,10 @@ public class b extends z {
                     return;
                 }
             }
-            this.f5966e = str;
-            this.f5967f = str2;
-            this.f5968g = str3;
-            this.f5969h = c0471b;
+            this.f6108e = str;
+            this.f6109f = str2;
+            this.f6110g = str3;
+            this.f6111h = c0480b;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -204,7 +204,7 @@ public class b extends z {
         public Boolean call(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? Boolean.valueOf(c.a.r0.a.j0.c.b.g(AppRuntime.getAppContext().getContentResolver(), this.f5966e, str, this.f5967f, this.f5968g, false, this.f5969h)) : (Boolean) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? Boolean.valueOf(c.a.r0.a.j0.c.b.g(AppRuntime.getAppContext().getContentResolver(), this.f6108e, str, this.f6109f, this.f6110g, false, this.f6111h)) : (Boolean) invokeL.objValue;
         }
     }
 
@@ -236,21 +236,21 @@ public class b extends z {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (eVar == null) {
                 c.a.r0.a.e0.d.c("history", "none swanApp");
-                boolean z = z.f6201b;
+                boolean z = z.f6343b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty swanApp");
                 return false;
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo == null) {
                 c.a.r0.a.e0.d.c("history", "empty joParams");
-                boolean z2 = z.f6201b;
+                boolean z2 = z.f6343b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
                 return false;
             }
             String optString = optParamsAsJo.optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 c.a.r0.a.e0.d.c("history", "empty cb");
-                boolean z3 = z.f6201b;
+                boolean z3 = z.f6343b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty cb");
                 return false;
             }
@@ -260,7 +260,7 @@ public class b extends z {
             String optString5 = optParamsAsJo.optString("type");
             if (TextUtils.isEmpty(optString2) && TextUtils.isEmpty(optString3)) {
                 c.a.r0.a.e0.d.c("history", "empty appKey");
-                boolean z4 = z.f6201b;
+                boolean z4 = z.f6343b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty appId");
                 return false;
             }
@@ -277,8 +277,8 @@ public class b extends z {
             c.a.r0.a.e0.d.i("history", "start remove history");
             c.a.r0.a.n0.l.c l = c.a.r0.a.n0.l.c.l();
             l.n(4);
-            b.C0471b k = l.k();
-            i.d.f(str2).y(Schedulers.io()).h(new c(this, str, str3, str4, k)).k(i.l.b.a.b()).w(new C0325b(this, str, k, callbackHandler, unitedSchemeEntity, str5));
+            b.C0480b k = l.k();
+            i.d.f(str2).y(Schedulers.io()).h(new c(this, str, str3, str4, k)).k(i.l.b.a.b()).w(new C0334b(this, str, k, callbackHandler, unitedSchemeEntity, str5));
         }
     }
 }

@@ -24,25 +24,25 @@ public class b {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11551b;
+        public String f11693b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f11552c;
+        public int f11694c;
 
         /* renamed from: d  reason: collision with root package name */
-        public g f11553d;
+        public g f11695d;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<h> f11554e;
+        public List<h> f11696e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<i> f11555f;
+        public List<i> f11697f;
 
         /* renamed from: g  reason: collision with root package name */
-        public PMSAppInfo f11556g;
+        public PMSAppInfo f11698g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f11557h;
+        public boolean f11699h;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -66,10 +66,10 @@ public class b {
                 if (super.equals(obj)) {
                     return true;
                 }
-                if (obj == null || (gVar = this.f11553d) == null || !(obj instanceof a)) {
+                if (obj == null || (gVar = this.f11695d) == null || !(obj instanceof a)) {
                     return false;
                 }
-                return gVar.equals(((a) obj).f11553d);
+                return gVar.equals(((a) obj).f11695d);
             }
             return invokeL.booleanValue;
         }
@@ -78,7 +78,7 @@ public class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                g gVar = this.f11553d;
+                g gVar = this.f11695d;
                 if (gVar == null) {
                     return super.hashCode();
                 }
@@ -93,14 +93,14 @@ public class b {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("PMS Item: ");
-                sb.append(this.f11551b);
-                if (this.f11553d != null) {
+                sb.append(this.f11693b);
+                if (this.f11695d != null) {
                     sb.append(",pkgMain=");
-                    sb.append(this.f11553d);
+                    sb.append(this.f11695d);
                 }
-                if (this.f11556g != null) {
+                if (this.f11698g != null) {
                     sb.append(",appInfo=");
-                    sb.append(this.f11556g);
+                    sb.append(this.f11698g);
                 }
                 return sb.toString();
             }

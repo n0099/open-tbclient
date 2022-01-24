@@ -32,22 +32,22 @@ public class e extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f6006e;
+        public final /* synthetic */ Context f6148e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6007f;
+        public final /* synthetic */ CallbackHandler f6149f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6008g;
+        public final /* synthetic */ UnitedSchemeEntity f6150g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f6009h;
+        public final /* synthetic */ String f6151h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f6010i;
+        public final /* synthetic */ int f6152i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ boolean f6011j;
+        public final /* synthetic */ boolean f6153j;
         public final /* synthetic */ e k;
 
         public a(e eVar, Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, int i2, boolean z) {
@@ -66,19 +66,19 @@ public class e extends z {
                 }
             }
             this.k = eVar;
-            this.f6006e = context;
-            this.f6007f = callbackHandler;
-            this.f6008g = unitedSchemeEntity;
-            this.f6009h = str;
-            this.f6010i = i2;
-            this.f6011j = z;
+            this.f6148e = context;
+            this.f6149f = callbackHandler;
+            this.f6150g = unitedSchemeEntity;
+            this.f6151h = str;
+            this.f6152i = i2;
+            this.f6153j = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.k.r(this.f6006e, this.f6007f, this.f6008g, this.f6009h, this.f6010i, this.f6011j);
+                this.k.r(this.f6148e, this.f6149f, this.f6150g, this.f6151h, this.f6152i, this.f6153j);
             }
         }
     }
@@ -89,22 +89,22 @@ public class e extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f6012e;
+        public final /* synthetic */ Context f6154e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6013f;
+        public final /* synthetic */ CallbackHandler f6155f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6014g;
+        public final /* synthetic */ UnitedSchemeEntity f6156g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f6015h;
+        public final /* synthetic */ String f6157h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f6016i;
+        public final /* synthetic */ int f6158i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ Drawable f6017j;
+        public final /* synthetic */ Drawable f6159j;
         public final /* synthetic */ boolean k;
         public final /* synthetic */ e l;
 
@@ -124,12 +124,12 @@ public class e extends z {
                 }
             }
             this.l = eVar;
-            this.f6012e = context;
-            this.f6013f = callbackHandler;
-            this.f6014g = unitedSchemeEntity;
-            this.f6015h = str;
-            this.f6016i = i2;
-            this.f6017j = drawable;
+            this.f6154e = context;
+            this.f6155f = callbackHandler;
+            this.f6156g = unitedSchemeEntity;
+            this.f6157h = str;
+            this.f6158i = i2;
+            this.f6159j = drawable;
             this.k = z;
         }
 
@@ -137,7 +137,7 @@ public class e extends z {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.l.p(this.f6012e, this.f6013f, this.f6014g, this.f6015h, this.f6016i, this.f6017j, this.k);
+                this.l.p(this.f6154e, this.f6155f, this.f6156g, this.f6157h, this.f6158i, this.f6159j, this.k);
             }
         }
     }
@@ -148,22 +148,22 @@ public class e extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f6018e;
+        public final /* synthetic */ Context f6160e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6019f;
+        public final /* synthetic */ CallbackHandler f6161f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6020g;
+        public final /* synthetic */ UnitedSchemeEntity f6162g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f6021h;
+        public final /* synthetic */ String f6163h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f6022i;
+        public final /* synthetic */ int f6164i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ boolean f6023j;
+        public final /* synthetic */ boolean f6165j;
         public final /* synthetic */ e k;
 
         public c(e eVar, Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, int i2, boolean z) {
@@ -182,19 +182,19 @@ public class e extends z {
                 }
             }
             this.k = eVar;
-            this.f6018e = context;
-            this.f6019f = callbackHandler;
-            this.f6020g = unitedSchemeEntity;
-            this.f6021h = str;
-            this.f6022i = i2;
-            this.f6023j = z;
+            this.f6160e = context;
+            this.f6161f = callbackHandler;
+            this.f6162g = unitedSchemeEntity;
+            this.f6163h = str;
+            this.f6164i = i2;
+            this.f6165j = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.k.q(this.f6018e, this.f6019f, this.f6020g, this.f6021h, this.f6022i, this.f6023j);
+                this.k.q(this.f6160e, this.f6161f, this.f6162g, this.f6163h, this.f6164i, this.f6165j);
             }
         }
     }
@@ -205,22 +205,22 @@ public class e extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f6024e;
+        public final /* synthetic */ Context f6166e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6025f;
+        public final /* synthetic */ CallbackHandler f6167f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6026g;
+        public final /* synthetic */ UnitedSchemeEntity f6168g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f6027h;
+        public final /* synthetic */ String f6169h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f6028i;
+        public final /* synthetic */ int f6170i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f6029j;
+        public final /* synthetic */ String f6171j;
         public final /* synthetic */ String k;
         public final /* synthetic */ e l;
 
@@ -240,12 +240,12 @@ public class e extends z {
                 }
             }
             this.l = eVar;
-            this.f6024e = context;
-            this.f6025f = callbackHandler;
-            this.f6026g = unitedSchemeEntity;
-            this.f6027h = str;
-            this.f6028i = i2;
-            this.f6029j = str2;
+            this.f6166e = context;
+            this.f6167f = callbackHandler;
+            this.f6168g = unitedSchemeEntity;
+            this.f6169h = str;
+            this.f6170i = i2;
+            this.f6171j = str2;
             this.k = str3;
         }
 
@@ -253,22 +253,22 @@ public class e extends z {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.l.o(this.f6024e, this.f6025f, this.f6026g, this.f6027h, this.f6028i, this.f6029j, this.k);
+                this.l.o(this.f6166e, this.f6167f, this.f6168g, this.f6169h, this.f6170i, this.f6171j, this.k);
             }
         }
     }
 
     /* renamed from: c.a.r0.a.f2.f.i0.e$e  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0328e implements e.c {
+    public class C0337e implements e.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6030b;
+        public final /* synthetic */ CallbackHandler f6172b;
 
-        public C0328e(e eVar, String str, CallbackHandler callbackHandler) {
+        public C0337e(e eVar, String str, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -284,7 +284,7 @@ public class e extends z {
                 }
             }
             this.a = str;
-            this.f6030b = callbackHandler;
+            this.f6172b = callbackHandler;
         }
 
         @Override // c.a.r0.a.c2.b.f.e.c
@@ -293,7 +293,7 @@ public class e extends z {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a)) {
                 return;
             }
-            this.f6030b.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            this.f6172b.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(0).toString());
         }
     }
 
@@ -327,7 +327,7 @@ public class e extends z {
             return invokeLLLL.booleanValue;
         }
         if (eVar != null && eVar.m0()) {
-            boolean z = z.f6201b;
+            boolean z = z.f6343b;
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
             return false;
         }
@@ -355,7 +355,7 @@ public class e extends z {
                     optString3 = q0.w(eVar, optString3);
                 }
                 Drawable L = i.L(context, optString3, eVar);
-                if (z.f6201b) {
+                if (z.f6343b) {
                     String str2 = "imagepath = " + optString3;
                 }
                 if (!TextUtils.equals(optString3, "-1") && L == null && TextUtils.equals(optString, "2")) {
@@ -412,7 +412,7 @@ public class e extends z {
                     return true;
                 } catch (JSONException e2) {
                     e = e2;
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         e.printStackTrace();
                     }
                     c.a.r0.a.e0.d.c("ShowToastAction", "json exception");
@@ -432,7 +432,7 @@ public class e extends z {
     public final void n(UnitedSchemeEntity unitedSchemeEntity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity) == null) {
-            boolean z = z.f6201b;
+            boolean z = z.f6343b;
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
         }
     }
@@ -444,7 +444,7 @@ public class e extends z {
             e2.r(str);
             e2.k(str2);
             e2.l(i2);
-            e2.u(new C0328e(this, str3, callbackHandler));
+            e2.u(new C0337e(this, str3, callbackHandler));
             e2.w();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }

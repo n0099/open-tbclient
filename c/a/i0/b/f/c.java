@@ -24,28 +24,28 @@ public class c implements c.a.m0.a.h.d {
     public c.a.m0.a.h.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3763b;
+    public String f3904b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f3764c;
+    public final Context f3905c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.i0.b.c f3765d;
+    public final c.a.i0.b.c f3906d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.InterfaceC0030b f3766e;
+    public b.InterfaceC0030b f3907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3767f;
+    public int f3908f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3768g;
+    public int f3909g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f3769h;
+    public g f3910h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.a.i0.b.b f3770i;
+    public final c.a.i0.b.b f3911i;
 
     /* loaded from: classes.dex */
     public class a implements c.a.i0.b.b {
@@ -75,10 +75,10 @@ public class c implements c.a.m0.a.h.d {
         public void a(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                if (this.a.f3766e != null) {
-                    this.a.f3766e.onFailed();
-                } else if (this.a.f3765d != null) {
-                    this.a.f3765d.c(th == null ? "unKnow" : th.getMessage());
+                if (this.a.f3907e != null) {
+                    this.a.f3907e.onFailed();
+                } else if (this.a.f3906d != null) {
+                    this.a.f3906d.c(th == null ? "unKnow" : th.getMessage());
                 }
             }
         }
@@ -91,32 +91,32 @@ public class c implements c.a.m0.a.h.d {
             }
             int e2 = e.e(gVar);
             if (e2 == 0) {
-                this.a.f3769h = gVar;
-                c.a.m0.a.h.b a = new c.a.m0.a.a().a(this.a.f3764c, d.a(gVar));
+                this.a.f3910h = gVar;
+                c.a.m0.a.h.b a = new c.a.m0.a.a().a(this.a.f3905c, d.a(gVar));
                 if (a == null) {
                     return;
                 }
                 this.a.a = a;
-                if (this.a.f3765d != null) {
-                    c.a.i0.b.d dVar = new c.a.i0.b.d(a, this.a.f3765d.g(), gVar);
-                    dVar.l(this.a.f3765d);
+                if (this.a.f3906d != null) {
+                    c.a.i0.b.d dVar = new c.a.i0.b.d(a, this.a.f3906d.g(), gVar);
+                    dVar.l(this.a.f3906d);
                     a.c(dVar);
                     a.a(dVar);
                     dVar.k(this.a);
                     this.a.i(!gVar.i());
                     this.a.l(!gVar.g());
-                    this.a.f3765d.e(this.a);
+                    this.a.f3906d.e(this.a);
                 }
-                if (this.a.f3766e != null) {
-                    this.a.f3766e.onSuccess();
+                if (this.a.f3907e != null) {
+                    this.a.f3907e.onSuccess();
                     return;
                 }
                 return;
             }
-            if (this.a.f3766e != null) {
-                this.a.f3766e.onFailed();
-            } else if (this.a.f3765d != null) {
-                c.a.i0.b.c cVar = this.a.f3765d;
+            if (this.a.f3907e != null) {
+                this.a.f3907e.onFailed();
+            } else if (this.a.f3906d != null) {
+                c.a.i0.b.c cVar = this.a.f3906d;
                 cVar.c("query 后物料效验失败: " + e2);
             }
             BaseVM.h(e2);
@@ -139,10 +139,10 @@ public class c implements c.a.m0.a.h.d {
             }
         }
         LoadState loadState = LoadState.INIT;
-        this.f3770i = new a(this);
-        this.f3764c = context;
-        this.f3763b = str;
-        this.f3765d = cVar2;
+        this.f3911i = new a(this);
+        this.f3905c = context;
+        this.f3904b = str;
+        this.f3906d = cVar2;
     }
 
     public void f() {
@@ -159,12 +159,12 @@ public class c implements c.a.m0.a.h.d {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.f3769h != null) {
-                    jSONObject.put("source", this.f3769h.D);
-                    jSONObject.put(QuickPersistConfigConst.KEY_SPLASH_SORT, this.f3769h.E);
+                if (this.f3910h != null) {
+                    jSONObject.put("source", this.f3910h.D);
+                    jSONObject.put(QuickPersistConfigConst.KEY_SPLASH_SORT, this.f3910h.E);
                 }
-                jSONObject.put(TiebaStatic.Params.AD_TYPE, this.f3767f);
-                jSONObject.put("full_type", this.f3768g);
+                jSONObject.put(TiebaStatic.Params.AD_TYPE, this.f3908f);
+                jSONObject.put("full_type", this.f3909g);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -179,7 +179,7 @@ public class c implements c.a.m0.a.h.d {
             if (!c.a.b.f().h()) {
                 k(e.l(true));
             } else {
-                new c.a.i0.b.a().j(this.f3763b, this.f3770i);
+                new c.a.i0.b.a().j(this.f3904b, this.f3911i);
             }
         }
     }
@@ -187,7 +187,7 @@ public class c implements c.a.m0.a.h.d {
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f3767f = i2;
+            this.f3908f = i2;
         }
     }
 
@@ -203,8 +203,8 @@ public class c implements c.a.m0.a.h.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
             if (gVar != null) {
-                this.f3769h = gVar;
-                c.a.m0.a.h.b a3 = new c.a.m0.a.a().a(this.f3764c, d.a(gVar));
+                this.f3910h = gVar;
+                c.a.m0.a.h.b a3 = new c.a.m0.a.a().a(this.f3905c, d.a(gVar));
                 if (a3 == null) {
                     if (c.a.i0.a.b.a.a.get().a()) {
                         String str = "创建 AdContainer 失败，params: " + a2.a();
@@ -213,30 +213,30 @@ public class c implements c.a.m0.a.h.d {
                     return;
                 }
                 this.a = a3;
-                c.a.i0.b.c cVar = this.f3765d;
+                c.a.i0.b.c cVar = this.f3906d;
                 if (cVar != null) {
                     c.a.i0.b.d dVar = new c.a.i0.b.d(a3, cVar.g(), gVar);
-                    dVar.l(this.f3765d);
+                    dVar.l(this.f3906d);
                     a3.c(dVar);
                     a3.a(dVar);
                     dVar.k(this);
                     i(!gVar.i());
                     l(!gVar.g());
-                    this.f3765d.e(this);
+                    this.f3906d.e(this);
                 }
-                b.InterfaceC0030b interfaceC0030b = this.f3766e;
+                b.InterfaceC0030b interfaceC0030b = this.f3907e;
                 if (interfaceC0030b != null) {
                     interfaceC0030b.onSuccess();
                     return;
                 }
                 return;
             }
-            b.InterfaceC0030b interfaceC0030b2 = this.f3766e;
+            b.InterfaceC0030b interfaceC0030b2 = this.f3907e;
             if (interfaceC0030b2 != null) {
                 interfaceC0030b2.onFailed();
                 return;
             }
-            c.a.i0.b.c cVar2 = this.f3765d;
+            c.a.i0.b.c cVar2 = this.f3906d;
             if (cVar2 != null) {
                 cVar2.c("本地物料null");
             }
@@ -246,7 +246,7 @@ public class c implements c.a.m0.a.h.d {
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f3768g = i2;
+            this.f3909g = i2;
         }
     }
 

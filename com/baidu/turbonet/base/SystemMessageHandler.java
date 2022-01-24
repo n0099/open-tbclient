@@ -23,7 +23,7 @@ public class SystemMessageHandler extends Handler {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f50078b;
+    public long f50122b;
 
     /* loaded from: classes13.dex */
     public static class a {
@@ -33,12 +33,12 @@ public class SystemMessageHandler extends Handler {
 
         /* renamed from: com.baidu.turbonet.base.SystemMessageHandler$a$a  reason: collision with other inner class name */
         /* loaded from: classes13.dex */
-        public static class C1970a implements c {
+        public static class C1976a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public Method a;
 
-            public C1970a() {
+            public C1976a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class SystemMessageHandler extends Handler {
             if (Build.VERSION.SDK_INT >= 22) {
                 a = new b();
             } else {
-                a = new C1970a();
+                a = new C1976a();
             }
         }
 
@@ -165,7 +165,7 @@ public class SystemMessageHandler extends Handler {
             }
         }
         this.a = 0L;
-        this.f50078b = 0L;
+        this.f50122b = 0L;
         this.a = j2;
     }
 
@@ -191,10 +191,10 @@ public class SystemMessageHandler extends Handler {
     private void scheduleDelayedWork(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (this.f50078b != 0) {
+            if (this.f50122b != 0) {
                 removeMessages(2);
             }
-            this.f50078b = j2;
+            this.f50122b = j2;
             sendMessageDelayed(a(2), j3);
         }
     }
@@ -224,9 +224,9 @@ public class SystemMessageHandler extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
             if (message.what == 2) {
-                this.f50078b = 0L;
+                this.f50122b = 0L;
             }
-            nativeDoRunLoopOnce(this.a, this.f50078b);
+            nativeDoRunLoopOnce(this.a, this.f50122b);
         }
     }
 }

@@ -744,15 +744,24 @@ public class DeviceUtil implements IDevices {
         return invokeV.booleanValue;
     }
 
-    public static boolean isSamSungFolded() {
+    public static boolean isOppoFoldableDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return AppRuntime.getAppContext().getPackageManager().hasSystemFeature("oplus.feature.largescreen") || AppRuntime.getAppContext().getPackageManager().hasSystemFeature("oplus.feature.largescreen.land");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isSamSungFolded() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             if (TextUtils.isEmpty(Build.MODEL)) {
                 return false;
             }
             String[] strArr = {"SM-F9000", "SM-F9160"};
-            if (g.f55062j.equalsIgnoreCase(Build.MANUFACTURER)) {
+            if (g.f55107j.equalsIgnoreCase(Build.MANUFACTURER)) {
                 for (int i2 = 0; i2 < 2; i2++) {
                     if (strArr[i2].equalsIgnoreCase(Build.MODEL)) {
                         return true;
@@ -770,6 +779,22 @@ public class DeviceUtil implements IDevices {
     public static boolean isSupportFoldable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? isMateX() || isHwFoldableDevice() || isSamSungFolded() || isHonorFoldableDevice() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? isMateX() || isHwFoldableDevice() || isSamSungFolded() || isHonorFoldableDevice() || isOppoFoldableDevice() || isVIVOFoldableDevice() : invokeV.booleanValue;
+    }
+
+    public static boolean isVIVOFoldableDevice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if ("VIVO".equalsIgnoreCase(RomUtils.getManufacturer())) {
+                try {
+                    return TextUtils.equals("foldable", (String) Class.forName("android.util.FtDeviceInfo").getMethod("getDeviceType", new Class[0]).invoke(null, new Object[0]));
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

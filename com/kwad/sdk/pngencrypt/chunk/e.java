@@ -6,14 +6,14 @@ import java.util.List;
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.pngencrypt.k f57071b;
+    public final com.kwad.sdk.pngencrypt.k f57116b;
     public List<PngChunk> a = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f57072c = false;
+    public boolean f57117c = false;
 
     public e(com.kwad.sdk.pngencrypt.k kVar) {
-        this.f57071b = kVar;
+        this.f57116b = kVar;
     }
 
     public static List<PngChunk> a(List<PngChunk> list, final String str, final String str2) {
@@ -48,7 +48,7 @@ public class e {
         pngChunk.a(i2);
         this.a.add(pngChunk);
         if (pngChunk.a.equals("PLTE")) {
-            this.f57072c = true;
+            this.f57117c = true;
         }
     }
 

@@ -17,7 +17,7 @@ public class h2 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13414b;
+    public String f13600b;
 
     public h2() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class h2 {
             }
         }
         this.a = null;
-        this.f13414b = null;
+        this.f13600b = null;
     }
 
     public String a() {
@@ -45,7 +45,7 @@ public class h2 {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13414b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13600b : (String) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -53,7 +53,7 @@ public class h2 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             try {
                 this.a = jSONObject.getString("title");
-                this.f13414b = jSONObject.getString("title_link");
+                this.f13600b = jSONObject.getString("title_link");
                 jSONObject.getString(NotificationCompat.CarExtender.KEY_AUTHOR);
                 jSONObject.getInt("id");
             } catch (JSONException e2) {
@@ -68,7 +68,7 @@ public class h2 {
             return;
         }
         this.a = topNotice.title;
-        this.f13414b = topNotice.title_link;
+        this.f13600b = topNotice.title_link;
         String str = topNotice.author;
         topNotice.id.intValue();
     }

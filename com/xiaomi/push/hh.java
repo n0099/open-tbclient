@@ -19,31 +19,31 @@ public final class hh {
     public static final /* synthetic */ hh[] f480a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hh f61169b;
+    public static final hh f61214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hh f61170c;
+    public static final hh f61215c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hh f61171d;
+    public static final hh f61216d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hh f61172e;
+    public static final hh f61217e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hh f61173f;
+    public static final hh f61218f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hh f61174g;
+    public static final hh f61219g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hh f61175h;
+    public static final hh f61220h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hh f61176i;
+    public static final hh f61221i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final hh f61177j;
+    public static final hh f61222j;
     public static final hh k;
     public static final hh l;
     public static final hh m;
@@ -77,15 +77,15 @@ public final class hh {
             }
         }
         a = new hh("DeviceInfo", 0, 1);
-        f61169b = new hh("AppInstallList", 1, 2);
-        f61170c = new hh("AppActiveList", 2, 3);
-        f61171d = new hh("Bluetooth", 3, 4);
-        f61172e = new hh("Location", 4, 5);
-        f61173f = new hh("Account", 5, 6);
-        f61174g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
-        f61175h = new hh("Cellular", 7, 8);
-        f61176i = new hh("TopApp", 8, 9);
-        f61177j = new hh("BroadcastAction", 9, 10);
+        f61214b = new hh("AppInstallList", 1, 2);
+        f61215c = new hh("AppActiveList", 2, 3);
+        f61216d = new hh("Bluetooth", 3, 4);
+        f61217e = new hh("Location", 4, 5);
+        f61218f = new hh("Account", 5, 6);
+        f61219g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
+        f61220h = new hh("Cellular", 7, 8);
+        f61221i = new hh("TopApp", 8, 9);
+        f61222j = new hh("BroadcastAction", 9, 10);
         k = new hh("BroadcastActionAdded", 10, 11);
         l = new hh("BroadcastActionRemoved", 11, 12);
         m = new hh("BroadcastActionReplaced", 12, 13);
@@ -101,7 +101,7 @@ public final class hh {
         w = new hh("Storage", 22, 23);
         hh hhVar = new hh("AppIsInstalled", 23, 24);
         x = hhVar;
-        f480a = new hh[]{a, f61169b, f61170c, f61171d, f61172e, f61173f, f61174g, f61175h, f61176i, f61177j, k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
+        f480a = new hh[]{a, f61214b, f61215c, f61216d, f61217e, f61218f, f61219g, f61220h, f61221i, f61222j, k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
     }
 
     public hh(String str, int i2, int i3) {
@@ -133,23 +133,23 @@ public final class hh {
                 case 1:
                     return a;
                 case 2:
-                    return f61169b;
+                    return f61214b;
                 case 3:
-                    return f61170c;
+                    return f61215c;
                 case 4:
-                    return f61171d;
+                    return f61216d;
                 case 5:
-                    return f61172e;
+                    return f61217e;
                 case 6:
-                    return f61173f;
+                    return f61218f;
                 case 7:
-                    return f61174g;
+                    return f61219g;
                 case 8:
-                    return f61175h;
+                    return f61220h;
                 case 9:
-                    return f61176i;
+                    return f61221i;
                 case 10:
-                    return f61177j;
+                    return f61222j;
                 case 11:
                     return k;
                 case 12:

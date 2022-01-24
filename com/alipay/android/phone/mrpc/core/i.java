@@ -14,7 +14,7 @@ public final class i implements g {
     public final /* synthetic */ aa a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ h f30653b;
+    public final /* synthetic */ h f30681b;
 
     public i(h hVar, aa aaVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class i implements g {
                 return;
             }
         }
-        this.f30653b = hVar;
+        this.f30681b = hVar;
         this.a = aaVar;
     }
 
@@ -48,7 +48,7 @@ public final class i implements g {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            context = this.f30653b.a;
+            context = this.f30681b.a;
             return l.a(context.getApplicationContext());
         }
         return (ab) invokeV.objValue;

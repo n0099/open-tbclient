@@ -13,7 +13,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import c.a.a1.t.c;
 import c.a.a1.t.h;
 import c.a.a1.t.m;
@@ -1184,7 +1183,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                     int i5 = this.mFrameRate == 0 ? 30 : this.mFrameRate;
                     sb.append(" muxer w*h->");
                     sb.append(i2);
-                    sb.append(ProxyConfig.MATCH_ALL_SCHEMES);
+                    sb.append("*");
                     sb.append(i3);
                     sb.append(" bitrate->");
                     sb.append(i4);

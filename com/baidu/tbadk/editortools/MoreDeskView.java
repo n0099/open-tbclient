@@ -187,9 +187,9 @@ public class MoreDeskView extends CommonTabHost {
     public final void n(c.a.s0.x.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            Integer valueOf = Integer.valueOf(this.r.get(aVar.f14179b));
+            Integer valueOf = Integer.valueOf(this.r.get(aVar.f14319b));
             int intValue = valueOf != null ? valueOf.intValue() : 0;
-            Object obj = aVar.f14180c;
+            Object obj = aVar.f14320c;
             if (obj != null) {
                 if (obj instanceof String) {
                     String str = (String) obj;
@@ -197,10 +197,10 @@ public class MoreDeskView extends CommonTabHost {
                         intValue = TextUtils.isEmpty(str.trim()) ? 1 : c.a.d.f.m.b.e(str, 1);
                     }
                 }
-                this.r.put(aVar.f14179b, intValue >= 0 ? intValue : 0);
+                this.r.put(aVar.f14319b, intValue >= 0 ? intValue : 0);
             }
             intValue = 0;
-            this.r.put(aVar.f14179b, intValue >= 0 ? intValue : 0);
+            this.r.put(aVar.f14319b, intValue >= 0 ? intValue : 0);
         }
     }
 
@@ -235,7 +235,7 @@ public class MoreDeskView extends CommonTabHost {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             super.onAction(aVar);
-            if (aVar == null || aVar.a != 2 || aVar.f14179b == 5) {
+            if (aVar == null || aVar.a != 2 || aVar.f14319b == 5) {
                 return;
             }
             n(aVar);

@@ -26,7 +26,7 @@ public class h implements c {
     public Element a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f2689b;
+    public Set<String> f2791b;
 
     public h(Element element) {
         String nodeName;
@@ -46,14 +46,14 @@ public class h implements c {
             }
         }
         this.a = element;
-        this.f2689b = new HashSet();
+        this.f2791b = new HashSet();
         if (element != null) {
             NamedNodeMap attributes = element.getAttributes();
             int length = attributes.getLength();
             for (int i4 = 0; i4 < length; i4++) {
                 Node item = attributes.item(i4);
                 if (item != null && (nodeName2 = item.getNodeName()) != null) {
-                    this.f2689b.add(nodeName2);
+                    this.f2791b.add(nodeName2);
                 }
             }
             NodeList childNodes = element.getChildNodes();
@@ -61,7 +61,7 @@ public class h implements c {
             for (int i5 = 0; i5 < length2; i5++) {
                 Node item2 = childNodes.item(i5);
                 if (item2 != null && (nodeName = item2.getNodeName()) != null) {
-                    this.f2689b.add(nodeName);
+                    this.f2791b.add(nodeName);
                 }
             }
         }
@@ -71,7 +71,7 @@ public class h implements c {
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2689b : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2791b : (Set) invokeV.objValue;
     }
 
     @Override // c.a.d.f.b.b.a.c.c

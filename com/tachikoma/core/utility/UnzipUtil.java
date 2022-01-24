@@ -5,7 +5,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -247,7 +246,7 @@ public class UnzipUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, zipEntry)) == null) {
             String name = zipEntry.getName();
-            if (name.contains(Constants.PATH_PARENT)) {
+            if (name.contains("../")) {
                 throw new IllegalStateException("file name can't contains ../");
             }
             return name;

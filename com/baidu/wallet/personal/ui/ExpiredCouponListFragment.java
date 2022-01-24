@@ -41,7 +41,7 @@ import com.baidu.wallet.personal.datamodel.CouponListResponse;
 import java.util.Arrays;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class ExpiredCouponListFragment extends CouponBaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_ID = "ExpiredCouponListFragment";
@@ -284,8 +284,8 @@ public class ExpiredCouponListFragment extends CouponBaseFragment {
                     DXMSdkSAUtils.onEventWithValues("CouponListToUseBtnClick", Arrays.asList(jSONObject.toString()));
                     CouponList.Coupon.AppSceneService appSceneService = item.app_scene_service;
                     if (appSceneService != null) {
-                        if (appSceneService.f52564android > 0) {
-                            BaiduWalletServiceController.getInstance().gotoWalletService(((BaseFragment) this.a).mAct, item.app_scene_service.f52564android, "");
+                        if (appSceneService.f52609android > 0) {
+                            BaiduWalletServiceController.getInstance().gotoWalletService(((BaseFragment) this.a).mAct, item.app_scene_service.f52609android, "");
                         } else if (!TextUtils.isEmpty(appSceneService.url)) {
                             baiduWalletDelegate = BaiduWalletDelegate.getInstance();
                             baseActivity = ((BaseFragment) this.a).mAct;
@@ -330,13 +330,13 @@ public class ExpiredCouponListFragment extends CouponBaseFragment {
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f52570b;
+                public final /* synthetic */ int f52615b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f52571c;
+                public final /* synthetic */ String f52616c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ ExpiredCouponListFragment f52572d;
+                public final /* synthetic */ ExpiredCouponListFragment f52617d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -353,17 +353,17 @@ public class ExpiredCouponListFragment extends CouponBaseFragment {
                             return;
                         }
                     }
-                    this.f52572d = this;
+                    this.f52617d = this;
                     this.a = i2;
-                    this.f52570b = i3;
-                    this.f52571c = str;
+                    this.f52615b = i3;
+                    this.f52616c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f52572d.handleResFailure(this.a, this.f52570b, this.f52571c);
+                        this.f52617d.handleResFailure(this.a, this.f52615b, this.f52616c);
                     }
                 }
             });
@@ -381,13 +381,13 @@ public class ExpiredCouponListFragment extends CouponBaseFragment {
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f52567b;
+                public final /* synthetic */ Object f52612b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f52568c;
+                public final /* synthetic */ String f52613c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ ExpiredCouponListFragment f52569d;
+                public final /* synthetic */ ExpiredCouponListFragment f52614d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -404,17 +404,17 @@ public class ExpiredCouponListFragment extends CouponBaseFragment {
                             return;
                         }
                     }
-                    this.f52569d = this;
+                    this.f52614d = this;
                     this.a = i2;
-                    this.f52567b = obj;
-                    this.f52568c = str;
+                    this.f52612b = obj;
+                    this.f52613c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f52569d.handleResSuccess(this.a, this.f52567b, this.f52568c);
+                        this.f52614d.handleResSuccess(this.a, this.f52612b, this.f52613c);
                     }
                 }
             });

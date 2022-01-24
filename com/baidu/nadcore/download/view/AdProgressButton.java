@@ -33,19 +33,19 @@ public class AdProgressButton extends View implements i<AdProgressButton> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36998e;
+    public int f37026e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f36999f;
+    public Paint f37027f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f37000g;
+    public float f37028g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f37001h;
+    public String f37029h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Typeface f37002i;
+    public Typeface f37030i;
     public int mForegroundColor;
     public Paint mForegroundPaint;
     public int mMax;
@@ -72,8 +72,8 @@ public class AdProgressButton extends View implements i<AdProgressButton> {
             }
         }
         this.mProgress = 0;
-        this.f36998e = -1;
-        this.f37000g = 10.0f;
+        this.f37026e = -1;
+        this.f37028g = 10.0f;
         this.mMax = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
@@ -90,14 +90,14 @@ public class AdProgressButton extends View implements i<AdProgressButton> {
             int a2 = f.c.a(getContext(), 12.0f);
             this.strokeWidth = 1;
             this.mForegroundColor = obtainStyledAttributes.getInteger(c.a.c0.f0.i.nad_progress_nad_btn_foreground, color2);
-            this.f36998e = obtainStyledAttributes.getColor(c.a.c0.f0.i.nad_progress_nad_btn_textColor, color);
+            this.f37026e = obtainStyledAttributes.getColor(c.a.c0.f0.i.nad_progress_nad_btn_textColor, color);
             this.mMax = obtainStyledAttributes.getInteger(c.a.c0.f0.i.nad_progress_nad_btn_max, this.mMax);
             this.mProgress = obtainStyledAttributes.getInteger(c.a.c0.f0.i.nad_progress_nad_btn_progress, 0);
-            this.f37001h = obtainStyledAttributes.getString(c.a.c0.f0.i.nad_progress_nad_btn_text);
-            this.f37000g = obtainStyledAttributes.getDimension(c.a.c0.f0.i.nad_progress_nad_btn_textSize, a);
+            this.f37029h = obtainStyledAttributes.getString(c.a.c0.f0.i.nad_progress_nad_btn_text);
+            this.f37028g = obtainStyledAttributes.getDimension(c.a.c0.f0.i.nad_progress_nad_btn_textSize, a);
             this.mRadius = obtainStyledAttributes.getDimensionPixelSize(c.a.c0.f0.i.nad_progress_nad_btn_radius, a2);
             obtainStyledAttributes.recycle();
-            this.f37002i = Typeface.defaultFromStyle(1);
+            this.f37030i = Typeface.defaultFromStyle(1);
             setBackgroundDrawable(getResources().getDrawable(d.nad_feed_download_btn_bg));
             initPaint();
         }
@@ -150,11 +150,11 @@ public class AdProgressButton extends View implements i<AdProgressButton> {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.mForegroundPaint = new Paint();
             Paint paint = new Paint();
-            this.f36999f = paint;
+            this.f37027f = paint;
             paint.setAntiAlias(true);
-            this.f36999f.setTextSize(this.f37000g);
-            this.f36999f.setColor(this.f36998e);
-            this.f36999f.setTypeface(this.f37002i);
+            this.f37027f.setTextSize(this.f37028g);
+            this.f37027f.setColor(this.f37026e);
+            this.f37027f.setTypeface(this.f37030i);
             this.mForegroundPaint.setAntiAlias(true);
             this.mForegroundPaint.setStyle(Paint.Style.FILL);
         }
@@ -166,12 +166,12 @@ public class AdProgressButton extends View implements i<AdProgressButton> {
         if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
             super.onDraw(canvas);
             drawProgressView(canvas);
-            if (TextUtils.isEmpty(this.f37001h)) {
+            if (TextUtils.isEmpty(this.f37029h)) {
                 return;
             }
-            Paint.FontMetrics fontMetrics = this.f36999f.getFontMetrics();
+            Paint.FontMetrics fontMetrics = this.f37027f.getFontMetrics();
             float f2 = fontMetrics.descent;
-            canvas.drawText(this.f37001h, (getMeasuredWidth() - this.f36999f.measureText(this.f37001h)) / 2.0f, ((getHeight() / 2) - f2) + ((f2 - fontMetrics.ascent) / 2.0f), this.f36999f);
+            canvas.drawText(this.f37029h, (getMeasuredWidth() - this.f37027f.measureText(this.f37029h)) / 2.0f, ((getHeight() / 2) - f2) + ((f2 - fontMetrics.ascent) / 2.0f), this.f37027f);
         }
     }
 
@@ -197,7 +197,7 @@ public class AdProgressButton extends View implements i<AdProgressButton> {
             return;
         }
         this.mProgress = i2;
-        this.f37001h = this.mProgress + "%";
+        this.f37029h = this.mProgress + "%";
         postInvalidate();
     }
 
@@ -207,7 +207,7 @@ public class AdProgressButton extends View implements i<AdProgressButton> {
             return;
         }
         this.mProgress = i2;
-        this.f37001h = "";
+        this.f37029h = "";
         postInvalidate();
     }
 
@@ -221,7 +221,7 @@ public class AdProgressButton extends View implements i<AdProgressButton> {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f37001h = str;
+            this.f37029h = str;
             postInvalidate();
         }
     }
@@ -229,7 +229,7 @@ public class AdProgressButton extends View implements i<AdProgressButton> {
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f36998e = i2;
+            this.f37026e = i2;
             initPaint();
             postInvalidate();
         }
@@ -238,7 +238,7 @@ public class AdProgressButton extends View implements i<AdProgressButton> {
     public void setTextSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f37000g = i2;
+            this.f37028g = i2;
             initPaint();
             postInvalidate();
         }
@@ -277,8 +277,8 @@ public class AdProgressButton extends View implements i<AdProgressButton> {
             }
         }
         this.mProgress = 0;
-        this.f36998e = -1;
-        this.f37000g = 10.0f;
+        this.f37026e = -1;
+        this.f37028g = 10.0f;
         this.mMax = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
@@ -305,8 +305,8 @@ public class AdProgressButton extends View implements i<AdProgressButton> {
             }
         }
         this.mProgress = 0;
-        this.f36998e = -1;
-        this.f37000g = 10.0f;
+        this.f37026e = -1;
+        this.f37028g = 10.0f;
         this.mMax = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;

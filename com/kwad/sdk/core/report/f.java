@@ -9,16 +9,16 @@ public class f extends b<ReportAction, e> {
     public static volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f56052b = new f();
+    public static f f56097b = new f();
 
     public static void a(@NonNull ReportAction reportAction) {
         if (reportAction == null) {
             return;
         }
-        if (com.kwad.sdk.b.f55440c.booleanValue()) {
-            com.kwad.sdk.core.d.a.a("BatchReporter", "report actionType:" + reportAction.f56024i);
+        if (com.kwad.sdk.b.f55485c.booleanValue()) {
+            com.kwad.sdk.core.d.a.a("BatchReporter", "report actionType:" + reportAction.f56069i);
         }
-        if (b(reportAction.f56024i)) {
+        if (b(reportAction.f56069i)) {
             b(reportAction);
         } else {
             c(reportAction);
@@ -29,7 +29,7 @@ public class f extends b<ReportAction, e> {
         if (reportAction == null) {
             return;
         }
-        f56052b.b(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.2
+        f56097b.b(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.g
             /* renamed from: b */
@@ -44,14 +44,14 @@ public class f extends b<ReportAction, e> {
     }
 
     public static f c() {
-        return f56052b;
+        return f56097b;
     }
 
     public static void c(final ReportAction reportAction) {
         if (reportAction == null) {
             return;
         }
-        f56052b.a(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.1
+        f56097b.a(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.g
             /* renamed from: b */

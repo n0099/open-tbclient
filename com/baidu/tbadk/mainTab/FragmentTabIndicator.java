@@ -42,22 +42,22 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public int dayTextColorResId;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41026e;
+    public int f41054e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41027f;
+    public int f41055f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41028g;
+    public int f41056g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f41029h;
+    public int f41057h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f41030i;
+    public boolean f41058i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f41031j;
+    public int f41059j;
     public String k;
     public String l;
     public BdUniqueId m;
@@ -97,7 +97,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         public void a(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.f41030i = true;
+                this.a.f41058i = true;
             }
         }
     }
@@ -161,9 +161,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 return;
             }
         }
-        this.f41026e = 0;
-        this.f41029h = 0;
-        this.f41030i = true;
+        this.f41054e = 0;
+        this.f41057h = 0;
+        this.f41058i = true;
         this.r = true;
         this.s = new HashMap<>();
         this.t = new b(this);
@@ -201,14 +201,14 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void checkAndStartAnimation() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f41029h > 0 && this.f41030i) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f41057h > 0 && this.f41058i) {
             try {
-                this.f41030i = false;
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.n.getContext(), this.f41029h);
+                this.f41058i = false;
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.n.getContext(), this.f41057h);
                 loadAnimation.setAnimationListener(new a(this));
                 this.n.startAnimation(loadAnimation);
             } catch (Exception unused) {
-                this.f41030i = true;
+                this.f41058i = true;
             }
         }
     }
@@ -229,7 +229,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
     public final void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f41027f > 0 || this.f41028g > 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f41055f > 0 || this.f41056g > 0) {
             return;
         }
         if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(this.l)) {
@@ -244,7 +244,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public final void f() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (i2 = this.f41031j) <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (i2 = this.f41059j) <= 0) {
             return;
         }
         SkinManager.setImageResource(this.n, i2);
@@ -283,7 +283,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 SkinManager.setViewTextColor(this.o, this.dayTextColorResId, 1, 0);
             }
             if (this.o != null) {
-                this.o.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getSkinDrawable(null, this.f41027f), SkinManager.getSkinDrawable(null, this.f41028g), (Drawable) null);
+                this.o.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getSkinDrawable(null, this.f41055f), SkinManager.getSkinDrawable(null, this.f41056g), (Drawable) null);
             }
             e();
             for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.s.entrySet()) {
@@ -305,12 +305,12 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 int measuredWidth2 = value.a.getMeasuredWidth();
                 int measuredHeight2 = value.a.getMeasuredHeight();
                 int measureText = (int) this.o.getPaint().measureText(this.o.getText().toString());
-                if (value.f41040b) {
-                    measuredWidth = (getMeasuredWidth() / 2) + value.f41041c + (measureText / 2);
+                if (value.f41068b) {
+                    measuredWidth = (getMeasuredWidth() / 2) + value.f41069c + (measureText / 2);
                 } else {
-                    measuredWidth = ((getMeasuredWidth() / 2) - value.f41041c) - (measureText / 2);
+                    measuredWidth = ((getMeasuredWidth() / 2) - value.f41069c) - (measureText / 2);
                 }
-                if (this.f41026e == 1) {
+                if (this.f41054e == 1) {
                     measuredWidth -= this.q;
                     measuredHeight = this.p;
                 } else {
@@ -384,7 +384,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setAnimationResId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f41029h = i2;
+            this.f41057h = i2;
         }
     }
 
@@ -411,7 +411,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setCompoundDrawablesRightResId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f41028g = i2;
+            this.f41056g = i2;
         }
     }
 
@@ -419,7 +419,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setCompoundDrawablesTopResId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f41027f = i2;
+            this.f41055f = i2;
         }
     }
 
@@ -455,7 +455,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setIconResourceId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.f41031j = i2;
+            this.f41059j = i2;
             f();
         }
     }
@@ -539,13 +539,13 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                     int skinType = TbadkCoreApplication.getInst().getSkinType();
                     if (skinType == 4) {
-                        this.o.setTextColor(c.a.t0.w3.c.d(this.mThemeColorInfo.dark.font_color));
+                        this.o.setTextColor(c.a.t0.x3.c.d(this.mThemeColorInfo.dark.font_color));
                         return;
                     } else if (skinType == 1) {
-                        this.o.setTextColor(c.a.t0.w3.c.d(this.mThemeColorInfo.night.font_color));
+                        this.o.setTextColor(c.a.t0.x3.c.d(this.mThemeColorInfo.night.font_color));
                         return;
                     } else {
-                        this.o.setTextColor(c.a.t0.w3.c.d(this.mThemeColorInfo.day.font_color));
+                        this.o.setTextColor(c.a.t0.x3.c.d(this.mThemeColorInfo.day.font_color));
                         return;
                     }
                 }
@@ -602,7 +602,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setTipPosType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.f41026e = i2;
+            this.f41054e = i2;
         }
     }
 
@@ -658,9 +658,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 return;
             }
         }
-        this.f41026e = 0;
-        this.f41029h = 0;
-        this.f41030i = true;
+        this.f41054e = 0;
+        this.f41057h = 0;
+        this.f41058i = true;
         this.r = true;
         this.s = new HashMap<>();
         this.t = new b(this);

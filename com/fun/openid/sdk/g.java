@@ -52,11 +52,11 @@ public class g implements f {
             }
         };
         vVar.a = context;
-        vVar.f54225d = aVar2;
-        vVar.f54224c = new u(vVar);
+        vVar.f54270d = aVar2;
+        vVar.f54269c = new u(vVar);
         Intent intent = new Intent();
         intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-        char c2 = vVar.a.bindService(intent, vVar.f54224c, 1) ? (char) 1 : (char) 65535;
+        char c2 = vVar.a.bindService(intent, vVar.f54269c, 1) ? (char) 1 : (char) 65535;
         this.a = true;
         if (c2 != 1) {
             aVar.a(true, null);
@@ -79,7 +79,7 @@ public class g implements f {
         if (interceptable == null || interceptable.invokeLLL(65537, this, aVar, str, vVar) == null) {
             vVar.getClass();
             try {
-                tVar2 = vVar.f54223b;
+                tVar2 = vVar.f54268b;
             } catch (RemoteException unused) {
             }
             if (tVar2 != null) {
@@ -87,7 +87,7 @@ public class g implements f {
                 if (!z) {
                     if (vVar.a != null) {
                         try {
-                            tVar = vVar.f54223b;
+                            tVar = vVar.f54268b;
                         } catch (RemoteException e2) {
                             e2.printStackTrace();
                         }
@@ -104,15 +104,15 @@ public class g implements f {
                     FunOpenIDSdk.isLogEnabled();
                     aVar.a(false, null);
                 }
-                vVar.a.unbindService(vVar.f54224c);
-                vVar.f54223b = null;
+                vVar.a.unbindService(vVar.f54269c);
+                vVar.f54268b = null;
                 this.a = false;
             }
             z = false;
             if (!z) {
             }
-            vVar.a.unbindService(vVar.f54224c);
-            vVar.f54223b = null;
+            vVar.a.unbindService(vVar.f54269c);
+            vVar.f54268b = null;
             this.a = false;
         }
     }

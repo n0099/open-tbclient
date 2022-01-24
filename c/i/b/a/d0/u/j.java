@@ -16,10 +16,10 @@ public abstract class j extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public byte[] f29175i;
+    public byte[] f29203i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f29176j;
+    public int f29204j;
     public volatile boolean k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -41,7 +41,7 @@ public abstract class j extends c {
                 return;
             }
         }
-        this.f29175i = bArr;
+        this.f29203i = bArr;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
@@ -55,7 +55,7 @@ public abstract class j extends c {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29176j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29204j : invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
@@ -71,17 +71,17 @@ public abstract class j extends c {
     public byte[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29175i : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29203i : (byte[]) invokeV.objValue;
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            byte[] bArr = this.f29175i;
+            byte[] bArr = this.f29203i;
             if (bArr == null) {
-                this.f29175i = new byte[16384];
-            } else if (bArr.length < this.f29176j + 16384) {
-                this.f29175i = Arrays.copyOf(bArr, bArr.length + 16384);
+                this.f29203i = new byte[16384];
+            } else if (bArr.length < this.f29204j + 16384) {
+                this.f29203i = Arrays.copyOf(bArr, bArr.length + 16384);
             }
         }
     }
@@ -91,21 +91,21 @@ public abstract class j extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             try {
-                this.f29153h.a(this.a);
+                this.f29181h.a(this.a);
                 int i2 = 0;
-                this.f29176j = 0;
+                this.f29204j = 0;
                 while (i2 != -1 && !this.k) {
                     f();
-                    i2 = this.f29153h.read(this.f29175i, this.f29176j, 16384);
+                    i2 = this.f29181h.read(this.f29203i, this.f29204j, 16384);
                     if (i2 != -1) {
-                        this.f29176j += i2;
+                        this.f29204j += i2;
                     }
                 }
                 if (!this.k) {
-                    d(this.f29175i, this.f29176j);
+                    d(this.f29203i, this.f29204j);
                 }
             } finally {
-                v.h(this.f29153h);
+                v.h(this.f29181h);
             }
         }
     }

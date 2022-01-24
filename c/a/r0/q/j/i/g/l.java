@@ -15,12 +15,12 @@ public class l implements b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c.a.r0.q.p.a f11543c;
+    public static final c.a.r0.q.p.a f11685c;
     public transient /* synthetic */ FieldHolder $fh;
     public Vector<b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f11544b;
+    public Object f11686b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class l implements b {
                 return;
             }
         }
-        f11543c = c.a.r0.q.p.a.e();
+        f11685c = c.a.r0.q.p.a.e();
     }
 
     public l(b bVar) {
@@ -53,7 +53,7 @@ public class l implements b {
                 return;
             }
         }
-        this.f11544b = new Object();
+        this.f11686b = new Object();
         this.a = new Vector<>();
         c(bVar);
     }
@@ -63,14 +63,14 @@ public class l implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
             try {
-                synchronized (this.f11544b) {
+                synchronized (this.f11686b) {
                     Iterator<b> it = this.a.iterator();
                     while (it.hasNext()) {
                         it.next().a(fVar);
                     }
                 }
             } catch (Throwable th) {
-                f11543c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
+                f11685c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
             }
         }
     }
@@ -81,7 +81,7 @@ public class l implements b {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
             Vector vector = new Vector();
             try {
-                synchronized (this.f11544b) {
+                synchronized (this.f11686b) {
                     Iterator<b> it = this.a.iterator();
                     while (it.hasNext()) {
                         vector.add(it.next());
@@ -92,7 +92,7 @@ public class l implements b {
                     ((b) it2.next()).b(fVar);
                 }
             } catch (Throwable th) {
-                f11543c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
+                f11685c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
             }
         }
     }
@@ -102,7 +102,7 @@ public class l implements b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || bVar == null) {
             return;
         }
-        synchronized (this.f11544b) {
+        synchronized (this.f11686b) {
             this.a.add(bVar);
         }
     }
@@ -112,7 +112,7 @@ public class l implements b {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || bVar == null) {
             return;
         }
-        synchronized (this.f11544b) {
+        synchronized (this.f11686b) {
             if (!this.a.remove(bVar)) {
                 this.a.remove(this.a.indexOf(bVar));
             }

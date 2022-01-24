@@ -26,38 +26,38 @@ public class AdBaseModel {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37014b;
+    public boolean f37042b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f37015c;
+    public final boolean f37043c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public final i f37016d;
+    public final i f37044d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f37017e;
+    public final b f37045e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public final AdOperator f37018f;
+    public final AdOperator f37046f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public final p f37019g;
+    public final p f37047g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final l f37020h;
+    public final l f37048h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public final c f37021i;
+    public final c f37049i;
     @Nullable
 
     /* renamed from: j  reason: collision with root package name */
-    public g f37022j;
+    public g f37050j;
     @Nullable
     public e k;
     public o l;

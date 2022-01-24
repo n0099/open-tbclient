@@ -77,7 +77,7 @@ public class Zeus {
         if (interceptable == null || interceptable.invokeLL(65539, null, str, zeusPluginListener) == null) {
             com.bytedance.pangle.download.g a = com.bytedance.pangle.download.g.a();
             synchronized (a) {
-                Iterator<PluginDownloadBean> it = a.f53035c.iterator();
+                Iterator<PluginDownloadBean> it = a.f53080c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         pluginDownloadBean = null;
@@ -89,7 +89,7 @@ public class Zeus {
                     }
                 }
                 if (pluginDownloadBean == null) {
-                    Iterator<PluginDownloadBean> it2 = a.f53034b.iterator();
+                    Iterator<PluginDownloadBean> it2 = a.f53079b.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             break;
@@ -261,10 +261,10 @@ public class Zeus {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, null, zeusPluginStateListener) == null) {
             g a = g.a();
-            if (a.f53082c.isEmpty()) {
-                a.f53082c = new CopyOnWriteArrayList();
+            if (a.f53127c.isEmpty()) {
+                a.f53127c = new CopyOnWriteArrayList();
             }
-            a.f53082c.add(zeusPluginStateListener);
+            a.f53127c.add(zeusPluginStateListener);
         }
     }
 
@@ -307,8 +307,8 @@ public class Zeus {
         g a;
         List<ZeusPluginStateListener> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65561, null, zeusPluginStateListener) == null) && (list = (a = g.a()).f53082c) != null && list.contains(zeusPluginStateListener)) {
-            a.f53082c.remove(zeusPluginStateListener);
+        if ((interceptable == null || interceptable.invokeL(65561, null, zeusPluginStateListener) == null) && (list = (a = g.a()).f53127c) != null && list.contains(zeusPluginStateListener)) {
+            a.f53127c.remove(zeusPluginStateListener);
         }
     }
 

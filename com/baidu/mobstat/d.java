@@ -36,13 +36,13 @@ public class d {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f36613b;
+        public String f36641b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f36614c;
+        public String f36642c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f36615d;
+        public String f36643d;
 
         public a(String str, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
@@ -64,9 +64,9 @@ public class d {
             str3 = str3 == null ? "" : str3;
             str4 = str4 == null ? "" : str4;
             this.a = str;
-            this.f36613b = str2;
-            this.f36614c = str3;
-            this.f36615d = str4;
+            this.f36641b = str2;
+            this.f36642c = str3;
+            this.f36643d = str4;
         }
 
         public JSONObject a() {
@@ -76,9 +76,9 @@ public class d {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("n", this.a);
-                    jSONObject.put("v", this.f36613b);
-                    jSONObject.put("c", this.f36614c);
-                    jSONObject.put("a", this.f36615d);
+                    jSONObject.put("v", this.f36641b);
+                    jSONObject.put("c", this.f36642c);
+                    jSONObject.put("a", this.f36643d);
                     return jSONObject;
                 } catch (JSONException e2) {
                     bb.c().b(e2);
@@ -211,7 +211,7 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            k.f36896e.a(System.currentTimeMillis(), str);
+            k.f36924e.a(System.currentTimeMillis(), str);
         }
     }
 }

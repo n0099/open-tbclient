@@ -12,7 +12,7 @@ public class k implements Runnable {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Runnable f34079b;
+    public Runnable f34107b;
 
     public k(Runnable runnable) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class k implements Runnable {
         }
         this.a = "EmptyName";
         this.a = "nullname";
-        this.f34079b = runnable;
+        this.f34107b = runnable;
     }
 
     @Override // java.lang.Runnable
@@ -43,7 +43,7 @@ public class k implements Runnable {
                     Looper.prepare();
                 }
                 System.currentTimeMillis();
-                this.f34079b.run();
+                this.f34107b.run();
                 System.currentTimeMillis();
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -68,6 +68,6 @@ public class k implements Runnable {
         }
         this.a = "EmptyName";
         this.a = str;
-        this.f34079b = runnable;
+        this.f34107b = runnable;
     }
 }

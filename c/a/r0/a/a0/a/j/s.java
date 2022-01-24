@@ -36,7 +36,7 @@ public class s extends a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (rectF = this.a) == null) {
             return;
         }
-        bVar.f5075j.addRect(rectF, Path.Direction.CW);
+        bVar.f5217j.addRect(rectF, Path.Direction.CW);
     }
 
     @Override // c.a.r0.a.a0.a.j.a

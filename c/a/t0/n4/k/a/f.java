@@ -17,7 +17,7 @@ public class f {
     public final Matrix a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RectF f19927b;
+    public RectF f20028b;
 
     public f(CameraCharacteristics cameraCharacteristics, RectF rectF) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class f {
             Rect rect = (Rect) cameraCharacteristics.get(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE);
             Integer num = (Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
             int intValue = num == null ? 90 : num.intValue();
-            this.f19927b = new RectF(rect);
+            this.f20028b = new RectF(rect);
             Integer num2 = (Integer) cameraCharacteristics.get(CameraCharacteristics.LENS_FACING);
             this.a = b(num2 != null && num2.intValue() == 0, intValue, rectF);
             return;
@@ -61,7 +61,7 @@ public class f {
             matrix.postRotate(-i2);
             matrix.mapRect(rectF);
             Matrix matrix2 = new Matrix();
-            matrix2.setRectToRect(rectF, this.f19927b, Matrix.ScaleToFit.FILL);
+            matrix2.setRectToRect(rectF, this.f20028b, Matrix.ScaleToFit.FILL);
             matrix.setConcat(matrix2, matrix);
             return matrix;
         }

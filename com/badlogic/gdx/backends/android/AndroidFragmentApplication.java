@@ -52,7 +52,7 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
     public e clipboard;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.b.b.q.a<f> f31045e;
+    public final c.b.b.q.a<f> f31073e;
     public final c.b.b.q.a<Runnable> executedRunnables;
     public h files;
     public boolean firstResume;
@@ -120,7 +120,7 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AndroidFragmentApplication f31046e;
+        public final /* synthetic */ AndroidFragmentApplication f31074e;
 
         public b(AndroidFragmentApplication androidFragmentApplication) {
             Interceptable interceptable = $ic;
@@ -137,14 +137,14 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
                     return;
                 }
             }
-            this.f31046e = androidFragmentApplication;
+            this.f31074e = androidFragmentApplication;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f31046e.callbacks.exit();
+                this.f31074e.callbacks.exit();
             }
         }
     }
@@ -187,15 +187,15 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
         this.runnables = new c.b.b.q.a<>();
         this.executedRunnables = new c.b.b.q.a<>();
         this.lifecycleListeners = new g0<>(c.b.b.h.class);
-        this.f31045e = new c.b.b.q.a<>();
+        this.f31073e = new c.b.b.q.a<>();
         this.logLevel = 2;
     }
 
     public void addAndroidEventListener(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            synchronized (this.f31045e) {
-                this.f31045e.a(fVar);
+            synchronized (this.f31073e) {
+                this.f31073e.a(fVar);
             }
         }
     }
@@ -224,7 +224,7 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
     public m createInput(Application application, Context context, Object obj, c.b.b.l.a.b bVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, application, context, obj, bVar)) == null) ? new z(this, getActivity(), this.graphics.f27034e, bVar) : (m) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, application, context, obj, bVar)) == null) ? new z(this, getActivity(), this.graphics.f27062e, bVar) : (m) invokeLLLL.objValue;
     }
 
     public FrameLayout.LayoutParams createLayoutParams() {
@@ -431,9 +431,9 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048615, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            synchronized (this.f31045e) {
-                for (int i4 = 0; i4 < this.f31045e.f27361f; i4++) {
-                    this.f31045e.get(i4).onActivityResult(i2, i3, intent);
+            synchronized (this.f31073e) {
+                for (int i4 = 0; i4 < this.f31073e.f27389f; i4++) {
+                    this.f31073e.get(i4).onActivityResult(i2, i3, intent);
                 }
             }
         }
@@ -501,9 +501,9 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
         if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
             c.b.b.f.a = this;
             getInput();
-            c.b.b.f.f26937c = getAudio();
-            c.b.b.f.f26938d = getFiles();
-            c.b.b.f.f26936b = getGraphics();
+            c.b.b.f.f26965c = getAudio();
+            c.b.b.f.f26966d = getFiles();
+            c.b.b.f.f26964b = getGraphics();
             getNet();
             this.input.onResume();
             k kVar = this.graphics;
@@ -525,7 +525,7 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
         if (interceptable == null || interceptable.invokeL(1048621, this, runnable) == null) {
             synchronized (this.runnables) {
                 this.runnables.a(runnable);
-                c.b.b.f.f26936b.c();
+                c.b.b.f.f26964b.c();
             }
         }
     }
@@ -533,8 +533,8 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
     public void removeAndroidEventListener(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, fVar) == null) {
-            synchronized (this.f31045e) {
-                this.f31045e.i(fVar, true);
+            synchronized (this.f31073e) {
+                this.f31073e.i(fVar, true);
             }
         }
     }
@@ -620,7 +620,7 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
                     cVar2 = new c.b.b.l.a.b0.a();
                 }
                 this.graphics = new k(this, bVar, cVar2);
-                this.input = createInput(this, getActivity(), this.graphics.f27034e, bVar);
+                this.input = createInput(this, getActivity(), this.graphics.f27062e, bVar);
                 this.audio = createAudio(getActivity(), bVar);
                 this.files = createFiles();
                 this.net = new q(this, bVar);
@@ -630,9 +630,9 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
                 addLifecycleListener(new a(this));
                 c.b.b.f.a = this;
                 getInput();
-                c.b.b.f.f26937c = getAudio();
-                c.b.b.f.f26938d = getFiles();
-                c.b.b.f.f26936b = getGraphics();
+                c.b.b.f.f26965c = getAudio();
+                c.b.b.f.f26966d = getFiles();
+                c.b.b.f.f26964b = getGraphics();
                 getNet();
                 createWakeLock(bVar.n);
                 useImmersiveMode(bVar.t);

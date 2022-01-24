@@ -18,20 +18,20 @@ public class a {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f14943b;
+    public b f15083b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f14944c;
+    public HttpMessageListener f15084c;
 
     /* renamed from: c.a.t0.a0.l.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0947a extends HttpMessageListener {
+    public class C0957a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0947a(a aVar, int i2) {
+        public C0957a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -59,8 +59,8 @@ public class a {
                 AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
                 boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
                 String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-                if (this.a.f14943b != null) {
-                    this.a.f14943b.a(z, errorString);
+                if (this.a.f15083b != null) {
+                    this.a.f15083b.a(z, errorString);
                 }
             }
         }
@@ -86,11 +86,11 @@ public class a {
                 return;
             }
         }
-        C0947a c0947a = new C0947a(this, AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
-        this.f14944c = c0947a;
+        C0957a c0957a = new C0957a(this, AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+        this.f15084c = c0957a;
         this.a = tbPageContext;
-        this.f14943b = bVar;
-        tbPageContext.registerListener(c0947a);
+        this.f15083b = bVar;
+        tbPageContext.registerListener(c0957a);
     }
 
     public void b(String str, int i2) {

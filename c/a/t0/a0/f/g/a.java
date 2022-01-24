@@ -46,9 +46,9 @@ public class a extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            cVar.f12789e = 4;
-            cVar.f12786b = R.string.ala_live;
-            cVar.f12793i = c.k;
+            cVar.f12933e = 4;
+            cVar.f12930b = R.string.ala_live;
+            cVar.f12937i = c.k;
             return cVar;
         }
         return (c) invokeV.objValue;

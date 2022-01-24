@@ -26,7 +26,7 @@ import com.dxmpay.wallet.utils.StatHelper;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class ErrorContentResponse implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NEED_UPDATE = "1";
@@ -51,7 +51,7 @@ public class ErrorContentResponse implements Serializable {
     public String use_vcode_to_pay;
     public Verify verify;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class CardInfoCheck implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class ErrorContentResponse implements Serializable {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class Guidance implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class ErrorContentResponse implements Serializable {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class LivingParam implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +140,7 @@ public class ErrorContentResponse implements Serializable {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class MktSolution implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -174,7 +174,7 @@ public class ErrorContentResponse implements Serializable {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class Operations implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BIND_OTHER_CARDS = "bind_other_cards";
@@ -372,7 +372,7 @@ public class ErrorContentResponse implements Serializable {
                                         public final /* synthetic */ Context a;
 
                                         /* renamed from: b  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass4 f51954b;
+                                        public final /* synthetic */ AnonymousClass4 f51999b;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -389,7 +389,7 @@ public class ErrorContentResponse implements Serializable {
                                                     return;
                                                 }
                                             }
-                                            this.f51954b = this;
+                                            this.f51999b = this;
                                             this.a = context;
                                         }
 
@@ -470,7 +470,7 @@ public class ErrorContentResponse implements Serializable {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class Verify implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String VERIFY_CARD_NO = "card_no";

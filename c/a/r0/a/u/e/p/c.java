@@ -27,13 +27,13 @@ public class c extends c.a.r0.a.u.e.p.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f9273e;
+        public final /* synthetic */ JSONArray f9415e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9274f;
+        public final /* synthetic */ String f9416f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f9275g;
+        public final /* synthetic */ c f9417g;
 
         public a(c cVar, JSONArray jSONArray, String str) {
             Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public class c extends c.a.r0.a.u.e.p.a {
                     return;
                 }
             }
-            this.f9275g = cVar;
-            this.f9273e = jSONArray;
-            this.f9274f = str;
+            this.f9417g = cVar;
+            this.f9415e = jSONArray;
+            this.f9416f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9275g.d(this.f9274f, this.f9275g.D(this.f9273e));
+                this.f9417g.d(this.f9416f, this.f9417g.D(this.f9415e));
             }
         }
     }
@@ -70,13 +70,13 @@ public class c extends c.a.r0.a.u.e.p.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9276e;
+        public final /* synthetic */ String f9418e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9277f;
+        public final /* synthetic */ String f9419f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f9278g;
+        public final /* synthetic */ c f9420g;
 
         public b(c cVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -93,16 +93,16 @@ public class c extends c.a.r0.a.u.e.p.a {
                     return;
                 }
             }
-            this.f9278g = cVar;
-            this.f9276e = str;
-            this.f9277f = str2;
+            this.f9420g = cVar;
+            this.f9418e = str;
+            this.f9419f = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9278g.d(this.f9277f, this.f9278g.B(this.f9276e));
+                this.f9420g.d(this.f9419f, this.f9420g.B(this.f9418e));
             }
         }
     }

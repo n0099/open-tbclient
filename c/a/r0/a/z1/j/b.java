@@ -22,13 +22,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f9915e;
+        public final /* synthetic */ View f10057e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f9916f;
+        public final /* synthetic */ View f10058f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f9917g;
+        public final /* synthetic */ c f10059g;
 
         public a(View view, View view2, c cVar) {
             Interceptable interceptable = $ic;
@@ -45,17 +45,17 @@ public class b {
                     return;
                 }
             }
-            this.f9915e = view;
-            this.f9916f = view2;
-            this.f9917g = cVar;
+            this.f10057e = view;
+            this.f10058f = view2;
+            this.f10059g = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && c.a.r0.a.z1.h.b.c().e()) {
-                boolean c2 = b.c(this.f9915e, this.f9916f);
-                c cVar = this.f9917g;
+                boolean c2 = b.c(this.f10057e, this.f10058f);
+                c cVar = this.f10059g;
                 if (cVar != null) {
                     cVar.onClickSwitch(view, c2);
                 }
@@ -65,14 +65,14 @@ public class b {
 
     /* renamed from: c.a.r0.a.z1.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class View$OnTouchListenerC0651b implements View.OnTouchListener {
+    public static class View$OnTouchListenerC0660b implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f9918e;
+        public final /* synthetic */ View f10060e;
 
-        public View$OnTouchListenerC0651b(View view) {
+        public View$OnTouchListenerC0660b(View view) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +87,7 @@ public class b {
                     return;
                 }
             }
-            this.f9918e = view;
+            this.f10060e = view;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -96,7 +96,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.f9918e.setVisibility(4);
+                    this.f10060e.setVisibility(4);
                     return false;
                 }
                 return false;
@@ -118,7 +118,7 @@ public class b {
                 view2.setOnClickListener(new a(view, view3, cVar));
             }
             if (e(view.getContext())) {
-                view3.setOnTouchListener(new View$OnTouchListenerC0651b(view));
+                view3.setOnTouchListener(new View$OnTouchListenerC0660b(view));
             }
         }
     }

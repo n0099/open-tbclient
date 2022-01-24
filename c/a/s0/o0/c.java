@@ -19,10 +19,10 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12948b;
+    public String f13092b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ArrayList<String> f12949c;
+    public final ArrayList<String> f13093c;
 
     public c(BdUniqueId bdUniqueId, String str, String str2, Intent intent) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public class c {
                 return;
             }
         }
-        this.f12949c = new ArrayList<>();
+        this.f13093c = new ArrayList<>();
         this.a = str;
-        this.f12948b = str2;
+        this.f13092b = str2;
         g(intent);
     }
 
@@ -54,25 +54,25 @@ public class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12948b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13092b : (String) invokeV.objValue;
     }
 
     public ArrayList<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbPageExtraHelper.c(this.f12949c, this.a) : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbPageExtraHelper.c(this.f13093c, this.a) : (ArrayList) invokeV.objValue;
     }
 
     public ArrayList<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12949c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13093c : (ArrayList) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (String) ListUtils.getItem(this.f12949c, ListUtils.getCount(this.f12949c) - 1) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (String) ListUtils.getItem(this.f13093c, ListUtils.getCount(this.f13093c) - 1) : (String) invokeV.objValue;
     }
 
     public boolean f() {
@@ -84,13 +84,13 @@ public class c {
     public void g(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
-            this.f12949c.clear();
+            this.f13093c.clear();
             if (intent != null) {
                 ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("tb_page_extar_source_list");
                 if (ListUtils.isEmpty(stringArrayListExtra)) {
                     return;
                 }
-                this.f12949c.addAll(stringArrayListExtra);
+                this.f13093c.addAll(stringArrayListExtra);
             }
         }
     }
@@ -98,7 +98,7 @@ public class c {
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f12948b = str;
+            this.f13092b = str;
         }
     }
 }

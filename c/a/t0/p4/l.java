@@ -23,22 +23,22 @@ public class l implements c.a.t0.k0.c {
     public c.a.t0.p4.a0.d.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f21244b;
+    public ArrayList<TransmitForumData> f21480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<SimpleForum> f21245c;
+    public List<SimpleForum> f21481c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a f21246d;
+    public c.a f21482d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f21247e;
+    public boolean f21483e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21248f;
+    public int f21484f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a.b f21249g;
+    public a.b f21485g;
 
     /* loaded from: classes8.dex */
     public class a implements a.b {
@@ -68,8 +68,8 @@ public class l implements c.a.t0.k0.c {
         public void a(List<SimpleForum> list, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, list, i2) == null) {
-                this.a.f21245c = list;
-                this.a.f21248f = i2;
+                this.a.f21481c = list;
+                this.a.f21484f = i2;
                 this.a.h();
             }
         }
@@ -96,12 +96,12 @@ public class l implements c.a.t0.k0.c {
                 return;
             }
         }
-        this.f21244b = new ArrayList<>();
-        this.f21249g = new a(this);
+        this.f21480b = new ArrayList<>();
+        this.f21485g = new a(this);
         BdUniqueId gen = BdUniqueId.gen();
         c.a.t0.p4.a0.d.a aVar = new c.a.t0.p4.a0.d.a(gen);
         this.a = aVar;
-        aVar.i(this.f21249g);
+        aVar.i(this.f21485g);
         this.a.j(gen);
     }
 
@@ -109,7 +109,7 @@ public class l implements c.a.t0.k0.c {
     public void a(c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f21246d = aVar;
+            this.f21482d = aVar;
         }
     }
 
@@ -117,10 +117,10 @@ public class l implements c.a.t0.k0.c {
     public void b() {
         c.a.t0.p4.a0.d.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f21246d == null || (aVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f21482d == null || (aVar = this.a) == null) {
             return;
         }
-        this.f21247e = false;
+        this.f21483e = false;
         aVar.l(null);
         this.a.k(null);
         this.a.h();
@@ -128,23 +128,23 @@ public class l implements c.a.t0.k0.c {
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f21247e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f21483e) {
             return;
         }
-        c.a aVar = this.f21246d;
+        c.a aVar = this.f21482d;
         if (aVar != null) {
             aVar.a(null, false, 2, 0);
         }
-        this.f21247e = true;
+        this.f21483e = true;
     }
 
     public final void h() {
         Long l;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f21244b.clear();
-            if (ListUtils.getCount(this.f21245c) > 0) {
-                for (SimpleForum simpleForum : this.f21245c) {
+            this.f21480b.clear();
+            if (ListUtils.getCount(this.f21481c) > 0) {
+                for (SimpleForum simpleForum : this.f21481c) {
                     if (simpleForum != null && (l = simpleForum.id) != null && l.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
                         TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
                         transmitForumData.tabItemDatas = new ArrayList<>();
@@ -153,13 +153,13 @@ public class l implements c.a.t0.k0.c {
                                 transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
                             }
                         }
-                        this.f21244b.add(transmitForumData);
+                        this.f21480b.add(transmitForumData);
                     }
                 }
             }
-            c.a aVar = this.f21246d;
+            c.a aVar = this.f21482d;
             if (aVar != null) {
-                aVar.a(this.f21244b, true, 2, this.f21248f);
+                aVar.a(this.f21480b, true, 2, this.f21484f);
             }
         }
     }

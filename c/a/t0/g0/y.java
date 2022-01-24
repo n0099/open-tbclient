@@ -75,7 +75,7 @@ public class y extends b<e2> implements c.a.t0.t.e {
         this.u = (ConstrainImageGroup) j2.findViewById(R.id.card_img_layout);
         this.m = j2.findViewById(R.id.card_divider_line);
         this.u.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
-        c.a.s0.g1.j.f fVar = new c.a.s0.g1.j.f(3);
+        c.a.s0.f1.j.f fVar = new c.a.s0.f1.j.f(3);
         fVar.d(1.0d);
         this.u.setImageProcessor(fVar);
         this.u.setSinglePicUseStyleV10(true);
@@ -121,8 +121,8 @@ public class y extends b<e2> implements c.a.t0.t.e {
             g().b(view, this.s, this.t);
         }
         if (view == j()) {
-            m.a(this.s.v1());
-            m.l(this.r, this.s.v1(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.a(this.s.w1());
+            m.l(this.r, this.s.w1(), R.color.CAM_X0105, R.color.CAM_X0109);
             p();
         }
     }
@@ -142,7 +142,7 @@ public class y extends b<e2> implements c.a.t0.t.e {
         String name_show = this.s.J().getName_show();
         HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
         HotTopicActivityConfig createNormalConfig = hotTopicActivityConfig.createNormalConfig("", name_show + "", "3");
-        createNormalConfig.setExtra(j2, this.s.V(), this.s.a1(), c.a.d.f.m.b.g(this.s.v1(), 0L));
+        createNormalConfig.setExtra(j2, this.s.V(), this.s.b1(), c.a.d.f.m.b.g(this.s.w1(), 0L));
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
     }
 
@@ -167,17 +167,17 @@ public class y extends b<e2> implements c.a.t0.t.e {
             if (e2Var.J() != null) {
                 this.p.setText(e2Var.J().getName_show());
             }
-            this.q.setText(StringHelper.getFormatTime(e2Var.w0() * 1000));
-            String str = e2Var.B1() + "：";
+            this.q.setText(StringHelper.getFormatTime(e2Var.x0() * 1000));
+            String str = e2Var.C1() + "：";
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.append((CharSequence) e2Var.Z2(false, true));
+            spannableStringBuilder.append((CharSequence) e2Var.a3(false, true));
             spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
             this.r.setText(spannableStringBuilder);
-            ArrayList<MediaData> F0 = e2Var.F0();
-            if (c.a.s0.s.k.c().g() && ListUtils.getCount(F0) != 0) {
+            ArrayList<MediaData> G0 = e2Var.G0();
+            if (c.a.s0.s.k.c().g() && ListUtils.getCount(G0) != 0) {
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < F0.size(); i2++) {
-                    MediaData mediaData = (MediaData) ListUtils.getItem(F0, i2);
+                for (int i2 = 0; i2 < G0.size(); i2++) {
+                    MediaData mediaData = (MediaData) ListUtils.getItem(G0, i2);
                     if (mediaData != null && mediaData.getType() == 3) {
                         arrayList.add(mediaData);
                     }
@@ -191,7 +191,7 @@ public class y extends b<e2> implements c.a.t0.t.e {
             } else {
                 this.u.setVisibility(8);
             }
-            m.l(this.r, this.s.v1(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(this.r, this.s.w1(), R.color.CAM_X0105, R.color.CAM_X0109);
             l(this.n, TbadkCoreApplication.getInst().getSkinType());
         }
     }

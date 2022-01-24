@@ -57,7 +57,7 @@ public class c extends c.a.r0.q.k.b {
                 jSONObject.put("page_tips", jSONObject8);
                 if (n.a) {
                     JSONObject jSONObject9 = new JSONObject();
-                    jSONObject9.put("version", n.f11613b);
+                    jSONObject9.put("version", n.f11755b);
                     jSONObject.put("heartbeat", jSONObject9);
                 }
                 JSONObject jSONObject10 = new JSONObject();

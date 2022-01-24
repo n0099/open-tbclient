@@ -1,7 +1,7 @@
 package com.baidu.tieba.stamp.model;
 
 import c.a.d.f.l.c;
-import c.a.t0.t3.d;
+import c.a.t0.u3.d;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -20,30 +20,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class FetchStampModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f48074e;
+    public TbPageContext f48090e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.t3.h.a f48075f;
+    public c.a.t0.u3.h.a f48091f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48076g;
+    public int f48092g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c<c.a.d.n.d.a> f48077h;
+    public c<c.a.d.n.d.a> f48093h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f48078i;
+    public String f48094i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HttpMessageListener f48079j;
+    public HttpMessageListener f48095j;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,14 +84,14 @@ public class FetchStampModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b extends c<c.a.d.n.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FetchStampModel f48080b;
+        public final /* synthetic */ FetchStampModel f48096b;
 
         public b(FetchStampModel fetchStampModel, d dVar) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class FetchStampModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48080b = fetchStampModel;
+            this.f48096b = fetchStampModel;
             this.a = dVar;
         }
 
@@ -121,12 +121,12 @@ public class FetchStampModel extends BdBaseModel {
                 if (aVar == null || !aVar.w()) {
                     return;
                 }
-                this.f48080b.f48075f.a(this.a);
+                this.f48096b.f48091f.a(this.a);
             }
         }
     }
 
-    public FetchStampModel(TbPageContext tbPageContext, c.a.t0.t3.h.a aVar) {
+    public FetchStampModel(TbPageContext tbPageContext, c.a.t0.u3.h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,10 +141,10 @@ public class FetchStampModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48076g = 10;
-        this.f48079j = new a(this, CmdConfigHttp.CMD_FETCH_STAMP, true);
-        this.f48074e = tbPageContext;
-        this.f48075f = aVar;
+        this.f48092g = 10;
+        this.f48095j = new a(this, CmdConfigHttp.CMD_FETCH_STAMP, true);
+        this.f48090e = tbPageContext;
+        this.f48091f = aVar;
         y();
         registerListener();
     }
@@ -154,11 +154,11 @@ public class FetchStampModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!StringUtils.isNull(this.f48078i) && this.f48077h != null) {
-                c.a.d.f.l.d.h().d(this.f48078i, this.f48076g, this.f48077h);
+            if (!StringUtils.isNull(this.f48094i) && this.f48093h != null) {
+                c.a.d.f.l.d.h().d(this.f48094i, this.f48092g, this.f48093h);
             }
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_FETCH_STAMP);
-            MessageManager.getInstance().unRegisterListener(this.f48079j);
+            MessageManager.getInstance().unRegisterListener(this.f48095j);
             return true;
         }
         return invokeV.booleanValue;
@@ -178,7 +178,7 @@ public class FetchStampModel extends BdBaseModel {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.f48079j);
+            MessageManager.getInstance().registerListener(this.f48095j);
         }
     }
 
@@ -198,18 +198,18 @@ public class FetchStampModel extends BdBaseModel {
             return;
         }
         String a2 = dVar.a();
-        this.f48078i = a2;
+        this.f48094i = a2;
         if (StringUtils.isNull(a2)) {
             return;
         }
-        if (this.f48077h == null) {
-            this.f48077h = new b(this, dVar);
+        if (this.f48093h == null) {
+            this.f48093h = new b(this, dVar);
         }
-        c.a.d.n.d.a aVar = (c.a.d.n.d.a) c.a.d.f.l.d.h().n(this.f48078i, this.f48076g, new Object[0]);
+        c.a.d.n.d.a aVar = (c.a.d.n.d.a) c.a.d.f.l.d.h().n(this.f48094i, this.f48092g, new Object[0]);
         if (aVar != null && aVar.w()) {
-            this.f48075f.a(dVar);
-        } else if (this.f48074e != null) {
-            c.a.d.f.l.d.h().m(this.f48078i, this.f48076g, this.f48077h, this.f48074e.getUniqueId());
+            this.f48091f.a(dVar);
+        } else if (this.f48090e != null) {
+            c.a.d.f.l.d.h().m(this.f48094i, this.f48092g, this.f48093h, this.f48090e.getUniqueId());
         }
     }
 }

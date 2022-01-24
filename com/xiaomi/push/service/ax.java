@@ -48,7 +48,7 @@ public class ax extends XMPushService.i {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             av.b.c cVar = this.a;
             if (cVar.a == cVar.f923a.f910a) {
-                com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f923a.f61423g);
+                com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f923a.f61468g);
                 this.a.f923a.f910a = null;
             }
         }

@@ -14,16 +14,16 @@ public class d {
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f12849b;
+    public a f12993b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f12850c;
+    public b f12994c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f12851d;
+    public final boolean f12995d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f12852e;
+    public final long f12996e;
 
     public d(boolean z, long j2) {
         Interceptable interceptable = $ic;
@@ -40,14 +40,14 @@ public class d {
                 return;
             }
         }
-        this.f12851d = z;
-        this.f12852e = j2;
+        this.f12995d = z;
+        this.f12996e = j2;
     }
 
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12849b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12993b : (a) invokeV.objValue;
     }
 
     public ViewGroup b() {
@@ -59,19 +59,19 @@ public class d {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12852e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12996e : invokeV.longValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12851d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12995d : invokeV.booleanValue;
     }
 
     public void e(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f12849b = aVar;
+            this.f12993b = aVar;
         }
     }
 

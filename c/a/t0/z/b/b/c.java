@@ -67,7 +67,7 @@ public class c implements c.a.r0.b.l.c0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l.a f25917e;
+        public final /* synthetic */ l.a f25898e;
 
         public a(c cVar, l.a aVar) {
             Interceptable interceptable = $ic;
@@ -84,14 +84,14 @@ public class c implements c.a.r0.b.l.c0.a {
                     return;
                 }
             }
-            this.f25917e = aVar;
+            this.f25898e = aVar;
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFinish() {
             l.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f25917e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f25898e) == null) {
                 return;
             }
             aVar.onFinish();
@@ -101,7 +101,7 @@ public class c implements c.a.r0.b.l.c0.a {
         public void onStart() {
             l.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = this.f25917e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = this.f25898e) == null) {
                 return;
             }
             aVar.onStart();
@@ -111,12 +111,12 @@ public class c implements c.a.r0.b.l.c0.a {
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(GetTplStokenResult getTplStokenResult) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) || this.f25917e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) || this.f25898e == null) {
                 return;
             }
             l lVar = new l();
             if (getTplStokenResult != null) {
-                lVar.f10076b = getTplStokenResult.tplStokenMap;
+                lVar.f10218b = getTplStokenResult.tplStokenMap;
                 lVar.a = getTplStokenResult.getResultCode();
                 getTplStokenResult.getResultMsg();
                 GetTplStokenResult.FailureType failureType = getTplStokenResult.failureType;
@@ -124,19 +124,19 @@ public class c implements c.a.r0.b.l.c0.a {
                     failureType.name();
                 }
             }
-            this.f25917e.a(lVar);
+            this.f25898e.a(lVar);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(GetTplStokenResult getTplStokenResult) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) || this.f25917e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) || this.f25898e == null) {
                 return;
             }
             l lVar = new l();
             if (getTplStokenResult != null) {
-                lVar.f10076b = getTplStokenResult.tplStokenMap;
+                lVar.f10218b = getTplStokenResult.tplStokenMap;
                 lVar.a = getTplStokenResult.getResultCode();
                 getTplStokenResult.getResultMsg();
                 GetTplStokenResult.FailureType failureType = getTplStokenResult.failureType;
@@ -144,7 +144,7 @@ public class c implements c.a.r0.b.l.c0.a {
                     failureType.name();
                 }
             }
-            this.f25917e.b(lVar);
+            this.f25898e.b(lVar);
         }
     }
 
@@ -154,10 +154,10 @@ public class c implements c.a.r0.b.l.c0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppPhoneLoginDialog.g f25918e;
+        public final /* synthetic */ SwanAppPhoneLoginDialog.g f25899e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f25919f;
+        public final /* synthetic */ Context f25900f;
 
         /* loaded from: classes9.dex */
         public class a implements DialogInterface.OnClickListener {
@@ -190,12 +190,12 @@ public class c implements c.a.r0.b.l.c0.a {
 
         /* renamed from: c.a.t0.z.b.b.c$b$b  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class DialogInterface$OnClickListenerC1563b implements DialogInterface.OnClickListener {
+        public class DialogInterface$OnClickListenerC1562b implements DialogInterface.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f25920e;
+            public final /* synthetic */ b f25901e;
 
             /* renamed from: c.a.t0.z.b.b.c$b$b$a */
             /* loaded from: classes9.dex */
@@ -204,14 +204,14 @@ public class c implements c.a.r0.b.l.c0.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DialogInterface$OnClickListenerC1563b f25921e;
+                public final /* synthetic */ DialogInterface$OnClickListenerC1562b f25902e;
 
-                public a(DialogInterface$OnClickListenerC1563b dialogInterface$OnClickListenerC1563b) {
+                public a(DialogInterface$OnClickListenerC1562b dialogInterface$OnClickListenerC1562b) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {dialogInterface$OnClickListenerC1563b};
+                        Object[] objArr = {dialogInterface$OnClickListenerC1562b};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -221,7 +221,7 @@ public class c implements c.a.r0.b.l.c0.a {
                             return;
                         }
                     }
-                    this.f25921e = dialogInterface$OnClickListenerC1563b;
+                    this.f25902e = dialogInterface$OnClickListenerC1562b;
                 }
 
                 @Override // c.a.r0.a.m.a
@@ -229,15 +229,15 @@ public class c implements c.a.r0.b.l.c0.a {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                         if (i2 == 0) {
-                            this.f25921e.f25920e.f25918e.onSuccess();
+                            this.f25902e.f25901e.f25899e.onSuccess();
                         } else {
-                            this.f25921e.f25920e.f25918e.onFailure();
+                            this.f25902e.f25901e.f25899e.onFailure();
                         }
                     }
                 }
             }
 
-            public DialogInterface$OnClickListenerC1563b(b bVar) {
+            public DialogInterface$OnClickListenerC1562b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -252,28 +252,28 @@ public class c implements c.a.r0.b.l.c0.a {
                         return;
                     }
                 }
-                this.f25920e = bVar;
+                this.f25901e = bVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                    c.a.r0.b.l.a.M((FragmentActivity) this.f25920e.f25919f, false, null, new a(this));
+                    c.a.r0.b.l.a.M((FragmentActivity) this.f25901e.f25900f, false, null, new a(this));
                 }
             }
         }
 
         /* renamed from: c.a.t0.z.b.b.c$b$c  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C1564c implements c.a.r0.a.m.a {
+        public class C1563c implements c.a.r0.a.m.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f25922e;
+            public final /* synthetic */ b f25903e;
 
-            public C1564c(b bVar) {
+            public C1563c(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -288,14 +288,14 @@ public class c implements c.a.r0.b.l.c0.a {
                         return;
                     }
                 }
-                this.f25922e = bVar;
+                this.f25903e = bVar;
             }
 
             @Override // c.a.r0.a.m.a
             public void onResult(int i2) {
                 SwanAppPhoneLoginDialog.g gVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (gVar = this.f25922e.f25918e) == null) {
+                if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (gVar = this.f25903e.f25899e) == null) {
                     return;
                 }
                 if (i2 == 0) {
@@ -321,15 +321,15 @@ public class c implements c.a.r0.b.l.c0.a {
                     return;
                 }
             }
-            this.f25918e = gVar;
-            this.f25919f = context;
+            this.f25899e = gVar;
+            this.f25900f = context;
         }
 
         @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
         public void onCheckCodeViewHide() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f25918e.b();
+                this.f25899e.b();
             }
         }
 
@@ -337,7 +337,7 @@ public class c implements c.a.r0.b.l.c0.a {
         public void onCheckCodeViewShow() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f25918e.a();
+                this.f25899e.a();
             }
         }
 
@@ -345,19 +345,19 @@ public class c implements c.a.r0.b.l.c0.a {
         public void onNeedBack(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, webAuthResult) == null) {
-                Context context = this.f25919f;
+                Context context = this.f25900f;
                 x.a(context, ((FragmentActivity) context).getWindow().getDecorView().getWindowToken());
-                String string = this.f25919f.getResources().getString(h.account_login_dialog_needback_other);
-                String string2 = this.f25919f.getResources().getString(h.account_login_dialog_needback_positive_btn_login);
+                String string = this.f25900f.getResources().getString(h.account_login_dialog_needback_other);
+                String string2 = this.f25900f.getResources().getString(h.account_login_dialog_needback_positive_btn_login);
                 if (webAuthResult.getResultCode() == 12) {
-                    string = this.f25919f.getResources().getString(h.account_login_dialog_needback_phone);
-                    string2 = this.f25919f.getResources().getString(h.account_login_dialog_needback_positive_btn_register);
+                    string = this.f25900f.getResources().getString(h.account_login_dialog_needback_phone);
+                    string2 = this.f25900f.getResources().getString(h.account_login_dialog_needback_positive_btn_register);
                 }
-                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f25919f);
-                aVar.V(this.f25919f.getResources().getString(h.account_login_dialog_needback_title));
+                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f25900f);
+                aVar.V(this.f25900f.getResources().getString(h.account_login_dialog_needback_title));
                 aVar.x(string);
-                aVar.P(string2, new DialogInterface$OnClickListenerC1563b(this));
-                aVar.C(this.f25919f.getResources().getString(h.account_login_dialog_needback_negative_btn), new a(this));
+                aVar.P(string2, new DialogInterface$OnClickListenerC1562b(this));
+                aVar.C(this.f25900f.getResources().getString(h.account_login_dialog_needback_negative_btn), new a(this));
                 aVar.X();
             }
         }
@@ -367,7 +367,7 @@ public class c implements c.a.r0.b.l.c0.a {
         public void onFailure(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
-                this.f25918e.onFailure();
+                this.f25899e.onFailure();
             }
         }
 
@@ -376,23 +376,23 @@ public class c implements c.a.r0.b.l.c0.a {
         public void onSuccess(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, webAuthResult) == null) {
-                c.a.t0.z.b.b.a.l().x(new C1564c(this));
+                c.a.t0.z.b.b.a.l().x(new C1563c(this));
             }
         }
     }
 
     /* renamed from: c.a.t0.z.b.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1565c extends OneKeyLoginCallback {
+    public class C1564c extends OneKeyLoginCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.b.p.d.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f25923b;
+        public final /* synthetic */ Activity f25904b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f25924c;
+        public final /* synthetic */ c f25905c;
 
         /* renamed from: c.a.t0.z.b.b.c$c$a */
         /* loaded from: classes9.dex */
@@ -401,14 +401,14 @@ public class c implements c.a.r0.b.l.c0.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C1565c f25925e;
+            public final /* synthetic */ C1564c f25906e;
 
-            public a(C1565c c1565c) {
+            public a(C1564c c1564c) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1565c};
+                    Object[] objArr = {c1564c};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -418,7 +418,7 @@ public class c implements c.a.r0.b.l.c0.a {
                         return;
                     }
                 }
-                this.f25925e = c1565c;
+                this.f25906e = c1564c;
             }
 
             @Override // c.a.r0.a.m.a
@@ -426,17 +426,17 @@ public class c implements c.a.r0.b.l.c0.a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                     if (i2 == 0) {
-                        this.f25925e.a.onResult(0);
+                        this.f25906e.a.onResult(0);
                     } else {
-                        this.f25925e.a.onResult(-1);
+                        this.f25906e.a.onResult(-1);
                     }
-                    C1565c c1565c = this.f25925e;
-                    c1565c.f25924c.q(c1565c.f25923b);
+                    C1564c c1564c = this.f25906e;
+                    c1564c.f25905c.q(c1564c.f25904b);
                 }
             }
         }
 
-        public C1565c(c cVar, c.a.r0.b.p.d.e eVar, Activity activity) {
+        public C1564c(c cVar, c.a.r0.b.p.d.e eVar, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -451,9 +451,9 @@ public class c implements c.a.r0.b.l.c0.a {
                     return;
                 }
             }
-            this.f25924c = cVar;
+            this.f25905c = cVar;
             this.a = eVar;
-            this.f25923b = activity;
+            this.f25904b = activity;
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
@@ -461,7 +461,7 @@ public class c implements c.a.r0.b.l.c0.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
                 this.a.onResult(-1);
-                this.f25924c.q(this.f25923b);
+                this.f25905c.q(this.f25904b);
             }
         }
 
@@ -470,7 +470,7 @@ public class c implements c.a.r0.b.l.c0.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
                 this.a.onResult(-1);
-                this.f25924c.q(this.f25923b);
+                this.f25905c.q(this.f25904b);
             }
         }
 
@@ -637,7 +637,7 @@ public class c implements c.a.r0.b.l.c0.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             a0 a0Var = new a0();
             a0Var.a = c.a.t0.z.b.b.a.l().k();
-            a0Var.f10074b = c.a.t0.z.b.b.a.l().i();
+            a0Var.f10216b = c.a.t0.z.b.b.a.l().i();
             return a0Var;
         }
         return (a0) invokeL.objValue;
@@ -736,7 +736,7 @@ public class c implements c.a.r0.b.l.c0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048589, this, activity, str, eVar) == null) {
             s(activity);
-            PassportSDK.getInstance().loadOneKeyLogin(activity, r(activity, str), new C1565c(this, eVar, activity));
+            PassportSDK.getInstance().loadOneKeyLogin(activity, r(activity, str), new C1564c(this, eVar, activity));
         }
     }
 

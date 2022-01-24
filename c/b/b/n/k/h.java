@@ -27,10 +27,10 @@ public class h implements c.b.b.q.h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final x<Texture> f27149e;
+    public final x<Texture> f27177e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.b.b.q.a<a> f27150f;
+    public final c.b.b.q.a<a> f27178f;
 
     /* loaded from: classes9.dex */
     public static class c {
@@ -39,7 +39,7 @@ public class h implements c.b.b.q.h {
         public final c.b.b.q.a<p> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final c.b.b.q.a<q> f27154b;
+        public final c.b.b.q.a<q> f27182b;
 
         /* loaded from: classes9.dex */
         public class a implements o<q> {
@@ -71,8 +71,8 @@ public class h implements c.b.b.q.h {
             public void a(q qVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-                    qVar.f27172i = Integer.parseInt(this.a[1]);
-                    qVar.f27173j = Integer.parseInt(this.a[2]);
+                    qVar.f27200i = Integer.parseInt(this.a[1]);
+                    qVar.f27201j = Integer.parseInt(this.a[2]);
                 }
             }
         }
@@ -107,22 +107,22 @@ public class h implements c.b.b.q.h {
             public void a(q qVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-                    qVar.f27170g = Integer.parseInt(this.a[1]);
-                    qVar.f27171h = Integer.parseInt(this.a[2]);
-                    qVar.f27172i = Integer.parseInt(this.a[3]);
-                    qVar.f27173j = Integer.parseInt(this.a[4]);
+                    qVar.f27198g = Integer.parseInt(this.a[1]);
+                    qVar.f27199h = Integer.parseInt(this.a[2]);
+                    qVar.f27200i = Integer.parseInt(this.a[3]);
+                    qVar.f27201j = Integer.parseInt(this.a[4]);
                 }
             }
         }
 
         /* renamed from: c.b.b.n.k.h$c$c  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C1615c implements o<q> {
+        public class C1616c implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
 
-            public C1615c(c cVar, String[] strArr) {
+            public C1616c(c cVar, String[] strArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -164,7 +164,7 @@ public class h implements c.b.b.q.h {
             public final /* synthetic */ String[] a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ boolean[] f27155b;
+            public final /* synthetic */ boolean[] f27183b;
 
             public d(c cVar, String[] strArr, boolean[] zArr) {
                 Interceptable interceptable = $ic;
@@ -182,7 +182,7 @@ public class h implements c.b.b.q.h {
                     }
                 }
                 this.a = strArr;
-                this.f27155b = zArr;
+                this.f27183b = zArr;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -194,7 +194,7 @@ public class h implements c.b.b.q.h {
                     int parseInt = Integer.parseInt(this.a[1]);
                     qVar.m = parseInt;
                     if (parseInt != -1) {
-                        this.f27155b[0] = true;
+                        this.f27183b[0] = true;
                     }
                 }
             }
@@ -269,8 +269,8 @@ public class h implements c.b.b.q.h {
             public void a(p pVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) {
-                    pVar.f27157c = Integer.parseInt(this.a[1]);
-                    pVar.f27158d = Integer.parseInt(this.a[2]);
+                    pVar.f27185c = Integer.parseInt(this.a[1]);
+                    pVar.f27186d = Integer.parseInt(this.a[2]);
                 }
             }
         }
@@ -305,19 +305,19 @@ public class h implements c.b.b.q.h {
             public void a(p pVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) {
-                    pVar.f27160f = Pixmap.Format.valueOf(this.a[1]);
+                    pVar.f27188f = Pixmap.Format.valueOf(this.a[1]);
                 }
             }
         }
 
         /* renamed from: c.b.b.n.k.h$c$h  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C1616h implements o<p> {
+        public class C1617h implements o<p> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
 
-            public C1616h(c cVar, String[] strArr) {
+            public C1617h(c cVar, String[] strArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -341,9 +341,9 @@ public class h implements c.b.b.q.h {
             public void a(p pVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) {
-                    pVar.f27161g = Texture.TextureFilter.valueOf(this.a[1]);
-                    pVar.f27162h = Texture.TextureFilter.valueOf(this.a[2]);
-                    pVar.f27159e = pVar.f27161g.isMipMap();
+                    pVar.f27189g = Texture.TextureFilter.valueOf(this.a[1]);
+                    pVar.f27190h = Texture.TextureFilter.valueOf(this.a[2]);
+                    pVar.f27187e = pVar.f27189g.isMipMap();
                 }
             }
         }
@@ -379,10 +379,10 @@ public class h implements c.b.b.q.h {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) {
                     if (this.a[1].indexOf(120) != -1) {
-                        pVar.f27163i = Texture.TextureWrap.Repeat;
+                        pVar.f27191i = Texture.TextureWrap.Repeat;
                     }
                     if (this.a[1].indexOf(121) != -1) {
-                        pVar.f27164j = Texture.TextureWrap.Repeat;
+                        pVar.f27192j = Texture.TextureWrap.Repeat;
                     }
                 }
             }
@@ -453,8 +453,8 @@ public class h implements c.b.b.q.h {
             public void a(q qVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-                    qVar.f27166c = Integer.parseInt(this.a[1]);
-                    qVar.f27167d = Integer.parseInt(this.a[2]);
+                    qVar.f27194c = Integer.parseInt(this.a[1]);
+                    qVar.f27195d = Integer.parseInt(this.a[2]);
                 }
             }
         }
@@ -489,8 +489,8 @@ public class h implements c.b.b.q.h {
             public void a(q qVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-                    qVar.f27168e = Integer.parseInt(this.a[1]);
-                    qVar.f27169f = Integer.parseInt(this.a[2]);
+                    qVar.f27196e = Integer.parseInt(this.a[1]);
+                    qVar.f27197f = Integer.parseInt(this.a[2]);
                 }
             }
         }
@@ -525,10 +525,10 @@ public class h implements c.b.b.q.h {
             public void a(q qVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-                    qVar.f27166c = Integer.parseInt(this.a[1]);
-                    qVar.f27167d = Integer.parseInt(this.a[2]);
-                    qVar.f27168e = Integer.parseInt(this.a[3]);
-                    qVar.f27169f = Integer.parseInt(this.a[4]);
+                    qVar.f27194c = Integer.parseInt(this.a[1]);
+                    qVar.f27195d = Integer.parseInt(this.a[2]);
+                    qVar.f27196e = Integer.parseInt(this.a[3]);
+                    qVar.f27197f = Integer.parseInt(this.a[4]);
                 }
             }
         }
@@ -563,8 +563,8 @@ public class h implements c.b.b.q.h {
             public void a(q qVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-                    qVar.f27170g = Integer.parseInt(this.a[1]);
-                    qVar.f27171h = Integer.parseInt(this.a[2]);
+                    qVar.f27198g = Integer.parseInt(this.a[1]);
+                    qVar.f27199h = Integer.parseInt(this.a[2]);
                 }
             }
         }
@@ -581,31 +581,31 @@ public class h implements c.b.b.q.h {
             public c.b.b.m.a a;
 
             /* renamed from: b  reason: collision with root package name */
-            public Texture f27156b;
+            public Texture f27184b;
 
             /* renamed from: c  reason: collision with root package name */
-            public float f27157c;
+            public float f27185c;
 
             /* renamed from: d  reason: collision with root package name */
-            public float f27158d;
+            public float f27186d;
 
             /* renamed from: e  reason: collision with root package name */
-            public boolean f27159e;
+            public boolean f27187e;
 
             /* renamed from: f  reason: collision with root package name */
-            public Pixmap.Format f27160f;
+            public Pixmap.Format f27188f;
 
             /* renamed from: g  reason: collision with root package name */
-            public Texture.TextureFilter f27161g;
+            public Texture.TextureFilter f27189g;
 
             /* renamed from: h  reason: collision with root package name */
-            public Texture.TextureFilter f27162h;
+            public Texture.TextureFilter f27190h;
 
             /* renamed from: i  reason: collision with root package name */
-            public Texture.TextureWrap f27163i;
+            public Texture.TextureWrap f27191i;
 
             /* renamed from: j  reason: collision with root package name */
-            public Texture.TextureWrap f27164j;
+            public Texture.TextureWrap f27192j;
             public boolean k;
 
             public p() {
@@ -621,13 +621,13 @@ public class h implements c.b.b.q.h {
                         return;
                     }
                 }
-                this.f27160f = Pixmap.Format.RGBA8888;
+                this.f27188f = Pixmap.Format.RGBA8888;
                 Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
-                this.f27161g = textureFilter;
-                this.f27162h = textureFilter;
+                this.f27189g = textureFilter;
+                this.f27190h = textureFilter;
                 Texture.TextureWrap textureWrap = Texture.TextureWrap.ClampToEdge;
-                this.f27163i = textureWrap;
-                this.f27164j = textureWrap;
+                this.f27191i = textureWrap;
+                this.f27192j = textureWrap;
             }
         }
 
@@ -638,31 +638,31 @@ public class h implements c.b.b.q.h {
             public p a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f27165b;
+            public String f27193b;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f27166c;
+            public int f27194c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f27167d;
+            public int f27195d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f27168e;
+            public int f27196e;
 
             /* renamed from: f  reason: collision with root package name */
-            public int f27169f;
+            public int f27197f;
 
             /* renamed from: g  reason: collision with root package name */
-            public float f27170g;
+            public float f27198g;
 
             /* renamed from: h  reason: collision with root package name */
-            public float f27171h;
+            public float f27199h;
 
             /* renamed from: i  reason: collision with root package name */
-            public int f27172i;
+            public int f27200i;
 
             /* renamed from: j  reason: collision with root package name */
-            public int f27173j;
+            public int f27201j;
             public int k;
             public boolean l;
             public int m;
@@ -703,7 +703,7 @@ public class h implements c.b.b.q.h {
                 }
             }
             this.a = new c.b.b.q.a<>();
-            this.f27154b = new c.b.b.q.a<>();
+            this.f27182b = new c.b.b.q.a<>();
             b(aVar, aVar2, z);
         }
 
@@ -752,7 +752,7 @@ public class h implements c.b.b.q.h {
                 w wVar = new w(15, 0.99f);
                 wVar.i("size", new f(this, strArr));
                 wVar.i("format", new g(this, strArr));
-                wVar.i(CloudControlRequest.REQUEST_KEY_FILTER, new C1616h(this, strArr));
+                wVar.i(CloudControlRequest.REQUEST_KEY_FILTER, new C1617h(this, strArr));
                 wVar.i("repeat", new i(this, strArr));
                 wVar.i("pma", new j(this, strArr));
                 boolean z2 = true;
@@ -764,7 +764,7 @@ public class h implements c.b.b.q.h {
                 wVar2.i("offset", new n(this, strArr));
                 wVar2.i("orig", new a(this, strArr));
                 wVar2.i(SevenZipUtils.LZMA_META_KEY_OFFSET, new b(this, strArr));
-                wVar2.i(AnimationProperty.ROTATE, new C1615c(this, strArr));
+                wVar2.i(AnimationProperty.ROTATE, new C1616c(this, strArr));
                 wVar2.i("index", new d(this, strArr, zArr));
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(aVar.m()), 1024);
                 try {
@@ -800,7 +800,7 @@ public class h implements c.b.b.q.h {
                             } else {
                                 q qVar = new q();
                                 qVar.a = pVar;
-                                qVar.f27165b = readLine.trim();
+                                qVar.f27193b = readLine.trim();
                                 if (z) {
                                     qVar.p = z2;
                                 }
@@ -833,22 +833,22 @@ public class h implements c.b.b.q.h {
                                     }
                                     z2 = true;
                                 }
-                                if (qVar.f27172i == 0 && qVar.f27173j == 0) {
-                                    qVar.f27172i = qVar.f27168e;
-                                    qVar.f27173j = qVar.f27169f;
+                                if (qVar.f27200i == 0 && qVar.f27201j == 0) {
+                                    qVar.f27200i = qVar.f27196e;
+                                    qVar.f27201j = qVar.f27197f;
                                 }
-                                if (aVar3 != null && aVar3.f27361f > 0) {
+                                if (aVar3 != null && aVar3.f27389f > 0) {
                                     qVar.n = (String[]) aVar3.m(String.class);
                                     qVar.o = (int[][]) aVar4.m(int[].class);
                                     aVar3.clear();
                                     aVar4.clear();
                                 }
-                                this.f27154b.a(qVar);
+                                this.f27182b.a(qVar);
                             }
                         }
                         i0.a(bufferedReader);
                         if (zArr[0]) {
-                            this.f27154b.sort(new e(this));
+                            this.f27182b.sort(new e(this));
                         }
                     } catch (Throwable th) {
                         i0.a(bufferedReader);
@@ -874,18 +874,18 @@ public class h implements c.b.b.q.h {
                 return;
             }
         }
-        this.f27149e = new x<>(4);
-        this.f27150f = new c.b.b.q.a<>();
+        this.f27177e = new x<>(4);
+        this.f27178f = new c.b.b.q.a<>();
     }
 
     public g a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            int i2 = this.f27150f.f27361f;
+            int i2 = this.f27178f.f27389f;
             for (int i3 = 0; i3 < i2; i3++) {
-                if (this.f27150f.get(i3).f27152i.equals(str)) {
-                    return i(this.f27150f.get(i3));
+                if (this.f27178f.get(i3).f27180i.equals(str)) {
+                    return i(this.f27178f.get(i3));
                 }
             }
             return null;
@@ -897,11 +897,11 @@ public class h implements c.b.b.q.h {
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            x.a<Texture> it = this.f27149e.iterator();
+            x.a<Texture> it = this.f27177e.iterator();
             while (it.hasNext()) {
                 it.next().dispose();
             }
-            this.f27149e.b(0);
+            this.f27177e.b(0);
         }
     }
 
@@ -909,10 +909,10 @@ public class h implements c.b.b.q.h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int i2 = this.f27150f.f27361f;
+            int i2 = this.f27178f.f27389f;
             for (int i3 = 0; i3 < i2; i3++) {
-                if (this.f27150f.get(i3).f27152i.equals(str)) {
-                    return this.f27150f.get(i3);
+                if (this.f27178f.get(i3).f27180i.equals(str)) {
+                    return this.f27178f.get(i3);
                 }
             }
             return null;
@@ -923,34 +923,34 @@ public class h implements c.b.b.q.h {
     public c.b.b.q.a<a> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27150f : (c.b.b.q.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27178f : (c.b.b.q.a) invokeV.objValue;
     }
 
     public void h(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f27149e.c(cVar.a.f27361f);
+            this.f27177e.c(cVar.a.f27389f);
             a.b<c.p> it = cVar.a.iterator();
             while (it.hasNext()) {
                 c.p next = it.next();
-                if (next.f27156b == null) {
-                    next.f27156b = new Texture(next.a, next.f27160f, next.f27159e);
+                if (next.f27184b == null) {
+                    next.f27184b = new Texture(next.a, next.f27188f, next.f27187e);
                 }
-                next.f27156b.l(next.f27161g, next.f27162h);
-                next.f27156b.m(next.f27163i, next.f27164j);
-                this.f27149e.add(next.f27156b);
+                next.f27184b.l(next.f27189g, next.f27190h);
+                next.f27184b.m(next.f27191i, next.f27192j);
+                this.f27177e.add(next.f27184b);
             }
-            this.f27150f.e(cVar.f27154b.f27361f);
-            a.b<c.q> it2 = cVar.f27154b.iterator();
+            this.f27178f.e(cVar.f27182b.f27389f);
+            a.b<c.q> it2 = cVar.f27182b.iterator();
             while (it2.hasNext()) {
                 c.q next2 = it2.next();
-                a aVar = new a(next2.a.f27156b, next2.f27166c, next2.f27167d, next2.l ? next2.f27169f : next2.f27168e, next2.l ? next2.f27168e : next2.f27169f);
-                aVar.f27151h = next2.m;
-                aVar.f27152i = next2.f27165b;
-                aVar.f27153j = next2.f27170g;
-                aVar.k = next2.f27171h;
-                aVar.o = next2.f27173j;
-                aVar.n = next2.f27172i;
+                a aVar = new a(next2.a.f27184b, next2.f27194c, next2.f27195d, next2.l ? next2.f27197f : next2.f27196e, next2.l ? next2.f27196e : next2.f27197f);
+                aVar.f27179h = next2.m;
+                aVar.f27180i = next2.f27193b;
+                aVar.f27181j = next2.f27198g;
+                aVar.k = next2.f27199h;
+                aVar.o = next2.f27201j;
+                aVar.n = next2.f27200i;
                 aVar.p = next2.l;
                 aVar.q = next2.k;
                 aVar.r = next2.n;
@@ -958,7 +958,7 @@ public class h implements c.b.b.q.h {
                 if (next2.p) {
                     aVar.a(false, true);
                 }
-                this.f27150f.a(aVar);
+                this.f27178f.a(aVar);
             }
         }
     }
@@ -996,8 +996,8 @@ public class h implements c.b.b.q.h {
                 return;
             }
         }
-        this.f27149e = new x<>(4);
-        this.f27150f = new c.b.b.q.a<>();
+        this.f27177e = new x<>(4);
+        this.f27178f = new c.b.b.q.a<>();
         h(cVar);
     }
 
@@ -1007,13 +1007,13 @@ public class h implements c.b.b.q.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f27151h;
+        public int f27179h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f27152i;
+        public String f27180i;
 
         /* renamed from: j  reason: collision with root package name */
-        public float f27153j;
+        public float f27181j;
         public float k;
         public int l;
         public int m;
@@ -1043,7 +1043,7 @@ public class h implements c.b.b.q.h {
                     return;
                 }
             }
-            this.f27151h = -1;
+            this.f27179h = -1;
             this.n = i4;
             this.o = i5;
             this.l = i4;
@@ -1056,7 +1056,7 @@ public class h implements c.b.b.q.h {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 super.a(z, z2);
                 if (z) {
-                    this.f27153j = (this.n - this.f27153j) - m();
+                    this.f27181j = (this.n - this.f27181j) - m();
                 }
                 if (z2) {
                     this.k = (this.o - this.k) - l();
@@ -1104,7 +1104,7 @@ public class h implements c.b.b.q.h {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27152i : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27180i : (String) invokeV.objValue;
         }
 
         public a(a aVar) {
@@ -1122,11 +1122,11 @@ public class h implements c.b.b.q.h {
                     return;
                 }
             }
-            this.f27151h = -1;
+            this.f27179h = -1;
             i(aVar);
-            this.f27151h = aVar.f27151h;
-            this.f27152i = aVar.f27152i;
-            this.f27153j = aVar.f27153j;
+            this.f27179h = aVar.f27179h;
+            this.f27180i = aVar.f27180i;
+            this.f27181j = aVar.f27181j;
             this.k = aVar.k;
             this.l = aVar.l;
             this.m = aVar.m;
@@ -1163,7 +1163,7 @@ public class h implements c.b.b.q.h {
                 }
             }
             this.t = new a(aVar);
-            this.u = aVar.f27153j;
+            this.u = aVar.f27181j;
             this.v = aVar.k;
             i(aVar);
             v(aVar.n / 2.0f, aVar.o / 2.0f);
@@ -1171,9 +1171,9 @@ public class h implements c.b.b.q.h {
             int b2 = aVar.b();
             if (aVar.p) {
                 super.q(true);
-                super.s(aVar.f27153j, aVar.k, b2, c2);
+                super.s(aVar.f27181j, aVar.k, b2, c2);
             } else {
-                super.s(aVar.f27153j, aVar.k, c2, b2);
+                super.s(aVar.f27181j, aVar.k, c2, b2);
             }
             t(1.0f, 1.0f, 1.0f, 1.0f);
         }
@@ -1202,21 +1202,21 @@ public class h implements c.b.b.q.h {
                 float l = l();
                 float m = m();
                 a aVar = this.t;
-                float f2 = aVar.f27153j;
+                float f2 = aVar.f27181j;
                 float f3 = aVar.k;
                 float C = C();
                 float B = B();
                 a aVar2 = this.t;
-                aVar2.f27153j = this.u;
+                aVar2.f27181j = this.u;
                 aVar2.k = this.v;
                 aVar2.a(z, z2);
                 a aVar3 = this.t;
-                float f4 = aVar3.f27153j;
+                float f4 = aVar3.f27181j;
                 this.u = f4;
                 float f5 = aVar3.k;
                 this.v = f5;
                 float f6 = f4 * C;
-                aVar3.f27153j = f6;
+                aVar3.f27181j = f6;
                 float f7 = f5 * B;
                 aVar3.k = f7;
                 A(f6 - f2, f7 - f3);
@@ -1235,7 +1235,7 @@ public class h implements c.b.b.q.h {
         public float l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? super.l() + this.t.f27153j : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? super.l() + this.t.f27181j : invokeV.floatValue;
         }
 
         @Override // c.b.b.n.k.g
@@ -1256,7 +1256,7 @@ public class h implements c.b.b.q.h {
         public float o() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? super.o() - this.t.f27153j : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? super.o() - this.t.f27181j : invokeV.floatValue;
         }
 
         @Override // c.b.b.n.k.g
@@ -1274,21 +1274,21 @@ public class h implements c.b.b.q.h {
                 float l = l();
                 float m = m();
                 a aVar = this.t;
-                float f2 = aVar.f27153j;
+                float f2 = aVar.f27181j;
                 float f3 = aVar.k;
                 float C = C();
                 float B = B();
                 if (z) {
                     a aVar2 = this.t;
-                    aVar2.f27153j = f3;
+                    aVar2.f27181j = f3;
                     aVar2.k = ((aVar2.o * B) - f2) - (aVar2.l * C);
                 } else {
                     a aVar3 = this.t;
-                    aVar3.f27153j = ((aVar3.n * C) - f3) - (aVar3.m * B);
+                    aVar3.f27181j = ((aVar3.n * C) - f3) - (aVar3.m * B);
                     aVar3.k = f2;
                 }
                 a aVar4 = this.t;
-                A(aVar4.f27153j - f2, aVar4.k - f3);
+                A(aVar4.f27181j - f2, aVar4.k - f3);
                 v(l, m);
             }
         }
@@ -1300,13 +1300,13 @@ public class h implements c.b.b.q.h {
                 a aVar = this.t;
                 float f6 = f4 / aVar.n;
                 float f7 = f5 / aVar.o;
-                aVar.f27153j = this.u * f6;
+                aVar.f27181j = this.u * f6;
                 aVar.k = this.v * f7;
                 int i2 = aVar.p ? aVar.m : aVar.l;
                 a aVar2 = this.t;
                 int i3 = aVar2.p ? aVar2.l : aVar2.m;
                 a aVar3 = this.t;
-                super.s(f2 + aVar3.f27153j, f3 + aVar3.k, i2 * f6, i3 * f7);
+                super.s(f2 + aVar3.f27181j, f3 + aVar3.k, i2 * f6, i3 * f7);
             }
         }
 
@@ -1321,7 +1321,7 @@ public class h implements c.b.b.q.h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
                 a aVar = this.t;
-                super.v(f2 - aVar.f27153j, f3 - aVar.k);
+                super.v(f2 - aVar.f27181j, f3 - aVar.k);
             }
         }
 

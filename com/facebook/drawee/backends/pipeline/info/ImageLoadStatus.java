@@ -3,7 +3,7 @@ package com.facebook.drawee.backends.pipeline.info;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public @interface ImageLoadStatus {
     public static final int CANCELED = 4;
     public static final int ERROR = 5;

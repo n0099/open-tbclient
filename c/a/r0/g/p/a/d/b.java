@@ -37,7 +37,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f10349b;
+    public static b f10491b;
     public transient /* synthetic */ FieldHolder $fh;
     public OkHttpClient a;
 
@@ -48,12 +48,12 @@ public class b {
 
         /* renamed from: c.a.r0.g.p.a.d.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0686a extends RequestBody {
+        public class C0695a extends RequestBody {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RequestBody a;
 
-            public C0686a(a aVar, RequestBody requestBody) {
+            public C0695a(a aVar, RequestBody requestBody) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public class b {
         public final RequestBody a(RequestBody requestBody) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? new C0686a(this, requestBody) : (RequestBody) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? new C0695a(this, requestBody) : (RequestBody) invokeL.objValue;
         }
 
         @Override // okhttp3.Interceptor
@@ -159,10 +159,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f10349b == null) {
-                f10349b = new b();
+            if (f10491b == null) {
+                f10491b = new b();
             }
-            return f10349b;
+            return f10491b;
         }
         return (b) invokeV.objValue;
     }
@@ -254,7 +254,7 @@ public class b {
                 if (execute.body() != null) {
                     String[] f2 = f(execute.body().bytes());
                     cVar.a = Integer.valueOf(f2[0]).intValue();
-                    cVar.f10350b = f2[1];
+                    cVar.f10492b = f2[1];
                 }
             } catch (IOException unused) {
             }
@@ -264,7 +264,7 @@ public class b {
                 str2 = "Request SocketException :" + e3.toString();
             }
             cVar.a = -1;
-            cVar.f10350b = str2;
+            cVar.f10492b = str2;
         }
     }
 

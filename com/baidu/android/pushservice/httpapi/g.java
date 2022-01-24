@@ -17,13 +17,13 @@ public class g extends com.baidu.android.pushservice.g.c {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f32215b;
+    public a f32243b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32216c;
+    public String f32244c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<String> f32217d;
+    public List<String> f32245d;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -45,10 +45,10 @@ public class g extends com.baidu.android.pushservice.g.c {
                 return;
             }
         }
-        this.f32217d = new ArrayList();
+        this.f32245d = new ArrayList();
         this.a = context;
-        this.f32216c = str;
-        this.f32215b = aVar;
+        this.f32244c = str;
+        this.f32243b = aVar;
         c("PushService-PushService-SearchboxDNS");
         a((short) 100);
     }
@@ -76,14 +76,14 @@ public class g extends com.baidu.android.pushservice.g.c {
             try {
                 DnsHelper dnsHelper = new DnsHelper(this.a);
                 dnsHelper.setHttpDnsState(false, null, false, true);
-                List<String> ipListForceHttp = dnsHelper.getIpListForceHttp(this.f32216c);
+                List<String> ipListForceHttp = dnsHelper.getIpListForceHttp(this.f32244c);
                 if (ipListForceHttp != null && ipListForceHttp.size() > 0) {
                     int b2 = com.baidu.android.pushservice.i.i.b(this.a, "key_vip_type", 3);
                     if (b2 != 1) {
                         if (b2 == 2) {
                             String str = com.baidu.android.pushservice.i.m.d(ipListForceHttp.get(0)) ? null : ipListForceHttp.get(0);
                             if (!TextUtils.isEmpty(str)) {
-                                this.f32217d.add(str);
+                                this.f32245d.add(str);
                             }
                             r1 = com.baidu.android.pushservice.i.m.d(ipListForceHttp.get(ipListForceHttp.size() - 1)) ? ipListForceHttp.get(ipListForceHttp.size() - 1) : null;
                             if (!TextUtils.isEmpty(r1)) {
@@ -91,7 +91,7 @@ public class g extends com.baidu.android.pushservice.g.c {
                         } else if (b2 != 4) {
                             String str2 = com.baidu.android.pushservice.i.m.d(ipListForceHttp.get(ipListForceHttp.size() - 1)) ? ipListForceHttp.get(ipListForceHttp.size() - 1) : null;
                             if (!TextUtils.isEmpty(str2)) {
-                                this.f32217d.add(str2);
+                                this.f32245d.add(str2);
                             }
                             if (!com.baidu.android.pushservice.i.m.d(ipListForceHttp.get(0))) {
                                 r1 = ipListForceHttp.get(0);
@@ -104,11 +104,11 @@ public class g extends com.baidu.android.pushservice.g.c {
                     } else if (!com.baidu.android.pushservice.i.m.d(ipListForceHttp.get(0))) {
                         r1 = ipListForceHttp.get(0);
                     }
-                    this.f32217d.add(r1);
+                    this.f32245d.add(r1);
                 }
             } catch (Throwable unused) {
             }
-            this.f32215b.a(this.f32217d);
+            this.f32243b.a(this.f32245d);
         }
     }
 }

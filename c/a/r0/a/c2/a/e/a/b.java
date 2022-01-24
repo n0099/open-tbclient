@@ -13,7 +13,7 @@ public class b implements c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5406b;
+    public int f5548b;
 
     public b(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public class b implements c {
             }
         }
         this.a = i2;
-        this.f5406b = i3;
+        this.f5548b = i3;
     }
 
     @Override // c.a.r0.a.c2.a.e.a.c
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f5406b - this.a) + 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f5548b - this.a) + 1 : invokeV.intValue;
     }
 
     @Override // c.a.r0.a.c2.a.e.a.c

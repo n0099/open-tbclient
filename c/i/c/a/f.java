@@ -23,27 +23,27 @@ public final class f extends ArCoreApk {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h */
-    public static final f f29979h;
+    public static final f f30007h;
     public transient /* synthetic */ FieldHolder $fh;
     public Exception a;
 
     /* renamed from: b */
-    public ArCoreApk.Availability f29980b;
+    public ArCoreApk.Availability f30008b;
 
     /* renamed from: c */
-    public boolean f29981c;
+    public boolean f30009c;
 
     /* renamed from: d */
-    public l f29982d;
+    public l f30010d;
 
     /* renamed from: e */
-    public boolean f29983e;
+    public boolean f30011e;
 
     /* renamed from: f */
-    public boolean f29984f;
+    public boolean f30012f;
 
     /* renamed from: g */
-    public int f29985g;
+    public int f30013g;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +58,7 @@ public final class f extends ArCoreApk {
                 return;
             }
         }
-        f29979h = new f();
+        f30007h = new f();
     }
 
     public f() {
@@ -78,7 +78,7 @@ public final class f extends ArCoreApk {
     public static f d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f29979h : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f30007h : (f) invokeV.objValue;
     }
 
     public static boolean i() {
@@ -123,8 +123,8 @@ public final class f extends ArCoreApk {
                     return e.c(context);
                 }
                 synchronized (this) {
-                    if ((this.f29980b == null || this.f29980b.isUnknown()) && !this.f29981c) {
-                        this.f29981c = true;
+                    if ((this.f30008b == null || this.f30008b.isUnknown()) && !this.f30009c) {
+                        this.f30009c = true;
                         e eVar = new e(this);
                         if (h(context)) {
                             eVar.a(ArCoreApk.Availability.SUPPORTED_INSTALLED);
@@ -136,10 +136,10 @@ public final class f extends ArCoreApk {
                             e(context).e(context, eVar);
                         }
                     }
-                    if (this.f29980b != null) {
-                        return this.f29980b;
+                    if (this.f30008b != null) {
+                        return this.f30008b;
                     }
-                    if (this.f29981c) {
+                    if (this.f30009c) {
                         return ArCoreApk.Availability.UNKNOWN_CHECKING;
                     }
                     return ArCoreApk.Availability.UNKNOWN_ERROR;
@@ -157,12 +157,12 @@ public final class f extends ArCoreApk {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             synchronized (this) {
-                if (this.f29982d == null) {
+                if (this.f30010d == null) {
                     l lVar2 = new l((byte) 0);
                     lVar2.d(context.getApplicationContext());
-                    this.f29982d = lVar2;
+                    this.f30010d = lVar2;
                 }
-                lVar = this.f29982d;
+                lVar = this.f30010d;
             }
             return lVar;
         }
@@ -174,9 +174,9 @@ public final class f extends ArCoreApk {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
                 Exception exc = this.a;
-                if (this.f29982d != null) {
-                    this.f29982d.a();
-                    this.f29982d = null;
+                if (this.f30010d != null) {
+                    this.f30010d.a();
+                    this.f30010d = null;
                 }
             }
         }
@@ -187,7 +187,7 @@ public final class f extends ArCoreApk {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             l(context);
-            return k(context) == 0 || k(context) >= this.f29985g;
+            return k(context) == 0 || k(context) >= this.f30013g;
         }
         return invokeL.booleanValue;
     }
@@ -197,7 +197,7 @@ public final class f extends ArCoreApk {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
             l(context);
-            return this.f29984f;
+            return this.f30012f;
         }
         return invokeL.booleanValue;
     }
@@ -206,7 +206,7 @@ public final class f extends ArCoreApk {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             synchronized (this) {
-                if (this.f29983e) {
+                if (this.f30011e) {
                     return;
                 }
                 PackageManager packageManager = context.getPackageManager();
@@ -214,9 +214,9 @@ public final class f extends ArCoreApk {
                 try {
                     Bundle bundle = packageManager.getApplicationInfo(packageName, 128).metaData;
                     if (bundle.containsKey(XRSessionAnchor.apkinfo)) {
-                        this.f29984f = bundle.getString(XRSessionAnchor.apkinfo).equals("required");
+                        this.f30012f = bundle.getString(XRSessionAnchor.apkinfo).equals("required");
                         if (bundle.containsKey("com.google.ar.core.min_apk_version")) {
-                            this.f29985g = bundle.getInt("com.google.ar.core.min_apk_version");
+                            this.f30013g = bundle.getInt("com.google.ar.core.min_apk_version");
                             try {
                                 ActivityInfo[] activityInfoArr = packageManager.getPackageInfo(packageName, 1).activities;
                                 String canonicalName = InstallActivity.class.getCanonicalName();
@@ -237,7 +237,7 @@ public final class f extends ArCoreApk {
                                     String valueOf = String.valueOf(canonicalName);
                                     throw new FatalException(valueOf.length() != 0 ? "Application manifest must contain activity ".concat(valueOf) : new String("Application manifest must contain activity "));
                                 } else {
-                                    this.f29983e = true;
+                                    this.f30011e = true;
                                     return;
                                 }
                             } catch (PackageManager.NameNotFoundException e2) {

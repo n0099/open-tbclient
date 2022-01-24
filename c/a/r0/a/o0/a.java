@@ -1,6 +1,7 @@
 package c.a.r0.a.o0;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
 import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,6 +36,6 @@ public final class a {
     public static String c(c.a.r0.a.h0.f.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, aVar)) == null) ? aVar.isWebView() ? "document" : SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, aVar)) == null) ? aVar.isWebView() ? ClearCacheUbcController.DOCUMENT : SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME : (String) invokeL.objValue;
     }
 }

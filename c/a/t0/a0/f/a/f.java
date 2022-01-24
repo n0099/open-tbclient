@@ -18,14 +18,14 @@ public class f extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f14347g;
+    public static final BdUniqueId f14487g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e2 f14348e;
+    public e2 f14488e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14349f;
+    public int f14489f;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class f extends BaseCardInfo {
                 return;
             }
         }
-        f14347g = BdUniqueId.gen();
+        f14487g = BdUniqueId.gen();
     }
 
     public f() {
@@ -61,11 +61,11 @@ public class f extends BaseCardInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            e2 e2Var = this.f14348e;
-            if (e2Var == null || e2Var.t1() == null || this.f14348e.t1().video_height.intValue() <= 0) {
+            e2 e2Var = this.f14488e;
+            if (e2Var == null || e2Var.u1() == null || this.f14488e.u1().video_height.intValue() <= 0) {
                 return 0.0f;
             }
-            return this.f14348e.t1().video_width.intValue() / this.f14348e.t1().video_height.intValue();
+            return this.f14488e.u1().video_width.intValue() / this.f14488e.u1().video_height.intValue();
         }
         return invokeV.floatValue;
     }
@@ -74,26 +74,26 @@ public class f extends BaseCardInfo {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14347g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14487g : (BdUniqueId) invokeV.objValue;
     }
 
     public StatisticItem i(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
-            e2 e2Var = this.f14348e;
+            e2 e2Var = this.f14488e;
             if (e2Var == null) {
                 return null;
             }
             int i2 = 1;
-            if (e2Var.p0()) {
+            if (e2Var.q0()) {
                 i2 = 2;
-            } else if (this.f14348e.s1() != null && this.f14348e.s1().a != 0) {
+            } else if (this.f14488e.t1() != null && this.f14488e.t1().a != 0) {
                 i2 = 3;
             }
-            StatisticItem param = new StatisticItem(str).param("obj_id", this.f14348e.v1()).param("obj_type", i2).param("obj_param1", this.f14348e.a1).param("obj_source", this.f14348e.Z0).param("obj_locate", this.f14349f).param("ab_tag", this.f14348e.b1).param(TiebaStatic.Params.OBJ_PARAM3, g() > 1.0f ? "1" : "0");
+            StatisticItem param = new StatisticItem(str).param("obj_id", this.f14488e.w1()).param("obj_type", i2).param("obj_param1", this.f14488e.a1).param("obj_source", this.f14488e.Z0).param("obj_locate", this.f14489f).param("ab_tag", this.f14488e.b1).param(TiebaStatic.Params.OBJ_PARAM3, g() > 1.0f ? "1" : "0");
             if (z) {
-                param.param(TiebaStatic.Params.OBJ_PARAM2, this.f14348e.o0() > 0 ? "0" : "1");
+                param.param(TiebaStatic.Params.OBJ_PARAM2, this.f14488e.p0() > 0 ? "0" : "1");
             }
             return param;
         }

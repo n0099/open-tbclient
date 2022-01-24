@@ -43,34 +43,34 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.r0.u.o f11771b;
+    public final c.a.r0.u.o f11913b;
 
     /* renamed from: c.a.r0.u.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0807a extends q {
+    public class C0816a extends q {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f11772c;
+        public long f11914c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ SparseIntArray f11773d;
+        public final /* synthetic */ SparseIntArray f11915d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11774e;
+        public final /* synthetic */ String f11916e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f11775f;
+        public final /* synthetic */ ArrayList f11917f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f11776g;
+        public final /* synthetic */ boolean f11918g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f11777h;
+        public final /* synthetic */ a f11919h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0807a(a aVar, SparseIntArray sparseIntArray, String str, ArrayList arrayList, boolean z) {
+        public C0816a(a aVar, SparseIntArray sparseIntArray, String str, ArrayList arrayList, boolean z) {
             super(aVar, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -88,12 +88,12 @@ public class a {
                     return;
                 }
             }
-            this.f11777h = aVar;
-            this.f11773d = sparseIntArray;
-            this.f11774e = str;
-            this.f11775f = arrayList;
-            this.f11776g = z;
-            this.f11772c = System.currentTimeMillis();
+            this.f11919h = aVar;
+            this.f11915d = sparseIntArray;
+            this.f11916e = str;
+            this.f11917f = arrayList;
+            this.f11918g = z;
+            this.f11914c = System.currentTimeMillis();
         }
 
         @Override // c.a.r0.u.a.q
@@ -102,34 +102,34 @@ public class a {
             ArrayList arrayList;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
-                SparseIntArray sparseIntArray = this.f11773d;
+                SparseIntArray sparseIntArray = this.f11915d;
                 if (sparseIntArray != null && sparseIntArray.size() > 0) {
-                    int size = this.f11773d.size();
+                    int size = this.f11915d.size();
                     ArrayList arrayList2 = new ArrayList(size);
                     for (int i2 = 0; i2 < size; i2++) {
-                        arrayList2.add(Integer.valueOf(this.f11773d.keyAt(i2)));
+                        arrayList2.add(Integer.valueOf(this.f11915d.keyAt(i2)));
                     }
-                    String str = "flowhandle in (" + this.f11777h.t(arrayList2) + SmallTailInfo.EMOTION_SUFFIX;
+                    String str = "flowhandle in (" + this.f11919h.t(arrayList2) + SmallTailInfo.EMOTION_SUFFIX;
                     s.a("delete flow table flow count:" + sQLiteDatabase.delete("flow", str, null));
                     s.a("delete flow table event count:" + sQLiteDatabase.delete("event", str, null));
                 }
-                ArrayList arrayList3 = this.f11775f;
+                ArrayList arrayList3 = this.f11917f;
                 if (arrayList3 != null && arrayList3.size() > 0) {
-                    int delete = sQLiteDatabase.delete("event", "eventid in (" + this.f11777h.t(this.f11775f) + ") AND flowhandle = -1", null);
+                    int delete = sQLiteDatabase.delete("event", "eventid in (" + this.f11919h.t(this.f11917f) + ") AND flowhandle = -1", null);
                     StringBuilder sb = new StringBuilder();
                     sb.append("delete event table event count:");
                     sb.append(delete);
                     s.a(sb.toString());
                 }
-                SparseIntArray sparseIntArray2 = this.f11773d;
-                if ((sparseIntArray2 != null && sparseIntArray2.size() > 0) || ((arrayList = this.f11775f) != null && arrayList.size() > 0)) {
+                SparseIntArray sparseIntArray2 = this.f11915d;
+                if ((sparseIntArray2 != null && sparseIntArray2.size() > 0) || ((arrayList = this.f11917f) != null && arrayList.size() > 0)) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(BreakpointSQLiteKey.FILENAME, this.f11774e);
+                    contentValues.put(BreakpointSQLiteKey.FILENAME, this.f11916e);
                     contentValues.put("state", "0");
-                    contentValues.put("reserve1", this.f11776g ? "1" : "0");
+                    contentValues.put("reserve1", this.f11918g ? "1" : "0");
                     sQLiteDatabase.replace("file", null, contentValues);
                 }
-                s.a("delete total time:" + (System.currentTimeMillis() - this.f11772c));
+                s.a("delete total time:" + (System.currentTimeMillis() - this.f11914c));
                 return true;
             }
             return invokeL.booleanValue;
@@ -142,10 +142,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f11778c;
+        public final /* synthetic */ String f11920c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f11779d;
+        public final /* synthetic */ boolean f11921d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, String str, boolean z) {
@@ -166,8 +166,8 @@ public class a {
                     return;
                 }
             }
-            this.f11778c = str;
-            this.f11779d = z;
+            this.f11920c = str;
+            this.f11921d = z;
         }
 
         @Override // c.a.r0.u.a.q
@@ -177,8 +177,8 @@ public class a {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("state", "1");
-                contentValues.put(BreakpointSQLiteKey.FILENAME, this.f11778c);
-                contentValues.put("reserve1", this.f11779d ? "1" : "0");
+                contentValues.put(BreakpointSQLiteKey.FILENAME, this.f11920c);
+                contentValues.put("reserve1", this.f11921d ? "1" : "0");
                 sQLiteDatabase.replace("file", null, contentValues);
                 return true;
             }
@@ -192,7 +192,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f11780c;
+        public final /* synthetic */ String f11922c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(a aVar, String str) {
@@ -213,7 +213,7 @@ public class a {
                     return;
                 }
             }
-            this.f11780c = str;
+            this.f11922c = str;
         }
 
         @Override // c.a.r0.u.a.q
@@ -221,7 +221,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
-                sQLiteDatabase.delete("file", "filename=\"" + this.f11780c + "\"", null);
+                sQLiteDatabase.delete("file", "filename=\"" + this.f11922c + "\"", null);
                 return true;
             }
             return invokeL.booleanValue;
@@ -272,7 +272,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f11781c;
+        public final /* synthetic */ String f11923c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(a aVar, String str) {
@@ -293,7 +293,7 @@ public class a {
                     return;
                 }
             }
-            this.f11781c = str;
+            this.f11923c = str;
         }
 
         @Override // c.a.r0.u.a.q
@@ -303,7 +303,7 @@ public class a {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("state", "1");
-                sQLiteDatabase.update("file", contentValues, "filename=\"" + this.f11781c + "\"", null);
+                sQLiteDatabase.update("file", contentValues, "filename=\"" + this.f11923c + "\"", null);
                 return true;
             }
             return invokeL.booleanValue;
@@ -316,10 +316,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f11782c;
+        public final /* synthetic */ String f11924c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f11783d;
+        public final /* synthetic */ String f11925d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(a aVar, String str, String str2) {
@@ -340,8 +340,8 @@ public class a {
                     return;
                 }
             }
-            this.f11782c = str;
-            this.f11783d = str2;
+            this.f11924c = str;
+            this.f11925d = str2;
         }
 
         @Override // c.a.r0.u.a.q
@@ -350,8 +350,8 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("state", this.f11783d);
-                sQLiteDatabase.update("file", contentValues, "filename=\"" + this.f11782c + "\"", null);
+                contentValues.put("state", this.f11925d);
+                sQLiteDatabase.update("file", contentValues, "filename=\"" + this.f11924c + "\"", null);
                 return true;
             }
             return invokeL.booleanValue;
@@ -404,19 +404,19 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f11784c;
+        public final /* synthetic */ String f11926c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f11785d;
+        public final /* synthetic */ String f11927d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f11786e;
+        public final /* synthetic */ int f11928e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f11787f;
+        public final /* synthetic */ ContentValues f11929f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f11788g;
+        public final /* synthetic */ a f11930g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(a aVar, String str, String str2, int i2, ContentValues contentValues) {
@@ -437,18 +437,18 @@ public class a {
                     return;
                 }
             }
-            this.f11788g = aVar;
-            this.f11784c = str;
-            this.f11785d = str2;
-            this.f11786e = i2;
-            this.f11787f = contentValues;
+            this.f11930g = aVar;
+            this.f11926c = str;
+            this.f11927d = str2;
+            this.f11928e = i2;
+            this.f11929f = contentValues;
         }
 
         @Override // c.a.r0.u.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) ? this.f11788g.e(this.f11784c, this.f11785d, this.f11786e, sQLiteDatabase) && sQLiteDatabase.insert("event", null, this.f11787f) != -1 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) ? this.f11930g.e(this.f11926c, this.f11927d, this.f11928e, sQLiteDatabase) && sQLiteDatabase.insert("event", null, this.f11929f) != -1 : invokeL.booleanValue;
         }
     }
 
@@ -458,10 +458,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f11789c;
+        public final /* synthetic */ List f11931c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f11790d;
+        public final /* synthetic */ a f11932d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(a aVar, List list) {
@@ -482,8 +482,8 @@ public class a {
                     return;
                 }
             }
-            this.f11790d = aVar;
-            this.f11789c = list;
+            this.f11932d = aVar;
+            this.f11931c = list;
         }
 
         @Override // c.a.r0.u.a.q
@@ -492,25 +492,25 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
                 boolean z = true;
-                for (c.a.r0.u.i iVar : this.f11789c) {
-                    if (!TextUtils.isEmpty(iVar.a) && this.f11790d.e(iVar.f11837b, iVar.a, iVar.f11838c, sQLiteDatabase)) {
+                for (c.a.r0.u.i iVar : this.f11931c) {
+                    if (!TextUtils.isEmpty(iVar.a) && this.f11932d.e(iVar.f11979b, iVar.a, iVar.f11980c, sQLiteDatabase)) {
                         ContentValues contentValues = new ContentValues();
-                        contentValues.put("flowhandle", Integer.valueOf(iVar.f11838c));
+                        contentValues.put("flowhandle", Integer.valueOf(iVar.f11980c));
                         contentValues.put("eventid", iVar.a);
-                        contentValues.put("begintime", Long.valueOf(iVar.f11841f));
-                        if (!TextUtils.isEmpty(iVar.f11839d)) {
-                            contentValues.put("content", iVar.f11839d);
+                        contentValues.put("begintime", Long.valueOf(iVar.f11983f));
+                        if (!TextUtils.isEmpty(iVar.f11981d)) {
+                            contentValues.put("content", iVar.f11981d);
                         } else {
-                            JSONObject jSONObject = iVar.f11840e;
+                            JSONObject jSONObject = iVar.f11982e;
                             if (jSONObject != null && !TextUtils.isEmpty(jSONObject.toString())) {
-                                contentValues.put("content", iVar.f11840e.toString());
+                                contentValues.put("content", iVar.f11982e.toString());
                             }
                         }
-                        contentValues.put("reserve1", iVar.f11843h);
-                        if (!TextUtils.isEmpty(iVar.f11844i)) {
-                            contentValues.put("reserve2", iVar.f11844i);
+                        contentValues.put("reserve1", iVar.f11985h);
+                        if (!TextUtils.isEmpty(iVar.f11986i)) {
+                            contentValues.put("reserve2", iVar.f11986i);
                         }
-                        if (iVar.f11845j) {
+                        if (iVar.f11987j) {
                             JSONObject jSONObject2 = new JSONObject();
                             try {
                                 jSONObject2.put("ctr", "1");
@@ -536,7 +536,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f11791c;
+        public final /* synthetic */ ContentValues f11933c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(a aVar, ContentValues contentValues) {
@@ -557,14 +557,14 @@ public class a {
                     return;
                 }
             }
-            this.f11791c = contentValues;
+            this.f11933c = contentValues;
         }
 
         @Override // c.a.r0.u.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) ? sQLiteDatabase.insert("flow", null, this.f11791c) != -1 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) ? sQLiteDatabase.insert("flow", null, this.f11933c) != -1 : invokeL.booleanValue;
         }
     }
 
@@ -574,10 +574,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f11792c;
+        public final /* synthetic */ ContentValues f11934c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f11793d;
+        public final /* synthetic */ String f11935d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public k(a aVar, ContentValues contentValues, String str) {
@@ -598,15 +598,15 @@ public class a {
                     return;
                 }
             }
-            this.f11792c = contentValues;
-            this.f11793d = str;
+            this.f11934c = contentValues;
+            this.f11935d = str;
         }
 
         @Override // c.a.r0.u.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) ? sQLiteDatabase.update("flow", this.f11792c, this.f11793d, null) == 1 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) ? sQLiteDatabase.update("flow", this.f11934c, this.f11935d, null) == 1 : invokeL.booleanValue;
         }
     }
 
@@ -616,10 +616,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f11794c;
+        public final /* synthetic */ ContentValues f11936c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f11795d;
+        public final /* synthetic */ String f11937d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public l(a aVar, ContentValues contentValues, String str) {
@@ -640,15 +640,15 @@ public class a {
                     return;
                 }
             }
-            this.f11794c = contentValues;
-            this.f11795d = str;
+            this.f11936c = contentValues;
+            this.f11937d = str;
         }
 
         @Override // c.a.r0.u.a.q
         public boolean b(SQLiteDatabase sQLiteDatabase) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) ? sQLiteDatabase.update("flow", this.f11794c, this.f11795d, null) == 1 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) ? sQLiteDatabase.update("flow", this.f11936c, this.f11937d, null) == 1 : invokeL.booleanValue;
         }
     }
 
@@ -658,10 +658,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f11796c;
+        public final /* synthetic */ String f11938c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f11797d;
+        public final /* synthetic */ int f11939d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public m(a aVar, String str, int i2) {
@@ -682,8 +682,8 @@ public class a {
                     return;
                 }
             }
-            this.f11796c = str;
-            this.f11797d = i2;
+            this.f11938c = str;
+            this.f11939d = i2;
         }
 
         @Override // c.a.r0.u.a.q
@@ -691,8 +691,8 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
-                sQLiteDatabase.delete("flow", this.f11796c, null);
-                sQLiteDatabase.delete("event", "flowhandle = " + this.f11797d, null);
+                sQLiteDatabase.delete("flow", this.f11938c, null);
+                sQLiteDatabase.delete("event", "flowhandle = " + this.f11939d, null);
                 return true;
             }
             return invokeL.booleanValue;
@@ -705,7 +705,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f11798c;
+        public final /* synthetic */ a f11940c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public n(a aVar) {
@@ -726,7 +726,7 @@ public class a {
                     return;
                 }
             }
-            this.f11798c = aVar;
+            this.f11940c = aVar;
         }
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x00a5 */
@@ -806,7 +806,7 @@ public class a {
                 if (arrayList.size() != 0) {
                     return true;
                 }
-                String str2 = "flowhandle in (" + this.f11798c.t(arrayList) + SmallTailInfo.EMOTION_SUFFIX;
+                String str2 = "flowhandle in (" + this.f11940c.t(arrayList) + SmallTailInfo.EMOTION_SUFFIX;
                 sQLiteDatabase.delete("flow", str2, null);
                 sQLiteDatabase.delete("event", str2, null);
                 return true;
@@ -821,10 +821,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f11799c;
+        public final /* synthetic */ String f11941c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f11800d;
+        public final /* synthetic */ int f11942d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public o(a aVar, String str, int i2) {
@@ -845,8 +845,8 @@ public class a {
                     return;
                 }
             }
-            this.f11799c = str;
-            this.f11800d = i2;
+            this.f11941c = str;
+            this.f11942d = i2;
         }
 
         @Override // c.a.r0.u.a.q
@@ -854,8 +854,8 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
-                String str = this.f11799c;
-                int delete = sQLiteDatabase.delete(str, "_id < " + this.f11800d, null);
+                String str = this.f11941c;
+                int delete = sQLiteDatabase.delete(str, "_id < " + this.f11942d, null);
                 c.a.r0.u.e.h("23", "delLimit");
                 return delete > 0;
             }
@@ -869,7 +869,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f11801c;
+        public final /* synthetic */ List f11943c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public p(a aVar, List list) {
@@ -890,7 +890,7 @@ public class a {
                     return;
                 }
             }
-            this.f11801c = list;
+            this.f11943c = list;
         }
 
         @Override // c.a.r0.u.a.q
@@ -898,21 +898,21 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
-                for (c.a.r0.u.g gVar : this.f11801c) {
+                for (c.a.r0.u.g gVar : this.f11943c) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("eventid", gVar.a);
-                    contentValues.put("type", gVar.f11827e);
-                    contentValues.put("cycle", Integer.valueOf("1".equals(gVar.f11825c) ? 0 : gVar.f11826d));
-                    contentValues.put("switch", gVar.f11824b);
-                    contentValues.put("reserve1", gVar.f11828f);
-                    if (!TextUtils.isEmpty(gVar.f11830h)) {
-                        contentValues.put("reserve2", gVar.f11830h);
+                    contentValues.put("type", gVar.f11969e);
+                    contentValues.put("cycle", Integer.valueOf("1".equals(gVar.f11967c) ? 0 : gVar.f11968d));
+                    contentValues.put("switch", gVar.f11966b);
+                    contentValues.put("reserve1", gVar.f11970f);
+                    if (!TextUtils.isEmpty(gVar.f11972h)) {
+                        contentValues.put("reserve2", gVar.f11972h);
                     }
-                    contentValues.put("sample", Integer.valueOf(gVar.f11829g));
-                    int i2 = gVar.f11831i;
-                    if (i2 != 0 && gVar.f11832j != 0) {
+                    contentValues.put("sample", Integer.valueOf(gVar.f11971g));
+                    int i2 = gVar.f11973i;
+                    if (i2 != 0 && gVar.f11974j != 0) {
                         contentValues.put("recordrule", Integer.valueOf(i2));
-                        contentValues.put("uploadrule", Integer.valueOf(gVar.f11832j));
+                        contentValues.put("uploadrule", Integer.valueOf(gVar.f11974j));
                     }
                     if (TextUtils.equals(gVar.k, "1")) {
                         JSONObject jSONObject = new JSONObject();
@@ -946,7 +946,7 @@ public class a {
                 return;
             }
         }
-        this.f11771b = new c.a.r0.u.o(context);
+        this.f11913b = new c.a.r0.u.o(context);
     }
 
     public static void x(long j2, int i2, String str) {
@@ -969,7 +969,7 @@ public class a {
     public void A(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
-            new b(this, str, z).c(this.f11771b.getWritableDatabase());
+            new b(this, str, z).c(this.f11913b.getWritableDatabase());
         }
     }
 
@@ -980,19 +980,19 @@ public class a {
         }
         ContentValues contentValues = new ContentValues();
         contentValues.put("flowid", kVar.a);
-        contentValues.put("flowhandle", Integer.valueOf(kVar.f11846b));
-        contentValues.put("state", kVar.f11852h);
-        contentValues.put("begintime", Long.valueOf(kVar.f11849e));
-        JSONObject jSONObject = kVar.f11848d;
+        contentValues.put("flowhandle", Integer.valueOf(kVar.f11988b));
+        contentValues.put("state", kVar.f11994h);
+        contentValues.put("begintime", Long.valueOf(kVar.f11991e));
+        JSONObject jSONObject = kVar.f11990d;
         if (jSONObject != null) {
             contentValues.put("content", jSONObject.toString());
         } else {
-            contentValues.put("content", kVar.f11847c);
+            contentValues.put("content", kVar.f11989c);
         }
-        contentValues.put(SpeedStatsUtils.UBC_KEY_OPTION, Integer.valueOf(kVar.f11851g));
-        contentValues.put("reserve1", kVar.f11853i);
-        if (!TextUtils.isEmpty(kVar.f11854j)) {
-            contentValues.put("reserve2", kVar.f11854j);
+        contentValues.put(SpeedStatsUtils.UBC_KEY_OPTION, Integer.valueOf(kVar.f11993g));
+        contentValues.put("reserve1", kVar.f11995i);
+        if (!TextUtils.isEmpty(kVar.f11996j)) {
+            contentValues.put("reserve2", kVar.f11996j);
         }
         if (kVar.l) {
             JSONObject jSONObject2 = new JSONObject();
@@ -1003,13 +1003,13 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        new j(this, contentValues).c(this.f11771b.getWritableDatabase());
+        new j(this, contentValues).c(this.f11913b.getWritableDatabase());
     }
 
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            new g(this).c(this.f11771b.getWritableDatabase());
+            new g(this).c(this.f11913b.getWritableDatabase());
         }
     }
 
@@ -1018,7 +1018,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || list == null || list.size() == 0) {
             return;
         }
-        new p(this, list).c(this.f11771b.getWritableDatabase());
+        new p(this, list).c(this.f11913b.getWritableDatabase());
     }
 
     public void E(String str, int i2, String str2) {
@@ -1028,20 +1028,20 @@ public class a {
         }
         ContentValues contentValues = new ContentValues();
         contentValues.put("content", str2);
-        new k(this, contentValues, "flowid=\"" + str + "\" AND flowhandle = " + i2).c(this.f11771b.getWritableDatabase());
+        new k(this, contentValues, "flowid=\"" + str + "\" AND flowhandle = " + i2).c(this.f11913b.getWritableDatabase());
     }
 
     public void F(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            new e(this, str).c(this.f11771b.getWritableDatabase());
+            new e(this, str).c(this.f11913b.getWritableDatabase());
         }
     }
 
     public void G(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-            new f(this, str, str2).c(this.f11771b.getWritableDatabase());
+            new f(this, str, str2).c(this.f11913b.getWritableDatabase());
         }
     }
 
@@ -1050,7 +1050,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLI(1048583, this, str, i2) == null) || i2 < 0 || TextUtils.isEmpty(str)) {
             return;
         }
-        new m(this, "flowid=\"" + str + "\" AND flowhandle = " + i2, i2).c(this.f11771b.getWritableDatabase());
+        new m(this, "flowid=\"" + str + "\" AND flowhandle = " + i2, i2).c(this.f11913b.getWritableDatabase());
     }
 
     public final boolean e(String str, String str2, int i2, SQLiteDatabase sQLiteDatabase) {
@@ -1090,7 +1090,7 @@ public class a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            new n(this).c(this.f11771b.getWritableDatabase());
+            new n(this).c(this.f11913b.getWritableDatabase());
             k("flow");
             k("event");
         }
@@ -1100,9 +1100,9 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{sparseIntArray, arrayList, Boolean.valueOf(z), str})) == null) {
-            C0807a c0807a = new C0807a(this, sparseIntArray, str, arrayList, z);
-            c0807a.c(this.f11771b.getWritableDatabase());
-            return c0807a.a();
+            C0816a c0816a = new C0816a(this, sparseIntArray, str, arrayList, z);
+            c0816a.c(this.f11913b.getWritableDatabase());
+            return c0816a.a();
         }
         return invokeCommon.booleanValue;
     }
@@ -1110,14 +1110,14 @@ public class a {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            new d(this).c(this.f11771b.getWritableDatabase());
+            new d(this).c(this.f11913b.getWritableDatabase());
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            new c(this, str).c(this.f11771b.getWritableDatabase());
+            new c(this, str).c(this.f11913b.getWritableDatabase());
         }
     }
 
@@ -1132,13 +1132,13 @@ public class a {
         if (jSONArray != null && jSONArray.length() > 0) {
             contentValues.put("slot", jSONArray.toString());
         }
-        new l(this, contentValues, "flowid=\"" + str + "\" AND flowhandle = " + i2).c(this.f11771b.getWritableDatabase());
+        new l(this, contentValues, "flowid=\"" + str + "\" AND flowhandle = " + i2).c(this.f11913b.getWritableDatabase());
     }
 
     public final void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            SQLiteDatabase writableDatabase = this.f11771b.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.f11913b.getWritableDatabase();
             int i2 = 0;
             Cursor cursor = null;
             try {
@@ -1201,13 +1201,13 @@ public class a {
     public final long n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f11771b.e() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f11913b.e() : invokeV.longValue;
     }
 
     public final long o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f11771b.f() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f11913b.f() : invokeV.longValue;
     }
 
     public final int p(String str, u uVar) {
@@ -1230,7 +1230,7 @@ public class a {
             long j5 = Long.MAX_VALUE;
             try {
                 try {
-                    cursor = this.f11771b.getReadableDatabase().rawQuery(str, null);
+                    cursor = this.f11913b.getReadableDatabase().rawQuery(str, null);
                     if (cursor == null || cursor.getCount() <= 0) {
                         uVar2 = uVar3;
                         j2 = 0;
@@ -1313,7 +1313,7 @@ public class a {
                                             jSONObject.put("abtest", string4);
                                             uVar2 = uVar;
                                             try {
-                                                uVar2.f11917f = "1";
+                                                uVar2.f12059f = "1";
                                                 j4 = j5;
                                                 try {
                                                     i4 = columnIndex2;
@@ -1434,7 +1434,7 @@ public class a {
             r2 = r31
             java.util.ArrayList r3 = new java.util.ArrayList
             r3.<init>()
-            c.a.r0.u.o r0 = r1.f11771b
+            c.a.r0.u.o r0 = r1.f11913b
             android.database.sqlite.SQLiteDatabase r0 = r0.getReadableDatabase()
             r4 = 0
             r10 = r30
@@ -1500,13 +1500,13 @@ public class a {
             java.lang.String r0 = r4.getString(r11)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             r2.a = r0     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             int r0 = r4.getInt(r12)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
-            r2.f11846b = r0     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
+            r2.f11988b = r0     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             r22 = r11
             r23 = r12
             long r11 = r4.getLong(r14)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
-            r2.f11849e = r11     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
+            r2.f11991e = r11     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             long r11 = r4.getLong(r15)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
-            r2.f11850f = r11     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
+            r2.f11992f = r11     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             r18 = 0
             int r0 = (r11 > r18 ? 1 : (r11 == r18 ? 0 : -1))
             if (r0 <= 0) goto Ld7
@@ -1514,21 +1514,21 @@ public class a {
             if (r0 <= 0) goto Ld7
             r20 = r11
         Ld7:
-            long r11 = r2.f11849e     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
+            long r11 = r2.f11991e     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             r18 = 0
             int r0 = (r11 > r18 ? 1 : (r11 == r18 ? 0 : -1))
             if (r0 <= 0) goto Le9
-            long r11 = r2.f11849e     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
+            long r11 = r2.f11991e     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             int r0 = (r11 > r16 ? 1 : (r11 == r16 ? 0 : -1))
             if (r0 >= 0) goto Le9
-            long r11 = r2.f11849e     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
+            long r11 = r2.f11991e     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             r16 = r11
         Le9:
             java.lang.String r0 = r4.getString(r7)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             boolean r11 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             java.lang.String r12 = "UTF-8"
             if (r11 != 0) goto L103
-            r2.f11847c = r0     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
+            r2.f11989c = r0     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             byte[] r0 = r0.getBytes(r12)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             int r0 = r0.length     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             r11 = r7
@@ -1543,7 +1543,7 @@ public class a {
             java.lang.String r0 = r4.getString(r9)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             boolean r7 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             if (r7 != 0) goto L122
-            r2.f11853i = r0     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
+            r2.f11995i = r0     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             long r7 = r1.a     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             byte[] r0 = r0.getBytes(r12)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             int r0 = r0.length     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
@@ -1561,7 +1561,7 @@ public class a {
             boolean r0 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             if (r0 != 0) goto L136
             java.lang.String r0 = r4.getString(r10)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
-            r2.f11854j = r0     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
+            r2.f11996j = r0     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
         L136:
             java.lang.String r0 = r4.getString(r5)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             if (r5 < 0) goto L150
@@ -1606,7 +1606,7 @@ public class a {
             r7 = 1
         L183:
             r3.add(r2)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
-            int r0 = r2.f11846b     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
+            int r0 = r2.f11988b     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             java.lang.String r2 = r2.a     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             int r2 = java.lang.Integer.parseInt(r2)     // Catch: java.lang.RuntimeException -> L1b6 java.lang.Throwable -> L1ba java.lang.Throwable -> L1d7
             r8 = r31
@@ -1708,28 +1708,28 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, arrayList, uVar) == null) {
             JSONObject jSONObject = new JSONObject();
-            SQLiteDatabase readableDatabase = this.f11771b.getReadableDatabase();
+            SQLiteDatabase readableDatabase = this.f11913b.getReadableDatabase();
             try {
                 Iterator<c.a.r0.u.k> it = arrayList.iterator();
                 String[] strArr = null;
                 Cursor cursor = null;
                 while (it.hasNext()) {
                     c.a.r0.u.k next = it.next();
-                    if (next.f11846b >= 0) {
+                    if (next.f11988b >= 0) {
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("bizId", next.a);
-                        jSONObject2.put(LaunchedTaskSpeedStats.KEY_START_TIME, Long.toString(next.f11849e));
-                        jSONObject2.put("endtime", Long.toString(next.f11850f));
+                        jSONObject2.put(LaunchedTaskSpeedStats.KEY_START_TIME, Long.toString(next.f11991e));
+                        jSONObject2.put("endtime", Long.toString(next.f11992f));
                         jSONObject2.put("eventType", "1");
-                        if (!TextUtils.isEmpty(next.f11847c)) {
-                            jSONObject = new JSONObject(next.f11847c);
+                        if (!TextUtils.isEmpty(next.f11989c)) {
+                            jSONObject = new JSONObject(next.f11989c);
                         }
-                        if (!TextUtils.isEmpty(next.f11853i)) {
-                            jSONObject2.put("abtest", next.f11853i);
-                            uVar.f11917f = "1";
+                        if (!TextUtils.isEmpty(next.f11995i)) {
+                            jSONObject2.put("abtest", next.f11995i);
+                            uVar.f12059f = "1";
                         }
-                        if (!TextUtils.isEmpty(next.f11854j)) {
-                            jSONObject2.put("c", next.f11854j);
+                        if (!TextUtils.isEmpty(next.f11996j)) {
+                            jSONObject2.put("c", next.f11996j);
                         }
                         if (next.k != null) {
                             jSONObject2.put(SpeedStatsMainTable.PART, next.k);
@@ -1740,7 +1740,7 @@ public class a {
                         jSONObject2.put(Constant.ID_TYPE, c.a.r0.u.d.g().j(next.a));
                         JSONArray jSONArray = new JSONArray();
                         try {
-                            cursor = readableDatabase.rawQuery("SELECT eventid , begintime , content FROM event WHERE flowhandle = " + next.f11846b, strArr);
+                            cursor = readableDatabase.rawQuery("SELECT eventid , begintime , content FROM event WHERE flowhandle = " + next.f11988b, strArr);
                             if (cursor != null && cursor.getCount() > 0) {
                                 cursor.moveToFirst();
                                 int columnIndex = cursor.getColumnIndex("eventid");
@@ -1786,7 +1786,7 @@ public class a {
             String str = "";
             while (it.hasNext()) {
                 c.a.r0.u.f next = it.next();
-                if ((z && !"0".equals(next.f11823b)) || (!z && "0".equals(next.f11823b))) {
+                if ((z && !"0".equals(next.f11965b)) || (!z && "0".equals(next.f11965b))) {
                     sb.append(str);
                     sb.append(next.a);
                     str = ",";
@@ -1834,7 +1834,7 @@ public class a {
             c.a.r0.u.j jVar = null;
             try {
                 try {
-                    str2 = this.f11771b.getReadableDatabase().rawQuery(str2, null);
+                    str2 = this.f11913b.getReadableDatabase().rawQuery(str2, null);
                     closeable = str2;
                     if (str2 != 0) {
                         try {
@@ -1886,7 +1886,7 @@ public class a {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = this.f11771b.getReadableDatabase().rawQuery("SELECT eventid , type , cycle FROM config WHERE switch=\"1\"", null);
+                    cursor = this.f11913b.getReadableDatabase().rawQuery("SELECT eventid , type , cycle FROM config WHERE switch=\"1\"", null);
                     if (cursor != null && cursor.getCount() > 0) {
                         cursor.moveToFirst();
                         int columnIndex = cursor.getColumnIndex("eventid");
@@ -1937,7 +1937,7 @@ public class a {
     public void w(HashSet<String> hashSet, HashSet<String> hashSet2, HashSet<String> hashSet3, HashSet<String> hashSet4, HashMap<String, String> hashMap, HashMap<String, String> hashMap2, HashMap<String, c.a.r0.u.h> hashMap3, HashSet<String> hashSet5) {
         SQLiteDatabase readableDatabase;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{hashSet, hashSet2, hashSet3, hashSet4, hashMap, hashMap2, hashMap3, hashSet5}) == null) || (readableDatabase = this.f11771b.getReadableDatabase()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{hashSet, hashSet2, hashSet3, hashSet4, hashMap, hashMap2, hashMap3, hashSet5}) == null) || (readableDatabase = this.f11913b.getReadableDatabase()) == null) {
             return;
         }
         Cursor cursor = null;
@@ -2021,20 +2021,20 @@ public class a {
             return;
         }
         ContentValues contentValues = new ContentValues();
-        contentValues.put("flowhandle", Integer.valueOf(iVar.f11838c));
+        contentValues.put("flowhandle", Integer.valueOf(iVar.f11980c));
         contentValues.put("eventid", iVar.a);
-        contentValues.put("begintime", Long.valueOf(iVar.f11841f));
-        JSONObject jSONObject = iVar.f11840e;
+        contentValues.put("begintime", Long.valueOf(iVar.f11983f));
+        JSONObject jSONObject = iVar.f11982e;
         if (jSONObject != null) {
             contentValues.put("content", jSONObject.toString());
         } else {
-            contentValues.put("content", iVar.f11839d);
+            contentValues.put("content", iVar.f11981d);
         }
-        contentValues.put("reserve1", iVar.f11843h);
-        if (!TextUtils.isEmpty(iVar.f11844i)) {
-            contentValues.put("reserve2", iVar.f11844i);
+        contentValues.put("reserve1", iVar.f11985h);
+        if (!TextUtils.isEmpty(iVar.f11986i)) {
+            contentValues.put("reserve2", iVar.f11986i);
         }
-        if (iVar.f11845j) {
+        if (iVar.f11987j) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("ctr", "1");
@@ -2043,7 +2043,7 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        new h(this, iVar.f11837b, iVar.a, iVar.f11838c, contentValues).c(this.f11771b.getWritableDatabase());
+        new h(this, iVar.f11979b, iVar.a, iVar.f11980c, contentValues).c(this.f11913b.getWritableDatabase());
     }
 
     public void z(List<c.a.r0.u.i> list) {
@@ -2051,7 +2051,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048604, this, list) == null) || list == null || list.size() == 0) {
             return;
         }
-        new i(this, list).c(this.f11771b.getWritableDatabase());
+        new i(this, list).c(this.f11913b.getWritableDatabase());
     }
 
     /* loaded from: classes6.dex */
@@ -2061,7 +2061,7 @@ public class a {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f11802b;
+        public final /* synthetic */ a f11944b;
 
         public q(a aVar) {
             Interceptable interceptable = $ic;
@@ -2078,7 +2078,7 @@ public class a {
                     return;
                 }
             }
-            this.f11802b = aVar;
+            this.f11944b = aVar;
             this.a = false;
         }
 
@@ -2107,8 +2107,8 @@ public class a {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("type", "DBError");
-                        jSONObject.put("db_size", this.f11802b.o());
-                        jSONObject.put("db_log_size", this.f11802b.n());
+                        jSONObject.put("db_size", this.f11944b.o());
+                        jSONObject.put("db_log_size", this.f11944b.n());
                         jSONObject.put("exception", Log.getStackTraceString(e2));
                     } catch (JSONException e3) {
                         e3.printStackTrace();

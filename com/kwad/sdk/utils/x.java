@@ -14,10 +14,10 @@ public class x extends Observable {
     public static volatile x a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Activity> f57960b;
+    public WeakReference<Activity> f58005b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f57961c;
+    public WeakReference<Activity> f58006c;
 
     public static x a() {
         if (a == null) {
@@ -69,7 +69,7 @@ public class x extends Observable {
             application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() { // from class: com.kwad.sdk.utils.x.1
 
                 /* renamed from: b  reason: collision with root package name */
-                public int f57962b = 0;
+                public int f58007b = 0;
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
@@ -81,16 +81,16 @@ public class x extends Observable {
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityPaused(@NonNull Activity activity) {
-                    if (x.this.f57960b == null || x.this.f57960b.get() == null || !((Activity) x.this.f57960b.get()).equals(activity)) {
+                    if (x.this.f58005b == null || x.this.f58005b.get() == null || !((Activity) x.this.f58005b.get()).equals(activity)) {
                         return;
                     }
-                    x.this.f57960b = null;
+                    x.this.f58005b = null;
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityResumed(@NonNull Activity activity) {
-                    x.this.f57960b = new WeakReference(activity);
-                    x.this.f57961c = new WeakReference(activity);
+                    x.this.f58005b = new WeakReference(activity);
+                    x.this.f58006c = new WeakReference(activity);
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -99,8 +99,8 @@ public class x extends Observable {
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityStarted(@NonNull Activity activity) {
-                    int i3 = this.f57962b + 1;
-                    this.f57962b = i3;
+                    int i3 = this.f58007b + 1;
+                    this.f58007b = i3;
                     if (i3 == 1) {
                         x.this.e();
                     }
@@ -108,15 +108,15 @@ public class x extends Observable {
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityStopped(@NonNull Activity activity) {
-                    int i3 = this.f57962b - 1;
-                    this.f57962b = i3;
+                    int i3 = this.f58007b - 1;
+                    this.f58007b = i3;
                     if (i3 == 0) {
                         x.this.f();
                     }
-                    if (x.this.f57961c == null || x.this.f57961c.get() == null || !((Activity) x.this.f57961c.get()).equals(activity)) {
+                    if (x.this.f58006c == null || x.this.f58006c.get() == null || !((Activity) x.this.f58006c.get()).equals(activity)) {
                         return;
                     }
-                    x.this.f57961c = null;
+                    x.this.f58006c = null;
                 }
             });
         }
@@ -128,7 +128,7 @@ public class x extends Observable {
 
     @Nullable
     public Activity c() {
-        WeakReference<Activity> weakReference = this.f57960b;
+        WeakReference<Activity> weakReference = this.f58005b;
         if (weakReference == null) {
             return null;
         }
@@ -137,7 +137,7 @@ public class x extends Observable {
 
     public int d() {
         Activity activity;
-        WeakReference<Activity> weakReference = this.f57961c;
+        WeakReference<Activity> weakReference = this.f58006c;
         if (weakReference == null || (activity = weakReference.get()) == null) {
             return 0;
         }

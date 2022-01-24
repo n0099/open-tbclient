@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
 import c.a.s0.s.s.a;
-import c.a.t0.h2.k;
+import c.a.t0.i2.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -42,26 +42,26 @@ public class j implements c.a.t0.k4.d, Handler.Callback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseFragmentActivity f21379e;
+    public BaseFragmentActivity f21615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VideoFileInfo f21380f;
+    public VideoFileInfo f21616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21381g;
+    public String f21617g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f21382h;
+    public boolean f21618h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f21383i;
+    public boolean f21619i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f21384j;
+    public boolean f21620j;
     public AlbumVideoCompressingDialogView k;
     public VideoConvertUtil l;
     public Handler m;
-    public c.a.t0.h2.g n;
+    public c.a.t0.i2.g n;
     public boolean o;
     public final CustomMessageListener p;
 
@@ -129,8 +129,8 @@ public class j implements c.a.t0.k4.d, Handler.Callback {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
                 Intent intent = new Intent();
                 intent.putExtra(AlbumActivityConfig.FINISH_SELF, true);
-                this.a.f21379e.setResult(-1, intent);
-                this.a.f21379e.finish();
+                this.a.f21615e.setResult(-1, intent);
+                this.a.f21615e.finish();
             }
         }
     }
@@ -150,20 +150,20 @@ public class j implements c.a.t0.k4.d, Handler.Callback {
                 return;
             }
         }
-        this.f21382h = false;
-        this.f21383i = false;
-        this.f21384j = false;
+        this.f21618h = false;
+        this.f21619i = false;
+        this.f21620j = false;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, k.class);
         k kVar = runTask != null ? (k) runTask.getData() : null;
         if (kVar != null) {
             this.n = kVar.get();
         }
-        c.a.t0.h2.g gVar = this.n;
+        c.a.t0.i2.g gVar = this.n;
         if (gVar != null) {
             gVar.g();
         }
         this.p = new b(this, 2001374);
-        this.f21379e = baseFragmentActivity;
+        this.f21615e = baseFragmentActivity;
         VideoConvertUtil videoConvertUtil = new VideoConvertUtil(baseFragmentActivity);
         this.l = videoConvertUtil;
         videoConvertUtil.o(this);
@@ -242,42 +242,42 @@ public class j implements c.a.t0.k4.d, Handler.Callback {
             if (videoConvertUtil != null) {
                 videoConvertUtil.a();
             }
-            this.f21384j = true;
-            if (this.f21381g != null) {
-                File file = new File(this.f21381g);
+            this.f21620j = true;
+            if (this.f21617g != null) {
+                File file = new File(this.f21617g);
                 if (file.exists()) {
                     file.delete();
                 }
             }
             h();
-            this.f21381g = null;
+            this.f21617g = null;
         }
     }
 
     public final void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f21379e.showLoadingDialog(null);
-            VideoFileInfo e2 = e(this.f21381g);
+            this.f21615e.showLoadingDialog(null);
+            VideoFileInfo e2 = e(this.f21617g);
             VideoInfo videoInfo = new VideoInfo();
-            videoInfo.setVideoPath(this.f21381g);
+            videoInfo.setVideoPath(this.f21617g);
             videoInfo.setVideoDuration(e2.videoDuration / 1000);
             videoInfo.setVideoWidth(e2.videoWidth);
             videoInfo.setVideoHeight(e2.videoHeight);
             videoInfo.setVideoLength(new File(e2.videoPath).length());
             videoInfo.setVideoSource(2);
             videoInfo.setIsCompressedVideo(z);
-            TbFileVideoActivityConfig tbFileVideoActivityConfig = new TbFileVideoActivityConfig(this.f21379e);
-            tbFileVideoActivityConfig.getIntent().putExtras(this.f21379e.getIntent());
+            TbFileVideoActivityConfig tbFileVideoActivityConfig = new TbFileVideoActivityConfig(this.f21615e);
+            tbFileVideoActivityConfig.getIntent().putExtras(this.f21615e.getIntent());
             tbFileVideoActivityConfig.setFrom(1);
             tbFileVideoActivityConfig.setVideoInfo(videoInfo);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921582, tbFileVideoActivityConfig));
             if (c.a.s0.s.m.c.b()) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_WORK_PUBLISH_ENTER_TYPE_CLICK).param("obj_locate", 2).param("obj_source", c.a.s0.s.m.c.d() ? 2 : 1));
             }
-            this.f21383i = false;
-            this.f21381g = null;
-            c.a.t0.h2.g gVar = this.n;
+            this.f21619i = false;
+            this.f21617g = null;
+            c.a.t0.i2.g gVar = this.n;
             if (gVar != null) {
                 gVar.d();
             }
@@ -287,8 +287,8 @@ public class j implements c.a.t0.k4.d, Handler.Callback {
     public void g(VideoFileInfo videoFileInfo, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, videoFileInfo, str, str2) == null) {
-            this.f21380f = videoFileInfo;
-            if (videoFileInfo == null || this.f21379e == null) {
+            this.f21616f = videoFileInfo;
+            if (videoFileInfo == null || this.f21615e == null) {
                 return;
             }
             if (videoFileInfo.videoDuration > 600000) {
@@ -297,19 +297,19 @@ public class j implements c.a.t0.k4.d, Handler.Callback {
             }
             VideoConvertUtil videoConvertUtil = this.l;
             if (videoConvertUtil == null || !videoConvertUtil.n()) {
-                String str3 = this.f21380f.videoPath;
+                String str3 = this.f21616f.videoPath;
                 if (TextUtils.isEmpty(str3)) {
-                    n.M(this.f21379e, c.a.t0.p4.j.mv_local_video_video_not_exist);
+                    n.M(this.f21615e, c.a.t0.p4.j.mv_local_video_video_not_exist);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, str3));
                     n(107);
                 } else if (!new File(str3).exists()) {
-                    n.M(this.f21379e, c.a.t0.p4.j.mv_local_video_video_not_exist);
+                    n.M(this.f21615e, c.a.t0.p4.j.mv_local_video_video_not_exist);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, str3));
                     n(106);
                 } else {
-                    VideoFileInfo videoFileInfo2 = this.f21380f;
+                    VideoFileInfo videoFileInfo2 = this.f21616f;
                     if (videoFileInfo2 != null) {
-                        this.f21381g = videoFileInfo2.videoPath;
+                        this.f21617g = videoFileInfo2.videoPath;
                         f(false);
                         n(102);
                     }
@@ -321,7 +321,7 @@ public class j implements c.a.t0.k4.d, Handler.Callback {
     public final void h() {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (relativeLayout = (RelativeLayout) this.f21379e.findViewById(c.a.t0.p4.g.parent)) == null || this.k.getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (relativeLayout = (RelativeLayout) this.f21615e.findViewById(c.a.t0.p4.g.parent)) == null || this.k.getParent() == null) {
             return;
         }
         relativeLayout.removeView(this.k);
@@ -343,37 +343,37 @@ public class j implements c.a.t0.k4.d, Handler.Callback {
                 Handler handler = this.m;
                 handler.sendMessageDelayed(handler.obtainMessage(5), 60000L);
             } else if (i2 == 2) {
-                if (!this.f21384j) {
-                    n.M(this.f21379e, c.a.t0.p4.j.mv_local_video_compress_failed);
+                if (!this.f21620j) {
+                    n.M(this.f21615e, c.a.t0.p4.j.mv_local_video_compress_failed);
                     n(103);
                 }
                 this.o = false;
-                this.f21383i = false;
+                this.f21619i = false;
                 h();
             } else if (i2 == 3) {
                 this.o = false;
-                this.f21383i = true;
-                if (!StringUtils.isNull(this.f21381g)) {
-                    File file = new File(this.f21381g);
-                    this.f21381g = this.f21381g.replace("_tiebaconverting.mp4", ".mp4");
-                    file.renameTo(new File(this.f21381g));
+                this.f21619i = true;
+                if (!StringUtils.isNull(this.f21617g)) {
+                    File file = new File(this.f21617g);
+                    this.f21617g = this.f21617g.replace("_tiebaconverting.mp4", ".mp4");
+                    file.renameTo(new File(this.f21617g));
                 }
                 h();
-                if (!this.f21382h) {
+                if (!this.f21618h) {
                     f(true);
-                    c.a.t0.h2.g gVar = this.n;
+                    c.a.t0.i2.g gVar = this.n;
                     if (gVar != null) {
                         gVar.d();
                     }
                 }
             } else if (i2 == 4) {
                 this.o = false;
-                this.f21383i = false;
+                this.f21619i = false;
                 h();
                 n(104);
             } else if (i2 == 5) {
                 this.o = false;
-                n.M(this.f21379e, c.a.t0.p4.j.mv_local_video_compress_failed);
+                n.M(this.f21615e, c.a.t0.p4.j.mv_local_video_compress_failed);
                 VideoConvertUtil videoConvertUtil = this.l;
                 if (videoConvertUtil != null && videoConvertUtil.n()) {
                     d();
@@ -402,7 +402,7 @@ public class j implements c.a.t0.k4.d, Handler.Callback {
             if (handler != null) {
                 handler.removeMessages(5);
             }
-            c.a.t0.h2.g gVar = this.n;
+            c.a.t0.i2.g gVar = this.n;
             if (gVar != null) {
                 gVar.k("album");
             }
@@ -413,11 +413,11 @@ public class j implements c.a.t0.k4.d, Handler.Callback {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.f21383i && !TextUtils.isEmpty(this.f21381g) && new File(this.f21381g).exists()) {
+            if (this.f21619i && !TextUtils.isEmpty(this.f21617g) && new File(this.f21617g).exists()) {
                 f(true);
                 n(101);
             }
-            c.a.t0.h2.g gVar = this.n;
+            c.a.t0.i2.g gVar = this.n;
             if (gVar != null) {
                 gVar.e("album");
             }
@@ -427,20 +427,20 @@ public class j implements c.a.t0.k4.d, Handler.Callback {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f21382h = false;
+            this.f21618h = false;
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f21382h = true;
-            this.f21379e.closeLoadingDialog();
+            this.f21618h = true;
+            this.f21615e.closeLoadingDialog();
         }
     }
 
     public final void n(int i2) {
-        c.a.t0.h2.g gVar;
+        c.a.t0.i2.g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || (gVar = this.n) == null) {
             return;
@@ -510,8 +510,8 @@ public class j implements c.a.t0.k4.d, Handler.Callback {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            c.a.s0.s.s.a positiveButton = new c.a.s0.s.s.a(this.f21379e).setTitle(c.a.t0.p4.j.mv_local_video_too_long).setPositiveButton(c.a.t0.p4.j.group_create_private_isee, new a(this));
-            positiveButton.create(this.f21379e.getPageContext());
+            c.a.s0.s.s.a positiveButton = new c.a.s0.s.s.a(this.f21615e).setTitle(c.a.t0.p4.j.mv_local_video_too_long).setPositiveButton(c.a.t0.p4.j.group_create_private_isee, new a(this));
+            positiveButton.create(this.f21615e.getPageContext());
             positiveButton.setCanceledOnTouchOutside(false);
             positiveButton.show();
         }

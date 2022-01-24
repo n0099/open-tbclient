@@ -33,13 +33,13 @@ public class c {
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f13982b;
+        public final String f14122b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f13983c;
+        public final String f14123c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f13984d;
+        public final String f14124d;
 
         public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -57,9 +57,9 @@ public class c {
                 }
             }
             this.a = null;
-            this.f13982b = str;
-            this.f13983c = str2;
-            this.f13984d = str3;
+            this.f14122b = str;
+            this.f14123c = str2;
+            this.f14124d = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,15 +70,15 @@ public class c {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 Boolean bool = Boolean.FALSE;
                 try {
-                    NetWork netWork = new NetWork(this.f13982b);
+                    NetWork netWork = new NetWork(this.f14122b);
                     this.a = netWork;
-                    bool = Boolean.valueOf(netWork.downloadFile(this.f13983c + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                    bool = Boolean.valueOf(netWork.downloadFile(this.f14123c + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                     if (bool != null && bool.booleanValue()) {
-                        if (!StringUtils.isNull(FileHelper.renameTo(null, this.f13983c + ".tmp", null, this.f13983c)) && !TextUtils.isEmpty(this.f13982b) && !this.f13982b.equals(this.f13984d)) {
-                            FileHelper.DelFile(TbMd5.getNameMd5FromUrl(this.f13984d));
+                        if (!StringUtils.isNull(FileHelper.renameTo(null, this.f14123c + ".tmp", null, this.f14123c)) && !TextUtils.isEmpty(this.f14122b) && !this.f14122b.equals(this.f14124d)) {
+                            FileHelper.DelFile(TbMd5.getNameMd5FromUrl(this.f14124d));
                         }
                     } else {
-                        FileHelper.DelFile(this.f13983c + ".tmp");
+                        FileHelper.DelFile(this.f14123c + ".tmp");
                     }
                 } catch (Exception unused) {
                 }

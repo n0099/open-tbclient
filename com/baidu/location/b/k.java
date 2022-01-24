@@ -29,33 +29,33 @@ public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static long f35017j = 12000;
+    public static long f35045j = 12000;
     public transient /* synthetic */ FieldHolder $fh;
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f35018b;
+    public Context f35046b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f35019c;
+    public WebView f35047c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LocationClient f35020d;
+    public LocationClient f35048d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f35021e;
+    public a f35049e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b> f35022f;
+    public List<b> f35050f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f35023g;
+    public boolean f35051g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f35024h;
+    public long f35052h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BDLocation f35025i;
+    public BDLocation f35053i;
     public f k;
     public boolean l;
 
@@ -133,18 +133,18 @@ public class k {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
                 if (this.a.l) {
-                    this.a.f35021e.removeCallbacks(this.a.k);
+                    this.a.f35049e.removeCallbacks(this.a.k);
                     this.a.l = false;
                 }
-                if (this.a.f35022f == null || this.a.f35022f.size() <= 0) {
+                if (this.a.f35050f == null || this.a.f35050f.size() <= 0) {
                     return;
                 }
-                Iterator it = this.a.f35022f.iterator();
+                Iterator it = this.a.f35050f.iterator();
                 while (it.hasNext()) {
                     try {
                         b bVar = (b) it.next();
                         if (bVar.b() != null) {
-                            this.a.f35019c.loadUrl("javascript:" + bVar.b() + "('" + str + "')");
+                            this.a.f35047c.loadUrl("javascript:" + bVar.b() + "('" + str + "')");
                         }
                         it.remove();
                     } catch (Exception unused) {
@@ -168,31 +168,31 @@ public class k {
                 switch (message.what) {
                     case 1:
                         b bVar = (b) message.obj;
-                        if (this.a.f35022f != null) {
-                            this.a.f35022f.add(bVar);
+                        if (this.a.f35050f != null) {
+                            this.a.f35050f.add(bVar);
                         }
-                        if (this.a.f35020d == null) {
+                        if (this.a.f35048d == null) {
                             return;
                         }
-                        if (this.a.f35020d.requestLocation() != 0) {
-                            long currentTimeMillis = System.currentTimeMillis() - this.a.f35024h;
-                            if (this.a.f35025i != null && currentTimeMillis <= 10000) {
-                                Message obtainMessage = this.a.f35021e.obtainMessage(2);
-                                obtainMessage.obj = this.a.f35025i;
+                        if (this.a.f35048d.requestLocation() != 0) {
+                            long currentTimeMillis = System.currentTimeMillis() - this.a.f35052h;
+                            if (this.a.f35053i != null && currentTimeMillis <= 10000) {
+                                Message obtainMessage = this.a.f35049e.obtainMessage(2);
+                                obtainMessage.obj = this.a.f35053i;
                                 obtainMessage.sendToTarget();
                                 z = false;
                                 if (z) {
                                     return;
                                 }
                                 if (this.a.l) {
-                                    this.a.f35021e.removeCallbacks(this.a.k);
+                                    this.a.f35049e.removeCallbacks(this.a.k);
                                     this.a.l = false;
                                 }
                                 if (this.a.k == null) {
                                     k kVar = this.a;
                                     kVar.k = new f(kVar, null);
                                 }
-                                this.a.f35021e.postDelayed(this.a.k, k.f35017j);
+                                this.a.f35049e.postDelayed(this.a.k, k.f35045j);
                                 this.a.l = true;
                                 return;
                             }
@@ -205,23 +205,23 @@ public class k {
                         a(a((BDLocation) message.obj));
                         return;
                     case 3:
-                        if (this.a.f35022f == null) {
-                            this.a.f35022f = new ArrayList();
+                        if (this.a.f35050f == null) {
+                            this.a.f35050f = new ArrayList();
                         } else {
-                            this.a.f35022f.clear();
+                            this.a.f35050f.clear();
                         }
-                        this.a.f35020d.registerLocationListener(this.a.a);
+                        this.a.f35048d.registerLocationListener(this.a.a);
                         return;
                     case 4:
-                        if (this.a.f35022f != null) {
-                            this.a.f35022f.clear();
-                            this.a.f35022f = null;
+                        if (this.a.f35050f != null) {
+                            this.a.f35050f.clear();
+                            this.a.f35050f = null;
                         }
-                        this.a.f35020d.unRegisterLocationListener(this.a.a);
-                        this.a.f35024h = 0L;
-                        this.a.f35025i = null;
+                        this.a.f35048d.unRegisterLocationListener(this.a.a);
+                        this.a.f35052h = 0L;
+                        this.a.f35053i = null;
                         if (this.a.k != null && this.a.l) {
-                            this.a.f35021e.removeCallbacks(this.a.k);
+                            this.a.f35049e.removeCallbacks(this.a.k);
                         }
                         this.a.l = false;
                         return;
@@ -262,13 +262,13 @@ public class k {
         public final /* synthetic */ k a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f35026b;
+        public String f35054b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f35027c;
+        public String f35055c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f35028d;
+        public long f35056d;
 
         public b(k kVar, String str) {
             Interceptable interceptable = $ic;
@@ -286,40 +286,40 @@ public class k {
                 }
             }
             this.a = kVar;
-            this.f35026b = null;
-            this.f35027c = null;
-            this.f35028d = 0L;
+            this.f35054b = null;
+            this.f35055c = null;
+            this.f35056d = 0L;
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.has("action")) {
-                    this.f35026b = jSONObject.getString("action");
+                    this.f35054b = jSONObject.getString("action");
                 }
                 if (jSONObject.has(WebChromeClient.KEY_ARG_CALLBACK)) {
-                    this.f35027c = jSONObject.getString(WebChromeClient.KEY_ARG_CALLBACK);
+                    this.f35055c = jSONObject.getString(WebChromeClient.KEY_ARG_CALLBACK);
                 }
                 if (jSONObject.has(com.alipay.sdk.data.a.O)) {
                     long j2 = jSONObject.getLong(com.alipay.sdk.data.a.O);
                     if (j2 >= 1000) {
-                        long unused = k.f35017j = j2;
+                        long unused = k.f35045j = j2;
                     }
                 }
-                this.f35028d = System.currentTimeMillis();
+                this.f35056d = System.currentTimeMillis();
             } catch (Exception unused2) {
-                this.f35026b = null;
-                this.f35027c = null;
+                this.f35054b = null;
+                this.f35055c = null;
             }
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35026b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35054b : (String) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35027c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35055c : (String) invokeV.objValue;
         }
     }
 
@@ -377,12 +377,12 @@ public class k {
         @JavascriptInterface
         public void sendMessage(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && this.a.f35023g) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && this.a.f35051g) {
                 b bVar = new b(this.a, str);
-                if (bVar.a() == null || !bVar.a().equals("requestLoc") || this.a.f35021e == null) {
+                if (bVar.a() == null || !bVar.a().equals("requestLoc") || this.a.f35049e == null) {
                     return;
                 }
-                Message obtainMessage = this.a.f35021e.obtainMessage(1);
+                Message obtainMessage = this.a.f35049e.obtainMessage(1);
                 obtainMessage.obj = bVar;
                 obtainMessage.sendToTarget();
             }
@@ -425,7 +425,7 @@ public class k {
             Message obtainMessage;
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) && this.a.f35023g && bDLocation != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) && this.a.f35051g && bDLocation != null) {
                 BDLocation bDLocation2 = new BDLocation(bDLocation);
                 int locType = bDLocation2.getLocType();
                 String coorType = bDLocation2.getCoorType();
@@ -442,12 +442,12 @@ public class k {
                             bDLocation2 = LocationClient.getBDLocationInCoorType(LocationClient.getBDLocationInCoorType(bDLocation2, str), "gcj2wgs");
                         }
                     }
-                    this.a.f35024h = System.currentTimeMillis();
-                    this.a.f35025i = new BDLocation(bDLocation2);
-                    obtainMessage = this.a.f35021e.obtainMessage(2);
+                    this.a.f35052h = System.currentTimeMillis();
+                    this.a.f35053i = new BDLocation(bDLocation2);
+                    obtainMessage = this.a.f35049e.obtainMessage(2);
                     obtainMessage.obj = bDLocation2;
                 } else {
-                    obtainMessage = this.a.f35021e.obtainMessage(5);
+                    obtainMessage = this.a.f35049e.obtainMessage(5);
                 }
                 obtainMessage.sendToTarget();
             }
@@ -487,7 +487,7 @@ public class k {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.l = false;
-                this.a.f35021e.obtainMessage(6).sendToTarget();
+                this.a.f35049e.obtainMessage(6).sendToTarget();
             }
         }
     }
@@ -520,14 +520,14 @@ public class k {
                 return;
             }
         }
-        this.f35018b = null;
-        this.f35020d = null;
+        this.f35046b = null;
+        this.f35048d = null;
         this.a = new e(this);
-        this.f35021e = null;
-        this.f35022f = null;
-        this.f35023g = false;
-        this.f35024h = 0L;
-        this.f35025i = null;
+        this.f35049e = null;
+        this.f35050f = null;
+        this.f35051g = false;
+        this.f35052h = 0L;
+        this.f35053i = null;
         this.k = null;
         this.l = false;
     }
@@ -552,25 +552,25 @@ public class k {
 
     public void a(Context context, WebView webView, LocationClient locationClient) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, webView, locationClient) == null) || this.f35023g || Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, webView, locationClient) == null) || this.f35051g || Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
             return;
         }
-        this.f35018b = context;
-        this.f35019c = webView;
-        this.f35020d = locationClient;
+        this.f35046b = context;
+        this.f35047c = webView;
+        this.f35048d = locationClient;
         a aVar = new a(this, Looper.getMainLooper());
-        this.f35021e = aVar;
+        this.f35049e = aVar;
         aVar.obtainMessage(3).sendToTarget();
         webView.getSettings().setJavaScriptEnabled(true);
-        a(this.f35019c);
-        this.f35023g = true;
+        a(this.f35047c);
+        this.f35051g = true;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f35023g) {
-            this.f35021e.obtainMessage(4).sendToTarget();
-            this.f35023g = false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f35051g) {
+            this.f35049e.obtainMessage(4).sendToTarget();
+            this.f35051g = false;
         }
     }
 }

@@ -29,31 +29,31 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25619b;
+    public String f25346b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25620c;
+    public String f25347c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25621d;
+    public String f25348d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f25622e;
+    public String f25349e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25623f;
+    public String f25350f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f25624g;
+    public String f25351g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f25625h;
+    public String f25352h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f25626i;
+    public String f25353i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f25627j;
+    public String f25354j;
     public String k;
 
     /* loaded from: classes9.dex */
@@ -99,15 +99,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f25627j == null) {
+            if (this.f25354j == null) {
                 try {
-                    this.f25627j = TbadkCoreApplication.getInst().getAndroidId();
+                    this.f25354j = TbadkCoreApplication.getInst().getAndroidId();
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     return "";
                 }
             }
-            return this.f25627j;
+            return this.f25354j;
         }
         return (String) invokeV.objValue;
     }
@@ -148,15 +148,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f25620c == null) {
+            if (this.f25347c == null) {
                 try {
-                    this.f25620c = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                    this.f25347c = TbadkCoreApplication.getInst().getCuidGalaxy2();
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     return "";
                 }
             }
-            return this.f25620c;
+            return this.f25347c;
         }
         return (String) invokeV.objValue;
     }
@@ -184,15 +184,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f25623f == null) {
+            if (this.f25350f == null) {
                 try {
-                    this.f25623f = TbadkCoreApplication.getInst().getImei();
+                    this.f25350f = TbadkCoreApplication.getInst().getImei();
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     return "";
                 }
             }
-            return this.f25623f;
+            return this.f25350f;
         }
         return (String) invokeV.objValue;
     }
@@ -201,15 +201,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f25625h == null) {
+            if (this.f25352h == null) {
                 try {
-                    this.f25625h = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+                    this.f25352h = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     return "";
                 }
             }
-            return this.f25625h;
+            return this.f25352h;
         }
         return (String) invokeV.objValue;
     }
@@ -218,10 +218,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f25622e == null) {
-                this.f25622e = Build.MODEL;
+            if (this.f25349e == null) {
+                this.f25349e = Build.MODEL;
             }
-            return this.f25622e;
+            return this.f25349e;
         }
         return (String) invokeV.objValue;
     }
@@ -230,15 +230,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f25624g == null) {
+            if (this.f25351g == null) {
                 try {
-                    this.f25624g = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+                    this.f25351g = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     return "";
                 }
             }
-            return this.f25624g;
+            return this.f25351g;
         }
         return (String) invokeV.objValue;
     }
@@ -247,10 +247,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f25619b == null) {
-                this.f25619b = Build.VERSION.RELEASE;
+            if (this.f25346b == null) {
+                this.f25346b = Build.VERSION.RELEASE;
             }
-            return this.f25619b;
+            return this.f25346b;
         }
         return (String) invokeV.objValue;
     }
@@ -259,15 +259,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f25626i == null) {
+            if (this.f25353i == null) {
                 try {
-                    this.f25626i = BdBaseApplication.getInst().getPackageName();
+                    this.f25353i = BdBaseApplication.getInst().getPackageName();
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     return "";
                 }
             }
-            return this.f25626i;
+            return this.f25353i;
         }
         return (String) invokeV.objValue;
     }
@@ -276,15 +276,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.f25621d == null) {
+            if (this.f25348d == null) {
                 try {
-                    this.f25621d = r();
+                    this.f25348d = r();
                 } catch (Exception e2) {
                     BdLog.e(e2);
                     return "";
                 }
             }
-            return this.f25621d;
+            return this.f25348d;
         }
         return (String) invokeV.objValue;
     }
@@ -373,16 +373,16 @@ public class c {
         }
         try {
             this.a = TbConfig.getVersion();
-            this.f25619b = Build.VERSION.RELEASE;
-            this.f25620c = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            this.f25346b = Build.VERSION.RELEASE;
+            this.f25347c = TbadkCoreApplication.getInst().getCuidGalaxy2();
             q();
-            this.f25621d = r();
-            this.f25622e = Build.MODEL;
-            this.f25623f = TbadkCoreApplication.getInst().getImei();
-            this.f25624g = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-            this.f25625h = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
-            this.f25626i = BdBaseApplication.getInst().getPackageName();
-            this.f25627j = TbadkCoreApplication.getInst().getAndroidId();
+            this.f25348d = r();
+            this.f25349e = Build.MODEL;
+            this.f25350f = TbadkCoreApplication.getInst().getImei();
+            this.f25351g = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+            this.f25352h = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+            this.f25353i = BdBaseApplication.getInst().getPackageName();
+            this.f25354j = TbadkCoreApplication.getInst().getAndroidId();
             this.k = "com.baidu.tieba.fileprovider";
         } catch (Exception e2) {
             BdLog.e(e2);

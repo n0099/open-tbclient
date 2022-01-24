@@ -15,13 +15,13 @@ public final class x2 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ byte[] f30507e;
+    public final /* synthetic */ byte[] f30535e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ String f30508f;
+    public final /* synthetic */ String f30536f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ a4 f30509g;
+    public final /* synthetic */ a4 f30537g;
 
     public x2(byte[] bArr, String str, a4 a4Var) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public final class x2 implements Runnable {
                 return;
             }
         }
-        this.f30507e = bArr;
-        this.f30508f = str;
-        this.f30509g = a4Var;
+        this.f30535e = bArr;
+        this.f30536f = str;
+        this.f30537g = a4Var;
     }
 
     @Override // java.lang.Runnable
@@ -50,9 +50,9 @@ public final class x2 implements Runnable {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            byte[] bArr = this.f30507e;
-            String str = this.f30508f;
-            a4 a4Var = this.f30509g;
+            byte[] bArr = this.f30535e;
+            String str = this.f30536f;
+            a4 a4Var = this.f30537g;
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
             File file = new File(str);
             String substring = str.substring(0, str.lastIndexOf("/"));
@@ -88,7 +88,7 @@ public final class x2 implements Runnable {
                 e = e4;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
-                if (a4Var != null && (handler = a4Var.a.f30314c.k) != null) {
+                if (a4Var != null && (handler = a4Var.a.f30342c.k) != null) {
                     handler.post(new x3(a4Var));
                 }
                 if (fileOutputStream2 != null) {
@@ -110,7 +110,7 @@ public final class x2 implements Runnable {
                 }
                 throw th;
             }
-            if (a4Var != null || (handler2 = a4Var.a.f30314c.k) == null) {
+            if (a4Var != null || (handler2 = a4Var.a.f30342c.k) == null) {
                 return;
             }
             handler2.post(new t3(a4Var));

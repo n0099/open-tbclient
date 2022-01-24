@@ -4,36 +4,36 @@ public class e {
     public final k a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57118b;
+    public int f57163b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57119c;
+    public int f57164c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f57120d;
+    public int f57165d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f57121e;
+    public int f57166e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f57122f;
+    public int f57167f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f57123g;
+    public int f57168g;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f57126j;
+    public int f57171j;
     public int k;
     public boolean o;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57125i = 0;
+    public int f57170i = 0;
     public int l = -1;
     public int m = -1;
     public int n = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57124h = 0;
+    public int f57169h = 0;
 
     public e(k kVar) {
         this.o = false;
@@ -66,58 +66,58 @@ public class e {
 
     private void c(int i2) {
         this.l = i2;
-        int i3 = (i2 * this.f57118b) + this.f57120d;
+        int i3 = (i2 * this.f57163b) + this.f57165d;
         this.m = i3;
-        if (i3 < 0 || i3 >= this.a.f57131b) {
+        if (i3 < 0 || i3 >= this.a.f57176b) {
             throw new PngjException("bad row - this should not happen");
         }
     }
 
     public void a(int i2) {
         int i3;
-        if (this.f57125i == i2) {
+        if (this.f57170i == i2) {
             return;
         }
-        this.f57125i = i2;
+        this.f57170i = i2;
         byte[] b2 = b(i2);
-        this.f57119c = b2[0];
+        this.f57164c = b2[0];
         byte b3 = b2[1];
-        this.f57118b = b3;
-        this.f57121e = b2[2];
+        this.f57163b = b3;
+        this.f57166e = b2[2];
         byte b4 = b2[3];
-        this.f57120d = b4;
-        int i4 = this.a.f57131b;
-        this.f57126j = i4 > b4 ? (((i4 + b3) - 1) - b4) / b3 : 0;
+        this.f57165d = b4;
+        int i4 = this.a.f57176b;
+        this.f57171j = i4 > b4 ? (((i4 + b3) - 1) - b4) / b3 : 0;
         int i5 = this.a.a;
-        int i6 = this.f57121e;
+        int i6 = this.f57166e;
         if (i5 > i6) {
-            int i7 = this.f57119c;
+            int i7 = this.f57164c;
             i3 = (((i5 + i7) - 1) - i6) / i7;
         } else {
             i3 = 0;
         }
         this.k = i3;
         if (i3 == 0) {
-            this.f57126j = 0;
+            this.f57171j = 0;
         }
-        int i8 = this.f57119c;
-        int i9 = this.a.f57133d;
-        this.f57123g = i8 * i9;
-        this.f57122f = this.f57121e * i9;
+        int i8 = this.f57164c;
+        int i9 = this.a.f57178d;
+        this.f57168g = i8 * i9;
+        this.f57167f = this.f57166e * i9;
     }
 
     public boolean a() {
         int i2;
         this.n++;
-        int i3 = this.f57126j;
+        int i3 = this.f57171j;
         if (i3 == 0 || (i2 = this.l) >= i3 - 1) {
-            int i4 = this.f57125i;
+            int i4 = this.f57170i;
             if (i4 == 7) {
                 this.o = true;
                 return false;
             }
             a(i4 + 1);
-            if (this.f57126j == 0) {
+            if (this.f57171j == 0) {
                 this.n--;
                 return a();
             }
@@ -137,11 +137,11 @@ public class e {
     }
 
     public int d() {
-        return this.f57125i;
+        return this.f57170i;
     }
 
     public int e() {
-        return this.f57126j;
+        return this.f57171j;
     }
 
     public int f() {
@@ -153,6 +153,6 @@ public class e {
     }
 
     public int h() {
-        return ((this.a.f57138i * g()) + 7) / 8;
+        return ((this.a.f57183i * g()) + 7) / 8;
     }
 }

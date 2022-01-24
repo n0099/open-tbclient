@@ -1,0 +1,64 @@
+package com.baidu.searchbox.retrieve.upload;
+
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
+/* loaded from: classes11.dex */
+public class UploaderProvider {
+    public static /* synthetic */ Interceptable $ic;
+    public static final BaseContentUploader DEFAULT_CONTENT_UPLOADER;
+    public static final BaseFileUploader DEFAULT_FILE_UPLOADER;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1323521959, "Lcom/baidu/searchbox/retrieve/upload/UploaderProvider;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1323521959, "Lcom/baidu/searchbox/retrieve/upload/UploaderProvider;");
+                return;
+            }
+        }
+        DEFAULT_CONTENT_UPLOADER = new DefaultContentUploader();
+        DEFAULT_FILE_UPLOADER = new DefaultFileUploader();
+    }
+
+    public UploaderProvider() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Inject(force = false)
+    public static BaseContentUploader getContentUploader() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ContentUploader_Factory.get() : (BaseContentUploader) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static BaseFileUploader getFileUploader() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? DEFAULT_FILE_UPLOADER : (BaseFileUploader) invokeV.objValue;
+    }
+}

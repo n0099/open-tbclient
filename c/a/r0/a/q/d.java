@@ -18,22 +18,22 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8386b;
+    public String f8528b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8387c;
+    public String f8529c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f8388d;
+    public int f8530d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f8389e;
+    public int f8531e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f8390f;
+    public int f8532f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f8391g;
+    public boolean f8533g;
 
     static {
         InterceptResult invokeClinit;
@@ -67,12 +67,12 @@ public class d {
             }
         }
         this.a = str;
-        this.f8386b = str2;
-        this.f8387c = str3;
-        this.f8388d = i2;
-        this.f8389e = i3;
-        this.f8390f = i4;
-        this.f8391g = z;
+        this.f8528b = str2;
+        this.f8529c = str3;
+        this.f8530d = i2;
+        this.f8531e = i3;
+        this.f8532f = i4;
+        this.f8533g = z;
     }
 
     public c.a.r0.a.j1.g.c a() {
@@ -85,19 +85,19 @@ public class d {
                 jSONObject.put("showCenterPlayBtn", true);
                 c.a.r0.a.j1.g.c cVar = new c.a.r0.a.j1.g.c();
                 cVar.n = "SwanAdPlayer";
-                cVar.f5308f = "SwanAdPlayer";
+                cVar.f5450f = "SwanAdPlayer";
                 cVar.s = true;
                 cVar.o = false;
-                cVar.B = !this.f8391g;
+                cVar.B = !this.f8533g;
                 cVar.M = false;
                 cVar.p = this.a;
-                cVar.C = this.f8386b;
-                cVar.f5309g = this.f8387c;
-                c.a.r0.a.m1.e.a.a aVar = new c.a.r0.a.m1.e.a.a(0, 0, this.f8388d, this.f8389e);
+                cVar.C = this.f8528b;
+                cVar.f5451g = this.f8529c;
+                c.a.r0.a.m1.e.a.a aVar = new c.a.r0.a.m1.e.a.a(0, 0, this.f8530d, this.f8531e);
                 cVar.l = aVar;
                 aVar.j(true);
-                cVar.q = this.f8390f;
-                if (this.f8391g) {
+                cVar.q = this.f8532f;
+                if (this.f8533g) {
                     cVar.u = AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY;
                 }
                 return c.a.r0.a.j1.g.c.i(jSONObject, cVar);

@@ -6,7 +6,7 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import c.a.d.f.p.i;
 import c.a.d.f.p.o;
-import c.a.s0.s.h0.b;
+import c.a.s0.s.i0.b;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
@@ -50,10 +50,10 @@ public class FatalErrorService extends BdBaseService {
         public Intent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NetWork f47754b;
+        public NetWork f47782b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FatalErrorService f47755c;
+        public final /* synthetic */ FatalErrorService f47783c;
 
         public a(FatalErrorService fatalErrorService, Intent intent) {
             Interceptable interceptable = $ic;
@@ -70,8 +70,8 @@ public class FatalErrorService extends BdBaseService {
                     return;
                 }
             }
-            this.f47755c = fatalErrorService;
-            this.f47754b = null;
+            this.f47783c = fatalErrorService;
+            this.f47782b = null;
             this.a = intent;
         }
 
@@ -138,13 +138,13 @@ public class FatalErrorService extends BdBaseService {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                NetWork netWork = this.f47754b;
+                NetWork netWork = this.f47782b;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f47755c.mTask = null;
+                this.f47783c.mTask = null;
                 super.cancel(true);
-                this.f47755c.stopSelf();
+                this.f47783c.stopSelf();
             }
         }
 
@@ -270,15 +270,15 @@ public class FatalErrorService extends BdBaseService {
                                             }
                                         }
                                         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + str);
-                                        this.f47754b = netWork;
+                                        this.f47782b = netWork;
                                         netWork.addPostData("logfile", byteArray);
                                         if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
-                                            this.f47754b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
+                                            this.f47782b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
                                         }
-                                        this.f47754b.postMultiNetData();
+                                        this.f47782b.postMultiNetData();
                                         byteArrayOutputStream.close();
                                         fileInputStream.close();
-                                        if (this.f47754b.getNetContext().getResponse().isRequestSuccess()) {
+                                        if (this.f47782b.getNetContext().getResponse().isRequestSuccess()) {
                                             if (z2) {
                                                 d(file);
                                             }
@@ -474,8 +474,8 @@ public class FatalErrorService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
                 super.onPostExecute((a) str);
-                this.f47755c.mTask = null;
-                this.f47755c.stopSelf();
+                this.f47783c.mTask = null;
+                this.f47783c.stopSelf();
             }
         }
     }

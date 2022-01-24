@@ -1,9 +1,9 @@
 package com.baidu.tieba.pb.pb.main;
 
-import c.a.t0.j3.l0.b;
-import c.a.t0.s2.r.d;
-import c.a.t0.s2.r.f;
-import c.a.t0.s2.u.f.j;
+import c.a.t0.k3.l0.b;
+import c.a.t0.t2.r.d;
+import c.a.t0.t2.r.f;
+import c.a.t0.t2.u.f.k;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -86,10 +86,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             int i3 = this.updateType;
             if (i3 == 3) {
-                j.b().e(this.cacheKey, this.isFromMark, bArr);
+                k.b().e(this.cacheKey, this.isFromMark, bArr);
             } else if (i3 != 4) {
             } else {
-                j.b().f(this.cacheKey, bArr);
+                k.b().f(this.cacheKey, bArr);
             }
         }
     }
@@ -111,11 +111,11 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
                     dVar.a = appealInfo.source;
-                    dVar.f22397c = appealInfo.appeal_url;
+                    dVar.f22676c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
-                    this.mAppealInfo.f22396b = simpleForum.name;
+                    this.mAppealInfo.f22675b = simpleForum.name;
                     return;
                 }
                 return;

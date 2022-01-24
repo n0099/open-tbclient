@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import c.a.r0.a.f2.f.z;
 import c.a.r0.a.h2.c.j.b;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -26,23 +27,23 @@ public class a extends z {
 
     /* renamed from: c.a.r0.a.h2.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0417a implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
+    public class C0426a implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7016e;
+        public final /* synthetic */ CallbackHandler f7158e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7017f;
+        public final /* synthetic */ String f7159f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f7018g;
+        public final /* synthetic */ String f7160g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f7019h;
+        public final /* synthetic */ a f7161h;
 
-        public C0417a(a aVar, CallbackHandler callbackHandler, String str, String str2) {
+        public C0426a(a aVar, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,10 +58,10 @@ public class a extends z {
                     return;
                 }
             }
-            this.f7019h = aVar;
-            this.f7016e = callbackHandler;
-            this.f7017f = str;
-            this.f7018g = str2;
+            this.f7161h = aVar;
+            this.f7158e = callbackHandler;
+            this.f7159f = str;
+            this.f7160g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +70,7 @@ public class a extends z {
         public void onCallback(c.a.r0.a.h2.c.i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f7019h.k(this.f7016e, this.f7017f, this.f7018g, iVar);
+                this.f7161h.k(this.f7158e, this.f7159f, this.f7160g, iVar);
             }
         }
     }
@@ -139,7 +140,7 @@ public class a extends z {
                 c.a.r0.a.c1.b.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty scope").toString());
                 return false;
             }
-            eVar.d0().c(context, c2, false, new C0417a(this, callbackHandler, c2, optString));
+            eVar.d0().c(context, c2, false, new C0426a(this, callbackHandler, c2, optString));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
@@ -161,15 +162,15 @@ public class a extends z {
                 if (iVar != null && iVar.a != null) {
                     if (!iVar.c()) {
                         OAuthException a = iVar.a();
-                        jSONObject.put("errMsg", a == null ? "" : a.getMessage());
+                        jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, a == null ? "" : a.getMessage());
                         callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(iVar.b()).toString());
                         c.a.r0.a.c1.b.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
                         return;
                     }
                     jSONObject.put("code", iVar.a.a);
-                    jSONObject.put("errMsg", iVar.a.f7174b ? "authorize:ok" : "user deny");
-                    callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.a.f7174b ? 0 : 10003).toString());
-                    if (iVar.a.f7174b) {
+                    jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, iVar.a.f7316b ? "authorize:ok" : "user deny");
+                    callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.a.f7316b ? 0 : 10003).toString());
+                    if (iVar.a.f7316b) {
                         return;
                     }
                     c.a.r0.a.c1.b.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
@@ -177,7 +178,7 @@ public class a extends z {
                 }
                 int b2 = iVar.b();
                 c.a.r0.a.h2.c.d.k("empty auth result", Boolean.TRUE);
-                jSONObject.put("errMsg", c.a.r0.a.h2.c.d.f(b2));
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, c.a.r0.a.h2.c.d.f(b2));
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, b2).toString());
                 c.a.r0.a.h2.c.d.t("AuthorizeAction", "null == result || null == result.mData");
                 c.a.r0.a.c1.b.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, b2).toString());

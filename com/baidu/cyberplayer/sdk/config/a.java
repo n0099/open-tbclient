@@ -3,7 +3,6 @@ package com.baidu.cyberplayer.sdk.config;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -24,21 +23,21 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.cyberplayer.sdk.config.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class EnumC1799a {
+    public static final class EnumC1800a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC1799a a;
+        public static final EnumC1800a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final EnumC1799a f33445b;
+        public static final EnumC1800a f33473b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final EnumC1799a f33446c;
+        public static final EnumC1800a f33474c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final EnumC1799a f33447d;
+        public static final EnumC1800a f33475d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ EnumC1799a[] f33448e;
+        public static final /* synthetic */ EnumC1800a[] f33476e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,15 +53,15 @@ public class a {
                     return;
                 }
             }
-            a = new EnumC1799a("FAILED", 0);
-            f33445b = new EnumC1799a("AND_NEED_CHECK_NEXT", 1);
-            f33446c = new EnumC1799a("OR_NEED_CHECK_NEXT", 2);
-            EnumC1799a enumC1799a = new EnumC1799a(c.p, 3);
-            f33447d = enumC1799a;
-            f33448e = new EnumC1799a[]{a, f33445b, f33446c, enumC1799a};
+            a = new EnumC1800a("FAILED", 0);
+            f33473b = new EnumC1800a("AND_NEED_CHECK_NEXT", 1);
+            f33474c = new EnumC1800a("OR_NEED_CHECK_NEXT", 2);
+            EnumC1800a enumC1800a = new EnumC1800a(c.p, 3);
+            f33475d = enumC1800a;
+            f33476e = new EnumC1800a[]{a, f33473b, f33474c, enumC1800a};
         }
 
-        public EnumC1799a(String str, int i2) {
+        public EnumC1800a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,16 +80,16 @@ public class a {
             }
         }
 
-        public static EnumC1799a valueOf(String str) {
+        public static EnumC1800a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC1799a) Enum.valueOf(EnumC1799a.class, str) : (EnumC1799a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC1800a) Enum.valueOf(EnumC1800a.class, str) : (EnumC1800a) invokeL.objValue;
         }
 
-        public static EnumC1799a[] values() {
+        public static EnumC1800a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC1799a[]) f33448e.clone() : (EnumC1799a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC1800a[]) f33476e.clone() : (EnumC1800a[]) invokeV.objValue;
         }
     }
 
@@ -101,16 +100,16 @@ public class a {
         public String[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f33449b;
+        public boolean f33477b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f33450c;
+        public boolean f33478c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f33451d;
+        public boolean f33479d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f33452e;
+        public int f33480e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -125,10 +124,10 @@ public class a {
                     return;
                 }
             }
-            this.f33450c = false;
-            this.f33451d = false;
+            this.f33478c = false;
+            this.f33479d = false;
             this.a = null;
-            this.f33449b = true;
+            this.f33477b = true;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -138,11 +137,11 @@ public class a {
                 return;
             }
             if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_CLOSE_ALL)) {
-                this.f33451d = true;
-                this.f33450c = false;
+                this.f33479d = true;
+                this.f33478c = false;
             } else if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_ENABLE_ALL)) {
-                this.f33450c = true;
-                this.f33451d = false;
+                this.f33478c = true;
+                this.f33479d = false;
             } else if (!str.contains(str2)) {
                 this.a = a(str, str3);
             } else {
@@ -152,7 +151,7 @@ public class a {
                 String[] split = str.split(str2);
                 if (split.length == 2) {
                     this.a = a(split[0], str3);
-                    this.f33449b = c(split[1]);
+                    this.f33477b = c(split[1]);
                 } else if (split.length == 1) {
                     this.a = a(split[0], str3);
                 }
@@ -193,7 +192,7 @@ public class a {
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f33452e = i2;
+                this.f33480e = i2;
             }
         }
 
@@ -202,14 +201,14 @@ public class a {
             String[] strArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (this.f33450c) {
+                if (this.f33478c) {
                     return true;
                 }
                 if (!TextUtils.isEmpty(str) && (strArr = this.a) != null) {
                     int length = strArr.length;
                     for (int i2 = 0; i2 < length; i2++) {
-                        if (!str.equals(this.a[i2]) && (this.f33452e != 0 || !a(str, this.a[i2], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, ProxyConfig.MATCH_ALL_SCHEMES))) {
-                            if (this.f33452e == 1) {
+                        if (!str.equals(this.a[i2]) && (this.f33480e != 0 || !a(str, this.a[i2], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
+                            if (this.f33480e == 1) {
                                 if (str.contains("." + this.a[i2])) {
                                 }
                             }
@@ -246,17 +245,17 @@ public class a {
             return invokeLLLL.booleanValue;
         }
 
-        public EnumC1799a b(String str) {
+        public EnumC1800a b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (this.f33451d) {
-                    return EnumC1799a.a;
+                if (this.f33479d) {
+                    return EnumC1800a.a;
                 }
                 boolean a = a(str);
-                return this.f33449b ? a ? EnumC1799a.f33445b : EnumC1799a.a : a ? EnumC1799a.f33447d : EnumC1799a.f33446c;
+                return this.f33477b ? a ? EnumC1800a.f33473b : EnumC1800a.a : a ? EnumC1800a.f33475d : EnumC1800a.f33474c;
             }
-            return (EnumC1799a) invokeL.objValue;
+            return (EnumC1800a) invokeL.objValue;
         }
     }
 
@@ -268,8 +267,8 @@ public class a {
             boolean z = false;
             bVar.a(0);
             bVar.a(str, "|", ";");
-            EnumC1799a b2 = bVar.b(str2);
-            return Boolean.valueOf((b2 == EnumC1799a.f33447d || b2 == EnumC1799a.f33445b) ? true : true);
+            EnumC1800a b2 = bVar.b(str2);
+            return Boolean.valueOf((b2 == EnumC1800a.f33475d || b2 == EnumC1800a.f33473b) ? true : true);
         }
         return (Boolean) invokeLL.objValue;
     }

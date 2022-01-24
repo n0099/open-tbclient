@@ -14,23 +14,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.ResUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WalletDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Adapter f53906b;
+    public Adapter f53951b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LayoutInflater f53907c;
+    public LayoutInflater f53952c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewHolder f53908d;
+    public ViewHolder f53953d;
     public Context mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class Adapter<VH extends ViewHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class WalletDialog extends Dialog {
         public abstract VH onCreateViewHolder(ViewGroup viewGroup);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,12 +124,12 @@ public class WalletDialog extends Dialog {
             super.onCreate(bundle);
             requestWindowFeature(1);
             LayoutInflater from = LayoutInflater.from(this.mContext);
-            this.f53907c = from;
+            this.f53952c = from;
             ViewGroup viewGroup = (ViewGroup) from.inflate(ResUtils.layout(this.mContext, "dxm_wallet_base_layout_dialog"), (ViewGroup) null);
             this.a = viewGroup;
             setContentView(viewGroup);
-            ViewHolder createViewHolder = this.f53906b.createViewHolder(this.a);
-            this.f53908d = createViewHolder;
+            ViewHolder createViewHolder = this.f53951b.createViewHolder(this.a);
+            this.f53953d = createViewHolder;
             this.a.addView(createViewHolder.a);
             setCanceledOnTouchOutside(false);
             setCancelable(false);
@@ -142,8 +142,8 @@ public class WalletDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onStart();
-            Adapter adapter = this.f53906b;
-            if (adapter == null || this.a == null || (viewHolder = this.f53908d) == null) {
+            Adapter adapter = this.f53951b;
+            if (adapter == null || this.a == null || (viewHolder = this.f53953d) == null) {
                 return;
             }
             adapter.bindViewHolder(viewHolder);
@@ -153,7 +153,7 @@ public class WalletDialog extends Dialog {
     public void setAdapter(Adapter adapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adapter) == null) {
-            this.f53906b = adapter;
+            this.f53951b = adapter;
         }
     }
 

@@ -26,16 +26,16 @@ public class ga extends gc {
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f61101b;
+        public static final a f61146b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f61102c;
+        public static final a f61147c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f61103d;
+        public static final a f61148d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f61104e;
+        public static final a f61149e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
@@ -55,10 +55,10 @@ public class ga extends gc {
                 }
             }
             a = new a("get");
-            f61101b = new a("set");
-            f61102c = new a("result");
-            f61103d = new a("error");
-            f61104e = new a("command");
+            f61146b = new a("set");
+            f61147c = new a("result");
+            f61148d = new a("error");
+            f61149e = new a("command");
         }
 
         public a(String str) {
@@ -90,17 +90,17 @@ public class ga extends gc {
                 if (a.toString().equals(lowerCase)) {
                     return a;
                 }
-                if (f61101b.toString().equals(lowerCase)) {
-                    return f61101b;
+                if (f61146b.toString().equals(lowerCase)) {
+                    return f61146b;
                 }
-                if (f61103d.toString().equals(lowerCase)) {
-                    return f61103d;
+                if (f61148d.toString().equals(lowerCase)) {
+                    return f61148d;
                 }
-                if (f61102c.toString().equals(lowerCase)) {
-                    return f61102c;
+                if (f61147c.toString().equals(lowerCase)) {
+                    return f61147c;
                 }
-                if (f61104e.toString().equals(lowerCase)) {
-                    return f61104e;
+                if (f61149e.toString().equals(lowerCase)) {
+                    return f61149e;
                 }
                 return null;
             }

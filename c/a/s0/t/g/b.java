@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC0894b a;
+    public InterfaceC0904b a;
 
     /* loaded from: classes6.dex */
     public class a extends BdAsyncTask<ShareItem, Integer, ShareItem> {
@@ -29,7 +29,7 @@ public class b {
         public final /* synthetic */ ShareItem a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f14035b;
+        public final /* synthetic */ b f14175b;
 
         public a(b bVar, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class b {
                     return;
                 }
             }
-            this.f14035b = bVar;
+            this.f14175b = bVar;
             this.a = shareItem;
         }
 
@@ -97,8 +97,8 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem) == null) {
                 super.onPostExecute(shareItem);
-                if (this.f14035b.a != null) {
-                    this.f14035b.a.a(shareItem);
+                if (this.f14175b.a != null) {
+                    this.f14175b.a.a(shareItem);
                 }
             }
         }
@@ -106,7 +106,7 @@ public class b {
 
     /* renamed from: c.a.s0.t.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0894b {
+    public interface InterfaceC0904b {
         void a(ShareItem shareItem);
     }
 
@@ -131,10 +131,10 @@ public class b {
         }
     }
 
-    public void c(InterfaceC0894b interfaceC0894b) {
+    public void c(InterfaceC0904b interfaceC0904b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0894b) == null) {
-            this.a = interfaceC0894b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0904b) == null) {
+            this.a = interfaceC0904b;
         }
     }
 }

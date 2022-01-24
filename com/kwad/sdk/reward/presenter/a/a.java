@@ -12,16 +12,16 @@ import com.kwad.sdk.reward.presenter.a.kwai.c;
 public class a extends g {
 
     /* renamed from: b  reason: collision with root package name */
-    public AdInfo f57351b;
+    public AdInfo f57396b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f57352c;
+    public AdTemplate f57397c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.e.a f57353d;
+    public com.kwad.sdk.core.e.a f57398d;
 
     /* renamed from: e  reason: collision with root package name */
-    public l.b f57354e = new l.b(null, null) { // from class: com.kwad.sdk.reward.presenter.a.a.1
+    public l.b f57399e = new l.b(null, null) { // from class: com.kwad.sdk.reward.presenter.a.a.1
         @Override // com.kwad.sdk.reward.l.b, com.kwad.sdk.reward.l.a
         public void b() {
             super.b();
@@ -43,8 +43,8 @@ public class a extends g {
 
     /* renamed from: com.kwad.sdk.reward.presenter.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2140a extends com.kwad.sdk.reward.presenter.a {
-        public C2140a() {
+    public static class C2146a extends com.kwad.sdk.reward.presenter.a {
+        public C2146a() {
         }
 
         @Override // com.kwad.sdk.reward.presenter.a
@@ -59,9 +59,9 @@ public class a extends g {
     }
 
     public a(com.kwad.sdk.core.e.a<?> aVar, AdTemplate adTemplate, boolean z) {
-        this.f57352c = adTemplate;
-        this.f57353d = aVar;
-        this.f57351b = d.j(adTemplate);
+        this.f57397c = adTemplate;
+        this.f57398d = aVar;
+        this.f57396b = d.j(adTemplate);
         if (z) {
             e();
         } else {
@@ -70,20 +70,20 @@ public class a extends g {
     }
 
     private void e() {
-        if (com.kwad.sdk.core.response.a.a.an(this.f57351b)) {
+        if (com.kwad.sdk.core.response.a.a.an(this.f57396b)) {
             return;
         }
-        if (com.kwad.sdk.core.response.a.b.j(this.f57352c)) {
+        if (com.kwad.sdk.core.response.a.b.j(this.f57397c)) {
             a(new com.kwad.sdk.reward.presenter.a.kwai.a());
         }
         c cVar = new c();
-        cVar.a(this.f57354e);
+        cVar.a(this.f57399e);
         a((Presenter) cVar);
-        if (com.kwad.sdk.core.response.a.b.h(this.f57352c)) {
+        if (com.kwad.sdk.core.response.a.b.h(this.f57397c)) {
             a(new com.kwad.sdk.reward.presenter.a.kwai.d());
         }
-        a(new C2140a());
-        if (com.kwad.sdk.core.response.a.a.aG(this.f57351b) || !com.kwad.sdk.core.response.a.a.q(this.f57351b)) {
+        a(new C2146a());
+        if (com.kwad.sdk.core.response.a.a.aG(this.f57396b) || !com.kwad.sdk.core.response.a.a.q(this.f57396b)) {
             return;
         }
         a(new com.kwad.sdk.reward.presenter.a.kwai.b());
@@ -91,15 +91,15 @@ public class a extends g {
 
     private void i() {
         c cVar = new c();
-        cVar.a(this.f57354e);
+        cVar.a(this.f57399e);
         a((Presenter) cVar);
-        if (com.kwad.sdk.core.response.a.b.h(this.f57352c)) {
+        if (com.kwad.sdk.core.response.a.b.h(this.f57397c)) {
             a(new com.kwad.sdk.reward.presenter.a.kwai.d());
         }
-        if (d.s(this.f57352c)) {
+        if (d.s(this.f57397c)) {
             a(new com.kwad.sdk.reward.presenter.a.kwai.b());
         }
-        if (com.kwad.sdk.core.response.a.b.j(this.f57352c)) {
+        if (com.kwad.sdk.core.response.a.b.j(this.f57397c)) {
             a(new com.kwad.sdk.reward.presenter.a.kwai.a());
         }
     }

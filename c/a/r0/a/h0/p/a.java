@@ -18,12 +18,12 @@ public final class a {
 
     /* renamed from: c.a.r0.a.h0.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0402a {
+    public static class C0411a {
         public static /* synthetic */ Interceptable $ic = null;
         public static int a = -1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f6818b = -1;
+        public static int f6960b = -1;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -90,11 +90,11 @@ public final class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (f6818b == -1) {
+                if (f6960b == -1) {
                     c.a.r0.a.c1.a.g0().getSwitch("swan_app_launch_optimize_v2", 0);
-                    f6818b = 0;
+                    f6960b = 0;
                 }
-                return f6818b == 1;
+                return f6960b == 1;
             }
             return invokeV.booleanValue;
         }
@@ -123,11 +123,11 @@ public final class a {
             Bundle bundle2 = new Bundle();
             bundle2.putBundle("swan_app_on_launch_event", bundle);
             c.a.r0.a.y1.c.c cVar2 = new c.a.r0.a.y1.c.c(122, bundle2);
-            if (!cVar.S() && C0402a.c()) {
+            if (!cVar.S() && C0411a.c()) {
                 cVar.e0(cVar2.h());
             } else {
                 c.a.r0.a.y1.c.a e2 = c.a.r0.a.y1.c.a.e();
-                cVar2.b(cVar.f9731f);
+                cVar2.b(cVar.f9873f);
                 cVar2.p(true);
                 e2.h(cVar2);
             }

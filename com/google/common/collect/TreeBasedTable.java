@@ -101,13 +101,13 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public C f54848g;
+        public C f54893g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Iterator f54849h;
+        public final /* synthetic */ Iterator f54894h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Comparator f54850i;
+        public final /* synthetic */ Comparator f54895i;
 
         public b(TreeBasedTable treeBasedTable, Iterator it, Comparator comparator) {
             Interceptable interceptable = $ic;
@@ -124,8 +124,8 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
                     return;
                 }
             }
-            this.f54849h = it;
-            this.f54850i = comparator;
+            this.f54894h = it;
+            this.f54895i = comparator;
         }
 
         @Override // com.google.common.collect.AbstractIterator
@@ -134,10 +134,10 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                while (this.f54849h.hasNext()) {
-                    C c2 = (C) this.f54849h.next();
-                    C c3 = this.f54848g;
-                    if (c3 == null || this.f54850i.compare(c2, c3) != 0) {
+                while (this.f54894h.hasNext()) {
+                    C c2 = (C) this.f54894h.next();
+                    C c3 = this.f54893g;
+                    if (c3 == null || this.f54895i.compare(c2, c3) != 0) {
                         z = false;
                         continue;
                     } else {
@@ -145,11 +145,11 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
                         continue;
                     }
                     if (!z) {
-                        this.f54848g = c2;
+                        this.f54893g = c2;
                         return c2;
                     }
                 }
-                this.f54848g = null;
+                this.f54893g = null;
                 return b();
             }
             return (C) invokeV.objValue;
@@ -162,13 +162,13 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final C f54851h;
+        public final C f54896h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final C f54852i;
+        public final C f54897i;
 
         /* renamed from: j  reason: collision with root package name */
-        public transient SortedMap<C, V> f54853j;
+        public transient SortedMap<C, V> f54898j;
         public final /* synthetic */ TreeBasedTable k;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -209,10 +209,10 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
         @Override // com.google.common.collect.StandardTable.g
         public void d() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && k() != null && this.f54853j.isEmpty()) {
-                this.k.backingMap.remove(this.f54832e);
-                this.f54853j = null;
-                this.f54833f = null;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && k() != null && this.f54898j.isEmpty()) {
+                this.k.backingMap.remove(this.f54877e);
+                this.f54898j = null;
+                this.f54878f = null;
             }
         }
 
@@ -253,11 +253,11 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
                 SortedMap<C, V> k = k();
                 if (k != null) {
-                    C c2 = this.f54851h;
+                    C c2 = this.f54896h;
                     if (c2 != null) {
                         k = k.tailMap(c2);
                     }
-                    C c3 = this.f54852i;
+                    C c3 = this.f54897i;
                     return c3 != null ? k.headMap(c3) : k;
                 }
                 return null;
@@ -272,7 +272,7 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, c2)) == null) {
                 n.p(c2);
                 n.d(j(c2));
-                return new c(this.k, this.f54832e, this.f54851h, c2);
+                return new c(this.k, this.f54877e, this.f54896h, c2);
             }
             return (SortedMap) invokeL.objValue;
         }
@@ -291,18 +291,18 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             C c2;
             C c3;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) ? obj != null && ((c2 = this.f54851h) == null || g(c2, obj) <= 0) && ((c3 = this.f54852i) == null || g(c3, obj) > 0) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) ? obj != null && ((c2 = this.f54896h) == null || g(c2, obj) <= 0) && ((c3 = this.f54897i) == null || g(c3, obj) > 0) : invokeL.booleanValue;
         }
 
         public SortedMap<C, V> k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                SortedMap<C, V> sortedMap = this.f54853j;
-                if (sortedMap == null || (sortedMap.isEmpty() && this.k.backingMap.containsKey(this.f54832e))) {
-                    this.f54853j = (SortedMap) this.k.backingMap.get(this.f54832e);
+                SortedMap<C, V> sortedMap = this.f54898j;
+                if (sortedMap == null || (sortedMap.isEmpty() && this.k.backingMap.containsKey(this.f54877e))) {
+                    this.f54898j = (SortedMap) this.k.backingMap.get(this.f54877e);
                 }
-                return this.f54853j;
+                return this.f54898j;
             }
             return (SortedMap) invokeV.objValue;
         }
@@ -344,12 +344,12 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
                     if (j(c3)) {
                         z = true;
                         n.d(z);
-                        return new c(this.k, this.f54832e, c2, c3);
+                        return new c(this.k, this.f54877e, c2, c3);
                     }
                 }
                 z = false;
                 n.d(z);
-                return new c(this.k, this.f54832e, c2, c3);
+                return new c(this.k, this.f54877e, c2, c3);
             }
             return (SortedMap) invokeLL.objValue;
         }
@@ -361,7 +361,7 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, c2)) == null) {
                 n.p(c2);
                 n.d(j(c2));
-                return new c(this.k, this.f54832e, c2, this.f54852i);
+                return new c(this.k, this.f54877e, c2, this.f54897i);
             }
             return (SortedMap) invokeL.objValue;
         }
@@ -386,8 +386,8 @@ public class TreeBasedTable<R, C, V> extends StandardRowSortedTable<R, C, V> {
                 }
             }
             this.k = treeBasedTable;
-            this.f54851h = c2;
-            this.f54852i = c3;
+            this.f54896h = c2;
+            this.f54897i = c3;
             n.d(c2 == null || c3 == null || g(c2, c3) <= 0);
         }
     }

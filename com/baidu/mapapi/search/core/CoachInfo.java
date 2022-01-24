@@ -19,13 +19,13 @@ public class CoachInfo extends TransitBaseInfo {
     public double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35500b;
+    public String f35528b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35501c;
+    public String f35529c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35502d;
+    public String f35530d;
 
     static {
         InterceptResult invokeClinit;
@@ -76,9 +76,9 @@ public class CoachInfo extends TransitBaseInfo {
             }
         }
         this.a = parcel.readDouble();
-        this.f35500b = parcel.readString();
-        this.f35501c = parcel.readString();
-        this.f35502d = parcel.readString();
+        this.f35528b = parcel.readString();
+        this.f35529c = parcel.readString();
+        this.f35530d = parcel.readString();
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
@@ -94,7 +94,7 @@ public class CoachInfo extends TransitBaseInfo {
     public String getBooking() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35500b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35528b : (String) invokeV.objValue;
     }
 
     public double getPrice() {
@@ -106,19 +106,19 @@ public class CoachInfo extends TransitBaseInfo {
     public String getProviderName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35501c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35529c : (String) invokeV.objValue;
     }
 
     public String getProviderUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35502d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35530d : (String) invokeV.objValue;
     }
 
     public void setBooking(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f35500b = str;
+            this.f35528b = str;
         }
     }
 
@@ -132,14 +132,14 @@ public class CoachInfo extends TransitBaseInfo {
     public void setProviderName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f35501c = str;
+            this.f35529c = str;
         }
     }
 
     public void setProviderUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f35502d = str;
+            this.f35530d = str;
         }
     }
 
@@ -149,9 +149,9 @@ public class CoachInfo extends TransitBaseInfo {
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
             super.writeToParcel(parcel, i2);
             parcel.writeDouble(this.a);
-            parcel.writeString(this.f35500b);
-            parcel.writeString(this.f35501c);
-            parcel.writeString(this.f35502d);
+            parcel.writeString(this.f35528b);
+            parcel.writeString(this.f35529c);
+            parcel.writeString(this.f35530d);
         }
     }
 }

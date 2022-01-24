@@ -45,16 +45,16 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f7813g;
+    public String f7955g;
 
     /* renamed from: h  reason: collision with root package name */
-    public j<? super c.a.r0.q.i.j> f7814h;
+    public j<? super c.a.r0.q.i.j> f7956h;
 
     /* renamed from: i  reason: collision with root package name */
-    public j<c.a.r0.q.i.j> f7815i;
+    public j<c.a.r0.q.i.j> f7957i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.r0.q.p.g f7816j;
+    public c.a.r0.q.p.g f7958j;
     public final h k;
     public c.a.r0.q.f.e<c.a.r0.q.i.j> l;
     public final Map<String, c.a.r0.a.n0.k.e> m;
@@ -108,7 +108,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f7817e;
+        public final /* synthetic */ f f7959e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
                     return;
                 }
             }
-            this.f7817e = fVar;
+            this.f7959e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,13 +135,13 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
                 if (f.q) {
-                    String unused = this.f7817e.f7813g;
+                    String unused = this.f7959e.f7955g;
                     String str = "onCallback: SoUpdating=" + eVar;
                 }
                 if (eVar != null) {
-                    this.f7817e.o.c(eVar.k(), eVar.o());
+                    this.f7959e.o.c(eVar.k(), eVar.o());
                 }
-                this.f7817e.a0(null);
+                this.f7959e.a0(null);
             }
         }
     }
@@ -152,7 +152,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f7818e;
+        public final /* synthetic */ f f7960e;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
                     return;
                 }
             }
-            this.f7818e = fVar;
+            this.f7960e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -180,18 +180,18 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || eVar == null) {
                 return;
             }
-            this.f7818e.o.d(eVar.k(), eVar.m());
+            this.f7960e.o.d(eVar.k(), eVar.m());
         }
     }
 
     /* loaded from: classes.dex */
-    public class d implements c.InterfaceC0383c {
+    public class d implements c.InterfaceC0392c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.q.i.j a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f7819b;
+        public final /* synthetic */ f f7961b;
 
         public d(f fVar, c.a.r0.q.i.j jVar) {
             Interceptable interceptable = $ic;
@@ -208,29 +208,29 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
                     return;
                 }
             }
-            this.f7819b = fVar;
+            this.f7961b = fVar;
             this.a = jVar;
         }
 
-        @Override // c.a.r0.a.h0.m.c.InterfaceC0383c
+        @Override // c.a.r0.a.h0.m.c.InterfaceC0392c
         public void a(PMSDownloadType pMSDownloadType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
-                this.f7819b.f7816j.m(this.a);
-                if (this.f7819b.f7814h != null) {
-                    this.f7819b.f7814h.onNext(this.a);
-                    this.f7819b.f7814h.onCompleted();
+                this.f7961b.f7958j.m(this.a);
+                if (this.f7961b.f7956h != null) {
+                    this.f7961b.f7956h.onNext(this.a);
+                    this.f7961b.f7956h.onCompleted();
                 }
             }
         }
 
-        @Override // c.a.r0.a.h0.m.c.InterfaceC0383c
+        @Override // c.a.r0.a.h0.m.c.InterfaceC0392c
         public void b(PMSDownloadType pMSDownloadType, c.a.r0.a.u2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, aVar) == null) {
-                this.f7819b.f7816j.l(this.a);
-                if (this.f7819b.f7814h != null) {
-                    this.f7819b.f7814h.onError(new PkgDownloadError(this.a, aVar));
+                this.f7961b.f7958j.l(this.a);
+                if (this.f7961b.f7956h != null) {
+                    this.f7961b.f7956h.onError(new PkgDownloadError(this.a, aVar));
                 }
             }
         }
@@ -242,7 +242,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f7820e;
+        public final /* synthetic */ f f7962e;
 
         public e(f fVar) {
             Interceptable interceptable = $ic;
@@ -259,7 +259,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
                     return;
                 }
             }
-            this.f7820e = fVar;
+            this.f7962e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -267,21 +267,21 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
         public void call(j<? super c.a.r0.q.i.j> jVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-                this.f7820e.f7814h = jVar;
+                this.f7962e.f7956h = jVar;
             }
         }
     }
 
     /* renamed from: c.a.r0.a.n0.k.f$f  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0470f extends j<c.a.r0.q.i.j> {
+    public class C0479f extends j<c.a.r0.q.i.j> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ f f7821i;
+        public final /* synthetic */ f f7963i;
 
-        public C0470f(f fVar) {
+        public C0479f(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -296,7 +296,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
                     return;
                 }
             }
-            this.f7821i = fVar;
+            this.f7963i = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -305,7 +305,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
         public void onNext(c.a.r0.q.i.j jVar) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) && f.q) {
-                String unused = this.f7821i.f7813g;
+                String unused = this.f7963i.f7955g;
                 String str = "PkgDlSubscriber 单个包下载、业务层处理完成：" + jVar.toString();
             }
         }
@@ -315,9 +315,9 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 if (f.q) {
-                    String unused = this.f7821i.f7813g;
+                    String unused = this.f7963i.f7955g;
                 }
-                this.f7821i.f0(null);
+                this.f7963i.f0(null);
             }
         }
 
@@ -326,14 +326,14 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
                 if (f.q) {
-                    String unused = this.f7821i.f7813g;
+                    String unused = this.f7963i.f7955g;
                     String str = "PkgDlSubscriber 包下载、业务层处理 OnError：" + th.toString();
                 }
-                this.f7821i.f0(new Exception("failed by Download error = ", th));
+                this.f7963i.f0(new Exception("failed by Download error = ", th));
             }
         }
 
-        public /* synthetic */ C0470f(f fVar, a aVar) {
+        public /* synthetic */ C0479f(f fVar, a aVar) {
             this(fVar);
         }
     }
@@ -344,7 +344,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f7822e;
+        public final /* synthetic */ f f7964e;
 
         public g(f fVar) {
             Interceptable interceptable = $ic;
@@ -361,7 +361,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
                     return;
                 }
             }
-            this.f7822e = fVar;
+            this.f7964e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -371,10 +371,10 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jVar)) == null) {
-                String g2 = c.a.r0.a.n0.k.c.f7795d.g(jVar);
+                String g2 = c.a.r0.a.n0.k.c.f7937d.g(jVar);
                 if (f.q) {
-                    String unused = this.f7822e.f7813g;
-                    String str = "SoDlCallback getDownloadPath: so=" + jVar.f11494g + " path=" + g2;
+                    String unused = this.f7964e.f7955g;
+                    String str = "SoDlCallback getDownloadPath: so=" + jVar.f11636g + " path=" + g2;
                 }
                 return g2;
             }
@@ -386,7 +386,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
         public Bundle m(@NonNull Bundle bundle, Set<String> set) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bundle, set)) == null) ? this.f7822e.m(bundle, set) : (Bundle) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bundle, set)) == null) ? this.f7964e.m(bundle, set) : (Bundle) invokeLL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -397,17 +397,17 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
             if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jVar, bVar) == null) {
                 super.e(jVar, bVar);
                 if (f.q) {
-                    String unused = this.f7822e.f7813g;
-                    String str = "SoDlCallback onDownloadError: so=" + jVar.f11494g + " err=" + bVar;
+                    String unused = this.f7964e.f7955g;
+                    String str = "SoDlCallback onDownloadError: so=" + jVar.f11636g + " err=" + bVar;
                 }
-                this.f7822e.f7816j.l(jVar);
+                this.f7964e.f7958j.l(jVar);
                 c.a.r0.a.u2.a aVar = new c.a.r0.a.u2.a();
                 aVar.k(13L);
                 aVar.i(bVar.a);
                 aVar.d("so包下载失败");
                 aVar.f(bVar.toString());
-                if (this.f7822e.f7814h != null) {
-                    this.f7822e.f7814h.onError(new PkgDownloadError(jVar, aVar));
+                if (this.f7964e.f7956h != null) {
+                    this.f7964e.f7956h.onError(new PkgDownloadError(jVar, aVar));
                 }
                 c.a.r0.a.h0.m.c.c().a(jVar, f.s, aVar);
                 c.a.r0.w.d.k(jVar.a);
@@ -423,35 +423,35 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
             if (interceptable == null || interceptable.invokeL(1048585, this, jVar) == null) {
                 super.i(jVar);
                 if (f.q) {
-                    String unused = this.f7822e.f7813g;
+                    String unused = this.f7964e.f7955g;
                     String str = "SoDlCallback onDownloadFinish: so=" + jVar;
                 }
                 String str2 = jVar.p;
-                if (TextUtils.isEmpty(str2) && (aVar = (c.a.r0.q.m.a) this.f7822e.n.get(jVar.f11494g)) != null) {
+                if (TextUtils.isEmpty(str2) && (aVar = (c.a.r0.q.m.a) this.f7964e.n.get(jVar.f11636g)) != null) {
                     str2 = aVar.a;
                 }
-                c.a.r0.a.n0.k.e b0 = this.f7822e.b0(str2);
+                c.a.r0.a.n0.k.e b0 = this.f7964e.b0(str2);
                 if (b0 != null) {
                     boolean a = j0.a(new File(jVar.a), jVar.m);
                     if (f.q) {
-                        String unused2 = this.f7822e.f7813g;
-                        String str3 = "SoDlCallback onDownloadFinish: bundle=" + jVar.f11494g + " checkSign=" + a;
+                        String unused2 = this.f7964e.f7955g;
+                        String str3 = "SoDlCallback onDownloadFinish: bundle=" + jVar.f11636g + " checkSign=" + a;
                     }
                     boolean z = true;
                     z = (f.q && !q0.G() && c.a.r0.a.x1.a.a.j() == 1) ? false : false;
                     if (a || z) {
                         c.a.r0.q.g.a.i().m(jVar);
                         if (f.q) {
-                            String unused3 = this.f7822e.f7813g;
+                            String unused3 = this.f7964e.f7955g;
                             String str4 = "SoDlCallback onDownloadFinish: updating=" + b0 + " libName=" + str2;
                         }
                     }
                     b0.q();
                 }
-                this.f7822e.f7816j.m(jVar);
-                if (this.f7822e.f7814h != null) {
-                    this.f7822e.f7814h.onNext(jVar);
-                    this.f7822e.f7814h.onCompleted();
+                this.f7964e.f7958j.m(jVar);
+                if (this.f7964e.f7956h != null) {
+                    this.f7964e.f7956h.onNext(jVar);
+                    this.f7964e.f7956h.onCompleted();
                 }
                 c.a.r0.a.h0.m.c.c().b(jVar, f.s);
             }
@@ -464,10 +464,10 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, jVar) == null) {
                 super.a(jVar);
-                c.a.r0.q.m.a aVar = (c.a.r0.q.m.a) this.f7822e.n.get(jVar.f11494g);
-                c.a.r0.a.n0.k.e b0 = this.f7822e.b0(aVar == null ? null : aVar.a);
+                c.a.r0.q.m.a aVar = (c.a.r0.q.m.a) this.f7964e.n.get(jVar.f11636g);
+                c.a.r0.a.n0.k.e b0 = this.f7964e.b0(aVar == null ? null : aVar.a);
                 if (b0 != null) {
-                    b0.x(new d.b(jVar.f11489b, jVar.k));
+                    b0.x(new d.b(jVar.f11631b, jVar.k));
                 }
             }
         }
@@ -480,8 +480,8 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
             if (interceptable == null || interceptable.invokeL(1048587, this, jVar) == null) {
                 super.c(jVar);
                 if (f.q) {
-                    String unused = this.f7822e.f7813g;
-                    String str = "SoDlCallback onDownloadStart: so=" + jVar.f11494g;
+                    String unused = this.f7964e.f7955g;
+                    String str = "SoDlCallback onDownloadStart: so=" + jVar.f11636g;
                 }
             }
         }
@@ -494,10 +494,10 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
             if (interceptable == null || interceptable.invokeL(1048588, this, jVar) == null) {
                 super.f(jVar);
                 if (f.q) {
-                    String unused = this.f7822e.f7813g;
-                    String str = "SoDlCallback onDownloading: so=" + jVar.f11494g;
+                    String unused = this.f7964e.f7955g;
+                    String str = "SoDlCallback onDownloading: so=" + jVar.f11636g;
                 }
-                this.f7822e.g0(jVar);
+                this.f7964e.g0(jVar);
             }
         }
 
@@ -539,16 +539,16 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
                 return;
             }
         }
-        this.f7813g = "SwanSoUpdater";
+        this.f7955g = "SwanSoUpdater";
         this.m = new HashMap();
         this.n = new HashMap();
         this.p = new a(this);
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f7813g);
+        sb.append(this.f7955g);
         int i4 = r;
         r = i4 + 1;
         sb.append(i4);
-        this.f7813g = sb.toString();
+        this.f7955g = sb.toString();
         if (q) {
             String str = "SwanSoUpdater: config=" + dVar + " trace=" + Log.getStackTraceString(new Exception());
         }
@@ -565,7 +565,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
                     dVar.c(next, true);
                 } else {
                     String e2 = a2.e();
-                    c.a.r0.a.n0.k.e t = c.a.r0.a.n0.k.c.f7795d.t(this, e2);
+                    c.a.r0.a.n0.k.e t = c.a.r0.a.n0.k.c.f7937d.t(this, e2);
                     b bVar = new b(this);
                     c cVar = new c(this);
                     t.u(bVar);
@@ -641,7 +641,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
             if (gVar == null) {
                 return;
             }
-            this.f7816j = gVar;
+            this.f7958j = gVar;
             if (gVar.k()) {
                 return;
             }
@@ -685,10 +685,10 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f7815i == null) {
-                this.f7815i = new C0470f(this, null);
+            if (this.f7957i == null) {
+                this.f7957i = new C0479f(this, null);
             }
-            return this.f7815i;
+            return this.f7957i;
         }
         return (j) invokeV.objValue;
     }
@@ -697,7 +697,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             ArrayList arrayList = new ArrayList();
-            if (this.f7816j.g()) {
+            if (this.f7958j.g()) {
                 arrayList.add(i.d.a(new e(this)));
             }
             if (arrayList.isEmpty()) {
@@ -770,10 +770,10 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
                 boolean z = q;
                 return;
             }
-            c.a.r0.q.m.a aVar = this.n.get(jVar.f11494g);
+            c.a.r0.q.m.a aVar = this.n.get(jVar.f11636g);
             if (aVar == null) {
                 if (q) {
-                    String str2 = "SoNodeHandler updateBestSo end by illegal bundleId=" + jVar.f11494g;
+                    String str2 = "SoNodeHandler updateBestSo end by illegal bundleId=" + jVar.f11636g;
                     return;
                 }
                 return;
@@ -790,7 +790,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
                 return;
             }
             if (jVar.q == null) {
-                jVar.q = aVar.f11637c;
+                jVar.q = aVar.f11779c;
             }
             if (!AbiType.currentAbi().compat(jVar.q)) {
                 boolean z2 = q;
@@ -798,15 +798,15 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
             }
             c.a.r0.q.i.j l = b0.l();
             c.a.r0.q.i.j j2 = b0.j();
-            long max = Math.max(j2 != null ? j2.f11496i : 0L, l == null ? 0L : l.f11496i);
-            long j3 = jVar.f11496i;
+            long max = Math.max(j2 != null ? j2.f11638i : 0L, l == null ? 0L : l.f11638i);
+            long j3 = jVar.f11638i;
             if (j3 < max) {
                 if (q) {
-                    String.format("SoNodeHandler updateBestSo end by not bestVer(%d) libVer(%d)", Long.valueOf(max), Long.valueOf(jVar.f11496i));
+                    String.format("SoNodeHandler updateBestSo end by not bestVer(%d) libVer(%d)", Long.valueOf(max), Long.valueOf(jVar.f11638i));
                 }
             } else if (j3 > max) {
                 if (q) {
-                    String str4 = "SoNodeHandler updateBestSo end by update bestVer=" + jVar.f11496i;
+                    String str4 = "SoNodeHandler updateBestSo end by update bestVer=" + jVar.f11638i;
                 }
                 b0.w(this, jVar);
             } else {
@@ -854,7 +854,7 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
                 if (!TextUtils.isEmpty(i2)) {
                     try {
                         c.a.r0.q.i.j jVar = (c.a.r0.q.i.j) c.a.r0.q.p.f.j(new JSONObject(i2), new c.a.r0.q.i.j());
-                        jVar.f11494g = "so_zeus_armeabi";
+                        jVar.f11636g = "so_zeus_armeabi";
                         h0(jVar);
                         c.a.r0.a.c2.b.f.e.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(c.a.r0.a.h.swan_app_debug_so_info_success)).G();
                     } catch (JSONException e2) {
@@ -872,10 +872,10 @@ public final class f extends k implements c.a.r0.q.l.a.a, c.a.r0.q.k.k.c {
                             String str = "SoNodeHandler handle for bestSo=" + j2;
                         }
                         c.a.r0.q.k.k.b.b(j2, gVar);
-                        if (aVar.f11632d == null) {
-                            aVar.f11632d = new ArrayList();
+                        if (aVar.f11774d == null) {
+                            aVar.f11774d = new ArrayList();
                         }
-                        aVar.f11632d.add(j2);
+                        aVar.f11774d.add(j2);
                     } else {
                         boolean z3 = q;
                         eVar.q();

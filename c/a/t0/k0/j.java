@@ -53,22 +53,22 @@ public class j implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBarCoverTip f18698e;
+    public NavigationBarCoverTip f18680e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ShadowLinearLayout f18699f;
+    public ShadowLinearLayout f18681f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f18700g;
+    public TextView f18682g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18701h;
+    public TextView f18683h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TBSpecificationBtn f18702i;
+    public TBSpecificationBtn f18684i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.s0.s.j0.a f18703j;
+    public c.a.s0.s.k0.a f18685j;
     public long k;
     public long l;
     public e2 m;
@@ -142,7 +142,7 @@ public class j implements View.OnClickListener {
         this.r = new a(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
         this.n = tbPageContext.getPageActivity();
         this.o = tbPageContext;
-        this.f18698e = navigationBarCoverTip;
+        this.f18680e = navigationBarCoverTip;
         this.r.setTag(tbPageContext.getUniqueId());
         this.r.getHttpMessageListener().setSelfListener(true);
         this.r.getSocketMessageListener().setSelfListener(true);
@@ -153,13 +153,13 @@ public class j implements View.OnClickListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e2Var)) == null) {
-            if (e2Var == null || e2Var.F0() == null) {
+            if (e2Var == null || e2Var.G0() == null) {
                 return null;
             }
-            ArrayList<MediaData> F0 = e2Var.F0();
-            int size = F0.size();
+            ArrayList<MediaData> G0 = e2Var.G0();
+            int size = G0.size();
             for (int i2 = 0; i2 < size; i2++) {
-                MediaData mediaData = F0.get(i2);
+                MediaData mediaData = G0.get(i2);
                 if (mediaData != null && mediaData.getType() == 3) {
                     if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
                         return mediaData.getThumbnails_url();
@@ -188,13 +188,13 @@ public class j implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2Var)) == null) {
             if (e2Var != null) {
-                if (e2Var.t2()) {
+                if (e2Var.u2()) {
                     return 4;
                 }
-                if (e2Var.k0() == 1) {
+                if (e2Var.l0() == 1) {
                     return 3;
                 }
-                return e2Var.u2() ? 2 : 1;
+                return e2Var.v2() ? 2 : 1;
             }
             return 0;
         }
@@ -208,7 +208,7 @@ public class j implements View.OnClickListener {
             if (i2 == 0 && getMyPostResIdl != null && (dataRes = getMyPostResIdl.data) != null && dataRes.thread_info != null) {
                 e2 e2Var = new e2();
                 this.m = e2Var;
-                e2Var.c3(getMyPostResIdl.data.thread_info);
+                e2Var.d3(getMyPostResIdl.data.thread_info);
                 k();
                 return;
             }
@@ -217,9 +217,9 @@ public class j implements View.OnClickListener {
     }
 
     public final void g() {
-        c.a.s0.s.j0.a aVar;
+        c.a.s0.s.k0.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f18703j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f18685j) == null) {
             return;
         }
         aVar.h(false);
@@ -228,7 +228,7 @@ public class j implements View.OnClickListener {
     public void h() {
         NavigationBarCoverTip navigationBarCoverTip;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (navigationBarCoverTip = this.f18698e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (navigationBarCoverTip = this.f18680e) == null) {
             return;
         }
         navigationBarCoverTip.onDestroy();
@@ -251,10 +251,10 @@ public class j implements View.OnClickListener {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.f18703j == null) {
-                this.f18703j = new c.a.s0.s.j0.a(this.o);
+            if (this.f18685j == null) {
+                this.f18685j = new c.a.s0.s.k0.a(this.o);
             }
-            this.f18703j.h(true);
+            this.f18685j.h(true);
         }
     }
 
@@ -265,13 +265,13 @@ public class j implements View.OnClickListener {
             return;
         }
         String valueOf = String.valueOf(e2Var.U());
-        String a0 = this.m.a0();
+        String b0 = this.m.b0();
         String title = this.m.getTitle();
         if (TextUtils.isEmpty(title)) {
             title = this.m.o();
         }
-        String v1 = this.m.v1();
-        String str = "http://tieba.baidu.com/p/" + v1 + "?share=9105&fr=share";
+        String w1 = this.m.w1();
+        String str = "http://tieba.baidu.com/p/" + w1 + "?share=9105&fr=share";
         String c2 = c(this.m);
         Uri parse = c2 == null ? null : Uri.parse(c2);
         String o = this.m.o();
@@ -283,12 +283,12 @@ public class j implements View.OnClickListener {
         shareItem.D = o;
         shareItem.t = str;
         shareItem.o = 5;
-        shareItem.q = v1;
+        shareItem.q = w1;
         shareItem.F = 3;
         shareItem.J = valueOf;
-        shareItem.p = a0;
-        shareItem.K = v1;
-        shareItem.f40766f = true;
+        shareItem.p = b0;
+        shareItem.K = w1;
+        shareItem.f40794f = true;
         shareItem.E = d();
         shareItem.M = e(this.m);
         if (parse != null) {
@@ -297,7 +297,7 @@ public class j implements View.OnClickListener {
         shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo(this.m);
         shareItem.W = ShareItem.ForwardInfo.generateForwardInfo(this.m);
         TbadkCoreApplication.getInst().setShareItem(shareItem);
-        shareItem.k0 = this.m.b1();
+        shareItem.k0 = this.m.c1();
         Bundle bundle = new Bundle();
         bundle.putInt("obj_param1", shareItem.F);
         bundle.putInt("obj_type", shareItem.M);
@@ -310,7 +310,7 @@ public class j implements View.OnClickListener {
 
     public void l(PostWriteCallBackData postWriteCallBackData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, postWriteCallBackData) == null) || postWriteCallBackData == null || this.f18698e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, postWriteCallBackData) == null) || postWriteCallBackData == null || this.f18680e == null) {
             return;
         }
         this.k = c.a.d.f.m.b.g(postWriteCallBackData.getPostId(), 0L);
@@ -320,24 +320,24 @@ public class j implements View.OnClickListener {
             return;
         }
         this.q = false;
-        if (this.f18699f == null) {
+        if (this.f18681f == null) {
             ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(this.n).inflate(R.layout.tb_top_toast_layout, (ViewGroup) null, false).findViewById(R.id.tb_top_toast_group);
-            this.f18699f = shadowLinearLayout;
-            this.f18700g = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
-            this.f18701h = (TextView) this.f18699f.findViewById(R.id.tb_top_toast_content);
-            this.f18702i = (TBSpecificationBtn) this.f18699f.findViewById(R.id.tb_top_toast_btn);
-            this.f18700g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_title));
-            this.f18701h.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content));
-            this.f18702i.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.share_at_once));
-            this.f18702i.setConfig(new c.a.s0.s.j0.n.a());
+            this.f18681f = shadowLinearLayout;
+            this.f18682g = (TextView) shadowLinearLayout.findViewById(R.id.tb_top_toast_title);
+            this.f18683h = (TextView) this.f18681f.findViewById(R.id.tb_top_toast_content);
+            this.f18684i = (TBSpecificationBtn) this.f18681f.findViewById(R.id.tb_top_toast_btn);
+            this.f18682g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_title));
+            this.f18683h.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.write_thread_success_content));
+            this.f18684i.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.share_at_once));
+            this.f18684i.setConfig(new c.a.s0.s.k0.n.a());
         }
-        SkinManager.setViewTextColor(this.f18700g, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.f18701h, R.color.CAM_X0302);
-        this.f18702i.changeSkinType();
-        this.f18699f.onChangeSkinType();
-        this.f18702i.setOnClickListener(this);
-        this.f18698e.setBackgroundColor(0);
-        this.f18698e.showTip(this.n, this.f18699f, 5000);
+        SkinManager.setViewTextColor(this.f18682g, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.f18683h, R.color.CAM_X0302);
+        this.f18684i.changeSkinType();
+        this.f18681f.onChangeSkinType();
+        this.f18684i.setOnClickListener(this);
+        this.f18680e.setBackgroundColor(0);
+        this.f18680e.showTip(this.n, this.f18681f, 5000);
     }
 
     @Override // android.view.View.OnClickListener
@@ -349,7 +349,7 @@ public class j implements View.OnClickListener {
         this.q = true;
         if (!l.z()) {
             this.o.showToast(R.string.neterror);
-            this.f18698e.hideTip();
+            this.f18680e.hideTip();
             return;
         }
         int k = n.k(TbadkCoreApplication.getInst());
@@ -361,7 +361,7 @@ public class j implements View.OnClickListener {
         requestGetMyPostNetMessage.setParams(this.l, this.k, 0L, k, i2, f2, i3);
         MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         j();
-        this.f18698e.hideTip();
+        this.f18680e.hideTip();
         i();
     }
 }

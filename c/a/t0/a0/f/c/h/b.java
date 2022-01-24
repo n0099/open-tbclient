@@ -49,28 +49,28 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.c.e.c> {
 
         /* renamed from: c.a.t0.a0.f.c.h.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0925a extends AlaBannerViewHolder<SdkLiveInfoData> {
+        public class C0935a extends AlaBannerViewHolder<SdkLiveInfoData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public View a;
 
             /* renamed from: b  reason: collision with root package name */
-            public View f14533b;
+            public View f14673b;
 
             /* renamed from: c  reason: collision with root package name */
-            public TabLiveStageLiveView f14534c;
+            public TabLiveStageLiveView f14674c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f14535d;
+            public int f14675d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f14536e;
+            public int f14676e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f14537f;
+            public final /* synthetic */ a f14677f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0925a(a aVar, View view) {
+            public C0935a(a aVar, View view) {
                 super(view);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -87,7 +87,7 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.c.e.c> {
                         return;
                     }
                 }
-                this.f14537f = aVar;
+                this.f14677f = aVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -97,28 +97,28 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.c.e.c> {
                 String str;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIL(1048576, this, i2, sdkLiveInfoData) == null) {
-                    this.f14534c.setData(sdkLiveInfoData, 102);
+                    this.f14674c.setData(sdkLiveInfoData, 102);
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f14533b.getLayoutParams();
+                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f14673b.getLayoutParams();
                     if (i2 == 0) {
-                        if (this.f14537f.a.u) {
-                            layoutParams.width = this.f14537f.a.f17767f.getResources().getDimensionPixelSize(R.dimen.tbds44);
-                            layoutParams2.width = this.f14537f.a.f17767f.getResources().getDimensionPixelSize(R.dimen.tbds44);
-                            this.f14533b.setVisibility(0);
+                        if (this.f14677f.a.u) {
+                            layoutParams.width = this.f14677f.a.f17589f.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                            layoutParams2.width = this.f14677f.a.f17589f.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                            this.f14673b.setVisibility(0);
                         } else {
-                            layoutParams.width = this.f14537f.a.f17767f.getResources().getDimensionPixelSize(R.dimen.tbds44);
-                            this.f14533b.setVisibility(8);
+                            layoutParams.width = this.f14677f.a.f17589f.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                            this.f14673b.setVisibility(8);
                         }
                     } else {
-                        layoutParams.width = this.f14537f.a.f17767f.getResources().getDimensionPixelSize(R.dimen.tbds12);
-                        if (this.f14537f.a.n.getItemCount() - 1 == i2) {
-                            this.f14533b.setVisibility(0);
+                        layoutParams.width = this.f14677f.a.f17589f.getResources().getDimensionPixelSize(R.dimen.tbds12);
+                        if (this.f14677f.a.n.getItemCount() - 1 == i2) {
+                            this.f14673b.setVisibility(0);
                         } else {
-                            this.f14533b.setVisibility(8);
+                            this.f14673b.setVisibility(8);
                         }
                     }
                     this.a.setLayoutParams(layoutParams);
-                    this.f14533b.setLayoutParams(layoutParams2);
+                    this.f14673b.setLayoutParams(layoutParams2);
                     b();
                     StatisticItem statisticItem = new StatisticItem("c13558");
                     if (sdkLiveInfoData != null) {
@@ -146,17 +146,17 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.c.e.c> {
             public final void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f14535d = this.f14537f.a.v();
-                    this.f14536e = this.f14537f.a.u();
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f14534c.getLayoutParams();
+                    this.f14675d = this.f14677f.a.v();
+                    this.f14676e = this.f14677f.a.u();
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f14674c.getLayoutParams();
                     if (layoutParams == null) {
-                        layoutParams = (LinearLayout.LayoutParams) new ViewGroup.LayoutParams(this.f14535d, this.f14536e);
+                        layoutParams = (LinearLayout.LayoutParams) new ViewGroup.LayoutParams(this.f14675d, this.f14676e);
                     } else {
-                        layoutParams.width = this.f14535d;
-                        layoutParams.height = this.f14536e;
+                        layoutParams.width = this.f14675d;
+                        layoutParams.height = this.f14676e;
                     }
                     layoutParams.gravity = 1;
-                    this.f14534c.setLayoutParams(layoutParams);
+                    this.f14674c.setLayoutParams(layoutParams);
                 }
             }
 
@@ -164,9 +164,9 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.c.e.c> {
             public void initView(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-                    this.f14534c = (TabLiveStageLiveView) view.findViewById(R.id.stage_live_view);
+                    this.f14674c = (TabLiveStageLiveView) view.findViewById(R.id.stage_live_view);
                     this.a = view.findViewById(R.id.recom_live_item_left_space);
-                    this.f14533b = view.findViewById(R.id.recom_live_item_right_space);
+                    this.f14673b = view.findViewById(R.id.recom_live_item_right_space);
                 }
             }
 
@@ -174,7 +174,7 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.c.e.c> {
             public void onChangeSkinType(int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                    this.f14534c.onChangeSkinType();
+                    this.f14674c.onChangeSkinType();
                 }
             }
         }
@@ -201,7 +201,7 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.c.e.c> {
         public AlaBannerViewHolder a(ViewGroup viewGroup, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i2)) == null) ? new C0925a(this, LayoutInflater.from(this.a.getContext()).inflate(R.layout.tab_live_official_recom_live_scroll_item_view, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i2)) == null) ? new C0935a(this, LayoutInflater.from(this.a.getContext()).inflate(R.layout.tab_live_official_recom_live_scroll_item_view, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
         }
     }
 
@@ -230,7 +230,7 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.c.e.c> {
         int k = (int) (n.k(getContext()) * 0.76d);
         this.r = k;
         this.s = (int) ((k * 9.0d) / 16.0d);
-        this.t = c.a.t0.a0.f.c.c.b(this.f17768g);
+        this.t = c.a.t0.a0.f.c.c.b(this.f17590g);
         w();
     }
 
@@ -291,12 +291,12 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.c.e.c> {
     public void k(c.a.t0.a0.f.c.e.c cVar) {
         c.a.t0.a0.f.c.e.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) || cVar == null || (dVar = cVar.f14427e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) || cVar == null || (dVar = cVar.f14567e) == null) {
             return;
         }
         this.u = ListUtils.getCount(dVar.a) == 1;
         y();
-        this.n.setData(cVar.f14427e.a);
+        this.n.setData(cVar.f14567e.a);
         this.n.notifyDataSetChanged();
     }
 

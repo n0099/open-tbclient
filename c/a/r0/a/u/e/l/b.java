@@ -81,12 +81,12 @@ public class b extends c.a.r0.a.u.e.l.a {
 
     /* renamed from: c.a.r0.a.u.e.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0585b implements d.a {
+    public class C0594b implements d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C0585b(b bVar) {
+        public C0594b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -251,19 +251,19 @@ public class b extends c.a.r0.a.u.e.l.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9217e;
+        public final /* synthetic */ String f9359e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.a f9218f;
+        public final /* synthetic */ d.a f9360f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f9219g;
+        public final /* synthetic */ c.a.r0.a.d2.e f9361g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f9220h;
+        public final /* synthetic */ JSONObject f9362h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f9221i;
+        public final /* synthetic */ b f9363i;
 
         public f(b bVar, String str, d.a aVar, c.a.r0.a.d2.e eVar, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -280,20 +280,20 @@ public class b extends c.a.r0.a.u.e.l.a {
                     return;
                 }
             }
-            this.f9221i = bVar;
-            this.f9217e = str;
-            this.f9218f = aVar;
-            this.f9219g = eVar;
-            this.f9220h = jSONObject;
+            this.f9363i = bVar;
+            this.f9359e = str;
+            this.f9360f = aVar;
+            this.f9361g = eVar;
+            this.f9362h = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b bVar = this.f9221i;
-                String str = this.f9217e;
-                bVar.d(str, this.f9218f.a(this.f9219g, this.f9220h, str));
+                b bVar = this.f9363i;
+                String str = this.f9359e;
+                bVar.d(str, this.f9360f.a(this.f9361g, this.f9362h, str));
             }
         }
     }
@@ -386,7 +386,7 @@ public class b extends c.a.r0.a.u.e.l.a {
     public c.a.r0.a.u.h.b B(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) ? L(str, z, new C0585b(this)) : (c.a.r0.a.u.h.b) invokeLZ.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) ? L(str, z, new C0594b(this)) : (c.a.r0.a.u.h.b) invokeLZ.objValue;
     }
 
     public c.a.r0.a.u.h.b C() {
@@ -573,7 +573,7 @@ public class b extends c.a.r0.a.u.e.l.a {
     public void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            c.a.r0.a.u2.d.f9459h.update();
+            c.a.r0.a.u2.d.f9601h.update();
         }
     }
 

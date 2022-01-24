@@ -38,31 +38,31 @@ public class l0 {
     public JSONArray a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<Integer> f26473b;
+    public SparseArray<Integer> f26501b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f26474c;
+    public ArrayList<String> f26502c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Set<String> f26475d;
+    public Set<String> f26503d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f26476e;
+    public long f26504e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f26477f;
+    public long f26505f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26478g;
+    public String f26506g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26479h;
+    public boolean f26507h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f26480i;
+    public boolean f26508i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f26481j;
+    public int f26509j;
     public long k;
     public int l;
     public boolean m;
@@ -102,10 +102,10 @@ public class l0 {
                 return;
             }
         }
-        this.f26475d = new HashSet();
-        this.f26479h = false;
-        this.f26480i = false;
-        this.f26481j = 0;
+        this.f26503d = new HashSet();
+        this.f26507h = false;
+        this.f26508i = false;
+        this.f26509j = 0;
         this.k = 0L;
         this.l = 614400;
         this.m = false;
@@ -115,11 +115,11 @@ public class l0 {
         this.q = null;
         this.s = null;
         this.a = new JSONArray();
-        this.f26473b = new SparseArray<>();
-        this.f26474c = new ArrayList<>();
-        this.f26476e = 0L;
-        this.f26477f = 0L;
-        this.f26478g = "0";
+        this.f26501b = new SparseArray<>();
+        this.f26502c = new ArrayList<>();
+        this.f26504e = 0L;
+        this.f26505f = 0L;
+        this.f26506g = "0";
     }
 
     public static l0 g(File file, int i2) {
@@ -155,19 +155,19 @@ public class l0 {
     public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26480i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26508i : invokeV.booleanValue;
     }
 
     public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26479h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26507h : invokeV.booleanValue;
     }
 
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f26480i = true;
+            this.f26508i = true;
         }
     }
 
@@ -184,7 +184,7 @@ public class l0 {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f26481j += i2;
+        this.f26509j += i2;
     }
 
     public void F(String str) {
@@ -257,28 +257,28 @@ public class l0 {
 
     public final void H(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.f26474c.contains(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.f26502c.contains(str)) {
             return;
         }
-        this.f26474c.add(str);
+        this.f26502c.add(str);
     }
 
     public final void I(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
-            this.f26473b.put(i2, Integer.valueOf(i3));
+            this.f26501b.put(i2, Integer.valueOf(i3));
         }
     }
 
     public final void J(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            long j4 = this.f26476e;
+            long j4 = this.f26504e;
             if ((j2 < j4 || j4 == 0) && j2 != 0) {
-                this.f26476e = j2;
+                this.f26504e = j2;
             }
-            if (j3 > this.f26477f) {
-                this.f26477f = j3;
+            if (j3 > this.f26505f) {
+                this.f26505f = j3;
             }
         }
     }
@@ -286,14 +286,14 @@ public class l0 {
     public void K(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f26478g = str;
+            this.f26506g = str;
         }
     }
 
     public void L(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f26479h = z;
+            this.f26507h = z;
         }
     }
 
@@ -333,10 +333,10 @@ public class l0 {
 
     public void a(Set<String> set) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, set) == null) || this.f26475d.containsAll(set)) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, set) == null) || this.f26503d.containsAll(set)) {
             return;
         }
-        this.f26475d.addAll(set);
+        this.f26503d.addAll(set);
     }
 
     public final void b(JSONObject jSONObject) {
@@ -385,14 +385,14 @@ public class l0 {
     public boolean d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) ? this.f26481j >= i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) ? this.f26509j >= i2 : invokeI.booleanValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f26473b.clear();
-            this.f26474c.clear();
+            this.f26501b.clear();
+            this.f26502c.clear();
             this.a = null;
         }
     }
@@ -423,18 +423,18 @@ public class l0 {
             if (file != null && file.exists()) {
                 c.a.v0.q0.b.a(this.r);
             }
-            this.f26473b.clear();
-            this.f26474c.clear();
+            this.f26501b.clear();
+            this.f26502c.clear();
             this.r = null;
             this.s = null;
-            this.f26481j = 0;
+            this.f26509j = 0;
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && this.m) {
-            if (this.f26481j == 0) {
+            if (this.f26509j == 0) {
                 f();
             }
             if (this.n != 1) {
@@ -448,8 +448,8 @@ public class l0 {
                         jsonWriter.endArray();
                         this.o.flush();
                         this.q.g();
-                        if (this.f26476e == 0 || this.f26477f == 0) {
-                            this.f26476e = this.f26477f;
+                        if (this.f26504e == 0 || this.f26505f == 0) {
+                            this.f26504e = this.f26505f;
                         }
                         String b2 = j0.b(this.q.a(), "", true);
                         if (!TextUtils.isEmpty(b2)) {
@@ -463,14 +463,14 @@ public class l0 {
                         }
                         this.o.name("metadata");
                         this.o.beginObject();
-                        this.o.name("mintime").value(Long.toString(this.f26476e));
-                        this.o.name("maxtime").value(Long.toString(this.f26477f));
+                        this.o.name("mintime").value(Long.toString(this.f26504e));
+                        this.o.name("maxtime").value(Long.toString(this.f26505f));
                         this.o.name("createtime").value(Long.toString(System.currentTimeMillis()));
                         this.o.name("uploadtime").value(Long.toString(System.currentTimeMillis()));
                         this.o.name(PackageTable.MD5).value(b2);
                         this.o.endObject();
-                        this.o.name("isAbtest").value(this.f26478g);
-                        this.o.name(Constant.IS_REAL).value(this.f26479h ? "1" : "0");
+                        this.o.name("isAbtest").value(this.f26506g);
+                        this.o.name(Constant.IS_REAL).value(this.f26507h ? "1" : "0");
                         this.o.endObject();
                         this.o.flush();
                         c.a.v0.q0.a.b(this.o);
@@ -507,7 +507,7 @@ public class l0 {
     public Set<String> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f26475d : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f26503d : (Set) invokeV.objValue;
     }
 
     public long m() {
@@ -543,25 +543,25 @@ public class l0 {
     public final ArrayList q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f26474c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f26502c : (ArrayList) invokeV.objValue;
     }
 
     public final SparseArray<Integer> r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f26473b : (SparseArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f26501b : (SparseArray) invokeV.objValue;
     }
 
     public long s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f26477f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f26505f : invokeV.longValue;
     }
 
     public long t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f26476e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f26504e : invokeV.longValue;
     }
 
     public JSONObject u() {
@@ -572,17 +572,17 @@ public class l0 {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject.put("data", this.a);
-                if (this.f26476e == 0 || this.f26477f == 0) {
-                    this.f26476e = this.f26477f;
+                if (this.f26504e == 0 || this.f26505f == 0) {
+                    this.f26504e = this.f26505f;
                 }
-                jSONObject2.put("mintime", Long.toString(this.f26476e));
-                jSONObject2.put("maxtime", Long.toString(this.f26477f));
+                jSONObject2.put("mintime", Long.toString(this.f26504e));
+                jSONObject2.put("maxtime", Long.toString(this.f26505f));
                 jSONObject2.put("createtime", Long.toString(System.currentTimeMillis()));
                 jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
                 jSONObject2.put(PackageTable.MD5, j0.c(this.a.toString().getBytes(), true));
                 jSONObject.put("metadata", jSONObject2);
-                jSONObject.put("isAbtest", this.f26478g);
-                jSONObject.put(Constant.IS_REAL, this.f26479h ? "1" : "0");
+                jSONObject.put("isAbtest", this.f26506g);
+                jSONObject.put(Constant.IS_REAL, this.f26507h ? "1" : "0");
             } catch (JSONException unused) {
                 boolean z = t;
             }
@@ -594,7 +594,7 @@ public class l0 {
     public int v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f26481j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f26509j : invokeV.intValue;
     }
 
     public boolean w() {
@@ -617,7 +617,7 @@ public class l0 {
                 return this.a.length() == 0;
             }
             int i2 = this.n;
-            return !(i2 == 2 || i2 == 1) || this.f26481j == 0;
+            return !(i2 == 2 || i2 == 1) || this.f26509j == 0;
         }
         return invokeV.booleanValue;
     }
@@ -625,7 +625,7 @@ public class l0 {
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f26481j >= this.l : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f26509j >= this.l : invokeV.booleanValue;
     }
 
     public l0(File file) {
@@ -643,10 +643,10 @@ public class l0 {
                 return;
             }
         }
-        this.f26475d = new HashSet();
-        this.f26479h = false;
-        this.f26480i = false;
-        this.f26481j = 0;
+        this.f26503d = new HashSet();
+        this.f26507h = false;
+        this.f26508i = false;
+        this.f26509j = 0;
         this.k = 0L;
         this.l = 614400;
         this.m = false;
@@ -656,11 +656,11 @@ public class l0 {
         this.q = null;
         this.s = null;
         this.a = new JSONArray();
-        this.f26473b = new SparseArray<>();
-        this.f26474c = new ArrayList<>();
-        this.f26476e = 0L;
-        this.f26477f = 0L;
-        this.f26478g = "0";
+        this.f26501b = new SparseArray<>();
+        this.f26502c = new ArrayList<>();
+        this.f26504e = 0L;
+        this.f26505f = 0L;
+        this.f26506g = "0";
         if (file != null) {
             this.r = file;
             this.m = true;
@@ -682,10 +682,10 @@ public class l0 {
                 return;
             }
         }
-        this.f26475d = new HashSet();
-        this.f26479h = false;
-        this.f26480i = false;
-        this.f26481j = 0;
+        this.f26503d = new HashSet();
+        this.f26507h = false;
+        this.f26508i = false;
+        this.f26509j = 0;
         this.k = 0L;
         this.l = 614400;
         this.m = false;
@@ -696,6 +696,6 @@ public class l0 {
         this.s = null;
         this.r = file;
         this.m = true;
-        this.f26481j = i2;
+        this.f26509j = i2;
     }
 }

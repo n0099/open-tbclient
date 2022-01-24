@@ -22,7 +22,7 @@ public class b implements X509TrustManager {
     public final X509TrustManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<c> f32347b;
+    public final Set<c> f32375b;
 
     public b(@NonNull Set<c> set) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class b implements X509TrustManager {
             }
         }
         this.a = d.a();
-        this.f32347b = set;
+        this.f32375b = set;
     }
 
     public static boolean a(List<X509Certificate> list, Set<c> set) {
@@ -70,13 +70,13 @@ public class b implements X509TrustManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
             this.a.checkServerTrusted(x509CertificateArr, str);
-            if (this.f32347b.isEmpty() || a(Arrays.asList(x509CertificateArr), this.f32347b)) {
+            if (this.f32375b.isEmpty() || a(Arrays.asList(x509CertificateArr), this.f32375b)) {
                 return;
             }
             StringBuilder sb = new StringBuilder();
             sb.append("Pin verification failed");
             sb.append("\n  Configured pins: ");
-            for (c cVar : this.f32347b) {
+            for (c cVar : this.f32375b) {
                 sb.append(cVar);
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }

@@ -9,8 +9,8 @@ import android.widget.ListAdapter;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
 import c.a.s0.s.s.a;
-import c.a.t0.b3.e;
-import c.a.t0.b3.f;
+import c.a.t0.c3.e;
+import c.a.t0.c3.f;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
@@ -98,10 +98,10 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginConfigWrapper f47368e;
+        public final /* synthetic */ PluginConfigWrapper f47396e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PluginCenterActivity f47369f;
+        public final /* synthetic */ PluginCenterActivity f47397f;
 
         public b(PluginCenterActivity pluginCenterActivity, PluginConfigWrapper pluginConfigWrapper) {
             Interceptable interceptable = $ic;
@@ -118,8 +118,8 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                     return;
                 }
             }
-            this.f47369f = pluginCenterActivity;
-            this.f47368e = pluginConfigWrapper;
+            this.f47397f = pluginCenterActivity;
+            this.f47396e = pluginConfigWrapper;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -127,12 +127,12 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 if (n.C()) {
-                    PluginPackageManager.u().K(this.f47368e, this.f47369f.mDownLoadAndInstallCallback);
-                    this.f47368e.setDownLoadPercent(0);
-                    this.f47368e.setDownLoadStatus(3);
-                    this.f47369f.mPluginCenterAdapter.n(this.f47368e);
+                    PluginPackageManager.u().K(this.f47396e, this.f47397f.mDownLoadAndInstallCallback);
+                    this.f47396e.setDownLoadPercent(0);
+                    this.f47396e.setDownLoadStatus(3);
+                    this.f47397f.mPluginCenterAdapter.n(this.f47396e);
                 } else {
-                    this.f47369f.showToast(f.neterror);
+                    this.f47397f.showToast(f.neterror);
                 }
                 aVar.dismiss();
             }
@@ -145,7 +145,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginCenterActivity f47370e;
+        public final /* synthetic */ PluginCenterActivity f47398e;
 
         public c(PluginCenterActivity pluginCenterActivity) {
             Interceptable interceptable = $ic;
@@ -162,7 +162,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                     return;
                 }
             }
-            this.f47370e = pluginCenterActivity;
+            this.f47398e = pluginCenterActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -314,12 +314,12 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     private void initListView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.mRootView = findViewById(c.a.t0.b3.d.parent);
-            this.mListView = (BdListView) findViewById(c.a.t0.b3.d.list);
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(c.a.t0.b3.d.list_layout), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(getActivity(), c.a.t0.b3.b.ds220)), NoDataViewFactory.e.a(f.plugin_no_plugins), null);
+            this.mRootView = findViewById(c.a.t0.c3.d.parent);
+            this.mListView = (BdListView) findViewById(c.a.t0.c3.d.list);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(c.a.t0.c3.d.list_layout), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(getActivity(), c.a.t0.c3.b.ds220)), NoDataViewFactory.e.a(f.plugin_no_plugins), null);
             this.mNoDataView = a2;
             this.mListView.setEmptyView(a2);
-            a aVar = new a(this, getPageContext(), new Class[]{c.a.t0.a3.a.a.class, c.a.t0.a3.a.b.class}, new int[]{e.plugin_center_list_function_item, e.plugin_center_list_desc_item}, this.mEventCenter);
+            a aVar = new a(this, getPageContext(), new Class[]{c.a.t0.b3.a.a.class, c.a.t0.b3.a.b.class}, new int[]{e.plugin_center_list_function_item, e.plugin_center_list_desc_item}, this.mEventCenter);
             this.mPluginCenterAdapter = aVar;
             this.mListView.setAdapter((ListAdapter) aVar);
             this.mListView.setOnItemClickListener(this);
@@ -332,7 +332,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             if (getIntent() != null) {
                 this.mFromType = getIntent().getIntExtra("key_from_type", 0);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(c.a.t0.b3.d.navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(c.a.t0.c3.d.navigation_bar);
             this.mNavigationBar = navigationBar;
             navigationBar.setCenterTextTitle(getString(f.plugin_center));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -478,9 +478,9 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             }
             List<Object> list = this.mShowList;
             if (list != null && !list.isEmpty()) {
-                SkinManager.setBackgroundColor(this.mRootView, c.a.t0.b3.a.CAM_X0204);
+                SkinManager.setBackgroundColor(this.mRootView, c.a.t0.c3.a.CAM_X0204);
             } else {
-                SkinManager.setBackgroundColor(this.mRootView, c.a.t0.b3.a.CAM_X0201);
+                SkinManager.setBackgroundColor(this.mRootView, c.a.t0.c3.a.CAM_X0201);
             }
         }
     }

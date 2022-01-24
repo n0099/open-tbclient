@@ -3,6 +3,7 @@ package c.a.h0.p;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.h0.r.h;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +19,7 @@ public final class b {
     public static long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f3598b;
+    public static JSONObject f3739b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,17 +35,17 @@ public final class b {
                 return;
             }
         }
-        f3598b = new JSONObject();
+        f3739b = new JSONObject();
     }
 
     public static final void a(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65537, null, str, j2) == null) {
             try {
-                if (f3598b == null) {
-                    f3598b = new JSONObject();
+                if (f3739b == null) {
+                    f3739b = new JSONObject();
                 }
-                JSONObject jSONObject = f3598b;
+                JSONObject jSONObject = f3739b;
                 if (jSONObject != null) {
                     jSONObject.put(str, j2);
                 }
@@ -111,15 +112,15 @@ public final class b {
     public static final void e() {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || (jSONObject = f3598b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || (jSONObject = f3739b) == null) {
             return;
         }
         if ((jSONObject != null ? jSONObject.length() : 0) > 0) {
             a("2", System.currentTimeMillis());
             c cVar = new c(Constants.DEFAULT_UIN);
-            cVar.c(f3598b);
+            cVar.c(f3739b);
             f.e(cVar);
-            f3598b = null;
+            f3739b = null;
         }
     }
 
@@ -137,7 +138,7 @@ public final class b {
             jSONObject.put("exceptionType", i2);
             jSONObject.put("payChannel", str2);
             jSONObject.put("errCode", str3);
-            jSONObject.put("errMsg", str4);
+            jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str4);
             c cVar = new c(str);
             cVar.c(jSONObject);
             f.e(cVar);

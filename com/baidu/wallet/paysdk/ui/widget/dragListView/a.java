@@ -13,38 +13,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class a extends b implements GestureDetector.OnGestureListener, View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f52534b;
+    public boolean f52579b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f52535c;
+    public int f52580c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f52536d;
+    public boolean f52581d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f52537e;
+    public boolean f52582e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GestureDetector f52538f;
+    public GestureDetector f52583f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GestureDetector f52539g;
+    public GestureDetector f52584g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f52540h;
+    public int f52585h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f52541i;
+    public int f52586i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f52542j;
+    public int f52587j;
     public int k;
     public int[] l;
     public int m;
@@ -80,11 +80,11 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
             }
         }
         this.a = 0;
-        this.f52534b = true;
-        this.f52536d = false;
-        this.f52537e = false;
-        this.f52541i = -1;
-        this.f52542j = -1;
+        this.f52579b = true;
+        this.f52581d = false;
+        this.f52582e = false;
+        this.f52586i = -1;
+        this.f52587j = -1;
         this.k = -1;
         this.l = new int[2];
         this.q = false;
@@ -117,7 +117,7 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                    if (this.a.f52536d && this.a.f52537e) {
+                    if (this.a.f52581d && this.a.f52582e) {
                         int width = this.a.w.getWidth() / 5;
                         if (f2 > this.a.r) {
                             if (this.a.x > (-width)) {
@@ -126,7 +126,7 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
                         } else if (f2 < (-this.a.r) && this.a.x < width) {
                             this.a.w.stopDragWithVelocity(true, f2);
                         }
-                        this.a.f52537e = false;
+                        this.a.f52582e = false;
                     }
                     return false;
                 }
@@ -134,11 +134,11 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
             }
         };
         this.w = dragSortListView;
-        this.f52538f = new GestureDetector(dragSortListView.getContext(), this);
+        this.f52583f = new GestureDetector(dragSortListView.getContext(), this);
         GestureDetector gestureDetector = new GestureDetector(dragSortListView.getContext(), this.y);
-        this.f52539g = gestureDetector;
+        this.f52584g = gestureDetector;
         gestureDetector.setIsLongpressEnabled(false);
-        this.f52540h = ViewConfiguration.get(dragSortListView.getContext()).getScaledTouchSlop();
+        this.f52585h = ViewConfiguration.get(dragSortListView.getContext()).getScaledTouchSlop();
         this.s = i2;
         this.t = i5;
         this.u = i6;
@@ -151,18 +151,18 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
-            if (this.f52536d && this.f52535c == 0) {
+            if (this.f52581d && this.f52580c == 0) {
                 this.k = a(motionEvent, this.t);
             }
             int a = a(motionEvent);
-            this.f52541i = a;
+            this.f52586i = a;
             if (a != -1 && this.a == 0) {
                 a(a, ((int) motionEvent.getX()) - this.m, ((int) motionEvent.getY()) - this.n);
             }
-            this.f52537e = false;
+            this.f52582e = false;
             this.v = true;
             this.x = 0;
-            this.f52542j = b(motionEvent);
+            this.f52587j = b(motionEvent);
             return true;
         }
         return invokeL.booleanValue;
@@ -181,11 +181,11 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
     @Override // android.view.GestureDetector.OnGestureListener
     public void onLongPress(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, motionEvent) == null) || this.f52541i == -1) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, motionEvent) == null) || this.f52586i == -1) {
             return;
         }
         this.w.performHapticFeedback(0);
-        a(this.f52541i, this.o - this.m, this.p - this.n);
+        a(this.f52586i, this.o - this.m, this.p - this.n);
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
@@ -199,19 +199,19 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
             int y2 = (int) motionEvent2.getY();
             int i2 = x2 - this.m;
             int i3 = y2 - this.n;
-            if (this.v && !this.q && (this.f52541i != -1 || this.f52542j != -1)) {
-                if (this.f52541i != -1) {
-                    if (this.a == 1 && Math.abs(y2 - y) > this.f52540h && this.f52534b) {
-                        a(this.f52541i, i2, i3);
-                    } else if (this.a != 0 && Math.abs(x2 - x) > this.f52540h && this.f52536d) {
-                        this.f52537e = true;
-                        a(this.f52542j, i2, i3);
+            if (this.v && !this.q && (this.f52586i != -1 || this.f52587j != -1)) {
+                if (this.f52586i != -1) {
+                    if (this.a == 1 && Math.abs(y2 - y) > this.f52585h && this.f52579b) {
+                        a(this.f52586i, i2, i3);
+                    } else if (this.a != 0 && Math.abs(x2 - x) > this.f52585h && this.f52581d) {
+                        this.f52582e = true;
+                        a(this.f52587j, i2, i3);
                     }
-                } else if (this.f52542j != -1) {
-                    if (Math.abs(x2 - x) > this.f52540h && this.f52536d) {
-                        this.f52537e = true;
-                        a(this.f52542j, i2, i3);
-                    } else if (Math.abs(y2 - y) > this.f52540h) {
+                } else if (this.f52587j != -1) {
+                    if (Math.abs(x2 - x) > this.f52585h && this.f52581d) {
+                        this.f52582e = true;
+                        a(this.f52587j, i2, i3);
+                    } else if (Math.abs(y2 - y) > this.f52585h) {
                         this.v = false;
                     }
                 }
@@ -234,7 +234,7 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, motionEvent)) == null) {
-            if (this.f52536d && this.f52535c == 0 && (i2 = this.k) != -1) {
+            if (this.f52581d && this.f52580c == 0 && (i2 = this.k) != -1) {
                 DragSortListView dragSortListView = this.w;
                 dragSortListView.removeItem(i2 - dragSortListView.getHeaderViewsCount());
                 return true;
@@ -256,14 +256,14 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, view, motionEvent)) == null) {
             if (this.w.isDragEnabled() && !this.w.listViewIntercepted()) {
-                this.f52538f.onTouchEvent(motionEvent);
-                if (this.f52536d && this.q && this.f52535c == 1) {
-                    this.f52539g.onTouchEvent(motionEvent);
+                this.f52583f.onTouchEvent(motionEvent);
+                if (this.f52581d && this.q && this.f52580c == 1) {
+                    this.f52584g.onTouchEvent(motionEvent);
                 }
                 int action = motionEvent.getAction() & 255;
                 if (action != 0) {
                     if (action == 1) {
-                        if (this.f52536d && this.f52537e) {
+                        if (this.f52581d && this.f52582e) {
                             int i2 = this.x;
                             if (i2 < 0) {
                                 i2 = -i2;
@@ -273,7 +273,7 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
                             }
                         }
                     }
-                    this.f52537e = false;
+                    this.f52582e = false;
                     this.q = false;
                 } else {
                     this.o = (int) motionEvent.getX();
@@ -288,7 +288,7 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f52535c = i2;
+            this.f52580c = i2;
         }
     }
 
@@ -314,14 +314,14 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f52536d = z;
+            this.f52581d = z;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f52534b = z;
+            this.f52579b = z;
         }
     }
 
@@ -329,7 +329,7 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            if (this.f52535c == 1) {
+            if (this.f52580c == 1) {
                 return d(motionEvent);
             }
             return -1;
@@ -341,8 +341,8 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(1048581, this, i2, i3, i4)) == null) {
-            int i5 = (!this.f52534b || this.f52537e) ? 0 : 12;
-            if (this.f52536d && this.f52537e) {
+            int i5 = (!this.f52579b || this.f52582e) ? 0 : 12;
+            if (this.f52581d && this.f52582e) {
                 i5 = i5 | 1 | 2;
             }
             DragSortListView dragSortListView = this.w;
@@ -356,7 +356,7 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
     @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.b, com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.i
     public void a(View view, Point point, Point point2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048579, this, view, point, point2) == null) && this.f52536d && this.f52537e) {
+        if ((interceptable == null || interceptable.invokeLLL(1048579, this, view, point, point2) == null) && this.f52581d && this.f52582e) {
             this.x = point.x;
         }
     }

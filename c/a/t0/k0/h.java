@@ -3,7 +3,7 @@ package c.a.t0.k0;
 import android.location.Location;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.s0.e1.q;
+import c.a.s0.d1.q;
 import c.a.t0.k0.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -27,33 +27,33 @@ public class h implements c.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static h f18678j;
+    public static h f18660j;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f18679b;
+    public c f18661b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f18680c;
+    public ArrayList<TransmitForumData> f18662c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f18681d;
+    public ArrayList<TransmitForumData> f18663d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18682e;
+    public boolean f18664e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f18683f;
+    public ArrayList<TransmitForumData> f18665f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f18684g;
+    public boolean f18666g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f18685h;
+    public int f18667h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f18686i;
+    public boolean f18668i;
 
     static {
         InterceptResult invokeClinit;
@@ -83,10 +83,10 @@ public class h implements c.a {
                 return;
             }
         }
-        this.f18680c = new ArrayList<>();
-        this.f18682e = false;
-        this.f18684g = false;
-        this.f18686i = false;
+        this.f18662c = new ArrayList<>();
+        this.f18664e = false;
+        this.f18666g = false;
+        this.f18668i = false;
         e();
     }
 
@@ -103,14 +103,14 @@ public class h implements c.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f18678j == null) {
+            if (f18660j == null) {
                 synchronized (h.class) {
-                    if (f18678j == null) {
-                        f18678j = new h();
+                    if (f18660j == null) {
+                        f18660j = new h();
                     }
                 }
             }
-            return f18678j;
+            return f18660j;
         }
         return (h) invokeV.objValue;
     }
@@ -121,15 +121,15 @@ public class h implements c.a {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             if (i2 == 1) {
                 if (z) {
-                    this.f18683f = arrayList;
+                    this.f18665f = arrayList;
                 }
-                this.f18684g = true;
+                this.f18666g = true;
             } else if (i2 == 2) {
                 if (z) {
-                    this.f18681d = arrayList;
-                    this.f18685h = i3;
+                    this.f18663d = arrayList;
+                    this.f18667h = i3;
                 }
-                this.f18682e = true;
+                this.f18664e = true;
             }
             j();
         }
@@ -146,7 +146,7 @@ public class h implements c.a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             g();
             f();
-            this.f18686i = false;
+            this.f18668i = false;
         }
     }
 
@@ -155,9 +155,9 @@ public class h implements c.a {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), c.class);
             if (runTask != null) {
-                this.f18679b = (c) runTask.getData();
+                this.f18661b = (c) runTask.getData();
             }
-            c cVar = this.f18679b;
+            c cVar = this.f18661b;
             if (cVar != null) {
                 cVar.a(this);
             }
@@ -182,7 +182,7 @@ public class h implements c.a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-            ArrayList<TransmitForumData> arrayList = this.f18680c;
+            ArrayList<TransmitForumData> arrayList = this.f18662c;
             if (arrayList == null) {
                 return false;
             }
@@ -201,12 +201,12 @@ public class h implements c.a {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f18686i = true;
+            this.f18668i = true;
             c cVar = this.a;
             if (cVar != null) {
                 cVar.b();
             }
-            c cVar2 = this.f18679b;
+            c cVar2 = this.f18661b;
             if (cVar2 != null) {
                 cVar2.b();
             }
@@ -216,32 +216,32 @@ public class h implements c.a {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.a == null || this.f18682e) {
-                if (this.f18679b == null || this.f18684g) {
-                    this.f18682e = false;
-                    this.f18684g = false;
-                    this.f18686i = false;
-                    this.f18680c.clear();
-                    if (!ListUtils.isEmpty(this.f18681d)) {
-                        Iterator<TransmitForumData> it = this.f18681d.iterator();
+            if (this.a == null || this.f18664e) {
+                if (this.f18661b == null || this.f18666g) {
+                    this.f18664e = false;
+                    this.f18666g = false;
+                    this.f18668i = false;
+                    this.f18662c.clear();
+                    if (!ListUtils.isEmpty(this.f18663d)) {
+                        Iterator<TransmitForumData> it = this.f18663d.iterator();
                         while (it.hasNext()) {
                             TransmitForumData next = it.next();
                             if (!h(next.forumId)) {
-                                this.f18680c.add(next);
+                                this.f18662c.add(next);
                             }
                         }
                     }
-                    if (!ListUtils.isEmpty(this.f18683f)) {
-                        Iterator<TransmitForumData> it2 = this.f18683f.iterator();
+                    if (!ListUtils.isEmpty(this.f18665f)) {
+                        Iterator<TransmitForumData> it2 = this.f18665f.iterator();
                         while (it2.hasNext()) {
                             TransmitForumData next2 = it2.next();
                             if (!h(next2.forumId)) {
-                                this.f18680c.add(next2);
+                                this.f18662c.add(next2);
                             }
                         }
                     }
-                    this.f18681d = null;
-                    this.f18683f = null;
+                    this.f18663d = null;
+                    this.f18665f = null;
                     k();
                 }
             }
@@ -251,7 +251,7 @@ public class h implements c.a {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.f18680c));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.f18662c));
         }
     }
 
@@ -263,12 +263,12 @@ public class h implements c.a {
         if (shareDialogConfig.showLocation) {
             shareDialogConfig.shareItem.B = d();
         }
-        if (n.C() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.f18686i && !shareDialogConfig.shareItem.f()) {
+        if (n.C() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.f18668i && !shareDialogConfig.shareItem.f()) {
             i();
         }
         shareDialogConfig.setIsShowTransmitShare(true);
-        shareDialogConfig.setTransmitForumList(this.f18680c);
-        shareDialogConfig.setPrivateThread(this.f18685h);
+        shareDialogConfig.setTransmitForumList(this.f18662c);
+        shareDialogConfig.setPrivateThread(this.f18667h);
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

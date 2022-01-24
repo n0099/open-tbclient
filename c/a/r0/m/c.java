@@ -18,13 +18,13 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f11348b;
+    public static final boolean f11490b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11349c;
+    public static final String f11491c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile c f11350d;
+    public static volatile c f11492d;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<c.a.r0.a.p.e.b, b> a;
 
@@ -41,8 +41,8 @@ public class c {
                 return;
             }
         }
-        f11348b = c.a.r0.a.k.a;
-        f11349c = c.class.getSimpleName();
+        f11490b = c.a.r0.a.k.a;
+        f11491c = c.class.getSimpleName();
     }
 
     public c() {
@@ -66,14 +66,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f11350d == null) {
+            if (f11492d == null) {
                 synchronized (c.class) {
-                    if (f11350d == null) {
-                        f11350d = new c();
+                    if (f11492d == null) {
+                        f11492d = new c();
                     }
                 }
             }
-            return f11350d;
+            return f11492d;
         }
         return (c) invokeV.objValue;
     }
@@ -82,8 +82,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
             synchronized (c.class) {
-                if (f11350d != null) {
-                    f11350d.c(bVar).h();
+                if (f11492d != null) {
+                    f11492d.c(bVar).h();
                 }
             }
         }
@@ -93,10 +93,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar) == null) {
             synchronized (c.class) {
-                if (f11350d != null) {
-                    f11350d.f(bVar);
+                if (f11492d != null) {
+                    f11492d.f(bVar);
                 } else {
-                    boolean z = f11348b;
+                    boolean z = f11490b;
                 }
             }
         }
@@ -106,8 +106,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, bVar) == null) {
             synchronized (c.class) {
-                if (f11350d != null) {
-                    f11350d.c(bVar).k();
+                if (f11492d != null) {
+                    f11492d.c(bVar).k();
                 }
             }
         }
@@ -118,30 +118,30 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, cVar)) == null) {
             c.a.r0.a.e0.d.i("map", "map create start");
-            if (q0.m(cVar.f5309g) != null && cVar.isValid()) {
-                c.a.r0.a.p.e.d A = c.a.r0.a.g1.f.U().A(cVar.f5309g);
+            if (q0.m(cVar.f5451g) != null && cVar.isValid()) {
+                c.a.r0.a.p.e.d A = c.a.r0.a.g1.f.U().A(cVar.f5451g);
                 if (!(A instanceof c.a.r0.a.p.e.b)) {
                     c.a.r0.a.e0.d.c("map", "WebViewManager is null");
                     return false;
                 }
                 b c2 = c((c.a.r0.a.p.e.b) A);
-                if (c2.d(cVar.f5308f) != null) {
-                    c.a.r0.a.e0.d.c("map", "map with id " + cVar.f5308f + " exist");
+                if (c2.d(cVar.f5450f) != null) {
+                    c.a.r0.a.e0.d.c("map", "map with id " + cVar.f5450f + " exist");
                     return false;
                 }
                 c.a.r0.m.o.c K = c.a.r0.m.o.c.K(context, cVar);
                 if (K == null) {
-                    c.a.r0.a.e0.d.c("map", "map with id " + cVar.f5308f + " model is invalid");
+                    c.a.r0.a.e0.d.c("map", "map with id " + cVar.f5450f + " model is invalid");
                     return false;
                 }
                 c.a.r0.a.c0.b.c insert = K.insert();
                 if (!insert.a()) {
-                    c.a.r0.a.e0.d.c("map", "map with id " + cVar.f5308f + " create fail: " + insert.f5313b);
+                    c.a.r0.a.e0.d.c("map", "map with id " + cVar.f5450f + " create fail: " + insert.f5455b);
                     return false;
                 } else if (c2.insert(K)) {
-                    c.a.r0.a.e0.d.i("map", "map with id " + cVar.f5308f + " init start");
+                    c.a.r0.a.e0.d.i("map", "map with id " + cVar.f5450f + " init start");
                     c.a.r0.m.l.f.f.a(context, K, cVar, c2);
-                    c.a.r0.a.e0.d.i("map", "map with id " + cVar.f5308f + " init end");
+                    c.a.r0.a.e0.d.i("map", "map with id " + cVar.f5450f + " init end");
                     c.a.r0.a.e0.d.i("map", "map create end");
                     return true;
                 } else {
@@ -193,21 +193,21 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
             c.a.r0.a.e0.d.i("map", "map remove start");
-            if (q0.m(cVar.f5309g) == null) {
+            if (q0.m(cVar.f5451g) == null) {
                 c.a.r0.a.e0.d.c("map", "webView is null or mapModel is null");
                 return false;
             }
-            c.a.r0.a.p.e.d A = c.a.r0.a.g1.f.U().A(cVar.f5309g);
+            c.a.r0.a.p.e.d A = c.a.r0.a.g1.f.U().A(cVar.f5451g);
             if (!(A instanceof c.a.r0.a.p.e.b)) {
                 c.a.r0.a.e0.d.c("map", "WebViewManager is null");
                 return false;
             }
             b c2 = c((c.a.r0.a.p.e.b) A);
-            c.a.r0.m.o.c d2 = c2.d(cVar.f5308f);
+            c.a.r0.m.o.c d2 = c2.d(cVar.f5450f);
             if (d2 == null) {
-                c.a.r0.a.e0.d.c("map", "remove map with id " + cVar.f5308f + " not exist");
+                c.a.r0.a.e0.d.c("map", "remove map with id " + cVar.f5450f + " not exist");
                 return false;
-            } else if (c2.j(cVar.f5308f)) {
+            } else if (c2.j(cVar.f5450f)) {
                 c.a.r0.a.e0.d.i("map", "map remove end");
                 if (c.a.r0.a.c0.d.a.a(cVar) == null) {
                     c.a.r0.a.c0.g.a.a("map", "remove with a null map component");
@@ -215,8 +215,8 @@ public class c {
                 c.a.r0.a.c0.b.c B = d2.B();
                 boolean a = B.a();
                 if (!a) {
-                    String str = f11349c;
-                    c.a.r0.a.e0.d.c(str, "map remove fail: " + B.f5313b);
+                    String str = f11491c;
+                    c.a.r0.a.e0.d.c(str, "map remove fail: " + B.f5455b);
                 }
                 return a;
             } else {
@@ -231,16 +231,16 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, cVar)) == null) {
             c.a.r0.a.e0.d.i("map", "map update start");
-            if (q0.m(cVar.f5309g) == null) {
+            if (q0.m(cVar.f5451g) == null) {
                 c.a.r0.a.e0.d.c("map", "webView is null or mapModel is null");
                 return false;
             }
-            c.a.r0.a.p.e.d A = c.a.r0.a.g1.f.U().A(cVar.f5309g);
+            c.a.r0.a.p.e.d A = c.a.r0.a.g1.f.U().A(cVar.f5451g);
             if (A != null && (A instanceof c.a.r0.a.p.e.b)) {
                 b c2 = c((c.a.r0.a.p.e.b) A);
-                c.a.r0.m.o.c d2 = c2.d(cVar.f5308f);
+                c.a.r0.m.o.c d2 = c2.d(cVar.f5450f);
                 if (d2 == null) {
-                    c.a.r0.a.e0.d.c("map", "remove map with id " + cVar.f5308f + " not exist");
+                    c.a.r0.a.e0.d.c("map", "remove map with id " + cVar.f5450f + " not exist");
                     return false;
                 }
                 d2.F();
@@ -252,8 +252,8 @@ public class c {
                 c.a.r0.a.c0.b.c update = d2.update((c.a.r0.m.o.c) cVar);
                 boolean a = update.a();
                 if (!a) {
-                    String str = f11349c;
-                    c.a.r0.a.e0.d.c(str, "map update fail: " + update.f5313b);
+                    String str = f11491c;
+                    c.a.r0.a.e0.d.c(str, "map update fail: " + update.f5455b);
                 }
                 return a;
             }

@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.s0.g1.n.e;
+import c.a.s0.f1.n.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -57,22 +57,22 @@ public class OriginalThreadCardView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f42334e;
+    public Context f42355e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f42335f;
+    public TextView f42356f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f42336g;
+    public TbImageView f42357g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f42337h;
+    public ImageView f42358h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f42338i;
+    public ImageView f42359i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LinearLayout f42339j;
+    public LinearLayout f42360j;
     public TextView k;
     public RankStarView l;
     public TextView m;
@@ -90,7 +90,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OriginalThreadCardView f42340e;
+        public final /* synthetic */ OriginalThreadCardView f42361e;
 
         public a(OriginalThreadCardView originalThreadCardView) {
             Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class OriginalThreadCardView extends RelativeLayout {
                     return;
                 }
             }
-            this.f42340e = originalThreadCardView;
+            this.f42361e = originalThreadCardView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -116,14 +116,14 @@ public class OriginalThreadCardView extends RelativeLayout {
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view != null && (view.getTag() instanceof OriginalThreadInfo)) {
                 OriginalThreadInfo originalThreadInfo = (OriginalThreadInfo) view.getTag();
                 if (originalThreadInfo.a == 4) {
-                    this.f42340e.m(originalThreadInfo);
+                    this.f42361e.m(originalThreadInfo);
                 } else if (originalThreadInfo.k == 40) {
-                    this.f42340e.l(originalThreadInfo);
+                    this.f42361e.l(originalThreadInfo);
                 } else {
-                    this.f42340e.k(originalThreadInfo);
+                    this.f42361e.k(originalThreadInfo);
                 }
-                if (this.f42340e.p != null) {
-                    this.f42340e.p.a(originalThreadInfo);
+                if (this.f42361e.p != null) {
+                    this.f42361e.p.a(originalThreadInfo);
                 }
             }
         }
@@ -181,34 +181,34 @@ public class OriginalThreadCardView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, itemData) == null) {
             if (itemData == null) {
-                this.f42339j.setVisibility(8);
+                this.f42360j.setVisibility(8);
                 setPadding(0, 0, 0, 0);
                 return;
             }
-            this.f42339j.setVisibility(0);
+            this.f42360j.setVisibility(0);
             int i2 = s;
             setPadding(i2, i2, i2, t);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f42339j.getLayoutParams();
-            if (this.f42336g.getVisibility() == 0) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f42360j.getLayoutParams();
+            if (this.f42357g.getVisibility() == 0) {
                 layoutParams.addRule(3, R.id.imageview_thread_pic);
             } else {
                 layoutParams.addRule(3, R.id.textview_thread_abstract);
             }
-            this.f42339j.setLayoutParams(layoutParams);
+            this.f42360j.setLayoutParams(layoutParams);
             this.l.setStarSpacing(r);
             int i3 = v;
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f42336g.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f42357g.getLayoutParams();
             layoutParams2.width = i3;
             layoutParams2.height = i3;
-            this.f42336g.setLayoutParams(layoutParams2);
-            this.f42338i.setLayoutParams(layoutParams2);
+            this.f42357g.setLayoutParams(layoutParams2);
+            this.f42359i.setLayoutParams(layoutParams2);
             int i4 = u;
-            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f42337h.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f42358h.getLayoutParams();
             layoutParams3.leftMargin = (i3 - i4) / 2;
-            this.f42337h.setLayoutParams(layoutParams3);
-            RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.f42335f.getLayoutParams();
+            this.f42358h.setLayoutParams(layoutParams3);
+            RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.f42356f.getLayoutParams();
             layoutParams4.height = i3;
-            this.f42335f.setLayoutParams(layoutParams4);
+            this.f42356f.setLayoutParams(layoutParams4);
         }
     }
 
@@ -227,15 +227,15 @@ public class OriginalThreadCardView extends RelativeLayout {
                 } else {
                     this.m.setText(R.string.frs_evaluate_exception);
                 }
-                if (this.f42336g.getVisibility() == 8) {
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f42335f.getLayoutParams();
+                if (this.f42357g.getVisibility() == 8) {
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f42356f.getLayoutParams();
                     layoutParams.height = -2;
-                    this.f42335f.setLayoutParams(layoutParams);
+                    this.f42356f.setLayoutParams(layoutParams);
                 }
             }
             ItemStarData itemStarData = shareInfo.itemStarData;
             if (itemStarData != null) {
-                this.f42335f.setText(i(shareInfo.showText, itemStarData), TextView.BufferType.SPANNABLE);
+                this.f42356f.setText(i(shareInfo.showText, itemStarData), TextView.BufferType.SPANNABLE);
             }
         }
     }
@@ -248,50 +248,50 @@ public class OriginalThreadCardView extends RelativeLayout {
         int i2 = originalThreadInfo.a;
         if (i2 == 1) {
             this.o = 0;
-            this.f42336g.setDefaultResource(R.color.CAM_X0204);
+            this.f42357g.setDefaultResource(R.color.CAM_X0204);
             if (this.usePlaceHolder) {
-                this.f42336g.setPlaceHolder(2);
+                this.f42357g.setPlaceHolder(2);
             } else {
-                this.f42336g.setDefaultBgResource(R.color.CAM_X0209);
+                this.f42357g.setDefaultBgResource(R.color.CAM_X0209);
             }
-            this.f42336g.setVisibility(0);
-            this.f42336g.startLoad(originalThreadInfo.f40129c, 10, false);
+            this.f42357g.setVisibility(0);
+            this.f42357g.startLoad(originalThreadInfo.f40157c, 10, false);
         } else if (i2 == 2) {
             this.o = 0;
-            this.f42336g.setDefaultResource(R.drawable.icon_card_url_n);
-            this.f42336g.setDefaultBgResource(R.color.CAM_X0209);
-            this.f42336g.setVisibility(0);
-            this.f42336g.startLoad(originalThreadInfo.f40129c, 10, false);
+            this.f42357g.setDefaultResource(R.drawable.icon_card_url_n);
+            this.f42357g.setDefaultBgResource(R.color.CAM_X0209);
+            this.f42357g.setVisibility(0);
+            this.f42357g.startLoad(originalThreadInfo.f40157c, 10, false);
         } else if (i2 == 3) {
             this.o = R.drawable.icon_share_play_n;
-            this.f42336g.setDefaultResource(R.color.CAM_X0204);
-            this.f42336g.setDefaultBgResource(R.color.CAM_X0209);
-            this.f42336g.setVisibility(0);
-            this.f42336g.startLoad(originalThreadInfo.f40129c, 10, false);
+            this.f42357g.setDefaultResource(R.color.CAM_X0204);
+            this.f42357g.setDefaultBgResource(R.color.CAM_X0209);
+            this.f42357g.setVisibility(0);
+            this.f42357g.startLoad(originalThreadInfo.f40157c, 10, false);
         } else if (i2 != 4) {
             this.o = 0;
-            this.f42336g.setVisibility(8);
+            this.f42357g.setVisibility(8);
         } else {
             this.o = R.drawable.icon_share_card_live;
-            this.f42336g.setDefaultResource(R.color.CAM_X0204);
-            this.f42336g.setDefaultBgResource(R.color.CAM_X0209);
-            this.f42336g.setVisibility(0);
-            this.f42336g.startLoad(originalThreadInfo.f40129c, 10, false);
+            this.f42357g.setDefaultResource(R.color.CAM_X0204);
+            this.f42357g.setDefaultBgResource(R.color.CAM_X0209);
+            this.f42357g.setVisibility(0);
+            this.f42357g.startLoad(originalThreadInfo.f40157c, 10, false);
         }
         if (this.o != 0) {
-            this.f42337h.setVisibility(0);
-            this.f42338i.setVisibility(0);
-            SkinManager.setImageResource(this.f42337h, this.o);
+            this.f42358h.setVisibility(0);
+            this.f42359i.setVisibility(0);
+            SkinManager.setImageResource(this.f42358h, this.o);
         } else {
-            this.f42337h.setVisibility(8);
-            this.f42338i.setVisibility(8);
+            this.f42358h.setVisibility(8);
+            this.f42359i.setVisibility(8);
         }
         SpannableString b2 = originalThreadInfo.b();
-        this.f42335f.setText((b2 == null || b2.length() == 0) ? originalThreadInfo.f40128b : b2);
+        this.f42356f.setText((b2 == null || b2.length() == 0) ? originalThreadInfo.f40156b : b2);
         if (b2 != null) {
             TiePlusEventController.tryExposeTiePlusLinkEvent(originalThreadInfo.f());
         }
-        g(originalThreadInfo.G, originalThreadInfo.f40132f, originalThreadInfo.f40131e);
+        g(originalThreadInfo.G, originalThreadInfo.f40160f, originalThreadInfo.f40159e);
         setTag(originalThreadInfo);
     }
 
@@ -313,30 +313,30 @@ public class OriginalThreadCardView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, context) == null) || context == null) {
             return;
         }
-        this.f42334e = context;
+        this.f42355e = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.card_original_pb_layout, (ViewGroup) this, true);
-        this.f42335f = (TextView) inflate.findViewById(R.id.textview_thread_abstract);
-        this.f42336g = (TbImageView) inflate.findViewById(R.id.imageview_thread_pic);
-        this.f42337h = (ImageView) inflate.findViewById(R.id.icon_video_type);
-        this.f42338i = (ImageView) findViewById(R.id.thread_pic_mask);
-        this.f42336g.setLongIconSupport(false);
-        this.f42336g.setGifIconSupport(false);
-        this.f42336g.setRadius(n.f(context, R.dimen.tbds10));
-        this.f42336g.setConrers(5);
+        this.f42356f = (TextView) inflate.findViewById(R.id.textview_thread_abstract);
+        this.f42357g = (TbImageView) inflate.findViewById(R.id.imageview_thread_pic);
+        this.f42358h = (ImageView) inflate.findViewById(R.id.icon_video_type);
+        this.f42359i = (ImageView) findViewById(R.id.thread_pic_mask);
+        this.f42357g.setLongIconSupport(false);
+        this.f42357g.setGifIconSupport(false);
+        this.f42357g.setRadius(n.f(context, R.dimen.tbds10));
+        this.f42357g.setConrers(5);
         int k = (((n.k(context) - (n.f(context, R.dimen.tbds44) * 2)) - (n.f(getContext(), R.dimen.tbds26) * 2)) - (n.f(getContext(), R.dimen.tbds10) * 4)) / 5;
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f42336g.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f42357g.getLayoutParams();
         layoutParams.width = k;
         layoutParams.height = k;
-        this.f42336g.setLayoutParams(layoutParams);
-        this.f42338i.setLayoutParams(layoutParams);
+        this.f42357g.setLayoutParams(layoutParams);
+        this.f42359i.setLayoutParams(layoutParams);
         int f2 = n.f(context, R.dimen.tbds78);
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f42337h.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f42358h.getLayoutParams();
         layoutParams2.leftMargin = (k - f2) / 2;
-        this.f42337h.setLayoutParams(layoutParams2);
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f42335f.getLayoutParams();
+        this.f42358h.setLayoutParams(layoutParams2);
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f42356f.getLayoutParams();
         layoutParams3.height = k;
-        this.f42335f.setLayoutParams(layoutParams3);
-        this.f42339j = (LinearLayout) findViewById(R.id.add_item);
+        this.f42356f.setLayoutParams(layoutParams3);
+        this.f42360j = (LinearLayout) findViewById(R.id.add_item);
         TextView textView = (TextView) findViewById(R.id.item_title);
         this.k = textView;
         textView.setMaxWidth(n.p(context)[0] / 2);
@@ -362,16 +362,16 @@ public class OriginalThreadCardView extends RelativeLayout {
     public final void j(OriginalThreadInfo originalThreadInfo) {
         AlaInfoData alaInfoData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, originalThreadInfo) == null) || originalThreadInfo == null || (alaInfoData = originalThreadInfo.f40136j) == null || alaInfoData.live_status != 1) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, originalThreadInfo) == null) || originalThreadInfo == null || (alaInfoData = originalThreadInfo.f40164j) == null || alaInfoData.live_status != 1) {
             return;
         }
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(originalThreadInfo.f40136j);
-        AlaUserInfoData alaUserInfoData = originalThreadInfo.f40136j.user_info;
+        alaLiveInfoCoreData.fillWithInfoData(originalThreadInfo.f40164j);
+        AlaUserInfoData alaUserInfoData = originalThreadInfo.f40164j.user_info;
         if (alaUserInfoData != null) {
             alaLiveInfoCoreData.userName = alaUserInfoData.user_name;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f42334e, alaLiveInfoCoreData, null, "", false, "")));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f42355e, alaLiveInfoCoreData, null, "", false, "")));
     }
 
     public final void k(OriginalThreadInfo originalThreadInfo) {
@@ -380,17 +380,17 @@ public class OriginalThreadCardView extends RelativeLayout {
             return;
         }
         if (ThreadCardUtils.isUgcThreadType(originalThreadInfo.p)) {
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f42334e);
-            pbActivityConfig.createNormalCfg(originalThreadInfo.f40132f, null, null);
-            pbActivityConfig.setForumId(String.valueOf(originalThreadInfo.f40131e));
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f42355e);
+            pbActivityConfig.createNormalCfg(originalThreadInfo.f40160f, null, null);
+            pbActivityConfig.setForumId(String.valueOf(originalThreadInfo.f40159e));
             pbActivityConfig.setStartFrom(this.sourceFormForPb);
             pbActivityConfig.setBjhData(originalThreadInfo.p);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
             return;
         }
-        PbActivityConfig pbActivityConfig2 = new PbActivityConfig(this.f42334e);
-        pbActivityConfig2.createNormalCfg(originalThreadInfo.f40132f, originalThreadInfo.n, null);
-        pbActivityConfig2.setForumId(String.valueOf(originalThreadInfo.f40131e));
+        PbActivityConfig pbActivityConfig2 = new PbActivityConfig(this.f42355e);
+        pbActivityConfig2.createNormalCfg(originalThreadInfo.f40160f, originalThreadInfo.n, null);
+        pbActivityConfig2.setForumId(String.valueOf(originalThreadInfo.f40159e));
         pbActivityConfig2.setStartFrom(this.sourceFormForPb);
         pbActivityConfig2.setBjhData(originalThreadInfo.p);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig2));
@@ -403,9 +403,9 @@ public class OriginalThreadCardView extends RelativeLayout {
         }
         ArrayList arrayList = new ArrayList();
         VideoItemData videoItemData = new VideoItemData();
-        videoItemData.thread_id = originalThreadInfo.f40132f;
+        videoItemData.thread_id = originalThreadInfo.f40160f;
         arrayList.add(videoItemData);
-        VideoRecommentPlayActivityConfig videoRecommentPlayActivityConfig = new VideoRecommentPlayActivityConfig(this.f42334e, arrayList, null, this.sourceFromForVideoRecommend);
+        VideoRecommentPlayActivityConfig videoRecommentPlayActivityConfig = new VideoRecommentPlayActivityConfig(this.f42355e, arrayList, null, this.sourceFromForVideoRecommend);
         videoRecommentPlayActivityConfig.setParamIsVertail(true);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
     }
@@ -417,7 +417,7 @@ public class OriginalThreadCardView extends RelativeLayout {
             if (i2 == 49 || i2 == 69) {
                 j(originalThreadInfo);
             } else if (i2 == 60) {
-                AlaInfoData alaInfoData = originalThreadInfo.f40136j;
+                AlaInfoData alaInfoData = originalThreadInfo.f40164j;
                 if (alaInfoData != null) {
                     if (alaInfoData.live_status == 1) {
                         j(originalThreadInfo);
@@ -446,16 +446,16 @@ public class OriginalThreadCardView extends RelativeLayout {
             return;
         }
         this.q = skinType;
-        SkinManager.setViewTextColor(this.f42335f, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f42356f, R.color.CAM_X0107);
         int i2 = this.o;
         if (i2 != 0) {
-            SkinManager.setImageResource(this.f42337h, i2);
+            SkinManager.setImageResource(this.f42358h, i2);
         }
-        setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(n.f(this.f42334e, R.dimen.tbds10), SkinManager.getColor(R.color.CAM_X0206)));
-        this.f42339j.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(n.f(this.f42334e, R.dimen.tbds10), SkinManager.getColor(R.color.CAM_X0205)));
+        setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(n.f(this.f42355e, R.dimen.tbds10), SkinManager.getColor(R.color.CAM_X0206)));
+        this.f42360j.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(n.f(this.f42355e, R.dimen.tbds10), SkinManager.getColor(R.color.CAM_X0205)));
         this.n.onChangeSkinType(skinType);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(this.f42335f, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.f42356f, R.color.CAM_X0105, 1);
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0109, 1);
         this.l.updateStarDrawable();
     }
@@ -478,7 +478,7 @@ public class OriginalThreadCardView extends RelativeLayout {
     public void setReadState(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            SkinManager.setViewTextColor(this.f42335f, z ? R.color.CAM_X0109 : R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f42356f, z ? R.color.CAM_X0109 : R.color.CAM_X0107);
         }
     }
 
@@ -552,45 +552,45 @@ public class OriginalThreadCardView extends RelativeLayout {
         int i2 = shareInfo.showType;
         if (i2 == 1) {
             this.o = 0;
-            this.f42336g.setDefaultResource(R.color.CAM_X0204);
+            this.f42357g.setDefaultResource(R.color.CAM_X0204);
             if (this.usePlaceHolder) {
-                this.f42336g.setPlaceHolder(2);
+                this.f42357g.setPlaceHolder(2);
             } else {
-                this.f42336g.setDefaultBgResource(R.color.CAM_X0209);
+                this.f42357g.setDefaultBgResource(R.color.CAM_X0209);
             }
-            this.f42336g.setVisibility(0);
-            this.f42336g.startLoad(shareInfo.showPicUrl, 10, false);
+            this.f42357g.setVisibility(0);
+            this.f42357g.startLoad(shareInfo.showPicUrl, 10, false);
         } else if (i2 == 2) {
             this.o = 0;
-            this.f42336g.setDefaultResource(R.drawable.icon_card_url_n);
-            this.f42336g.setDefaultBgResource(R.color.CAM_X0209);
-            this.f42336g.setVisibility(0);
-            this.f42336g.startLoad(shareInfo.showPicUrl, 10, false);
+            this.f42357g.setDefaultResource(R.drawable.icon_card_url_n);
+            this.f42357g.setDefaultBgResource(R.color.CAM_X0209);
+            this.f42357g.setVisibility(0);
+            this.f42357g.startLoad(shareInfo.showPicUrl, 10, false);
         } else if (i2 == 3) {
             this.o = R.drawable.icon_share_play_n;
-            this.f42336g.setDefaultResource(R.color.CAM_X0204);
-            this.f42336g.setDefaultBgResource(R.color.CAM_X0209);
-            this.f42336g.setVisibility(0);
-            this.f42336g.startLoad(shareInfo.showPicUrl, 10, false);
+            this.f42357g.setDefaultResource(R.color.CAM_X0204);
+            this.f42357g.setDefaultBgResource(R.color.CAM_X0209);
+            this.f42357g.setVisibility(0);
+            this.f42357g.startLoad(shareInfo.showPicUrl, 10, false);
         } else if (i2 != 4) {
             this.o = 0;
-            this.f42336g.setVisibility(8);
+            this.f42357g.setVisibility(8);
         } else {
             this.o = R.drawable.icon_share_card_live;
-            this.f42336g.setDefaultResource(R.color.CAM_X0204);
-            this.f42336g.setDefaultBgResource(R.color.CAM_X0209);
-            this.f42336g.setVisibility(0);
-            this.f42336g.startLoad(shareInfo.showPicUrl, 10, false);
+            this.f42357g.setDefaultResource(R.color.CAM_X0204);
+            this.f42357g.setDefaultBgResource(R.color.CAM_X0209);
+            this.f42357g.setVisibility(0);
+            this.f42357g.startLoad(shareInfo.showPicUrl, 10, false);
         }
         if (this.o != 0) {
-            this.f42337h.setVisibility(0);
-            this.f42338i.setVisibility(0);
-            SkinManager.setImageResource(this.f42337h, this.o);
+            this.f42358h.setVisibility(0);
+            this.f42359i.setVisibility(0);
+            SkinManager.setImageResource(this.f42358h, this.o);
         } else {
-            this.f42337h.setVisibility(8);
-            this.f42338i.setVisibility(8);
+            this.f42358h.setVisibility(8);
+            this.f42359i.setVisibility(8);
         }
-        this.f42335f.setText(shareInfo.showText);
+        this.f42356f.setText(shareInfo.showText);
         f(shareInfo);
         this.n.setVisibility(8);
         setTag(shareInfo);

@@ -10,8 +10,8 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.g1.n.f;
-import c.a.t0.d1.c2.f.c;
+import c.a.s0.f1.n.f;
+import c.a.t0.e1.c2.f.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -33,14 +33,14 @@ import java.util.List;
 public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity> implements Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.t0.d1.c2.b.a callback;
+    public c.a.t0.e1.c2.b.a callback;
     public String mFrom;
     public ForumRulesShowModel mModel;
     public c mView;
     public CustomMessageListener richTextIntentClickListener;
 
     /* loaded from: classes12.dex */
-    public class a implements c.a.t0.d1.c2.b.a {
+    public class a implements c.a.t0.e1.c2.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRulesShowActivity a;
@@ -63,7 +63,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             this.a = forumRulesShowActivity;
         }
 
-        @Override // c.a.t0.d1.c2.b.a
+        @Override // c.a.t0.e1.c2.b.a
         public void a() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.mView == null) {
@@ -75,8 +75,8 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             forumRulesShowActivity.showNetRefreshView(forumRulesShowActivity.mView.i(), "");
         }
 
-        @Override // c.a.t0.d1.c2.b.a
-        public void b(c.a.t0.d1.c2.c.a aVar) {
+        @Override // c.a.t0.e1.c2.b.a
+        public void b(c.a.t0.e1.c2.c.a aVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || this.a.mView == null) {
                 return;
@@ -84,8 +84,8 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             this.a.mView.e(aVar);
         }
 
-        @Override // c.a.t0.d1.c2.b.a
-        public void c(List<c.a.t0.d1.c2.c.c> list) {
+        @Override // c.a.t0.e1.c2.b.a
+        public void c(List<c.a.t0.e1.c2.c.c> list) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || this.a.mView == null) {
                 return;
@@ -93,7 +93,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             this.a.mView.f(list);
         }
 
-        @Override // c.a.t0.d1.c2.b.a
+        @Override // c.a.t0.e1.c2.b.a
         public void d(boolean z, String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZL(1048579, this, z, str) == null) || this.a.mView == null) {
@@ -106,8 +106,8 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
         }
 
-        @Override // c.a.t0.d1.c2.b.a
-        public void e(c.a.t0.d1.c2.c.b bVar) {
+        @Override // c.a.t0.e1.c2.b.a
+        public void e(c.a.t0.e1.c2.c.b bVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || this.a.mView == null) {
                 return;
@@ -115,7 +115,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             this.a.mView.d(bVar);
         }
 
-        @Override // c.a.t0.d1.c2.b.a
+        @Override // c.a.t0.e1.c2.b.a
         public void f(String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.a.mView == null) {
@@ -124,7 +124,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             this.a.mView.g(str);
         }
 
-        @Override // c.a.t0.d1.c2.b.a
+        @Override // c.a.t0.e1.c2.b.a
         public void finish() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a.mView == null) {
@@ -171,7 +171,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof f.a)) {
                 f.a aVar = (f.a) customResponsedMessage.getData();
-                f.b(this.a.getPageContext(), aVar.a, aVar.f12675b, aVar.f12676c);
+                f.b(this.a.getPageContext(), aVar.a, aVar.f12786b, aVar.f12787c);
             }
         }
     }

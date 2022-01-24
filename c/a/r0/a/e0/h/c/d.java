@@ -25,7 +25,7 @@ public class d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final boolean f5766b;
+        public static final boolean f5908b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,7 +41,7 @@ public class d {
                     return;
                 }
             }
-            f5766b = k.a;
+            f5908b = k.a;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,7 +75,7 @@ public class d {
                 try {
                     hashMap.put("Sec-WebSocket-Accept", c.a.r0.a.e0.h.d.a.g(this.a.a.get("sec-websocket-key")));
                 } catch (NoSuchAlgorithmException unused) {
-                    boolean z = f5766b;
+                    boolean z = f5908b;
                 }
                 return hashMap;
             }
@@ -96,7 +96,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5767b;
+        public String f5909b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(c.a aVar) {
@@ -123,10 +123,10 @@ public class d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f5767b == null) {
-                    this.f5767b = new c.a.r0.a.e0.h.b().toString();
+                if (this.f5909b == null) {
+                    this.f5909b = new c.a.r0.a.e0.h.b().toString();
                 }
-                return this.f5767b;
+                return this.f5909b;
             }
             return (String) invokeV.objValue;
         }
@@ -162,10 +162,10 @@ public class d {
                 return null;
             }
             if (c.a.r0.a.e0.h.d.a.f(aVar.a)) {
-                aVar.f5765e = true;
+                aVar.f5907e = true;
                 return new a(aVar);
             }
-            aVar.f5765e = false;
+            aVar.f5907e = false;
             return new b(aVar);
         }
         return (c.b) invokeL.objValue;

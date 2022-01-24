@@ -18,19 +18,19 @@ public class d {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f14893b;
+    public BdTypeListView f15033b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f14894c;
+    public List<c.a.d.n.e.a> f15034c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<n> f14895d;
+    public List<n> f15035d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.a0.l.e.a f14896e;
+    public c.a.t0.a0.l.e.a f15036e;
 
     /* renamed from: f  reason: collision with root package name */
-    public j f14897f;
+    public j f15037f;
 
     public d(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, c.a.t0.a0.l.e.a aVar) {
         Interceptable interceptable = $ic;
@@ -48,10 +48,10 @@ public class d {
             }
         }
         this.a = tbPageContext;
-        this.f14893b = bdTypeListView;
-        this.f14894c = new ArrayList();
-        this.f14895d = new ArrayList();
-        this.f14896e = aVar;
+        this.f15033b = bdTypeListView;
+        this.f15034c = new ArrayList();
+        this.f15035d = new ArrayList();
+        this.f15036e = aVar;
         a();
     }
 
@@ -66,38 +66,38 @@ public class d {
             i iVar = new i(this.a);
             e eVar = new e(this.a);
             b bVar = new b(this.a);
-            this.f14897f = new j(this.a);
-            l lVar = new l(this.a, this.f14896e);
+            this.f15037f = new j(this.a);
+            l lVar = new l(this.a, this.f15036e);
             k kVar = new k(this.a);
-            this.f14894c.add(cVar);
-            this.f14894c.add(this.f14897f);
-            this.f14894c.add(gVar);
-            this.f14894c.add(hVar);
-            this.f14894c.add(aVar);
-            this.f14894c.add(fVar);
-            this.f14894c.add(iVar);
-            this.f14894c.add(eVar);
-            this.f14894c.add(bVar);
-            this.f14894c.add(lVar);
-            this.f14894c.add(kVar);
-            this.f14893b.addAdapters(this.f14894c);
+            this.f15034c.add(cVar);
+            this.f15034c.add(this.f15037f);
+            this.f15034c.add(gVar);
+            this.f15034c.add(hVar);
+            this.f15034c.add(aVar);
+            this.f15034c.add(fVar);
+            this.f15034c.add(iVar);
+            this.f15034c.add(eVar);
+            this.f15034c.add(bVar);
+            this.f15034c.add(lVar);
+            this.f15034c.add(kVar);
+            this.f15033b.addAdapters(this.f15034c);
         }
     }
 
     public void b(List<n> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f14893b == null || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f15033b == null || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f14895d.clear();
-        this.f14895d.addAll(list);
-        this.f14893b.setData(this.f14895d);
+        this.f15035d.clear();
+        this.f15035d.addAll(list);
+        this.f15033b.setData(this.f15035d);
     }
 
     public void c(String str) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (jVar = this.f14897f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (jVar = this.f15037f) == null) {
             return;
         }
         jVar.k0(str);
@@ -106,7 +106,7 @@ public class d {
     public void d(String str) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (jVar = this.f14897f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (jVar = this.f15037f) == null) {
             return;
         }
         jVar.a(str);
@@ -115,7 +115,7 @@ public class d {
     public void e(String str) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (jVar = this.f14897f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (jVar = this.f15037f) == null) {
             return;
         }
         jVar.l0(str);
@@ -124,7 +124,7 @@ public class d {
     public void f(boolean z) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (jVar = this.f14897f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (jVar = this.f15037f) == null) {
             return;
         }
         jVar.m0(z);

@@ -51,13 +51,13 @@ public final class BuoyComponent$taskSignCheck$1 extends Lambda implements Funct
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String singleKey = ((TaskInfo) this.$tempCurTaskInfo.element).getSingleKey();
-            taskInfo = this.this$0.f32940h;
+            taskInfo = this.this$0.f32968h;
             if (!Intrinsics.areEqual(singleKey, taskInfo.getSingleKey())) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("taskSignCheck fail:curTaskInfo:");
                 sb.append((TaskInfo) this.$tempCurTaskInfo.element);
                 sb.append(" bindTaskInfo:");
-                taskInfo2 = this.this$0.f32940h;
+                taskInfo2 = this.this$0.f32968h;
                 sb.append(taskInfo2);
                 return sb.toString();
             }

@@ -11,7 +11,7 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.StringTokenizer;
 import org.aspectj.lang.reflect.AjTypeSystem;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class StringToType {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

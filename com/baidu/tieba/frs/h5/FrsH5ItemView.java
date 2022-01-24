@@ -8,8 +8,8 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import c.a.d.f.p.n;
-import c.a.t0.d1.d1;
-import c.a.t0.d1.g1;
+import c.a.t0.e1.d1;
+import c.a.t0.e1.g1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
@@ -24,22 +24,22 @@ public class FrsH5ItemView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f43512e;
+    public boolean f43534e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f43513f;
+    public boolean f43535f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final BaseWebView.f f43514g;
+    public final BaseWebView.f f43536g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final BaseWebView.e f43515h;
+    public final BaseWebView.e f43537h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final BaseWebView.h f43516i;
+    public final BaseWebView.h f43538i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final BaseWebView f43517j;
+    public final BaseWebView f43539j;
     public final LinearLayout k;
     public final View l;
     public boolean m;
@@ -50,7 +50,7 @@ public class FrsH5ItemView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsH5ItemView f43518e;
+        public final /* synthetic */ FrsH5ItemView f43540e;
 
         public a(FrsH5ItemView frsH5ItemView) {
             Interceptable interceptable = $ic;
@@ -67,20 +67,20 @@ public class FrsH5ItemView extends FrameLayout {
                     return;
                 }
             }
-            this.f43518e = frsH5ItemView;
+            this.f43540e = frsH5ItemView;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
         public void a(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                if (!this.f43518e.f43512e) {
-                    this.f43518e.j();
-                    ViewGroup.LayoutParams layoutParams = this.f43518e.getLayoutParams();
+                if (!this.f43540e.f43534e) {
+                    this.f43540e.j();
+                    ViewGroup.LayoutParams layoutParams = this.f43540e.getLayoutParams();
                     layoutParams.height = (n.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d1.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d1.ds90);
-                    this.f43518e.setLayoutParams(layoutParams);
+                    this.f43540e.setLayoutParams(layoutParams);
                 }
-                this.f43518e.m = false;
+                this.f43540e.m = false;
             }
         }
     }
@@ -91,7 +91,7 @@ public class FrsH5ItemView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsH5ItemView f43519e;
+        public final /* synthetic */ FrsH5ItemView f43541e;
 
         public b(FrsH5ItemView frsH5ItemView) {
             Interceptable interceptable = $ic;
@@ -108,21 +108,21 @@ public class FrsH5ItemView extends FrameLayout {
                     return;
                 }
             }
-            this.f43519e = frsH5ItemView;
+            this.f43541e = frsH5ItemView;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                this.f43519e.f43513f = false;
-                if (!this.f43519e.m) {
-                    this.f43519e.i();
-                    ViewGroup.LayoutParams layoutParams = this.f43519e.getLayoutParams();
+                this.f43541e.f43535f = false;
+                if (!this.f43541e.m) {
+                    this.f43541e.i();
+                    ViewGroup.LayoutParams layoutParams = this.f43541e.getLayoutParams();
                     layoutParams.height = -2;
-                    this.f43519e.setLayoutParams(layoutParams);
+                    this.f43541e.setLayoutParams(layoutParams);
                 }
-                this.f43519e.f43512e = true;
+                this.f43541e.f43534e = true;
             }
         }
     }
@@ -179,19 +179,19 @@ public class FrsH5ItemView extends FrameLayout {
                 return;
             }
         }
-        this.f43512e = false;
-        this.f43513f = false;
-        this.f43514g = new a(this);
-        this.f43515h = new b(this);
-        this.f43516i = new c(this);
+        this.f43534e = false;
+        this.f43535f = false;
+        this.f43536g = new a(this);
+        this.f43537h = new b(this);
+        this.f43538i = new c(this);
         this.m = false;
         setLayoutParams(new ViewGroup.LayoutParams(-1, (n.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d1.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d1.ds90)));
         BaseWebView baseWebView = new BaseWebView(TbadkCoreApplication.getInst());
-        this.f43517j = baseWebView;
-        baseWebView.setOnPageStartedListener(this.f43514g);
-        this.f43517j.setOnPageFinishedListener(this.f43515h);
-        this.f43517j.setOnReceivedErrorListener(this.f43516i);
-        addView(this.f43517j);
+        this.f43539j = baseWebView;
+        baseWebView.setOnPageStartedListener(this.f43536g);
+        this.f43539j.setOnPageFinishedListener(this.f43537h);
+        this.f43539j.setOnReceivedErrorListener(this.f43538i);
+        addView(this.f43539j);
         View inflate = LayoutInflater.from(context).inflate(g1.frs_no_list_item_view, (ViewGroup) this, false);
         this.l = inflate;
         inflate.setVisibility(8);
@@ -206,13 +206,13 @@ public class FrsH5ItemView extends FrameLayout {
     public BaseWebView getWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43517j : (BaseWebView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43539j : (BaseWebView) invokeV.objValue;
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f43517j.setVisibility(0);
+            this.f43539j.setVisibility(0);
             this.k.setVisibility(8);
             this.l.setVisibility(8);
         }
@@ -221,7 +221,7 @@ public class FrsH5ItemView extends FrameLayout {
     public boolean isWebViewLoading() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43513f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43535f : invokeV.booleanValue;
     }
 
     public final void j() {
@@ -238,7 +238,7 @@ public class FrsH5ItemView extends FrameLayout {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             layoutParams.height = (n.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d1.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d1.ds90);
             setLayoutParams(layoutParams);
-            this.f43517j.setVisibility(8);
+            this.f43539j.setVisibility(8);
             this.k.setVisibility(8);
             this.l.setVisibility(0);
         }
@@ -247,7 +247,7 @@ public class FrsH5ItemView extends FrameLayout {
     public void setWebViewLoading(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f43513f = z;
+            this.f43535f = z;
         }
     }
 }

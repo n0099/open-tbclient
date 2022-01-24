@@ -21,16 +21,16 @@ public class b implements c.a.r0.a.f1.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f9378c;
+    public List<String> f9520c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CopyOnWriteArrayList<c.a.r0.a.u1.k.h.a> f9379d;
+    public CopyOnWriteArrayList<c.a.r0.a.u1.k.h.a> f9521d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f9380e;
+    public boolean f9522e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.a.u1.r.c.a f9381f;
+    public c.a.r0.a.u1.r.c.a f9523f;
 
     /* loaded from: classes.dex */
     public class a implements c.a.r0.a.u1.r.c.a {
@@ -38,7 +38,7 @@ public class b implements c.a.r0.a.f1.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f9382c;
+        public final /* synthetic */ b f9524c;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class b implements c.a.r0.a.f1.f.a {
                     return;
                 }
             }
-            this.f9382c = bVar;
+            this.f9524c = bVar;
         }
 
         @Override // c.a.r0.a.u1.r.c.a
@@ -69,7 +69,7 @@ public class b implements c.a.r0.a.f1.f.a {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f9382c.f9380e = false;
+                this.f9524c.f9522e = false;
             }
         }
 
@@ -84,18 +84,18 @@ public class b implements c.a.r0.a.f1.f.a {
         public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.f9382c.f9380e = false;
-                if (this.f9382c.f9379d.isEmpty()) {
+                this.f9524c.f9522e = false;
+                if (this.f9524c.f9521d.isEmpty()) {
                     return;
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                Iterator<c.a.r0.a.u1.k.h.a> it = this.f9382c.f9379d.iterator();
+                Iterator<c.a.r0.a.u1.k.h.a> it = this.f9524c.f9521d.iterator();
                 while (it.hasNext()) {
                     it.next().a();
                 }
                 if (c.a.r0.a.f1.f.a.a) {
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    String str = "pending api dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms, listener count = " + this.f9382c.f9379d.size();
+                    String str = "pending api dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms, listener count = " + this.f9524c.f9521d.size();
                 }
             }
         }
@@ -104,7 +104,7 @@ public class b implements c.a.r0.a.f1.f.a {
         public void e(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f9382c.f9380e = true;
+                this.f9524c.f9522e = true;
             }
         }
 
@@ -118,7 +118,7 @@ public class b implements c.a.r0.a.f1.f.a {
 
     /* renamed from: c.a.r0.a.u1.k.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0596b {
+    public static class C0605b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -147,15 +147,15 @@ public class b implements c.a.r0.a.f1.f.a {
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0596b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0605b.a : (b) invokeV.objValue;
     }
 
     public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && this.f9380e) {
-                for (String str2 : this.f9378c) {
+            if (!TextUtils.isEmpty(str) && this.f9522e) {
+                for (String str2 : this.f9520c) {
                     if (str.startsWith(str2)) {
                         return true;
                     }
@@ -172,8 +172,8 @@ public class b implements c.a.r0.a.f1.f.a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.f9379d.add(aVar);
-        c.a.r0.a.u1.r.a.g().i(this.f9381f, 4000);
+        this.f9521d.add(aVar);
+        c.a.r0.a.u1.r.a.g().i(this.f9523f, 4000);
     }
 
     public b() {
@@ -189,12 +189,12 @@ public class b implements c.a.r0.a.f1.f.a {
                 return;
             }
         }
-        this.f9378c = new ArrayList();
-        this.f9379d = new CopyOnWriteArrayList<>();
-        this.f9380e = false;
-        this.f9381f = new a(this);
-        this.f9378c.clear();
-        List<String> list = this.f9378c;
+        this.f9520c = new ArrayList();
+        this.f9521d = new CopyOnWriteArrayList<>();
+        this.f9522e = false;
+        this.f9523f = new a(this);
+        this.f9520c.clear();
+        List<String> list = this.f9520c;
         list.add(UnitedSchemeEntity.UNITED_SCHEME + "swanAPI/openStatisticEvent?");
     }
 }

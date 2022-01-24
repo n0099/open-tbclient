@@ -26,13 +26,13 @@ public class f extends b {
         public final /* synthetic */ CallbackHandler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5886b;
+        public final /* synthetic */ UnitedSchemeEntity f6028b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f5887c;
+        public final /* synthetic */ String f6029c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ f f5888d;
+        public final /* synthetic */ f f6030d;
 
         public a(f fVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
@@ -49,17 +49,17 @@ public class f extends b {
                     return;
                 }
             }
-            this.f5888d = fVar;
+            this.f6030d = fVar;
             this.a = callbackHandler;
-            this.f5886b = unitedSchemeEntity;
-            this.f5887c = str;
+            this.f6028b = unitedSchemeEntity;
+            this.f6029c = str;
         }
 
         @Override // c.a.r0.a.q0.b.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5888d.n(this.f5886b, this.a, this.f5887c);
+                this.f6030d.n(this.f6028b, this.a, this.f6029c);
             }
         }
 
@@ -67,7 +67,7 @@ public class f extends b {
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.f5888d.n(this.f5886b, this.a, this.f5887c);
+                this.f6030d.n(this.f6028b, this.a, this.f6029c);
             }
         }
 
@@ -83,7 +83,7 @@ public class f extends b {
                         e2.printStackTrace();
                     }
                 }
-                UnitedSchemeUtility.safeCallback(this.a, this.f5886b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f5887c);
+                UnitedSchemeUtility.safeCallback(this.a, this.f6028b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f6029c);
             }
         }
     }
@@ -120,7 +120,7 @@ public class f extends b {
             }
             try {
                 String optString = new JSONObject(param).optString("appid");
-                this.f5873c = optString;
+                this.f6015c = optString;
                 return !TextUtils.isEmpty(optString);
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -134,7 +134,7 @@ public class f extends b {
     public void k(c.a.r0.a.d2.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, unitedSchemeEntity, callbackHandler, str) == null) {
-            SwanFavorDataManager.h().j(this.f5873c, new a(this, callbackHandler, unitedSchemeEntity, str));
+            SwanFavorDataManager.h().j(this.f6015c, new a(this, callbackHandler, unitedSchemeEntity, str));
         }
     }
 }

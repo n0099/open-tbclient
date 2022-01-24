@@ -17,14 +17,14 @@ public class b extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f14605g;
+    public static final BdUniqueId f14745g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14606e;
+    public String f14746e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14607f;
+    public String f14747f;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class b extends BaseCardInfo {
                 return;
             }
         }
-        f14605g = BdUniqueId.gen();
+        f14745g = BdUniqueId.gen();
     }
 
     public b() {
@@ -61,8 +61,8 @@ public class b extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f14606e = jSONObject.optString("url");
-        this.f14607f = jSONObject.optString("pic");
+        this.f14746e = jSONObject.optString("url");
+        this.f14747f = jSONObject.optString("pic");
         jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, 0L);
         jSONObject.optLong("end_time", 0L);
         jSONObject.optString("name");
@@ -73,6 +73,6 @@ public class b extends BaseCardInfo {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14605g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f14745g : (BdUniqueId) invokeV.objValue;
     }
 }

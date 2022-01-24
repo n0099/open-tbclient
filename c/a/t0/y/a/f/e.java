@@ -24,7 +24,7 @@ public class e extends c.a.k0.b.b.a<c.a.i0.a.b.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f25630c;
+        public final /* synthetic */ e f25357c;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class e extends c.a.k0.b.b.a<c.a.i0.a.b.b> {
                     return;
                 }
             }
-            this.f25630c = eVar;
+            this.f25357c = eVar;
         }
 
         @Override // c.a.i0.a.b.b
@@ -74,15 +74,15 @@ public class e extends c.a.k0.b.b.a<c.a.i0.a.b.b> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.f25630c.a == null) {
-                    this.f25630c.a = new JSONObject();
+                if (this.f25357c.a == null) {
+                    this.f25357c.a = new JSONObject();
                     try {
-                        this.f25630c.a.put("query_response_thread", 1);
+                        this.f25357c.a.put("query_response_thread", 1);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 }
-                return this.f25630c.a;
+                return this.f25357c.a;
             }
             return (JSONObject) invokeV.objValue;
         }

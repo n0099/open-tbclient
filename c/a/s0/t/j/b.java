@@ -21,7 +21,7 @@ public class b {
 
     /* renamed from: c.a.s0.t.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0901b {
+    public static class C0911b {
         public static /* synthetic */ Interceptable $ic;
         public static b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class b {
     public static b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0901b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0911b.a : (b) invokeV.objValue;
     }
 
     public void a(int i2) {
@@ -70,7 +70,7 @@ public class b {
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            c.a.d.c.e.c.i.a("IpReconnLogHelper", 0, 0, null, c.a.s0.s.i.f13056b, str);
+            c.a.d.c.e.c.i.a("IpReconnLogHelper", 0, 0, null, c.a.s0.s.i.f13223b, str);
         }
     }
 

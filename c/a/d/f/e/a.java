@@ -22,15 +22,15 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f2742d;
+    public static a f2844d;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2743b;
+    public String f2845b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2744c;
+    public long f2846c;
 
     static {
         InterceptResult invokeClinit;
@@ -61,26 +61,26 @@ public class a {
             }
         }
         this.a = 0L;
-        this.f2743b = null;
-        this.f2744c = 0L;
+        this.f2845b = null;
+        this.f2846c = 0L;
         SharedPreferences a = a();
         this.a = a.getLong(f("c.tieba.baidu.com"), 0L);
-        this.f2743b = a.getString(e("c.tieba.baidu.com"), null);
-        this.f2744c = a.getLong(d("c.tieba.baidu.com"), 0L);
+        this.f2845b = a.getString(e("c.tieba.baidu.com"), null);
+        this.f2846c = a.getLong(d("c.tieba.baidu.com"), 0L);
     }
 
     public static final a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2742d == null) {
+            if (f2844d == null) {
                 synchronized (a.class) {
-                    if (f2742d == null) {
-                        f2742d = new a();
+                    if (f2844d == null) {
+                        f2844d = new a();
                     }
                 }
             }
-            return f2742d;
+            return f2844d;
         }
         return (a) invokeV.objValue;
     }
@@ -150,8 +150,8 @@ public class a {
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
                     long j2 = this.a;
-                    long j3 = this.f2744c;
-                    String str4 = this.f2743b;
+                    long j3 = this.f2846c;
+                    String str4 = this.f2845b;
                     if (currentTimeMillis - j2 > 43200000) {
                         h(host, str3, z, "12hour", z2);
                         return;
@@ -165,7 +165,7 @@ public class a {
                     } else if (System.currentTimeMillis() - j3 > 3600000) {
                         String b2 = TextUtils.isEmpty(str3) ? b(host) : str3;
                         if (TextUtils.equals(b2, str4) && str4 != null) {
-                            this.f2744c = System.currentTimeMillis();
+                            this.f2846c = System.currentTimeMillis();
                         } else {
                             h(host, b2, z, "ipchange", z2);
                         }
@@ -200,7 +200,7 @@ public class a {
         EditorHelper.putString(a, e(str), str2);
         EditorHelper.putLong(a, d(str), currentTimeMillis2);
         this.a = currentTimeMillis;
-        this.f2744c = currentTimeMillis2;
-        this.f2743b = str2;
+        this.f2846c = currentTimeMillis2;
+        this.f2845b = str2;
     }
 }

@@ -9,7 +9,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.util.JsonReader;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n.c.f;
+import c.a.n.c.g;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.android.util.devices.RomUtils;
@@ -24,7 +24,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.g;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -313,7 +312,7 @@ public class CommonUtils {
     public static String getNetwork() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new f().b() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new g().b() : (String) invokeV.objValue;
     }
 
     public static String getOSVersion() {
@@ -730,7 +729,7 @@ public class CommonUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
             String prop = RomUtils.getProp("ro.product.model");
             if (!TextUtils.isEmpty(prop) && !prop.toLowerCase().contains("sdk") && !prop.toLowerCase().contains("google_sdk") && !prop.contains("Emulator")) {
-                String prop2 = RomUtils.getProp(g.q);
+                String prop2 = RomUtils.getProp(com.kuaishou.weapon.un.g.q);
                 if (!TextUtils.isEmpty(prop2) && !prop2.toLowerCase().contains("unknown") && !prop2.contains("Genymotion")) {
                     String prop3 = RomUtils.getProp("ro.product.device");
                     if (!TextUtils.isEmpty(prop3) && !prop3.toLowerCase().contains("generic")) {

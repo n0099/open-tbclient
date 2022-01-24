@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.lowFlows;
 
 import android.os.Bundle;
-import c.a.t0.o1.g.c;
-import c.a.t0.o1.g.i.a;
+import c.a.t0.p1.g.c;
+import c.a.t0.p1.g.i.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -83,7 +83,7 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
                 cVar.loadData();
             }
             if (getIntent() != null) {
-                c.a.t0.o1.g.h.a.a("c14083", StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID)) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), getIntent().getStringExtra("tab_code"));
+                c.a.t0.p1.g.h.a.a("c14083", StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID)) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), getIntent().getStringExtra("tab_code"));
             }
         }
     }

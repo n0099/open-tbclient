@@ -82,7 +82,7 @@ public class ServiceManagerNative {
                     public final /* synthetic */ ServiceConnection a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ServiceManagerNative f53129b;
+                    public final /* synthetic */ ServiceManagerNative f53174b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -99,7 +99,7 @@ public class ServiceManagerNative {
                                 return;
                             }
                         }
-                        this.f53129b = this;
+                        this.f53174b = this;
                         this.a = serviceConnection;
                     }
 

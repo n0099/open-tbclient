@@ -21,7 +21,7 @@ public class f {
             JSONObject e2 = c.e();
             if (dVar != null) {
                 try {
-                    e2.put("page", dVar.f7846b);
+                    e2.put("page", dVar.f7988b);
                 } catch (JSONException e3) {
                     if (c.a.r0.a.d2.e.z) {
                         e3.printStackTrace();
@@ -44,7 +44,7 @@ public class f {
             JSONObject jSONObject = new JSONObject();
             if (dVar != null) {
                 try {
-                    jSONObject.put("isH5Componet", dVar.f7851g == 0 ? "0" : "1");
+                    jSONObject.put("isH5Componet", dVar.f7993g == 0 ? "0" : "1");
                 } catch (JSONException e2) {
                     if (c.a.r0.a.d2.e.z) {
                         e2.printStackTrace();
@@ -69,7 +69,7 @@ public class f {
             c.a.r0.a.u2.a aVar = new c.a.r0.a.u2.a();
             aVar.k(5L);
             aVar.i(i2);
-            if (!i.f7907d || z2) {
+            if (!i.f8049d || z2) {
                 aVar.f(a(dVar, z, bitmap, z2).toString());
             }
             String valueOf = String.valueOf(i3);
@@ -77,11 +77,11 @@ public class f {
             dVar2.p(aVar);
             dVar2.q(n.n(c.a.r0.a.d2.d.J().l()));
             dVar2.m(c.a.r0.a.d2.d.J().getAppId());
-            dVar2.s = dVar.f7846b;
+            dVar2.s = dVar.f7988b;
             dVar2.n(false);
             c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();
             b.a V = a0 == null ? null : a0.V();
-            if (!i.f7907d || z2) {
+            if (!i.f8049d || z2) {
                 dVar2.s(valueOf);
                 dVar2.r(V);
                 dVar2.e(b(dVar));

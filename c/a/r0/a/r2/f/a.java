@@ -29,25 +29,25 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f8635b;
+    public static int f8777b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.r2.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0535a implements Runnable {
+    public static class RunnableC0544a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8636e;
+        public final /* synthetic */ String f8778e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8637f;
+        public final /* synthetic */ String f8779f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8638g;
+        public final /* synthetic */ String f8780g;
 
-        public RunnableC0535a(String str, String str2, String str3) {
+        public RunnableC0544a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,9 +62,9 @@ public class a {
                     return;
                 }
             }
-            this.f8636e = str;
-            this.f8637f = str2;
-            this.f8638g = str3;
+            this.f8778e = str;
+            this.f8779f = str2;
+            this.f8780g = str3;
         }
 
         @Override // java.lang.Runnable
@@ -72,11 +72,11 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 JSONObject jSONObject = new JSONObject();
-                File file = new File(this.f8636e);
+                File file = new File(this.f8778e);
                 try {
-                    jSONObject.put("file_name", this.f8637f);
+                    jSONObject.put("file_name", this.f8779f);
                     jSONObject.put("file_tree", a.d(file));
-                    jSONObject.put("file_stack_info", this.f8638g);
+                    jSONObject.put("file_stack_info", this.f8780g);
                     jSONObject.put("file_free_space", file.getFreeSpace());
                     jSONObject.put("file_total_space", file.getTotalSpace());
                 } catch (JSONException e2) {
@@ -85,7 +85,7 @@ public class a {
                     }
                 }
                 c.b bVar = new c.b(10018);
-                bVar.j(this.f8637f);
+                bVar.j(this.f8779f);
                 bVar.h(d.J().getAppId());
                 bVar.i(jSONObject.toString());
                 bVar.m();
@@ -99,10 +99,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8639e;
+        public final /* synthetic */ String f8781e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8640f;
+        public final /* synthetic */ String f8782f;
 
         public b(String str, String str2) {
             Interceptable interceptable = $ic;
@@ -119,8 +119,8 @@ public class a {
                     return;
                 }
             }
-            this.f8639e = str;
-            this.f8640f = str2;
+            this.f8781e = str;
+            this.f8782f = str2;
         }
 
         @Override // java.lang.Runnable
@@ -129,8 +129,8 @@ public class a {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.f8639e);
-                    jSONObject.put("pagePath", this.f8640f);
+                    jSONObject.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.f8781e);
+                    jSONObject.put("pagePath", this.f8782f);
                 } catch (JSONException e2) {
                     if (a.a) {
                         e2.printStackTrace();
@@ -158,7 +158,7 @@ public class a {
             }
         }
         a = k.a;
-        f8635b = -1;
+        f8777b = -1;
     }
 
     public static void b(String str, String str2) {
@@ -181,11 +181,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f8635b < 0) {
+            if (f8777b < 0) {
                 c.a.r0.a.c1.a.g0().getSwitch("swan_app_file_analysis_switch", 0);
-                f8635b = 0;
+                f8777b = 0;
             }
-            return f8635b;
+            return f8777b;
         }
         return invokeV.intValue;
     }
@@ -233,7 +233,7 @@ public class a {
     public static void f(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
-            q.f().execute(new RunnableC0535a(str, str2, Arrays.toString(new Exception().getStackTrace())));
+            q.f().execute(new RunnableC0544a(str, str2, Arrays.toString(new Exception().getStackTrace())));
         }
     }
 }

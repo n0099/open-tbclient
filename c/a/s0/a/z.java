@@ -15,7 +15,7 @@ public class z {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12192b;
+    public long f12334b;
 
     public z() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class z {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12192b + UtilHelper.getTimesMorning() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12334b + UtilHelper.getTimesMorning() : invokeV.longValue;
     }
 
     public long b() {
@@ -47,7 +47,7 @@ public class z {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) && jSONArray != null && jSONArray.length() == 2) {
             this.a = jSONArray.optLong(0, 0L) * 1000;
-            this.f12192b = jSONArray.optLong(1, 0L) * 1000;
+            this.f12334b = jSONArray.optLong(1, 0L) * 1000;
         }
     }
 }

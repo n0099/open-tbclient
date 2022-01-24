@@ -15,15 +15,15 @@ public class o0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final o0 f13872d;
+    public static final o0 f14017d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13873b;
+    public String f14018b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f13874c;
+    public final boolean f14019c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class o0 {
                 return;
             }
         }
-        f13872d = new o0(false);
+        f14017d = new o0(false);
     }
 
     public o0(boolean z) {
@@ -56,7 +56,7 @@ public class o0 {
                 return;
             }
         }
-        this.f13874c = z;
+        this.f14019c = z;
     }
 
     public static o0 e(JSONObject jSONObject) {
@@ -64,7 +64,7 @@ public class o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
             if (jSONObject == null) {
-                return f13872d;
+                return f14017d;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("video_activity");
             if (optJSONObject != null) {
@@ -77,7 +77,7 @@ public class o0 {
                     return o0Var;
                 }
             }
-            return f13872d;
+            return f14017d;
         }
         return (o0) invokeL.objValue;
     }
@@ -85,13 +85,13 @@ public class o0 {
     public boolean a(o0 o0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, o0Var)) == null) ? this.f13873b.equals(o0Var.b()) && this.a.equals(o0Var.c()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, o0Var)) == null) ? this.f14018b.equals(o0Var.b()) && this.a.equals(o0Var.c()) : invokeL.booleanValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13873b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14018b : (String) invokeV.objValue;
     }
 
     public String c() {
@@ -103,13 +103,13 @@ public class o0 {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13874c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14019c : invokeV.booleanValue;
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f13873b = str;
+            this.f14018b = str;
         }
     }
 

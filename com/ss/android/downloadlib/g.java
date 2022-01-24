@@ -13,43 +13,43 @@ import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.addownload.k;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
     public static volatile g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.download.api.a f59645b;
+    public final com.ss.android.download.api.a f59690b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final f f59646c;
+    public final f f59691c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.ss.android.downloadad.api.a f59647d;
+    public final com.ss.android.downloadad.api.a f59692d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.ss.android.downloadad.api.b f59648e;
+    public com.ss.android.downloadad.api.b f59693e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f59649f;
+    public long f59694f;
 
     /* JADX INFO: Access modifiers changed from: private */
     public f h() {
-        return this.f59646c;
+        return this.f59691c;
     }
 
     public void c() {
-        this.f59649f = System.currentTimeMillis();
+        this.f59694f = System.currentTimeMillis();
     }
 
     public com.ss.android.downloadad.api.a d() {
-        return this.f59647d;
+        return this.f59692d;
     }
 
     public com.ss.android.downloadad.api.b e() {
-        if (this.f59648e == null) {
-            this.f59648e = b.a();
+        if (this.f59693e == null) {
+            this.f59693e = b.a();
         }
-        return this.f59648e;
+        return this.f59693e;
     }
 
     public String f() {
@@ -61,11 +61,11 @@ public class g {
     }
 
     public g(Context context) {
-        this.f59646c = f.a();
-        this.f59645b = new e();
-        this.f59649f = System.currentTimeMillis();
+        this.f59691c = f.a();
+        this.f59690b = new e();
+        this.f59694f = System.currentTimeMillis();
         b(context);
-        this.f59647d = a.a();
+        this.f59692d = a.a();
     }
 
     public static g a(final Context context) {
@@ -98,7 +98,7 @@ public class g {
     }
 
     public com.ss.android.download.api.a a() {
-        return this.f59645b;
+        return this.f59690b;
     }
 
     @MainThread
@@ -142,7 +142,7 @@ public class g {
     }
 
     public long b() {
-        return this.f59649f;
+        return this.f59694f;
     }
 
     @MainThread

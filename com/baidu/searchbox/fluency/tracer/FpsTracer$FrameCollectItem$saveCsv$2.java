@@ -5,6 +5,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.searchbox.fluency.utils.Logcat;
+import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +28,7 @@ import kotlin.text.Charsets;
 import kotlinx.coroutines.CoroutineScope;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@¢\u0006\u0004\b\u0003\u0010\u0004"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "com.baidu.searchbox.fluency.tracer.FpsTracer$FrameCollectItem$saveCsv$2", f = "FpsTracer.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class FpsTracer$FrameCollectItem$saveCsv$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +102,7 @@ public final class FpsTracer$FrameCollectItem$saveCsv$2 extends SuspendLambda im
                     Logcat logcat = Logcat.INSTANCE;
                     logcat.e(FpsTracer.TAG, "saveCsv, exception: " + e2);
                 }
-                if (TextUtils.equals(str, "feed")) {
+                if (TextUtils.equals(str, ExternalTransferSpeedStats.FEED_PAGE)) {
                     i2 = this.this$0.sumFrames;
                     int roundToInt = MathKt__MathJVMKt.roundToInt(Math.min(60.0f, (i2 * 1000.0f) / this.this$0.getSumFrameCost()));
                     Logcat logcat2 = Logcat.INSTANCE;

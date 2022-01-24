@@ -12,12 +12,12 @@ public class RestNameValuePair implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f37492c = 847806714499261896L;
+    public static final long f37520c = 847806714499261896L;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37493b;
+    public String f37521b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RestNameValuePair() {
@@ -47,7 +47,7 @@ public class RestNameValuePair implements Serializable {
     public String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37493b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37521b : (String) invokeV.objValue;
     }
 
     public void setName(String str) {
@@ -60,7 +60,7 @@ public class RestNameValuePair implements Serializable {
     public void setValue(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f37493b = str;
+            this.f37521b = str;
         }
     }
 
@@ -68,7 +68,7 @@ public class RestNameValuePair implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "name = " + this.a + ", value = " + this.f37493b;
+            return "name = " + this.a + ", value = " + this.f37521b;
         }
         return (String) invokeV.objValue;
     }
@@ -89,6 +89,6 @@ public class RestNameValuePair implements Serializable {
             }
         }
         this.a = str;
-        this.f37493b = str2;
+        this.f37521b = str2;
     }
 }

@@ -23,23 +23,23 @@ public class p extends b<a> {
         @NonNull
 
         /* renamed from: b  reason: collision with root package name */
-        public List<String> f55648b = new ArrayList();
+        public List<String> f55693b = new ArrayList();
 
         /* renamed from: c  reason: collision with root package name */
-        public List<String> f55649c = new ArrayList();
+        public List<String> f55694c = new ArrayList();
 
         /* renamed from: d  reason: collision with root package name */
-        public int f55650d;
+        public int f55695d;
 
         /* renamed from: e  reason: collision with root package name */
-        public JSONObject f55651e;
+        public JSONObject f55696e;
 
         @Override // com.kwad.sdk.core.b
         public void parseJson(@Nullable JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f55651e = jSONObject;
+            this.f55696e = jSONObject;
             JSONObject optJSONObject = jSONObject.optJSONObject("platformInfo");
             if (optJSONObject != null) {
                 Iterator<String> keys = optJSONObject.keys();
@@ -51,21 +51,21 @@ public class p extends b<a> {
             JSONArray optJSONArray = jSONObject.optJSONArray("keyStacks");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    this.f55648b.add(optJSONArray.optString(i2));
+                    this.f55693b.add(optJSONArray.optString(i2));
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("keyNames");
             if (optJSONArray2 != null) {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    this.f55649c.add(optJSONArray2.optString(i3));
+                    this.f55694c.add(optJSONArray2.optString(i3));
                 }
             }
-            this.f55650d = jSONObject.optInt("handleType");
+            this.f55695d = jSONObject.optInt("handleType");
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
-            return this.f55651e;
+            return this.f55696e;
         }
     }
 

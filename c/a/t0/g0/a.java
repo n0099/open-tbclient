@@ -160,7 +160,7 @@ public abstract class a<T extends c.a.s0.s.q.a> extends b<T> {
             int q2 = q(R.dimen.tbds78);
             int q3 = q(z ? R.dimen.tbds104 : R.dimen.tbds44);
             int q4 = q(R.dimen.tbds50);
-            if (c.a.s0.b.d.u0()) {
+            if (c.a.s0.b.d.A0()) {
                 q = q(R.dimen.tbds177);
                 q2 = q(R.dimen.tbds76);
                 q3 = q(z ? R.dimen.tbds126 : R.dimen.tbds44);
@@ -208,9 +208,9 @@ public abstract class a<T extends c.a.s0.s.q.a> extends b<T> {
                 this.r.setPadding(f3, f3, f3, f3);
                 this.r.setLayoutParams(layoutParams);
                 x0 x0Var = new x0();
-                x0Var.o(this.o.getThreadData().v1());
+                x0Var.o(this.o.getThreadData().w1());
                 x0Var.k(this.o.getThreadData().U());
-                x0Var.n(this.o.getThreadData().G0());
+                x0Var.n(this.o.getThreadData().H0());
                 x0Var.j(this.o.feedBackReasonMap);
                 this.r.setVisibility(0);
                 this.r.setData(x0Var);
@@ -264,7 +264,7 @@ public abstract class a<T extends c.a.s0.s.q.a> extends b<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             ForumEnterLayout forumEnterLayout = this.u;
-            if ((forumEnterLayout == null || forumEnterLayout.getVisibility() != 0) && !c.a.s0.b.d.u0()) {
+            if ((forumEnterLayout == null || forumEnterLayout.getVisibility() != 0) && !c.a.s0.b.d.A0()) {
                 z(this.p, q(R.dimen.tbds20));
                 z(this.q, q(R.dimen.tbds20));
                 return;
@@ -299,8 +299,8 @@ public abstract class a<T extends c.a.s0.s.q.a> extends b<T> {
         threadCommentAndPraiseInfoLayout.setShareReportFrom(3);
         threadCommentAndPraiseInfoLayout.hideDisagree();
         c.a.s0.s.q.f fVar = new c.a.s0.s.q.f();
-        fVar.f13371b = 7;
-        fVar.f13377h = 1;
+        fVar.f13557b = 7;
+        fVar.f13563h = 1;
         threadCommentAndPraiseInfoLayout.setAgreeStatisticData(fVar);
     }
 
@@ -322,9 +322,9 @@ public abstract class a<T extends c.a.s0.s.q.a> extends b<T> {
             if (ThreadCardUtils.isSelf(threadData)) {
                 return false;
             }
-            boolean z = threadData.U1() || threadData.P1() || threadData.S1();
+            boolean z = threadData.V1() || threadData.Q1() || threadData.T1();
             if ((!z || !threadData.a2) && (!z || !threadData.c2 || threadData.J().hadConcerned())) {
-                if (threadData.o1() == null || !c.a.t0.g0.f0.j.Y(threadData)) {
+                if (threadData.p1() == null || !c.a.t0.g0.f0.j.Y(threadData)) {
                     return false;
                 }
                 if (!threadData.a2 && !threadData.d2) {

@@ -18,13 +18,13 @@ public class n0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13862b;
+    public String f14007b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13863c;
+    public String f14008c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VcodeExtra f13864d;
+    public VcodeExtra f14009d;
 
     public n0() {
         Interceptable interceptable = $ic;
@@ -40,14 +40,14 @@ public class n0 {
             }
         }
         this.a = null;
-        this.f13862b = null;
-        this.f13863c = null;
+        this.f14007b = null;
+        this.f14008c = null;
     }
 
     public VcodeExtra a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13864d : (VcodeExtra) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14009d : (VcodeExtra) invokeV.objValue;
     }
 
     public String b() {
@@ -59,13 +59,13 @@ public class n0 {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13862b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14007b : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13863c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14008c : (String) invokeV.objValue;
     }
 
     public void e(String str) {
@@ -91,16 +91,16 @@ public class n0 {
         }
         try {
             this.a = jSONObject.optString("vcode_md5");
-            this.f13862b = jSONObject.optString("vcode_pic_url");
-            this.f13863c = jSONObject.optString("vcode_type");
+            this.f14007b = jSONObject.optString("vcode_pic_url");
+            this.f14008c = jSONObject.optString("vcode_type");
             JSONObject jSONObject2 = jSONObject.getJSONObject("vcode_extra");
             VcodeExtra vcodeExtra = new VcodeExtra();
-            this.f13864d = vcodeExtra;
+            this.f14009d = vcodeExtra;
             vcodeExtra.textImg = jSONObject2.optString("textimg");
-            this.f13864d.slideImg = jSONObject2.optString("slideimg");
-            this.f13864d.endPoint = jSONObject2.optString(ContentUtil.RESULT_KEY_ENDPOINT);
-            this.f13864d.successImg = jSONObject2.optString("successimg");
-            this.f13864d.slideEndPoint = jSONObject2.optString("slideendpoint");
+            this.f14009d.slideImg = jSONObject2.optString("slideimg");
+            this.f14009d.endPoint = jSONObject2.optString(ContentUtil.RESULT_KEY_ENDPOINT);
+            this.f14009d.successImg = jSONObject2.optString("successimg");
+            this.f14009d.slideEndPoint = jSONObject2.optString("slideendpoint");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

@@ -32,22 +32,22 @@ public class HeadPendantView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f40337e;
+    public Context f40365e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f40338f;
+    public BdUniqueId f40366f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f40339g;
+    public TbImageView f40367g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f40340h;
+    public ImageView f40368h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HeadImageView f40341i;
+    public HeadImageView f40369i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f40342j;
+    public boolean f40370j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -74,29 +74,29 @@ public class HeadPendantView extends RelativeLayout {
                 return;
             }
         }
-        this.f40342j = false;
+        this.f40370j = false;
         this.k = false;
         this.l = false;
         this.m = false;
         this.n = n.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.p = true;
-        this.f40337e = context;
+        this.f40365e = context;
         init();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ImageView imageView = new ImageView(this.f40337e);
-            this.f40340h = imageView;
+            ImageView imageView = new ImageView(this.f40365e);
+            this.f40368h = imageView;
             imageView.setImageDrawable(null);
             int i2 = this.n;
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i2, i2);
             layoutParams.addRule(12, -1);
             layoutParams.addRule(11, -1);
-            this.f40340h.setLayoutParams(layoutParams);
-            this.f40340h.setVisibility(8);
-            addView(this.f40340h);
+            this.f40368h.setLayoutParams(layoutParams);
+            this.f40368h.setVisibility(8);
+            addView(this.f40368h);
         }
     }
 
@@ -117,45 +117,45 @@ public class HeadPendantView extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            HeadImageView headImageView = new HeadImageView(this.f40337e);
-            this.f40341i = headImageView;
+            HeadImageView headImageView = new HeadImageView(this.f40365e);
+            this.f40369i = headImageView;
             headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f40341i.setPlaceHolder(1);
-            this.f40341i.setDefaultResource(R.color.CAM_X0205);
+            this.f40369i.setPlaceHolder(1);
+            this.f40369i.setDefaultResource(R.color.CAM_X0205);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams.addRule(14, -1);
             layoutParams.addRule(15, -1);
-            this.f40341i.setLayoutParams(layoutParams);
-            addView(this.f40341i);
+            this.f40369i.setLayoutParams(layoutParams);
+            addView(this.f40369i);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TbImageView tbImageView = new TbImageView(this.f40337e);
-            this.f40339g = tbImageView;
-            tbImageView.setPageId(this.f40338f);
-            this.f40339g.setDefaultBgResource(0);
-            this.f40339g.setDefaultResource(0);
-            this.f40339g.setImageDrawable(null);
-            this.f40339g.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            this.f40339g.setVisibility(8);
-            addView(this.f40339g);
+            TbImageView tbImageView = new TbImageView(this.f40365e);
+            this.f40367g = tbImageView;
+            tbImageView.setPageId(this.f40366f);
+            this.f40367g.setDefaultBgResource(0);
+            this.f40367g.setDefaultResource(0);
+            this.f40367g.setImageDrawable(null);
+            this.f40367g.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+            this.f40367g.setVisibility(8);
+            addView(this.f40367g);
         }
     }
 
     public final void d() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.n <= 0 || (imageView = this.f40340h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.n <= 0 || (imageView = this.f40368h) == null) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
         int i2 = this.n;
         layoutParams.width = i2;
         layoutParams.height = i2;
-        this.f40340h.setLayoutParams(layoutParams);
+        this.f40368h.setLayoutParams(layoutParams);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -173,25 +173,25 @@ public class HeadPendantView extends RelativeLayout {
             return;
         }
         if (this.o) {
-            this.f40340h.setVisibility(8);
+            this.f40368h.setVisibility(8);
             return;
         }
-        this.f40341i.setShowV(false);
+        this.f40369i.setShowV(false);
         if (UtilHelper.isFllowByPriorty(metaData)) {
             if (metaData.getAuthType() == 1) {
-                z = UtilHelper.showOfficialIcon(this.f40340h, metaData);
+                z = UtilHelper.showOfficialIcon(this.f40368h, metaData);
             } else if (metaData.getAuthType() == 1) {
-                z = UtilHelper.showOriginalIcon(this.f40340h, metaData);
+                z = UtilHelper.showOriginalIcon(this.f40368h, metaData);
             } else if (metaData.getAuthType() == 3) {
-                z = UtilHelper.showNewGodIcon(this.f40340h, metaData);
+                z = UtilHelper.showNewGodIcon(this.f40368h, metaData);
             } else if (metaData.getAuthType() == 4 && !this.m) {
-                z = UtilHelper.showHeadBazhuIcon(this.f40340h, metaData, this.p);
+                z = UtilHelper.showHeadBazhuIcon(this.f40368h, metaData, this.p);
             }
-            if (!z || UtilHelper.showOfficialIcon(this.f40340h, metaData) || UtilHelper.showOriginalIcon(this.f40340h, metaData) || UtilHelper.showNewGodIcon(this.f40340h, metaData)) {
+            if (!z || UtilHelper.showOfficialIcon(this.f40368h, metaData) || UtilHelper.showOriginalIcon(this.f40368h, metaData) || UtilHelper.showNewGodIcon(this.f40368h, metaData)) {
                 return;
             }
             showBigVIcon(false);
-            if (this.m || UtilHelper.showHeadBazhuIcon(this.f40340h, metaData, this.p)) {
+            if (this.m || UtilHelper.showHeadBazhuIcon(this.f40368h, metaData, this.p)) {
             }
         }
         z = false;
@@ -206,19 +206,19 @@ public class HeadPendantView extends RelativeLayout {
     public ImageView getBigVIconView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f40340h : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f40368h : (ImageView) invokeV.objValue;
     }
 
     public HeadImageView getHeadView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40341i : (HeadImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40369i : (HeadImageView) invokeV.objValue;
     }
 
     public TbImageView getPendantView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40339g : (TbImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40367g : (TbImageView) invokeV.objValue;
     }
 
     public void init() {
@@ -241,19 +241,19 @@ public class HeadPendantView extends RelativeLayout {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
-            if (this.f40342j) {
+            if (this.f40370j) {
                 int size = View.MeasureSpec.getSize(i2);
                 int i4 = (int) (size * 0.13f);
                 int size2 = (int) (View.MeasureSpec.getSize(i3) * 0.13f);
-                ((RelativeLayout.LayoutParams) this.f40341i.getLayoutParams()).setMargins(i4, size2, i4, size2);
-                ImageView imageView = this.f40340h;
+                ((RelativeLayout.LayoutParams) this.f40369i.getLayoutParams()).setMargins(i4, size2, i4, size2);
+                ImageView imageView = this.f40368h;
                 if (imageView != null) {
                     ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).setMargins(i4, size2, i4, size2);
                 }
             }
             if (this.l) {
-                ((RelativeLayout.LayoutParams) this.f40341i.getLayoutParams()).setMargins(0, 0, 0, 0);
-                ImageView imageView2 = this.f40340h;
+                ((RelativeLayout.LayoutParams) this.f40369i.getLayoutParams()).setMargins(0, 0, 0, 0);
+                ImageView imageView2 = this.f40368h;
                 if (imageView2 != null) {
                     ((RelativeLayout.LayoutParams) imageView2.getLayoutParams()).setMargins(0, 0, 0, 0);
                 }
@@ -271,8 +271,8 @@ public class HeadPendantView extends RelativeLayout {
     public void setAutoChangeStyle(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f40339g.setAutoChangeStyle(z);
-            this.f40341i.setAutoChangeStyle(z);
+            this.f40367g.setAutoChangeStyle(z);
+            this.f40369i.setAutoChangeStyle(z);
         }
     }
 
@@ -302,14 +302,14 @@ public class HeadPendantView extends RelativeLayout {
     public void setDefalutResid(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f40341i.setDefaultResource(i2);
+            this.f40369i.setDefaultResource(i2);
         }
     }
 
     public void setHasPendantStyle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.f40342j = true;
+            this.f40370j = true;
         }
     }
 
@@ -330,12 +330,12 @@ public class HeadPendantView extends RelativeLayout {
     public void setPageId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, bdUniqueId) == null) {
-            this.f40338f = bdUniqueId;
-            HeadImageView headImageView = this.f40341i;
+            this.f40366f = bdUniqueId;
+            HeadImageView headImageView = this.f40369i;
             if (headImageView != null) {
                 headImageView.setPageId(bdUniqueId);
             }
-            TbImageView tbImageView = this.f40339g;
+            TbImageView tbImageView = this.f40367g;
             if (tbImageView != null) {
                 tbImageView.setPageId(bdUniqueId);
             }
@@ -352,14 +352,14 @@ public class HeadPendantView extends RelativeLayout {
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            this.f40341i.setUrl(str);
+            this.f40369i.setUrl(str);
         }
     }
 
     public void showBigVIcon(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || (imageView = this.f40340h) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || (imageView = this.f40368h) == null) {
             return;
         }
         imageView.setVisibility(z ? 0 : 8);
@@ -381,7 +381,7 @@ public class HeadPendantView extends RelativeLayout {
     public void startLoad(String str, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.f40341i.startLoad(str, i2, 0, 0, z);
+            this.f40369i.startLoad(str, i2, 0, 0, z);
         }
     }
 
@@ -405,8 +405,8 @@ public class HeadPendantView extends RelativeLayout {
             return;
         }
         String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(str);
-        this.f40341i.setImageBitmap(null);
-        this.f40341i.setUrl(headPortraitFilter);
+        this.f40369i.setImageBitmap(null);
+        this.f40369i.setUrl(headPortraitFilter);
         if (headPortraitFilter.startsWith("http")) {
             startLoad(headPortraitFilter, 10, false);
         } else {
@@ -416,17 +416,17 @@ public class HeadPendantView extends RelativeLayout {
 
     public void startLoadPendantUrl(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048608, this, str) == null) || this.f40339g == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048608, this, str) == null) || this.f40367g == null) {
             return;
         }
-        if (this.f40342j && !StringUtils.isNull(str)) {
+        if (this.f40370j && !StringUtils.isNull(str)) {
             this.k = true;
-            this.f40339g.setVisibility(0);
-            this.f40339g.setImageDrawable(null);
-            this.f40339g.startLoad(str, 10, false);
+            this.f40367g.setVisibility(0);
+            this.f40367g.setImageDrawable(null);
+            this.f40367g.startLoad(str, 10, false);
             return;
         }
-        this.f40339g.setVisibility(8);
+        this.f40367g.setVisibility(8);
         this.k = false;
     }
 
@@ -450,29 +450,29 @@ public class HeadPendantView extends RelativeLayout {
         HeadImageView headImageView2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            if (this.f40342j && !z && (headImageView2 = this.f40341i) != null) {
+            if (this.f40370j && !z && (headImageView2 = this.f40369i) != null) {
                 ((RelativeLayout.LayoutParams) headImageView2.getLayoutParams()).setMargins(0, 0, 0, 0);
-                ImageView imageView = this.f40340h;
+                ImageView imageView = this.f40368h;
                 if (imageView != null) {
                     ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).setMargins(0, 0, 0, 0);
                 }
-                TbImageView tbImageView = this.f40339g;
+                TbImageView tbImageView = this.f40367g;
                 if (tbImageView != null) {
                     tbImageView.setVisibility(8);
                 }
                 this.k = false;
                 invalidate();
-            } else if (!this.f40342j && z && (headImageView = this.f40341i) != null) {
-                int width = (int) (this.f40341i.getWidth() * 0.13f);
-                int height = (int) (this.f40341i.getHeight() * 0.13f);
+            } else if (!this.f40370j && z && (headImageView = this.f40369i) != null) {
+                int width = (int) (this.f40369i.getWidth() * 0.13f);
+                int height = (int) (this.f40369i.getHeight() * 0.13f);
                 ((RelativeLayout.LayoutParams) headImageView.getLayoutParams()).setMargins(width, height, width, height);
-                ImageView imageView2 = this.f40340h;
+                ImageView imageView2 = this.f40368h;
                 if (imageView2 != null) {
                     ((RelativeLayout.LayoutParams) imageView2.getLayoutParams()).setMargins(width, height, width, height);
                 }
                 invalidate();
             }
-            this.f40342j = z;
+            this.f40370j = z;
         }
     }
 
@@ -503,13 +503,13 @@ public class HeadPendantView extends RelativeLayout {
                 return;
             }
         }
-        this.f40342j = false;
+        this.f40370j = false;
         this.k = false;
         this.l = false;
         this.m = false;
         this.n = n.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.p = true;
-        this.f40337e = context;
+        this.f40365e = context;
         init();
     }
 
@@ -531,13 +531,13 @@ public class HeadPendantView extends RelativeLayout {
                 return;
             }
         }
-        this.f40342j = false;
+        this.f40370j = false;
         this.k = false;
         this.l = false;
         this.m = false;
         this.n = n.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.p = true;
-        this.f40337e = context;
+        this.f40365e = context;
         init();
     }
 }

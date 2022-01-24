@@ -18,16 +18,16 @@ public class h {
     public SparseArray<DownloadLaunchRunnable> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ThreadPoolExecutor f58353b;
+    public ThreadPoolExecutor f58398b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f58354c;
+    public final String f58399c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f58355d;
+    public int f58400d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58356e;
+    public int f58401e;
 
     public h(int i2) {
         Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class h {
             }
         }
         this.a = new SparseArray<>();
-        this.f58354c = "Network";
-        this.f58356e = 0;
-        this.f58353b = com.kwai.filedownloader.e.b.a(i2, "Network");
-        this.f58355d = i2;
+        this.f58399c = "Network";
+        this.f58401e = 0;
+        this.f58398b = com.kwai.filedownloader.e.b.a(i2, "Network");
+        this.f58400d = i2;
     }
 
     private synchronized void c() {
@@ -110,15 +110,15 @@ public class h {
             synchronized (this) {
                 this.a.put(downloadLaunchRunnable.d(), downloadLaunchRunnable);
             }
-            this.f58353b.execute(downloadLaunchRunnable);
-            int i3 = this.f58356e;
+            this.f58398b.execute(downloadLaunchRunnable);
+            int i3 = this.f58401e;
             if (i3 >= 600) {
                 c();
                 i2 = 0;
             } else {
                 i2 = i3 + 1;
             }
-            this.f58356e = i2;
+            this.f58401e = i2;
         }
     }
 
@@ -133,14 +133,14 @@ public class h {
                 }
                 int a = com.kwai.filedownloader.e.e.a(i2);
                 if (com.kwai.filedownloader.e.d.a) {
-                    com.kwai.filedownloader.e.d.c(this, "change the max network thread count, from %d to %d", Integer.valueOf(this.f58355d), Integer.valueOf(a));
+                    com.kwai.filedownloader.e.d.c(this, "change the max network thread count, from %d to %d", Integer.valueOf(this.f58400d), Integer.valueOf(a));
                 }
-                List<Runnable> shutdownNow = this.f58353b.shutdownNow();
-                this.f58353b = com.kwai.filedownloader.e.b.a(a, "Network");
+                List<Runnable> shutdownNow = this.f58398b.shutdownNow();
+                this.f58398b = com.kwai.filedownloader.e.b.a(a, "Network");
                 if (shutdownNow.size() > 0) {
                     com.kwai.filedownloader.e.d.d(this, "recreate the network thread pool and discard %d tasks", Integer.valueOf(shutdownNow.size()));
                 }
-                this.f58355d = a;
+                this.f58400d = a;
                 return true;
             }
         }
@@ -172,7 +172,7 @@ public class h {
                 DownloadLaunchRunnable downloadLaunchRunnable = this.a.get(i2);
                 if (downloadLaunchRunnable != null) {
                     downloadLaunchRunnable.a();
-                    boolean remove = this.f58353b.remove(downloadLaunchRunnable);
+                    boolean remove = this.f58398b.remove(downloadLaunchRunnable);
                     if (com.kwai.filedownloader.e.d.a) {
                         com.kwai.filedownloader.e.d.c(this, "successful cancel %d %B", Integer.valueOf(i2), Boolean.valueOf(remove));
                     }

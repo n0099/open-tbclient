@@ -217,7 +217,7 @@ public class NavigationBar extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f40386e;
+        public final /* synthetic */ NavigationBar f40414e;
 
         public a(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -234,7 +234,7 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f40386e = navigationBar;
+            this.f40414e = navigationBar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -242,10 +242,10 @@ public class NavigationBar extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                ViewGroup.LayoutParams layoutParams = this.f40386e.mContentLayout.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.f40414e.mContentLayout.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = intValue;
-                    this.f40386e.mContentLayout.setLayoutParams(layoutParams);
+                    this.f40414e.mContentLayout.setLayoutParams(layoutParams);
                 }
             }
         }
@@ -257,7 +257,7 @@ public class NavigationBar extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f40387e;
+        public final /* synthetic */ NavigationBar f40415e;
 
         public b(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f40387e = navigationBar;
+            this.f40415e = navigationBar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -291,7 +291,7 @@ public class NavigationBar extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f40388e;
+        public final /* synthetic */ NavigationBar f40416e;
 
         public c(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -308,18 +308,18 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f40388e = navigationBar;
+            this.f40416e = navigationBar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f40388e.mClickIsVaild) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f40416e.mClickIsVaild) {
                 int id = view.getId();
                 if (id == R.id.navigationBarGoBack) {
-                    this.f40388e.mCurrentActivity.finish();
+                    this.f40416e.mCurrentActivity.finish();
                 } else if (id == R.id.navigationBarHome) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002004, this.f40388e.mCurrentActivity));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002004, this.f40416e.mCurrentActivity));
                 }
             }
         }
@@ -331,7 +331,7 @@ public class NavigationBar extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f40389e;
+        public final /* synthetic */ NavigationBar f40417e;
 
         public d(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -348,7 +348,7 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f40389e = navigationBar;
+            this.f40417e = navigationBar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -362,7 +362,7 @@ public class NavigationBar extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f40389e.mNavIsShow = false;
+                this.f40417e.mNavIsShow = false;
             }
         }
 
@@ -387,7 +387,7 @@ public class NavigationBar extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f40390e;
+        public final /* synthetic */ NavigationBar f40418e;
 
         public e(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -404,7 +404,7 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f40390e = navigationBar;
+            this.f40418e = navigationBar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -418,7 +418,7 @@ public class NavigationBar extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f40390e.mNavIsShow = true;
+                this.f40418e.mNavIsShow = true;
             }
         }
 
@@ -433,7 +433,7 @@ public class NavigationBar extends RelativeLayout {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f40390e.mNavIsShow = true;
+                this.f40418e.mNavIsShow = true;
             }
         }
     }

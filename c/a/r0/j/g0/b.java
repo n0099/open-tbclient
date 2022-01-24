@@ -16,12 +16,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f11019c;
+    public static volatile b f11161c;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile ArrayList<a> f11020b;
+    public volatile ArrayList<a> f11162b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -36,21 +36,21 @@ public class b {
                 return;
             }
         }
-        this.f11020b = new ArrayList<>(20);
+        this.f11162b = new ArrayList<>(20);
     }
 
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f11019c == null) {
+            if (f11161c == null) {
                 synchronized (b.class) {
-                    if (f11019c == null) {
-                        f11019c = new b();
+                    if (f11161c == null) {
+                        f11161c = new b();
                     }
                 }
             }
-            return f11019c;
+            return f11161c;
         }
         return (b) invokeV.objValue;
     }
@@ -62,8 +62,8 @@ public class b {
                 if (aVar == null) {
                     return;
                 }
-                if (this.f11020b.size() < 20) {
-                    this.f11020b.add(aVar);
+                if (this.f11162b.size() < 20) {
+                    this.f11162b.add(aVar);
                 } else {
                     this.a++;
                 }
@@ -75,7 +75,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                this.f11020b.clear();
+                this.f11162b.clear();
                 this.a = 0;
             }
         }
@@ -86,7 +86,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                int size = this.f11020b.size();
+                int size = this.f11162b.size();
                 if (size == 0) {
                     return null;
                 }
@@ -96,13 +96,13 @@ public class b {
                     jSONObject.put("errorcnt", size);
                     JSONArray jSONArray = new JSONArray();
                     jSONObject.put("errors", jSONArray);
-                    Iterator<a> it = this.f11020b.iterator();
+                    Iterator<a> it = this.f11162b.iterator();
                     while (it.hasNext()) {
                         jSONArray.put(it.next().a());
                     }
                 } catch (JSONException unused) {
                 }
-                this.f11020b.clear();
+                this.f11162b.clear();
                 return jSONObject;
             }
         }

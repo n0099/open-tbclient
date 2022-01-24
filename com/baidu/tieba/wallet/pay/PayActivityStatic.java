@@ -11,7 +11,7 @@ import c.a.s0.r0.a;
 import c.a.s0.r0.c;
 import c.a.s0.r0.g;
 import c.a.s0.r0.h;
-import c.a.s0.s.h0.b;
+import c.a.s0.s.i0.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -183,22 +183,22 @@ public class PayActivityStatic {
         }
         initYYPaySDK();
         createUIKit();
-        yyPayResultCallback = gVar.f12975e;
+        yyPayResultCallback = gVar.f13119e;
         Object obj = gVar.a;
         if (!(obj instanceof Activity)) {
             obj = getCurrentActivity();
         }
         IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
-        viewParams.closeOnSuccess = gVar.f12977g;
-        if (!TextUtils.isEmpty(gVar.f12973c)) {
-            viewParams.payAmountDialogTitle = gVar.f12973c;
+        viewParams.closeOnSuccess = gVar.f13121g;
+        if (!TextUtils.isEmpty(gVar.f13117c)) {
+            viewParams.payAmountDialogTitle = gVar.f13117c;
         }
-        Long l = gVar.f12974d;
+        Long l = gVar.f13118d;
         if (l != null) {
             int intValue = l.intValue();
             viewParams.targetAmount = intValue;
             if (intValue > 0) {
-                int i2 = gVar.f12976f;
+                int i2 = gVar.f13120f;
                 if (i2 == 1) {
                     viewParams.payScene = PayScene.DIALOG_PAY_SCENE;
                 } else if (i2 != 3) {
@@ -297,19 +297,19 @@ public class PayActivityStatic {
                     }
                     h hVar = new h();
                     CurrencyChargeMessage currencyChargeMessage = (CurrencyChargeMessage) obj2;
-                    hVar.f12983g = currencyChargeMessage.status;
-                    hVar.f12978b = currencyChargeMessage.appid;
-                    hVar.f12984h = Long.valueOf(currencyChargeMessage.uid);
-                    hVar.f12985i = currencyChargeMessage.usedChannel;
-                    hVar.f12980d = currencyChargeMessage.currencyType;
+                    hVar.f13127g = currencyChargeMessage.status;
+                    hVar.f13122b = currencyChargeMessage.appid;
+                    hVar.f13128h = Long.valueOf(currencyChargeMessage.uid);
+                    hVar.f13129i = currencyChargeMessage.usedChannel;
+                    hVar.f13124d = currencyChargeMessage.currencyType;
                     hVar.a = Long.valueOf(currencyChargeMessage.amount);
-                    hVar.f12979c = Long.valueOf(currencyChargeMessage.currencyAmount);
-                    hVar.f12982f = currencyChargeMessage.orderId;
-                    hVar.f12981e = currencyChargeMessage.expand;
+                    hVar.f13123c = Long.valueOf(currencyChargeMessage.currencyAmount);
+                    hVar.f13126f = currencyChargeMessage.orderId;
+                    hVar.f13125e = currencyChargeMessage.expand;
                     PayActivityStatic.yyPayResultCallback.a(hVar);
                 }
             };
-            if (gVar.f12972b == 0) {
+            if (gVar.f13116b == 0) {
                 yyPayUIKit.startPayDialog((Activity) obj, viewParams, iPayCallback);
             } else {
                 yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, iPayCallback);

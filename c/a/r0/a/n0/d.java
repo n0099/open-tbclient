@@ -42,22 +42,22 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final InterfaceC0467d f7748e;
+    public final InterfaceC0476d f7890e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f7749f;
+    public final String f7891f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f7750g;
+    public g f7892g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.a.n0.c f7751h;
+    public c.a.r0.a.n0.c f7893h;
 
     /* renamed from: i  reason: collision with root package name */
-    public l f7752i;
+    public l f7894i;
 
     /* renamed from: j  reason: collision with root package name */
-    public AtomicInteger f7753j;
+    public AtomicInteger f7895j;
     public CopyOnWriteArrayList<String> k;
     public c.a.r0.a.n0.h.e l;
 
@@ -67,7 +67,7 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f7754e;
+        public final /* synthetic */ d f7896e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -84,14 +84,14 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
                     return;
                 }
             }
-            this.f7754e = dVar;
+            this.f7896e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.c1.a.h0().c(this.f7754e);
+                c.a.r0.a.c1.a.h0().c(this.f7896e);
             }
         }
     }
@@ -102,23 +102,23 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f7755e;
+        public final /* synthetic */ List f7897e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f7756f;
+        public final /* synthetic */ boolean f7898f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b.C0471b f7757g;
+        public final /* synthetic */ b.C0480b f7899g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f7758h;
+        public final /* synthetic */ d f7900h;
 
-        public b(d dVar, List list, boolean z, b.C0471b c0471b) {
+        public b(d dVar, List list, boolean z, b.C0480b c0480b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, list, Boolean.valueOf(z), c0471b};
+                Object[] objArr = {dVar, list, Boolean.valueOf(z), c0480b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -128,17 +128,17 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
                     return;
                 }
             }
-            this.f7758h = dVar;
-            this.f7755e = list;
-            this.f7756f = z;
-            this.f7757g = c0471b;
+            this.f7900h = dVar;
+            this.f7897e = list;
+            this.f7898f = z;
+            this.f7899g = c0480b;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7758h.h(this.f7755e, this.f7756f, this.f7757g);
+                this.f7900h.h(this.f7897e, this.f7898f, this.f7899g);
             }
         }
     }
@@ -191,7 +191,7 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
 
     /* renamed from: c.a.r0.a.n0.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0467d extends c.a.r0.a.n0.b {
+    public interface InterfaceC0476d extends c.a.r0.a.n0.b {
     }
 
     static {
@@ -210,12 +210,12 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
         m = k.a;
     }
 
-    public d(InterfaceC0467d interfaceC0467d) {
+    public d(InterfaceC0476d interfaceC0476d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC0467d};
+            Object[] objArr = {interfaceC0476d};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -225,16 +225,16 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
                 return;
             }
         }
-        this.f7749f = ProcessUtils.getCurProcessName();
-        this.f7748e = interfaceC0467d;
+        this.f7891f = ProcessUtils.getCurProcessName();
+        this.f7890e = interfaceC0476d;
         ExecutorUtilsExt.postOnElastic(new a(this), "addLoginStatusChangedListener", 2);
-        this.f7753j = new AtomicInteger(0);
+        this.f7895j = new AtomicInteger(0);
         this.k = new CopyOnWriteArrayList<>();
-        this.f7752i = c.a.r0.a.c1.b.m();
-        this.f7750g = new g();
-        l lVar = this.f7752i;
+        this.f7894i = c.a.r0.a.c1.b.m();
+        this.f7892g = new g();
+        l lVar = this.f7894i;
         if (lVar != null) {
-            this.f7751h = lVar.b();
+            this.f7893h = lVar.b();
         }
         this.l = new c.a.r0.a.n0.h.e();
         if (m) {
@@ -246,7 +246,7 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            String h2 = c.a.r0.a.c1.a.h0().h(this.f7748e.a());
+            String h2 = c.a.r0.a.c1.a.h0().h(this.f7890e.a());
             if (m) {
                 String str = "onLoginStatusChanged : " + toString();
                 String str2 = "onLoginStatusChanged : uid(" + h2 + ")  -> " + z;
@@ -286,7 +286,7 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
                     }
                     c.a.r0.a.y1.c.a e2 = c.a.r0.a.y1.c.a.e();
                     c.a.r0.a.y1.c.c cVar = new c.a.r0.a.y1.c.c(i2);
-                    cVar.b(next.f9731f);
+                    cVar.b(next.f9873f);
                     e2.h(cVar);
                 }
             }
@@ -295,12 +295,12 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
         return (Set) invokeI.objValue;
     }
 
-    public final void d(String str, b.C0471b c0471b) {
+    public final void d(String str, b.C0480b c0480b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, c0471b) == null) {
-            c.a.r0.a.n0.l.c.m(c0471b).b(str);
-            this.f7750g.a(str);
-            c.a.r0.a.n0.c cVar = this.f7751h;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, c0480b) == null) {
+            c.a.r0.a.n0.l.c.m(c0480b).b(str);
+            this.f7892g.a(str);
+            c.a.r0.a.n0.c cVar = this.f7893h;
             if (cVar != null) {
                 cVar.a(str);
             }
@@ -308,27 +308,27 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
         }
     }
 
-    public void e(@Nullable String str, boolean z, b.C0471b c0471b) {
+    public void e(@Nullable String str, boolean z, b.C0480b c0480b) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), c0471b}) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), c0480b}) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(str);
-        f(arrayList, z, c0471b);
+        f(arrayList, z, c0480b);
     }
 
-    public void f(@Nullable List<String> list, boolean z, b.C0471b c0471b) {
+    public void f(@Nullable List<String> list, boolean z, b.C0480b c0480b) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, Boolean.valueOf(z), c0471b}) == null) || list == null || list.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, Boolean.valueOf(z), c0480b}) == null) || list == null || list.isEmpty()) {
             return;
         }
-        g(list, true, z, c0471b);
+        g(list, true, z, c0480b);
     }
 
-    public void g(@Nullable List<String> list, boolean z, boolean z2, b.C0471b c0471b) {
+    public void g(@Nullable List<String> list, boolean z, boolean z2, b.C0480b c0480b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2), c0471b}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2), c0480b}) == null) {
             if (!ProcessUtils.isMainProcess()) {
                 boolean z3 = m;
                 return;
@@ -341,22 +341,22 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
                 return;
             }
             o(list);
-            ExecutorUtilsExt.postOnSerial(new b(this, list, z, c0471b), "deleteSwanApp");
+            ExecutorUtilsExt.postOnSerial(new b(this, list, z, c0480b), "deleteSwanApp");
         }
     }
 
     @WorkerThread
-    public void h(@Nullable List<String> list, boolean z, b.C0471b c0471b) {
+    public void h(@Nullable List<String> list, boolean z, b.C0480b c0480b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{list, Boolean.valueOf(z), c0471b}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{list, Boolean.valueOf(z), c0480b}) == null) {
             if (list == null) {
                 boolean z2 = m;
                 return;
             }
-            this.f7753j.incrementAndGet();
+            this.f7895j.incrementAndGet();
             if (z) {
                 c.a.r0.a.e0.d.k("SwanAppPurger", "删除小程序==>开始重置小程序授权");
-                this.f7750g.g(list);
+                this.f7892g.g(list);
                 int size = list.size();
                 String[] strArr = new String[size];
                 for (int i2 = 0; i2 < size; i2++) {
@@ -365,7 +365,7 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
                 c.a.r0.a.j0.d.a.b(strArr);
             }
             c.a.r0.a.e0.d.k("SwanAppPurger", "删除小程序==>清除小程序数据、杀进程");
-            this.f7750g.e(list);
+            this.f7892g.e(list);
             for (String str : list) {
                 if (this.k.contains(str) || TextUtils.isEmpty(str)) {
                     c.a.r0.a.e0.d.k("SwanAppPurger", "删除小程序==>删除忽略: " + str);
@@ -374,15 +374,15 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
                         String str2 = "删除小程序==>删除小程序相关（小程序包、小程序分包）的APS记录: " + str;
                     }
                     c.a.r0.a.e0.d.k("SwanAppPurger", "删除小程序==>删除小程序文件: " + str);
-                    p(str, c0471b);
+                    p(str, c0480b);
                 }
             }
-            if (this.f7753j.decrementAndGet() <= 0) {
-                this.f7753j.set(0);
+            if (this.f7895j.decrementAndGet() <= 0) {
+                this.f7895j.set(0);
                 this.k.clear();
                 c.a.r0.a.n0.h.b.a();
             }
-            c.a.r0.a.n0.l.c.m(c0471b).j();
+            c.a.r0.a.n0.l.c.m(c0480b).j();
         }
     }
 
@@ -444,10 +444,10 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
             if (!TextUtils.isEmpty(n)) {
                 c.a.r0.w.d.k(n);
             }
-            l lVar = this.f7752i;
+            l lVar = this.f7894i;
             if (lVar != null) {
                 lVar.g();
-                this.f7752i.c();
+                this.f7894i.c();
             }
         }
     }
@@ -455,7 +455,7 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f7753j.get() > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f7895j.get() > 0 : invokeV.booleanValue;
     }
 
     public boolean n(Map<String, PMSAppInfo> map) {
@@ -482,19 +482,19 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
         }
     }
 
-    public final void p(String str, b.C0471b c0471b) {
+    public final void p(String str, b.C0480b c0480b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, str, c0471b) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048591, this, str, c0480b) == null) {
             if (c.a.r0.a.n0.h.c.a() && c.a.r0.a.a1.d.f().contains(str)) {
                 c.a.r0.a.e0.d.k("SwanAppPurger", "删除小程序==>小程序现在存活: " + str);
             } else if (c.a.r0.a.n0.h.b.c(str)) {
                 c.a.r0.a.e0.d.k("SwanAppPurger", "删除小程序==>小程序现正在下载中: " + str);
             } else {
-                d(str, c0471b);
+                d(str, c0480b);
                 c.a.r0.a.e0.d.k("SwanAppPurger", "删除小程序==>删除小程序数据库数据: " + str);
-                this.f7750g.f(str);
+                this.f7892g.f(str);
                 c.a.r0.a.e0.d.k("SwanAppPurger", "删除小程序==>清空小程序分包记录: " + str);
-                this.f7750g.d(str);
+                this.f7892g.d(str);
             }
         }
     }
@@ -519,20 +519,20 @@ public class d implements c.a.r0.a.m.c, c.a.r0.a.n0.l.b {
         }
     }
 
-    public void t(@Nullable Set<String> set, boolean z, b.C0471b c0471b) {
+    public void t(@Nullable Set<String> set, boolean z, b.C0480b c0480b) {
         c.a.r0.a.n0.h.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{set, Boolean.valueOf(z), c0471b}) == null) || (eVar = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{set, Boolean.valueOf(z), c0480b}) == null) || (eVar = this.l) == null) {
             return;
         }
-        eVar.i(set, z, c0471b);
+        eVar.i(set, z, c0480b);
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return "Process<" + this.f7749f + "> " + super.toString();
+            return "Process<" + this.f7891f + "> " + super.toString();
         }
         return (String) invokeV.objValue;
     }

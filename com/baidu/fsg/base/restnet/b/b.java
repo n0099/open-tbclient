@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.restnet.b;
 
 import android.text.TextUtils;
-import androidx.webkit.ProxyConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +47,7 @@ public class b implements HostnameVerifier {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
             try {
                 Certificate[] peerCertificates = sSLSession.getPeerCertificates();
-                eVar = this.a.f33701e;
+                eVar = this.a.f33729e;
                 String n = eVar.a().n();
                 if (!TextUtils.isEmpty(n) && peerCertificates != null && peerCertificates.length > 0) {
                     X509Certificate x509Certificate = (X509Certificate) peerCertificates[0];
@@ -60,7 +59,7 @@ public class b implements HostnameVerifier {
                                 if (n.equals(str2)) {
                                     return true;
                                 }
-                                if (str2 != null && str2.startsWith(ProxyConfig.MATCH_ALL_SCHEMES) && Pattern.compile(str2.replace(ProxyConfig.MATCH_ALL_SCHEMES, "(\\w*-*\\w*)")).matcher(n).matches()) {
+                                if (str2 != null && str2.startsWith("*") && Pattern.compile(str2.replace("*", "(\\w*-*\\w*)")).matcher(n).matches()) {
                                     return true;
                                 }
                             }

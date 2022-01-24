@@ -48,11 +48,11 @@ public class b {
             if (optJSONObject != null) {
                 aVar.a = a(optJSONObject);
             }
-            aVar.f11199b = new ArrayList();
+            aVar.f11341b = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    aVar.f11199b.add(a(optJSONArray.optJSONObject(i2)));
+                    aVar.f11341b.add(a(optJSONArray.optJSONObject(i2)));
                 }
             }
             return aVar;
@@ -69,12 +69,12 @@ public class b {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 cVar.a = jSONObject.getInt("errno");
-                cVar.f11200b = jSONObject.optString("errmsg");
-                cVar.f11201c = jSONObject.optJSONObject("data");
+                cVar.f11342b = jSONObject.optString("errmsg");
+                cVar.f11343c = jSONObject.optJSONObject("data");
                 return cVar;
             } catch (JSONException e2) {
                 cVar.a = -1;
-                cVar.f11200b = "network error: response parse failed.";
+                cVar.f11342b = "network error: response parse failed.";
                 if (k.a) {
                     String str2 = "parseResponseModel error:" + e2;
                 }

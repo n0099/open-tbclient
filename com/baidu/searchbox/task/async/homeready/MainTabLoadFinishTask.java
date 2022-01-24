@@ -3,7 +3,7 @@ package com.baidu.searchbox.task.async.homeready;
 import android.webkit.WebSettings;
 import c.a.b1.c;
 import c.a.s0.m.a;
-import c.a.s0.s.h0.b;
+import c.a.s0.s.i0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -54,6 +54,11 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 b.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
             } catch (Exception e2) {
                 e2.printStackTrace();
+            }
+            try {
+                b.k().y("key_last_cached_oid", c.a.r.b.f(TbadkCoreApplication.getInst().getContext()).g());
+            } catch (Exception e3) {
+                e3.printStackTrace();
             }
         }
     }

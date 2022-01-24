@@ -48,31 +48,31 @@ public final class DanmakuPlayer {
     public DanmakuView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.t0.m0.f.b f42431b;
+    public final c.a.t0.m0.f.b f42452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Lazy f42432c;
+    public final Lazy f42453c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Lazy f42433d;
+    public final Lazy f42454d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Lazy f42434e;
+    public final Lazy f42455e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42435f;
+    public int f42456f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42436g;
+    public int f42457g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f42437h;
+    public float f42458h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.m0.a f42438i;
+    public c.a.t0.m0.a f42459i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Semaphore f42439j;
+    public final Semaphore f42460j;
     public boolean k;
     public c l;
     public boolean m;
@@ -133,7 +133,7 @@ public final class DanmakuPlayer {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Handler f42440e;
+        public final Handler f42461e;
 
         public b(Handler handler) {
             Interceptable interceptable = $ic;
@@ -151,15 +151,15 @@ public final class DanmakuPlayer {
                 }
             }
             Intrinsics.checkNotNullParameter(handler, "handler");
-            this.f42440e = handler;
+            this.f42461e = handler;
         }
 
         @Override // android.view.Choreographer.FrameCallback
         public void doFrame(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                this.f42440e.removeMessages(2101);
-                this.f42440e.sendEmptyMessage(2101);
+                this.f42461e.removeMessages(2101);
+                this.f42461e.sendEmptyMessage(2101);
             }
         }
     }
@@ -195,12 +195,12 @@ public final class DanmakuPlayer {
             }
         }
         Intrinsics.checkNotNullParameter(renderer, "renderer");
-        this.f42431b = b.a.c(c.a.t0.m0.f.b.m, renderer, null, 2, null);
-        this.f42432c = LazyKt__LazyJVMKt.lazy(DanmakuPlayer$actionThread$2.INSTANCE);
-        this.f42433d = LazyKt__LazyJVMKt.lazy(new DanmakuPlayer$actionHandler$2(this));
-        this.f42434e = LazyKt__LazyJVMKt.lazy(new DanmakuPlayer$frameCallback$2(this));
-        this.f42437h = 1.0f;
-        this.f42439j = new Semaphore(0);
+        this.f42452b = b.a.c(c.a.t0.m0.f.b.m, renderer, null, 2, null);
+        this.f42453c = LazyKt__LazyJVMKt.lazy(DanmakuPlayer$actionThread$2.INSTANCE);
+        this.f42454d = LazyKt__LazyJVMKt.lazy(new DanmakuPlayer$actionHandler$2(this));
+        this.f42455e = LazyKt__LazyJVMKt.lazy(new DanmakuPlayer$frameCallback$2(this));
+        this.f42458h = 1.0f;
+        this.f42460j = new Semaphore(0);
         if (cVar == null) {
             return;
         }
@@ -219,8 +219,8 @@ public final class DanmakuPlayer {
     public final void A(c.a.t0.m0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f42438i = aVar;
-            c.a.t0.m0.f.b bVar = this.f42431b;
+            this.f42459i = aVar;
+            c.a.t0.m0.f.b bVar = this.f42452b;
             if (aVar == null) {
                 return;
             }
@@ -250,15 +250,15 @@ public final class DanmakuPlayer {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f2) == null) && this.k) {
             if (n) {
-                this.f42431b.D(f2);
+                this.f42452b.D(f2);
             } else {
                 r();
-                this.f42431b.z();
-                this.f42439j.acquire();
+                this.f42452b.z();
+                this.f42460j.acquire();
             }
             if (this.k) {
                 e.b("updateFrame");
-                this.f42431b.r();
+                this.f42452b.r();
                 e.b("postInvalidate");
                 DanmakuView danmakuView = this.a;
                 if (danmakuView != null) {
@@ -279,11 +279,11 @@ public final class DanmakuPlayer {
     public final void E(int i2, int i3, float f2) {
         c.a.t0.m0.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) || (aVar = this.f42438i) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) || (aVar = this.f42459i) == null) {
             return;
         }
-        if (this.f42435f == i2 && this.f42436g == i3) {
-            if (this.f42437h == f2) {
+        if (this.f42456f == i2 && this.f42457g == i3) {
+            if (this.f42458h == f2) {
                 return;
             }
         }
@@ -295,9 +295,9 @@ public final class DanmakuPlayer {
             aVar.J();
         }
         BdLog.d(Intrinsics.stringPlus("XanaDanmaku [Factor] update rolling duration to ", Long.valueOf(clamp)));
-        this.f42435f = i2;
-        this.f42436g = i3;
-        this.f42437h = f2;
+        this.f42456f = i2;
+        this.f42457g = i3;
+        this.f42458h = f2;
     }
 
     public final void e(DanmakuView danmakuView) {
@@ -310,7 +310,7 @@ public final class DanmakuPlayer {
             }
             this.a = danmakuView;
             danmakuView.setDanmakuPlayer(this);
-            this.f42431b.u().g(danmakuView.getDisplayer$danmu_release());
+            this.f42452b.u().g(danmakuView.getDisplayer$danmu_release());
             o(danmakuView.getDisplayer$danmu_release().getWidth(), danmakuView.getDisplayer$danmu_release().getHeight());
             danmakuView.postInvalidate();
         }
@@ -324,13 +324,13 @@ public final class DanmakuPlayer {
                 return;
             }
             if (!n) {
-                c.a.t0.m0.f.b.E(this.f42431b, null, 1, null);
+                c.a.t0.m0.f.b.E(this.f42452b, null, 1, null);
             }
-            this.f42439j.tryAcquire();
+            this.f42460j.tryAcquire();
             if (!this.k) {
                 t();
             } else {
-                this.f42431b.s(canvas, new DanmakuPlayer$draw$1(this));
+                this.f42452b.s(canvas, new DanmakuPlayer$draw$1(this));
             }
         }
     }
@@ -338,25 +338,25 @@ public final class DanmakuPlayer {
     public final a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (a) this.f42433d.getValue() : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (a) this.f42454d.getValue() : (a) invokeV.objValue;
     }
 
     public final HandlerThread h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (HandlerThread) this.f42432c.getValue() : (HandlerThread) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (HandlerThread) this.f42453c.getValue() : (HandlerThread) invokeV.objValue;
     }
 
     public final c.a.t0.m0.a i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f42431b.t() : (c.a.t0.m0.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f42452b.t() : (c.a.t0.m0.a) invokeV.objValue;
     }
 
     public final long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f42431b.v() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f42452b.v() : invokeV.longValue;
     }
 
     public final List<c.a.t0.m0.e.a> k(RectF hitRect) {
@@ -364,7 +364,7 @@ public final class DanmakuPlayer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, hitRect)) == null) {
             Intrinsics.checkNotNullParameter(hitRect, "hitRect");
-            RenderSystem renderSystem = (RenderSystem) this.f42431b.k(RenderSystem.class);
+            RenderSystem renderSystem = (RenderSystem) this.f42452b.k(RenderSystem.class);
             if (renderSystem == null) {
                 return null;
             }
@@ -376,25 +376,25 @@ public final class DanmakuPlayer {
     public final DataSystem l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (DataSystem) this.f42431b.k(DataSystem.class) : (DataSystem) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (DataSystem) this.f42452b.k(DataSystem.class) : (DataSystem) invokeV.objValue;
     }
 
     public final c.a.t0.m0.f.b m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f42431b : (c.a.t0.m0.f.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f42452b : (c.a.t0.m0.f.b) invokeV.objValue;
     }
 
     public final b n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (b) this.f42434e.getValue() : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (b) this.f42455e.getValue() : (b) invokeV.objValue;
     }
 
     public final void o(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048591, this, i2, i3) == null) {
-            c.a.t0.m0.j.b d2 = this.f42431b.u().d();
+            c.a.t0.m0.j.b d2 = this.f42452b.u().d();
             E(i2, i3, d2.d());
             D();
             if (d2.getWidth() == i2 && d2.getHeight() == i3) {
@@ -420,7 +420,7 @@ public final class DanmakuPlayer {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f42431b.y();
+            this.f42452b.y();
         }
     }
 
@@ -442,13 +442,13 @@ public final class DanmakuPlayer {
         this.k = false;
         h().quitSafely();
         h().join(50L);
-        this.f42431b.A();
+        this.f42452b.A();
     }
 
     public final void t() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && this.f42439j.availablePermits() == 0) {
-            this.f42439j.release();
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && this.f42460j.availablePermits() == 0) {
+            this.f42460j.release();
         }
     }
 
@@ -460,7 +460,7 @@ public final class DanmakuPlayer {
             if (i2 != null) {
                 i2.E();
             }
-            this.f42431b.B(Math.max(j2, 0L));
+            this.f42452b.B(Math.max(j2, 0L));
         }
     }
 
@@ -485,7 +485,7 @@ public final class DanmakuPlayer {
             return;
         }
         this.l = cVar;
-        RenderSystem renderSystem = (RenderSystem) this.f42431b.k(RenderSystem.class);
+        RenderSystem renderSystem = (RenderSystem) this.f42452b.k(RenderSystem.class);
         if (renderSystem == null) {
             return;
         }
@@ -498,7 +498,7 @@ public final class DanmakuPlayer {
             if (aVar != null) {
                 A(aVar);
             }
-            this.f42431b.C();
+            this.f42452b.C();
             if (this.k) {
                 return;
             }
@@ -524,7 +524,7 @@ public final class DanmakuPlayer {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.f42431b.y();
+            this.f42452b.y();
             u(0L);
         }
     }

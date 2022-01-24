@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.i;
 
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static boolean a(DownloadInfo downloadInfo) {
         return downloadInfo != null && com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).b("optimize_head_request") == 1;

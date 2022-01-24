@@ -26,7 +26,7 @@ public class f {
                 int intValue4 = m.g() != null ? m.g().intValue() : -1;
                 boolean z3 = a.a;
                 c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
-                fVar.f7977b = str;
+                fVar.f8119b = str;
                 fVar.a("dh_group_id", Integer.valueOf(intValue));
                 fVar.a("dh_secret", Integer.valueOf(intValue2));
                 fVar.a("dh_pub_c", Integer.valueOf(intValue3));
@@ -56,8 +56,8 @@ public class f {
                     String str2 = bdtls$Alert.getDescription() != null ? new String(bdtls$Alert.getDescription().toByteArray()) : "";
                     boolean z2 = a.a;
                     c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
-                    fVar.f7977b = "alert";
-                    fVar.f7980e = str;
+                    fVar.f8119b = "alert";
+                    fVar.f8122e = str;
                     fVar.a("dh_group_id", Integer.valueOf(intValue));
                     fVar.a("dh_secret", Integer.valueOf(intValue2));
                     fVar.a("dh_pub_c", Integer.valueOf(intValue3));

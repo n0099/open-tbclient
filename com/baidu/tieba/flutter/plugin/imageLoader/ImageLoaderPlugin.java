@@ -21,6 +21,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.searchbox.http.response.ResponseException;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
@@ -277,7 +278,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
             }
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("key", requestParam.getKey());
-            hashMap.put("startTime", Long.valueOf(currentTimeMillis));
+            hashMap.put(FetchLog.START_TIME, Long.valueOf(currentTimeMillis));
             String androidNameFromIos = ResNameTransform.getAndroidNameFromIos(requestParam.getKey());
             int identifier = resources.getIdentifier(androidNameFromIos, "drawable", BdBaseApplication.getInst().getPackageName());
             int i3 = 1;
@@ -342,7 +343,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
             long currentTimeMillis = System.currentTimeMillis();
             HashMap hashMap = new HashMap();
             hashMap.put("key", requestParam.getKey());
-            hashMap.put("startTime", Long.valueOf(currentTimeMillis));
+            hashMap.put(FetchLog.START_TIME, Long.valueOf(currentTimeMillis));
             d.h().k(requestParam.getKey(), 44, new c<a>(this, hashMap, result, currentTimeMillis) { // from class: com.baidu.tieba.flutter.plugin.imageLoader.ImageLoaderPlugin.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -428,7 +429,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, flutterPluginBinding) == null) {
-            c.a.t0.z0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
+            c.a.t0.a1.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
         }
     }
 
@@ -436,7 +437,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, flutterPluginBinding) == null) {
-            c.a.t0.z0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
+            c.a.t0.a1.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
         }
     }
 }

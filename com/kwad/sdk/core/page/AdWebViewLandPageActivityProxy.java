@@ -328,10 +328,10 @@ public class AdWebViewLandPageActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     @Override // com.kwad.sdk.core.e.a
     public com.kwad.sdk.reward.a onCreateCallerContext() {
         com.kwad.sdk.reward.a aVar = new com.kwad.sdk.reward.a();
-        aVar.f57208h = getActivity();
-        aVar.f57209i = this.mContext;
+        aVar.f57253h = getActivity();
+        aVar.f57254i = this.mContext;
         AdTemplate adTemplate = this.mAdTemplate;
-        aVar.f57207g = adTemplate;
+        aVar.f57252g = adTemplate;
         aVar.r = false;
         if (com.kwad.sdk.core.response.a.a.P(com.kwad.sdk.core.response.a.d.j(adTemplate))) {
             com.kwad.sdk.utils.b.a(this.mContext).a(true);

@@ -6,13 +6,13 @@ import java.io.ByteArrayInputStream;
 public class q extends aa {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57093h;
+    public int f57138h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57094i;
+    public int f57139i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f57095j;
+    public int f57140j;
     public int k;
     public int l;
     public int m;
@@ -31,9 +31,9 @@ public class q extends aa {
             throw new PngjException("Bad IDHR len " + dVar.a);
         }
         ByteArrayInputStream b2 = dVar.b();
-        this.f57093h = com.kwad.sdk.pngencrypt.n.b(b2);
-        this.f57094i = com.kwad.sdk.pngencrypt.n.b(b2);
-        this.f57095j = com.kwad.sdk.pngencrypt.n.a(b2);
+        this.f57138h = com.kwad.sdk.pngencrypt.n.b(b2);
+        this.f57139i = com.kwad.sdk.pngencrypt.n.b(b2);
+        this.f57140j = com.kwad.sdk.pngencrypt.n.a(b2);
         this.k = com.kwad.sdk.pngencrypt.n.a(b2);
         this.l = com.kwad.sdk.pngencrypt.n.a(b2);
         this.m = com.kwad.sdk.pngencrypt.n.a(b2);
@@ -41,14 +41,14 @@ public class q extends aa {
     }
 
     public void a(com.kwad.sdk.pngencrypt.k kVar) {
-        b(this.f57047e.a);
-        c(this.f57047e.f57131b);
-        d(this.f57047e.f57132c);
-        int i2 = this.f57047e.f57134e ? 4 : 0;
-        if (this.f57047e.f57136g) {
+        b(this.f57092e.a);
+        c(this.f57092e.f57176b);
+        d(this.f57092e.f57177c);
+        int i2 = this.f57092e.f57179e ? 4 : 0;
+        if (this.f57092e.f57181g) {
             i2++;
         }
-        if (!this.f57047e.f57135f) {
+        if (!this.f57092e.f57180f) {
             i2 += 2;
         }
         e(i2);
@@ -58,27 +58,27 @@ public class q extends aa {
     }
 
     public void b(int i2) {
-        this.f57093h = i2;
+        this.f57138h = i2;
     }
 
     public int c() {
-        return this.f57093h;
+        return this.f57138h;
     }
 
     public void c(int i2) {
-        this.f57094i = i2;
+        this.f57139i = i2;
     }
 
     public int d() {
-        return this.f57094i;
+        return this.f57139i;
     }
 
     public void d(int i2) {
-        this.f57095j = i2;
+        this.f57140j = i2;
     }
 
     public int e() {
-        return this.f57095j;
+        return this.f57140j;
     }
 
     public void e(int i2) {
@@ -115,10 +115,10 @@ public class q extends aa {
     }
 
     public void j() {
-        if (this.f57093h < 1 || this.f57094i < 1 || this.l != 0 || this.m != 0) {
+        if (this.f57138h < 1 || this.f57139i < 1 || this.l != 0 || this.m != 0) {
             throw new PngjException("bad IHDR: col/row/compmethod/filmethod invalid");
         }
-        int i2 = this.f57095j;
+        int i2 = this.f57140j;
         if (i2 != 1 && i2 != 2 && i2 != 4 && i2 != 8 && i2 != 16) {
             throw new PngjException("bad IHDR: bitdepth invalid");
         }
@@ -130,7 +130,7 @@ public class q extends aa {
         if (i4 != 0) {
             if (i4 != 6 && i4 != 2) {
                 if (i4 == 3) {
-                    if (this.f57095j == 16) {
+                    if (this.f57140j == 16) {
                         throw new PngjException("bad IHDR: bitdepth invalid");
                     }
                     return;
@@ -138,7 +138,7 @@ public class q extends aa {
                     throw new PngjException("bad IHDR: invalid colormodel");
                 }
             }
-            int i5 = this.f57095j;
+            int i5 = this.f57140j;
             if (i5 != 8 && i5 != 16) {
                 throw new PngjException("bad IHDR: bitdepth invalid");
             }

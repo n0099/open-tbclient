@@ -7,7 +7,7 @@ import android.widget.RelativeLayout;
 import c.a.s0.x.n;
 import c.a.s0.x.v.h.f;
 import c.a.s0.x.x.d.b;
-import c.a.t0.w3.a0;
+import c.a.t0.x3.a0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -27,16 +27,16 @@ public class e {
     public EditorTools a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f14207b;
+    public Context f14347b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f14208c;
+    public View f14348c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.s0.x.v.f.a f14209d;
+    public c.a.s0.x.v.f.a f14349d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.x.v.g.b f14210e;
+    public c.a.s0.x.v.g.b f14350e;
 
     public e(Context context, View view, c.a.s0.x.v.f.a aVar) {
         Interceptable interceptable = $ic;
@@ -54,19 +54,19 @@ public class e {
             }
         }
         if (k(context, view, aVar)) {
-            this.f14207b = context;
-            this.f14208c = view;
-            this.f14209d = aVar;
+            this.f14347b = context;
+            this.f14348c = view;
+            this.f14349d = aVar;
             c();
         }
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f14208c instanceof RelativeLayout)) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f14348c instanceof RelativeLayout)) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            ((RelativeLayout) this.f14208c).addView(this.a, layoutParams);
+            ((RelativeLayout) this.f14348c).addView(this.a, layoutParams);
         }
     }
 
@@ -75,10 +75,10 @@ public class e {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             l();
             this.a.hide();
-            if (this.f14208c == null || this.a.getParent() == null) {
+            if (this.f14348c == null || this.a.getParent() == null) {
                 return;
             }
-            View view = this.f14208c;
+            View view = this.f14348c;
             if (view instanceof RelativeLayout) {
                 ((RelativeLayout) view).removeView(this.a);
             }
@@ -96,7 +96,7 @@ public class e {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            EditorTools a = ((c.a.s0.x.v.h.e) new f(this.f14209d).a(this.f14207b)).a();
+            EditorTools a = ((c.a.s0.x.v.h.e) new f(this.f14349d).a(this.f14347b)).a();
             this.a = a;
             a.setId(R.id.local_input_tool);
             this.a.setOnCancelClickListener(new View.OnClickListener() { // from class: c.a.s0.x.v.c
@@ -111,13 +111,13 @@ public class e {
                     }
                 }
             });
-            Context context = this.f14207b;
+            Context context = this.f14347b;
             if (context instanceof Activity) {
-                c.a.s0.x.x.d.b.b((Activity) context, this.a.mED, new b.InterfaceC0908b() { // from class: c.a.s0.x.v.a
+                c.a.s0.x.x.d.b.b((Activity) context, this.a.mED, new b.InterfaceC0918b() { // from class: c.a.s0.x.v.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // c.a.s0.x.x.d.b.InterfaceC0908b
+                    @Override // c.a.s0.x.x.d.b.InterfaceC0918b
                     public final void onKeyboardShowing(boolean z) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
@@ -145,7 +145,7 @@ public class e {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f14210e = new c.a.s0.x.v.g.b(this.f14209d);
+            this.f14350e = new c.a.s0.x.v.g.b(this.f14349d);
         }
     }
 
@@ -156,18 +156,19 @@ public class e {
     public /* synthetic */ void g(boolean z) {
         if (z) {
             this.a.mED.setVisibility(0);
-        } else {
-            this.a.mED.hideWhenKeyboardNotShow();
+            this.a.mED.setBackgroundColorId(R.color.CAM_X0207);
+            return;
         }
+        this.a.mED.hideWhenKeyboardNotShow();
     }
 
     public /* synthetic */ void h(c.a.s0.x.v.f.a aVar, String str) {
-        c.a.s0.x.v.g.b bVar = this.f14210e;
+        c.a.s0.x.v.g.b bVar = this.f14350e;
         if (bVar != null) {
             bVar.f(aVar, str);
             b();
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LOCAL_INOUT_SEND_BTN_CLICK);
-            statisticItem.addParam("obj_id", aVar.a().f14132e);
+            statisticItem.addParam("obj_id", aVar.a().f14272e);
             TiebaStatic.log(statisticItem);
         }
     }
@@ -179,14 +180,14 @@ public class e {
     public final void j() {
         c.a.s0.x.v.g.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (bVar = this.f14210e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (bVar = this.f14350e) == null) {
             return;
         }
         bVar.d(new a0.g() { // from class: c.a.s0.x.v.b
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // c.a.t0.w3.a0.g
+            @Override // c.a.t0.x3.a0.g
             public final void a(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -211,7 +212,7 @@ public class e {
         n nVar = this.a.findToolById(36).k;
         if (nVar instanceof LocalInputContainer) {
             String inputContentDraft = ((LocalInputContainer) nVar).getInputContentDraft();
-            c.a.s0.x.v.g.b bVar = this.f14210e;
+            c.a.s0.x.v.g.b bVar = this.f14350e;
             if (bVar != null) {
                 bVar.e(inputContentDraft);
             }
@@ -226,7 +227,7 @@ public class e {
         j();
         this.a.display();
         StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LOCAL_INOUT_SHOW);
-        statisticItem.addParam("obj_id", this.f14209d.a().f14132e);
+        statisticItem.addParam("obj_id", this.f14349d.a().f14272e);
         TiebaStatic.log(statisticItem);
     }
 }

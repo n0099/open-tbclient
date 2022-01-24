@@ -14,7 +14,7 @@ public class e extends Thread {
     public final /* synthetic */ byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d f33341b;
+    public final /* synthetic */ d f33369b;
 
     public e(d dVar, byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class e extends Thread {
                 return;
             }
         }
-        this.f33341b = dVar;
+        this.f33369b = dVar;
         this.a = bArr;
     }
 
@@ -42,8 +42,8 @@ public class e extends Thread {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.run();
             try {
-                this.f33341b.a();
-                bVar = this.f33341b.f33340d;
+                this.f33369b.a();
+                bVar = this.f33369b.f33368d;
                 bVar.a(this.a);
             } catch (Exception e2) {
                 LogUtil.logE(LogUtils.TAG, Log.getStackTraceString(e2));

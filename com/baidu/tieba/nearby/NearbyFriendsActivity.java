@@ -19,7 +19,7 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
     public CustomMessageListener mCompleteInfoListener;
     public CustomMessageListener mLocalInputListener;
     public NearbyFriendsModel mModel;
-    public c.a.t0.l2.d.a mView;
+    public c.a.t0.m2.d.a mView;
 
     /* loaded from: classes12.dex */
     public class a extends CustomMessageListener {
@@ -142,7 +142,7 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             setContentView(R.layout.activity_nearby_friends);
             initListeners();
-            c.a.t0.l2.d.b bVar = new c.a.t0.l2.d.b(this);
+            c.a.t0.m2.d.b bVar = new c.a.t0.m2.d.b(this);
             this.mView = bVar;
             NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(bVar, getUniqueId());
             this.mModel = nearbyFriendsModel;

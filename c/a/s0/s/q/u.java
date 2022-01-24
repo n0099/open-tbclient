@@ -17,7 +17,7 @@ public class u {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13504b;
+    public int f13691b;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class u {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13504b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13691b : invokeV.intValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -52,7 +52,7 @@ public class u {
         }
         try {
             this.a = jSONObject.optLong("cartoon_id");
-            this.f13504b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+            this.f13691b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }
@@ -64,6 +64,6 @@ public class u {
             return;
         }
         this.a = cartoonThread.cartoon_id.longValue();
-        this.f13504b = cartoonThread.chapter_id.intValue();
+        this.f13691b = cartoonThread.chapter_id.intValue();
     }
 }

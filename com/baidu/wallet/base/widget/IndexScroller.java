@@ -31,31 +31,31 @@ public class IndexScroller {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f50648b;
+    public float f50693b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f50649c;
+    public float f50694c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f50650d;
+    public float f50695d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f50651e;
+    public float f50696e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f50652f;
+    public float f50697f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50653g;
+    public int f50698g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50654h;
+    public int f50699h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f50655i;
+    public int f50700i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f50656j;
+    public int f50701j;
     public boolean k;
     public ListView l;
     public SectionIndexer m;
@@ -96,11 +96,11 @@ public class IndexScroller {
                 if (indexScroller == null) {
                     return;
                 }
-                int i2 = indexScroller.f50653g;
+                int i2 = indexScroller.f50698g;
                 if (i2 == 1) {
-                    indexScroller.f50652f = (float) (indexScroller.f50652f + ((1.0f - indexScroller.f50652f) * 0.2d));
-                    if (indexScroller.f50652f > 0.9d) {
-                        indexScroller.f50652f = 1.0f;
+                    indexScroller.f50697f = (float) (indexScroller.f50697f + ((1.0f - indexScroller.f50697f) * 0.2d));
+                    if (indexScroller.f50697f > 0.9d) {
+                        indexScroller.f50697f = 1.0f;
                         indexScroller.a(2);
                     }
                     indexScroller.l.invalidate();
@@ -109,9 +109,9 @@ public class IndexScroller {
                     indexScroller.a(3);
                 } else if (i2 != 3) {
                 } else {
-                    indexScroller.f50652f = (float) (indexScroller.f50652f - (indexScroller.f50652f * 0.2d));
-                    if (indexScroller.f50652f < 0.1d) {
-                        indexScroller.f50652f = 0.0f;
+                    indexScroller.f50697f = (float) (indexScroller.f50697f - (indexScroller.f50697f * 0.2d));
+                    if (indexScroller.f50697f < 0.1d) {
+                        indexScroller.f50697f = 0.0f;
                         indexScroller.a(0);
                     }
                     indexScroller.l.invalidate();
@@ -136,21 +136,21 @@ public class IndexScroller {
                 return;
             }
         }
-        this.f50653g = 0;
-        this.f50656j = -1;
+        this.f50698g = 0;
+        this.f50701j = -1;
         this.k = false;
         this.l = null;
         this.m = null;
         this.n = null;
         this.t = new a(this);
-        this.f50650d = context.getResources().getDisplayMetrics().density;
-        this.f50651e = context.getResources().getDisplayMetrics().scaledDensity;
+        this.f50695d = context.getResources().getDisplayMetrics().density;
+        this.f50696e = context.getResources().getDisplayMetrics().scaledDensity;
         this.l = listView;
         setAdapter(listView.getAdapter());
-        float f2 = this.f50650d;
+        float f2 = this.f50695d;
         this.a = 20.0f * f2;
-        this.f50648b = 10.0f * f2;
-        this.f50649c = f2 * 5.0f;
+        this.f50693b = 10.0f * f2;
+        this.f50694c = f2 * 5.0f;
     }
 
     public boolean contains(float f2, float f3) {
@@ -176,7 +176,7 @@ public class IndexScroller {
             return;
         }
         int i2 = 0;
-        if (this.f50656j >= 0) {
+        if (this.f50701j >= 0) {
             Paint paint = new Paint();
             paint.setColor(-16777216);
             paint.setAlpha(96);
@@ -185,21 +185,21 @@ public class IndexScroller {
             Paint paint2 = new Paint();
             paint2.setColor(-1);
             paint2.setAntiAlias(true);
-            paint2.setTextSize(this.f50651e * 50.0f);
-            float measureText = paint2.measureText(this.n[this.f50656j]);
-            float descent = ((this.f50649c * 2.0f) + paint2.descent()) - paint2.ascent();
-            int i3 = this.f50654h;
-            int i4 = this.f50655i;
+            paint2.setTextSize(this.f50696e * 50.0f);
+            float measureText = paint2.measureText(this.n[this.f50701j]);
+            float descent = ((this.f50694c * 2.0f) + paint2.descent()) - paint2.ascent();
+            int i3 = this.f50699h;
+            int i4 = this.f50700i;
             RectF rectF = new RectF((i3 - descent) / 2.0f, (i4 - descent) / 2.0f, ((i3 - descent) / 2.0f) + descent, ((i4 - descent) / 2.0f) + descent);
-            float f2 = this.f50650d;
+            float f2 = this.f50695d;
             canvas.drawRoundRect(rectF, f2 * 5.0f, f2 * 5.0f, paint);
-            canvas.drawText(this.n[this.f50656j], (rectF.left + ((descent - measureText) / 2.0f)) - 1.0f, ((rectF.top + this.f50649c) - paint2.ascent()) + 1.0f, paint2);
+            canvas.drawText(this.n[this.f50701j], (rectF.left + ((descent - measureText) / 2.0f)) - 1.0f, ((rectF.top + this.f50694c) - paint2.ascent()) + 1.0f, paint2);
         }
         Paint paint3 = new Paint();
         paint3.setColor(-16099908);
         paint3.setAntiAlias(true);
-        paint3.setTextSize(this.f50651e * 14.0f);
-        float height = (this.o.height() - (this.f50648b * 2.0f)) / this.n.length;
+        paint3.setTextSize(this.f50696e * 14.0f);
+        float height = (this.o.height() - (this.f50693b * 2.0f)) / this.n.length;
         float descent2 = (height - (paint3.descent() - paint3.ascent())) / 2.0f;
         while (true) {
             String[] strArr2 = this.n;
@@ -208,14 +208,14 @@ public class IndexScroller {
             }
             String str = this.n[i2];
             RectF rectF2 = this.o;
-            canvas.drawText(str, rectF2.left + ((this.a - paint3.measureText(strArr2[i2])) / 2.0f), (((rectF2.top + this.f50648b) + (i2 * height)) + descent2) - paint3.ascent(), paint3);
+            canvas.drawText(str, rectF2.left + ((this.a - paint3.measureText(strArr2[i2])) / 2.0f), (((rectF2.top + this.f50693b) + (i2 * height)) + descent2) - paint3.ascent(), paint3);
             i2++;
         }
     }
 
     public void hide() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f50653g == 2) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f50698g == 2) {
             a(3);
         }
     }
@@ -223,10 +223,10 @@ public class IndexScroller {
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
-            this.f50654h = i2;
-            this.f50655i = i3;
+            this.f50699h = i2;
+            this.f50700i = i3;
             float f2 = i2;
-            float f3 = this.f50648b;
+            float f3 = this.f50693b;
             this.o = new RectF((f2 - f3) - this.a, f3, f2 - f3, i3 - f3);
         }
     }
@@ -241,7 +241,7 @@ public class IndexScroller {
                     if (action == 2 && this.k) {
                         if (contains(motionEvent.getX(), motionEvent.getY())) {
                             int a2 = a(motionEvent.getY());
-                            this.f50656j = a2;
+                            this.f50701j = a2;
                             this.l.setSelection(this.m.getPositionForSection(a2));
                         }
                         return true;
@@ -249,9 +249,9 @@ public class IndexScroller {
                 } else {
                     if (this.k) {
                         this.k = false;
-                        this.f50656j = -1;
+                        this.f50701j = -1;
                     }
-                    if (this.f50653g == 2) {
+                    if (this.f50698g == 2) {
                         a(3);
                     }
                 }
@@ -259,7 +259,7 @@ public class IndexScroller {
                 a(2);
                 this.k = true;
                 int a3 = a(motionEvent.getY());
-                this.f50656j = a3;
+                this.f50701j = a3;
                 this.l.setSelection(this.m.getPositionForSection(a3));
                 return true;
             }
@@ -280,7 +280,7 @@ public class IndexScroller {
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int i2 = this.f50653g;
+            int i2 = this.f50698g;
             if (i2 == 0) {
                 a(1);
             } else if (i2 == 3) {
@@ -295,17 +295,17 @@ public class IndexScroller {
         if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) || i2 < 0 || i2 > 3) {
             return;
         }
-        this.f50653g = i2;
+        this.f50698g = i2;
         if (i2 == 0) {
             this.t.removeMessages(0);
         } else if (i2 == 1) {
-            this.f50652f = 0.0f;
+            this.f50697f = 0.0f;
             a(0L);
         } else if (i2 == 2) {
             this.t.removeMessages(0);
         } else if (i2 != 3) {
         } else {
-            this.f50652f = 1.0f;
+            this.f50697f = 1.0f;
             a(3000L);
         }
     }
@@ -320,16 +320,16 @@ public class IndexScroller {
             }
             RectF rectF = this.o;
             float f3 = rectF.top;
-            if (f2 < this.f50648b + f3) {
+            if (f2 < this.f50693b + f3) {
                 return 0;
             }
             float height = f3 + rectF.height();
-            float f4 = this.f50648b;
+            float f4 = this.f50693b;
             if (f2 >= height - f4) {
                 return this.n.length - 1;
             }
             RectF rectF2 = this.o;
-            return (int) (((f2 - rectF2.top) - f4) / ((rectF2.height() - (this.f50648b * 2.0f)) / this.n.length));
+            return (int) (((f2 - rectF2.top) - f4) / ((rectF2.height() - (this.f50693b * 2.0f)) / this.n.length));
         }
         return invokeF.intValue;
     }

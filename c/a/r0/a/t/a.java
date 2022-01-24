@@ -29,35 +29,35 @@ public class a {
     public List<AnimatorSet> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwanAppLaunchCircleAnimationView f8791b;
+    public SwanAppLaunchCircleAnimationView f8933b;
 
     /* renamed from: c.a.r0.a.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0554a implements Runnable {
+    public class RunnableC0563a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f8792e;
+        public final /* synthetic */ SwanAppActivity f8934e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f8793f;
+        public final /* synthetic */ a f8935f;
 
         /* renamed from: c.a.r0.a.t.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0555a implements Animator.AnimatorListener {
+        public class C0564a implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ RunnableC0554a f8794e;
+            public final /* synthetic */ RunnableC0563a f8936e;
 
-            public C0555a(RunnableC0554a runnableC0554a) {
+            public C0564a(RunnableC0563a runnableC0563a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {runnableC0554a};
+                    Object[] objArr = {runnableC0563a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -67,7 +67,7 @@ public class a {
                         return;
                     }
                 }
-                this.f8794e = runnableC0554a;
+                this.f8936e = runnableC0563a;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -80,12 +80,12 @@ public class a {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.f8794e.f8792e.isFinishing()) {
+                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.f8936e.f8934e.isFinishing()) {
                     return;
                 }
-                this.f8794e.f8792e.getLoadingView().a.setVisibility(8);
-                this.f8794e.f8792e.getLoadingView().H();
-                this.f8794e.f8792e.getFloatLayer().g();
+                this.f8936e.f8934e.getLoadingView().a.setVisibility(8);
+                this.f8936e.f8934e.getLoadingView().H();
+                this.f8936e.f8934e.getFloatLayer().g();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -98,14 +98,14 @@ public class a {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || this.f8794e.f8792e.isFinishing()) {
+                if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || this.f8936e.f8934e.isFinishing()) {
                     return;
                 }
-                this.f8794e.f8792e.getLoadingView().v();
+                this.f8936e.f8934e.getLoadingView().v();
             }
         }
 
-        public RunnableC0554a(a aVar, SwanAppActivity swanAppActivity) {
+        public RunnableC0563a(a aVar, SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,8 +120,8 @@ public class a {
                     return;
                 }
             }
-            this.f8793f = aVar;
-            this.f8792e = swanAppActivity;
+            this.f8935f = aVar;
+            this.f8934e = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
@@ -129,10 +129,10 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 AnimatorSet animatorSet = new AnimatorSet();
-                animatorSet.play(this.f8793f.d(this.f8792e, 150L));
-                animatorSet.addListener(new C0555a(this));
+                animatorSet.play(this.f8935f.d(this.f8934e, 150L));
+                animatorSet.addListener(new C0564a(this));
                 animatorSet.start();
-                this.f8793f.a.add(animatorSet);
+                this.f8935f.a.add(animatorSet);
             }
         }
     }
@@ -143,7 +143,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f8795e;
+        public final /* synthetic */ SwanAppActivity f8937e;
 
         public b(a aVar, SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -160,7 +160,7 @@ public class a {
                     return;
                 }
             }
-            this.f8795e = swanAppActivity;
+            this.f8937e = swanAppActivity;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -173,12 +173,12 @@ public class a {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.f8795e.isFinishing()) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.f8937e.isFinishing()) {
                 return;
             }
-            this.f8795e.getLoadingView().a.setVisibility(8);
-            this.f8795e.getLoadingView().H();
-            this.f8795e.getFloatLayer().g();
+            this.f8937e.getLoadingView().a.setVisibility(8);
+            this.f8937e.getLoadingView().H();
+            this.f8937e.getFloatLayer().g();
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -191,10 +191,10 @@ public class a {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || this.f8795e.isFinishing()) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || this.f8937e.isFinishing()) {
                 return;
             }
-            this.f8795e.getLoadingView().v();
+            this.f8937e.getLoadingView().v();
         }
     }
 
@@ -204,7 +204,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f8796e;
+        public final /* synthetic */ a f8938e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -221,21 +221,21 @@ public class a {
                     return;
                 }
             }
-            this.f8796e = aVar;
+            this.f8938e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (AnimatorSet animatorSet : this.f8796e.a) {
+                for (AnimatorSet animatorSet : this.f8938e.a) {
                     animatorSet.removeAllListeners();
                     animatorSet.cancel();
                 }
-                if (this.f8796e.f8791b != null) {
-                    this.f8796e.f8791b.stopAllCircleAnimation();
+                if (this.f8938e.f8933b != null) {
+                    this.f8938e.f8933b.stopAllCircleAnimation();
                 }
-                this.f8796e.a.clear();
+                this.f8938e.a.clear();
             }
         }
     }
@@ -271,11 +271,11 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppActivity)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f5210d, AnimationProperty.TRANSLATE_X, -n0.f(AppRuntime.getAppContext(), 9.5f), n0.f(AppRuntime.getAppContext(), 9.5f));
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f5352d, AnimationProperty.TRANSLATE_X, -n0.f(AppRuntime.getAppContext(), 9.5f), n0.f(AppRuntime.getAppContext(), 9.5f));
             ofFloat.setDuration(380L);
             ofFloat.setRepeatMode(2);
             ofFloat.setRepeatCount(-1);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f5211e, AnimationProperty.TRANSLATE_X, 0.0f, -n0.f(AppRuntime.getAppContext(), 19.0f));
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f5353e, AnimationProperty.TRANSLATE_X, 0.0f, -n0.f(AppRuntime.getAppContext(), 19.0f));
             ofFloat2.setDuration(380L);
             ofFloat2.setRepeatMode(2);
             ofFloat2.setRepeatCount(-1);
@@ -290,9 +290,9 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanAppActivity)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f5210d, AnimationProperty.TRANSLATE_X, 0.0f, -n0.f(AppRuntime.getAppContext(), 9.5f));
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f5352d, AnimationProperty.TRANSLATE_X, 0.0f, -n0.f(AppRuntime.getAppContext(), 9.5f));
             ofFloat.setDuration(240L);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f5211e, AnimationProperty.OPACITY, 0.0f, 1.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.getLoadingView().f5353e, AnimationProperty.OPACITY, 0.0f, 1.0f);
             ofFloat2.setDuration(240L);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.play(ofFloat).with(ofFloat2);
@@ -305,10 +305,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, swanAppActivity) == null) {
             d.L();
-            SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView = this.f8791b;
+            SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView = this.f8933b;
             if (swanAppLaunchCircleAnimationView != null) {
                 swanAppLaunchCircleAnimationView.setVisibility(4);
-                this.f8791b.stopAllCircleAnimation();
+                this.f8933b.stopAllCircleAnimation();
             }
             i(swanAppActivity);
         }
@@ -325,7 +325,7 @@ public class a {
     public final void i(SwanAppActivity swanAppActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, swanAppActivity) == null) {
-            q0.a0(new RunnableC0554a(this, swanAppActivity));
+            q0.a0(new RunnableC0563a(this, swanAppActivity));
         }
     }
 
@@ -333,7 +333,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, swanAppActivity) == null) {
             SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView = (SwanAppLaunchCircleAnimationView) swanAppActivity.findViewById(f.App_Launch_Circle_Animation_View);
-            this.f8791b = swanAppLaunchCircleAnimationView;
+            this.f8933b = swanAppLaunchCircleAnimationView;
             swanAppLaunchCircleAnimationView.startLoadingAnimation();
             h.o().F(new UbcFlowEvent("first_anim_start"));
             c.a.r0.a.m2.a.d().i("first_anim_start");

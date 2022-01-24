@@ -21,16 +21,16 @@ public class a implements Observer {
     public AudioRecorder a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FileOutputStream f50465b;
+    public FileOutputStream f50510b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f50466c;
+    public File f50511c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f50467d;
+    public b f50512d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50468e;
+    public int f50513e;
 
     public a(AudioRecorder audioRecorder) {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class a implements Observer {
             }
         }
         this.a = audioRecorder;
-        this.f50466c = new File("/sdcard/cu.wav");
+        this.f50511c = new File("/sdcard/cu.wav");
     }
 
     @Override // java.util.Observer
@@ -58,37 +58,37 @@ public class a implements Observer {
             if (obj instanceof AudioRecorder.State) {
                 AudioRecorder.State state = (AudioRecorder.State) obj;
                 if (AudioRecorder.State.OPEN == state) {
-                    this.f50468e = 0;
+                    this.f50513e = 0;
                     try {
-                        this.f50465b = new FileOutputStream(this.f50466c);
-                        FileInputStream fileInputStream = new FileInputStream(this.f50466c);
+                        this.f50510b = new FileOutputStream(this.f50511c);
+                        FileInputStream fileInputStream = new FileInputStream(this.f50511c);
                         b.a(fileInputStream).a();
                         fileInputStream.close();
                         b a = b.a(1, 16, 8000, 0);
-                        this.f50467d = a;
-                        a.a(this.f50465b);
+                        this.f50512d = a;
+                        a.a(this.f50510b);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 } else if (AudioRecorder.State.STOP == state) {
                     try {
-                        this.f50465b.close();
-                        this.f50467d = b.a(1, 16, 8000, this.f50468e);
-                        RandomAccessFile randomAccessFile = new RandomAccessFile(this.f50466c, "rw");
-                        this.f50467d.a(randomAccessFile);
-                        this.f50467d.a();
+                        this.f50510b.close();
+                        this.f50512d = b.a(1, 16, 8000, this.f50513e);
+                        RandomAccessFile randomAccessFile = new RandomAccessFile(this.f50511c, "rw");
+                        this.f50512d.a(randomAccessFile);
+                        this.f50512d.a();
                         randomAccessFile.close();
                     } catch (IOException e3) {
                         e3.printStackTrace();
                     }
-                    this.f50465b = null;
+                    this.f50510b = null;
                 }
-            } else if (!(obj instanceof Buffer) || this.f50465b == null) {
+            } else if (!(obj instanceof Buffer) || this.f50510b == null) {
             } else {
                 ByteBuffer byteBuffer = (ByteBuffer) obj;
                 try {
-                    this.f50468e += byteBuffer.remaining();
-                    this.f50465b.write(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
+                    this.f50513e += byteBuffer.remaining();
+                    this.f50510b.write(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
                 } catch (IOException e4) {
                     e4.printStackTrace();
                 }

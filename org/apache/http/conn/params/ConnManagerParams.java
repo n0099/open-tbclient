@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ConnManagerParams implements ConnManagerPNames {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_MAX_TOTAL_CONNECTIONS = 20;

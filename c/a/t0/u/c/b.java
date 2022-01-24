@@ -23,22 +23,22 @@ public class b {
     public final View.OnClickListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity f23930b;
+    public BaseActivity f23845b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f23931c;
+    public LinearLayout f23846c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f23932d;
+    public LinearLayout f23847d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbSettingTextTipView f23933e;
+    public TbSettingTextTipView f23848e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbSettingTextTipView f23934f;
+    public TbSettingTextTipView f23849f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f23935g;
+    public TextView f23850g;
 
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class b {
                 return;
             }
         }
-        this.f23930b = baseActivity;
+        this.f23845b = baseActivity;
         this.a = onClickListener;
         b();
     }
@@ -63,30 +63,30 @@ public class b {
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23931c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23846c : (View) invokeV.objValue;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f23930b).inflate(R.layout.account_safe_activity, (ViewGroup) null);
-            this.f23931c = linearLayout;
-            this.f23932d = (LinearLayout) linearLayout.findViewById(R.id.content_container);
-            this.f23933e = (TbSettingTextTipView) this.f23931c.findViewById(R.id.bar_record);
-            this.f23935g = (TextView) this.f23931c.findViewById(R.id.tv_title);
-            this.f23934f = (TbSettingTextTipView) this.f23931c.findViewById(R.id.account_status);
-            this.f23933e.changeStyleTo1080();
-            this.f23934f.changeStyleTo1080();
-            this.f23933e.setOnClickListener(this.a);
-            this.f23934f.setOnClickListener(this.a);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f23845b).inflate(R.layout.account_safe_activity, (ViewGroup) null);
+            this.f23846c = linearLayout;
+            this.f23847d = (LinearLayout) linearLayout.findViewById(R.id.content_container);
+            this.f23848e = (TbSettingTextTipView) this.f23846c.findViewById(R.id.bar_record);
+            this.f23850g = (TextView) this.f23846c.findViewById(R.id.tv_title);
+            this.f23849f = (TbSettingTextTipView) this.f23846c.findViewById(R.id.account_status);
+            this.f23848e.changeStyleTo1080();
+            this.f23849f.changeStyleTo1080();
+            this.f23848e.setOnClickListener(this.a);
+            this.f23849f.setOnClickListener(this.a);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f23931c.removeAllViews();
-            this.f23930b = null;
+            this.f23846c.removeAllViews();
+            this.f23845b = null;
         }
     }
 
@@ -95,15 +95,15 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, simpleUser) == null) || simpleUser == null) {
             return;
         }
-        this.f23934f.setTip(simpleUser.block_msg);
+        this.f23849f.setTip(simpleUser.block_msg);
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f23930b.getLayoutMode().k(i2 == 1);
-            this.f23930b.getLayoutMode().j(this.f23931c);
-            c d2 = c.d(this.f23935g);
+            this.f23845b.getLayoutMode().k(i2 == 1);
+            this.f23845b.getLayoutMode().j(this.f23846c);
+            c d2 = c.d(this.f23850g);
             d2.v(R.color.CAM_X0109);
             d2.f(R.color.CAM_X0204);
         }

@@ -11,19 +11,19 @@ public class g<T> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f2713b;
+    public T f2815b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2714c;
+    public String f2816c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2715d;
+    public long f2817d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f2716e;
+    public long f2818e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2717f;
+    public long f2819f;
 
     public g() {
         Interceptable interceptable = $ic;

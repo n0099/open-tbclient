@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,8 +52,8 @@ public final class QueryRechargeHistoryRequest implements IRequestProtocol {
             jSONObject.put("status", this.reqParam.getStatus());
             jSONObject.put("pagesize", this.reqParam.getPagesize());
             jSONObject.put("page", this.reqParam.getPage());
-            jSONObject.put("startTime", this.reqParam.getStartTime());
-            jSONObject.put("endTime", this.reqParam.getEndTime());
+            jSONObject.put(FetchLog.START_TIME, this.reqParam.getStartTime());
+            jSONObject.put(FetchLog.END_TIME, this.reqParam.getEndTime());
             String jSONObject2 = jSONObject.toString();
             Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "jMsg.toString()");
             return jSONObject2;

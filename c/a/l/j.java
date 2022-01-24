@@ -21,10 +21,10 @@ public class j extends c implements p<e2>, q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public FollowUserDecorView f4170i;
+    public FollowUserDecorView f4311i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f4171j;
+    public boolean f4312j;
     public int k;
     public int l;
 
@@ -43,11 +43,11 @@ public class j extends c implements p<e2>, q {
                 return;
             }
         }
-        this.f4171j = true;
+        this.f4312j = true;
         this.k = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds166);
         this.l = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds78);
         FollowUserDecorView followUserDecorView = new FollowUserDecorView(tbPageContext.getPageActivity());
-        this.f4170i = followUserDecorView;
+        this.f4311i = followUserDecorView;
         followUserDecorView.setUseNewStyle(z);
         g(-1);
         l(z);
@@ -56,7 +56,7 @@ public class j extends c implements p<e2>, q {
     public void j(c.a.s0.s.q.a aVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, aVar, z) == null) {
-            this.f4171j = z;
+            this.f4312j = z;
             s(0);
             n(true);
         }
@@ -83,7 +83,7 @@ public class j extends c implements p<e2>, q {
                 layoutParams.topMargin = k(R.dimen.tbds52);
             }
             h(layoutParams);
-            f(this.f4170i);
+            f(this.f4311i);
         }
     }
 
@@ -94,27 +94,27 @@ public class j extends c implements p<e2>, q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, e2Var) == null) {
             if (e2Var != null && e2Var.J() != null) {
-                p(k(this.f4171j ? R.dimen.tbds120 : R.dimen.tbds44));
-                this.f4170i.setVisibility(0);
-                this.f4170i.setData(e2Var);
-                this.f4170i.setTag(e2Var);
+                p(k(this.f4312j ? R.dimen.tbds120 : R.dimen.tbds44));
+                this.f4311i.setVisibility(0);
+                this.f4311i.setData(e2Var);
+                this.f4311i.setTag(e2Var);
                 return;
             }
-            this.f4170i.setVisibility(8);
+            this.f4311i.setVisibility(8);
         }
     }
 
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f4170i.setClickableUnLike(z);
+            this.f4311i.setClickableUnLike(z);
         }
     }
 
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f4170i.setIsShowIcon(z);
+            this.f4311i.setIsShowIcon(z);
         }
     }
 
@@ -122,7 +122,7 @@ public class j extends c implements p<e2>, q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i2) == null) {
-            this.f4170i.onChangeSkinType(i2);
+            this.f4311i.onChangeSkinType(i2);
         }
     }
 
@@ -132,28 +132,28 @@ public class j extends c implements p<e2>, q {
             if (c() != null) {
                 c().rightMargin = i2;
             }
-            this.f4170i.setLayoutParams(c());
+            this.f4311i.setLayoutParams(c());
         }
     }
 
     public void q(FollowUserButton.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f4170i.setOnClickEvent(aVar);
+            this.f4311i.setOnClickEvent(aVar);
         }
     }
 
     public void r(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
-            this.f4170i.setPageUniqueId(bdUniqueId);
+            this.f4311i.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f4170i.setSvgIconResId(i2);
+            this.f4311i.setSvgIconResId(i2);
         }
     }
 }

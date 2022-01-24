@@ -15,16 +15,16 @@ public class a {
     public static String a = "key_user_last_access_tab_";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f12258b = "key_frs_new_area_tab_sort_";
+    public static String f12402b = "key_frs_new_area_tab_sort_";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f12259c = Integer.MAX_VALUE;
+    public static int f12403c = Integer.MAX_VALUE;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f12260d;
+    public static final String f12404d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f12261e;
+    public static final String f12405e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,15 +40,15 @@ public class a {
                 return;
             }
         }
-        f12260d = TbadkCoreApplication.getInst().getString(R.string.frs_hot_tab_name);
-        f12261e = TbadkCoreApplication.getInst().getString(R.string.frs_new_area_tab_name);
+        f12404d = TbadkCoreApplication.getInst().getString(R.string.frs_hot_tab_name);
+        f12405e = TbadkCoreApplication.getInst().getString(R.string.frs_new_area_tab_name);
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return f12258b + TbadkCoreApplication.getCurrentAccount();
+            return f12402b + TbadkCoreApplication.getCurrentAccount();
         }
         return (String) invokeV.objValue;
     }
@@ -66,13 +66,13 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (d.r()) {
+            if (d.w()) {
                 return 1;
             }
-            if (d.s()) {
+            if (d.x()) {
                 return 503;
             }
-            if (d.t()) {
+            if (d.y()) {
                 return h(e());
             }
             return 1;
@@ -83,27 +83,27 @@ public class a {
     public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.a.s0.s.h0.b.k().l(a(), f12259c) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.a.s0.s.i0.b.k().l(a(), f12403c) : invokeV.intValue;
     }
 
     public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c.a.s0.s.h0.b.k().q(b(), f12260d) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c.a.s0.s.i0.b.k().q(b(), f12404d) : (String) invokeV.objValue;
     }
 
     public static void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65542, null, i2) == null) {
-            c.a.s0.s.h0.b.k().w(a(), i2);
+            c.a.s0.s.i0.b.k().w(a(), i2);
         }
     }
 
     public static void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            if (f12260d.equals(str) || f12261e.equals(str)) {
-                c.a.s0.s.h0.b.k().y(b(), str);
+            if (f12404d.equals(str) || f12405e.equals(str)) {
+                c.a.s0.s.i0.b.k().y(b(), str);
             }
         }
     }
@@ -111,6 +111,6 @@ public class a {
     public static int h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? (!f12260d.equals(str) && f12261e.equals(str)) ? 503 : 1 : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? (!f12404d.equals(str) && f12405e.equals(str)) ? 503 : 1 : invokeL.intValue;
     }
 }

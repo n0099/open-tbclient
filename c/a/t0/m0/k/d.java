@@ -16,13 +16,13 @@ public final class d {
     public static final d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.b.a.a.g f19290b;
+    public static final c.b.a.a.g f19553b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Class<? extends c.a.t0.m0.f.c.a>[] f19291c;
+    public static final Class<? extends c.a.t0.m0.f.c.a>[] f19554c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c.b.a.a.g f19292d;
+    public static final c.b.a.a.g f19555d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,13 +41,13 @@ public final class d {
         a = new d();
         c.b.a.a.g b2 = c.b.a.a.g.d(c.a.t0.m0.f.d.b.class).b();
         Intrinsics.checkNotNullExpressionValue(b2, "all(ItemDataComponent::class.java).get()");
-        f19290b = b2;
-        f19291c = new Class[]{c.a.t0.m0.f.d.b.class, c.a.t0.m0.f.d.a.class};
+        f19553b = b2;
+        f19554c = new Class[]{c.a.t0.m0.f.d.b.class, c.a.t0.m0.f.d.a.class};
         g.b d2 = c.b.a.a.g.d(c.a.t0.m0.f.d.b.class, c.a.t0.m0.f.d.a.class);
         d2.c(c.a.t0.m0.f.d.c.class, c.a.t0.m0.f.d.d.b.class);
         c.b.a.a.g b3 = d2.b();
         Intrinsics.checkNotNullExpressionValue(b3, "all(\n        ItemDataCom…t::class.java\n    ).get()");
-        f19292d = b3;
+        f19555d = b3;
     }
 
     public d() {
@@ -67,18 +67,18 @@ public final class d {
     public final c.b.a.a.g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f19290b : (c.b.a.a.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f19553b : (c.b.a.a.g) invokeV.objValue;
     }
 
     public final Class<? extends c.a.t0.m0.f.c.a>[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19291c : (Class[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19554c : (Class[]) invokeV.objValue;
     }
 
     public final c.b.a.a.g c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f19292d : (c.b.a.a.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f19555d : (c.b.a.a.g) invokeV.objValue;
     }
 }

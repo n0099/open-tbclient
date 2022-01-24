@@ -288,7 +288,7 @@ public class w0 {
     public static final int a8 = 9007;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f55291b = 24;
+    public static final int f55336b = 24;
     public static final int b0 = 65;
     public static final int b1 = 199;
     public static final int b2 = 16002;
@@ -300,7 +300,7 @@ public class w0 {
     public static final int b8 = 9008;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f55292c = 22;
+    public static final int f55337c = 22;
     public static final int c0 = 214;
     public static final int c1 = 232;
     public static final int c2 = 1001;
@@ -312,7 +312,7 @@ public class w0 {
     public static final int c8 = 9009;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f55293d = 2;
+    public static final int f55338d = 2;
     public static final int d0 = 168;
     public static final int d1 = 240;
     public static final int d2 = 45;
@@ -324,7 +324,7 @@ public class w0 {
     public static final int d8 = 9010;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f55294e = 130;
+    public static final int f55339e = 130;
     public static final int e0 = 186;
     public static final int e1 = 62;
     public static final int e2 = 15001;
@@ -336,7 +336,7 @@ public class w0 {
     public static final int e8 = 9011;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f55295f = 218;
+    public static final int f55340f = 218;
     public static final int f0 = 85;
     public static final String f1 = "Actions";
     public static final int f2 = 15002;
@@ -348,7 +348,7 @@ public class w0 {
     public static final int f8 = 9012;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f55296g = 193;
+    public static final int f55341g = 193;
     public static final int g0 = 267;
     public static final String g1 = "Allwinner";
     public static final int g2 = 46;
@@ -360,7 +360,7 @@ public class w0 {
     public static final int g8 = 9013;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f55297h = 212;
+    public static final int f55342h = 212;
     public static final int h0 = 221;
     public static final String h1 = "AMD";
     public static final int h2 = 47;
@@ -372,7 +372,7 @@ public class w0 {
     public static final int h8 = 9014;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f55298i = 173;
+    public static final int f55343i = 173;
     public static final int i0 = 242;
     public static final String i1 = "AMLogic";
     public static final int i2 = 48;
@@ -384,7 +384,7 @@ public class w0 {
     public static final int i8 = 9015;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f55299j = 248;
+    public static final int f55344j = 248;
     public static final int j0 = 285;
     public static final String j1 = "ARM";
     public static final int j2 = 33;
@@ -2113,7 +2113,7 @@ public class w0 {
                     case 41:
                         return a().toUpperCase().equals("OPPO");
                     case 45:
-                        return a().toUpperCase().equals(g.f55062j);
+                        return a().toUpperCase().equals(g.f55107j);
                     case 47:
                         return a().toUpperCase().equals("SONY");
                     case 55:

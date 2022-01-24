@@ -16,10 +16,10 @@ public class q extends AnimatorListenerAdapter {
     public final /* synthetic */ ViewGroup.LayoutParams a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f35471b;
+    public final /* synthetic */ int f35499b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f35472c;
+    public final /* synthetic */ SwipeDismissTouchListener f35500c;
 
     public q(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams, int i2) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public class q extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.f35472c = swipeDismissTouchListener;
+        this.f35500c = swipeDismissTouchListener;
         this.a = layoutParams;
-        this.f35471b = i2;
+        this.f35499b = i2;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -50,14 +50,14 @@ public class q extends AnimatorListenerAdapter {
         View view3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            dismissCallbacks = this.f35472c.f35395f;
-            view = this.f35472c.f35394e;
-            obj = this.f35472c.l;
+            dismissCallbacks = this.f35500c.f35423f;
+            view = this.f35500c.f35422e;
+            obj = this.f35500c.l;
             dismissCallbacks.onDismiss(view, obj);
-            view2 = this.f35472c.f35394e;
+            view2 = this.f35500c.f35422e;
             view2.setTranslationX(0.0f);
-            this.a.height = this.f35471b;
-            view3 = this.f35472c.f35394e;
+            this.a.height = this.f35499b;
+            view3 = this.f35500c.f35422e;
             view3.setLayoutParams(this.a);
         }
     }

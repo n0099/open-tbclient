@@ -16,12 +16,12 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f8034c;
+    public static final boolean f8176c;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f8035b;
+    public final String f8177b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public final class e {
                 return;
             }
         }
-        f8034c = k.a;
+        f8176c = k.a;
     }
 
     public e(String str, String str2) {
@@ -55,7 +55,7 @@ public final class e {
             }
         }
         this.a = str;
-        this.f8035b = str2;
+        this.f8177b = str2;
     }
 
     public static e a(String str) {
@@ -66,7 +66,7 @@ public final class e {
                 JSONObject jSONObject = new JSONObject(str);
                 return new e(jSONObject.optString("webviewid"), jSONObject.optString("message"));
             } catch (JSONException e2) {
-                if (f8034c) {
+                if (f8176c) {
                     String str2 = "createEvent failed. " + Log.getStackTraceString(e2);
                     return null;
                 }

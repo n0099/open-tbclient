@@ -16,31 +16,31 @@ public class i {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11837b;
+    public String f11979b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11838c;
+    public int f11980c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11839d;
+    public String f11981d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f11840e;
+    public JSONObject f11982e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f11841f;
+    public long f11983f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11842g;
+    public int f11984g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f11843h;
+    public String f11985h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f11844i;
+    public String f11986i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f11845j;
+    public boolean f11987j;
     public String k;
 
     public i(String str, String str2, int i2) {
@@ -58,19 +58,19 @@ public class i {
                 return;
             }
         }
-        this.f11839d = "";
-        this.f11845j = false;
+        this.f11981d = "";
+        this.f11987j = false;
         this.k = "";
         this.a = str;
-        this.f11837b = str;
-        this.f11838c = -1;
-        this.f11839d = str2;
-        this.f11842g = i2;
+        this.f11979b = str;
+        this.f11980c = -1;
+        this.f11981d = str2;
+        this.f11984g = i2;
         if ((i2 & 2) == 0) {
-            this.f11841f = System.currentTimeMillis();
+            this.f11983f = System.currentTimeMillis();
         }
         try {
-            this.f11840e = new JSONObject(this.f11839d);
+            this.f11982e = new JSONObject(this.f11981d);
         } catch (JSONException unused) {
         }
     }
@@ -79,7 +79,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = this.f11840e;
+            JSONObject jSONObject = this.f11982e;
             return jSONObject != null ? jSONObject.optString("bizId") : "";
         }
         return (String) invokeV.objValue;
@@ -88,8 +88,8 @@ public class i {
     public void b() {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (str = this.a) != null && str.equals(this.f11837b) && d.g().a(this.a)) {
-            this.f11843h = e.g().h();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (str = this.a) != null && str.equals(this.f11979b) && d.g().a(this.a)) {
+            this.f11985h = e.g().h();
         }
     }
 
@@ -108,16 +108,16 @@ public class i {
                 return;
             }
         }
-        this.f11839d = "";
-        this.f11845j = false;
+        this.f11981d = "";
+        this.f11987j = false;
         this.k = "";
         this.a = str;
-        this.f11837b = str;
-        this.f11838c = -1;
-        this.f11840e = jSONObject;
-        this.f11842g = i2;
+        this.f11979b = str;
+        this.f11980c = -1;
+        this.f11982e = jSONObject;
+        this.f11984g = i2;
         if ((i2 & 2) == 0) {
-            this.f11841f = System.currentTimeMillis();
+            this.f11983f = System.currentTimeMillis();
         }
     }
 
@@ -136,19 +136,19 @@ public class i {
                 return;
             }
         }
-        this.f11839d = "";
-        this.f11845j = false;
+        this.f11981d = "";
+        this.f11987j = false;
         this.k = "";
         this.a = str2;
-        this.f11837b = str;
-        this.f11838c = i2;
-        this.f11839d = str3;
-        this.f11842g = i3;
+        this.f11979b = str;
+        this.f11980c = i2;
+        this.f11981d = str3;
+        this.f11984g = i3;
         if ((i3 & 2) == 0) {
-            this.f11841f = System.currentTimeMillis();
+            this.f11983f = System.currentTimeMillis();
         }
         try {
-            this.f11840e = new JSONObject(this.f11839d);
+            this.f11982e = new JSONObject(this.f11981d);
         } catch (JSONException unused) {
         }
     }
@@ -168,26 +168,26 @@ public class i {
                 return;
             }
         }
-        this.f11839d = "";
-        this.f11845j = false;
+        this.f11981d = "";
+        this.f11987j = false;
         this.k = "";
         this.a = str2;
-        this.f11837b = str;
-        this.f11838c = i2;
-        this.f11839d = str3;
-        this.f11842g = i3;
+        this.f11979b = str;
+        this.f11980c = i2;
+        this.f11981d = str3;
+        this.f11984g = i3;
         if ((i3 & 2) == 0) {
             if (j2 > 0) {
-                this.f11841f = j2;
+                this.f11983f = j2;
             } else {
-                this.f11841f = System.currentTimeMillis();
+                this.f11983f = System.currentTimeMillis();
             }
         }
-        if (TextUtils.isEmpty(this.f11839d)) {
+        if (TextUtils.isEmpty(this.f11981d)) {
             return;
         }
         try {
-            this.f11840e = new JSONObject(this.f11839d);
+            this.f11982e = new JSONObject(this.f11981d);
         } catch (JSONException unused) {
         }
     }

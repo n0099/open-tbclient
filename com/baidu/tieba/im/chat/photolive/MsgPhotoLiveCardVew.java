@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.t0.s1.f.e;
-import c.a.t0.s1.f.k.a;
-import c.a.t0.w3.p0.c;
+import c.a.t0.t1.f.e;
+import c.a.t0.t1.f.k.a;
+import c.a.t0.x3.p0.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -56,7 +56,7 @@ public class MsgPhotoLiveCardVew extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgPhotoLiveCardVew f44931e;
+        public final /* synthetic */ MsgPhotoLiveCardVew f44959e;
 
         public a(MsgPhotoLiveCardVew msgPhotoLiveCardVew) {
             Interceptable interceptable = $ic;
@@ -73,20 +73,20 @@ public class MsgPhotoLiveCardVew extends e {
                     return;
                 }
             }
-            this.f44931e = msgPhotoLiveCardVew;
+            this.f44959e = msgPhotoLiveCardVew;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44931e.t <= 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44959e.t <= 0) {
                 return;
             }
             c photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
-            if (this.f44931e.v != 1) {
-                if (this.f44931e.v != 3) {
-                    if (this.f44931e.v != 4) {
-                        if (this.f44931e.v == 5) {
+            if (this.f44959e.v != 1) {
+                if (this.f44959e.v != 3) {
+                    if (this.f44959e.v != 4) {
+                        if (this.f44959e.v == 5) {
                             TiebaStatic.log(TbadkCoreStatisticKey.CHANDE_OLD_SUCCESS);
                         }
                     } else {
@@ -97,12 +97,12 @@ public class MsgPhotoLiveCardVew extends e {
                 }
             } else {
                 TiebaStatic.log(TbadkCoreStatisticKey.PHOTO_LIVE_GREATCALL_MSG);
-                if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.f(String.valueOf(this.f44931e.t)) > 0) {
-                    MsgPhotoLiveCardVew msgPhotoLiveCardVew = this.f44931e;
+                if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.f(String.valueOf(this.f44959e.t)) > 0) {
+                    MsgPhotoLiveCardVew msgPhotoLiveCardVew = this.f44959e;
                     msgPhotoLiveCardVew.u = photoLiveReadThreadHistory.f(String.valueOf(msgPhotoLiveCardVew.t));
                 }
             }
-            MsgPhotoLiveCardVew msgPhotoLiveCardVew2 = this.f44931e;
+            MsgPhotoLiveCardVew msgPhotoLiveCardVew2 = this.f44959e;
             msgPhotoLiveCardVew2.H(msgPhotoLiveCardVew2.v);
         }
     }
@@ -113,7 +113,7 @@ public class MsgPhotoLiveCardVew extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgPhotoLiveCardVew f44932e;
+        public final /* synthetic */ MsgPhotoLiveCardVew f44960e;
 
         public b(MsgPhotoLiveCardVew msgPhotoLiveCardVew) {
             Interceptable interceptable = $ic;
@@ -130,14 +130,14 @@ public class MsgPhotoLiveCardVew extends e {
                     return;
                 }
             }
-            this.f44932e = msgPhotoLiveCardVew;
+            this.f44960e = msgPhotoLiveCardVew;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44932e.G(view);
+                this.f44960e.G(view);
             }
         }
     }
@@ -240,24 +240,24 @@ public class MsgPhotoLiveCardVew extends e {
         if (!(interceptable == null || interceptable.invokeLLL(1048581, this, tbPageContext, chatMessage, view) == null) || chatMessage == null) {
             return;
         }
-        a.C1361a a2 = c.a.t0.s1.f.k.a.a(chatMessage.getContent());
+        a.C1373a a2 = c.a.t0.t1.f.k.a.a(chatMessage.getContent());
         if (a2 == null) {
             this.t = 0L;
             return;
         }
-        this.t = a2.f22027f;
-        long j2 = a2.f22029h;
-        this.v = a2.f22030i;
-        int i3 = a2.f22031j;
+        this.t = a2.f22306f;
+        long j2 = a2.f22308h;
+        this.v = a2.f22309i;
+        int i3 = a2.f22310j;
         ViewGroup.LayoutParams layoutParams = this.D.getLayoutParams();
         int i4 = this.v;
         int i5 = -1;
         if (i4 == 1 || i4 == 6) {
             if (this.v == 1) {
-                decode = a2.f22028g;
+                decode = a2.f22307g;
                 i2 = R.string.look_live_thread;
             } else {
-                decode = URLDecoder.decode(a2.f22028g);
+                decode = URLDecoder.decode(a2.f22307g);
                 i2 = R.string.look_god_thread;
                 i5 = 0;
             }
@@ -266,27 +266,27 @@ public class MsgPhotoLiveCardVew extends e {
             this.D.setPadding(this.F, 0, 0, 0);
             this.x.setVisibility(0);
             this.x.setOnClickListener(new b(this));
-            this.x.setTag(a2.f22023b);
+            this.x.setTag(a2.f22302b);
             this.x.setGodIconMargin(i5);
             this.C.setVisibility(8);
             this.y.setVisibility(0);
-            this.y.setText(a2.f22024c);
-            this.A.setText(a2.f22026e);
+            this.y.setText(a2.f22303c);
+            this.A.setText(a2.f22305e);
             this.y.setTextSize(0, n.f(TbadkCoreApplication.getInst(), R.dimen.fontsize28));
             this.E.setText(i2);
         } else if (i4 == 3) {
-            this.B.setText(a2.f22028g);
+            this.B.setText(a2.f22307g);
             layoutParams.height = n.f(TbadkCoreApplication.getInst(), R.dimen.ds80);
             this.D.setPadding(0, 0, 0, 0);
             this.x.setVisibility(8);
             this.C.setVisibility(0);
             this.y.setVisibility(8);
             this.C.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.fans_urge_tips));
-            String str = a2.f22026e;
+            String str = a2.f22305e;
             if (str != null && str.indexOf(String.valueOf(i3)) != -1) {
-                this.A.setText(E(a2.f22026e, i3));
+                this.A.setText(E(a2.f22305e, i3));
             } else {
-                this.A.setText(a2.f22026e);
+                this.A.setText(a2.f22305e);
             }
         } else {
             layoutParams.height = n.f(TbadkCoreApplication.getInst(), R.dimen.ds80);
@@ -294,13 +294,13 @@ public class MsgPhotoLiveCardVew extends e {
             this.x.setVisibility(8);
             this.C.setVisibility(0);
             this.y.setVisibility(8);
-            this.A.setText(a2.f22026e);
+            this.A.setText(a2.f22305e);
             int i6 = this.v;
             if (i6 == 4) {
-                this.B.setText(a2.f22028g);
+                this.B.setText(a2.f22307g);
                 this.C.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.upgrade_to_photo_live_tips));
             } else if (i6 == 5) {
-                this.B.setText(a2.f22028g);
+                this.B.setText(a2.f22307g);
                 this.E.setText(R.string.look_normal_thread);
                 this.C.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.change_to_old_thread_msg_tips));
             }
@@ -310,6 +310,6 @@ public class MsgPhotoLiveCardVew extends e {
         } else {
             this.x.startLoad(null, 12, false);
         }
-        this.z.setText(StringHelper.getFormatTime(a2.f22025d));
+        this.z.setText(StringHelper.getFormatTime(a2.f22304d));
     }
 }

@@ -55,11 +55,11 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     public HomeWatcherReceiver mHomeWatcherReceiver;
     public c.a.d.f.k.b<ImageView> mImageViewPool;
     public c.a.d.f.k.b<RelativeLayout> mMemeViewPool;
-    public c.a.t0.f3.a mModel;
+    public c.a.t0.g3.a mModel;
     public CustomMessageListener mNetworkChangedListener;
     public c.a.d.f.k.b<TextView> mTextViewPool;
     public c.a.d.f.k.b<LinearLayout> mTextVoiceViewPool;
-    public c.a.t0.f3.c mView;
+    public c.a.t0.g3.c mView;
     public c.a.d.f.k.b<View> mVoiceViewPool;
     public c.a.t0.i4.c screenLockUtils;
 
@@ -202,7 +202,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f40743c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(this.a.getPageContext().getUniqueId()) || updateAttentionMessage.getData().a) {
+                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f40771c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(this.a.getPageContext().getUniqueId()) || updateAttentionMessage.getData().a) {
                     return;
                 }
                 c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.a);
@@ -804,7 +804,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            c.a.t0.f3.a aVar = this.mModel;
+            c.a.t0.g3.a aVar = this.mModel;
             if (aVar == null) {
                 return null;
             }
@@ -848,7 +848,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             this.lifeSequence = str;
             TiebaStatic.eventStat(this, "push_dialog", str);
             super.onCreate(bundle);
-            this.screenLockUtils = c.a.t0.l3.a.j().f19134d;
+            this.screenLockUtils = c.a.t0.m3.a.j().f19585d;
             if (this.mCancelController == null) {
                 this.mCancelController = new c.a.t0.e4.b();
             }
@@ -860,8 +860,8 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 window.addFlags(524288);
             }
             getWindow().getDecorView().setDrawingCacheEnabled(false);
-            this.mView = new c.a.t0.f3.c(this, R.layout.activtiy_push_dialog);
-            c.a.t0.f3.a aVar = new c.a.t0.f3.a(this);
+            this.mView = new c.a.t0.g3.c(this, R.layout.activtiy_push_dialog);
+            c.a.t0.g3.a aVar = new c.a.t0.g3.a(this);
             this.mModel = aVar;
             aVar.e();
             registerListener(this.mNetworkChangedListener);
@@ -924,7 +924,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    public void onNetCallback(boolean z, c.a.t0.f3.d.a aVar) {
+    public void onNetCallback(boolean z, c.a.t0.g3.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048597, this, z, aVar) == null) {
             String str = this.lifeSequence + "_3";
@@ -932,7 +932,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             TiebaStatic.eventStat(this, "push_dialog", str);
             this.hasNetBack = true;
             if (z && aVar != null) {
-                c.a.t0.f3.c cVar = this.mView;
+                c.a.t0.g3.c cVar = this.mView;
                 if (cVar != null) {
                     cVar.i(aVar);
                     TiebaStatic.log(new StatisticItem("c13197").param("tid", getTid()));

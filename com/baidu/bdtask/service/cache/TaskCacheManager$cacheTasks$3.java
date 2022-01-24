@@ -118,7 +118,7 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("fingerprint:");
-                str = this.this$0.this$0.f32972c;
+                str = this.this$0.this$0.f33000c;
                 sb.append(str);
                 sb.append(" save state:");
                 sb.append(this.$data);
@@ -170,16 +170,16 @@ public final class TaskCacheManager$cacheTasks$3 extends Lambda implements Funct
                 byte[] bytes = m.getBytes(charset);
                 Intrinsics.checkExpressionValueIsNotNull(bytes, "(this as java.lang.String).getBytes(charset)");
                 String newFingerprint = g.b(bytes, false);
-                str = this.this$0.f32972c;
+                str = this.this$0.f33000c;
                 if (Intrinsics.areEqual(newFingerprint, str)) {
                     DebugTrace.a.c(AnonymousClass1.INSTANCE);
                     return;
                 }
                 b bVar = this.this$0;
                 Intrinsics.checkExpressionValueIsNotNull(newFingerprint, "newFingerprint");
-                bVar.f32972c = newFingerprint;
+                bVar.f33000c = newFingerprint;
                 DebugTrace.a.c(new AnonymousClass2(this, m));
-                a c2 = c.a.j.h.b.b.f3896c.c();
+                a c2 = c.a.j.h.b.b.f4037c.c();
                 str2 = this.this$0.a;
                 c2.a(m, str2);
                 return;

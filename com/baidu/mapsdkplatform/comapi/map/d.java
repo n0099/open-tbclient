@@ -11,13 +11,13 @@ public abstract class d {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35855b;
+    public String f35883b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35856c;
+    public int f35884c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35857d;
+    public int f35885d;
 
     public d() {
         Interceptable interceptable = $ic;

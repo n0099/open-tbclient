@@ -6,7 +6,7 @@ import com.ss.android.socialbase.downloader.depend.IDownloadListener;
 import com.ss.android.socialbase.downloader.depend.s;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static void a(int i2, SparseArray<IDownloadListener> sparseArray, boolean z, DownloadInfo downloadInfo, BaseException baseException) {
         SparseArray<IDownloadListener> clone;

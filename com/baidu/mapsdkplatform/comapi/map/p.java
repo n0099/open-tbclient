@@ -23,8 +23,8 @@ public class p extends d {
                 return;
             }
         }
-        this.f35856c = 10;
-        this.f35855b = "its";
-        this.f35857d = TiebaStatic.MAX_COST_VALUE;
+        this.f35884c = 10;
+        this.f35883b = "its";
+        this.f35885d = TiebaStatic.MAX_COST_VALUE;
     }
 }

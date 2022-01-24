@@ -3,7 +3,7 @@ package com.facebook.drawee.backends.pipeline.info;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public @interface VisibilityState {
     public static final int INVISIBLE = 2;
     public static final int UNKNOWN = -1;

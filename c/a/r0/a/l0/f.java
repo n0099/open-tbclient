@@ -14,12 +14,12 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile f f7601c;
+    public static volatile f f7743c;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lock a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<j> f7602b;
+    public ArrayList<j> f7744b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -35,21 +35,21 @@ public final class f {
             }
         }
         this.a = new ReentrantLock();
-        this.f7602b = new ArrayList<>();
+        this.f7744b = new ArrayList<>();
     }
 
     public static f i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f7601c == null) {
+            if (f7743c == null) {
                 synchronized (f.class) {
-                    if (f7601c == null) {
-                        f7601c = new f();
+                    if (f7743c == null) {
+                        f7743c = new f();
                     }
                 }
             }
-            return f7601c;
+            return f7743c;
         }
         return (f) invokeV.objValue;
     }
@@ -60,7 +60,7 @@ public final class f {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 this.a.lock();
-                return this.f7602b.size() > 0 ? this.f7602b.toArray() : null;
+                return this.f7744b.size() > 0 ? this.f7744b.toArray() : null;
             } finally {
                 this.a.unlock();
             }

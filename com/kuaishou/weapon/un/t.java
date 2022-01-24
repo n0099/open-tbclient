@@ -22,7 +22,7 @@ public class t {
     public static final String a = "tun";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f55256b = "ppp";
+    public static final String f55301b = "ppp";
     public transient /* synthetic */ FieldHolder $fh;
 
     public t() {
@@ -93,7 +93,7 @@ public class t {
                         break;
                     }
                     String a2 = c1.a(readLine);
-                    if (a2.contains(a) || a2.contains(f55256b)) {
+                    if (a2.contains(a) || a2.contains(f55301b)) {
                         hashSet.add(a2.split("\t")[0]);
                     }
                 }

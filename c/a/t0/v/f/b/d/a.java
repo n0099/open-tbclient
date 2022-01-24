@@ -22,17 +22,17 @@ public class a extends d implements c {
 
     /* renamed from: c.a.t0.v.f.b.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1483a implements View.OnClickListener {
+    public class View$OnClickListenerC1466a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.v.g.g.b f24475e;
+        public final /* synthetic */ c.a.t0.v.g.g.b f24180e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f24476f;
+        public final /* synthetic */ a f24181f;
 
-        public View$OnClickListenerC1483a(a aVar, c.a.t0.v.g.g.b bVar) {
+        public View$OnClickListenerC1466a(a aVar, c.a.t0.v.g.g.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,17 +47,17 @@ public class a extends d implements c {
                     return;
                 }
             }
-            this.f24476f = aVar;
-            this.f24475e = bVar;
+            this.f24181f = aVar;
+            this.f24180e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f24475e.onClickIntercept(view)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f24180e.onClickIntercept(view)) {
                 return;
             }
-            this.f24476f.o();
+            this.f24181f.o();
         }
     }
 
@@ -83,7 +83,7 @@ public class a extends d implements c {
         }
         ?? realView = this.f1993j.get().getRealView();
         if (realView != 0) {
-            realView.setOnClickListener(new View$OnClickListenerC1483a(this, bVar));
+            realView.setOnClickListener(new View$OnClickListenerC1466a(this, bVar));
         }
     }
 

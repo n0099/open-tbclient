@@ -40,10 +40,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f12116b;
+    public static int f12258b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f12117c;
+    public static int f12259c;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
 
@@ -130,7 +130,7 @@ public class c {
 
     /* renamed from: c.a.s0.a.e0.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0823c {
+    public static class C0832c {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public class c {
     public static c f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0823c.a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0832c.a : (c) invokeV.objValue;
     }
 
     public void a(String str) {
@@ -213,7 +213,7 @@ public class c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+            c.a.s0.s.i0.b k = c.a.s0.s.i0.b.k();
             String q = k.q("key_sdk_task_expand_data_" + str, "");
             if (TextUtils.isEmpty(q)) {
                 return null;
@@ -234,8 +234,8 @@ public class c {
             c.a.s0.a.e0.a.e(context);
             this.a = BdUniqueId.gen();
             c.a.s0.a.e0.b.a().b(this.a);
-            f12117c = UtilHelper.getDimenPixelSize(R.dimen.tbds340);
-            f12116b = UtilHelper.getDimenPixelSize(R.dimen.M_W_X011);
+            f12259c = UtilHelper.getDimenPixelSize(R.dimen.tbds340);
+            f12258b = UtilHelper.getDimenPixelSize(R.dimen.M_W_X011);
         }
     }
 
@@ -276,7 +276,7 @@ public class c {
     public void l(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+            c.a.s0.s.i0.b k = c.a.s0.s.i0.b.k();
             k.y("key_sdk_task_expand_data_" + str, str2);
         }
     }
@@ -303,8 +303,8 @@ public class c {
                 int statusBarHeight = UtilHelper.getStatusBarHeight();
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 5;
-                layoutParams.topMargin = f12117c + statusBarHeight;
-                layoutParams.rightMargin = f12116b;
+                layoutParams.topMargin = f12259c + statusBarHeight;
+                layoutParams.rightMargin = f12258b;
                 buoyComponent.l((FrameLayout) activity.findViewById(16908290), layoutParams);
             }
             if (buoyComponent instanceof c.a.j.e.a.i.a) {

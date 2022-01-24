@@ -1,10 +1,10 @@
 package c.a.s0.x.v.g;
 
-import c.a.s0.e1.k0;
-import c.a.s0.e1.n0;
-import c.a.s0.e1.s;
-import c.a.t0.s1.h.m;
-import c.a.t0.w3.a0;
+import c.a.s0.d1.k0;
+import c.a.s0.d1.n0;
+import c.a.s0.d1.s;
+import c.a.t0.t1.h.m;
+import c.a.t0.x3.a0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -46,11 +46,11 @@ public class b {
             this.a = aVar;
         }
 
-        @Override // c.a.s0.e1.k0
+        @Override // c.a.s0.d1.k0
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Long.valueOf(m.t().i(this.a.a().f14132e)) : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Long.valueOf(m.t().i(this.a.a().f14272e)) : invokeV.objValue;
         }
     }
 
@@ -84,7 +84,7 @@ public class b {
             b2.setCustomGroupType(2);
             b2.setMsgType(1);
             b2.setContent(str);
-            long b3 = c.a.t0.s1.w.b.b(j2);
+            long b3 = c.a.t0.t1.w.b.b(j2);
             b2.setMsgId(b3);
             b2.setRecordId(b3);
             b2.setTime(System.currentTimeMillis() / 1000);
@@ -121,11 +121,11 @@ public class b {
             }
             PersonalChatMessage personalChatMessage = new PersonalChatMessage();
             personalChatMessage.setBornTime(System.currentTimeMillis());
-            personalChatMessage.setToUserId(Long.parseLong(this.a.a().f14132e));
+            personalChatMessage.setToUserId(Long.parseLong(this.a.a().f14272e));
             UserData userData = new UserData();
-            userData.setUserId(this.a.a().f14132e);
-            userData.setPortrait(this.a.a().f14134g);
-            userData.setName_show(this.a.a().f14133f);
+            userData.setUserId(this.a.a().f14272e);
+            userData.setPortrait(this.a.a().f14274g);
+            userData.setName_show(this.a.a().f14273f);
             personalChatMessage.setToUserInfo(userData);
             personalChatMessage.setIsFriend(this.a.a().n ? 1 : 0);
             return personalChatMessage;
@@ -135,7 +135,7 @@ public class b {
 
     public /* synthetic */ void c(String str, Object obj) {
         if (obj instanceof Long) {
-            c.a.t0.s1.s.a.j().t(a(str, ((Long) obj).longValue()));
+            c.a.t0.t1.s.a.j().t(a(str, ((Long) obj).longValue()));
             e("");
         }
     }
@@ -147,7 +147,7 @@ public class b {
         }
         c.a.s0.x.v.f.a aVar = this.a;
         if (aVar != null && aVar.a() != null) {
-            a0.m(this.a.a().f14132e, gVar);
+            a0.m(this.a.a().f14272e, gVar);
         } else {
             gVar.a(null);
         }
@@ -159,7 +159,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (aVar = this.a) == null || aVar.a() == null) {
             return;
         }
-        a0.w(this.a.a().f14132e, str);
+        a0.w(this.a.a().f14272e, str);
     }
 
     public void f(c.a.s0.x.v.f.a aVar, final String str) {
@@ -170,7 +170,7 @@ public class b {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // c.a.s0.e1.s
+                @Override // c.a.s0.d1.s
                 public final void onReturnDataInUI(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {

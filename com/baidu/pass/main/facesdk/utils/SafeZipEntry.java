@@ -1,6 +1,5 @@
 package com.baidu.pass.main.facesdk.utils;
 
-import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +37,7 @@ public class SafeZipEntry extends ZipEntry {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String name = super.getName();
-            if (name.contains(Constants.PATH_PARENT)) {
+            if (name.contains("../")) {
                 throw new RuntimeException("invalid name contains ../");
             }
             return name;

@@ -47,7 +47,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f37893b;
+        public int f37921b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i2) {
@@ -72,8 +72,8 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         public final void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (i2 < this.f37893b || i2 > this.a) {
-                    throw new IllegalArgumentException("The minCode is : " + this.f37893b + "The maxCode is : " + this.a + "The error code is : " + i2);
+                if (i2 < this.f37921b || i2 > this.a) {
+                    throw new IllegalArgumentException("The minCode is : " + this.f37921b + "The maxCode is : " + this.a + "The error code is : " + i2);
                 }
             }
         }
@@ -147,7 +147,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
                 if (contentProviderDelegates != null) {
                     for (c.a.k0.b.a.i.a aVar : contentProviderDelegates) {
                         insertContentProviderDelegate(aVar);
-                        this.mUriMatcher.f37893b = aVar.h();
+                        this.mUriMatcher.f37921b = aVar.h();
                         this.mUriMatcher.a = aVar.g();
                         aVar.f(this.mUriMatcher, this.mAuthority);
                     }

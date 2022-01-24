@@ -23,20 +23,20 @@ import com.dxmpay.wallet.base.datamodel.AccountManager;
 import com.dxmpay.wallet.core.NoProguard;
 import com.dxmpay.wallet.utils.JsonUtil;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoginImpl implements IWalletLoginListener, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "LoginImpl";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends WebAuthListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ILoginBackListener f53993e;
+        public final /* synthetic */ ILoginBackListener f54038e;
 
         public a(LoginImpl loginImpl, ILoginBackListener iLoginBackListener) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                     return;
                 }
             }
-            this.f53993e = iLoginBackListener;
+            this.f54038e = iLoginBackListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +62,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
         public void onSuccess(WebAuthResult webAuthResult) {
             ILoginBackListener iLoginBackListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, webAuthResult) == null) || (iLoginBackListener = this.f53993e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, webAuthResult) == null) || (iLoginBackListener = this.f54038e) == null) {
                 return;
             }
             iLoginBackListener.onSuccess(0, "");
@@ -74,7 +74,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
         public void onFailure(WebAuthResult webAuthResult) {
             ILoginBackListener iLoginBackListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (iLoginBackListener = this.f53993e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (iLoginBackListener = this.f54038e) == null) {
                 return;
             }
             iLoginBackListener.onFail(webAuthResult.getResultCode(), webAuthResult.getResultMsg());

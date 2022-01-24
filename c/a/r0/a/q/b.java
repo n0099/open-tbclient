@@ -30,19 +30,19 @@ public class b extends i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f8376e;
+        public final /* synthetic */ c.a.r0.a.d2.e f8518e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f8377f;
+        public final /* synthetic */ UnitedSchemeEntity f8519f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8378g;
+        public final /* synthetic */ CallbackHandler f8520g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f8379h;
+        public final /* synthetic */ String f8521h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f8380i;
+        public final /* synthetic */ b f8522i;
 
         public a(b bVar, c.a.r0.a.d2.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -59,18 +59,18 @@ public class b extends i {
                     return;
                 }
             }
-            this.f8380i = bVar;
-            this.f8376e = eVar;
-            this.f8377f = unitedSchemeEntity;
-            this.f8378g = callbackHandler;
-            this.f8379h = str;
+            this.f8522i = bVar;
+            this.f8518e = eVar;
+            this.f8519f = unitedSchemeEntity;
+            this.f8520g = callbackHandler;
+            this.f8521h = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8380i.C(this.f8376e, this.f8377f, this.f8378g, this.f8379h);
+                this.f8522i.C(this.f8518e, this.f8519f, this.f8520g, this.f8521h);
             }
         }
     }
@@ -147,7 +147,7 @@ public class b extends i {
         } else {
             str2 = "";
         }
-        if (z.f6201b) {
+        if (z.f6343b) {
             String str3 = "appendUrlQueryAndHeader: isBaiduDomain=" + z + ", cookie=" + str2;
         }
         HttpUrl.Builder newBuilder = parse.newBuilder();

@@ -14,7 +14,7 @@ public class l {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14147b;
+    public String f14287b;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class l {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14147b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14287b : (String) invokeV.objValue;
     }
 
     public TbPageContext b() {
@@ -58,6 +58,6 @@ public class l {
             }
         }
         this.a = tbPageContext;
-        this.f14147b = str;
+        this.f14287b = str;
     }
 }

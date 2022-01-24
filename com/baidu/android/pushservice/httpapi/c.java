@@ -42,7 +42,7 @@ public abstract class c extends a {
             if (TextUtils.isEmpty(a)) {
                 a = "channel";
             }
-            this.f32208c += a;
+            this.f32236c += a;
             return super.c();
         }
         return invokeV.booleanValue;

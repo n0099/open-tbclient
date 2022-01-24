@@ -34,16 +34,16 @@ public final class f implements e.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6237b;
+    public static final boolean f6379b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static AtomicLong f6238c;
+    public static AtomicLong f6380c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Lock f6239d;
+    public static final Lock f6381d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile f f6240e;
+    public static volatile f f6382e;
     public transient /* synthetic */ FieldHolder $fh;
     public d a;
 
@@ -86,7 +86,7 @@ public final class f implements e.b {
         public boolean k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6216h : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6358h : invokeV.booleanValue;
         }
 
         public /* synthetic */ b(f fVar, a aVar) {
@@ -107,9 +107,9 @@ public final class f implements e.b {
                 return;
             }
         }
-        f6237b = k.a;
-        f6238c = new AtomicLong(0L);
-        f6239d = new ReentrantLock();
+        f6379b = k.a;
+        f6380c = new AtomicLong(0L);
+        f6381d = new ReentrantLock();
     }
 
     public f() {
@@ -132,14 +132,14 @@ public final class f implements e.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            f6239d.lock();
+            f6381d.lock();
             try {
-                if (f6240e == null) {
-                    f6240e = new f();
+                if (f6382e == null) {
+                    f6382e = new f();
                 }
-                return f6240e;
+                return f6382e;
             } finally {
-                f6239d.unlock();
+                f6381d.unlock();
             }
         }
         return (f) invokeV.objValue;
@@ -148,17 +148,17 @@ public final class f implements e.b {
     public static void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f6239d.lock();
+            f6381d.lock();
             try {
-                if (f6240e == null) {
+                if (f6382e == null) {
                     return;
                 }
-                if (f6240e.a != null) {
-                    f6240e.a.O();
+                if (f6382e.a != null) {
+                    f6382e.a.O();
                 }
-                f6240e = null;
+                f6382e = null;
             } finally {
-                f6239d.unlock();
+                f6381d.unlock();
             }
         }
     }
@@ -254,12 +254,12 @@ public final class f implements e.b {
     public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            long decrementAndGet = f6238c.decrementAndGet();
+            long decrementAndGet = f6380c.decrementAndGet();
             SwanAppActivity x = c.a.r0.a.d2.d.J().x();
             if (decrementAndGet <= 0 && x != null && x.isBackground()) {
                 this.a.I();
             }
-            if (f6237b) {
+            if (f6379b) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("decrementBgThreadAliveCount: count = ");
                 sb.append(decrementAndGet);
@@ -273,7 +273,7 @@ public final class f implements e.b {
     public long S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? f6238c.get() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? f6380c.get() : invokeV.longValue;
     }
 
     public String T() {
@@ -334,8 +334,8 @@ public final class f implements e.b {
     public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            long incrementAndGet = f6238c.incrementAndGet();
-            if (f6237b) {
+            long incrementAndGet = f6380c.incrementAndGet();
+            if (f6379b) {
                 String str = "incrementBgThreadAliveCount: " + incrementAndGet;
             }
         }

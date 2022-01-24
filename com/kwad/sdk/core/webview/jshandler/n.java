@@ -19,53 +19,53 @@ public class n implements com.kwad.sdk.core.webview.kwai.a {
         public double a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f56421b;
+        public int f56466b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f56422c;
+        public long f56467c;
     }
 
     private KsAppDownloadListener a(String str) {
         return new com.kwad.sdk.core.download.a.c(str) { // from class: com.kwad.sdk.core.webview.jshandler.n.1
             @Override // com.kwad.sdk.core.download.a.c
             public void a(int i2) {
-                if (n.this.a.f56332g != null) {
-                    n.this.a(3, (i2 * 1.0f) / 100.0f, n.this.a.f56332g.b(a()));
+                if (n.this.a.f56377g != null) {
+                    n.this.a(3, (i2 * 1.0f) / 100.0f, n.this.a.f56377g.b(a()));
                 }
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
-                if (n.this.a.f56332g != null) {
-                    n.this.a(1, 0.0f, n.this.a.f56332g.b(a()));
+                if (n.this.a.f56377g != null) {
+                    n.this.a(1, 0.0f, n.this.a.f56377g.b(a()));
                 }
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFinished() {
-                if (n.this.a.f56332g != null) {
-                    n.this.a(5, 1.0f, n.this.a.f56332g.b(a()));
+                if (n.this.a.f56377g != null) {
+                    n.this.a(5, 1.0f, n.this.a.f56377g.b(a()));
                 }
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onIdle() {
-                if (n.this.a.f56332g != null) {
-                    n.this.a(1, 0.0f, n.this.a.f56332g.b(a()));
+                if (n.this.a.f56377g != null) {
+                    n.this.a(1, 0.0f, n.this.a.f56377g.b(a()));
                 }
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onInstalled() {
-                if (n.this.a.f56332g != null) {
-                    n.this.a(6, 1.0f, n.this.a.f56332g.b(a()));
+                if (n.this.a.f56377g != null) {
+                    n.this.a(6, 1.0f, n.this.a.f56377g.b(a()));
                 }
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onProgressUpdate(int i2) {
-                if (n.this.a.f56332g != null) {
-                    n.this.a(2, (i2 * 1.0f) / 100.0f, n.this.a.f56332g.b(a()));
+                if (n.this.a.f56377g != null) {
+                    n.this.a(2, (i2 * 1.0f) / 100.0f, n.this.a.f56377g.b(a()));
                 }
             }
         };
@@ -76,8 +76,8 @@ public class n implements com.kwad.sdk.core.webview.kwai.a {
         if (cVar != null) {
             b bVar = new b();
             bVar.a = f2;
-            bVar.f56421b = i2;
-            bVar.f56422c = com.kwad.sdk.core.response.a.d.j(this.a.a()).totalBytes;
+            bVar.f56466b = i2;
+            bVar.f56467c = com.kwad.sdk.core.response.a.d.j(this.a.a()).totalBytes;
             cVar.a(bVar);
         }
     }
@@ -99,19 +99,19 @@ public class n implements com.kwad.sdk.core.webview.kwai.a {
             adTemplate = null;
             com.kwad.sdk.core.d.a.b(e2);
         }
-        if (adTemplate == null || !com.kwad.sdk.core.response.a.d.c(adTemplate) || this.a.f56332g == null) {
+        if (adTemplate == null || !com.kwad.sdk.core.response.a.d.c(adTemplate) || this.a.f56377g == null) {
             return;
         }
         com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(adTemplate);
         String a2 = bVar.a();
         bVar.a(a(a2));
-        this.a.f56332g.a(a2, bVar);
-        this.a.f56332g.a(a2, cVar);
+        this.a.f56377g.a(a2, bVar);
+        this.a.f56377g.a(a2, cVar);
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
-        ac acVar = this.a.f56332g;
+        ac acVar = this.a.f56377g;
         if (acVar != null) {
             acVar.a();
         }

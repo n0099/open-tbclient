@@ -28,7 +28,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     public c.a.d.c.g.c mListener;
     public BlackListModel mModel;
     public BlackListItemData mNeedRemovedData;
-    public c.a.t0.t1.a.c.b mView;
+    public c.a.t0.u1.a.c.b mView;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.c {
@@ -108,7 +108,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IMBlackListActivity f45217e;
+        public final /* synthetic */ IMBlackListActivity f45245e;
 
         public b(IMBlackListActivity iMBlackListActivity) {
             Interceptable interceptable = $ic;
@@ -125,17 +125,17 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
                     return;
                 }
             }
-            this.f45217e = iMBlackListActivity;
+            this.f45245e = iMBlackListActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f45217e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f45245e.mModel == null) {
                 return;
             }
-            this.f45217e.mModel.cancelLoadData();
-            this.f45217e.mNeedRemovedData = null;
+            this.f45245e.mModel.cancelLoadData();
+            this.f45245e.mNeedRemovedData = null;
         }
     }
 
@@ -145,7 +145,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IMBlackListActivity f45218e;
+        public final /* synthetic */ IMBlackListActivity f45246e;
 
         public c(IMBlackListActivity iMBlackListActivity) {
             Interceptable interceptable = $ic;
@@ -162,7 +162,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
                     return;
                 }
             }
-            this.f45218e = iMBlackListActivity;
+            this.f45246e = iMBlackListActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -170,9 +170,9 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.show();
-                if (this.f45218e.mNeedRemovedData != null) {
-                    this.f45218e.showLoadingDialog();
-                    this.f45218e.mModel.removeFromBlackList(this.f45218e.mNeedRemovedData.getUserId());
+                if (this.f45246e.mNeedRemovedData != null) {
+                    this.f45246e.showLoadingDialog();
+                    this.f45246e.mModel.removeFromBlackList(this.f45246e.mNeedRemovedData.getUserId());
                 }
             }
         }
@@ -184,7 +184,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IMBlackListActivity f45219e;
+        public final /* synthetic */ IMBlackListActivity f45247e;
 
         public d(IMBlackListActivity iMBlackListActivity) {
             Interceptable interceptable = $ic;
@@ -201,7 +201,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
                     return;
                 }
             }
-            this.f45219e = iMBlackListActivity;
+            this.f45247e = iMBlackListActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -253,7 +253,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.mView = new c.a.t0.t1.a.c.b(this);
+            this.mView = new c.a.t0.u1.a.c.b(this);
         }
     }
 

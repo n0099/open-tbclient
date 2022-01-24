@@ -17,7 +17,7 @@ public class m0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13458b;
+    public int f13644b;
 
     public m0() {
         Interceptable interceptable = $ic;
@@ -33,13 +33,13 @@ public class m0 {
             }
         }
         this.a = null;
-        this.f13458b = 0;
+        this.f13644b = 0;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13458b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13644b : invokeV.intValue;
     }
 
     public String b() {
@@ -54,7 +54,7 @@ public class m0 {
             return;
         }
         try {
-            this.f13458b = jSONObject.optInt("class_id", 0);
+            this.f13644b = jSONObject.optInt("class_id", 0);
             this.a = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -66,7 +66,7 @@ public class m0 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, classify) == null) || classify == null) {
             return;
         }
-        this.f13458b = classify.class_id.intValue();
+        this.f13644b = classify.class_id.intValue();
         this.a = classify.class_name;
     }
 }

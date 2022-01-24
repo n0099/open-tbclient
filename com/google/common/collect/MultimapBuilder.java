@@ -318,7 +318,7 @@ public abstract class MultimapBuilder<K0, V0> {
             public final /* synthetic */ int a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f54778b;
+            public final /* synthetic */ b f54823b;
 
             public a(b bVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -335,7 +335,7 @@ public abstract class MultimapBuilder<K0, V0> {
                         return;
                     }
                 }
-                this.f54778b = bVar;
+                this.f54823b = bVar;
                 this.a = i2;
             }
 
@@ -343,7 +343,7 @@ public abstract class MultimapBuilder<K0, V0> {
             public <K extends K0, V> e1<K, V> b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Multimaps.f(this.f54778b.a(), new LinkedHashSetSupplier(this.a)) : (e1) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Multimaps.f(this.f54823b.a(), new LinkedHashSetSupplier(this.a)) : (e1) invokeV.objValue;
             }
         }
 

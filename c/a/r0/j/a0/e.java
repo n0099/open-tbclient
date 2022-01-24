@@ -19,7 +19,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10811b;
+    public static final boolean f10953b;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.a.l0.c a;
     @V8JavascriptField
@@ -38,7 +38,7 @@ public class e {
                 return;
             }
         }
-        f10811b = k.a;
+        f10953b = k.a;
     }
 
     public e(c.a.r0.a.l0.c cVar) {
@@ -74,7 +74,7 @@ public class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String z = c.a.r0.a.g1.f.U().z();
             String b2 = f.a().b();
-            if (f10811b) {
+            if (f10953b) {
                 String str = "baseFilePath: " + z;
                 String str2 = "openDataJSFile: " + b2;
             }

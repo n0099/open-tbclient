@@ -21,7 +21,7 @@ public class b extends h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f7535b;
+    public static final boolean f7677b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class b extends h {
                 return;
             }
         }
-        f7535b = c.a.r0.a.k.a;
+        f7677b = c.a.r0.a.k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,7 +65,7 @@ public class b extends h {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{aVar, cVar, context, unitedSchemeEntity, callbackHandler, eVar})) == null) {
-            c.a.r0.a.e0.d.i("video", "fullscreen, video id:" + cVar.n + " slave id: " + cVar.f5309g);
+            c.a.r0.a.e0.d.i("video", "fullscreen, video id:" + cVar.n + " slave id: " + cVar.f5451g);
             e(aVar, cVar.w, unitedSchemeEntity, callbackHandler);
             return true;
         }
@@ -83,7 +83,7 @@ public class b extends h {
             try {
                 return new JSONObject(str).optInt("direction", -1);
             } catch (JSONException e2) {
-                if (f7535b) {
+                if (f7677b) {
                     e2.printStackTrace();
                     return -1;
                 }

@@ -32,17 +32,17 @@ public class a extends c.a.d.n.e.a<c.a.t0.a0.f.b.b.b, SquareLiveCategoryViewHold
 
     /* renamed from: c.a.t0.a0.f.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class View$OnClickListenerC0915a implements View.OnClickListener {
+    public class View$OnClickListenerC0925a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.a0.f.b.b.b f14354e;
+        public final /* synthetic */ c.a.t0.a0.f.b.b.b f14494e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f14355f;
+        public final /* synthetic */ a f14495f;
 
-        public View$OnClickListenerC0915a(a aVar, c.a.t0.a0.f.b.b.b bVar) {
+        public View$OnClickListenerC0925a(a aVar, c.a.t0.a0.f.b.b.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,25 +57,25 @@ public class a extends c.a.d.n.e.a<c.a.t0.a0.f.b.b.b, SquareLiveCategoryViewHold
                     return;
                 }
             }
-            this.f14355f = aVar;
-            this.f14354e = bVar;
+            this.f14495f = aVar;
+            this.f14494e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f14355f.m != null) {
-                    int tabIndex = this.f14355f.m.getTabIndex(this.f14354e.f14368e);
+                if (this.f14495f.m != null) {
+                    int tabIndex = this.f14495f.m.getTabIndex(this.f14494e.f14508e);
                     if (tabIndex >= 0) {
-                        this.f14355f.m.goToTab(tabIndex);
+                        this.f14495f.m.goToTab(tabIndex);
                         return;
                     } else {
-                        this.f14355f.b0(this.f14354e);
+                        this.f14495f.b0(this.f14494e);
                         return;
                     }
                 }
-                this.f14355f.b0(this.f14354e);
+                this.f14495f.b0(this.f14494e);
             }
         }
     }
@@ -104,11 +104,11 @@ public class a extends c.a.d.n.e.a<c.a.t0.a0.f.b.b.b, SquareLiveCategoryViewHold
     public final void b0(c.a.t0.a0.f.b.b.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            Context context = this.f3258e;
-            String str = bVar.f14371h;
-            String str2 = bVar.f14369f;
-            String str3 = bVar.f14370g;
-            List<String> list = bVar.f14372i;
+            Context context = this.f3360e;
+            String str = bVar.f14511h;
+            String str2 = bVar.f14509f;
+            String str3 = bVar.f14510g;
+            List<String> list = bVar.f14512i;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaNewSquareSubListActivityConfig(context, str, str2, str3, (list == null || !(list instanceof ArrayList)) ? null : (ArrayList) list)));
         }
     }
@@ -119,7 +119,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.a0.f.b.b.b, SquareLiveCategoryViewHold
     public SquareLiveCategoryViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new SquareLiveCategoryViewHolder(LayoutInflater.from(this.f3258e).inflate(R.layout.square_live_category_layout, viewGroup, false)) : (SquareLiveCategoryViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new SquareLiveCategoryViewHolder(LayoutInflater.from(this.f3360e).inflate(R.layout.square_live_category_layout, viewGroup, false)) : (SquareLiveCategoryViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -143,8 +143,8 @@ public class a extends c.a.d.n.e.a<c.a.t0.a0.f.b.b.b, SquareLiveCategoryViewHold
             SkinManager.setViewTextColor(textView, R.color.CAM_X0106);
             SkinManager.setViewTextColor(textView2, R.color.CAM_X0109);
             SkinManager.setImageResource(imageView, R.drawable.icon_arrow_tab);
-            textView.setText(!TextUtils.isEmpty(bVar.f14370g) ? bVar.f14370g : bVar.f14369f);
-            textView2.setOnClickListener(new View$OnClickListenerC0915a(this, bVar));
+            textView.setText(!TextUtils.isEmpty(bVar.f14510g) ? bVar.f14510g : bVar.f14509f);
+            textView2.setOnClickListener(new View$OnClickListenerC0925a(this, bVar));
             return squareLiveCategoryViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

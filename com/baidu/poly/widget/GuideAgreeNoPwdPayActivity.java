@@ -183,7 +183,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuideAgreeNoPwdPayActivity f37785e;
+        public final /* synthetic */ GuideAgreeNoPwdPayActivity f37813e;
 
         public c(GuideAgreeNoPwdPayActivity guideAgreeNoPwdPayActivity) {
             Interceptable interceptable = $ic;
@@ -200,15 +200,15 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
                     return;
                 }
             }
-            this.f37785e = guideAgreeNoPwdPayActivity;
+            this.f37813e = guideAgreeNoPwdPayActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f37785e.agreeNoticeLayout.setVisibility(8);
-                this.f37785e.agreeResultLayout.setVisibility(0);
+                this.f37813e.agreeNoticeLayout.setVisibility(8);
+                this.f37813e.agreeResultLayout.setVisibility(0);
             }
         }
     }

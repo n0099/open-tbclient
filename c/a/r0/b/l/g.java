@@ -18,7 +18,7 @@ public class g extends c.a.r0.a.y1.a.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f10075e;
+        public final /* synthetic */ g f10217e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class g extends c.a.r0.a.y1.a.a.a {
                     return;
                 }
             }
-            this.f10075e = gVar;
+            this.f10217e = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,8 +44,8 @@ public class g extends c.a.r0.a.y1.a.a.a {
         public void onCallback(Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                this.f10075e.f9685d.putBundle("key_result_stokent", bundle);
-                this.f10075e.c();
+                this.f10217e.f9827d.putBundle("key_result_stokent", bundle);
+                this.f10217e.c();
             }
         }
     }

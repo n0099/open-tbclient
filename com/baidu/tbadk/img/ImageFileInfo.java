@@ -193,59 +193,65 @@ public class ImageFileInfo extends MediaFileInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.contentUriStr : (String) invokeV.objValue;
     }
 
+    public String getExtra() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.extra : (String) invokeV.objValue;
+    }
+
     public String getFilePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.filePath : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.filePath : (String) invokeV.objValue;
     }
 
     public int getImageType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mImageType : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mImageType : invokeV.intValue;
     }
 
     public String getModifyTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.modifyTime : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.modifyTime : (String) invokeV.objValue;
     }
 
     public Bitmap getOrginalBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.orginalBitmap : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.orginalBitmap : (Bitmap) invokeV.objValue;
     }
 
     public LinkedList<ImageOperation> getPageActionsList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.pageActionsList : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.pageActionsList : (LinkedList) invokeV.objValue;
     }
 
     public LinkedList<ImageOperation> getPersistActionsList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.persistActionsList : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.persistActionsList : (LinkedList) invokeV.objValue;
     }
 
     public String getServerImageCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.serverImageCode : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.serverImageCode : (String) invokeV.objValue;
     }
 
     public String getTempUploadFileName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.tempUploadFileName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.tempUploadFileName : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.album.MediaFileInfo
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
@@ -255,7 +261,7 @@ public class ImageFileInfo extends MediaFileInfo {
         InterceptResult invokeZ;
         LinkedList<ImageOperation> linkedList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
             if (this.persistActionsList == null && this.pageActionsList == null) {
                 return false;
             }
@@ -274,7 +280,7 @@ public class ImageFileInfo extends MediaFileInfo {
     public boolean hasActionsWithoutResize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             if (this.persistActionsList == null && this.pageActionsList == null) {
                 return false;
             }
@@ -304,143 +310,156 @@ public class ImageFileInfo extends MediaFileInfo {
     public boolean isAlreadyUploadedToServer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? !m.isEmpty(this.serverImageCode) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? !m.isEmpty(this.serverImageCode) : invokeV.booleanValue;
     }
 
     public boolean isFromCamera() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.isFromCamera : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.isFromCamera : invokeV.booleanValue;
     }
 
     public boolean isGif() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.isGif : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.isGif : invokeV.booleanValue;
     }
 
     public boolean isHasAddPostQualityAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.hasAddPostQualityAction : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.hasAddPostQualityAction : invokeV.booleanValue;
     }
 
     public boolean isLong() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.isLong : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.isLong : invokeV.booleanValue;
     }
 
     public boolean isOrginalBitmapShared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.isOrginalBitmapShared : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.isOrginalBitmapShared : invokeV.booleanValue;
     }
 
     public boolean isTempFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.isTempFile : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.isTempFile : invokeV.booleanValue;
     }
 
-    public void parseJson(JSONObject jSONObject) {
+    public ImageFileInfo parseJson(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048602, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.filePath = jSONObject.optString("filePath", "");
-        this.albumId = jSONObject.optString("albumId", null);
-        this.contentUriStr = jSONObject.optString("contentUriStr", null);
-        this.isTempFile = jSONObject.optBoolean("isTempFile", false);
-        this.serverImageCode = jSONObject.optString("serverImageCode", null);
-        this.modifyTime = jSONObject.optString("modifyTime");
-        JSONArray optJSONArray = jSONObject.optJSONArray("actionsList");
-        this.persistActionsList = new LinkedList<>();
-        if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                ImageOperation imageOperation = new ImageOperation();
-                imageOperation.parseJson(optJSONArray.optJSONObject(i2));
-                this.persistActionsList.add(imageOperation);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return this;
             }
+            this.filePath = jSONObject.optString("filePath", "");
+            this.extra = jSONObject.optString("extra", "");
+            this.albumId = jSONObject.optString("albumId", null);
+            this.contentUriStr = jSONObject.optString("contentUriStr", null);
+            this.isTempFile = jSONObject.optBoolean("isTempFile", false);
+            this.serverImageCode = jSONObject.optString("serverImageCode", null);
+            this.modifyTime = jSONObject.optString("modifyTime");
+            JSONArray optJSONArray = jSONObject.optJSONArray("actionsList");
+            this.persistActionsList = new LinkedList<>();
+            if (optJSONArray != null) {
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    ImageOperation imageOperation = new ImageOperation();
+                    imageOperation.parseJson(optJSONArray.optJSONObject(i2));
+                    this.persistActionsList.add(imageOperation);
+                }
+            }
+            this.hasAddPostQualityAction = jSONObject.optBoolean("hasAddPostQualityAction", false);
+            this._cacheKey_all = null;
+            this._cacheKey_page = null;
+            ImageUploadResult.picInfo picinfo = new ImageUploadResult.picInfo();
+            this.serverPicInfo = picinfo;
+            picinfo.parseJson(jSONObject.optJSONObject("serverPicInfo"));
+            this.isGif = jSONObject.optBoolean("isGif", false);
+            this.isLong = jSONObject.optBoolean("isLong", false);
+            this.isFromCamera = jSONObject.optBoolean("isFromCamera", false);
+            this.mImageType = jSONObject.optInt(ProducerConstants.EXTRA_IMAGE_TYPE, 0);
+            return this;
         }
-        this.hasAddPostQualityAction = jSONObject.optBoolean("hasAddPostQualityAction", false);
-        this._cacheKey_all = null;
-        this._cacheKey_page = null;
-        ImageUploadResult.picInfo picinfo = new ImageUploadResult.picInfo();
-        this.serverPicInfo = picinfo;
-        picinfo.parseJson(jSONObject.optJSONObject("serverPicInfo"));
-        this.isGif = jSONObject.optBoolean("isGif", false);
-        this.isLong = jSONObject.optBoolean("isLong", false);
-        this.isFromCamera = jSONObject.optBoolean("isFromCamera", false);
-        this.mImageType = jSONObject.optInt(ProducerConstants.EXTRA_IMAGE_TYPE, 0);
+        return (ImageFileInfo) invokeL.objValue;
     }
 
     public void setAlbumnId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
             this.albumId = str;
         }
     }
 
     public void setContentUriStr(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
             this.contentUriStr = str;
+        }
+    }
+
+    public void setExtra(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+            this.extra = str;
         }
     }
 
     public void setFilePath(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
             this.filePath = str;
         }
     }
 
     public void setHasAddPostQualityAction(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
             this.hasAddPostQualityAction = z;
         }
     }
 
     public void setImageType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
             this.mImageType = i2;
         }
     }
 
     public void setIsFromCamera(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
             this.isFromCamera = z;
         }
     }
 
     public void setIsGif(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
             this.isGif = z;
         }
     }
 
     public void setIsLong(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
             this.isLong = z;
         }
     }
 
     public void setModifyTime(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
             this.modifyTime = str;
         }
     }
 
     public void setOrginalBitmap(Bitmap bitmap, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048612, this, bitmap, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048614, this, bitmap, z) == null) {
             this.orginalBitmap = bitmap;
             this.isOrginalBitmapShared = z;
         }
@@ -448,7 +467,7 @@ public class ImageFileInfo extends MediaFileInfo {
 
     public void setPageActionsList(LinkedList<ImageOperation> linkedList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, linkedList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048615, this, linkedList) == null) {
             this.pageActionsList = linkedList;
             this._cacheKey_all = null;
             this._cacheKey_page = null;
@@ -457,7 +476,7 @@ public class ImageFileInfo extends MediaFileInfo {
 
     public void setPersistActionsList(LinkedList<ImageOperation> linkedList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, linkedList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048616, this, linkedList) == null) {
             this.persistActionsList = linkedList;
             this._cacheKey_all = null;
             this._cacheKey_page = null;
@@ -466,21 +485,21 @@ public class ImageFileInfo extends MediaFileInfo {
 
     public void setServerImageCode(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
             this.serverImageCode = str;
         }
     }
 
     public void setTempFile(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
             this.isTempFile = z;
         }
     }
 
     public void setTempUploadFileName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
             this.tempUploadFileName = str;
         }
     }
@@ -488,7 +507,7 @@ public class ImageFileInfo extends MediaFileInfo {
     public String toCachedKey(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048618, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048620, this, z)) == null) {
             if (getImageType() == 1) {
                 return d.h().g(this.filePath, 20);
             }
@@ -504,7 +523,7 @@ public class ImageFileInfo extends MediaFileInfo {
                             if (next != null) {
                                 sb.append(':');
                                 sb.append(next.actionName);
-                                sb.append(a.f30865h);
+                                sb.append(a.f30893h);
                                 sb.append(next.actionParam);
                             }
                         }
@@ -516,7 +535,7 @@ public class ImageFileInfo extends MediaFileInfo {
                             if (next2 != null) {
                                 sb.append(':');
                                 sb.append(next2.actionName);
-                                sb.append(a.f30865h);
+                                sb.append(a.f30893h);
                                 sb.append(next2.actionParam);
                             }
                         }
@@ -534,7 +553,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         ImageOperation imageOperation = this.pageActionsList.get(i2);
                         sb2.append(':');
                         sb2.append(imageOperation.actionName);
-                        sb2.append(a.f30865h);
+                        sb2.append(a.f30893h);
                         sb2.append(imageOperation.actionParam);
                     }
                 }
@@ -548,7 +567,7 @@ public class ImageFileInfo extends MediaFileInfo {
     public JSONObject toJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("filePath", this.filePath);
@@ -580,6 +599,7 @@ public class ImageFileInfo extends MediaFileInfo {
                 jSONObject.put("isLong", this.isLong);
                 jSONObject.put("isFromCamera", this.isFromCamera);
                 jSONObject.put(ProducerConstants.EXTRA_IMAGE_TYPE, this.mImageType);
+                jSONObject.put("extra", this.extra);
                 return jSONObject;
             } catch (JSONException e2) {
                 BdLog.e(e2.getMessage());

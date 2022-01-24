@@ -209,7 +209,7 @@ public class a extends z {
                 try {
                     return new JSONObject(str);
                 } catch (JSONException e2) {
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         Log.getStackTraceString(e2);
                     }
                 }

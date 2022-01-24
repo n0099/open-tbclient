@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -216,7 +215,7 @@ public final class AssetUtils {
                             while (true) {
                                 ZipEntry nextEntry = zipInputStream.getNextEntry();
                                 if (nextEntry != null) {
-                                    if (!nextEntry.getName().contains(Constants.PATH_PARENT)) {
+                                    if (!nextEntry.getName().contains("../")) {
                                         File file2 = new File(str2 + File.separator + nextEntry.getName());
                                         if (nextEntry.isDirectory()) {
                                             if (!file2.exists()) {

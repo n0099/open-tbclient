@@ -99,7 +99,7 @@ public class b {
             if (s == null) {
                 return false;
             }
-            return TextUtils.equals("none", s.f39343e.q);
+            return TextUtils.equals("none", s.f39371e.q);
         }
         return invokeV.booleanValue;
     }

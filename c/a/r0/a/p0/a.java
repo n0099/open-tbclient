@@ -25,22 +25,22 @@ public class a extends c.a.r0.a.p0.d.b<c.a.r0.a.p0.h.c.a, c.a.r0.a.p0.i.b.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f8165d;
+    public static final boolean f8307d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f8166e;
+    public static volatile a f8308e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f8167f;
+    public static boolean f8309f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.p0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0499a extends ProviderDelegation {
+    public static class C0508a extends ProviderDelegation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0499a() {
+        public C0508a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,8 +124,8 @@ public class a extends c.a.r0.a.p0.d.b<c.a.r0.a.p0.h.c.a, c.a.r0.a.p0.i.b.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
                 Bundle bundle2 = new Bundle();
-                bundle2.putBoolean("swan_preset_extension", a.f8167f);
-                d.k("ExtCore-AppsManager", "is extension file exists : " + a.f8167f);
+                bundle2.putBoolean("swan_preset_extension", a.f8309f);
+                d.k("ExtCore-AppsManager", "is extension file exists : " + a.f8309f);
                 return bundle2;
             }
             return (Bundle) invokeL.objValue;
@@ -145,8 +145,8 @@ public class a extends c.a.r0.a.p0.d.b<c.a.r0.a.p0.h.c.a, c.a.r0.a.p0.i.b.a> {
                 return;
             }
         }
-        f8165d = k.a;
-        f8167f = m();
+        f8307d = k.a;
+        f8309f = m();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -173,8 +173,8 @@ public class a extends c.a.r0.a.p0.d.b<c.a.r0.a.p0.h.c.a, c.a.r0.a.p0.i.b.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             if (ProcessUtils.isMainProcess()) {
-                d.k("ExtCore-AppsManager", "MainProcess mPresetExtension: " + f8167f);
-                return f8167f;
+                d.k("ExtCore-AppsManager", "MainProcess mPresetExtension: " + f8309f);
+                return f8309f;
             }
             g c2 = e.c(b.class, null);
             boolean z = true;
@@ -191,14 +191,14 @@ public class a extends c.a.r0.a.p0.d.b<c.a.r0.a.p0.h.c.a, c.a.r0.a.p0.i.b.a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f8166e == null) {
+            if (f8308e == null) {
                 synchronized (a.class) {
-                    if (f8166e == null) {
-                        f8166e = new a();
+                    if (f8308e == null) {
+                        f8308e = new a();
                     }
                 }
             }
-            return f8166e;
+            return f8308e;
         }
         return (a) invokeV.objValue;
     }
@@ -244,10 +244,10 @@ public class a extends c.a.r0.a.p0.d.b<c.a.r0.a.p0.h.c.a, c.a.r0.a.p0.i.b.a> {
             if (ProcessUtils.isMainProcess()) {
                 extensionCore = d();
             } else {
-                Bundle bundle = e.c(C0499a.class, null).a;
+                Bundle bundle = e.c(C0508a.class, null).a;
                 bundle.setClassLoader(ExtensionCore.class.getClassLoader());
                 extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-                if (f8165d) {
+                if (f8307d) {
                     String str = "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore;
                 }
             }

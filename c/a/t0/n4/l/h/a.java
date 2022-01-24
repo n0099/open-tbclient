@@ -29,33 +29,33 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f19940e;
+    public f f20041e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<CloudMusicData.MusicTagList.MusicList> f19941f;
+    public List<CloudMusicData.MusicTagList.MusicList> f20042f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f19942g;
+    public c f20043g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f19943h;
+    public String f20044h;
 
     /* renamed from: c.a.t0.n4.l.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1253a implements View.OnClickListener {
+    public class View$OnClickListenerC1248a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f19944e;
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f20045e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f19945f;
+        public final /* synthetic */ int f20046f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f19946g;
+        public final /* synthetic */ a f20047g;
 
-        public View$OnClickListenerC1253a(a aVar, CloudMusicData.MusicTagList.MusicList musicList, int i2) {
+        public View$OnClickListenerC1248a(a aVar, CloudMusicData.MusicTagList.MusicList musicList, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,18 +70,18 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f19946g = aVar;
-            this.f19944e = musicList;
-            this.f19945f = i2;
+            this.f20047g = aVar;
+            this.f20045e = musicList;
+            this.f20046f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f19946g.f19942g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f20047g.f20043g == null) {
                 return;
             }
-            this.f19946g.f19942g.onMusicChooseClick(view, this.f19944e.resource, this.f19945f);
+            this.f20047g.f20043g.onMusicChooseClick(view, this.f20045e.resource, this.f20046f);
         }
     }
 
@@ -92,25 +92,25 @@ public class a extends BaseAdapter {
         public TbImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f19947b;
+        public TbImageView f20048b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f19948c;
+        public View f20049c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f19949d;
+        public TextView f20050d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f19950e;
+        public TextView f20051e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f19951f;
+        public TextView f20052f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f19952g;
+        public TextView f20053g;
 
         /* renamed from: h  reason: collision with root package name */
-        public View f19953h;
+        public View f20054h;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -129,13 +129,13 @@ public class a extends BaseAdapter {
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                SkinManager.setViewTextColor(this.f19949d, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f19950e, R.color.CAM_X0107);
-                SkinManager.setViewTextColor(this.f19951f, R.color.CAM_X0107);
-                SkinManager.setViewTextColor(this.f19952g, R.color.CAM_X0302);
-                SkinManager.setBackgroundResource(this.f19952g, R.drawable.bg_music_choose);
-                SkinManager.setBackgroundColor(this.f19953h, R.color.CAM_X0204);
-                SkinManager.setImageResource(this.f19947b, R.drawable.btn_icon_play_video_n);
+                SkinManager.setViewTextColor(this.f20050d, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f20051e, R.color.CAM_X0107);
+                SkinManager.setViewTextColor(this.f20052f, R.color.CAM_X0107);
+                SkinManager.setViewTextColor(this.f20053g, R.color.CAM_X0302);
+                SkinManager.setBackgroundResource(this.f20053g, R.drawable.bg_music_choose);
+                SkinManager.setBackgroundColor(this.f20054h, R.color.CAM_X0204);
+                SkinManager.setImageResource(this.f20048b, R.drawable.btn_icon_play_video_n);
             }
         }
     }
@@ -160,9 +160,9 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f19943h = "";
-        this.f19940e = fVar;
-        this.f19941f = new ArrayList();
+        this.f20044h = "";
+        this.f20041e = fVar;
+        this.f20042f = new ArrayList();
     }
 
     public void b(List<CloudMusicData.MusicTagList.MusicList> list) {
@@ -171,8 +171,8 @@ public class a extends BaseAdapter {
             return;
         }
         for (CloudMusicData.MusicTagList.MusicList musicList : list) {
-            if (!this.f19941f.contains(musicList)) {
-                this.f19941f.add(musicList);
+            if (!this.f20042f.contains(musicList)) {
+                this.f20042f.add(musicList);
             }
         }
         notifyDataSetChanged();
@@ -184,20 +184,20 @@ public class a extends BaseAdapter {
     public CloudMusicData.MusicTagList.MusicList getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f19941f.get(i2) : (CloudMusicData.MusicTagList.MusicList) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f20042f.get(i2) : (CloudMusicData.MusicTagList.MusicList) invokeI.objValue;
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f19943h = str;
+            this.f20044h = str;
         }
     }
 
     public void e(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f19942g = cVar;
+            this.f20043g = cVar;
         }
     }
 
@@ -213,7 +213,7 @@ public class a extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19941f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20042f.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -230,57 +230,57 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f19940e.getPageActivity()).inflate(R.layout.cloud_music_item, viewGroup, false);
+                view = LayoutInflater.from(this.f20041e.getPageActivity()).inflate(R.layout.cloud_music_item, viewGroup, false);
                 bVar = new b();
-                bVar.f19947b = (TbImageView) view.findViewById(R.id.music_state);
+                bVar.f20048b = (TbImageView) view.findViewById(R.id.music_state);
                 TbImageView tbImageView = (TbImageView) view.findViewById(R.id.music_image);
                 bVar.a = tbImageView;
                 tbImageView.setDrawerType(1);
                 bVar.a.setIsRound(true);
                 bVar.a.setDefaultResource(R.drawable.bg_video_cloudmusic);
                 bVar.a.setDefaultBgResource(R.color.transparent);
-                bVar.a.setBorderWidth(n.f(this.f19940e.getPageActivity(), R.dimen.ds4));
+                bVar.a.setBorderWidth(n.f(this.f20041e.getPageActivity(), R.dimen.ds4));
                 bVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
                 bVar.a.setConrers(15);
-                bVar.f19948c = view.findViewById(R.id.music_loading);
-                bVar.f19949d = (TextView) view.findViewById(R.id.music_title);
-                bVar.f19950e = (TextView) view.findViewById(R.id.music_author_name);
-                bVar.f19951f = (TextView) view.findViewById(R.id.music_duration);
-                bVar.f19952g = (TextView) view.findViewById(R.id.music_choose);
-                bVar.f19953h = view.findViewById(R.id.line);
+                bVar.f20049c = view.findViewById(R.id.music_loading);
+                bVar.f20050d = (TextView) view.findViewById(R.id.music_title);
+                bVar.f20051e = (TextView) view.findViewById(R.id.music_author_name);
+                bVar.f20052f = (TextView) view.findViewById(R.id.music_duration);
+                bVar.f20053g = (TextView) view.findViewById(R.id.music_choose);
+                bVar.f20054h = view.findViewById(R.id.line);
                 view.setTag(bVar);
             } else {
                 bVar = (b) view.getTag();
             }
             bVar.b(TbadkCoreApplication.getInst().getSkinType());
-            CloudMusicData.MusicTagList.MusicList musicList = this.f19941f.get(i2);
+            CloudMusicData.MusicTagList.MusicList musicList = this.f20042f.get(i2);
             if (musicList != null) {
-                bVar.f19949d.setText(musicList.name);
+                bVar.f20050d.setText(musicList.name);
                 bVar.a.startLoad(musicList.image, 10, false);
-                bVar.f19950e.setText(musicList.author);
-                bVar.f19951f.setText(StringHelper.stringForVideoTime(musicList.duration * 1000));
+                bVar.f20051e.setText(musicList.author);
+                bVar.f20052f.setText(StringHelper.stringForVideoTime(musicList.duration * 1000));
                 if (musicList.isLoading) {
-                    bVar.f19948c.setVisibility(0);
+                    bVar.f20049c.setVisibility(0);
                 } else {
-                    bVar.f19948c.setVisibility(4);
+                    bVar.f20049c.setVisibility(4);
                 }
                 if (musicList.equals(c.a.t0.n4.l.i.a.b().a())) {
-                    bVar.f19947b.setImageResource(R.drawable.btn_icon_stop_video);
+                    bVar.f20048b.setImageResource(R.drawable.btn_icon_stop_video);
                     bVar.a.setDrawBorder(true);
-                    bVar.f19952g.setVisibility(0);
-                    bVar.f19948c.setVisibility(4);
+                    bVar.f20053g.setVisibility(0);
+                    bVar.f20049c.setVisibility(4);
                     musicList.isLoading = false;
-                    bVar.f19952g.setOnClickListener(new View$OnClickListenerC1253a(this, musicList, i2));
-                } else if (c.a.t0.n4.l.i.a.b().a() == null && getItem(i2) != null && !TextUtils.isEmpty(this.f19943h) && this.f19943h.equals(String.valueOf(getItem(i2).music_id))) {
-                    bVar.f19947b.setImageResource(R.drawable.btn_icon_play_video_n);
+                    bVar.f20053g.setOnClickListener(new View$OnClickListenerC1248a(this, musicList, i2));
+                } else if (c.a.t0.n4.l.i.a.b().a() == null && getItem(i2) != null && !TextUtils.isEmpty(this.f20044h) && this.f20044h.equals(String.valueOf(getItem(i2).music_id))) {
+                    bVar.f20048b.setImageResource(R.drawable.btn_icon_play_video_n);
                     bVar.a.setDrawBorder(true);
-                    bVar.f19952g.setVisibility(8);
-                    bVar.f19948c.setVisibility(4);
+                    bVar.f20053g.setVisibility(8);
+                    bVar.f20049c.setVisibility(4);
                     musicList.isLoading = false;
                 } else {
-                    bVar.f19947b.setImageResource(R.drawable.btn_icon_play_video_n);
+                    bVar.f20048b.setImageResource(R.drawable.btn_icon_play_video_n);
                     bVar.a.setDrawBorder(false);
-                    bVar.f19952g.setVisibility(8);
+                    bVar.f20053g.setVisibility(8);
                 }
             }
             return view;

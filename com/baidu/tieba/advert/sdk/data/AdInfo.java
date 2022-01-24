@@ -186,10 +186,10 @@ public class AdInfo implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             b b2 = b.b(a.d());
-            if (TextUtils.isEmpty(b2.f25612d)) {
+            if (TextUtils.isEmpty(b2.f25339d)) {
                 return true;
             }
-            return TextUtils.isEmpty(b2.f25611c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f25611c.equals(this.adVideoUrl);
+            return TextUtils.isEmpty(b2.f25338c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f25338c.equals(this.adVideoUrl);
         }
         return invokeV.booleanValue;
     }

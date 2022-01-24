@@ -23,25 +23,25 @@ public class h {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f19015b;
+    public int f19248b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RecordVideoActivity f19016c;
+    public RecordVideoActivity f19249c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ProgressView f19017d;
+    public ProgressView f19250d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b> f19018e;
+    public List<b> f19251e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19019f;
+    public boolean f19252f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f19020g;
+    public long f19253g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19021h;
+    public int f19254h;
 
     /* loaded from: classes7.dex */
     public class a implements ProgressView.a {
@@ -51,29 +51,29 @@ public class h {
 
         /* renamed from: c.a.t0.k4.l.h$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1182a implements TextureMovieEncoder.OnEncoderStatusUpdateListener {
+        public class C1189a implements TextureMovieEncoder.OnEncoderStatusUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f19022b;
+            public final /* synthetic */ a f19255b;
 
             /* renamed from: c.a.t0.k4.l.h$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC1183a implements Runnable {
+            public class RunnableC1190a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ C1182a f19023e;
+                public final /* synthetic */ C1189a f19256e;
 
-                public RunnableC1183a(C1182a c1182a) {
+                public RunnableC1190a(C1189a c1189a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c1182a};
+                        Object[] objArr = {c1189a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -83,20 +83,20 @@ public class h {
                             return;
                         }
                     }
-                    this.f19023e = c1182a;
+                    this.f19256e = c1189a;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f19023e.f19022b.a.f19016c == null) {
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f19256e.f19255b.a.f19249c == null) {
                         return;
                     }
-                    this.f19023e.f19022b.a.f19016c.onRecordDone();
+                    this.f19256e.f19255b.a.f19249c.onRecordDone();
                 }
             }
 
-            public C1182a(a aVar, f fVar) {
+            public C1189a(a aVar, f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class h {
                         return;
                     }
                 }
-                this.f19022b = aVar;
+                this.f19255b = aVar;
                 this.a = fVar;
             }
 
@@ -126,7 +126,7 @@ public class h {
             public void onStopSuccess() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    c.a.d.f.m.e.a().post(new RunnableC1183a(this));
+                    c.a.d.f.m.e.a().post(new RunnableC1190a(this));
                     this.a.setOnEncoderStatusUpdateListener(null);
                 }
             }
@@ -156,18 +156,18 @@ public class h {
             f q;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.a.f19021h = i2;
-                if (i2 != 100 || this.a.f19016c == null || (gVar = this.a.f19016c.mPreviewController) == null || (q = gVar.q()) == null) {
+                this.a.f19254h = i2;
+                if (i2 != 100 || this.a.f19249c == null || (gVar = this.a.f19249c.mPreviewController) == null || (q = gVar.q()) == null) {
                     return;
                 }
                 if (q instanceof GLVideoPreviewView) {
-                    q.setOnEncoderStatusUpdateListener(new C1182a(this, q));
+                    q.setOnEncoderStatusUpdateListener(new C1189a(this, q));
                     this.a.o();
                     return;
                 }
                 this.a.o();
-                if (this.a.f19016c != null) {
-                    this.a.f19016c.onRecordDone();
+                if (this.a.f19249c != null) {
+                    this.a.f19249c.onRecordDone();
                 }
             }
         }
@@ -194,14 +194,14 @@ public class h {
             }
         }
         this.a = 1;
-        this.f19016c = recordVideoActivity;
+        this.f19249c = recordVideoActivity;
         if (recordVideoActivity == null) {
             return;
         }
         ImageView imageView = (ImageView) recordVideoActivity.findViewById(R.id.camera_switch);
-        ImageView imageView2 = (ImageView) this.f19016c.findViewById(R.id.flash_switch);
-        ProgressView progressView = (ProgressView) this.f19016c.findViewById(R.id.video_progress_view);
-        this.f19017d = progressView;
+        ImageView imageView2 = (ImageView) this.f19249c.findViewById(R.id.flash_switch);
+        ProgressView progressView = (ProgressView) this.f19249c.findViewById(R.id.video_progress_view);
+        this.f19250d = progressView;
         progressView.setListener(new a(this));
         if (!c.a.t0.k4.l.a.f(true)) {
             imageView2.setVisibility(4);
@@ -215,22 +215,22 @@ public class h {
     public void c(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            if (this.f19018e == null) {
-                this.f19018e = new ArrayList();
+            if (this.f19251e == null) {
+                this.f19251e = new ArrayList();
             }
-            this.f19018e.add(bVar);
+            this.f19251e.add(bVar);
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ProgressView progressView = this.f19017d;
+            ProgressView progressView = this.f19250d;
             if (progressView != null) {
                 progressView.setCurrentState(ProgressView.State.DELETE);
             }
-            this.f19015b = this.f19017d.getLastProgress();
-            g gVar = this.f19016c.mPreviewController;
+            this.f19248b = this.f19250d.getLastProgress();
+            g gVar = this.f19249c.mPreviewController;
             if (gVar != null) {
                 gVar.h();
             }
@@ -240,7 +240,7 @@ public class h {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19021h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19254h : invokeV.intValue;
     }
 
     public int f() {
@@ -252,7 +252,7 @@ public class h {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19015b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19248b : invokeV.intValue;
     }
 
     public boolean h() {
@@ -265,7 +265,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            i iVar = this.f19016c.mMusicController;
+            i iVar = this.f19249c.mMusicController;
             if (iVar != null) {
                 return iVar.h();
             }
@@ -287,13 +287,13 @@ public class h {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19017d.isProgressListEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19250d.isProgressListEmpty() : invokeV.booleanValue;
     }
 
     public void l() {
         ProgressView progressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f19019f || (progressView = this.f19017d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f19252f || (progressView = this.f19250d) == null) {
             return;
         }
         progressView.setCurrentState(ProgressView.State.ROLLBACK);
@@ -305,10 +305,10 @@ public class h {
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
             this.a = i2;
             if (i2 == 1) {
-                this.f19017d.setVisibility(4);
-                this.f19017d.reset();
-                this.f19015b = 0;
-                File file = new File(c.a.t0.k4.c.f18799f);
+                this.f19250d.setVisibility(4);
+                this.f19250d.reset();
+                this.f19248b = 0;
+                File file = new File(c.a.t0.k4.c.f19032f);
                 if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                     for (File file2 : listFiles) {
                         if (file2.getPath().startsWith("rec_tmp_")) {
@@ -317,7 +317,7 @@ public class h {
                     }
                 }
             }
-            List<b> list = this.f19018e;
+            List<b> list = this.f19251e;
             if (list != null) {
                 for (b bVar : list) {
                     bVar.onStatusChange(this.a);
@@ -329,48 +329,48 @@ public class h {
     public void n() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f19019f) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f19252f) {
             return;
         }
-        ProgressView progressView = this.f19017d;
+        ProgressView progressView = this.f19250d;
         if (progressView != null) {
             progressView.setVisibility(0);
-            this.f19017d.setCurrentState(ProgressView.State.START);
+            this.f19250d.setCurrentState(ProgressView.State.START);
         }
-        if (!this.f19019f) {
-            this.f19019f = true;
-            this.f19020g = System.currentTimeMillis();
+        if (!this.f19252f) {
+            this.f19252f = true;
+            this.f19253g = System.currentTimeMillis();
         }
-        RecordVideoActivity recordVideoActivity = this.f19016c;
+        RecordVideoActivity recordVideoActivity = this.f19249c;
         if (recordVideoActivity == null || (gVar = recordVideoActivity.mPreviewController) == null) {
             return;
         }
         gVar.L();
-        i iVar = this.f19016c.mMusicController;
+        i iVar = this.f19249c.mMusicController;
         if (iVar != null) {
-            iVar.m(this.f19015b);
+            iVar.m(this.f19248b);
         }
     }
 
     public void o() {
         g gVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.f19019f) {
-            ProgressView progressView = this.f19017d;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.f19252f) {
+            ProgressView progressView = this.f19250d;
             if (progressView != null) {
                 progressView.setCurrentState(ProgressView.State.PAUSE);
             }
-            this.f19019f = false;
-            this.f19015b = (int) (this.f19015b + (System.currentTimeMillis() - this.f19020g));
-            ProgressView progressView2 = this.f19017d;
+            this.f19252f = false;
+            this.f19248b = (int) (this.f19248b + (System.currentTimeMillis() - this.f19253g));
+            ProgressView progressView2 = this.f19250d;
             if (progressView2 != null) {
                 int lastProgress = progressView2.getLastProgress();
-                int i2 = this.f19015b;
+                int i2 = this.f19248b;
                 if (lastProgress != i2) {
-                    this.f19017d.putProgressList(i2);
+                    this.f19250d.putProgressList(i2);
                 }
             }
-            RecordVideoActivity recordVideoActivity = this.f19016c;
+            RecordVideoActivity recordVideoActivity = this.f19249c;
             if (recordVideoActivity == null || (gVar = recordVideoActivity.mPreviewController) == null) {
                 return;
             }

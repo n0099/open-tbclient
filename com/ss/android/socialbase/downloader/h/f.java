@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.h;
 
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.exception.i;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface f {
     com.ss.android.socialbase.downloader.exception.h a(BaseException baseException, long j2);
 

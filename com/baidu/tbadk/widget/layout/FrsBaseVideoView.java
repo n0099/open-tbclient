@@ -14,8 +14,8 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.s0.s.k;
 import c.a.s0.s.q.e2;
-import c.a.t0.z2.q;
-import c.a.t0.z2.t;
+import c.a.t0.a3.q;
+import c.a.t0.a3.t;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -38,22 +38,22 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f41333e;
+    public TextView f41361e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f41334f;
+    public TbImageView f41362f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f41335g;
+    public ImageView f41363g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbVideoViewContainer f41336h;
+    public TbVideoViewContainer f41364h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f41337i;
+    public TextView f41365i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f41338j;
+    public View f41366j;
     public q k;
     public e2 l;
     public View m;
@@ -64,7 +64,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     public String q;
     public View.OnClickListener r;
     public TbImageView.g s;
-    public c.a.t0.z2.v.a t;
+    public c.a.t0.a3.v.a t;
     public ViewTreeObserver.OnGlobalLayoutListener u;
     public Runnable v;
     public Runnable w;
@@ -76,7 +76,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsBaseVideoView f41339e;
+        public final /* synthetic */ FrsBaseVideoView f41367e;
 
         public a(FrsBaseVideoView frsBaseVideoView) {
             Interceptable interceptable = $ic;
@@ -93,27 +93,27 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
                     return;
                 }
             }
-            this.f41339e = frsBaseVideoView;
+            this.f41367e = frsBaseVideoView;
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewAttachedToWindow(View view) {
             FrameLayout frameLayout;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (frameLayout = this.f41339e.mFrameVideo) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (frameLayout = this.f41367e.mFrameVideo) == null) {
                 return;
             }
-            frameLayout.getViewTreeObserver().addOnGlobalLayoutListener(this.f41339e.u);
+            frameLayout.getViewTreeObserver().addOnGlobalLayoutListener(this.f41367e.u);
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewDetachedFromWindow(View view) {
             FrameLayout frameLayout;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (frameLayout = this.f41339e.mFrameVideo) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (frameLayout = this.f41367e.mFrameVideo) == null) {
                 return;
             }
-            frameLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this.f41339e.u);
+            frameLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this.f41367e.u);
         }
     }
 
@@ -144,8 +144,8 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z && this.a.f41334f != null) {
-                this.a.f41334f.setDefaultBgResource(0);
+            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z && this.a.f41362f != null) {
+                this.a.f41362f.setDefaultBgResource(0);
             }
         }
 
@@ -158,12 +158,12 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     }
 
     /* loaded from: classes11.dex */
-    public class c implements c.a.t0.z2.v.a {
+    public class c implements c.a.t0.a3.v.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsBaseVideoView f41340e;
+        public final /* synthetic */ FrsBaseVideoView f41368e;
 
         public c(FrsBaseVideoView frsBaseVideoView) {
             Interceptable interceptable = $ic;
@@ -180,17 +180,17 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
                     return;
                 }
             }
-            this.f41340e = frsBaseVideoView;
+            this.f41368e = frsBaseVideoView;
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public void changeRenderViewMode(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             }
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public int getCurrentPosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -200,7 +200,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             return invokeV.intValue;
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public View getMainView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -210,7 +210,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             return (View) invokeV.objValue;
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public boolean isFullScreen() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -220,7 +220,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             return invokeV.booleanValue;
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public boolean isPlaying() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -230,7 +230,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             return invokeV.booleanValue;
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public boolean onBackPress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -240,7 +240,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             return invokeV.booleanValue;
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public boolean onBackground(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -269,7 +269,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048585, this, i2, i3, obj)) == null) {
-                this.f41340e.j(true, 4);
+                this.f41368e.j(true, 4);
                 return true;
             }
             return invokeIIL.booleanValue;
@@ -292,7 +292,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             }
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public void onScroll() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -313,7 +313,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             }
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public boolean onVolumeUp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -323,63 +323,63 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             return invokeV.booleanValue;
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public void setAfterClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
             }
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public void setData(e2 e2Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, e2Var) == null) {
             }
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public void setFrom(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             }
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
             }
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public void setStageType(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             }
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public void setStatistic(t tVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048597, this, tVar) == null) {
             }
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public void setUniqueId(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048598, this, bdUniqueId) == null) {
             }
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public void startPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             }
         }
 
-        @Override // c.a.t0.z2.v.a
+        @Override // c.a.t0.a3.v.a
         public void stopPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
@@ -393,7 +393,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsBaseVideoView f41341e;
+        public final /* synthetic */ FrsBaseVideoView f41369e;
 
         public d(FrsBaseVideoView frsBaseVideoView) {
             Interceptable interceptable = $ic;
@@ -410,23 +410,23 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
                     return;
                 }
             }
-            this.f41341e = frsBaseVideoView;
+            this.f41369e = frsBaseVideoView;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             FrameLayout frameLayout;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (frameLayout = this.f41341e.mFrameVideo) == null || frameLayout.getLayoutParams() == null || this.f41341e.mFrameVideo.getVisibility() == 8) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (frameLayout = this.f41369e.mFrameVideo) == null || frameLayout.getLayoutParams() == null || this.f41369e.mFrameVideo.getVisibility() == 8) {
                 return;
             }
-            this.f41341e.mFrameVideo.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-            ViewGroup.LayoutParams layoutParams = this.f41341e.mFrameVideo.getLayoutParams();
-            if (this.f41341e.mFrameVideo.getWidth() <= 0) {
+            this.f41369e.mFrameVideo.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            ViewGroup.LayoutParams layoutParams = this.f41369e.mFrameVideo.getLayoutParams();
+            if (this.f41369e.mFrameVideo.getWidth() <= 0) {
                 return;
             }
-            layoutParams.height = (int) (this.f41341e.mFrameVideo.getWidth() * 0.5625d);
-            this.f41341e.mFrameVideo.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (this.f41369e.mFrameVideo.getWidth() * 0.5625d);
+            this.f41369e.mFrameVideo.setLayoutParams(layoutParams);
         }
     }
 
@@ -436,7 +436,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsBaseVideoView f41342e;
+        public final /* synthetic */ FrsBaseVideoView f41370e;
 
         public e(FrsBaseVideoView frsBaseVideoView) {
             Interceptable interceptable = $ic;
@@ -453,16 +453,16 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
                     return;
                 }
             }
-            this.f41342e = frsBaseVideoView;
+            this.f41370e = frsBaseVideoView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41342e.f41336h == null || this.f41342e.f41336h.getControl() == null || this.f41342e.f41336h.getControl().isPlaying()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41370e.f41364h == null || this.f41370e.f41364h.getControl() == null || this.f41370e.f41364h.getControl().isPlaying()) {
                 return;
             }
-            this.f41342e.j(true, 1);
+            this.f41370e.j(true, 1);
         }
     }
 
@@ -472,7 +472,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsBaseVideoView f41343e;
+        public final /* synthetic */ FrsBaseVideoView f41371e;
 
         public f(FrsBaseVideoView frsBaseVideoView) {
             Interceptable interceptable = $ic;
@@ -489,14 +489,14 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
                     return;
                 }
             }
-            this.f41343e = frsBaseVideoView;
+            this.f41371e = frsBaseVideoView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f41343e.j(true, 4);
+                this.f41371e.j(true, 4);
             }
         }
     }
@@ -507,7 +507,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsBaseVideoView f41344e;
+        public final /* synthetic */ FrsBaseVideoView f41372e;
 
         public g(FrsBaseVideoView frsBaseVideoView) {
             Interceptable interceptable = $ic;
@@ -524,14 +524,14 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
                     return;
                 }
             }
-            this.f41344e = frsBaseVideoView;
+            this.f41372e = frsBaseVideoView;
         }
 
         @Override // com.baidu.tieba.play.TbVideoViewContainer.a
         public void onSurfaceDestroyed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f41344e.stopPlay();
+                this.f41372e.stopPlay();
             }
         }
     }
@@ -562,20 +562,20 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, videoInfo) == null) {
             h();
-            if (this.f41334f == null || this.mFrameVideo == null || (tbVideoViewContainer = this.f41336h) == null || tbVideoViewContainer.getControl() == null) {
+            if (this.f41362f == null || this.mFrameVideo == null || (tbVideoViewContainer = this.f41364h) == null || tbVideoViewContainer.getControl() == null) {
                 return;
             }
             if (k.c().g() && this.l != null && videoInfo != null) {
                 this.mFrameVideo.setVisibility(0);
-                this.f41334f.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-                this.f41334f.startLoad(videoInfo.thumbnail_url, 10, false);
+                this.f41362f.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+                this.f41362f.startLoad(videoInfo.thumbnail_url, 10, false);
                 stopPlay();
                 String str = videoInfo.video_url;
                 this.q = str;
                 if (StringUtils.isNull(str)) {
                     j(true, 4);
                 }
-                this.f41333e.setText(StringHelper.stringForVideoTime(videoInfo.video_duration.intValue() * 1000));
+                this.f41361e.setText(StringHelper.stringForVideoTime(videoInfo.video_duration.intValue() * 1000));
                 this.n.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.play_count), StringHelper.numFormatOverWan(videoInfo.play_count.intValue())));
                 return;
             }
@@ -593,22 +593,22 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             frameLayout.setOnClickListener(this);
             this.mFrameVideo.addOnAttachStateChangeListener(new a(this));
             TbImageView tbImageView = (TbImageView) findViewById(R.id.image_video);
-            this.f41334f = tbImageView;
+            this.f41362f = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-            this.f41334f.setEvent(this.s);
-            this.f41334f.setGifIconSupport(false);
+            this.f41362f.setEvent(this.s);
+            this.f41362f.setGifIconSupport(false);
             this.k = new q((ViewGroup) findViewById(R.id.auto_video_loading_container));
-            this.f41335g = (ImageView) findViewById(R.id.image_video_play);
+            this.f41363g = (ImageView) findViewById(R.id.image_video_play);
             TbVideoViewContainer tbVideoViewContainer = new TbVideoViewContainer(getContext());
-            this.f41336h = tbVideoViewContainer;
+            this.f41364h = tbVideoViewContainer;
             tbVideoViewContainer.getControl().setStageType("2003");
             i();
-            this.f41336h.getControl().setOperableVideoContainer(this.t);
-            this.f41336h.getControl().setOnSurfaceDestroyedListener(this.x);
+            this.f41364h.getControl().setOperableVideoContainer(this.t);
+            this.f41364h.getControl().setOnSurfaceDestroyedListener(this.x);
             this.m = findViewById(R.id.auto_video_black_mask);
-            this.f41337i = (TextView) findViewById(R.id.auto_video_error_tips);
-            this.f41338j = findViewById(R.id.auto_video_error_background);
-            this.f41333e = (TextView) findViewById(R.id.text_video_duration);
+            this.f41365i = (TextView) findViewById(R.id.auto_video_error_tips);
+            this.f41366j = findViewById(R.id.auto_video_error_background);
+            this.f41361e = (TextView) findViewById(R.id.text_video_duration);
             this.n = (TextView) findViewById(R.id.text_video_play_count);
         }
     }
@@ -631,11 +631,11 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            TbVideoViewContainer tbVideoViewContainer = this.f41336h;
+            TbVideoViewContainer tbVideoViewContainer = this.f41364h;
             if (tbVideoViewContainer == null || tbVideoViewContainer.getControl() == null) {
                 return 0;
             }
-            return this.f41336h.getControl().getCurrentPosition();
+            return this.f41364h.getControl().getCurrentPosition();
         }
         return invokeV.intValue;
     }
@@ -663,30 +663,30 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     public final void i() {
         TbVideoViewContainer tbVideoViewContainer;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (tbVideoViewContainer = this.f41336h) != null && tbVideoViewContainer.getParent() == null) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (tbVideoViewContainer = this.f41364h) != null && tbVideoViewContainer.getParent() == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 17;
-            this.mFrameVideo.addView(this.f41336h, 0);
-            this.f41336h.setLayoutParams(layoutParams);
+            this.mFrameVideo.addView(this.f41364h, 0);
+            this.f41364h.setLayoutParams(layoutParams);
         }
     }
 
     public final void j(boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || this.f41335g == null || this.f41334f == null || this.m == null || this.k == null || this.f41338j == null || this.f41337i == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || this.f41363g == null || this.f41362f == null || this.m == null || this.k == null || this.f41366j == null || this.f41365i == null) {
             return;
         }
         if (z || this.p != i2) {
             this.p = i2;
             c.a.d.f.m.e.a().removeCallbacks(this.w);
             c.a.d.f.m.e.a().removeCallbacks(this.v);
-            this.f41335g.setVisibility(0);
-            this.f41334f.clearAnimation();
-            this.f41334f.setVisibility(0);
+            this.f41363g.setVisibility(0);
+            this.f41362f.clearAnimation();
+            this.f41362f.setVisibility(0);
             this.m.setVisibility(0);
             this.k.b();
-            this.f41338j.setVisibility(8);
-            this.f41337i.setVisibility(8);
+            this.f41366j.setVisibility(8);
+            this.f41365i.setVisibility(8);
         }
     }
 
@@ -705,13 +705,13 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             return;
         }
         SkinManager.setBackgroundResource(this, R.drawable.addresslist_item_bg);
-        SkinManager.setImageResource(this.f41335g, R.drawable.btn_icon_play_video_n);
-        SkinManager.setViewTextColor(this.f41337i, R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.f41333e, R.color.CAM_X0101);
+        SkinManager.setImageResource(this.f41363g, R.drawable.btn_icon_play_video_n);
+        SkinManager.setViewTextColor(this.f41365i, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.f41361e, R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0101);
-        SkinManager.setBackgroundColor(this.f41338j, R.color.common_color_10014);
-        if (this.f41337i != null) {
-            this.f41337i.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.icon_toast_game_error), (Drawable) null, (Drawable) null);
+        SkinManager.setBackgroundColor(this.f41366j, R.color.common_color_10014);
+        if (this.f41365i != null) {
+            this.f41365i.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.icon_toast_game_error), (Drawable) null, (Drawable) null);
         }
         this.o = i2;
     }
@@ -738,11 +738,11 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             h();
             j(true, 1);
-            TbVideoViewContainer tbVideoViewContainer = this.f41336h;
+            TbVideoViewContainer tbVideoViewContainer = this.f41364h;
             if (tbVideoViewContainer == null || tbVideoViewContainer.getControl() == null) {
                 return;
             }
-            this.f41336h.getControl().stopPlayback();
+            this.f41364h.getControl().stopPlayback();
         }
     }
 

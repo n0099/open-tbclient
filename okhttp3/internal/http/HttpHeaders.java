@@ -1,7 +1,6 @@
 package okhttp3.internal.http;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -234,7 +233,7 @@ public final class HttpHeaders {
     public static boolean hasVaryAll(Headers headers) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, headers)) == null) ? varyFields(headers).contains(ProxyConfig.MATCH_ALL_SCHEMES) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, headers)) == null) ? varyFields(headers).contains("*") : invokeL.booleanValue;
     }
 
     public static Set<String> varyFields(Headers headers) {

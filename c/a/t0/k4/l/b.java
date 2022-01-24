@@ -15,16 +15,16 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f18979b;
+    public float f19212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f18980c;
+    public int f19213c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Camera f18981d;
+    public Camera f19214d;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f18982e;
+    public h f19215e;
 
     public b(Camera camera) {
         Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class b {
             }
         }
         this.a = 0;
-        this.f18981d = camera;
+        this.f19214d = camera;
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Camera camera = this.f18981d;
+            Camera camera = this.f19214d;
             if (camera == null) {
                 return -1;
             }
@@ -69,7 +69,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            h hVar = this.f18982e;
+            h hVar = this.f19215e;
             if (hVar == null || !hVar.j()) {
                 int action = motionEvent.getAction() & 255;
                 if (action == 0) {
@@ -77,20 +77,20 @@ public class b {
                 } else if (action != 2) {
                     if (action == 5) {
                         this.a = 1;
-                        this.f18979b = e(motionEvent);
+                        this.f19212b = e(motionEvent);
                     }
                 } else if (this.a != 1 || motionEvent.getPointerCount() < 2) {
                     return true;
                 } else {
                     float e2 = e(motionEvent);
-                    int i2 = (int) ((e2 - this.f18979b) / 10.0f);
+                    int i2 = (int) ((e2 - this.f19212b) / 10.0f);
                     if (i2 >= 1 || i2 <= -1) {
-                        int i3 = this.f18980c + i2;
+                        int i3 = this.f19213c + i2;
                         if (i3 > a()) {
                             i3 = a();
                         }
                         d(i3 >= 0 ? i3 : 0);
-                        this.f18979b = e2;
+                        this.f19212b = e2;
                     }
                 }
                 return true;
@@ -103,21 +103,21 @@ public class b {
     public void c(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar) == null) {
-            this.f18982e = hVar;
+            this.f19215e = hVar;
         }
     }
 
     public final void d(int i2) {
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (camera = this.f18981d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (camera = this.f19214d) == null) {
             return;
         }
         Camera.Parameters parameters = camera.getParameters();
         if (parameters.isZoomSupported()) {
             parameters.setZoom(i2);
-            this.f18981d.setParameters(parameters);
-            this.f18980c = i2;
+            this.f19214d.setParameters(parameters);
+            this.f19213c = i2;
         }
     }
 

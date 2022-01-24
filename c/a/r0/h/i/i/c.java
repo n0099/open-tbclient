@@ -11,19 +11,19 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f10418b;
+    public int f10560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f10419c;
+    public int f10561c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f10420d;
+    public int f10562d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f10421e;
+    public int f10563e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f10422f;
+    public int f10564f;
 
     public c(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class c {
             }
         }
         this.a = i2;
-        this.f10418b = i3;
-        this.f10419c = i4;
-        this.f10420d = i5;
+        this.f10560b = i3;
+        this.f10561c = i4;
+        this.f10562d = i5;
     }
 }

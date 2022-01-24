@@ -19,7 +19,7 @@ public class x {
     public static Field a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Field f3019b;
+    public static Field f3121b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -90,7 +90,7 @@ public class x {
                 a = declaredField;
                 declaredField.setAccessible(true);
                 Field declaredField2 = a.getType().getDeclaredField("mHandler");
-                f3019b = declaredField2;
+                f3121b = declaredField2;
                 declaredField2.setAccessible(true);
             }
         } catch (Exception unused) {
@@ -103,10 +103,10 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, toast) == null) {
             try {
-                if (Build.VERSION.SDK_INT >= 28 || a == null || f3019b == null || (obj = a.get(toast)) == null || (handler = (Handler) f3019b.get(obj)) == null) {
+                if (Build.VERSION.SDK_INT >= 28 || a == null || f3121b == null || (obj = a.get(toast)) == null || (handler = (Handler) f3121b.get(obj)) == null) {
                     return;
                 }
-                f3019b.set(obj, new a(handler));
+                f3121b.set(obj, new a(handler));
             } catch (Exception unused) {
             }
         }

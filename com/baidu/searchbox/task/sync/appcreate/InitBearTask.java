@@ -1,10 +1,11 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import c.a.s0.s.h0.b;
-import c.a.t0.e1.a;
+import c.a.s0.s.i0.b;
+import c.a.t0.f1.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
@@ -36,7 +37,9 @@ public class InitBearTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
             initBearSdk();
+            SpeedStatsManager.getInstance().setTaskRunTime("AppCreate_InitBear_sdk", System.currentTimeMillis() - currentTimeMillis);
             if (PermissionUtil.isAgreePrivacyPolicy()) {
                 Thread thread = new Thread(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
                     public static /* synthetic */ Interceptable $ic;

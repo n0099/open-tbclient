@@ -82,16 +82,16 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AbsMsgImageActivity f44787e;
+        public final /* synthetic */ AbsMsgImageActivity f44815e;
 
         /* renamed from: com.baidu.tieba.im.chat.AbsMsgImageActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class animation.Animation$AnimationListenerC1919a implements Animation.AnimationListener {
+        public class animation.Animation$AnimationListenerC1925a implements Animation.AnimationListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public animation.Animation$AnimationListenerC1919a(a aVar) {
+            public animation.Animation$AnimationListenerC1925a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,10 +113,10 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             public void onAnimationEnd(Animation animation) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                    this.a.f44787e.mAnimFinished = true;
-                    if (this.a.f44787e.mTitleGone) {
-                        this.a.f44787e.mTitleGone = false;
-                        this.a.f44787e.mTitle.setVisibility(8);
+                    this.a.f44815e.mAnimFinished = true;
+                    if (this.a.f44815e.mTitleGone) {
+                        this.a.f44815e.mTitleGone = false;
+                        this.a.f44815e.mTitle.setVisibility(8);
                     }
                 }
             }
@@ -151,61 +151,61 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                     return;
                 }
             }
-            this.f44787e = absMsgImageActivity;
+            this.f44815e = absMsgImageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f44787e.mBack) {
-                    if (this.f44787e.mTitle.getVisibility() == 8) {
+                if (view == this.f44815e.mBack) {
+                    if (this.f44815e.mTitle.getVisibility() == 8) {
                         return;
                     }
                     Intent intent = new Intent();
-                    intent.putExtra("index", this.f44787e.mIndex);
-                    this.f44787e.setResult(-1, intent);
-                    this.f44787e.finish();
-                } else if (view == this.f44787e.mSaveClick) {
-                    if (this.f44787e.mTitle.getVisibility() == 8) {
+                    intent.putExtra("index", this.f44815e.mIndex);
+                    this.f44815e.setResult(-1, intent);
+                    this.f44815e.finish();
+                } else if (view == this.f44815e.mSaveClick) {
+                    if (this.f44815e.mTitle.getVisibility() == 8) {
                         return;
                     }
-                    Activity pageActivity = this.f44787e.getPageContext().getPageActivity();
-                    if (this.f44787e.mPermissionJudgement == null) {
-                        this.f44787e.mPermissionJudgement = new PermissionJudgePolicy();
+                    Activity pageActivity = this.f44815e.getPageContext().getPageActivity();
+                    if (this.f44815e.mPermissionJudgement == null) {
+                        this.f44815e.mPermissionJudgement = new PermissionJudgePolicy();
                     }
-                    this.f44787e.mPermissionJudgement.clearRequestPermissionList();
-                    this.f44787e.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                    if (this.f44787e.mPermissionJudgement.startRequestPermission(pageActivity)) {
+                    this.f44815e.mPermissionJudgement.clearRequestPermissionList();
+                    this.f44815e.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                    if (this.f44815e.mPermissionJudgement.startRequestPermission(pageActivity)) {
                         return;
                     }
                     try {
-                        byte[] currentImageData = this.f44787e.mMultiImageView.getCurrentImageData();
+                        byte[] currentImageData = this.f44815e.mMultiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            String currentImageUrl = this.f44787e.mMultiImageView.getCurrentImageUrl();
-                            this.f44787e.mSaveImageTask = new g(this.f44787e, currentImageUrl, currentImageData);
-                            this.f44787e.mSaveImageTask.execute(new String[0]);
-                            this.f44787e.mSaveClick.setClickable(false);
+                            String currentImageUrl = this.f44815e.mMultiImageView.getCurrentImageUrl();
+                            this.f44815e.mSaveImageTask = new g(this.f44815e, currentImageUrl, currentImageData);
+                            this.f44815e.mSaveImageTask.execute(new String[0]);
+                            this.f44815e.mSaveClick.setClickable(false);
                         } else {
-                            this.f44787e.showToast(this.f44787e.getPageContext().getString(R.string.no_data));
+                            this.f44815e.showToast(this.f44815e.getPageContext().getString(R.string.no_data));
                         }
                     } catch (Exception unused) {
                     }
-                } else if (this.f44787e.mAnimFinished) {
-                    if (this.f44787e.mTitle.getVisibility() != 0) {
-                        this.f44787e.mTitle.setVisibility(0);
-                        this.f44787e.mMultiImageView.showTools();
-                        this.f44787e.mAnim = new AlphaAnimation(0.0f, 1.0f);
+                } else if (this.f44815e.mAnimFinished) {
+                    if (this.f44815e.mTitle.getVisibility() != 0) {
+                        this.f44815e.mTitle.setVisibility(0);
+                        this.f44815e.mMultiImageView.showTools();
+                        this.f44815e.mAnim = new AlphaAnimation(0.0f, 1.0f);
                     } else {
-                        this.f44787e.mAnim = new AlphaAnimation(1.0f, 0.0f);
-                        this.f44787e.mTitleGone = true;
-                        this.f44787e.mMultiImageView.hideTools();
+                        this.f44815e.mAnim = new AlphaAnimation(1.0f, 0.0f);
+                        this.f44815e.mTitleGone = true;
+                        this.f44815e.mMultiImageView.hideTools();
                     }
-                    this.f44787e.mAnim.setDuration(300L);
-                    this.f44787e.mAnim.setFillAfter(true);
-                    this.f44787e.mAnim.setAnimationListener(new animation.Animation$AnimationListenerC1919a(this));
-                    this.f44787e.mAnimFinished = false;
-                    this.f44787e.mTitle.startAnimation(this.f44787e.mAnim);
+                    this.f44815e.mAnim.setDuration(300L);
+                    this.f44815e.mAnim.setFillAfter(true);
+                    this.f44815e.mAnim.setAnimationListener(new animation.Animation$AnimationListenerC1925a(this));
+                    this.f44815e.mAnimFinished = false;
+                    this.f44815e.mTitle.startAnimation(this.f44815e.mAnim);
                 }
             }
         }
@@ -217,7 +217,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AbsMsgImageActivity f44788e;
+        public final /* synthetic */ AbsMsgImageActivity f44816e;
 
         public b(AbsMsgImageActivity absMsgImageActivity) {
             Interceptable interceptable = $ic;
@@ -234,18 +234,18 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                     return;
                 }
             }
-            this.f44788e = absMsgImageActivity;
+            this.f44816e = absMsgImageActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 != 1 || System.nanoTime() - this.f44788e.pageDoneTime <= AbsMsgImageActivity.INV_TIME || this.f44788e.imageUrls == null || this.f44788e.mIndex >= this.f44788e.imageUrls.size()) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 != 1 || System.nanoTime() - this.f44816e.pageDoneTime <= AbsMsgImageActivity.INV_TIME || this.f44816e.imageUrls == null || this.f44816e.mIndex >= this.f44816e.imageUrls.size()) {
                 return;
             }
-            HashMap hashMap = this.f44788e.pvHash;
-            LinkedHashMap linkedHashMap = this.f44788e.imageUrls;
-            hashMap.put(linkedHashMap.get("" + this.f44788e.mIndex), Boolean.TRUE);
+            HashMap hashMap = this.f44816e.pvHash;
+            LinkedHashMap linkedHashMap = this.f44816e.imageUrls;
+            hashMap.put(linkedHashMap.get("" + this.f44816e.mIndex), Boolean.TRUE);
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -259,10 +259,10 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                AbsMsgImageActivity absMsgImageActivity = this.f44788e;
+                AbsMsgImageActivity absMsgImageActivity = this.f44816e;
                 absMsgImageActivity.imageChange(absMsgImageActivity.mIndex, i2);
-                this.f44788e.mIndex = i2;
-                this.f44788e.setTitle();
+                this.f44816e.mIndex = i2;
+                this.f44816e.setTitle();
             }
         }
     }
@@ -300,7 +300,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     }
 
     /* loaded from: classes12.dex */
-    public class d implements c.InterfaceC0884c {
+    public class d implements c.InterfaceC0893c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity a;
@@ -323,7 +323,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             this.a = absMsgImageActivity;
         }
 
-        @Override // c.a.s0.s.s.c.InterfaceC0884c
+        @Override // c.a.s0.s.s.c.InterfaceC0893c
         public void a(c.a.s0.s.s.c cVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLIL(1048576, this, cVar, i2, view) == null) && cVar == this.a.getListMenu()) {
@@ -361,17 +361,17 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.InterfaceC0884c f44789e;
+        public final /* synthetic */ c.InterfaceC0893c f44817e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AbsMsgImageActivity f44790f;
+        public final /* synthetic */ AbsMsgImageActivity f44818f;
 
-        public e(AbsMsgImageActivity absMsgImageActivity, c.InterfaceC0884c interfaceC0884c) {
+        public e(AbsMsgImageActivity absMsgImageActivity, c.InterfaceC0893c interfaceC0893c) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {absMsgImageActivity, interfaceC0884c};
+                Object[] objArr = {absMsgImageActivity, interfaceC0893c};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -381,8 +381,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                     return;
                 }
             }
-            this.f44790f = absMsgImageActivity;
-            this.f44789e = interfaceC0884c;
+            this.f44818f = absMsgImageActivity;
+            this.f44817e = interfaceC0893c;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -390,8 +390,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                this.f44790f.createListMenu(new String[]{this.f44790f.getPageContext().getString(R.string.save)}, this.f44789e);
-                this.f44790f.showListMenu();
+                this.f44818f.createListMenu(new String[]{this.f44818f.getPageContext().getString(R.string.save)}, this.f44817e);
+                this.f44818f.showListMenu();
                 return false;
             }
             return invokeL.booleanValue;
@@ -399,7 +399,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     }
 
     /* loaded from: classes12.dex */
-    public class f implements c.a.t0.s1.s.c {
+    public class f implements c.a.t0.t1.s.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity a;
@@ -422,7 +422,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             this.a = absMsgImageActivity;
         }
 
-        @Override // c.a.t0.s1.s.c
+        @Override // c.a.t0.t1.s.c
         public void a(LinkedHashMap<String, String> linkedHashMap, HashMap<String, ImageUrlData> hashMap) {
             boolean z;
             Interceptable interceptable = $ic;
@@ -483,10 +483,10 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f44791b;
+        public byte[] f44819b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ AbsMsgImageActivity f44792c;
+        public final /* synthetic */ AbsMsgImageActivity f44820c;
 
         public g(AbsMsgImageActivity absMsgImageActivity, String str, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -503,19 +503,19 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                     return;
                 }
             }
-            this.f44792c = absMsgImageActivity;
+            this.f44820c = absMsgImageActivity;
             this.a = null;
-            this.f44791b = null;
+            this.f44819b = null;
             this.a = str;
-            this.f44791b = bArr;
+            this.f44819b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44792c.mSaveImageTask = null;
-                this.f44792c.mSaveClick.setClickable(true);
+                this.f44820c.mSaveImageTask = null;
+                this.f44820c.mSaveClick.setClickable(true);
                 super.cancel(true);
             }
         }
@@ -534,12 +534,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.f44791b, this.f44792c.getPageContext().getPageActivity());
+                int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.f44819b, this.f44820c.getPageContext().getPageActivity());
                 if (saveImageFileByUser != -2) {
                     if (saveImageFileByUser != 0) {
-                        return this.f44792c.getPageContext().getString(R.string.save_fail);
+                        return this.f44820c.getPageContext().getString(R.string.save_fail);
                     }
-                    return this.f44792c.getPageContext().getString(R.string.save_image_to_album);
+                    return this.f44820c.getPageContext().getString(R.string.save_image_to_album);
                 }
                 return FileHelper.getSdErrorString();
             }
@@ -552,9 +552,9 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
                 super.onPostExecute((g) str);
-                this.f44792c.mSaveImageTask = null;
-                this.f44792c.mSaveClick.setClickable(true);
-                this.f44792c.showToast(str);
+                this.f44820c.mSaveImageTask = null;
+                this.f44820c.mSaveClick.setClickable(true);
+                this.f44820c.showToast(str);
             }
         }
     }
@@ -873,7 +873,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    public abstract void queryAllBigImageUrls(String str, c.a.t0.s1.s.c cVar);
+    public abstract void queryAllBigImageUrls(String str, c.a.t0.t1.s.c cVar);
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {

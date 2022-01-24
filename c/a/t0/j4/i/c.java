@@ -36,27 +36,27 @@ public abstract class c<T> extends b<T> {
     public long e(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j2)) == null) ? c.a.s0.s.h0.b.k().m(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j2)) == null) ? c.a.s0.s.i0.b.k().m(str, j2) : invokeLJ.longValue;
     }
 
     @Override // c.a.t0.j4.i.b
     public void g(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
-            c.a.s0.s.h0.b.k().x(str, j2);
+            c.a.s0.s.i0.b.k().x(str, j2);
         }
     }
 
     public int l(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) ? c.a.s0.s.h0.b.k().l(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) ? c.a.s0.s.i0.b.k().l(str, i2) : invokeLI.intValue;
     }
 
     public void m(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
-            c.a.s0.s.h0.b.k().w(str, i2);
+            c.a.s0.s.i0.b.k().w(str, i2);
         }
     }
 }

@@ -17,12 +17,12 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f2626c;
+    public static d f2728c;
     public transient /* synthetic */ FieldHolder $fh;
     public SecretKey a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f2627b;
+    public byte[] f2729b;
 
     static {
         InterceptResult invokeClinit;
@@ -53,21 +53,21 @@ public class d {
             }
         }
         this.a = null;
-        this.f2627b = null;
+        this.f2729b = null;
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2626c == null) {
+            if (f2728c == null) {
                 synchronized (d.class) {
-                    if (f2626c == null) {
-                        f2626c = new d();
+                    if (f2728c == null) {
+                        f2728c = new d();
                     }
                 }
             }
-            return f2626c;
+            return f2728c;
         }
         return (d) invokeV.objValue;
     }
@@ -81,7 +81,7 @@ public class d {
     public byte[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2627b : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2729b : (byte[]) invokeV.objValue;
     }
 
     public void d(byte[] bArr) {
@@ -95,11 +95,11 @@ public class d {
                     bArr2[i2] = (byte) g2.charAt(i2);
                 }
                 this.a = v.f(g2);
-                this.f2627b = v.d(e2, bArr2);
+                this.f2729b = v.d(e2, bArr2);
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
                 this.a = null;
-                this.f2627b = new byte[0];
+                this.f2729b = new byte[0];
             }
         }
     }

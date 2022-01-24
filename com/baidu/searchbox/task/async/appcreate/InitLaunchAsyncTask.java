@@ -2,12 +2,12 @@ package com.baidu.searchbox.task.async.appcreate;
 
 import c.a.d.f.j.a.c;
 import c.a.d.f.m.e;
-import c.a.s0.e1.j;
-import c.a.s0.e1.p;
+import c.a.s0.d1.j;
+import c.a.s0.d1.p;
 import c.a.s0.s0.l;
-import c.a.t0.h3.b;
-import c.a.t0.i3.a;
-import c.a.t0.w3.p0.d;
+import c.a.t0.i3.b;
+import c.a.t0.j3.a;
+import c.a.t0.x3.p0.d;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -53,7 +53,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
     private void initICDN() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            c.f2788f = UseHttpdnsSdkSwitch.isOn();
+            c.f2890f = UseHttpdnsSdkSwitch.isOn();
             if (UseHttpdnsSdkSwitch.isOn()) {
                 BDHttpDns j2 = BDHttpDns.j(TbadkCoreApplication.getInst().getApplicationContext());
                 j2.n(false);
@@ -172,7 +172,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
                                 this.this$1 = this;
                             }
 
-                            @Override // c.a.s0.e1.p.b
+                            @Override // c.a.s0.d1.p.b
                             public void onResult(boolean z) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeZ(1048576, this, z) == null) {
@@ -271,7 +271,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
             TbadkApplication.getInst().mReadThreadHistory = new d(300);
-            TbadkApplication.getInst().mPhotoLiveReadHistory = new c.a.t0.w3.p0.c(300);
+            TbadkApplication.getInst().mPhotoLiveReadHistory = new c.a.t0.x3.p0.c(300);
             c.a.d.a.b.f().r(TbadkApplication.getInst());
         }
     }

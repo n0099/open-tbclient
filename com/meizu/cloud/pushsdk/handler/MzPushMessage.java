@@ -1,7 +1,6 @@
 package com.meizu.cloud.pushsdk.handler;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.io.Serializable;
 import java.util.Map;
@@ -30,7 +29,7 @@ public class MzPushMessage implements Serializable {
     public static String selfDefineContentString(String str, Map<String, String> map) {
         if (TextUtils.isEmpty(str)) {
             if (map != null) {
-                str = map.get(ContentUtil.RESULT_KEY_SK);
+                str = map.get("sk");
                 if (TextUtils.isEmpty(str)) {
                     str = e.a((Map) map).toString();
                 }

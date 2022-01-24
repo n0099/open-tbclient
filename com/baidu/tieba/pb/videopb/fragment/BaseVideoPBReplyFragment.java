@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.videopb.fragment;
 
-import c.a.t0.s2.y.h.a;
+import c.a.t0.t2.y.i.a;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
 import com.baidu.tieba.pb.pb.main.PbModel;

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.http;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface Cancelable {
     void cancel();
 }

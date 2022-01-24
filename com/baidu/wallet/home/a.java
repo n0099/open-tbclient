@@ -22,7 +22,7 @@ public class a {
 
     /* renamed from: com.baidu.wallet.home.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public static class C1988a {
+    public static class C1994a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1988a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1994a.a : (a) invokeV.objValue;
     }
 
     public a() {
@@ -91,7 +91,7 @@ public class a {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f51095b;
+                public final /* synthetic */ a f51140b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -108,7 +108,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f51095b = this;
+                    this.f51140b = this;
                     this.a = str5;
                 }
 

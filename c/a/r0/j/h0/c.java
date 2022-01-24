@@ -32,12 +32,12 @@ public class c implements l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f11027c;
+    public static final boolean f11169c;
     public transient /* synthetic */ FieldHolder $fh;
     public SharedPreferences a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f11028b;
+    public File f11170b;
 
     /* loaded from: classes6.dex */
     public class a implements c.a<Long> {
@@ -86,7 +86,7 @@ public class c implements l {
                 return;
             }
         }
-        f11027c = k.a;
+        f11169c = k.a;
     }
 
     public c() {
@@ -103,14 +103,14 @@ public class c implements l {
             }
         }
         String o = o();
-        if (f11027c) {
+        if (f11169c) {
             String str = "preferencesName:" + o;
         }
         if (o != null) {
             this.a = c.a.r0.a.c1.a.c().getSharedPreferences(o, 0);
-            this.f11028b = new File(q(), o + ActivityChooserModel.HISTORY_FILE_EXTENSION);
+            this.f11170b = new File(q(), o + ActivityChooserModel.HISTORY_FILE_EXTENSION);
         }
-        c.a.r0.a.u2.d.f9459h.b(new a(this));
+        c.a.r0.a.u2.d.f9601h.b(new a(this));
     }
 
     public static void k(String str) {
@@ -223,7 +223,7 @@ public class c implements l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            File file = this.f11028b;
+            File file = this.f11170b;
             if (file != null) {
                 return file.length();
             }

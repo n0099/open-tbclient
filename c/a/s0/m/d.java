@@ -12,7 +12,7 @@ public class d {
     public HashMap<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12885b;
+    public String f13029b;
 
     public d() {
         Interceptable interceptable = $ic;

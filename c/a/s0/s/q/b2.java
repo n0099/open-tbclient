@@ -13,10 +13,10 @@ public class b2 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13307b;
+    public String f13493b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13308c;
+    public String f13494c;
 
     public b2() {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class b2 {
             }
         }
         this.a = null;
-        this.f13307b = null;
-        this.f13308c = null;
+        this.f13493b = null;
+        this.f13494c = null;
     }
 
     public String a() {
@@ -45,13 +45,13 @@ public class b2 {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13307b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13493b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13308c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13494c : (String) invokeV.objValue;
     }
 
     public void d(String str) {
@@ -64,14 +64,14 @@ public class b2 {
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f13307b = str;
+            this.f13493b = str;
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f13308c = str;
+            this.f13494c = str;
         }
     }
 }

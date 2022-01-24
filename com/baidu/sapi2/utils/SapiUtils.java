@@ -903,7 +903,7 @@ public class SapiUtils implements NoProguard {
                         str2 = str;
                         i2 = 0;
                     }
-                    List<ScanResult> scanResults = checkRequestPermission(s.f55246g, context) ? wifiManager.getScanResults() : null;
+                    List<ScanResult> scanResults = checkRequestPermission(s.f55291g, context) ? wifiManager.getScanResults() : null;
                     if (scanResults != null) {
                         for (ScanResult scanResult : scanResults) {
                             String str4 = scanResult.BSSID;
@@ -1009,7 +1009,7 @@ public class SapiUtils implements NoProguard {
         }
         if (!SapiDeviceUtils.isForbidDangerousPermissionApp(context) && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
             if (Build.VERSION.SDK_INT > 27 && context.getApplicationInfo().targetSdkVersion > 27) {
-                if (checkRequestPermission(s.f55242c, context)) {
+                if (checkRequestPermission(s.f55287c, context)) {
                     try {
                         str = Build.getSerial();
                     } catch (Throwable unused) {

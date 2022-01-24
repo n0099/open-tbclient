@@ -14,7 +14,7 @@ import i.o.a.a;
 import i.u.d;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.internal.subscriptions.CancellableSubscription;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong implements Object<T>, f, k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7326289992464377023L;

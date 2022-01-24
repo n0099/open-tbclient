@@ -11,25 +11,25 @@ public class x {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13919b;
+    public String f14059b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13920c;
+    public String f14060c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13921d;
+    public int f14061d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13922e;
+    public int f14062e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13923f;
+    public int f14063f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13924g;
+    public int f14064g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13925h;
+    public int f14065h;
 
     public x() {
         Interceptable interceptable = $ic;

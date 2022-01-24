@@ -13,7 +13,7 @@ public class b implements e {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f9432b;
+    public long f9574b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class b implements e {
             }
         }
         this.a = -1L;
-        this.f9432b = -1L;
+        this.f9574b = -1L;
     }
 
     @Override // c.a.r0.a.u1.p.e
@@ -39,7 +39,7 @@ public class b implements e {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             long j2 = this.a;
             if (j2 >= 0) {
-                long j3 = this.f9432b;
+                long j3 = this.f9574b;
                 if (j3 < 0) {
                     return -1L;
                 }
@@ -54,7 +54,7 @@ public class b implements e {
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f9432b = j2;
+            this.f9574b = j2;
         }
     }
 

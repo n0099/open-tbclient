@@ -2,7 +2,6 @@ package com.kwai.sodler.lib.b;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -89,7 +88,7 @@ public class c {
                     try {
                         ZipEntry nextElement = entries.nextElement();
                         String name = nextElement.getName();
-                        if (name != null && !name.contains(Constants.PATH_PARENT)) {
+                        if (name != null && !name.contains("../")) {
                             if (!name.startsWith("lib" + File.separator)) {
                                 com.kwai.sodler.lib.a.a("plugin.so", "not lib dir entry, skip " + name);
                             } else if (nextElement.isDirectory()) {

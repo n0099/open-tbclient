@@ -39,31 +39,31 @@ public class d {
     public static ArrayList<MediaModel> a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f7427b = "album";
+    public static String f7569b = "album";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f7428c = 9;
+    public static int f7570c = 9;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f7429d = "single";
+    public static String f7571d = "single";
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f7430e = false;
+    public static boolean f7572e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f7431f = null;
+    public static String f7573f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f7432g = 0;
+    public static int f7574g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f7433h = true;
+    public static boolean f7575h = true;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f7434i;
+    public static boolean f7576i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f7435j;
+    public static String f7577j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -248,10 +248,10 @@ public class d {
             float f2 = options.outWidth;
             float f3 = options.outHeight;
             if (!d(str)) {
-                float f4 = c.f7425c;
+                float f4 = c.f7567c;
                 if (f2 > f4 && f3 > f4) {
                     float f5 = f2 / f3;
-                    float f6 = c.f7424b;
+                    float f6 = c.f7566b;
                     return f5 > f6 || 1.0f / f5 > f6;
                 }
             }
@@ -264,7 +264,7 @@ public class d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, mediaModel)) == null) {
-            if (e.d() < f7428c || e.g(mediaModel)) {
+            if (e.d() < f7570c || e.g(mediaModel)) {
                 return TextUtils.equals(str, "single") && e.d() > 0 && !TextUtils.equals(e.b(), mediaModel.getType());
             }
             return true;
@@ -311,15 +311,15 @@ public class d {
             return;
         }
         Context appContext = AppRuntime.getAppContext();
-        String string = appContext.getString(h.swanapp_album_selected_max_files, Integer.valueOf(f7428c));
+        String string = appContext.getString(h.swanapp_album_selected_max_files, Integer.valueOf(f7570c));
         if (TextUtils.equals(str, "single")) {
             if (e.e().get(0) instanceof ImageModel) {
-                string = appContext.getString(h.swanapp_album_selected_max_photos, Integer.valueOf(f7428c));
+                string = appContext.getString(h.swanapp_album_selected_max_photos, Integer.valueOf(f7570c));
             } else {
-                string = appContext.getString(h.swanapp_album_selected_max_videos, Integer.valueOf(f7428c));
+                string = appContext.getString(h.swanapp_album_selected_max_videos, Integer.valueOf(f7570c));
             }
         } else if (TextUtils.equals(str, ShareDirectionType.BOTH)) {
-            string = appContext.getString(h.swanapp_album_selected_max_files, Integer.valueOf(f7428c));
+            string = appContext.getString(h.swanapp_album_selected_max_files, Integer.valueOf(f7570c));
         }
         c.a.r0.a.c2.b.f.e.g(appContext, string).G();
     }
@@ -372,7 +372,7 @@ public class d {
                                 str2 = m.h(mediaModel.getTempPath());
                             }
                         } else {
-                            str2 = c.a.r0.a.o2.b.J(mediaModel.getTempPath(), eVar.f5537f);
+                            str2 = c.a.r0.a.o2.b.J(mediaModel.getTempPath(), eVar.f5679f);
                         }
                         jSONArray.put(str2);
                         JSONObject jSONObject2 = new JSONObject();
@@ -420,7 +420,7 @@ public class d {
                     str = m.h(videoModel.getTempPath());
                 }
             } else {
-                str = c.a.r0.a.o2.b.J(videoModel.getTempPath(), eVar.f5537f);
+                str = c.a.r0.a.o2.b.J(videoModel.getTempPath(), eVar.f5679f);
             }
             JSONObject jSONObject = new JSONObject();
             try {

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class AUTH {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROXY_AUTH = "Proxy-Authenticate";

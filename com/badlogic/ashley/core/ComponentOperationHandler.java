@@ -18,10 +18,10 @@ public class ComponentOperationHandler {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f31031b;
+    public c f31059b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.b.b.q.a<ComponentOperation> f31032c;
+    public c.b.b.q.a<ComponentOperation> f31060c;
 
     /* loaded from: classes9.dex */
     public static class ComponentOperation implements z.a {
@@ -30,7 +30,7 @@ public class ComponentOperationHandler {
         public Type a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d f31033b;
+        public d f31061b;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes9.dex */
@@ -110,7 +110,7 @@ public class ComponentOperationHandler {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
                 this.a = Type.Add;
-                this.f31033b = dVar;
+                this.f31061b = dVar;
             }
         }
 
@@ -118,7 +118,7 @@ public class ComponentOperationHandler {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
                 this.a = Type.Remove;
-                this.f31033b = dVar;
+                this.f31061b = dVar;
             }
         }
 
@@ -126,7 +126,7 @@ public class ComponentOperationHandler {
         public void reset() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f31033b = null;
+                this.f31061b = null;
             }
         }
 
@@ -220,8 +220,8 @@ public class ComponentOperationHandler {
                 return;
             }
         }
-        this.f31031b = new c(null);
-        this.f31032c = new c.b.b.q.a<>();
+        this.f31059b = new c(null);
+        this.f31060c = new c.b.b.q.a<>();
         this.a = bVar;
     }
 
@@ -229,9 +229,9 @@ public class ComponentOperationHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
             if (this.a.value()) {
-                ComponentOperation e2 = this.f31031b.e();
+                ComponentOperation e2 = this.f31059b.e();
                 e2.a(dVar);
-                this.f31032c.a(e2);
+                this.f31060c.a(e2);
                 return;
             }
             dVar.g();
@@ -245,16 +245,16 @@ public class ComponentOperationHandler {
         }
         int i2 = 0;
         while (true) {
-            c.b.b.q.a<ComponentOperation> aVar = this.f31032c;
-            if (i2 < aVar.f27361f) {
+            c.b.b.q.a<ComponentOperation> aVar = this.f31060c;
+            if (i2 < aVar.f27389f) {
                 ComponentOperation componentOperation = aVar.get(i2);
                 int i3 = a.a[componentOperation.a.ordinal()];
                 if (i3 == 1) {
-                    componentOperation.f31033b.g();
+                    componentOperation.f31061b.g();
                 } else if (i3 == 2) {
-                    componentOperation.f31033b.h();
+                    componentOperation.f31061b.h();
                 }
-                this.f31031b.c(componentOperation);
+                this.f31059b.c(componentOperation);
                 i2++;
             } else {
                 aVar.clear();
@@ -267,9 +267,9 @@ public class ComponentOperationHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
             if (this.a.value()) {
-                ComponentOperation e2 = this.f31031b.e();
+                ComponentOperation e2 = this.f31059b.e();
                 e2.b(dVar);
-                this.f31032c.a(e2);
+                this.f31060c.a(e2);
                 return;
             }
             dVar.h();

@@ -23,10 +23,10 @@ public class q {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f7965b;
+    public static volatile boolean f8107b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<a> f7966c;
+    public static final List<a> f8108c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -36,13 +36,13 @@ public class q {
         public final c.a.r0.a.n2.s.c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public JSONObject f7967b;
+        public JSONObject f8109b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f7968c;
+        public final long f8110c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f7969d;
+        public final String f8111d;
 
         public a(@NonNull c.a.r0.a.n2.s.c cVar, @NonNull String str) {
             Interceptable interceptable = $ic;
@@ -60,11 +60,11 @@ public class q {
                 }
             }
             this.a = cVar;
-            this.f7969d = str;
-            this.f7968c = cVar.l();
-            synchronized (q.f7966c) {
-                if (q.f7965b) {
-                    q.f7966c.add(this);
+            this.f8111d = str;
+            this.f8110c = cVar.l();
+            synchronized (q.f8108c) {
+                if (q.f8107b) {
+                    q.f8108c.add(this);
                 }
             }
         }
@@ -84,8 +84,8 @@ public class q {
             }
         }
         a = c.a.r0.a.k.a;
-        f7965b = false;
-        f7966c = new ArrayList();
+        f8107b = false;
+        f8108c = new ArrayList();
     }
 
     public static void c(@NonNull HybridUbcFlow hybridUbcFlow) {
@@ -93,29 +93,29 @@ public class q {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, hybridUbcFlow) == null) && "670".equals(hybridUbcFlow.l())) {
             hybridUbcFlow.D("networkStatus", String.valueOf(c.a.r0.a.p1.l.a()));
-            if (c.a.r0.a.u1.l.b.f9405f || (g2 = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
+            if (c.a.r0.a.u1.l.b.f9547f || (g2 = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
                 return;
             }
             long g3 = g2.g();
-            synchronized (f7966c) {
+            synchronized (f8108c) {
                 if (a) {
-                    String str = "size=" + f7966c.size();
+                    String str = "size=" + f8108c.size();
                 }
-                f7965b = false;
+                f8107b = false;
                 JSONArray jSONArray = new JSONArray();
-                for (a aVar : f7966c) {
-                    if (aVar.f7968c <= g3) {
+                for (a aVar : f8108c) {
+                    if (aVar.f8110c <= g3) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("type", aVar.f7969d);
+                            jSONObject.put("type", aVar.f8111d);
                             if (aVar.a != null) {
                                 aVar.a.p(jSONObject);
                             }
-                            if (aVar.f7967b != null) {
-                                Iterator<String> keys = aVar.f7967b.keys();
+                            if (aVar.f8109b != null) {
+                                Iterator<String> keys = aVar.f8109b.keys();
                                 while (keys.hasNext()) {
                                     String next = keys.next();
-                                    jSONObject.put(next, aVar.f7967b.get(next));
+                                    jSONObject.put(next, aVar.f8109b.get(next));
                                 }
                             }
                             jSONArray.put(jSONObject);
@@ -134,9 +134,9 @@ public class q {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (f7966c) {
-                f7965b = true;
-                f7966c.clear();
+            synchronized (f8108c) {
+                f8107b = true;
+                f8108c.clear();
             }
         }
     }

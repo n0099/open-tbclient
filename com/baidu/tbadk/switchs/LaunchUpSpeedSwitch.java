@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import c.a.s0.b.d;
-import c.a.s0.s.h0.b;
+import c.a.s0.s.i0.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public class LaunchUpSpeedSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                if (d.F()) {
+                if (d.K()) {
                     type = 0;
                 } else {
                     type = b.k().l("key_launch_up_speed", 1);

@@ -23,25 +23,25 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.d.a.f f21340b;
+    public final c.a.d.a.f f21576b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WriteImagesInfo f21341c;
+    public WriteImagesInfo f21577c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VideoFileInfo f21342d;
+    public VideoFileInfo f21578d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21343e;
+    public String f21579e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageFileInfo f21344f;
+    public ImageFileInfo f21580f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<ImageFileInfo> f21345g;
+    public List<ImageFileInfo> f21581g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<c.a.s0.f.a> f21346h;
+    public final List<c.a.s0.f.a> f21582h;
 
     public c(c.a.d.a.f fVar) {
         Interceptable interceptable = $ic;
@@ -59,24 +59,24 @@ public class c {
             }
         }
         this.a = 9;
-        this.f21346h = new ArrayList();
-        this.f21340b = fVar;
+        this.f21582h = new ArrayList();
+        this.f21576b = fVar;
     }
 
     public void A(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.f21341c == null) {
-                this.f21341c = new WriteImagesInfo(this.a);
+            if (this.f21577c == null) {
+                this.f21577c = new WriteImagesInfo(this.a);
             }
-            this.f21341c.setLastAlbumId(str);
+            this.f21577c.setLastAlbumId(str);
         }
     }
 
     public void B(boolean z) {
         WriteImagesInfo writeImagesInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (writeImagesInfo = this.f21341c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (writeImagesInfo = this.f21577c) == null) {
             return;
         }
         writeImagesInfo.setOriginalImg(z);
@@ -85,7 +85,7 @@ public class c {
     public void C(WriteImagesInfo writeImagesInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeImagesInfo) == null) {
-            this.f21341c = writeImagesInfo;
+            this.f21577c = writeImagesInfo;
         }
     }
 
@@ -93,7 +93,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            WriteImagesInfo writeImagesInfo = this.f21341c;
+            WriteImagesInfo writeImagesInfo = this.f21577c;
             if (writeImagesInfo == null) {
                 return 0;
             }
@@ -105,17 +105,17 @@ public class c {
     public void a(ImageFileInfo imageFileInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, imageFileInfo) == null) {
-            if (this.f21341c == null) {
-                this.f21341c = new WriteImagesInfo(this.a);
+            if (this.f21577c == null) {
+                this.f21577c = new WriteImagesInfo(this.a);
             }
-            this.f21341c.addChooseFile(imageFileInfo);
+            this.f21577c.addChooseFile(imageFileInfo);
         }
     }
 
     public void b() {
         WriteImagesInfo writeImagesInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (writeImagesInfo = this.f21341c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (writeImagesInfo = this.f21577c) == null) {
             return;
         }
         writeImagesInfo.clear();
@@ -124,7 +124,7 @@ public class c {
     public void c(ImageFileInfo imageFileInfo) {
         WriteImagesInfo writeImagesInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, imageFileInfo) == null) || (writeImagesInfo = this.f21341c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, imageFileInfo) == null) || (writeImagesInfo = this.f21577c) == null) {
             return;
         }
         writeImagesInfo.delChooseFile(imageFileInfo);
@@ -134,8 +134,8 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (this.f21346h != null && !StringUtils.isNull(str)) {
-                for (c.a.s0.f.a aVar : this.f21346h) {
+            if (this.f21582h != null && !StringUtils.isNull(str)) {
+                for (c.a.s0.f.a aVar : this.f21582h) {
                     if (aVar != null && TextUtils.equals(str, aVar.b())) {
                         return aVar.d();
                     }
@@ -149,20 +149,20 @@ public class c {
     public List<c.a.s0.f.a> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f21346h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f21582h : (List) invokeV.objValue;
     }
 
     public VideoFileInfo f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f21342d : (VideoFileInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f21578d : (VideoFileInfo) invokeV.objValue;
     }
 
     public List<ImageFileInfo> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            WriteImagesInfo writeImagesInfo = this.f21341c;
+            WriteImagesInfo writeImagesInfo = this.f21577c;
             if (writeImagesInfo != null) {
                 return writeImagesInfo.getChosedFiles();
             }
@@ -174,13 +174,13 @@ public class c {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f21343e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f21579e : (String) invokeV.objValue;
     }
 
     public List<ImageFileInfo> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f21345g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f21581g : (List) invokeV.objValue;
     }
 
     public int j() {
@@ -188,12 +188,12 @@ public class c {
         List<ImageFileInfo> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            ImageFileInfo imageFileInfo = this.f21344f;
-            if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath()) && (list = this.f21345g) != null && list.size() != 0) {
-                int size = this.f21345g.size();
+            ImageFileInfo imageFileInfo = this.f21580f;
+            if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath()) && (list = this.f21581g) != null && list.size() != 0) {
+                int size = this.f21581g.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    ImageFileInfo imageFileInfo2 = this.f21345g.get(i2);
-                    if (imageFileInfo2 != null && this.f21344f.getFilePath().equals(imageFileInfo2.getFilePath())) {
+                    ImageFileInfo imageFileInfo2 = this.f21581g.get(i2);
+                    if (imageFileInfo2 != null && this.f21580f.getFilePath().equals(imageFileInfo2.getFilePath())) {
                         return i2;
                     }
                 }
@@ -207,7 +207,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            WriteImagesInfo writeImagesInfo = this.f21341c;
+            WriteImagesInfo writeImagesInfo = this.f21577c;
             if (writeImagesInfo != null) {
                 return writeImagesInfo.getLastAlbumId();
             }
@@ -220,7 +220,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            WriteImagesInfo writeImagesInfo = this.f21341c;
+            WriteImagesInfo writeImagesInfo = this.f21577c;
             if (writeImagesInfo != null) {
                 return writeImagesInfo.getMaxImagesAllowed();
             }
@@ -232,14 +232,14 @@ public class c {
     public WriteImagesInfo m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f21341c : (WriteImagesInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f21577c : (WriteImagesInfo) invokeV.objValue;
     }
 
     public boolean n(ImageFileInfo imageFileInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, imageFileInfo)) == null) {
-            WriteImagesInfo writeImagesInfo = this.f21341c;
+            WriteImagesInfo writeImagesInfo = this.f21577c;
             if (writeImagesInfo == null) {
                 return false;
             }
@@ -257,14 +257,14 @@ public class c {
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f21342d != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f21578d != null : invokeV.booleanValue;
     }
 
     public boolean q(VideoFileInfo videoFileInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, videoFileInfo)) == null) {
-            VideoFileInfo videoFileInfo2 = this.f21342d;
+            VideoFileInfo videoFileInfo2 = this.f21578d;
             return (videoFileInfo2 == null || videoFileInfo == null || videoFileInfo2.videoId != videoFileInfo.videoId) ? false : true;
         }
         return invokeL.booleanValue;
@@ -273,14 +273,14 @@ public class c {
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? ListUtils.isEmpty(d(c.a.s0.f.a.f12443f)) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? ListUtils.isEmpty(d(c.a.s0.f.a.f12590f)) : invokeV.booleanValue;
     }
 
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            WriteImagesInfo writeImagesInfo = this.f21341c;
+            WriteImagesInfo writeImagesInfo = this.f21577c;
             if (writeImagesInfo != null) {
                 return writeImagesInfo.isOriginalImg();
             }
@@ -294,8 +294,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, list)) == null) {
             c.a.s0.f.a aVar = new c.a.s0.f.a();
-            aVar.h(c.a.s0.f.a.f12443f);
-            aVar.l(this.f21340b.getString(c.a.t0.p4.j.album_all_media));
+            aVar.h(c.a.s0.f.a.f12590f);
+            aVar.l(this.f21576b.getString(c.a.t0.p4.j.album_all_media));
             int count = ListUtils.getCount(list);
             aVar.j(list);
             aVar.i(String.valueOf(count));
@@ -315,8 +315,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, list)) == null) {
             c.a.s0.f.a aVar = new c.a.s0.f.a();
-            aVar.h(c.a.s0.f.a.f12444g);
-            aVar.l(this.f21340b.getString(c.a.t0.p4.j.album_all_video));
+            aVar.h(c.a.s0.f.a.f12591g);
+            aVar.l(this.f21576b.getString(c.a.t0.p4.j.album_all_video));
             int count = ListUtils.getCount(list);
             aVar.i(String.valueOf(count));
             ArrayList arrayList = new ArrayList();
@@ -335,10 +335,10 @@ public class c {
 
     public final void v(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, str) == null) || this.f21346h == null || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048601, this, str) == null) || this.f21582h == null || StringUtils.isNull(str)) {
             return;
         }
-        for (c.a.s0.f.a aVar : this.f21346h) {
+        for (c.a.s0.f.a aVar : this.f21582h) {
             if (aVar != null && TextUtils.equals(str, aVar.b())) {
                 ArrayList arrayList = new ArrayList();
                 if (aVar.d() != null) {
@@ -348,7 +348,7 @@ public class c {
                         }
                     }
                 }
-                this.f21345g = arrayList;
+                this.f21581g = arrayList;
             }
         }
     }
@@ -356,14 +356,14 @@ public class c {
     public void w(VideoFileInfo videoFileInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, videoFileInfo) == null) {
-            this.f21342d = videoFileInfo;
+            this.f21578d = videoFileInfo;
         }
     }
 
     public void x(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
-            this.f21343e = str;
+            this.f21579e = str;
             v(str);
         }
     }
@@ -371,7 +371,7 @@ public class c {
     public void y(ImageFileInfo imageFileInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, imageFileInfo) == null) {
-            this.f21344f = imageFileInfo;
+            this.f21580f = imageFileInfo;
         }
     }
 
@@ -380,16 +380,16 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(1048605, this, gVar) == null) || gVar == null) {
             return;
         }
-        List<MediaFileInfo> list = gVar.f12467b;
+        List<MediaFileInfo> list = gVar.f12614b;
         ArrayList arrayList = new ArrayList();
         arrayList.add(t(list));
-        if (!ListUtils.isEmpty(gVar.f12468c)) {
-            arrayList.add(u(gVar.f12468c));
+        if (!ListUtils.isEmpty(gVar.f12615c)) {
+            arrayList.add(u(gVar.f12615c));
         }
         if (!ListUtils.isEmpty(gVar.a)) {
             arrayList.addAll(gVar.a);
         }
-        this.f21346h.clear();
-        this.f21346h.addAll(arrayList);
+        this.f21582h.clear();
+        this.f21582h.addAll(arrayList);
     }
 }

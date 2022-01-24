@@ -43,14 +43,14 @@ public class o {
             if (uri == null || TextUtils.isEmpty(uri.toString())) {
                 return;
             }
-            ea.a(context.getApplicationContext()).a(ec.f61035d, context, (Intent) null, uri.toString());
+            ea.a(context.getApplicationContext()).a(ec.f61080d, context, (Intent) null, uri.toString());
             return;
         } else if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
             a = ea.a(context.getApplicationContext());
-            ecVar = ec.f61034c;
+            ecVar = ec.f61079c;
         } else {
             a = ea.a(context.getApplicationContext());
-            ecVar = ec.f61033b;
+            ecVar = ec.f61078b;
         }
         a.a(ecVar, context, intent, (String) null);
     }

@@ -14,11 +14,11 @@ public class c extends c.b.b.n.l.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final long f27200i;
+    public static final long f27228i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f27201h;
+    public float f27229h;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public class c extends c.b.b.n.l.a {
                 return;
             }
         }
-        f27200i = c.b.b.n.l.a.d("shininess");
+        f27228i = c.b.b.n.l.a.d("shininess");
         c.b.b.n.l.a.d("alphaTest");
     }
 
@@ -55,7 +55,7 @@ public class c extends c.b.b.n.l.a {
                 return;
             }
         }
-        this.f27201h = f2;
+        this.f27229h = f2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,16 +65,16 @@ public class c extends c.b.b.n.l.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            long j2 = this.f27181e;
-            long j3 = aVar.f27181e;
+            long j2 = this.f27209e;
+            long j3 = aVar.f27209e;
             if (j2 != j3) {
                 return (int) (j2 - j3);
             }
-            float f2 = ((c) aVar).f27201h;
-            if (com.badlogic.gdx.math.d.e(this.f27201h, f2)) {
+            float f2 = ((c) aVar).f27229h;
+            if (com.badlogic.gdx.math.d.e(this.f27229h, f2)) {
                 return 0;
             }
-            return this.f27201h < f2 ? -1 : 1;
+            return this.f27229h < f2 ? -1 : 1;
         }
         return invokeL.intValue;
     }
@@ -83,6 +83,6 @@ public class c extends c.b.b.n.l.a {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (super.hashCode() * 977) + t.b(this.f27201h) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (super.hashCode() * 977) + t.b(this.f27229h) : invokeV.intValue;
     }
 }

@@ -26,22 +26,22 @@ public class a extends z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f8745c;
+    public Context f8887c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f8746d;
+    public e f8888d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CallbackHandler f8747e;
+    public CallbackHandler f8889e;
 
     /* renamed from: c.a.r0.a.s0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0550a implements SubscribeHelper.k {
+    public class C0559a implements SubscribeHelper.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UnitedSchemeEntity a;
 
-        public C0550a(a aVar, UnitedSchemeEntity unitedSchemeEntity) {
+        public C0559a(a aVar, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,7 +75,7 @@ public class a extends z {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f8748b;
+        public final /* synthetic */ a f8890b;
 
         public b(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class a extends z {
                     return;
                 }
             }
-            this.f8748b = aVar;
+            this.f8890b = aVar;
             this.a = str;
         }
 
@@ -101,9 +101,9 @@ public class a extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, jSONObject) == null) {
                 if (jSONObject == null) {
-                    this.f8748b.f8747e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(i2, str).toString());
+                    this.f8890b.f8889e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(i2, str).toString());
                 } else {
-                    this.f8748b.f8747e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, i2).toString());
+                    this.f8890b.f8889e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, i2).toString());
                 }
             }
         }
@@ -116,7 +116,7 @@ public class a extends z {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f8749b;
+        public final /* synthetic */ a f8891b;
 
         public c(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -133,7 +133,7 @@ public class a extends z {
                     return;
                 }
             }
-            this.f8749b = aVar;
+            this.f8891b = aVar;
             this.a = str;
         }
 
@@ -141,14 +141,14 @@ public class a extends z {
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f8749b.f8747e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-                if (c.a.r0.a.a2.c.f5180c.c()) {
+                this.f8891b.f8889e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                if (c.a.r0.a.a2.c.f5322c.c()) {
                     return;
                 }
-                if (c.a.r0.a.c1.a.h0().e(this.f8749b.f8745c)) {
-                    c.a.r0.a.a2.c.f5180c.e();
+                if (c.a.r0.a.c1.a.h0().e(this.f8891b.f8887c)) {
+                    c.a.r0.a.a2.c.f5322c.e();
                 } else {
-                    c.a.r0.a.a2.c.f5180c.f();
+                    c.a.r0.a.a2.c.f5322c.f();
                 }
             }
         }
@@ -157,7 +157,7 @@ public class a extends z {
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f8749b.f8747e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
+                this.f8891b.f8889e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
             }
         }
     }
@@ -189,29 +189,29 @@ public class a extends z {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (unitedSchemeEntity == null) {
-                boolean z = z.f6201b;
+                boolean z = z.f6343b;
                 return false;
             } else if (eVar != null && (context instanceof Activity) && callbackHandler != null) {
-                this.f8745c = context;
-                this.f8746d = eVar;
-                this.f8747e = callbackHandler;
+                this.f8887c = context;
+                this.f8888d = eVar;
+                this.f8889e = callbackHandler;
                 JSONObject a = z.a(unitedSchemeEntity, "params");
                 if (a != null && a.length() != 0) {
                     String optString = a.optString("cb");
                     if (TextUtils.isEmpty(optString)) {
-                        boolean z2 = z.f6201b;
+                        boolean z2 = z.f6343b;
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "cb is empty");
                         return false;
                     }
                     String N = eVar.N();
                     if (TextUtils.isEmpty(N)) {
-                        boolean z3 = z.f6201b;
+                        boolean z3 = z.f6343b;
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "appKey is empty");
                         return false;
                     }
                     if (TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE.equals(a.optString("reportType"))) {
                         SubscribeHelper subscribeHelper = new SubscribeHelper();
-                        if (!subscribeHelper.n(this.f8745c, this.f8746d, N, a, SubscribeHelper.invokeSubscribeFrom.GET_FORM_ID_BUTTON, new C0550a(this, unitedSchemeEntity))) {
+                        if (!subscribeHelper.n(this.f8887c, this.f8888d, N, a, SubscribeHelper.invokeSubscribeFrom.GET_FORM_ID_BUTTON, new C0559a(this, unitedSchemeEntity))) {
                             return false;
                         }
                         subscribeHelper.o(N, new b(this, optString));
@@ -224,7 +224,7 @@ public class a extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
                 return false;
             } else {
-                boolean z4 = z.f6201b;
+                boolean z4 = z.f6343b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "runtime parameter error");
                 return false;
             }
@@ -236,7 +236,7 @@ public class a extends z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             if (!SubscribeHelper.l()) {
-                this.f8747e.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(w.f(null, "data", w.f(null, "formid", "")), 0).toString());
+                this.f8889e.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(w.f(null, "data", w.f(null, "formid", "")), 0).toString());
                 return;
             }
             c.a.r0.a.c1.a.W().c(str, new c(this, str2));

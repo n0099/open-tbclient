@@ -11,7 +11,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\b\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class TouchHelper$mTouchSlop$2 extends Lambda implements Function0<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,8 +46,8 @@ public final class TouchHelper$mTouchSlop$2 extends Lambda implements Function0<
     }
 
     /* JADX DEBUG: Return type fixed from 'int' to match base method */
-    /* JADX WARN: Type inference failed for: r0v5, types: [int, java.lang.Integer] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [int, java.lang.Integer] */
+    /* JADX WARN: Type inference failed for: r0v5, types: [java.lang.Integer, int] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Integer, int] */
     @Override // kotlin.jvm.functions.Function0
     public final Integer invoke() {
         InterceptResult invokeV;

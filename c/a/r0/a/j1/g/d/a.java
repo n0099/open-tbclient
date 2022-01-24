@@ -33,29 +33,29 @@ public class a extends z {
 
     /* renamed from: c.a.r0.a.j1.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0447a implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
+    public class C0456a implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7517e;
+        public final /* synthetic */ CallbackHandler f7659e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7518f;
+        public final /* synthetic */ String f7660f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f7519g;
+        public final /* synthetic */ Context f7661g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ File f7520h;
+        public final /* synthetic */ File f7662h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7521i;
+        public final /* synthetic */ UnitedSchemeEntity f7663i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ a f7522j;
+        public final /* synthetic */ a f7664j;
 
-        public C0447a(a aVar, CallbackHandler callbackHandler, String str, Context context, File file, UnitedSchemeEntity unitedSchemeEntity) {
+        public C0456a(a aVar, CallbackHandler callbackHandler, String str, Context context, File file, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,12 +70,12 @@ public class a extends z {
                     return;
                 }
             }
-            this.f7522j = aVar;
-            this.f7517e = callbackHandler;
-            this.f7518f = str;
-            this.f7519g = context;
-            this.f7520h = file;
-            this.f7521i = unitedSchemeEntity;
+            this.f7664j = aVar;
+            this.f7659e = callbackHandler;
+            this.f7660f = str;
+            this.f7661g = context;
+            this.f7662h = file;
+            this.f7663i = unitedSchemeEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -85,9 +85,9 @@ public class a extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    this.f7522j.u(this.f7519g, this.f7520h, this.f7521i, this.f7517e, this.f7518f);
+                    this.f7664j.u(this.f7661g, this.f7662h, this.f7663i, this.f7659e, this.f7660f);
                 } else {
-                    c.a.r0.a.h2.c.d.q(iVar, this.f7517e, this.f7518f);
+                    c.a.r0.a.h2.c.d.q(iVar, this.f7659e, this.f7660f);
                 }
             }
         }
@@ -99,22 +99,22 @@ public class a extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f7523e;
+        public final /* synthetic */ Context f7665e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f7524f;
+        public final /* synthetic */ File f7666f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7525g;
+        public final /* synthetic */ CallbackHandler f7667g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f7526h;
+        public final /* synthetic */ String f7668h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7527i;
+        public final /* synthetic */ UnitedSchemeEntity f7669i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ a f7528j;
+        public final /* synthetic */ a f7670j;
 
         public b(a aVar, Context context, File file, CallbackHandler callbackHandler, String str, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
@@ -131,22 +131,22 @@ public class a extends z {
                     return;
                 }
             }
-            this.f7528j = aVar;
-            this.f7523e = context;
-            this.f7524f = file;
-            this.f7525g = callbackHandler;
-            this.f7526h = str;
-            this.f7527i = unitedSchemeEntity;
+            this.f7670j = aVar;
+            this.f7665e = context;
+            this.f7666f = file;
+            this.f7667g = callbackHandler;
+            this.f7668h = str;
+            this.f7669i = unitedSchemeEntity;
         }
 
         @Override // c.a.r0.a.v1.f
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     String str2 = str + "";
                 }
-                this.f7528j.x(this.f7523e, this.f7524f, this.f7525g, this.f7526h);
+                this.f7670j.x(this.f7665e, this.f7666f, this.f7667g, this.f7668h);
             }
         }
 
@@ -154,7 +154,7 @@ public class a extends z {
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                UnitedSchemeUtility.safeCallback(this.f7525g, this.f7527i, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f7526h);
+                UnitedSchemeUtility.safeCallback(this.f7667g, this.f7669i, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f7668h);
             }
         }
     }
@@ -165,16 +165,16 @@ public class a extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7529e;
+        public final /* synthetic */ CallbackHandler f7671e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7530f;
+        public final /* synthetic */ String f7672f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f7531g;
+        public final /* synthetic */ Context f7673g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f7532h;
+        public final /* synthetic */ a f7674h;
 
         public c(a aVar, CallbackHandler callbackHandler, String str, Context context) {
             Interceptable interceptable = $ic;
@@ -191,10 +191,10 @@ public class a extends z {
                     return;
                 }
             }
-            this.f7532h = aVar;
-            this.f7529e = callbackHandler;
-            this.f7530f = str;
-            this.f7531g = context;
+            this.f7674h = aVar;
+            this.f7671e = callbackHandler;
+            this.f7672f = str;
+            this.f7673g = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -203,16 +203,16 @@ public class a extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
                 if (file == null) {
-                    this.f7529e.handleSchemeDispatchCallback(this.f7530f, UnitedSchemeUtility.wrapCallbackParams(1001, "output file create fail").toString());
+                    this.f7671e.handleSchemeDispatchCallback(this.f7672f, UnitedSchemeUtility.wrapCallbackParams(1001, "output file create fail").toString());
                     return;
                 }
                 Uri fromFile = Uri.fromFile(file);
-                this.f7532h.w(this.f7531g, file.getPath(), -1L);
-                this.f7531g.sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", fromFile));
-                if (z.f6201b) {
+                this.f7674h.w(this.f7673g, file.getPath(), -1L);
+                this.f7673g.sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", fromFile));
+                if (z.f6343b) {
                     String str = "saveToAlbum : file = " + file;
                 }
-                this.f7529e.handleSchemeDispatchCallback(this.f7530f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                this.f7671e.handleSchemeDispatchCallback(this.f7672f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
             }
         }
     }
@@ -223,10 +223,10 @@ public class a extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f7533e;
+        public final /* synthetic */ Context f7675e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f7534f;
+        public final /* synthetic */ a f7676f;
 
         public d(a aVar, Context context) {
             Interceptable interceptable = $ic;
@@ -243,8 +243,8 @@ public class a extends z {
                     return;
                 }
             }
-            this.f7534f = aVar;
-            this.f7533e = context;
+            this.f7676f = aVar;
+            this.f7675e = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -257,7 +257,7 @@ public class a extends z {
                 if (TextUtils.isEmpty(x) || !file.getPath().startsWith(x)) {
                     return null;
                 }
-                return this.f7534f.q(this.f7533e, file);
+                return this.f7676f.q(this.f7675e, file);
             }
             return (File) invokeL.objValue;
         }
@@ -325,7 +325,7 @@ public class a extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
                 return false;
             } else if (eVar.m0()) {
-                boolean z = z.f6201b;
+                boolean z = z.f6343b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {
@@ -338,7 +338,7 @@ public class a extends z {
                 try {
                     File file = null;
                     if ("bdfile".equalsIgnoreCase(URI.create(optString).getScheme())) {
-                        String M = c.a.r0.a.o2.b.M(optString, eVar.f5537f);
+                        String M = c.a.r0.a.o2.b.M(optString, eVar.f5679f);
                         if (!TextUtils.isEmpty(M)) {
                             file = new File(M);
                         }
@@ -354,14 +354,14 @@ public class a extends z {
                             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                             return false;
                         }
-                        eVar.d0().g(context, "mapp_images", new C0447a(this, callbackHandler, optString2, context, file, unitedSchemeEntity));
+                        eVar.d0().g(context, "mapp_images", new C0456a(this, callbackHandler, optString2, context, file, unitedSchemeEntity));
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                         return true;
                     }
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not find such file : " + file);
                     return false;
                 } catch (Exception e2) {
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         e2.printStackTrace();
                     }
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "Illegal file_path : " + optString);

@@ -11,7 +11,7 @@ import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.dxmpay.wallet.core.beans.BeanRequestBase;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class PwdRequest extends BeanRequestBase implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_CHECK = 1;

@@ -10,6 +10,7 @@ import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
 import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -84,8 +85,8 @@ public final class g {
         a("application/x-rar-compressed", "rar", 8);
         a("application/rdf+xml", "rdf", 5);
         a("application/rss+xml", "rss", 5);
-        a("application/zip", "zip", 8);
-        a("application/x-zip-compressed", "zip", 8);
+        a("application/zip", StatConstants.VALUE_TYPE_ZIP, 8);
+        a("application/x-zip-compressed", StatConstants.VALUE_TYPE_ZIP, 8);
         a("application/vnd.android.package-archive", "apk", 3);
         a("application/vnd.cinderella", "cdy", 5);
         a("application/vnd.ms-pki.stl", "stl", 5);

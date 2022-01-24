@@ -14,31 +14,31 @@ public class m {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14189b;
+    public String f14329b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14190c;
+    public int f14330c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14191d;
+    public int f14331d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14192e;
+    public int f14332e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14193f;
+    public int f14333f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14194g;
+    public boolean f14334g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14195h;
+    public boolean f14335h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f14196i;
+    public boolean f14336i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f14197j;
+    public int f14337j;
     public n k;
     public int l;
     public boolean m;
@@ -62,12 +62,12 @@ public class m {
                 return;
             }
         }
-        this.f14196i = true;
+        this.f14336i = true;
         this.m = false;
         this.q = true;
-        this.f14189b = str;
-        this.f14190c = i2;
-        this.f14197j = i3;
+        this.f14329b = str;
+        this.f14330c = i2;
+        this.f14337j = i3;
     }
 
     public boolean a() {
@@ -128,11 +128,11 @@ public class m {
                 return;
             }
         }
-        this.f14196i = true;
+        this.f14336i = true;
         this.m = false;
         this.q = true;
-        this.f14189b = str;
-        this.f14190c = i2;
+        this.f14329b = str;
+        this.f14330c = i2;
         this.a = context;
     }
 
@@ -151,12 +151,12 @@ public class m {
                 return;
             }
         }
-        this.f14196i = true;
+        this.f14336i = true;
         this.m = false;
         this.q = true;
-        this.f14189b = str;
-        this.f14190c = i2;
+        this.f14329b = str;
+        this.f14330c = i2;
         this.a = context;
-        this.f14197j = i3;
+        this.f14337j = i3;
     }
 }

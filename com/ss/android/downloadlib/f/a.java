@@ -6,7 +6,7 @@ import com.ss.android.downloadlib.addownload.b.f;
 import com.ss.android.socialbase.appdownloader.c.i;
 import com.ss.android.socialbase.appdownloader.c.j;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements j {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DownloadInfo downloadInfo, @NonNull final com.ss.android.downloadlib.guide.install.a aVar) {

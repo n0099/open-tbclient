@@ -86,7 +86,7 @@ public class c {
         if (interceptable == null || interceptable.invokeLLL(65542, null, context, e2Var, str) == null) {
             if (!l.z()) {
                 n.K(context, context.getString(R.string.no_network_guide));
-            } else if (context == null || e2Var == null || e2Var.J() == null || e2Var.o1() == null) {
+            } else if (context == null || e2Var == null || e2Var.J() == null || e2Var.p1() == null) {
             } else {
                 if (TbadkCoreApplication.getCurrentAccount() != null) {
                     String userId = e2Var.J().getUserId();
@@ -98,7 +98,7 @@ public class c {
                     z = false;
                 }
                 AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                alaLiveInfoCoreData.fillWithInfoData(e2Var.o1());
+                alaLiveInfoCoreData.fillWithInfoData(e2Var.p1());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, str, str2, z, null, null)));
             }
         }

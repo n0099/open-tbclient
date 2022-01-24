@@ -20,7 +20,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f11309b;
+    public static final boolean f11451b;
     public transient /* synthetic */ FieldHolder $fh;
     public List<c.a.r0.a.y.b.a> a;
 
@@ -37,7 +37,7 @@ public class a {
                 return;
             }
         }
-        f11309b = k.a;
+        f11451b = k.a;
     }
 
     public a(JSONArray jSONArray) {
@@ -59,7 +59,7 @@ public class a {
         if (jSONArray == null) {
             return;
         }
-        if (f11309b) {
+        if (f11451b) {
             String str = "jsonArray:" + jSONArray;
         }
         int length = jSONArray.length();

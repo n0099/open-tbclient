@@ -21,10 +21,10 @@ public class b extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f14642f;
+    public ViewGroup f14782f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f14643g;
+    public TbImageView f14783g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext tbPageContext) {
@@ -59,23 +59,23 @@ public class b extends a {
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14642f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14782f : (View) invokeV.objValue;
     }
 
     @Override // c.a.t0.a0.f.g.f.a
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f14642f = new FrameLayout(this.f14639c.getPageActivity());
-            this.f14643g = new TbImageView(this.f14639c.getPageActivity());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.a, this.f14638b);
-            this.f14643g.setDefaultBgResource(R.drawable.pic_live_ufan);
-            this.f14643g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f14643g.setLayoutParams(layoutParams);
-            this.f14642f.addView(this.f14643g);
-            this.f14641e.setVisibility(8);
-            this.f14642f.addView(this.f14641e);
-            this.f14643g.setClickable(false);
+            this.f14782f = new FrameLayout(this.f14779c.getPageActivity());
+            this.f14783g = new TbImageView(this.f14779c.getPageActivity());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.a, this.f14778b);
+            this.f14783g.setDefaultBgResource(R.drawable.pic_live_ufan);
+            this.f14783g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f14783g.setLayoutParams(layoutParams);
+            this.f14782f.addView(this.f14783g);
+            this.f14781e.setVisibility(8);
+            this.f14782f.addView(this.f14781e);
+            this.f14783g.setClickable(false);
             i(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -102,12 +102,12 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.h();
-            TbImageView tbImageView = this.f14643g;
+            TbImageView tbImageView = this.f14783g;
             if (tbImageView != null) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tbImageView.getLayoutParams();
                 layoutParams.width = this.a;
-                layoutParams.height = this.f14638b;
-                this.f14643g.setLayoutParams(layoutParams);
+                layoutParams.height = this.f14778b;
+                this.f14783g.setLayoutParams(layoutParams);
             }
         }
     }
@@ -117,9 +117,9 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             if (1 == i2) {
-                this.f14641e.setVisibility(0);
+                this.f14781e.setVisibility(0);
             } else {
-                this.f14641e.setVisibility(8);
+                this.f14781e.setVisibility(8);
             }
         }
     }
@@ -128,7 +128,7 @@ public class b extends a {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f14643g = null;
+            this.f14783g = null;
         }
     }
 

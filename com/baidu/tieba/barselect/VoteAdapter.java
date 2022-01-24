@@ -21,13 +21,13 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f42175b;
+    public f f42196b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d> f42176c;
+    public List<d> f42197c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42177d;
+    public int f42198d;
 
     public VoteAdapter(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 return;
             }
         }
-        this.f42177d = -1;
+        this.f42198d = -1;
         this.a = tbPageContext;
     }
 
     public int getFirstNotAllowPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42177d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42198d : invokeV.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -59,7 +59,7 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<d> list = this.f42176c;
+            List<d> list = this.f42197c;
             if (list != null) {
                 return list.size();
             }
@@ -73,11 +73,11 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            List<d> list = this.f42176c;
-            if (list == null || list.size() <= i2 || this.f42176c.get(i2).i() != 1 || i2 != 0) {
+            List<d> list = this.f42197c;
+            if (list == null || list.size() <= i2 || this.f42197c.get(i2).i() != 1 || i2 != 0) {
                 return 0;
             }
-            return a.f15308c;
+            return a.f15474c;
         }
         return invokeI.intValue;
     }
@@ -86,25 +86,25 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i2) == null) && (viewHolder instanceof VoteViewHolder)) {
-            ((VoteViewHolder) viewHolder).setData(i2, this.f42175b);
+            ((VoteViewHolder) viewHolder).setData(i2, this.f42196b);
         }
     }
 
     public void setFirstNotAllowPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f42177d = i2;
+            this.f42198d = i2;
         }
     }
 
     public void setVoteData(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
-            this.f42175b = fVar;
+            this.f42196b = fVar;
             if (fVar != null) {
-                this.f42176c = fVar.b();
+                this.f42197c = fVar.b();
             }
-            this.f42177d = -1;
+            this.f42198d = -1;
             notifyDataSetChanged();
         }
     }

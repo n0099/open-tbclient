@@ -44,7 +44,7 @@ public class ar implements ServiceConnection {
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             synchronized (this.a) {
                 this.a.f75a = new Messenger(iBinder);
-                this.a.f60885c = false;
+                this.a.f60930c = false;
                 list = this.a.f78a;
                 for (Message message : list) {
                     try {
@@ -65,7 +65,7 @@ public class ar implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
             this.a.f75a = null;
-            this.a.f60885c = false;
+            this.a.f60930c = false;
         }
     }
 }

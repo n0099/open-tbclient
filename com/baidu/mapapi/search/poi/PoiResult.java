@@ -23,25 +23,25 @@ public class PoiResult extends SearchResult implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35564b;
+    public int f35592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35565c;
+    public int f35593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35566d;
+    public int f35594d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<PoiInfo> f35567e;
+    public List<PoiInfo> f35595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f35568f;
+    public boolean f35596f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<PoiAddrInfo> f35569g;
+    public List<PoiAddrInfo> f35597g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<CityInfo> f35570h;
+    public List<CityInfo> f35598h;
 
     static {
         InterceptResult invokeClinit;
@@ -73,10 +73,10 @@ public class PoiResult extends SearchResult implements Parcelable {
             }
         }
         this.a = 0;
-        this.f35564b = 0;
-        this.f35565c = 0;
-        this.f35566d = 0;
-        this.f35568f = false;
+        this.f35592b = 0;
+        this.f35593c = 0;
+        this.f35594d = 0;
+        this.f35596f = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -98,17 +98,17 @@ public class PoiResult extends SearchResult implements Parcelable {
             }
         }
         this.a = 0;
-        this.f35564b = 0;
-        this.f35565c = 0;
-        this.f35566d = 0;
-        this.f35568f = false;
+        this.f35592b = 0;
+        this.f35593c = 0;
+        this.f35594d = 0;
+        this.f35596f = false;
         this.a = parcel.readInt();
-        this.f35564b = parcel.readInt();
-        this.f35565c = parcel.readInt();
-        this.f35566d = parcel.readInt();
-        this.f35567e = parcel.createTypedArrayList(PoiInfo.CREATOR);
-        this.f35568f = parcel.readByte() != 0;
-        this.f35570h = parcel.createTypedArrayList(CityInfo.CREATOR);
+        this.f35592b = parcel.readInt();
+        this.f35593c = parcel.readInt();
+        this.f35594d = parcel.readInt();
+        this.f35595e = parcel.createTypedArrayList(PoiInfo.CREATOR);
+        this.f35596f = parcel.readByte() != 0;
+        this.f35598h = parcel.createTypedArrayList(CityInfo.CREATOR);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -130,10 +130,10 @@ public class PoiResult extends SearchResult implements Parcelable {
             }
         }
         this.a = 0;
-        this.f35564b = 0;
-        this.f35565c = 0;
-        this.f35566d = 0;
-        this.f35568f = false;
+        this.f35592b = 0;
+        this.f35593c = 0;
+        this.f35594d = 0;
+        this.f35596f = false;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -149,19 +149,19 @@ public class PoiResult extends SearchResult implements Parcelable {
     public List<PoiAddrInfo> getAllAddr() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35569g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35597g : (List) invokeV.objValue;
     }
 
     public List<PoiInfo> getAllPoi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35567e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35595e : (List) invokeV.objValue;
     }
 
     public int getCurrentPageCapacity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35565c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35593c : invokeV.intValue;
     }
 
     public int getCurrentPageNum() {
@@ -173,38 +173,38 @@ public class PoiResult extends SearchResult implements Parcelable {
     public List<CityInfo> getSuggestCityList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35570h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35598h : (List) invokeV.objValue;
     }
 
     public int getTotalPageNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35564b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35592b : invokeV.intValue;
     }
 
     public int getTotalPoiNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f35566d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f35594d : invokeV.intValue;
     }
 
     public boolean isHasAddrInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f35568f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f35596f : invokeV.booleanValue;
     }
 
     public void setAddrInfo(List<PoiAddrInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            this.f35569g = list;
+            this.f35597g = list;
         }
     }
 
     public void setCurrentPageCapacity(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f35565c = i2;
+            this.f35593c = i2;
         }
     }
 
@@ -218,35 +218,35 @@ public class PoiResult extends SearchResult implements Parcelable {
     public void setHasAddrInfo(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f35568f = z;
+            this.f35596f = z;
         }
     }
 
     public void setPoiInfo(List<PoiInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
-            this.f35567e = list;
+            this.f35595e = list;
         }
     }
 
     public void setSuggestCityList(List<CityInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
-            this.f35570h = list;
+            this.f35598h = list;
         }
     }
 
     public void setTotalPageNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f35564b = i2;
+            this.f35592b = i2;
         }
     }
 
     public void setTotalPoiNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f35566d = i2;
+            this.f35594d = i2;
         }
     }
 
@@ -256,12 +256,12 @@ public class PoiResult extends SearchResult implements Parcelable {
         if (interceptable == null || interceptable.invokeLI(1048593, this, parcel, i2) == null) {
             super.writeToParcel(parcel, i2);
             parcel.writeInt(this.a);
-            parcel.writeInt(this.f35564b);
-            parcel.writeInt(this.f35565c);
-            parcel.writeInt(this.f35566d);
-            parcel.writeTypedList(this.f35567e);
-            parcel.writeByte(this.f35568f ? (byte) 1 : (byte) 0);
-            parcel.writeTypedList(this.f35570h);
+            parcel.writeInt(this.f35592b);
+            parcel.writeInt(this.f35593c);
+            parcel.writeInt(this.f35594d);
+            parcel.writeTypedList(this.f35595e);
+            parcel.writeByte(this.f35596f ? (byte) 1 : (byte) 0);
+            parcel.writeTypedList(this.f35598h);
         }
     }
 }

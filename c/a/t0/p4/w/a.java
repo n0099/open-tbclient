@@ -1,9 +1,9 @@
 package c.a.t0.p4.w;
 
 import c.a.d.f.d.l;
-import c.a.s0.e1.k0;
-import c.a.s0.e1.n0;
-import c.a.s0.e1.s;
+import c.a.s0.d1.k0;
+import c.a.s0.d1.n0;
+import c.a.s0.d1.s;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,18 +18,18 @@ public class a {
 
     /* renamed from: c.a.t0.p4.w.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1333a extends k0<Integer> {
+    public static class C1344a extends k0<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f21395b;
+        public final /* synthetic */ String f21631b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f21396c;
+        public final /* synthetic */ String f21632c;
 
-        public C1333a(int i2, String str, String str2) {
+        public C1344a(int i2, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,22 +45,22 @@ public class a {
                 }
             }
             this.a = i2;
-            this.f21395b = str;
-            this.f21396c = str2;
+            this.f21631b = str;
+            this.f21632c = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // c.a.s0.e1.k0
+        @Override // c.a.s0.d1.k0
         public Integer doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 int i2 = this.a;
                 c.a.s0.s.r.a.f();
-                l<String> g2 = c.a.s0.s.r.a.g("tb.write_privacy_state_space" + this.f21395b);
+                l<String> g2 = c.a.s0.s.r.a.g("tb.write_privacy_state_space" + this.f21631b);
                 if (g2 != null) {
-                    i2 = c.a.d.f.m.b.e(g2.get(this.f21396c), this.a);
+                    i2 = c.a.d.f.m.b.e(g2.get(this.f21632c), this.a);
                 }
                 return Integer.valueOf(i2);
             }
@@ -93,7 +93,7 @@ public class a {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.s0.e1.s
+        @Override // c.a.s0.d1.s
         /* renamed from: a */
         public void onReturnDataInUI(Integer num) {
             c cVar;
@@ -119,7 +119,7 @@ public class a {
         if (StringUtils.isNull(currentAccount)) {
             return;
         }
-        n0.b(new C1333a(i2, currentAccount, str), new b(cVar));
+        n0.b(new C1344a(i2, currentAccount, str), new b(cVar));
     }
 
     public static void b(String str, int i2) {

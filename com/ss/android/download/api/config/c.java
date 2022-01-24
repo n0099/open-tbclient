@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface c {
     void a(@Nullable Context context, @NonNull DownloadModel downloadModel, @Nullable DownloadController downloadController, @Nullable DownloadEventConfig downloadEventConfig);
 

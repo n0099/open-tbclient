@@ -14,16 +14,16 @@ public class m {
     public static final byte[] a = new byte[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f58591b = new String[0];
+    public static final String[] f58636b = new String[0];
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Charset f58592c = Charset.forName("UTF-8");
+    public static final Charset f58637c = Charset.forName("UTF-8");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final TimeZone f58593d = TimeZone.getTimeZone("GMT");
+    public static final TimeZone f58638d = TimeZone.getTimeZone("GMT");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f58594e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final Pattern f58639e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     public static int a(String str, int i2, int i3) {
         while (i2 < i3) {

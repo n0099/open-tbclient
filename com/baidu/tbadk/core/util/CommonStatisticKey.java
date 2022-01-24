@@ -41,6 +41,7 @@ public class CommonStatisticKey {
     public static final String KEY_BAWU_TIP_DIALOG_SHOW = "c14322";
     public static final String KEY_CARD_ENTER_FORUM_CLICK = "C12888";
     public static final String KEY_CARD_ENTER_FORUM_SHOW = "c12887";
+    public static final String KEY_CHANGE_RICH_TEXT_MODE = "c14553";
     public static final String KEY_CLICK_BIGDAY_AT_WRITE = "c13114";
     public static final String KEY_CLICK_VIDEO_TOPIC = "c14410";
     public static final String KEY_CONCERN_YY_LIVE_AVATER_CLICK = "c14279";
@@ -112,6 +113,7 @@ public class CommonStatisticKey {
     public static final String KEY_ITEM_RECENT_UPDATE_CLICK = "c14354";
     public static final String KEY_ITEM_RECENT_UPDATE_SHOW = "c14353";
     public static final String KEY_KEEP_LIVE = "c12662";
+    public static final String KEY_LIMIT_MODE_CHANGE_TOAST = "c14554";
     public static final String KEY_LIVE_SECOND_TAB_CLICK = "c14135";
     public static final String KEY_LIVE_SECOND_TAB_SHOW = "c14134";
     public static final String KEY_LIVE_TAB_CLICK = "c14133";

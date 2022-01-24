@@ -12,7 +12,7 @@ import c.a.d.a.j;
 import c.a.d.f.p.n;
 import c.a.s0.s.q.g2;
 import c.a.s0.s.q.j2;
-import c.a.t0.w3.g0;
+import c.a.t0.x3.g0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -36,31 +36,31 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f43313b;
+    public RelativeLayout f43335b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f43314c;
+    public LinearLayout f43336c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f43315d;
+    public TbImageView f43337d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f43316e;
+    public TextView f43338e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f43317f;
+    public TextView f43339f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f43318g;
+    public TextView f43340g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f43319h;
+    public TextView f43341h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f43320i;
+    public View f43342i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f43321j;
+    public TextView f43343j;
     public g2 k;
     public j2 l;
     public ImageView m;
@@ -74,7 +74,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsU9ViewHolder f43322e;
+        public final /* synthetic */ FrsU9ViewHolder f43344e;
 
         public a(FrsU9ViewHolder frsU9ViewHolder) {
             Interceptable interceptable = $ic;
@@ -91,23 +91,23 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f43322e = frsU9ViewHolder;
+            this.f43344e = frsU9ViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f43322e.a.getPageActivity()) && n.C()) {
-                if (view == this.f43322e.f43313b) {
-                    if (this.f43322e.k == null || TextUtils.isEmpty(this.f43322e.k.b())) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f43344e.a.getPageActivity()) && n.C()) {
+                if (view == this.f43344e.f43335b) {
+                    if (this.f43344e.k == null || TextUtils.isEmpty(this.f43344e.k.b())) {
                         return;
                     }
-                    TiebaStatic.eventStat(this.f43322e.a.getPageActivity(), "num_click", "click", 1, new Object[0]);
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f43322e.a.getPageActivity()), new String[]{this.f43322e.k.b()});
-                } else if (view != this.f43322e.f43314c || this.f43322e.l == null || TextUtils.isEmpty(this.f43322e.l.J0())) {
+                    TiebaStatic.eventStat(this.f43344e.a.getPageActivity(), "num_click", "click", 1, new Object[0]);
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f43344e.a.getPageActivity()), new String[]{this.f43344e.k.b()});
+                } else if (view != this.f43344e.f43336c || this.f43344e.l == null || TextUtils.isEmpty(this.f43344e.l.J0())) {
                 } else {
-                    TiebaStatic.eventStat(this.f43322e.a.getPageActivity(), "info_click", "click", 1, "page", "frs");
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f43322e.a.getPageActivity()), new String[]{this.f43322e.l.J0()});
+                    TiebaStatic.eventStat(this.f43344e.a.getPageActivity(), "info_click", "click", 1, "page", "frs");
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f43344e.a.getPageActivity()), new String[]{this.f43344e.l.J0()});
                 }
             }
         }
@@ -134,23 +134,23 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.o = 3;
         this.p = new a(this);
         this.a = tbPageContext;
-        this.f43313b = (RelativeLayout) view.findViewById(R.id.u9_top_code);
-        this.f43314c = (LinearLayout) view.findViewById(R.id.u9_news_info);
+        this.f43335b = (RelativeLayout) view.findViewById(R.id.u9_top_code);
+        this.f43336c = (LinearLayout) view.findViewById(R.id.u9_news_info);
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.top_code_img);
-        this.f43315d = tbImageView;
+        this.f43337d = tbImageView;
         tbImageView.setPageId(bdUniqueId);
-        this.f43316e = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
-        this.f43317f = (TextView) view.findViewById(R.id.top_code_detail_surplus_text);
-        this.f43318g = (TextView) view.findViewById(R.id.top_code_detail_giftworth_text);
-        this.f43319h = (TextView) view.findViewById(R.id.top_code_getnum_btn);
-        this.f43320i = view.findViewById(R.id.u9_top_code_divider);
+        this.f43338e = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
+        this.f43339f = (TextView) view.findViewById(R.id.top_code_detail_surplus_text);
+        this.f43340g = (TextView) view.findViewById(R.id.top_code_detail_giftworth_text);
+        this.f43341h = (TextView) view.findViewById(R.id.top_code_getnum_btn);
+        this.f43342i = view.findViewById(R.id.u9_top_code_divider);
         ImageView imageView = (ImageView) view.findViewById(R.id.news_info_img);
         this.m = imageView;
         imageView.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.icon_frs_news));
-        this.f43321j = (TextView) view.findViewById(R.id.news_info_text);
+        this.f43343j = (TextView) view.findViewById(R.id.news_info_text);
         this.n = view.findViewById(R.id.frs_list_item_u9_top_line);
-        SkinManager.setBackgroundResource(this.f43319h, R.drawable.frs_star_btn_like);
-        SkinManager.setViewTextColor(this.f43319h, R.drawable.frs_text_color_selector);
+        SkinManager.setBackgroundResource(this.f43341h, R.drawable.frs_star_btn_like);
+        SkinManager.setViewTextColor(this.f43341h, R.drawable.frs_text_color_selector);
         setOnClickListener();
     }
 
@@ -159,65 +159,65 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, g0Var) == null) || g0Var == null) {
             return;
         }
-        g2 T4 = g0Var.T4();
-        j2 U4 = g0Var.U4();
-        this.k = T4;
-        this.l = U4;
-        if (g0Var.V4()) {
+        g2 U4 = g0Var.U4();
+        j2 V4 = g0Var.V4();
+        this.k = U4;
+        this.l = V4;
+        if (g0Var.W4()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
         }
         g2 g2Var = this.k;
         if (g2Var == null) {
-            this.f43313b.setVisibility(8);
-            this.f43320i.setVisibility(8);
+            this.f43335b.setVisibility(8);
+            this.f43342i.setVisibility(8);
         } else if (StringUtils.isNull(g2Var.g())) {
-            this.f43313b.setVisibility(8);
-            this.f43320i.setVisibility(8);
+            this.f43335b.setVisibility(8);
+            this.f43342i.setVisibility(8);
         } else {
-            this.f43313b.setVisibility(0);
-            this.f43320i.setVisibility(0);
-            this.f43315d.startLoad(this.k.e(), 10, false);
-            this.f43316e.setText(this.k.g());
-            if (StringUtils.isNull(T4.a())) {
-                this.f43319h.setVisibility(8);
+            this.f43335b.setVisibility(0);
+            this.f43342i.setVisibility(0);
+            this.f43337d.startLoad(this.k.e(), 10, false);
+            this.f43338e.setText(this.k.g());
+            if (StringUtils.isNull(U4.a())) {
+                this.f43341h.setVisibility(8);
             } else {
-                this.f43319h.setText(T4.a());
-                this.f43319h.setVisibility(0);
+                this.f43341h.setText(U4.a());
+                this.f43341h.setVisibility(0);
             }
             int c2 = this.k.c();
             if (c2 != 1 && c2 != 2) {
-                this.f43318g.setVisibility(8);
-                this.f43317f.setText(T4.f());
-                this.f43317f.setVisibility(0);
+                this.f43340g.setVisibility(8);
+                this.f43339f.setText(U4.f());
+                this.f43339f.setVisibility(0);
             } else {
                 if (StringUtils.isNull(this.k.h())) {
-                    this.f43317f.setVisibility(8);
+                    this.f43339f.setVisibility(8);
                 } else {
                     String str = this.a.getResources().getString(R.string.u9_shengyu) + this.k.h();
                     SpannableString spannableString = new SpannableString(str);
                     UtilHelper.setSpan(spannableString, str, this.k.h(), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-                    this.f43317f.setText(spannableString);
-                    this.f43317f.setVisibility(0);
+                    this.f43339f.setText(spannableString);
+                    this.f43339f.setVisibility(0);
                 }
-                if (T4.d() <= 0) {
-                    this.f43318g.setVisibility(8);
+                if (U4.d() <= 0) {
+                    this.f43340g.setVisibility(8);
                 } else {
                     String str2 = this.a.getResources().getString(R.string.u9_worth) + this.k.d();
                     SpannableString spannableString2 = new SpannableString(str2);
                     UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.k.d()), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-                    this.f43318g.setText(spannableString2);
-                    this.f43318g.setVisibility(0);
+                    this.f43340g.setText(spannableString2);
+                    this.f43340g.setVisibility(0);
                 }
             }
         }
-        if (this.l != null && !StringUtils.isNull(U4.K0())) {
-            this.f43314c.setVisibility(0);
-            this.f43321j.setText(U4.K0());
+        if (this.l != null && !StringUtils.isNull(V4.K0())) {
+            this.f43336c.setVisibility(0);
+            this.f43343j.setText(V4.K0());
             return;
         }
-        this.f43314c.setVisibility(8);
+        this.f43336c.setVisibility(8);
     }
 
     public void onChangeSkinType(int i2) {
@@ -226,8 +226,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         SkinManager.setBackgroundResource(this.m, R.drawable.icon_frs_news);
-        SkinManager.setBackgroundResource(this.f43319h, R.drawable.frs_star_btn_like);
-        SkinManager.setViewTextColor(this.f43319h, R.drawable.frs_text_color_selector);
+        SkinManager.setBackgroundResource(this.f43341h, R.drawable.frs_star_btn_like);
+        SkinManager.setViewTextColor(this.f43341h, R.drawable.frs_text_color_selector);
         this.a.getLayoutMode().k(i2 == 1);
         this.a.getLayoutMode().j(getView());
         this.o = i2;
@@ -236,8 +236,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public void setOnClickListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f43313b.setOnClickListener(this.p);
-            this.f43314c.setOnClickListener(this.p);
+            this.f43335b.setOnClickListener(this.p);
+            this.f43336c.setOnClickListener(this.p);
         }
     }
 }

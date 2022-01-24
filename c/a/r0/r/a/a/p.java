@@ -59,22 +59,22 @@ public class p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f11696e;
+        public final /* synthetic */ View f11838e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Transition f11697f;
+        public final /* synthetic */ Transition f11839f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f11698g;
+        public final /* synthetic */ View f11840g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ f f11699h;
+        public final /* synthetic */ f f11841h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Map f11700i;
+        public final /* synthetic */ Map f11842i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ Map f11701j;
+        public final /* synthetic */ Map f11843j;
         public final /* synthetic */ ArrayList k;
 
         public b(View view, Transition transition, View view2, f fVar, Map map, Map map2, ArrayList arrayList) {
@@ -92,12 +92,12 @@ public class p {
                     return;
                 }
             }
-            this.f11696e = view;
-            this.f11697f = transition;
-            this.f11698g = view2;
-            this.f11699h = fVar;
-            this.f11700i = map;
-            this.f11701j = map2;
+            this.f11838e = view;
+            this.f11839f = transition;
+            this.f11840g = view2;
+            this.f11841h = fVar;
+            this.f11842i = map;
+            this.f11843j = map2;
             this.k = arrayList;
         }
 
@@ -106,28 +106,28 @@ public class p {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f11696e.getViewTreeObserver().removeOnPreDrawListener(this);
-                Transition transition = this.f11697f;
+                this.f11838e.getViewTreeObserver().removeOnPreDrawListener(this);
+                Transition transition = this.f11839f;
                 if (transition != null) {
-                    transition.removeTarget(this.f11698g);
+                    transition.removeTarget(this.f11840g);
                 }
-                View view = this.f11699h.getView();
+                View view = this.f11841h.getView();
                 if (view != null) {
-                    if (!this.f11700i.isEmpty()) {
-                        p.m(this.f11701j, view);
-                        this.f11701j.keySet().retainAll(this.f11700i.values());
-                        for (Map.Entry entry : this.f11700i.entrySet()) {
-                            View view2 = (View) this.f11701j.get((String) entry.getValue());
+                    if (!this.f11842i.isEmpty()) {
+                        p.m(this.f11843j, view);
+                        this.f11843j.keySet().retainAll(this.f11842i.values());
+                        for (Map.Entry entry : this.f11842i.entrySet()) {
+                            View view2 = (View) this.f11843j.get((String) entry.getValue());
                             if (view2 != null) {
                                 view2.setTransitionName((String) entry.getKey());
                             }
                         }
                     }
-                    if (this.f11697f != null) {
+                    if (this.f11839f != null) {
                         p.h(this.k, view);
-                        this.k.removeAll(this.f11701j.values());
-                        this.k.add(this.f11698g);
-                        p.c(this.f11697f, this.k);
+                        this.k.removeAll(this.f11843j.values());
+                        this.k.add(this.f11840g);
+                        p.c(this.f11839f, this.k);
                         return true;
                     }
                     return true;
@@ -145,7 +145,7 @@ public class p {
         public Rect a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f11702b;
+        public final /* synthetic */ e f11844b;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -162,7 +162,7 @@ public class p {
                     return;
                 }
             }
-            this.f11702b = eVar;
+            this.f11844b = eVar;
         }
 
         @Override // android.transition.Transition.EpicenterCallback
@@ -171,7 +171,7 @@ public class p {
             View view;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, transition)) == null) {
-                if (this.a == null && (view = this.f11702b.a) != null) {
+                if (this.a == null && (view = this.f11844b.a) != null) {
                     this.a = p.n(view);
                 }
                 return this.a;
@@ -186,22 +186,22 @@ public class p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f11703e;
+        public final /* synthetic */ View f11845e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Transition f11704f;
+        public final /* synthetic */ Transition f11846f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f11705g;
+        public final /* synthetic */ ArrayList f11847g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Transition f11706h;
+        public final /* synthetic */ Transition f11848h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f11707i;
+        public final /* synthetic */ ArrayList f11849i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ Transition f11708j;
+        public final /* synthetic */ Transition f11850j;
         public final /* synthetic */ ArrayList k;
         public final /* synthetic */ Map l;
         public final /* synthetic */ ArrayList m;
@@ -223,12 +223,12 @@ public class p {
                     return;
                 }
             }
-            this.f11703e = view;
-            this.f11704f = transition;
-            this.f11705g = arrayList;
-            this.f11706h = transition2;
-            this.f11707i = arrayList2;
-            this.f11708j = transition3;
+            this.f11845e = view;
+            this.f11846f = transition;
+            this.f11847g = arrayList;
+            this.f11848h = transition2;
+            this.f11849i = arrayList2;
+            this.f11850j = transition3;
             this.k = arrayList3;
             this.l = map;
             this.m = arrayList4;
@@ -241,16 +241,16 @@ public class p {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f11703e.getViewTreeObserver().removeOnPreDrawListener(this);
-                Transition transition = this.f11704f;
+                this.f11845e.getViewTreeObserver().removeOnPreDrawListener(this);
+                Transition transition = this.f11846f;
                 if (transition != null) {
-                    p.s(transition, this.f11705g);
+                    p.s(transition, this.f11847g);
                 }
-                Transition transition2 = this.f11706h;
+                Transition transition2 = this.f11848h;
                 if (transition2 != null) {
-                    p.s(transition2, this.f11707i);
+                    p.s(transition2, this.f11849i);
                 }
-                Transition transition3 = this.f11708j;
+                Transition transition3 = this.f11850j;
                 if (transition3 != null) {
                     p.s(transition3, this.k);
                 }

@@ -38,22 +38,22 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LocationInfoView f49615e;
+    public LocationInfoView f49634e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBSpecificationBtn f49616f;
+    public TBSpecificationBtn f49635f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TBSpecificationBtn f49617g;
+    public TBSpecificationBtn f49636g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EditorTools f49618h;
+    public EditorTools f49637h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49619i;
+    public int f49638i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f49620j;
+    public boolean f49639j;
     public String k;
     public String l;
     public String m;
@@ -64,10 +64,10 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AnimatorSet f49621e;
+        public final /* synthetic */ AnimatorSet f49640e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditorInfoContainer f49622f;
+        public final /* synthetic */ EditorInfoContainer f49641f;
 
         public a(EditorInfoContainer editorInfoContainer, AnimatorSet animatorSet) {
             Interceptable interceptable = $ic;
@@ -84,19 +84,19 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                     return;
                 }
             }
-            this.f49622f = editorInfoContainer;
-            this.f49621e = animatorSet;
+            this.f49641f = editorInfoContainer;
+            this.f49640e = animatorSet;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((c.a.s0.s.j0.n.b) this.f49622f.f49617g.getStyleConfig()).r(c.a.t0.p4.d.CAM_X0302);
-                this.f49622f.f49617g.getStyleConfig().h(c.a.t0.p4.d.CAM_X0302);
-                ((c.a.s0.s.j0.n.b) this.f49622f.f49615e.getLocationBtn().getStyleConfig()).r(c.a.t0.p4.d.CAM_X0302);
-                this.f49622f.f49615e.getLocationBtn().getStyleConfig().h(c.a.t0.p4.d.CAM_X0302);
-                this.f49621e.start();
+                ((c.a.s0.s.k0.n.b) this.f49641f.f49636g.getStyleConfig()).r(c.a.t0.p4.d.CAM_X0302);
+                this.f49641f.f49636g.getStyleConfig().h(c.a.t0.p4.d.CAM_X0302);
+                ((c.a.s0.s.k0.n.b) this.f49641f.f49634e.getLocationBtn().getStyleConfig()).r(c.a.t0.p4.d.CAM_X0302);
+                this.f49641f.f49634e.getLocationBtn().getStyleConfig().h(c.a.t0.p4.d.CAM_X0302);
+                this.f49640e.start();
             }
         }
     }
@@ -107,13 +107,13 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f49623e;
+        public int f49642e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AnimatorSet f49624f;
+        public final /* synthetic */ AnimatorSet f49643f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ EditorInfoContainer f49625g;
+        public final /* synthetic */ EditorInfoContainer f49644g;
 
         /* loaded from: classes13.dex */
         public class a implements Runnable {
@@ -121,7 +121,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f49626e;
+            public final /* synthetic */ b f49645e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -138,31 +138,31 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49626e = bVar;
+                this.f49645e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ((c.a.s0.s.j0.n.b) this.f49626e.f49625g.f49617g.getStyleConfig()).s(c.a.t0.p4.d.CAM_X0105);
-                    this.f49626e.f49625g.f49617g.getStyleConfig().h(c.a.t0.p4.d.CAM_X0110);
-                    ((c.a.s0.s.j0.n.b) this.f49626e.f49625g.f49615e.getLocationBtn().getStyleConfig()).s(c.a.t0.p4.d.CAM_X0105);
-                    this.f49626e.f49625g.f49615e.getLocationBtn().getStyleConfig().h(c.a.t0.p4.d.CAM_X0110);
+                    ((c.a.s0.s.k0.n.b) this.f49645e.f49644g.f49636g.getStyleConfig()).s(c.a.t0.p4.d.CAM_X0105);
+                    this.f49645e.f49644g.f49636g.getStyleConfig().h(c.a.t0.p4.d.CAM_X0110);
+                    ((c.a.s0.s.k0.n.b) this.f49645e.f49644g.f49634e.getLocationBtn().getStyleConfig()).s(c.a.t0.p4.d.CAM_X0105);
+                    this.f49645e.f49644g.f49634e.getLocationBtn().getStyleConfig().h(c.a.t0.p4.d.CAM_X0110);
                 }
             }
         }
 
         /* renamed from: com.baidu.tieba.write.editor.EditorInfoContainer$b$b  reason: collision with other inner class name */
         /* loaded from: classes13.dex */
-        public class RunnableC1964b implements Runnable {
+        public class RunnableC1970b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f49627e;
+            public final /* synthetic */ b f49646e;
 
-            public RunnableC1964b(b bVar) {
+            public RunnableC1970b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,14 +177,14 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                         return;
                     }
                 }
-                this.f49627e = bVar;
+                this.f49646e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f49627e.f49624f.start();
+                    this.f49646e.f49643f.start();
                 }
             }
         }
@@ -204,9 +204,9 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                     return;
                 }
             }
-            this.f49625g = editorInfoContainer;
-            this.f49624f = animatorSet;
-            this.f49623e = 0;
+            this.f49644g = editorInfoContainer;
+            this.f49643f = animatorSet;
+            this.f49642e = 0;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -220,12 +220,12 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                int i2 = this.f49623e + 1;
-                this.f49623e = i2;
+                int i2 = this.f49642e + 1;
+                this.f49642e = i2;
                 if (i2 > 1) {
-                    this.f49625g.postDelayed(new a(this), 0L);
+                    this.f49644g.postDelayed(new a(this), 0L);
                 } else {
-                    this.f49625g.postDelayed(new RunnableC1964b(this), 1500L);
+                    this.f49644g.postDelayed(new RunnableC1970b(this), 1500L);
                 }
             }
         }
@@ -251,13 +251,13 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f49628e;
+        public final /* synthetic */ i f49647e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f49629f;
+        public final /* synthetic */ c.a.s0.s.s.a f49648f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ EditorInfoContainer f49630g;
+        public final /* synthetic */ EditorInfoContainer f49649g;
 
         public c(EditorInfoContainer editorInfoContainer, i iVar, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -274,20 +274,20 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                     return;
                 }
             }
-            this.f49630g = editorInfoContainer;
-            this.f49628e = iVar;
-            this.f49629f = aVar;
+            this.f49649g = editorInfoContainer;
+            this.f49647e = iVar;
+            this.f49648f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f49628e != null) {
+                if (this.f49647e != null) {
                     TiebaStatic.log(new StatisticItem("c13805").param("obj_locate", 2));
-                    this.f49628e.a(true);
+                    this.f49647e.a(true);
                 }
-                this.f49629f.dismiss();
+                this.f49648f.dismiss();
             }
         }
     }
@@ -298,13 +298,13 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f49631e;
+        public final /* synthetic */ i f49650e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f49632f;
+        public final /* synthetic */ c.a.s0.s.s.a f49651f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ EditorInfoContainer f49633g;
+        public final /* synthetic */ EditorInfoContainer f49652g;
 
         public d(EditorInfoContainer editorInfoContainer, i iVar, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -321,20 +321,20 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                     return;
                 }
             }
-            this.f49633g = editorInfoContainer;
-            this.f49631e = iVar;
-            this.f49632f = aVar;
+            this.f49652g = editorInfoContainer;
+            this.f49650e = iVar;
+            this.f49651f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f49631e != null) {
+                if (this.f49650e != null) {
                     TiebaStatic.log(new StatisticItem("c13805").param("obj_locate", 1));
-                    this.f49631e.a(false);
+                    this.f49650e.a(false);
                 }
-                this.f49632f.dismiss();
+                this.f49651f.dismiss();
             }
         }
     }
@@ -379,7 +379,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditorInfoContainer f49634e;
+        public final /* synthetic */ EditorInfoContainer f49653e;
 
         public f(EditorInfoContainer editorInfoContainer) {
             Interceptable interceptable = $ic;
@@ -396,14 +396,14 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                     return;
                 }
             }
-            this.f49634e = editorInfoContainer;
+            this.f49653e = editorInfoContainer;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49634e.sendAction(new c.a.s0.x.a(43, -1, null));
+                this.f49653e.sendAction(new c.a.s0.x.a(43, -1, null));
             }
         }
     }
@@ -414,10 +414,10 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f49635e;
+        public final /* synthetic */ Context f49654e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditorInfoContainer f49636f;
+        public final /* synthetic */ EditorInfoContainer f49655f;
 
         /* loaded from: classes13.dex */
         public class a implements i {
@@ -447,9 +447,9 @@ public class EditorInfoContainer extends RelativeLayout implements n {
             public void a(boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                    if (TransmitPostEditActivity.FROM_SHARE_WRITE.equals(this.a.f49636f.l)) {
-                        if (!"1".equals(this.a.f49636f.k)) {
-                            if ("2".equals(this.a.f49636f.k)) {
+                    if (TransmitPostEditActivity.FROM_SHARE_WRITE.equals(this.a.f49655f.l)) {
+                        if (!"1".equals(this.a.f49655f.k)) {
+                            if ("2".equals(this.a.f49655f.k)) {
                                 TiebaStatic.log(new StatisticItem("c12608").param("obj_locate", 5));
                             }
                         } else {
@@ -457,10 +457,10 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                         }
                     }
                     if (z) {
-                        int i2 = ((Integer) this.a.f49636f.f49616f.btnState).intValue() == 0 ? 1 : 0;
-                        this.a.f49636f.m(i2);
-                        if ("2".equals(this.a.f49636f.k)) {
-                            c.a.t0.p4.w.a.b(this.a.f49636f.m, i2);
+                        int i2 = ((Integer) this.a.f49655f.f49635f.btnState).intValue() == 0 ? 1 : 0;
+                        this.a.f49655f.m(i2);
+                        if ("2".equals(this.a.f49655f.k)) {
+                            c.a.t0.p4.w.a.b(this.a.f49655f.m, i2);
                         }
                     }
                 }
@@ -482,17 +482,17 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                     return;
                 }
             }
-            this.f49636f = editorInfoContainer;
-            this.f49635e = context;
+            this.f49655f = editorInfoContainer;
+            this.f49654e = context;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", ((Integer) this.f49636f.f49616f.btnState).intValue() == 0 ? 11 : 12));
-                EditorInfoContainer editorInfoContainer = this.f49636f;
-                editorInfoContainer.l(this.f49635e, ((Integer) editorInfoContainer.f49616f.btnState).intValue(), new a(this));
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", ((Integer) this.f49655f.f49635f.btnState).intValue() == 0 ? 11 : 12));
+                EditorInfoContainer editorInfoContainer = this.f49655f;
+                editorInfoContainer.l(this.f49654e, ((Integer) editorInfoContainer.f49635f.btnState).intValue(), new a(this));
             }
         }
     }
@@ -560,8 +560,8 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f49620j) {
-                this.f49620j = false;
+            if (this.f49639j) {
+                this.f49639j = false;
                 sendAction(new c.a.s0.x.a(18, -1, "first"));
             }
             setVisibility(0);
@@ -572,7 +572,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49619i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49638i : invokeV.intValue;
     }
 
     @Override // c.a.s0.x.n
@@ -601,7 +601,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, c.a.d.f.p.n.f(getContext(), c.a.t0.p4.e.tbds62));
             layoutParams.addRule(1, c.a.t0.p4.g.editor_id_location);
-            c.a.s0.s.j0.n.b bVar = new c.a.s0.s.j0.n.b();
+            c.a.s0.s.k0.n.b bVar = new c.a.s0.s.k0.n.b();
             bVar.p(c.a.t0.p4.d.CAM_X0209, c.a.t0.p4.d.CAM_X0105);
             bVar.h(c.a.t0.p4.d.CAM_X0110);
             bVar.f(UtilHelper.getDimenPixelSize(c.a.t0.p4.e.M_W_X002));
@@ -610,12 +610,12 @@ public class EditorInfoContainer extends RelativeLayout implements n {
             bVar.i(c.a.t0.p4.f.ic_icon_pure_post_topic12, 0, TBSpecificationButtonConfig.IconType.WEBP);
             bVar.g(UtilHelper.getDimenPixelSize(c.a.t0.p4.e.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
-            this.f49617g = tBSpecificationBtn;
+            this.f49636g = tBSpecificationBtn;
             tBSpecificationBtn.setConfig(bVar);
-            this.f49617g.setTextSize(c.a.t0.p4.e.T_X09);
-            this.f49617g.setText(getContext().getString(j.add_topic));
-            this.f49617g.setOnClickListener(new f(this));
-            addView(this.f49617g, layoutParams);
+            this.f49636g.setTextSize(c.a.t0.p4.e.T_X09);
+            this.f49636g.setText(getContext().getString(j.add_topic));
+            this.f49636g.setOnClickListener(new f(this));
+            addView(this.f49636g, layoutParams);
         }
     }
 
@@ -652,8 +652,8 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         TBSpecificationBtn tBSpecificationBtn;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            TBSpecificationBtn tBSpecificationBtn2 = this.f49616f;
-            return (tBSpecificationBtn2 == null || ((Integer) tBSpecificationBtn2.btnState).intValue() != 0) && (tBSpecificationBtn = this.f49616f) != null && ((Integer) tBSpecificationBtn.btnState).intValue() == 1;
+            TBSpecificationBtn tBSpecificationBtn2 = this.f49635f;
+            return (tBSpecificationBtn2 == null || ((Integer) tBSpecificationBtn2.btnState).intValue() != 0) && (tBSpecificationBtn = this.f49635f) != null && ((Integer) tBSpecificationBtn.btnState).intValue() == 1;
         }
         return invokeV.booleanValue;
     }
@@ -662,12 +662,12 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
             LocationInfoView locationInfoView = new LocationInfoView(context);
-            this.f49615e = locationInfoView;
+            this.f49634e = locationInfoView;
             locationInfoView.setId(c.a.t0.p4.g.editor_id_location);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.rightMargin = getResources().getDimensionPixelSize(c.a.t0.p4.e.M_W_X006);
-            this.f49615e.setLocationClickListener(new e(this));
-            addView(this.f49615e, layoutParams);
+            this.f49634e.setLocationClickListener(new e(this));
+            addView(this.f49634e, layoutParams);
         }
     }
 
@@ -676,7 +676,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         if (interceptable == null || interceptable.invokeL(1048588, this, context) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, c.a.d.f.p.n.f(getContext(), c.a.t0.p4.e.tbds62));
             layoutParams.addRule(11);
-            c.a.s0.s.j0.n.b bVar = new c.a.s0.s.j0.n.b();
+            c.a.s0.s.k0.n.b bVar = new c.a.s0.s.k0.n.b();
             bVar.p(c.a.t0.p4.d.CAM_X0209, c.a.t0.p4.d.CAM_X0105);
             bVar.h(c.a.t0.p4.d.CAM_X0302);
             bVar.f(UtilHelper.getDimenPixelSize(c.a.t0.p4.e.M_W_X002));
@@ -684,20 +684,20 @@ public class EditorInfoContainer extends RelativeLayout implements n {
             bVar.n(c.a.d.f.p.n.f(getContext(), c.a.t0.p4.e.M_H_X002));
             bVar.g(UtilHelper.getDimenPixelSize(c.a.t0.p4.e.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
-            this.f49616f = tBSpecificationBtn;
+            this.f49635f = tBSpecificationBtn;
             tBSpecificationBtn.setConfig(bVar);
-            this.f49616f.setTextSize(c.a.t0.p4.e.T_X09);
+            this.f49635f.setTextSize(c.a.t0.p4.e.T_X09);
             m(0);
-            this.f49616f.setLayoutParams(layoutParams);
-            this.f49616f.setOnClickListener(new g(this, context));
-            addView(this.f49616f);
+            this.f49635f.setLayoutParams(layoutParams);
+            this.f49635f.setOnClickListener(new g(this, context));
+            addView(this.f49635f);
         }
     }
 
     public final void l(Context context, int i2, i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048589, this, context, i2, iVar) == null) {
-            boolean h2 = c.a.s0.s.h0.b.k().h("show_privacy_dialog", false);
+            boolean h2 = c.a.s0.s.i0.b.k().h("show_privacy_dialog", false);
             if (i2 == 1 || h2) {
                 if (iVar != null) {
                     iVar.a(true);
@@ -705,7 +705,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                 }
                 return;
             }
-            c.a.s0.s.h0.b.k().u("show_privacy_dialog", true);
+            c.a.s0.s.i0.b.k().u("show_privacy_dialog", true);
             BaseActivity baseActivity = (BaseActivity) context;
             c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(baseActivity);
             aVar.setCancelable(false);
@@ -728,10 +728,10 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public final void m(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f49616f.setText(getResources().getString(j.public_to_all));
-            this.f49616f.getStyleConfig().i(i2 == 0 ? c.a.t0.p4.f.icon_pure_post_chosen12 : c.a.t0.p4.f.icon_pure_post_chose12, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            this.f49616f.getStyleConfig().h(i2 == 0 ? c.a.t0.p4.d.CAM_X0302 : c.a.t0.p4.d.CAM_X0110);
-            this.f49616f.btnState = Integer.valueOf(i2);
+            this.f49635f.setText(getResources().getString(j.public_to_all));
+            this.f49635f.getStyleConfig().i(i2 == 0 ? c.a.t0.p4.f.icon_pure_post_chosen12 : c.a.t0.p4.f.icon_pure_post_chose12, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.f49635f.getStyleConfig().h(i2 == 0 ? c.a.t0.p4.d.CAM_X0302 : c.a.t0.p4.d.CAM_X0110);
+            this.f49635f.btnState = Integer.valueOf(i2);
         }
     }
 
@@ -743,19 +743,19 @@ public class EditorInfoContainer extends RelativeLayout implements n {
         }
         int i2 = aVar.a;
         if (i2 == 19) {
-            LocationInfoView locationInfoView = this.f49615e;
+            LocationInfoView locationInfoView = this.f49634e;
             if (locationInfoView == null) {
                 return;
             }
-            Object obj = aVar.f14180c;
+            Object obj = aVar.f14320c;
             if (obj instanceof c.a.s0.x.w.a) {
                 c.a.s0.x.w.a aVar2 = (c.a.s0.x.w.a) obj;
-                locationInfoView.setState(aVar2.a, aVar2.f14216b);
+                locationInfoView.setState(aVar2.a, aVar2.f14356b);
                 return;
             }
             locationInfoView.setState(0, null);
         } else if (i2 == 20) {
-            LocationInfoView locationInfoView2 = this.f49615e;
+            LocationInfoView locationInfoView2 = this.f49634e;
             if (locationInfoView2 == null) {
                 return;
             }
@@ -772,15 +772,15 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            LocationInfoView locationInfoView = this.f49615e;
+            LocationInfoView locationInfoView = this.f49634e;
             if (locationInfoView != null) {
                 locationInfoView.onChangeSkinType(i2);
             }
-            TBSpecificationBtn tBSpecificationBtn = this.f49616f;
+            TBSpecificationBtn tBSpecificationBtn = this.f49635f;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.changeSkinType();
             }
-            TBSpecificationBtn tBSpecificationBtn2 = this.f49617g;
+            TBSpecificationBtn tBSpecificationBtn2 = this.f49636g;
             if (tBSpecificationBtn2 != null) {
                 tBSpecificationBtn2.changeSkinType();
             }
@@ -799,7 +799,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public void sendAction(c.a.s0.x.a aVar) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) || (editorTools = this.f49618h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) || (editorTools = this.f49637h) == null) {
             return;
         }
         editorTools.sendAction(aVar);
@@ -809,7 +809,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, editorTools) == null) {
-            this.f49618h = editorTools;
+            this.f49637h = editorTools;
         }
     }
 
@@ -824,18 +824,18 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.f49619i = i2;
+            this.f49638i = i2;
         }
     }
 
     public void showGuideAnimate(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
-            int left = this.f49615e.getLeft() + 10;
+            int left = this.f49634e.getLeft() + 10;
             float f2 = left + 10;
             float f3 = left - 10;
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f49615e, AnimationProperty.TRANSLATE_X, f2, f3, f2, f3);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f49617g, AnimationProperty.TRANSLATE_X, f2, f3, f2, f3);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f49634e, AnimationProperty.TRANSLATE_X, f2, f3, f2, f3);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f49636g, AnimationProperty.TRANSLATE_X, f2, f3, f2, f3);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.playTogether(ofFloat2, ofFloat);
             animatorSet.setDuration(j2 / 4);
@@ -847,7 +847,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
     public void showHotTopicView(boolean z) {
         TBSpecificationBtn tBSpecificationBtn;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || (tBSpecificationBtn = this.f49617g) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || (tBSpecificationBtn = this.f49636g) == null) {
             return;
         }
         tBSpecificationBtn.setVisibility(z ? 0 : 8);
@@ -872,7 +872,7 @@ public class EditorInfoContainer extends RelativeLayout implements n {
                 return;
             }
         }
-        this.f49620j = true;
+        this.f49639j = true;
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         setPadding(0, (int) context.getResources().getDimension(c.a.t0.p4.e.M_H_X004), 0, (int) context.getResources().getDimension(c.a.t0.p4.e.M_H_X003));
         setGravity(16);

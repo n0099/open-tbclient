@@ -34,17 +34,17 @@ public class a {
 
     /* renamed from: c.a.r0.a.q2.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0523a implements Runnable {
+    public static class RunnableC0532a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f8426e;
+        public final /* synthetic */ long f8568e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f8427f;
+        public final /* synthetic */ int f8569f;
 
-        public RunnableC0523a(long j2, int i2) {
+        public RunnableC0532a(long j2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,8 +59,8 @@ public class a {
                     return;
                 }
             }
-            this.f8426e = j2;
-            this.f8427f = i2;
+            this.f8568e = j2;
+            this.f8569f = i2;
         }
 
         @Override // java.lang.Runnable
@@ -68,7 +68,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    c.a.r0.a.q2.a.c().a(this.f8426e, this.f8427f);
+                    c.a.r0.a.q2.a.c().a(this.f8568e, this.f8569f);
                 } catch (Exception e2) {
                     if (a.a) {
                         e2.printStackTrace();
@@ -85,7 +85,7 @@ public class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8428b;
+        public String f8570b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class a {
             if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, str)) == null) {
                 b bVar = new b();
                 bVar.a = i2;
-                bVar.f8428b = str;
+                bVar.f8570b = str;
                 return bVar;
             }
             return (b) invokeIL.objValue;
@@ -138,7 +138,7 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "RemoteCoreUpdateStatus{statusCode=" + this.a + ", message='" + this.f8428b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "RemoteCoreUpdateStatus{statusCode=" + this.a + ", message='" + this.f8570b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -175,9 +175,9 @@ public class a {
             if (eVar == null) {
                 return b.b("framework is null.");
             }
-            long j2 = eVar.f11496i;
+            long j2 = eVar.f11638i;
             if (j2 == 0) {
-                return b.b("invalid version code : " + eVar.f11497j);
+                return b.b("invalid version code : " + eVar.f11639j);
             } else if (!j0.a(new File(eVar.a), eVar.m)) {
                 return b.b("sign failed.");
             } else {
@@ -207,7 +207,7 @@ public class a {
                 if (ProcessUtils.isMainProcess()) {
                     c.a.r0.a.q2.b.b(g(i2), k(e(i2), j2));
                 }
-                l(eVar.f11497j, eVar.f11496i, i2);
+                l(eVar.f11639j, eVar.f11638i, i2);
                 d.k("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + j2);
                 return b.d();
             }
@@ -294,7 +294,7 @@ public class a {
         if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             h.a().putString(j(i2), str);
             h.a().putLong(i(i2), j2);
-            q.k(new RunnableC0523a(j2, i2), "cacheSwanCoreInfo");
+            q.k(new RunnableC0532a(j2, i2), "cacheSwanCoreInfo");
         }
     }
 }

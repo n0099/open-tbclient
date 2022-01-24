@@ -19,10 +19,10 @@ public class RewardTaskStepView extends LinearLayout {
     public List<b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57608b;
+    public int f57653b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57609c;
+    public int f57654c;
 
     public RewardTaskStepView(Context context) {
         super(context);
@@ -75,8 +75,8 @@ public class RewardTaskStepView extends LinearLayout {
 
     private void a(Context context, @Nullable AttributeSet attributeSet, int i2) {
         setOrientation(1);
-        this.f57608b = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_apk_info_card_step_icon_size);
-        this.f57609c = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_apk_info_card_step_icon_text_size);
+        this.f57653b = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_apk_info_card_step_icon_size);
+        this.f57654c = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_apk_info_card_step_icon_text_size);
     }
 
     private void a(ViewGroup viewGroup, int i2, String str) {

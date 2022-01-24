@@ -10,23 +10,23 @@ public final class a {
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38110b = "com.baidu.sapi2.qrcode";
+    public static final String f38138b = "com.baidu.sapi2.qrcode";
     @Deprecated
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38111c = "com.baidu.sapi2.qrcode";
+    public static final String f38139c = "com.baidu.sapi2.qrcode";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38112d = "release";
+    public static final String f38140d = "release";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38113e = "";
+    public static final String f38141e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f38114f = 1;
+    public static final int f38142f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38115g = "9.4.7.8.2";
+    public static final String f38143g = "9.4.7.8.2";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

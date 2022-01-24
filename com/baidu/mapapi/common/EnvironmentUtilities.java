@@ -17,22 +17,22 @@ public class EnvironmentUtilities {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35176b;
+    public static String f35204b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f35177c;
+    public static String f35205c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f35178d;
+    public static int f35206d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f35179e;
+    public static int f35207e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f35180f;
+    public static int f35208f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static h f35181g;
+    public static h f35209g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -67,7 +67,7 @@ public class EnvironmentUtilities {
     public static String getAppCachePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35176b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35204b : (String) invokeV.objValue;
     }
 
     public static String getAppSDCardPath() {
@@ -89,25 +89,25 @@ public class EnvironmentUtilities {
     public static String getAppSecondCachePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f35177c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f35205c : (String) invokeV.objValue;
     }
 
     public static int getDomTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f35179e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f35207e : invokeV.intValue;
     }
 
     public static int getItsTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f35180f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f35208f : invokeV.intValue;
     }
 
     public static int getMapTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f35178d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f35206d : invokeV.intValue;
     }
 
     public static String getSDCardPath() {
@@ -120,23 +120,23 @@ public class EnvironmentUtilities {
         String c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            if (f35181g == null) {
+            if (f35209g == null) {
                 h a2 = h.a();
-                f35181g = a2;
+                f35209g = a2;
                 a2.a(context);
             }
             String str = a;
             if (str == null || str.length() <= 0) {
-                a = f35181g.b().a();
-                c2 = f35181g.b().c();
+                a = f35209g.b().a();
+                c2 = f35209g.b().c();
             } else {
                 c2 = a + File.separator + "BaiduMapSDKNew" + File.separator + "cache";
             }
-            f35176b = c2;
-            f35177c = f35181g.b().d();
-            f35178d = 20971520;
-            f35179e = 52428800;
-            f35180f = 5242880;
+            f35204b = c2;
+            f35205c = f35209g.b().d();
+            f35206d = 20971520;
+            f35207e = 52428800;
+            f35208f = 5242880;
         }
     }
 

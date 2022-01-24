@@ -2,6 +2,7 @@ package c.a.x.b.d.c;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.model.data.LiveFeedWrapData;
+import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,28 +18,28 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26583b;
+    public String f26611b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26584c;
+    public String f26612c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26585d;
+    public String f26613d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f26586e;
+    public a f26614e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f26587f;
+    public e f26615f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f26588g;
+    public g f26616g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LiveFeedWrapData f26589h;
+    public LiveFeedWrapData f26617h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f26590i;
+    public b f26618i;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -58,12 +59,12 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
             this.a = i2;
-            this.f26583b = str2;
+            this.f26611b = str2;
             g gVar = new g();
-            this.f26588g = gVar;
+            this.f26616g = gVar;
             gVar.b(null, b(str), this.a);
             b bVar = new b();
-            this.f26590i = bVar;
+            this.f26618i = bVar;
             bVar.a(null, b(str));
         }
     }
@@ -80,41 +81,41 @@ public class c {
             return;
         }
         this.a = jSONObject.optInt("errno");
-        this.f26583b = jSONObject.optString("msg");
-        this.f26584c = jSONObject.optString("logid");
+        this.f26611b = jSONObject.optString("msg");
+        this.f26612c = jSONObject.optString("logid");
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject == null) {
             return;
         }
-        this.f26585d = optJSONObject.optString("resource");
+        this.f26613d = optJSONObject.optString("resource");
         JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_BANNER);
         if (optJSONObject2 != null) {
             a aVar = new a();
-            this.f26586e = aVar;
+            this.f26614e = aVar;
             aVar.a(optJSONObject2);
         }
         JSONObject optJSONObject3 = optJSONObject.optJSONObject("follow");
         if (optJSONObject3 != null) {
             e eVar = new e();
-            this.f26587f = eVar;
+            this.f26615f = eVar;
             eVar.a(optJSONObject3);
         }
         JSONObject optJSONObject4 = optJSONObject.optJSONObject("tab");
         if (optJSONObject4 != null) {
             g gVar = new g();
-            this.f26588g = gVar;
+            this.f26616g = gVar;
             gVar.b(optJSONObject4, b(str), this.a);
         }
-        JSONObject optJSONObject5 = optJSONObject.optJSONObject("feed");
+        JSONObject optJSONObject5 = optJSONObject.optJSONObject(ExternalTransferSpeedStats.FEED_PAGE);
         if (optJSONObject5 != null) {
             LiveFeedWrapData liveFeedWrapData = new LiveFeedWrapData();
-            this.f26589h = liveFeedWrapData;
+            this.f26617h = liveFeedWrapData;
             liveFeedWrapData.parserJson(optJSONObject5, i2);
         }
         JSONObject optJSONObject6 = optJSONObject.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
         if (optJSONObject6 != null) {
             b bVar = new b();
-            this.f26590i = bVar;
+            this.f26618i = bVar;
             bVar.a(optJSONObject6, b(str));
         }
     }

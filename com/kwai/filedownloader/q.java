@@ -48,7 +48,7 @@ public class q {
         public ThreadPoolExecutor a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LinkedBlockingQueue<Runnable> f58334b;
+        public LinkedBlockingQueue<Runnable> f58379b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class q {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 LinkedBlockingQueue<Runnable> linkedBlockingQueue = new LinkedBlockingQueue<>();
-                this.f58334b = linkedBlockingQueue;
+                this.f58379b = linkedBlockingQueue;
                 this.a = com.kwai.filedownloader.e.b.a(3, linkedBlockingQueue, "LauncherTask");
             }
         }
@@ -85,7 +85,7 @@ public class q {
         public void b(x.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-                this.f58334b.remove(bVar);
+                this.f58379b.remove(bVar);
             }
         }
     }
@@ -97,7 +97,7 @@ public class q {
         public final x.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f58335b;
+        public boolean f58380b;
 
         public c(x.b bVar) {
             Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class q {
                 }
             }
             this.a = bVar;
-            this.f58335b = false;
+            this.f58380b = false;
         }
 
         public boolean equals(Object obj) {
@@ -127,7 +127,7 @@ public class q {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f58335b) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f58380b) {
                 return;
             }
             this.a.p();

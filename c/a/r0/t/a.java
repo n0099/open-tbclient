@@ -13,22 +13,22 @@ public class a implements Comparable<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11764e;
+    public int f11906e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f11765f;
+    public long f11907f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f11766g;
+    public long f11908g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f11767h;
+    public String f11909h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f11768i;
+    public long f11910i;
 
     /* renamed from: j  reason: collision with root package name */
-    public MethodInfo f11769j;
+    public MethodInfo f11911j;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class a implements Comparable<a> {
     public int compareTo(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? (int) (this.f11768i - aVar.e()) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? (int) (this.f11910i - aVar.e()) : invokeL.intValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.f11766g - this.f11765f;
+            long j2 = this.f11908g - this.f11907f;
             if (j2 < 0) {
                 return 0L;
             }
@@ -69,24 +69,24 @@ public class a implements Comparable<a> {
     public MethodInfo c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11769j : (MethodInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11911j : (MethodInfo) invokeV.objValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11764e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11906e : invokeV.intValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11768i : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11910i : invokeV.longValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f11767h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f11909h : (String) invokeV.objValue;
     }
 }

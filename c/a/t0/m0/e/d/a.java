@@ -14,10 +14,10 @@ public final class a extends b {
     public final c.a.t0.m0.k.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f19220b;
+    public long f19483b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f19221c;
+    public long f19484c;
 
     public a(c.a.t0.m0.k.b timer) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public final class a extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f19221c + (this.f19220b > 0 ? this.a.a() - this.f19220b : 0L);
+            return this.f19484c + (this.f19483b > 0 ? this.a.a() - this.f19483b : 0L);
         }
         return invokeV.longValue;
     }
@@ -50,6 +50,6 @@ public final class a extends b {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19220b > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19483b > 0 : invokeV.booleanValue;
     }
 }

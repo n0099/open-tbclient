@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.MessageParser;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -145,7 +144,7 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
                     jSONObject.put("contacter_third_id", this.mContactorThirdid);
                 }
                 if (this.mBeginMsgTime > 0) {
-                    jSONObject.put(ExternalTransferSpeedStats.UBC_APPLICATION_CREATE_KEY, this.mBeginMsgTime);
+                    jSONObject.put("begin_time", this.mBeginMsgTime);
                 }
                 if (this.mEndMsgTime > 0) {
                     jSONObject.put("end_time", this.mEndMsgTime);

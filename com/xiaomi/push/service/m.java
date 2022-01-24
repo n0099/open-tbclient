@@ -238,21 +238,21 @@ public class m {
             if (com.xiaomi.push.ab.b()) {
                 sb = new StringBuilder();
                 sb.append("http://");
-                sb.append(fm.f61082b);
+                sb.append(fm.f61127b);
                 str = ":9085";
             } else if (com.xiaomi.push.o.a.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://cn.register.xmpush.xiaomi.com";
-            } else if (com.xiaomi.push.o.f61399b.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.f61444b.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://register.xmpush.global.xiaomi.com";
-            } else if (com.xiaomi.push.o.f61400c.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.f61445c.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://fr.register.xmpush.global.xiaomi.com";
-            } else if (com.xiaomi.push.o.f61401d.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.f61446d.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://ru.register.xmpush.global.xiaomi.com";
-            } else if (com.xiaomi.push.o.f61402e.name().equals(a2)) {
+            } else if (com.xiaomi.push.o.f61447e.name().equals(a2)) {
                 sb = new StringBuilder();
                 str = "https://idmb.register.xmpush.global.xiaomi.com";
             } else {
@@ -291,11 +291,11 @@ public class m {
         if (interceptable == null || interceptable.invokeLL(65541, null, context, lVar) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
             edit.putString("uuid", lVar.f967a);
-            edit.putString("security", lVar.f61457c);
-            edit.putString("token", lVar.f61456b);
-            edit.putString("app_id", lVar.f61458d);
-            edit.putString("package_name", lVar.f61460f);
-            edit.putString("app_token", lVar.f61459e);
+            edit.putString("security", lVar.f61502c);
+            edit.putString("token", lVar.f61501b);
+            edit.putString("app_id", lVar.f61503d);
+            edit.putString("package_name", lVar.f61505f);
+            edit.putString("app_token", lVar.f61504e);
             edit.putString("device_id", com.xiaomi.push.i.k(context));
             edit.putInt("env_type", lVar.a);
             edit.commit();

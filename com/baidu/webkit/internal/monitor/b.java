@@ -15,25 +15,25 @@ public final class b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f52787b;
+    public long f52832b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f52788c;
+    public long f52833c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f52789d;
+    public long f52834d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f52790e;
+    public long f52835e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f52791f;
+    public long f52836f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f52792g;
+    public long f52837g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONObject f52793h;
+    public JSONObject f52838h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -49,30 +49,30 @@ public final class b {
             }
         }
         this.a = -1L;
-        this.f52787b = -1L;
-        this.f52788c = -1L;
-        this.f52789d = -1L;
-        this.f52790e = -1L;
-        this.f52791f = -1L;
-        this.f52792g = -1L;
+        this.f52832b = -1L;
+        this.f52833c = -1L;
+        this.f52834d = -1L;
+        this.f52835e = -1L;
+        this.f52836f = -1L;
+        this.f52837g = -1L;
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             this.a = -1L;
-            this.f52787b = -1L;
-            this.f52788c = -1L;
+            this.f52832b = -1L;
+            this.f52833c = -1L;
         }
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f52789d = -1L;
-            this.f52790e = -1L;
-            this.f52791f = -1L;
-            this.f52792g = -1L;
+            this.f52834d = -1L;
+            this.f52835e = -1L;
+            this.f52836f = -1L;
+            this.f52837g = -1L;
         }
     }
 
@@ -80,22 +80,22 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f52789d == -1) {
+            if (this.f52834d == -1) {
                 return null;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
-                if (this.f52789d != -1) {
-                    jSONObject.put("sf1", this.f52789d);
+                if (this.f52834d != -1) {
+                    jSONObject.put("sf1", this.f52834d);
                 }
-                if (this.f52790e != -1) {
-                    jSONObject.put("sf2", this.f52790e);
+                if (this.f52835e != -1) {
+                    jSONObject.put("sf2", this.f52835e);
                 }
-                if (this.f52791f != -1) {
-                    jSONObject.put("sf3", this.f52791f);
+                if (this.f52836f != -1) {
+                    jSONObject.put("sf3", this.f52836f);
                 }
-                if (this.f52792g != -1) {
-                    jSONObject.put("sf4", this.f52792g);
+                if (this.f52837g != -1) {
+                    jSONObject.put("sf4", this.f52837g);
                 }
                 d();
                 return jSONObject;
@@ -112,7 +112,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == -1 && this.f52787b == -1 && this.f52788c == -1) {
+            if (this.a == -1 && this.f52832b == -1 && this.f52833c == -1) {
                 return null;
             }
             try {
@@ -120,11 +120,11 @@ public final class b {
                 if (this.a != -1) {
                     jSONObject.put("click", this.a);
                 }
-                if (this.f52787b != -1) {
-                    jSONObject.put("evajs", this.f52787b);
+                if (this.f52832b != -1) {
+                    jSONObject.put("evajs", this.f52832b);
                 }
-                if (this.f52788c != -1) {
-                    jSONObject.put("loadurl", this.f52788c);
+                if (this.f52833c != -1) {
+                    jSONObject.put("loadurl", this.f52833c);
                 }
                 c();
                 return jSONObject;

@@ -3,7 +3,7 @@ package com.baidu.tieba.faceshop;
 import android.os.Handler;
 import c.a.s0.c0.d;
 import c.a.s0.m.c;
-import c.a.t0.y0.g;
+import c.a.t0.z0.g;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -32,7 +32,7 @@ public class UserCollectModel extends FaceBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f42865e;
+    public final HttpMessageListener f42886e;
 
     /* loaded from: classes12.dex */
     public class a implements Runnable {
@@ -40,7 +40,7 @@ public class UserCollectModel extends FaceBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectModel f42866e;
+        public final /* synthetic */ UserCollectModel f42887e;
 
         public a(UserCollectModel userCollectModel) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class UserCollectModel extends FaceBaseModel {
                     return;
                 }
             }
-            this.f42866e = userCollectModel;
+            this.f42887e = userCollectModel;
         }
 
         @Override // java.lang.Runnable
@@ -72,7 +72,7 @@ public class UserCollectModel extends FaceBaseModel {
                 JSONArray jSONArray = new JSONArray();
                 try {
                     for (CollectEmotionData collectEmotionData : n) {
-                        if (!d.f12272d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
+                        if (!d.f12417d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
                             jSONArray.put(collectEmotionData.toJSON());
                             hashSet.add(collectEmotionData.sharpText);
                         }
@@ -88,8 +88,8 @@ public class UserCollectModel extends FaceBaseModel {
                     httpMessage.addParam(SocialConstants.PARAM_IMAGE, UserCollectModel.ALL_DELETE);
                 }
                 httpMessage.addParam("pic_update_time", currentTimeMillis);
-                this.f42866e.sendMessage(httpMessage);
-                c.a.t0.n2.d.s(currentTimeMillis);
+                this.f42887e.sendMessage(httpMessage);
+                c.a.t0.o2.d.s(currentTimeMillis);
             }
         }
     }
@@ -106,7 +106,7 @@ public class UserCollectModel extends FaceBaseModel {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f42867e;
+            public final /* synthetic */ b f42888e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public class UserCollectModel extends FaceBaseModel {
                         return;
                     }
                 }
-                this.f42867e = bVar;
+                this.f42888e = bVar;
             }
 
             @Override // java.lang.Runnable
@@ -131,7 +131,7 @@ public class UserCollectModel extends FaceBaseModel {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     try {
-                        this.f42867e.a.cancelLoadData();
+                        this.f42888e.a.cancelLoadData();
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -184,12 +184,12 @@ public class UserCollectModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f42865e = new b(this, CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
+        this.f42886e = new b(this, CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f42865e.setTag(getUniqueId());
-        this.f42865e.setSelfListener(true);
-        registerListener(this.f42865e);
+        this.f42886e.setTag(getUniqueId());
+        this.f42886e.setSelfListener(true);
+        registerListener(this.f42886e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -197,7 +197,7 @@ public class UserCollectModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f42865e);
+            MessageManager.getInstance().unRegisterListener(this.f42886e);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
             return true;
         }

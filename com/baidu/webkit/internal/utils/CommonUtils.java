@@ -102,7 +102,7 @@ public final class CommonUtils implements INoProGuard {
             return false;
         }
         try {
-            if (!checkPermissionGranted(context, "android.permission.CALL_PHONE") && !checkPermissionGranted(context, "android.permission.MODIFY_PHONE_STATE") && !checkPermissionGranted(context, s.f55242c) && !checkPermissionGranted(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
+            if (!checkPermissionGranted(context, "android.permission.CALL_PHONE") && !checkPermissionGranted(context, "android.permission.MODIFY_PHONE_STATE") && !checkPermissionGranted(context, s.f55287c) && !checkPermissionGranted(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
                 z = false;
                 if (Build.VERSION.SDK_INT < 16) {
                     if (!z) {

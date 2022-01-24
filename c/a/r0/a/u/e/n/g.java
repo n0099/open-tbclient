@@ -16,10 +16,10 @@ public class g extends c.a.r0.a.u.e.n.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9241f;
+    public String f9383f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.a.z2.g1.c<Integer> f9242g;
+    public c.a.r0.a.z2.g1.c<Integer> f9384g;
 
     /* loaded from: classes.dex */
     public class a implements c.a.r0.a.z2.g1.c<Integer> {
@@ -27,7 +27,7 @@ public class g extends c.a.r0.a.u.e.n.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f9243e;
+        public final /* synthetic */ g f9385e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class g extends c.a.r0.a.u.e.n.a {
                     return;
                 }
             }
-            this.f9243e = gVar;
+            this.f9385e = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class g extends c.a.r0.a.u.e.n.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, num) == null) {
                 if (num.intValue() == 1 || num.intValue() == 0) {
-                    this.f9243e.z();
+                    this.f9385e.z();
                 }
             }
         }
@@ -78,7 +78,7 @@ public class g extends c.a.r0.a.u.e.n.a {
                 return;
             }
         }
-        this.f9242g = new a(this);
+        this.f9384g = new a(this);
     }
 
     @Override // c.a.r0.a.u.c.d
@@ -97,11 +97,11 @@ public class g extends c.a.r0.a.u.e.n.a {
             c.a.r0.a.u.h.b bVar = (c.a.r0.a.u.h.b) s.first;
             if (bVar.isSuccess()) {
                 String optString = ((JSONObject) s.second).optString("cb");
-                this.f9241f = optString;
+                this.f9383f = optString;
                 if (TextUtils.isEmpty(optString)) {
                     return new c.a.r0.a.u.h.b(201);
                 }
-                l.e().v(this.f9242g);
+                l.e().v(this.f9384g);
                 l.e().m();
                 return c.a.r0.a.u.h.b.f();
             }
@@ -115,7 +115,7 @@ public class g extends c.a.r0.a.u.e.n.a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             l.e().w();
             l.e().p();
-            d(this.f9241f, new c.a.r0.a.u.h.b(0));
+            d(this.f9383f, new c.a.r0.a.u.h.b(0));
         }
     }
 }

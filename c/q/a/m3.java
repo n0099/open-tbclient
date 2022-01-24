@@ -16,22 +16,22 @@ public class m3 implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b3 f30375e;
+    public final b3 f30403e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f30376f;
+    public boolean f30404f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30377g;
+    public long f30405g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f30378h;
+    public float f30406h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f30379i;
+    public float f30407i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f30380j;
+    public int f30408j;
     public int k;
     public int l;
     public int m;
@@ -59,9 +59,9 @@ public class m3 implements View.OnTouchListener {
                 return;
             }
         }
-        this.f30376f = false;
-        this.f30377g = 0L;
-        this.f30375e = b3Var;
+        this.f30404f = false;
+        this.f30405g = 0L;
+        this.f30403e = b3Var;
     }
 
     public HashMap a() {
@@ -69,7 +69,7 @@ public class m3 implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.f30380j));
+            hashMap.put("dx", Integer.valueOf(this.f30408j));
             hashMap.put("dy", Integer.valueOf(this.k));
             hashMap.put("dts", Long.valueOf(this.r));
             hashMap.put("ux", Integer.valueOf(this.s));
@@ -88,13 +88,13 @@ public class m3 implements View.OnTouchListener {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f30376f = true;
-                this.f30377g = System.currentTimeMillis();
-                this.f30378h = motionEvent.getX();
-                this.f30379i = motionEvent.getY();
+                this.f30404f = true;
+                this.f30405g = System.currentTimeMillis();
+                this.f30406h = motionEvent.getX();
+                this.f30407i = motionEvent.getY();
                 this.l = (int) motionEvent.getX();
                 this.m = (int) motionEvent.getY();
-                this.f30380j = (int) motionEvent.getRawX();
+                this.f30408j = (int) motionEvent.getRawX();
                 this.k = (int) motionEvent.getRawY();
                 if (this.p <= 0 || this.q <= 0) {
                     this.q = view.getHeight();
@@ -107,28 +107,28 @@ public class m3 implements View.OnTouchListener {
                 this.n = (int) motionEvent.getX();
                 this.o = (int) motionEvent.getY();
                 this.u = System.currentTimeMillis();
-                boolean z = Math.abs(motionEvent.getX() - this.f30378h) < 51.0f;
-                boolean z2 = Math.abs(motionEvent.getY() - this.f30379i) < 51.0f;
-                boolean z3 = System.currentTimeMillis() - this.f30377g < 2000;
-                if (z && z2 && z3 && this.f30376f) {
+                boolean z = Math.abs(motionEvent.getX() - this.f30406h) < 51.0f;
+                boolean z2 = Math.abs(motionEvent.getY() - this.f30407i) < 51.0f;
+                boolean z3 = System.currentTimeMillis() - this.f30405g < 2000;
+                if (z && z2 && z3 && this.f30404f) {
                     String str = null;
                     try {
                         str = a().toString();
-                        r rVar = this.f30375e.a.f30343b;
+                        r rVar = this.f30403e.a.f30371b;
                         if (rVar != null) {
                             rVar.a(str);
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
-                    b3 b3Var = this.f30375e;
-                    b3Var.a.f30345d = true;
-                    b3Var.a.f30346e = str;
+                    b3 b3Var = this.f30403e;
+                    b3Var.a.f30373d = true;
+                    b3Var.a.f30374e = str;
                     return false;
-                } else if (this.f30375e != null) {
+                } else if (this.f30403e != null) {
                     try {
                         String hashMap = a().toString();
-                        r rVar2 = this.f30375e.a.f30343b;
+                        r rVar2 = this.f30403e.a.f30371b;
                         if (rVar2 != null) {
                             rVar2.a(hashMap);
                         }

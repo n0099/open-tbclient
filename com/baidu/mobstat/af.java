@@ -21,7 +21,7 @@ public class af {
     public static volatile boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f36373b;
+    public static volatile boolean f36401b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -166,7 +166,7 @@ public class af {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f36373b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f36401b : invokeV.booleanValue;
     }
 
     public static boolean b() {
@@ -184,7 +184,7 @@ public class af {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            f36373b = true;
+            f36401b = true;
             am.a().a(str);
         }
     }

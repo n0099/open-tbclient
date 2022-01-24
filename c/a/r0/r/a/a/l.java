@@ -27,28 +27,28 @@ public abstract class l<E> extends j {
     public final Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f11670b;
+    public final Context f11812b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f11671c;
+    public final Handler f11813c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f11672d;
+    public final int f11814d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final n f11673e;
+    public final n f11815e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.r.a.c.f<String, q> f11674f;
+    public c.a.r0.r.a.c.f<String, q> f11816f;
 
     /* renamed from: g  reason: collision with root package name */
-    public r f11675g;
+    public r f11817g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f11676h;
+    public boolean f11818h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f11677i;
+    public boolean f11819i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public l(FragmentActivity fragmentActivity) {
@@ -95,7 +95,7 @@ public abstract class l<E> extends j {
     public void c() {
         r rVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (rVar = this.f11675g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (rVar = this.f11817g) == null) {
             return;
         }
         rVar.b();
@@ -103,28 +103,28 @@ public abstract class l<E> extends j {
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f11677i) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f11819i) {
             return;
         }
-        this.f11677i = true;
-        r rVar = this.f11675g;
+        this.f11819i = true;
+        r rVar = this.f11817g;
         if (rVar != null) {
             rVar.f();
-        } else if (!this.f11676h) {
+        } else if (!this.f11818h) {
             r i2 = i("(root)", true, false);
-            this.f11675g = i2;
-            if (i2 != null && !i2.f11712d) {
+            this.f11817g = i2;
+            if (i2 != null && !i2.f11854d) {
                 i2.f();
             }
         }
-        this.f11676h = true;
+        this.f11818h = true;
     }
 
     public void e(boolean z) {
         r rVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (rVar = this.f11675g) != null && this.f11677i) {
-            this.f11677i = false;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (rVar = this.f11817g) != null && this.f11819i) {
+            this.f11819i = false;
             if (z) {
                 rVar.e();
             } else {
@@ -138,13 +138,13 @@ public abstract class l<E> extends j {
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, str, fileDescriptor, printWriter, strArr) == null) {
             printWriter.print(str);
             printWriter.print("mLoadersStarted=");
-            printWriter.println(this.f11677i);
-            if (this.f11675g != null) {
+            printWriter.println(this.f11819i);
+            if (this.f11817g != null) {
                 printWriter.print(str);
                 printWriter.print("Loader Manager ");
-                printWriter.print(Integer.toHexString(System.identityHashCode(this.f11675g)));
+                printWriter.print(Integer.toHexString(System.identityHashCode(this.f11817g)));
                 printWriter.println(":");
-                r rVar = this.f11675g;
+                r rVar = this.f11817g;
                 rVar.h(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
             }
         }
@@ -153,7 +153,7 @@ public abstract class l<E> extends j {
     public n g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f11673e : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f11815e : (n) invokeV.objValue;
     }
 
     public Activity getActivity() {
@@ -165,29 +165,29 @@ public abstract class l<E> extends j {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f11670b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f11812b : (Context) invokeV.objValue;
     }
 
     public Handler h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f11671c : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f11813c : (Handler) invokeV.objValue;
     }
 
     public r i(String str, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (this.f11674f == null) {
-                this.f11674f = new c.a.r0.r.a.c.f<>();
+            if (this.f11816f == null) {
+                this.f11816f = new c.a.r0.r.a.c.f<>();
             }
-            r rVar = (r) this.f11674f.get(str);
+            r rVar = (r) this.f11816f.get(str);
             if (rVar != null) {
                 rVar.k(this);
                 return rVar;
             } else if (z2) {
                 r rVar2 = new r(str, this, z);
-                this.f11674f.put(str, rVar2);
+                this.f11816f.put(str, rVar2);
                 return rVar2;
             } else {
                 return rVar;
@@ -200,13 +200,13 @@ public abstract class l<E> extends j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            r rVar = this.f11675g;
+            r rVar = this.f11817g;
             if (rVar != null) {
                 return rVar;
             }
-            this.f11676h = true;
-            r i2 = i("(root)", this.f11677i, true);
-            this.f11675g = i2;
+            this.f11818h = true;
+            r i2 = i("(root)", this.f11819i, true);
+            this.f11817g = i2;
             return i2;
         }
         return (r) invokeV.objValue;
@@ -216,11 +216,11 @@ public abstract class l<E> extends j {
         c.a.r0.r.a.c.f<String, q> fVar;
         r rVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || (fVar = this.f11674f) == null || (rVar = (r) fVar.get(str)) == null || rVar.f11713e) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || (fVar = this.f11816f) == null || (rVar = (r) fVar.get(str)) == null || rVar.f11855e) {
             return;
         }
         rVar.b();
-        this.f11674f.remove(str);
+        this.f11816f.remove(str);
     }
 
     public void l(Fragment fragment) {
@@ -238,13 +238,13 @@ public abstract class l<E> extends j {
     public LayoutInflater n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? (LayoutInflater) this.f11670b.getSystemService("layout_inflater") : (LayoutInflater) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? (LayoutInflater) this.f11812b.getSystemService("layout_inflater") : (LayoutInflater) invokeV.objValue;
     }
 
     public int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f11672d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f11814d : invokeV.intValue;
     }
 
     public boolean p() {
@@ -275,7 +275,7 @@ public abstract class l<E> extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048596, this, fragment, intent, i2) == null) {
             if (i2 == -1) {
-                this.f11670b.startActivity(intent);
+                this.f11812b.startActivity(intent);
                 return;
             }
             throw new IllegalStateException("Starting activity with a requestCode requires a FragmentActivity host");
@@ -291,13 +291,13 @@ public abstract class l<E> extends j {
     public void u() {
         c.a.r0.r.a.c.f<String, q> fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (fVar = this.f11674f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (fVar = this.f11816f) == null) {
             return;
         }
         int size = fVar.size();
         r[] rVarArr = new r[size];
         for (int i2 = size - 1; i2 >= 0; i2--) {
-            rVarArr[i2] = (r) this.f11674f.k(i2);
+            rVarArr[i2] = (r) this.f11816f.k(i2);
         }
         for (int i3 = 0; i3 < size; i3++) {
             r rVar = rVarArr[i3];
@@ -309,7 +309,7 @@ public abstract class l<E> extends j {
     public void v(c.a.r0.r.a.c.f<String, q> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, fVar) == null) {
-            this.f11674f = fVar;
+            this.f11816f = fVar;
         }
     }
 
@@ -317,29 +317,29 @@ public abstract class l<E> extends j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            c.a.r0.r.a.c.f<String, q> fVar = this.f11674f;
+            c.a.r0.r.a.c.f<String, q> fVar = this.f11816f;
             int i2 = 0;
             if (fVar != null) {
                 int size = fVar.size();
                 r[] rVarArr = new r[size];
                 for (int i3 = size - 1; i3 >= 0; i3--) {
-                    rVarArr[i3] = (r) this.f11674f.k(i3);
+                    rVarArr[i3] = (r) this.f11816f.k(i3);
                 }
                 int i4 = 0;
                 while (i2 < size) {
                     r rVar = rVarArr[i2];
-                    if (rVar.f11713e) {
+                    if (rVar.f11855e) {
                         i4 = 1;
                     } else {
                         rVar.b();
-                        this.f11674f.remove(rVar.f11711c);
+                        this.f11816f.remove(rVar.f11853c);
                     }
                     i2++;
                 }
                 i2 = i4;
             }
             if (i2 != 0) {
-                return this.f11674f;
+                return this.f11816f;
             }
             return null;
         }
@@ -361,10 +361,10 @@ public abstract class l<E> extends j {
                 return;
             }
         }
-        this.f11673e = new n();
+        this.f11815e = new n();
         this.a = activity;
-        this.f11670b = context;
-        this.f11671c = handler;
-        this.f11672d = i2;
+        this.f11812b = context;
+        this.f11813c = handler;
+        this.f11814d = i2;
     }
 }

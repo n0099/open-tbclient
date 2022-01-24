@@ -15,12 +15,12 @@ public class a implements c.a.p0.n.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f4739c;
+    public static a f4881c;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.p0.n.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f4740b;
+    public boolean f4882b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,21 +36,21 @@ public class a implements c.a.p0.n.a {
             }
         }
         this.a = null;
-        this.f4740b = false;
+        this.f4882b = false;
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f4739c == null) {
+            if (f4881c == null) {
                 synchronized (a.class) {
-                    if (f4739c == null) {
-                        f4739c = new a();
+                    if (f4881c == null) {
+                        f4881c = new a();
                     }
                 }
             }
-            return f4739c;
+            return f4881c;
         }
         return (a) invokeV.objValue;
     }
@@ -86,10 +86,10 @@ public class a implements c.a.p0.n.a {
             return;
         }
         try {
-            if (this.f4740b) {
+            if (this.f4882b) {
                 return;
             }
-            this.f4740b = true;
+            this.f4882b = true;
             int ordinal = com.baidu.sso.r.a.a(Build.MANUFACTURER).ordinal();
             if (ordinal == 0) {
                 aVar = null;

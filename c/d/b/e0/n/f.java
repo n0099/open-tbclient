@@ -15,10 +15,10 @@ public class f<T> {
     public final Class<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f27929b;
+    public final String f27957b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Class[] f27930c;
+    public final Class[] f27958c;
 
     public f(Class<?> cls, String str, Class... clsArr) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class f<T> {
             }
         }
         this.a = cls;
-        this.f27929b = str;
-        this.f27930c = clsArr;
+        this.f27957b = str;
+        this.f27958c = clsArr;
     }
 
     public static Method b(Class<?> cls, String str, Class[] clsArr) {
@@ -65,9 +65,9 @@ public class f<T> {
         Class<?> cls2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            String str = this.f27929b;
+            String str = this.f27957b;
             if (str != null) {
-                Method b2 = b(cls, str, this.f27930c);
+                Method b2 = b(cls, str, this.f27958c);
                 if (b2 == null || (cls2 = this.a) == null || cls2.isAssignableFrom(b2.getReturnType())) {
                     return b2;
                 }
@@ -92,7 +92,7 @@ public class f<T> {
                     throw assertionError;
                 }
             }
-            throw new AssertionError("Method " + this.f27929b + " not supported for object " + t);
+            throw new AssertionError("Method " + this.f27957b + " not supported for object " + t);
         }
         return invokeLL.objValue;
     }

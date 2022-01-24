@@ -6,7 +6,7 @@ import android.util.SparseArray;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import c.a.d.f.p.n;
-import c.a.t0.d1.d1;
+import c.a.t0.e1.d1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -25,22 +25,22 @@ public class ItemTableView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ItemTableRowView f43871e;
+    public ItemTableRowView f43899e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ItemTableRowView f43872f;
+    public ItemTableRowView f43900f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ItemTableRowView f43873g;
+    public ItemTableRowView f43901g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ItemTableRowView f43874h;
+    public ItemTableRowView f43902h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ItemTableRowView f43875i;
+    public ItemTableRowView f43903i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SparseArray<ItemTableRowView> f43876j;
+    public SparseArray<ItemTableRowView> f43904j;
 
     static {
         InterceptResult invokeClinit;
@@ -83,18 +83,18 @@ public class ItemTableView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            this.f43875i = b(context, 0, 0);
-            this.f43874h = b(context, 1, k);
-            this.f43873g = b(context, 2, k);
-            this.f43872f = b(context, 3, k);
-            this.f43871e = b(context, 4, k);
+            this.f43903i = b(context, 0, 0);
+            this.f43902h = b(context, 1, k);
+            this.f43901g = b(context, 2, k);
+            this.f43900f = b(context, 3, k);
+            this.f43899e = b(context, 4, k);
             SparseArray<ItemTableRowView> sparseArray = new SparseArray<>();
-            this.f43876j = sparseArray;
-            sparseArray.put(5, this.f43875i);
-            this.f43876j.put(4, this.f43874h);
-            this.f43876j.put(3, this.f43873g);
-            this.f43876j.put(2, this.f43872f);
-            this.f43876j.put(1, this.f43871e);
+            this.f43904j = sparseArray;
+            sparseArray.put(5, this.f43903i);
+            this.f43904j.put(4, this.f43902h);
+            this.f43904j.put(3, this.f43901g);
+            this.f43904j.put(2, this.f43900f);
+            this.f43904j.put(1, this.f43899e);
         }
     }
 
@@ -115,22 +115,22 @@ public class ItemTableView extends LinearLayout {
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f43871e.clear();
-            this.f43872f.clear();
-            this.f43873g.clear();
-            this.f43874h.clear();
-            this.f43875i.clear();
+            this.f43899e.clear();
+            this.f43900f.clear();
+            this.f43901g.clear();
+            this.f43902h.clear();
+            this.f43903i.clear();
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f43871e.onChangeSkinType();
-            this.f43872f.onChangeSkinType();
-            this.f43873g.onChangeSkinType();
-            this.f43874h.onChangeSkinType();
-            this.f43875i.onChangeSkinType();
+            this.f43899e.onChangeSkinType();
+            this.f43900f.onChangeSkinType();
+            this.f43901g.onChangeSkinType();
+            this.f43902h.onChangeSkinType();
+            this.f43903i.onChangeSkinType();
         }
     }
 
@@ -145,7 +145,7 @@ public class ItemTableView extends LinearLayout {
                 if (itemPlot != null) {
                     int intValue = itemPlot.level.intValue();
                     float intValue2 = (itemPlot.num.intValue() * 1.0f) / i2;
-                    ItemTableRowView itemTableRowView = this.f43876j.get(intValue);
+                    ItemTableRowView itemTableRowView = this.f43904j.get(intValue);
                     if (itemTableRowView != null) {
                         itemTableRowView.setData(intValue2);
                     }

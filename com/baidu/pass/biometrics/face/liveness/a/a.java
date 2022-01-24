@@ -13,10 +13,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f37542b = null;
+    public static a f37570b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f37543c = "request_data";
+    public static final String f37571c = "request_data";
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, PassBiometricDto> a;
 
@@ -40,10 +40,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f37542b == null) {
-                f37542b = new a();
+            if (f37570b == null) {
+                f37570b = new a();
             }
-            return f37542b;
+            return f37570b;
         }
         return (a) invokeV.objValue;
     }

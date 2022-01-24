@@ -12,7 +12,7 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f8025b;
+    public static final boolean f8167b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,9 +30,9 @@ public class a {
         }
         a = k.a;
         c.a.r0.a.c1.a.g0().getSwitch("swan_js_event_dispatch_opt", 0);
-        f8025b = false;
+        f8167b = false;
         if (a) {
-            String str = "swan_js_event_dispatch_opt - " + f8025b;
+            String str = "swan_js_event_dispatch_opt - " + f8167b;
         }
     }
 }

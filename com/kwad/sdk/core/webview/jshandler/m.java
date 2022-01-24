@@ -14,40 +14,40 @@ public class m implements com.kwad.sdk.core.webview.kwai.a {
     public static class a extends com.kwad.sdk.core.download.a.c {
 
         /* renamed from: b  reason: collision with root package name */
-        public c f56416b;
+        public c f56461b;
 
         public a(c cVar) {
-            this.f56416b = cVar;
+            this.f56461b = cVar;
         }
 
         @Override // com.kwad.sdk.core.download.a.c
         public void a(int i2) {
-            m.b(this.f56416b, 3, (i2 * 1.0f) / 100.0f);
+            m.b(this.f56461b, 3, (i2 * 1.0f) / 100.0f);
         }
 
         @Override // com.kwad.sdk.api.KsAppDownloadListener
         public void onDownloadFailed() {
-            m.b(this.f56416b, 1, 0.0f);
+            m.b(this.f56461b, 1, 0.0f);
         }
 
         @Override // com.kwad.sdk.api.KsAppDownloadListener
         public void onDownloadFinished() {
-            m.b(this.f56416b, 5, 1.0f);
+            m.b(this.f56461b, 5, 1.0f);
         }
 
         @Override // com.kwad.sdk.api.KsAppDownloadListener
         public void onIdle() {
-            m.b(this.f56416b, 1, 0.0f);
+            m.b(this.f56461b, 1, 0.0f);
         }
 
         @Override // com.kwad.sdk.api.KsAppDownloadListener
         public void onInstalled() {
-            m.b(this.f56416b, 6, 1.0f);
+            m.b(this.f56461b, 6, 1.0f);
         }
 
         @Override // com.kwad.sdk.api.KsAppDownloadListener
         public void onProgressUpdate(int i2) {
-            m.b(this.f56416b, 2, (i2 * 1.0f) / 100.0f);
+            m.b(this.f56461b, 2, (i2 * 1.0f) / 100.0f);
         }
     }
 
@@ -61,35 +61,35 @@ public class m implements com.kwad.sdk.core.webview.kwai.a {
         public com.kwad.sdk.core.webview.kwai.c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.kwad.sdk.core.download.a.b f56417b;
+        public com.kwad.sdk.core.download.a.b f56462b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AdTemplate f56418c;
+        public AdTemplate f56463c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f56419d;
+        public a f56464d;
 
         public c(com.kwad.sdk.core.download.a.b bVar, AdTemplate adTemplate) {
-            this.f56417b = bVar;
-            this.f56418c = adTemplate;
+            this.f56462b = bVar;
+            this.f56463c = adTemplate;
         }
 
         public void a() {
             a aVar;
-            com.kwad.sdk.core.download.a.b bVar = this.f56417b;
-            if (bVar == null || (aVar = this.f56419d) == null) {
+            com.kwad.sdk.core.download.a.b bVar = this.f56462b;
+            if (bVar == null || (aVar = this.f56464d) == null) {
                 return;
             }
             bVar.b(aVar);
         }
 
         public void a(a aVar) {
-            this.f56417b.a(aVar);
-            this.f56419d = aVar;
+            this.f56462b.a(aVar);
+            this.f56464d = aVar;
         }
 
         public long b() {
-            AdTemplate adTemplate = this.f56418c;
+            AdTemplate adTemplate = this.f56463c;
             if (adTemplate == null) {
                 return -1L;
             }
@@ -127,9 +127,9 @@ public class m implements com.kwad.sdk.core.webview.kwai.a {
         com.kwad.sdk.core.webview.kwai.c cVar2 = cVar.a;
         t.a aVar = new t.a();
         aVar.a = f2;
-        aVar.f56445b = i2;
-        aVar.f56447d = cVar.b();
-        aVar.f56446c = com.kwad.sdk.core.response.a.d.j(cVar.f56418c).totalBytes;
+        aVar.f56490b = i2;
+        aVar.f56492d = cVar.b();
+        aVar.f56491c = com.kwad.sdk.core.response.a.d.j(cVar.f56463c).totalBytes;
         cVar2.a(aVar);
     }
 

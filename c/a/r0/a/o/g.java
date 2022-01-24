@@ -25,12 +25,12 @@ public class g implements c.a.r0.h.i.m.g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ViewGroup.LayoutParams f8003c;
+    public static final ViewGroup.LayoutParams f8145c;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.a.h0.g.f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f8004b;
+    public FrameLayout f8146b;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class g implements c.a.r0.h.i.m.g {
                 return;
             }
         }
-        f8003c = new FrameLayout.LayoutParams(-1, -1);
+        f8145c = new FrameLayout.LayoutParams(-1, -1);
     }
 
     public g() {
@@ -78,7 +78,7 @@ public class g implements c.a.r0.h.i.m.g {
             c.a.r0.a.m1.b e2 = c.a.r0.a.m1.b.e(str, str);
             e2.i(jSONObject.toString());
             g.b i2 = V.i("adLanding");
-            i2.n(c.a.r0.a.h0.g.g.f6399g, c.a.r0.a.h0.g.g.f6401i);
+            i2.n(c.a.r0.a.h0.g.g.f6541g, c.a.r0.a.h0.g.g.f6543i);
             i2.k("adLanding", e2).b();
         }
     }
@@ -131,15 +131,15 @@ public class g implements c.a.r0.h.i.m.g {
                 }
             }
             SwanAppInlineFullScreenContainer swanAppInlineFullScreenContainer = new SwanAppInlineFullScreenContainer(activity);
-            this.f8004b = swanAppInlineFullScreenContainer;
-            swanAppInlineFullScreenContainer.addView(view, f8003c);
+            this.f8146b = swanAppInlineFullScreenContainer;
+            swanAppInlineFullScreenContainer.addView(view, f8145c);
             c.a.r0.a.c2.b.c.a floatLayer = o.getFloatLayer();
             if (floatLayer == null) {
                 return false;
             }
             floatLayer.m(true);
             n0.b(activity);
-            floatLayer.n(this.f8004b);
+            floatLayer.n(this.f8146b);
             return true;
         }
         return invokeLL.booleanValue;
@@ -168,7 +168,7 @@ public class g implements c.a.r0.h.i.m.g {
         c.a.r0.a.c2.b.c.a floatLayer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view)) == null) {
-            this.f8004b.removeAllViews();
+            this.f8146b.removeAllViews();
             c.a.r0.a.h0.g.f fVar = this.a;
             if (fVar == null || (floatLayer = fVar.getFloatLayer()) == null) {
                 return false;

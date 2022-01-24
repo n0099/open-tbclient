@@ -21,10 +21,10 @@ public class c extends d0 {
     public final Set<Ssp> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<l> f28370b;
+    public final Set<l> f28398b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<j> f28371c;
+    public final Set<j> f28399c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(int i2, ObjectInput objectInput) {
@@ -61,7 +61,7 @@ public class c extends d0 {
             hashSet3.add(new l(objectInput.readInt(), objectInput, hashMap));
         }
         this.a = Collections.unmodifiableSet(hashSet2);
-        this.f28370b = Collections.unmodifiableSet(hashSet3);
+        this.f28398b = Collections.unmodifiableSet(hashSet3);
         if (i2 == 1) {
             int readInt3 = objectInput.readInt();
             hashSet = new HashSet(readInt3);
@@ -71,7 +71,7 @@ public class c extends d0 {
         } else {
             hashSet = new HashSet();
         }
-        this.f28371c = Collections.unmodifiableSet(hashSet);
+        this.f28399c = Collections.unmodifiableSet(hashSet);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -93,8 +93,8 @@ public class c extends d0 {
             }
         }
         this.a = set;
-        this.f28370b = set2;
-        this.f28371c = set3;
+        this.f28398b = set2;
+        this.f28399c = set3;
     }
 
     public boolean equals(Object obj) {
@@ -108,7 +108,7 @@ public class c extends d0 {
                 return false;
             }
             c cVar = (c) obj;
-            return Objects.equals(this.a, cVar.a) && Objects.equals(this.f28370b, cVar.f28370b);
+            return Objects.equals(this.a, cVar.a) && Objects.equals(this.f28398b, cVar.f28398b);
         }
         return invokeL.booleanValue;
     }
@@ -116,7 +116,7 @@ public class c extends d0 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.f28370b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.f28398b) : invokeV.intValue;
     }
 
     @Override // c.g.d0
@@ -127,12 +127,12 @@ public class c extends d0 {
             for (Ssp ssp : this.a) {
                 ssp.srzable(objectOutput);
             }
-            objectOutput.writeInt(this.f28370b.size());
-            for (l lVar : this.f28370b) {
+            objectOutput.writeInt(this.f28398b.size());
+            for (l lVar : this.f28398b) {
                 lVar.srzable(objectOutput);
             }
-            objectOutput.writeInt(this.f28371c.size());
-            for (j jVar : this.f28371c) {
+            objectOutput.writeInt(this.f28399c.size());
+            for (j jVar : this.f28399c) {
                 jVar.srzable(objectOutput);
             }
         }

@@ -17,7 +17,7 @@ public class v5 implements b4 {
     public final /* synthetic */ Bitmap.CompressFormat a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d1 f30503b;
+    public final /* synthetic */ d1 f30531b;
 
     public v5(d1 d1Var, Bitmap.CompressFormat compressFormat) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class v5 implements b4 {
                 return;
             }
         }
-        this.f30503b = d1Var;
+        this.f30531b = d1Var;
         this.a = compressFormat;
     }
 
@@ -49,17 +49,17 @@ public class v5 implements b4 {
     public void a(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-            d1 d1Var = this.f30503b;
-            if (!d1Var.f30309j) {
-                e1 e1Var = d1Var.f30304e;
+            d1 d1Var = this.f30531b;
+            if (!d1Var.f30337j) {
+                e1 e1Var = d1Var.f30332e;
                 if (e1Var != null) {
-                    d1Var.f30302c = bitmap;
+                    d1Var.f30330c = bitmap;
                     e1Var.onLoaded();
-                    d1.i(this.f30503b, true);
+                    d1.i(this.f30531b, true);
                 }
             } else if (d1Var.l.exists()) {
             } else {
-                File file = this.f30503b.l;
+                File file = this.f30531b.l;
                 r5 r5Var = new r5(this);
                 Bitmap.CompressFormat compressFormat = this.a;
                 if (file.isDirectory()) {
@@ -91,10 +91,10 @@ public class v5 implements b4 {
         d1 d1Var;
         e1 e1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k0Var) == null) || (e1Var = (d1Var = this.f30503b).f30304e) == null || d1Var.f30309j) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k0Var) == null) || (e1Var = (d1Var = this.f30531b).f30332e) == null || d1Var.f30337j) {
             return;
         }
         e1Var.onFail(PBError.NO_RESUOURCE);
-        d1.i(this.f30503b, true);
+        d1.i(this.f30531b, true);
     }
 }

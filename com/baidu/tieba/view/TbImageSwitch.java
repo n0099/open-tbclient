@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,22 +32,22 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
     public final c C;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49215e;
+    public int f49234e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49216f;
+    public int f49235f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f49217g;
+    public boolean f49236g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f49218h;
+    public float f49237h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f49219i;
+    public float f49238i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f49220j;
+    public int f49239j;
     public int k;
     public int l;
     public boolean m;
@@ -65,7 +65,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
     public e y;
     public f z;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
                 this.a.l %= this.a.w.getCount();
                 this.a.w.b(this.a.l);
                 this.a.w.a(this.a.A[0], this.a.l % this.a.w.getCount());
-                this.a.f49217g = false;
+                this.a.f49236g = false;
             }
         }
 
@@ -124,7 +124,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface b {
         void a(View view, int i2);
 
@@ -135,7 +135,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         int getCount();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface c {
         void onAnimationCancel(Animator animator);
 
@@ -146,50 +146,50 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         void onAnimationStart(Animator animator);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public AnimatorSet f49221b;
+        public AnimatorSet f49240b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<Animator> f49222c;
+        public final List<Animator> f49241c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c f49223d;
+        public c f49242d;
 
         /* renamed from: e  reason: collision with root package name */
-        public PropertyValuesHolder f49224e;
+        public PropertyValuesHolder f49243e;
 
         /* renamed from: f  reason: collision with root package name */
-        public PropertyValuesHolder f49225f;
+        public PropertyValuesHolder f49244f;
 
         /* renamed from: g  reason: collision with root package name */
-        public PropertyValuesHolder f49226g;
+        public PropertyValuesHolder f49245g;
 
         /* renamed from: h  reason: collision with root package name */
-        public PropertyValuesHolder f49227h;
+        public PropertyValuesHolder f49246h;
 
         /* renamed from: i  reason: collision with root package name */
-        public PropertyValuesHolder f49228i;
+        public PropertyValuesHolder f49247i;
 
         /* renamed from: j  reason: collision with root package name */
-        public PropertyValuesHolder f49229j;
+        public PropertyValuesHolder f49248j;
         public PropertyValuesHolder k;
         public PropertyValuesHolder l;
         public PropertyValuesHolder m;
         public final Animator.AnimatorListener n;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes13.dex */
         public class a implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f49230e;
+            public final /* synthetic */ d f49249e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -206,26 +206,26 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
                         return;
                     }
                 }
-                this.f49230e = dVar;
+                this.f49249e = dVar;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f49230e.f49223d == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f49249e.f49242d == null) {
                     return;
                 }
-                this.f49230e.f49223d.onAnimationCancel(animator);
+                this.f49249e.f49242d.onAnimationCancel(animator);
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    this.f49230e.f49222c.clear();
-                    this.f49230e.f49221b = null;
-                    if (this.f49230e.f49223d != null) {
-                        this.f49230e.f49223d.onAnimationEnd(animator);
+                    this.f49249e.f49241c.clear();
+                    this.f49249e.f49240b = null;
+                    if (this.f49249e.f49242d != null) {
+                        this.f49249e.f49242d.onAnimationEnd(animator);
                     }
                 }
             }
@@ -233,19 +233,19 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || this.f49230e.f49223d == null) {
+                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || this.f49249e.f49242d == null) {
                     return;
                 }
-                this.f49230e.f49223d.onAnimationRepeat(animator);
+                this.f49249e.f49242d.onAnimationRepeat(animator);
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || this.f49230e.f49223d == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || this.f49249e.f49242d == null) {
                     return;
                 }
-                this.f49230e.f49223d.onAnimationStart(animator);
+                this.f49249e.f49242d.onAnimationStart(animator);
             }
         }
 
@@ -265,7 +265,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
                 }
             }
             this.n = new a(this);
-            this.f49222c = new ArrayList();
+            this.f49241c = new ArrayList();
             e(i2, i3, f2, f3);
         }
 
@@ -275,28 +275,28 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
                 return;
             }
             AnimatorSet animatorSet = new AnimatorSet();
-            this.f49221b = animatorSet;
+            this.f49240b = animatorSet;
             animatorSet.setDuration(i2);
-            this.f49221b.addListener(this.n);
-            List<Animator> list = this.f49222c;
+            this.f49240b.addListener(this.n);
+            List<Animator> list = this.f49241c;
             View[] viewArr = this.a;
-            list.add(ObjectAnimator.ofPropertyValuesHolder(viewArr[viewArr.length - 1], this.f49224e, this.f49225f, this.f49226g, this.f49227h));
+            list.add(ObjectAnimator.ofPropertyValuesHolder(viewArr[viewArr.length - 1], this.f49243e, this.f49244f, this.f49245g, this.f49246h));
             for (int length = this.a.length - 2; length >= 0; length--) {
-                this.f49222c.add(ObjectAnimator.ofPropertyValuesHolder(this.a[length], this.f49228i));
+                this.f49241c.add(ObjectAnimator.ofPropertyValuesHolder(this.a[length], this.f49247i));
             }
-            this.f49222c.add(ObjectAnimator.ofPropertyValuesHolder(this.a[0], this.f49229j, this.k, this.l, this.m));
+            this.f49241c.add(ObjectAnimator.ofPropertyValuesHolder(this.a[0], this.f49248j, this.k, this.l, this.m));
         }
 
         public final void e(int i2, int i3, float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                this.f49224e = PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_X, -i2);
-                this.f49225f = PropertyValuesHolder.ofFloat(AnimationProperty.OPACITY, f2);
-                this.f49226g = PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, f3);
-                this.f49227h = PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, f3);
+                this.f49243e = PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_X, -i2);
+                this.f49244f = PropertyValuesHolder.ofFloat(AnimationProperty.OPACITY, f2);
+                this.f49245g = PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, f3);
+                this.f49246h = PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, f3);
                 float f4 = -i3;
-                this.f49228i = PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_X, f4);
-                this.f49229j = PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_X, f4);
+                this.f49247i = PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_X, f4);
+                this.f49248j = PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_X, f4);
                 this.k = PropertyValuesHolder.ofFloat(AnimationProperty.OPACITY, 1.0f);
                 this.l = PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 1.0f);
                 this.m = PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 1.0f);
@@ -306,7 +306,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         public void f(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-                this.f49223d = cVar;
+                this.f49242d = cVar;
             }
         }
 
@@ -320,21 +320,21 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         public void h() {
             AnimatorSet animatorSet;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (animatorSet = this.f49221b) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (animatorSet = this.f49240b) == null) {
                 return;
             }
-            animatorSet.playTogether(this.f49222c);
-            this.f49221b.start();
+            animatorSet.playTogether(this.f49241c);
+            this.f49240b.start();
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class e extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<f> f49231e;
+        public WeakReference<f> f49250e;
 
         public e(f fVar) {
             Interceptable interceptable = $ic;
@@ -351,19 +351,19 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
                     return;
                 }
             }
-            this.f49231e = new WeakReference<>(fVar);
+            this.f49250e = new WeakReference<>(fVar);
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49231e.get().sendEmptyMessage(1);
+                this.f49250e.get().sendEmptyMessage(1);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class f extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -443,13 +443,13 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
     public final void i() {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f49217g || (dVar = this.B) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f49236g || (dVar = this.B) == null) {
             return;
         }
-        this.f49217g = true;
+        this.f49236g = true;
         dVar.g(this.A);
         this.B.f(this.C);
-        this.B.d(this.f49216f);
+        this.B.d(this.f49235f);
         this.B.h();
     }
 
@@ -507,9 +507,9 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
                 childAt.layout(i3 - ((i4 - i5) * i2), this.o, this.p - ((i4 - i5) * i2), this.q);
                 if (this.v > this.u) {
                     if (i2 == 0) {
-                        childAt.setAlpha(this.f49218h);
-                        childAt.setScaleX(this.f49219i);
-                        childAt.setScaleY(this.f49219i);
+                        childAt.setAlpha(this.f49237h);
+                        childAt.setScaleX(this.f49238i);
+                        childAt.setScaleY(this.f49238i);
                     } else {
                         childAt.setAlpha(1.0f);
                         childAt.setScaleX(1.0f);
@@ -525,7 +525,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             View[] viewArr = this.A;
-            int i2 = this.f49215e;
+            int i2 = this.f49234e;
             View view = viewArr[i2 - 1];
             System.arraycopy(viewArr, 0, viewArr, 1, i2 - 1);
             this.A[0] = view;
@@ -580,7 +580,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
             return;
         }
         l();
-        this.x.schedule(this.y, this.k, this.f49220j);
+        this.x.schedule(this.y, this.k, this.f49239j);
     }
 
     @Override // android.view.View.OnAttachStateChangeListener
@@ -626,16 +626,16 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
             this.v = count;
             if (count > this.u && this.B == null) {
                 int i7 = this.s;
-                this.B = new d(i7 / 2, i7 - this.r, this.f49218h, this.f49219i);
+                this.B = new d(i7 / 2, i7 - this.r, this.f49237h, this.f49238i);
             }
             int i8 = this.v;
             int i9 = this.u;
             if (i8 > i9) {
                 i8 = i9 + 1;
             }
-            this.f49215e = i8;
+            this.f49234e = i8;
             this.A = new View[i8];
-            for (int i10 = 0; i10 < this.f49215e; i10++) {
+            for (int i10 = 0; i10 < this.f49234e; i10++) {
                 View c2 = this.w.c();
                 this.A[i10] = c2;
                 addView(c2);
@@ -673,14 +673,14 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
     public void setAlpha(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048590, this, f2) == null) {
-            this.f49218h = f2;
+            this.f49237h = f2;
         }
     }
 
     public void setAnimationDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f49216f = i2 * 1000;
+            this.f49235f = i2 * 1000;
         }
     }
 
@@ -694,14 +694,14 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
     public void setCarouselPeriod(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f49220j = i2 * 1000;
+            this.f49239j = i2 * 1000;
         }
     }
 
     public void setScale(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-            this.f49219i = f2;
+            this.f49238i = f2;
         }
     }
 
@@ -745,12 +745,12 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
                 return;
             }
         }
-        this.f49215e = 3;
-        this.f49216f = 3000;
-        this.f49217g = false;
-        this.f49218h = 0.0f;
-        this.f49219i = 0.2f;
-        this.f49220j = 3000;
+        this.f49234e = 3;
+        this.f49235f = 3000;
+        this.f49236g = false;
+        this.f49237h = 0.0f;
+        this.f49238i = 0.2f;
+        this.f49239j = 3000;
         this.k = 3000;
         this.l = 3;
         this.m = true;

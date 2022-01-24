@@ -17,13 +17,13 @@ public class n extends t {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28354b;
+    public boolean f28382b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ KsNativeAd f28355c;
+    public final /* synthetic */ KsNativeAd f28383c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ m f28356d;
+    public final /* synthetic */ m f28384d;
 
     public n(m mVar, KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class n extends t {
                 return;
             }
         }
-        this.f28356d = mVar;
-        this.f28355c = ksNativeAd;
+        this.f28384d = mVar;
+        this.f28383c = ksNativeAd;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
@@ -59,8 +59,8 @@ public class n extends t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, ksNativeAd) == null) {
             LogPrinter.d();
-            this.f28356d.onAdClicked(this.f28354b);
-            this.f28354b = true;
+            this.f28384d.onAdClicked(this.f28382b);
+            this.f28382b = true;
         }
     }
 
@@ -69,7 +69,7 @@ public class n extends t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
             LogPrinter.d();
-            this.f28356d.onAdShow(this.f28355c, this.a);
+            this.f28384d.onAdShow(this.f28383c, this.a);
             this.a = true;
         }
     }

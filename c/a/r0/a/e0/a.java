@@ -19,14 +19,14 @@ public class a {
 
     /* renamed from: c.a.r0.a.e0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class DialogInterface$OnClickListenerC0296a implements DialogInterface.OnClickListener {
+    public static class DialogInterface$OnClickListenerC0305a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f5583e;
+        public final /* synthetic */ c.a.r0.a.d2.e f5725e;
 
-        public DialogInterface$OnClickListenerC0296a(c.a.r0.a.d2.e eVar) {
+        public DialogInterface$OnClickListenerC0305a(c.a.r0.a.d2.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,14 +41,14 @@ public class a {
                     return;
                 }
             }
-            this.f5583e = eVar;
+            this.f5725e = eVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                SwanAppActivity x = this.f5583e.x();
+                SwanAppActivity x = this.f5725e.x();
                 if (x != null && Build.VERSION.SDK_INT >= 21) {
                     x.finishAndRemoveTask();
                 }
@@ -83,7 +83,7 @@ public class a {
         aVar.x(context.getString(i2));
         aVar.n(new c.a.r0.a.a3.h.a());
         aVar.m(false);
-        aVar.O(h.aiapps_confirm, new DialogInterface$OnClickListenerC0296a(L));
+        aVar.O(h.aiapps_confirm, new DialogInterface$OnClickListenerC0305a(L));
         aVar.X();
     }
 

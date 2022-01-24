@@ -2,7 +2,6 @@ package com.baidu.tieba.flutter.plugin;
 
 import androidx.annotation.NonNull;
 import com.baidu.tieba.flutter.plugin.audioPlay.AudioPlayPlugin;
-import com.baidu.tieba.flutter.plugin.commonPlatformView.CommonPlatformViewPlugin;
 import com.baidu.tieba.flutter.plugin.globalStateSync.globalStateSyncPlugin;
 import com.baidu.tieba.flutter.plugin.imageLoader.ImageLoaderPlugin;
 import com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerPlugin;
@@ -45,7 +44,6 @@ public class FlutterPluginInit {
         }
         flutterEngine.getPlugins().add(new NetworkInfoPlugin());
         flutterEngine.getPlugins().add(new AudioPlayPlugin());
-        flutterEngine.getPlugins().add(new CommonPlatformViewPlugin());
         flutterEngine.getPlugins().add(new globalStateSyncPlugin());
         flutterEngine.getPlugins().add(new ImageLoaderPlugin());
         flutterEngine.getPlugins().add(new ImagePickerPlugin());

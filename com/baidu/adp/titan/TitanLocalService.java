@@ -30,7 +30,7 @@ public class TitanLocalService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TitanLocalService f31252e;
+        public final /* synthetic */ TitanLocalService f31280e;
 
         public a(TitanLocalService titanLocalService) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class TitanLocalService extends Service {
                     return;
                 }
             }
-            this.f31252e = titanLocalService;
+            this.f31280e = titanLocalService;
         }
 
         @Override // android.content.ServiceConnection
@@ -61,10 +61,10 @@ public class TitanLocalService extends Service {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                Toast.makeText(this.f31252e, "链接断开，重新启动 RemoteService", 1).show();
+                Toast.makeText(this.f31280e, "链接断开，重新启动 RemoteService", 1).show();
                 String unused = TitanLocalService.TAG;
-                this.f31252e.startService(new Intent(this.f31252e, TitanDownloadService.class));
-                this.f31252e.bindService(new Intent(this.f31252e, TitanDownloadService.class), this.f31252e.connection, 64);
+                this.f31280e.startService(new Intent(this.f31280e, TitanDownloadService.class));
+                this.f31280e.bindService(new Intent(this.f31280e, TitanDownloadService.class), this.f31280e.connection, 64);
             }
         }
     }
@@ -75,7 +75,7 @@ public class TitanLocalService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TitanLocalService f31253e;
+        public final /* synthetic */ TitanLocalService f31281e;
 
         public b(TitanLocalService titanLocalService) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class TitanLocalService extends Service {
                     return;
                 }
             }
-            this.f31253e = titanLocalService;
+            this.f31281e = titanLocalService;
         }
     }
 

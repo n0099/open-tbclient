@@ -18,31 +18,31 @@ public class f {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3285b;
+    public int f3387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.d.n.f.a f3286c;
+    public c.a.d.n.f.a f3388c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a f3287d;
+    public c.a f3389d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f3288e;
+    public boolean f3390e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f3289f;
+    public b f3391f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3290g;
+    public int f3392g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f3291h;
+    public View f3393h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f3292i;
+    public Handler f3394i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Runnable f3293j;
+    public Runnable f3395j;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -50,7 +50,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f3294e;
+        public final /* synthetic */ f f3396e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -67,14 +67,14 @@ public class f {
                     return;
                 }
             }
-            this.f3294e = fVar;
+            this.f3396e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f3294e.f3289f) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f3396e.f3391f) == null) {
                 return;
             }
             bVar.b();
@@ -87,13 +87,13 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f3295e;
+        public int f3397e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Scroller f3296f;
+        public Scroller f3398f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f3297g;
+        public final /* synthetic */ f f3399g;
 
         public b(f fVar, Context context) {
             Interceptable interceptable = $ic;
@@ -110,26 +110,26 @@ public class f {
                     return;
                 }
             }
-            this.f3297g = fVar;
-            this.f3296f = new Scroller(context);
+            this.f3399g = fVar;
+            this.f3398f = new Scroller(context);
         }
 
         public final void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f fVar = this.f3297g;
-                fVar.f3292i.removeCallbacks(fVar.f3293j);
-                Scroller scroller = this.f3296f;
+                f fVar = this.f3399g;
+                fVar.f3394i.removeCallbacks(fVar.f3395j);
+                Scroller scroller = this.f3398f;
                 if (scroller != null) {
                     scroller.abortAnimation();
-                    this.f3296f.forceFinished(true);
+                    this.f3398f.forceFinished(true);
                 }
-                View view = this.f3297g.f3291h;
+                View view = this.f3399g.f3393h;
                 if (view != null) {
                     view.removeCallbacks(this);
                 }
-                if (this.f3297g.f3286c != null) {
-                    this.f3297g.f3286c.onOver();
+                if (this.f3399g.f3388c != null) {
+                    this.f3399g.f3388c.onOver();
                 }
             }
         }
@@ -137,12 +137,12 @@ public class f {
         public final void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                f fVar = this.f3297g;
-                Handler handler = fVar.f3292i;
+                f fVar = this.f3399g;
+                Handler handler = fVar.f3394i;
                 if (handler != null) {
-                    handler.removeCallbacks(fVar.f3293j);
+                    handler.removeCallbacks(fVar.f3395j);
                 }
-                View view = this.f3297g.f3291h;
+                View view = this.f3399g.f3393h;
                 if (view != null) {
                     view.removeCallbacks(this);
                 }
@@ -151,48 +151,48 @@ public class f {
 
         public void d(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || this.f3297g.f3291h == null || this.f3296f == null) {
+            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || this.f3399g.f3393h == null || this.f3398f == null) {
                 return;
             }
             if (i2 == 0) {
                 i2--;
             }
             c();
-            this.f3295e = 0;
-            this.f3296f.startScroll(0, 0, 0, i2, i3);
-            this.f3297g.f3291h.post(this);
+            this.f3397e = 0;
+            this.f3398f.startScroll(0, 0, 0, i2, i3);
+            this.f3399g.f3393h.post(this);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Scroller scroller;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f3297g.f3291h == null || (scroller = this.f3296f) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f3399g.f3393h == null || (scroller = this.f3398f) == null) {
                 return;
             }
             boolean computeScrollOffset = scroller.computeScrollOffset();
             boolean z = false;
-            if (this.f3296f.timePassed() >= this.f3297g.f3290g) {
+            if (this.f3398f.timePassed() >= this.f3399g.f3392g) {
                 computeScrollOffset = false;
             }
-            int currY = this.f3296f.getCurrY();
-            int i2 = currY - this.f3295e;
+            int currY = this.f3398f.getCurrY();
+            int i2 = currY - this.f3397e;
             boolean z2 = true;
             if (computeScrollOffset) {
                 if (i2 != 0) {
-                    z = !this.f3297g.c(i2);
-                    this.f3295e = currY;
+                    z = !this.f3399g.c(i2);
+                    this.f3397e = currY;
                 }
                 if (!z) {
-                    this.f3297g.f3291h.post(this);
+                    this.f3399g.f3393h.post(this);
                 }
                 z2 = z;
             }
             if (z2) {
-                f fVar = this.f3297g;
-                fVar.f3292i.removeCallbacks(fVar.f3293j);
-                f fVar2 = this.f3297g;
-                fVar2.f3292i.post(fVar2.f3293j);
+                f fVar = this.f3399g;
+                fVar.f3394i.removeCallbacks(fVar.f3395j);
+                f fVar2 = this.f3399g;
+                fVar2.f3394i.post(fVar2.f3395j);
             }
         }
     }
@@ -213,16 +213,16 @@ public class f {
             }
         }
         this.a = 1;
-        this.f3288e = true;
-        this.f3292i = new Handler();
-        this.f3293j = new a(this);
+        this.f3390e = true;
+        this.f3394i = new Handler();
+        this.f3395j = new a(this);
         int abs = Math.abs(i2 - i3);
-        this.f3285b = i3;
+        this.f3387b = i3;
         if (abs < this.a) {
-            this.f3288e = false;
+            this.f3390e = false;
         }
-        this.f3289f = new b(this, context);
-        this.f3290g = i4;
+        this.f3391f = new b(this, context);
+        this.f3392g = i4;
     }
 
     public final boolean c(int i2) {
@@ -230,19 +230,19 @@ public class f {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            int paddingTop = this.f3291h.getPaddingTop() - Math.abs(i2);
-            int i3 = this.f3285b;
+            int paddingTop = this.f3393h.getPaddingTop() - Math.abs(i2);
+            int i3 = this.f3387b;
             if (paddingTop <= i3) {
                 paddingTop = i3;
                 z = false;
             } else {
                 z = true;
             }
-            View view = this.f3291h;
-            view.setPadding(view.getPaddingLeft(), paddingTop, this.f3291h.getPaddingRight(), this.f3291h.getPaddingBottom());
-            c.a aVar = this.f3287d;
+            View view = this.f3393h;
+            view.setPadding(view.getPaddingLeft(), paddingTop, this.f3393h.getPaddingRight(), this.f3393h.getPaddingBottom());
+            c.a aVar = this.f3389d;
             if (aVar != null) {
-                aVar.a(null, this.f3291h.getPaddingLeft(), this.f3291h.getPaddingRight(), this.f3291h.getPaddingTop() - this.f3285b, this.f3291h.getPaddingBottom());
+                aVar.a(null, this.f3393h.getPaddingLeft(), this.f3393h.getPaddingRight(), this.f3393h.getPaddingTop() - this.f3387b, this.f3393h.getPaddingBottom());
             }
             return z;
         }
@@ -252,24 +252,24 @@ public class f {
     public void d(c.a.d.n.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f3286c = aVar;
+            this.f3388c = aVar;
         }
     }
 
     public void e(c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f3287d = aVar;
+            this.f3389d = aVar;
         }
     }
 
     public void f(View view) {
         b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && this.f3288e && (bVar = this.f3289f) != null) {
-            this.f3291h = view;
-            bVar.d(Math.abs(this.f3285b), this.f3290g);
-            this.f3292i.postDelayed(this.f3293j, this.f3290g);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && this.f3390e && (bVar = this.f3391f) != null) {
+            this.f3393h = view;
+            bVar.d(Math.abs(this.f3387b), this.f3392g);
+            this.f3394i.postDelayed(this.f3395j, this.f3392g);
         }
     }
 }

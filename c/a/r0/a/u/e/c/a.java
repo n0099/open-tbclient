@@ -11,7 +11,7 @@ public abstract class a {
 
     /* renamed from: c.a.r0.a.u.e.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0564a {
+    public interface InterfaceC0573a {
         void a();
 
         void b(int i2);
@@ -31,7 +31,7 @@ public abstract class a {
         }
     }
 
-    public abstract void b(InterfaceC0564a interfaceC0564a);
+    public abstract void b(InterfaceC0573a interfaceC0573a);
 
     public abstract void c(int i2);
 }

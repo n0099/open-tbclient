@@ -19,20 +19,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f13270b;
+    public static a f13456b;
     public transient /* synthetic */ FieldHolder $fh;
     public Runnable a;
 
     /* renamed from: c.a.s0.s.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0881a implements Runnable {
+    public class RunnableC0890a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13271e;
+        public final /* synthetic */ a f13457e;
 
-        public RunnableC0881a(a aVar) {
+        public RunnableC0890a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,14 +47,14 @@ public class a {
                     return;
                 }
             }
-            this.f13271e = aVar;
+            this.f13457e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13271e.d(0);
+                this.f13457e.d(0);
             }
         }
     }
@@ -72,21 +72,21 @@ public class a {
                 return;
             }
         }
-        this.a = new RunnableC0881a(this);
+        this.a = new RunnableC0890a(this);
     }
 
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f13270b == null) {
+            if (f13456b == null) {
                 synchronized (a.class) {
-                    if (f13270b == null) {
-                        f13270b = new a();
+                    if (f13456b == null) {
+                        f13456b = new a();
                     }
                 }
             }
-            return f13270b;
+            return f13456b;
         }
         return (a) invokeV.objValue;
     }

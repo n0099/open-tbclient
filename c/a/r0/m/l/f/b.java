@@ -22,10 +22,10 @@ public class b {
         public final /* synthetic */ c.a.r0.a.i1.c.h.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.m.o.c f11358b;
+        public final /* synthetic */ c.a.r0.m.o.c f11500b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.m.m.b f11359c;
+        public final /* synthetic */ c.a.r0.m.m.b f11501c;
 
         public a(c.a.r0.a.i1.c.h.b bVar, c.a.r0.m.o.c cVar, c.a.r0.m.m.b bVar2) {
             Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class b {
                 }
             }
             this.a = bVar;
-            this.f11358b = cVar;
-            this.f11359c = bVar2;
+            this.f11500b = cVar;
+            this.f11501c = bVar2;
         }
 
         @Override // c.a.r0.a.z2.t.b
@@ -55,11 +55,11 @@ public class b {
                     c.a.r0.a.e0.d.o("map", " icon is null ");
                 }
                 if (bitmap != null) {
-                    int i2 = this.a.f7213h.f7242g;
+                    int i2 = this.a.f7355h.f7384g;
                     if (i2 == -1) {
                         i2 = bitmap.getWidth();
                     }
-                    int i3 = this.a.f7213h.f7243h;
+                    int i3 = this.a.f7355h.f7385h;
                     if (i3 == -1) {
                         i3 = bitmap.getHeight();
                     }
@@ -68,18 +68,18 @@ public class b {
                     builder.width(i2);
                     builder.height(i3);
                     builder.align(1, 8);
-                    c.a.r0.a.i1.c.h.g gVar = this.a.f7213h;
-                    builder.point(new Point(gVar.f7240e, gVar.f7241f));
+                    c.a.r0.a.i1.c.h.g gVar = this.a.f7355h;
+                    builder.point(new Point(gVar.f7382e, gVar.f7383f));
                     ImageView imageView = new ImageView(AppRuntime.getAppContext());
                     imageView.setImageBitmap(bitmap);
                     imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    this.f11358b.l.addView(imageView, builder.build());
-                    imageView.setOnClickListener(this.f11359c);
-                    imageView.setClickable(this.a.f7212g);
+                    this.f11500b.l.addView(imageView, builder.build());
+                    imageView.setOnClickListener(this.f11501c);
+                    imageView.setClickable(this.a.f7354g);
                     c.a.r0.m.o.a aVar = new c.a.r0.m.o.a();
                     aVar.a = this.a;
-                    aVar.f11375b = imageView;
-                    this.f11358b.o.add(aVar);
+                    aVar.f11517b = imageView;
+                    this.f11500b.o.add(aVar);
                 }
             }
         }
@@ -90,7 +90,7 @@ public class b {
         if (interceptable == null || interceptable.invokeLLL(65536, null, cVar, bVar, bVar2) == null) {
             c.a.r0.a.e0.d.i("map", "createControl start");
             if (bVar != null && bVar.isValid()) {
-                t.e(bVar.f7211f, new a(bVar, cVar, bVar2));
+                t.e(bVar.f7353f, new a(bVar, cVar, bVar2));
             }
             c.a.r0.a.e0.d.i("map", "createControl end");
         }

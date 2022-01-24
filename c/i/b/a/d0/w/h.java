@@ -31,9 +31,9 @@ public final class h extends c.i.b.a.d0.u.l {
     public volatile boolean D;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f29290j;
+    public final int f29318j;
     public final int k;
-    public final a.C1659a l;
+    public final a.C1660a l;
     public final c.i.b.a.h0.e m;
     public final c.i.b.a.h0.g n;
     public final boolean o;
@@ -66,15 +66,15 @@ public final class h extends c.i.b.a.d0.u.l {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(f fVar, c.i.b.a.h0.e eVar, c.i.b.a.h0.g gVar, c.i.b.a.h0.g gVar2, a.C1659a c1659a, List<Format> list, int i2, Object obj, long j2, long j3, int i3, int i4, boolean z, s sVar, h hVar, DrmInitData drmInitData, byte[] bArr, byte[] bArr2) {
-        super(f(eVar, bArr, bArr2), gVar, c1659a.f29324b, i2, obj, j2, j3, i3);
+    public h(f fVar, c.i.b.a.h0.e eVar, c.i.b.a.h0.g gVar, c.i.b.a.h0.g gVar2, a.C1660a c1660a, List<Format> list, int i2, Object obj, long j2, long j3, int i3, int i4, boolean z, s sVar, h hVar, DrmInitData drmInitData, byte[] bArr, byte[] bArr2) {
+        super(f(eVar, bArr, bArr2), gVar, c1660a.f29352b, i2, obj, j2, j3, i3);
         c.i.b.a.h0.g gVar3;
         c.i.b.a.a0.e eVar2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {fVar, eVar, gVar, gVar2, c1659a, list, Integer.valueOf(i2), obj, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), sVar, hVar, drmInitData, bArr, bArr2};
+            Object[] objArr = {fVar, eVar, gVar, gVar2, c1660a, list, Integer.valueOf(i2), obj, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), sVar, hVar, drmInitData, bArr, bArr2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -88,13 +88,13 @@ public final class h extends c.i.b.a.d0.u.l {
         }
         this.k = i4;
         this.n = gVar2;
-        this.l = c1659a;
+        this.l = c1660a;
         this.p = z;
         this.q = sVar;
-        this.o = this.f29153h instanceof a;
+        this.o = this.f29181h instanceof a;
         boolean z2 = true;
         if (hVar != null) {
-            boolean z3 = hVar.l != c1659a;
+            boolean z3 = hVar.l != c1660a;
             this.r = z3;
             eVar2 = (hVar.k != i4 || z3) ? null : hVar.s;
             gVar3 = gVar;
@@ -103,7 +103,7 @@ public final class h extends c.i.b.a.d0.u.l {
             gVar3 = gVar;
             eVar2 = null;
         }
-        Pair<c.i.b.a.a0.e, Boolean> a = fVar.a(eVar2, gVar3.a, this.f29148c, list, drmInitData, sVar);
+        Pair<c.i.b.a.a0.e, Boolean> a = fVar.a(eVar2, gVar3.a, this.f29176c, list, drmInitData, sVar);
         this.s = (c.i.b.a.a0.e) a.first;
         this.t = ((Boolean) a.second).booleanValue();
         boolean z4 = this.s == eVar2;
@@ -117,7 +117,7 @@ public final class h extends c.i.b.a.d0.u.l {
             this.w = null;
         }
         this.m = eVar;
-        this.f29290j = E.getAndIncrement();
+        this.f29318j = E.getAndIncrement();
     }
 
     public static c.i.b.a.h0.e f(c.i.b.a.h0.e eVar, byte[] bArr, byte[] bArr2) {
@@ -159,7 +159,7 @@ public final class h extends c.i.b.a.d0.u.l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, lVar) == null) {
             this.x = lVar;
-            lVar.B(this.f29290j, this.r);
+            lVar.B(this.f29318j, this.r);
             if (this.u) {
                 return;
             }
@@ -192,13 +192,13 @@ public final class h extends c.i.b.a.d0.u.l {
                     if (this.p) {
                         this.q.j();
                     } else if (this.q.c() == Long.MAX_VALUE) {
-                        this.q.h(this.f29151f);
+                        this.q.h(this.f29179f);
                     }
-                    bVar = new c.i.b.a.a0.b(this.f29153h, b2.f29628c, this.f29153h.a(b2));
+                    bVar = new c.i.b.a.a0.b(this.f29181h, b2.f29656c, this.f29181h.a(b2));
                     if (this.t && !this.A) {
                         long j2 = j(bVar);
                         this.A = true;
-                        this.x.T(j2 == -9223372036854775807L ? this.q.b(j2) : this.f29151f);
+                        this.x.T(j2 == -9223372036854775807L ? this.q.b(j2) : this.f29179f);
                     }
                     if (z) {
                         bVar.h(this.z);
@@ -206,31 +206,31 @@ public final class h extends c.i.b.a.d0.u.l {
                     while (i2 == 0 && !this.C) {
                         i2 = this.s.e(bVar, null);
                     }
-                    this.z = (int) (bVar.getPosition() - this.a.f29628c);
-                    v.h(this.f29153h);
+                    this.z = (int) (bVar.getPosition() - this.a.f29656c);
+                    v.h(this.f29181h);
                     this.D = true;
                     return;
                 }
             } else {
                 b2 = this.a.b(this.z);
             }
-            bVar = new c.i.b.a.a0.b(this.f29153h, b2.f29628c, this.f29153h.a(b2));
+            bVar = new c.i.b.a.a0.b(this.f29181h, b2.f29656c, this.f29181h.a(b2));
             if (this.t) {
                 long j22 = j(bVar);
                 this.A = true;
-                this.x.T(j22 == -9223372036854775807L ? this.q.b(j22) : this.f29151f);
+                this.x.T(j22 == -9223372036854775807L ? this.q.b(j22) : this.f29179f);
             }
             if (z) {
             }
             while (i2 == 0) {
                 i2 = this.s.e(bVar, null);
             }
-            this.z = (int) (bVar.getPosition() - this.a.f29628c);
-            v.h(this.f29153h);
+            this.z = (int) (bVar.getPosition() - this.a.f29656c);
+            v.h(this.f29181h);
             this.D = true;
             return;
         } catch (Throwable th) {
-            v.h(this.f29153h);
+            v.h(this.f29181h);
             throw th;
         }
         z = false;
@@ -246,16 +246,16 @@ public final class h extends c.i.b.a.d0.u.l {
         }
         c.i.b.a.h0.g b2 = gVar.b(this.y);
         try {
-            c.i.b.a.a0.b bVar = new c.i.b.a.a0.b(this.m, b2.f29628c, this.m.a(b2));
+            c.i.b.a.a0.b bVar = new c.i.b.a.a0.b(this.m, b2.f29656c, this.m.a(b2));
             int i2 = 0;
             while (i2 == 0 && !this.C) {
                 i2 = this.s.e(bVar, null);
             }
-            this.y = (int) (bVar.getPosition() - this.n.f29628c);
-            v.h(this.f29153h);
+            this.y = (int) (bVar.getPosition() - this.n.f29656c);
+            v.h(this.f29181h);
             this.B = true;
         } catch (Throwable th) {
-            v.h(this.f29153h);
+            v.h(this.f29181h);
             throw th;
         }
     }
@@ -268,7 +268,7 @@ public final class h extends c.i.b.a.d0.u.l {
             fVar.e();
             if (fVar.d(this.w.a, 0, 10, true)) {
                 this.w.G(10);
-                if (this.w.A() != c.i.b.a.c0.g.a.f29002b) {
+                if (this.w.A() != c.i.b.a.c0.g.a.f29030b) {
                     return -9223372036854775807L;
                 }
                 this.w.K(3);

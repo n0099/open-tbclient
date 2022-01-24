@@ -16,14 +16,14 @@ import java.util.List;
 public class Presenter {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f57002b;
+    public View f57047b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f57003c;
+    public Object f57048c;
     public final List<Presenter> a = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public PresenterState f57004d = PresenterState.INIT;
+    public PresenterState f57049d = PresenterState.INIT;
 
     /* loaded from: classes3.dex */
     public enum PresenterState {
@@ -37,7 +37,7 @@ public class Presenter {
             public void performCallState(Presenter presenter) {
                 for (Presenter presenter2 : presenter.a) {
                     try {
-                        presenter2.c(presenter.f57002b);
+                        presenter2.c(presenter.f57047b);
                     } catch (Exception e2) {
                         a.a(e2);
                         com.kwad.sdk.core.d.a.a(e2);
@@ -50,7 +50,7 @@ public class Presenter {
             public void performCallState(Presenter presenter) {
                 for (Presenter presenter2 : presenter.a) {
                     try {
-                        presenter2.a(presenter.f57003c);
+                        presenter2.a(presenter.f57048c);
                     } catch (Exception e2) {
                         a.a(e2);
                         com.kwad.sdk.core.d.a.a(e2);
@@ -99,7 +99,7 @@ public class Presenter {
     }
 
     public final <T extends View> T a(int i2) {
-        return (T) this.f57002b.findViewById(i2);
+        return (T) this.f57047b.findViewById(i2);
     }
 
     public void a() {
@@ -110,21 +110,21 @@ public class Presenter {
         if (!l() || presenter.l()) {
             return;
         }
-        c(this.f57002b);
+        c(this.f57047b);
     }
 
     @UiThread
     public final void a(@NonNull Object obj) {
-        if (this.f57004d != PresenterState.INIT) {
+        if (this.f57049d != PresenterState.INIT) {
             PresenterState presenterState = PresenterState.DESTROY;
         }
-        if (this.f57004d == PresenterState.BIND) {
+        if (this.f57049d == PresenterState.BIND) {
             j();
         }
-        this.f57004d = PresenterState.BIND;
-        this.f57003c = obj;
+        this.f57049d = PresenterState.BIND;
+        this.f57048c = obj;
         a();
-        this.f57004d.performCallState(this);
+        this.f57049d.performCallState(this);
     }
 
     public void c() {
@@ -132,10 +132,10 @@ public class Presenter {
 
     @UiThread
     public final void c(View view) {
-        this.f57004d = PresenterState.CREATE;
-        this.f57002b = view;
+        this.f57049d = PresenterState.CREATE;
+        this.f57047b = view;
         c_();
-        this.f57004d.performCallState(this);
+        this.f57049d.performCallState(this);
     }
 
     public void c_() {
@@ -146,27 +146,27 @@ public class Presenter {
 
     @UiThread
     public final void j() {
-        this.f57004d = PresenterState.UNBIND;
+        this.f57049d = PresenterState.UNBIND;
         c();
-        this.f57004d.performCallState(this);
+        this.f57049d.performCallState(this);
     }
 
     @UiThread
     public final void k() {
-        if (this.f57004d == PresenterState.BIND) {
+        if (this.f57049d == PresenterState.BIND) {
             j();
         }
-        this.f57004d = PresenterState.DESTROY;
+        this.f57049d = PresenterState.DESTROY;
         d_();
-        this.f57004d.performCallState(this);
+        this.f57049d.performCallState(this);
     }
 
     public final boolean l() {
-        return this.f57004d.index() >= PresenterState.CREATE.index();
+        return this.f57049d.index() >= PresenterState.CREATE.index();
     }
 
     public View m() {
-        return this.f57002b;
+        return this.f57047b;
     }
 
     public List<Presenter> n() {
@@ -198,11 +198,11 @@ public class Presenter {
     }
 
     public Object p() {
-        return this.f57003c;
+        return this.f57048c;
     }
 
     public final Context q() {
-        View view = this.f57002b;
+        View view = this.f57047b;
         if (view == null) {
             return null;
         }

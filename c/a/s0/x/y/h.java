@@ -6,11 +6,11 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.s0.e1.o0;
+import c.a.s0.d1.o0;
 import c.a.s0.s.q.e2;
 import c.a.s0.s.s.a;
 import c.a.s0.t.c.n0;
-import c.a.t0.w3.a0;
+import c.a.t0.x3.a0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -56,19 +56,19 @@ public class h extends c.a.s0.x.e {
     public View.OnClickListener A;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f14255f;
+    public TbPageContext<?> f14395f;
 
     /* renamed from: g  reason: collision with root package name */
-    public j f14256g;
+    public j f14396g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14257h;
+    public String f14397h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f14258i;
+    public String f14398i;
 
     /* renamed from: j  reason: collision with root package name */
-    public VoiceData$VoiceModel f14259j;
+    public VoiceData$VoiceModel f14399j;
     public NewWriteModel k;
     public SpanGroupManager l;
     public DataModel<?> m;
@@ -119,8 +119,8 @@ public class h extends c.a.s0.x.e {
                     this.a.q.callback(z, postWriteCallBackData, n0Var, writeData, antiData);
                 }
                 if (z) {
-                    this.a.f14256g = null;
-                    this.a.f14257h = null;
+                    this.a.f14396g = null;
+                    this.a.f14397h = null;
                     this.a.K(true);
                     this.a.q();
                 }
@@ -133,11 +133,11 @@ public class h extends c.a.s0.x.e {
                 }
                 if (z && this.a.t != null) {
                     StatisticItem statisticItem = new StatisticItem("c13563");
-                    statisticItem.param("tid", this.a.t.g0());
+                    statisticItem.param("tid", this.a.t.h0());
                     statisticItem.param("fid", this.a.t.U());
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                     statisticItem.param("obj_type", 2);
-                    c.a.s0.o0.c k = TbPageExtraHelper.k(this.a.f14255f.getPageActivity());
+                    c.a.s0.o0.c k = TbPageExtraHelper.k(this.a.f14395f.getPageActivity());
                     if (k != null) {
                         statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, k.a());
                     }
@@ -171,10 +171,10 @@ public class h extends c.a.s0.x.e {
                     } else {
                         statisticItem.param("obj_locate", 6);
                     }
-                    if (this.a.t.H2()) {
+                    if (this.a.t.I2()) {
                         String content = writeData != null ? writeData.getContent() : "";
                         if (o0.d(content) > 40) {
-                            content = o0.m(content, 40);
+                            content = o0.n(content, 40);
                         }
                         statisticItem.param(TiebaStatic.Params.POST_CONTENT, content);
                     }
@@ -182,7 +182,7 @@ public class h extends c.a.s0.x.e {
                 }
                 if (z && this.a.t != null) {
                     StatisticItem statisticItem2 = new StatisticItem("c14303");
-                    statisticItem2.param("tid", this.a.t.g0());
+                    statisticItem2.param("tid", this.a.t.h0());
                     statisticItem2.param("fid", this.a.t.U());
                     statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
                     statisticItem2.param("obj_type", 2);
@@ -207,7 +207,7 @@ public class h extends c.a.s0.x.e {
                     WriteData Z = this.a.k.Z();
                     this.a.k.setWriteData(null);
                     this.a.k.g0(false);
-                    this.a.f14259j = null;
+                    this.a.f14399j = null;
                     if (Z == null || Z == null || Z.getType() != 2) {
                         return;
                     }
@@ -215,7 +215,7 @@ public class h extends c.a.s0.x.e {
                 } else if (i2 != 230277 && i2 != 230278 && i2 != 340016 && i2 != 1990032 && !AntiHelper.m(i2, str)) {
                     if (n0Var == null || writeData == null || StringUtils.isNull(n0Var.c())) {
                         if (postWriteCallBackData != null && i2 == 227001) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.f14255f.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.f14395f.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
                             return;
                         } else if (i2 == 238010 || c.a.t0.g4.a.c(i2)) {
                             return;
@@ -230,7 +230,7 @@ public class h extends c.a.s0.x.e {
                     if (this.a.t != null) {
                         writeData.setBaijiahaoData(this.a.t.L());
                     }
-                    if (c.a.s0.f1.a.b(n0Var.d())) {
+                    if (c.a.s0.e1.a.b(n0Var.d())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.getContext().getPageActivity(), 12006, writeData, false, n0Var.d())));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.getContext().getPageActivity(), writeData, 12006)));
@@ -286,7 +286,7 @@ public class h extends c.a.s0.x.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f14260e;
+        public final /* synthetic */ h f14400e;
 
         public c(h hVar) {
             Interceptable interceptable = $ic;
@@ -303,26 +303,26 @@ public class h extends c.a.s0.x.e {
                     return;
                 }
             }
-            this.f14260e = hVar;
+            this.f14400e = hVar;
         }
 
-        @Override // c.a.t0.w3.a0.f
+        @Override // c.a.t0.x3.a0.f
         public void onDraftLoaded(WriteData writeData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
                 if (writeData != null && !StringUtils.isNull(writeData.getContent())) {
-                    if (this.f14260e.f14256g == null) {
-                        this.f14260e.f14256g = new j();
+                    if (this.f14400e.f14396g == null) {
+                        this.f14400e.f14396g = new j();
                     }
-                    this.f14260e.f14256g.a = writeData.getContent();
-                    this.f14260e.f14256g.f14267b = writeData.getSubPbReplyPrefix();
-                    this.f14260e.f14256g.f14269d = writeData.getPortrait();
-                    this.f14260e.f14256g.f14270e = writeData.getName();
-                    h hVar = this.f14260e;
-                    hVar.L(hVar.f14256g);
+                    this.f14400e.f14396g.a = writeData.getContent();
+                    this.f14400e.f14396g.f14407b = writeData.getSubPbReplyPrefix();
+                    this.f14400e.f14396g.f14409d = writeData.getPortrait();
+                    this.f14400e.f14396g.f14410e = writeData.getName();
+                    h hVar = this.f14400e;
+                    hVar.L(hVar.f14396g);
                 }
-                if (this.f14260e.u != null) {
-                    this.f14260e.u.onDraftLoaded(writeData);
+                if (this.f14400e.u != null) {
+                    this.f14400e.u.onDraftLoaded(writeData);
                 }
             }
         }
@@ -334,7 +334,7 @@ public class h extends c.a.s0.x.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f14261e;
+        public final /* synthetic */ h f14401e;
 
         public d(h hVar) {
             Interceptable interceptable = $ic;
@@ -351,16 +351,16 @@ public class h extends c.a.s0.x.e {
                     return;
                 }
             }
-            this.f14261e = hVar;
+            this.f14401e = hVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f14261e.r)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f14401e.r)) {
                 return;
             }
-            n.N(this.f14261e.getContext().getPageActivity(), this.f14261e.r);
+            n.N(this.f14401e.getContext().getPageActivity(), this.f14401e.r);
         }
     }
 
@@ -412,7 +412,7 @@ public class h extends c.a.s0.x.e {
                 return;
             }
         }
-        this.f14257h = "";
+        this.f14397h = "";
         this.n = false;
         this.r = null;
         this.w = 0;
@@ -433,14 +433,14 @@ public class h extends c.a.s0.x.e {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) || writeData == null) {
             return;
         }
-        if (this.f14256g == null) {
-            this.f14256g = new j();
+        if (this.f14396g == null) {
+            this.f14396g = new j();
         }
-        this.f14256g.a = writeData.getContent();
-        this.f14256g.f14267b = writeData.getSubPbReplyPrefix();
-        this.f14256g.f14269d = writeData.getPortrait();
-        this.f14256g.f14270e = writeData.getName();
-        L(this.f14256g);
+        this.f14396g.a = writeData.getContent();
+        this.f14396g.f14407b = writeData.getSubPbReplyPrefix();
+        this.f14396g.f14409d = writeData.getPortrait();
+        this.f14396g.f14410e = writeData.getName();
+        L(this.f14396g);
     }
 
     public void C(int i2, int i3, Intent intent) {
@@ -512,24 +512,24 @@ public class h extends c.a.s0.x.e {
                 return;
             }
             this.k.setSpanGroupManager(this.l);
-            if (this.f14256g != null) {
-                this.k.Z().setContent(this.f14256g.a);
-                this.k.Z().setSubPbReplyPrefix(this.f14256g.f14267b);
-                this.k.Z().setPortrait(this.f14256g.f14269d);
-                this.k.Z().setName(this.f14256g.f14270e);
+            if (this.f14396g != null) {
+                this.k.Z().setContent(this.f14396g.a);
+                this.k.Z().setSubPbReplyPrefix(this.f14396g.f14407b);
+                this.k.Z().setPortrait(this.f14396g.f14409d);
+                this.k.Z().setName(this.f14396g.f14410e);
                 if (this.t != null) {
                     this.k.Z().setBaijiahaoData(this.t.L());
                 }
             }
-            this.k.Z().setReplyId(this.f14257h);
-            if (this.f14258i != null) {
+            this.k.Z().setReplyId(this.f14397h);
+            if (this.f14398i != null) {
                 this.k.Z().setRepostId(this.m.y());
             }
-            VoiceData$VoiceModel voiceData$VoiceModel = this.f14259j;
+            VoiceData$VoiceModel voiceData$VoiceModel = this.f14399j;
             if (voiceData$VoiceModel != null) {
                 if (voiceData$VoiceModel.getId() != null) {
-                    this.k.Z().setVoice(this.f14259j.getId());
-                    this.k.Z().setVoiceDuringTime(this.f14259j.duration);
+                    this.k.Z().setVoice(this.f14399j.getId());
+                    this.k.Z().setVoiceDuringTime(this.f14399j.duration);
                 } else {
                     this.k.Z().setVoice(null);
                     this.k.Z().setVoiceDuringTime(-1);
@@ -575,7 +575,7 @@ public class h extends c.a.s0.x.e {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.k.setWriteData(null);
             this.k.g0(false);
-            this.f14259j = null;
+            this.f14399j = null;
         }
     }
 
@@ -583,16 +583,16 @@ public class h extends c.a.s0.x.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             WriteData writeData = new WriteData(2);
-            j jVar = this.f14256g;
+            j jVar = this.f14396g;
             if (jVar != null) {
                 writeData.setContent(jVar.a);
-                writeData.setPortrait(this.f14256g.f14269d);
-                writeData.setName(this.f14256g.f14270e);
-                writeData.setSubPbReplyPrefix(this.f14256g.f14267b);
+                writeData.setPortrait(this.f14396g.f14409d);
+                writeData.setName(this.f14396g.f14410e);
+                writeData.setSubPbReplyPrefix(this.f14396g.f14407b);
             }
-            writeData.setReplyId(this.f14257h);
-            writeData.setThreadId(this.f14258i);
-            a0.z(this.f14258i, writeData);
+            writeData.setReplyId(this.f14397h);
+            writeData.setThreadId(this.f14398i);
+            a0.z(this.f14398i, writeData);
         }
     }
 
@@ -630,7 +630,7 @@ public class h extends c.a.s0.x.e {
     public void N(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, tbPageContext) == null) {
-            this.f14255f = tbPageContext;
+            this.f14395f = tbPageContext;
         }
     }
 
@@ -665,17 +665,17 @@ public class h extends c.a.s0.x.e {
     public void S(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            if (this.f14256g == null) {
-                this.f14256g = new j();
+            if (this.f14396g == null) {
+                this.f14396g = new j();
             }
-            this.f14256g.a = str;
+            this.f14396g.a = str;
         }
     }
 
     public void T(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f14258i = str;
+            this.f14398i = str;
         }
     }
 
@@ -692,13 +692,13 @@ public class h extends c.a.s0.x.e {
             return;
         }
         String replace = TbadkCoreApplication.getInst().getResources().getString(R.string.reply_sub_floor).replace(FormattableUtils.SIMPLEST_FORMAT, str);
-        j jVar = this.f14256g;
+        j jVar = this.f14396g;
         if (jVar != null) {
-            if (TextUtils.isEmpty(jVar.f14267b) && TextUtils.isEmpty(this.f14256g.a)) {
+            if (TextUtils.isEmpty(jVar.f14407b) && TextUtils.isEmpty(this.f14396g.a)) {
                 j0(str, str2);
                 return;
-            } else if (!TextUtils.isEmpty(this.f14256g.f14267b) && this.f14256g.f14267b.equals(replace)) {
-                f0(this.f14256g);
+            } else if (!TextUtils.isEmpty(this.f14396g.f14407b) && this.f14396g.f14407b.equals(replace)) {
+                f0(this.f14396g);
                 return;
             } else {
                 j0(str, str2);
@@ -711,7 +711,7 @@ public class h extends c.a.s0.x.e {
     public void W(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.f14257h = str;
+            this.f14397h = str;
         }
     }
 
@@ -732,7 +732,7 @@ public class h extends c.a.s0.x.e {
     public void Z(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, jVar) == null) {
-            this.f14256g = jVar;
+            this.f14396g = jVar;
         }
     }
 
@@ -741,7 +741,7 @@ public class h extends c.a.s0.x.e {
         if (interceptable == null || interceptable.invokeL(1048602, this, dataModel) == null) {
             this.m = dataModel;
             if (dataModel != null) {
-                this.f14258i = dataModel.y();
+                this.f14398i = dataModel.y();
             }
         }
     }
@@ -754,14 +754,14 @@ public class h extends c.a.s0.x.e {
                 return;
             }
             a().setFid(this.t.U());
-            a().setTid(this.t.v1());
+            a().setTid(this.t.w1());
         }
     }
 
     public void c0(VoiceData$VoiceModel voiceData$VoiceModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, voiceData$VoiceModel) == null) {
-            this.f14259j = voiceData$VoiceModel;
+            this.f14399j = voiceData$VoiceModel;
         }
     }
 
@@ -769,7 +769,7 @@ public class h extends c.a.s0.x.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048605, this, i2, str) == null) {
             if (AntiHelper.m(i2, str)) {
-                if (AntiHelper.w(this.f14255f.getPageActivity(), str, i2, this.z) != null) {
+                if (AntiHelper.w(this.f14395f.getPageActivity(), str, i2, this.z) != null) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_REPLY_SUB_PB));
                 }
             } else if (i2 != 230277 && i2 != 230278) {
@@ -811,7 +811,7 @@ public class h extends c.a.s0.x.e {
     public TbPageContext<?> getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f14255f : (TbPageContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f14395f : (TbPageContext) invokeV.objValue;
     }
 
     public final void h0(String str) {
@@ -840,9 +840,9 @@ public class h extends c.a.s0.x.e {
             if (str != null && str.length() != 0) {
                 String replace = getContext().getResources().getString(R.string.reply_sub_floor).replace(FormattableUtils.SIMPLEST_FORMAT, str);
                 j jVar = new j();
-                jVar.f14267b = replace;
-                jVar.f14269d = str2;
-                jVar.f14270e = str;
+                jVar.f14407b = replace;
+                jVar.f14409d = str2;
+                jVar.f14410e = str;
                 L(jVar);
             } else {
                 j jVar2 = new j();
@@ -864,7 +864,7 @@ public class h extends c.a.s0.x.e {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            a0.z(this.f14258i, null);
+            a0.z(this.f14398i, null);
         }
     }
 
@@ -876,18 +876,18 @@ public class h extends c.a.s0.x.e {
         }
         StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_HEATING_THREAD_COMMENT);
         statisticItem.addParam("obj_locate", 2);
-        if (this.t.I2()) {
+        if (this.t.J2()) {
             statisticItem.addParam("obj_type", 3);
-        } else if (this.t.H2()) {
+        } else if (this.t.I2()) {
             statisticItem.addParam("obj_type", 2);
         } else {
             statisticItem.addParam("obj_type", 1);
         }
-        statisticItem.addParam("tid", this.t.v1());
+        statisticItem.addParam("tid", this.t.w1());
         statisticItem.addParam(TiebaStatic.Params.FID_1, this.t.U());
         statisticItem.addParam(TiebaStatic.Params.FID_2, this.m.w());
         TiebaStatic.log(statisticItem);
-        c.a.s0.d.a.a(c.a.s0.d.a.f12281f, c.a.s0.d.a.f12278c, this.m.B(), this.m.C(), this.m.A(), this.m.x());
+        c.a.s0.d.a.a(c.a.s0.d.a.f12426f, c.a.s0.d.a.f12423c, this.m.B(), this.m.C(), this.m.A(), this.m.x());
     }
 
     public void s(WriteData writeData) {
@@ -952,16 +952,16 @@ public class h extends c.a.s0.x.e {
         if (interceptable == null || interceptable.invokeL(1048619, this, postWriteCallBackData) == null) {
             PbEditorData pbEditorData = new PbEditorData();
             pbEditorData.setEditorType(1);
-            j jVar = this.f14256g;
+            j jVar = this.f14396g;
             if (jVar != null) {
                 pbEditorData.setContent(jVar.a);
-                pbEditorData.setSubPbReplyPrefix(this.f14256g.f14267b);
+                pbEditorData.setSubPbReplyPrefix(this.f14396g.f14407b);
             }
-            pbEditorData.setVoiceModel(this.f14259j);
+            pbEditorData.setVoiceModel(this.f14399j);
             pbEditorData.setThreadData(new PbEditorData.ThreadData());
             pbEditorData.setDisableVoiceMessage(this.r);
             pbEditorData.setOpenVoiceRecordButton(true);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbFullScreenEditorActivityConfig(this.f14255f.getPageActivity(), 25035, pbEditorData, postWriteCallBackData)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbFullScreenEditorActivityConfig(this.f14395f.getPageActivity(), 25035, pbEditorData, postWriteCallBackData)));
         }
     }
 
@@ -969,7 +969,7 @@ public class h extends c.a.s0.x.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
-            j jVar = this.f14256g;
+            j jVar = this.f14396g;
             return (jVar == null || m.isEmpty(jVar.a)) ? false : true;
         }
         return invokeV.booleanValue;
@@ -979,8 +979,8 @@ public class h extends c.a.s0.x.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            VoiceData$VoiceModel voiceData$VoiceModel = this.f14259j;
-            return (voiceData$VoiceModel == null || TextUtils.isEmpty(voiceData$VoiceModel.voiceId) || this.f14259j.duration <= 0) ? false : true;
+            VoiceData$VoiceModel voiceData$VoiceModel = this.f14399j;
+            return (voiceData$VoiceModel == null || TextUtils.isEmpty(voiceData$VoiceModel.voiceId) || this.f14399j.duration <= 0) ? false : true;
         }
         return invokeV.booleanValue;
     }

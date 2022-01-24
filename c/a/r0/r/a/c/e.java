@@ -19,10 +19,10 @@ public abstract class e<K, V> {
     public e<K, V>.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e<K, V>.c f11736b;
+    public e<K, V>.c f11878b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e<K, V>.C0804e f11737c;
+    public e<K, V>.C0813e f11879c;
 
     /* loaded from: classes6.dex */
     public final class a<T> implements Iterator<T> {
@@ -30,19 +30,19 @@ public abstract class e<K, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f11738e;
+        public final int f11880e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f11739f;
+        public int f11881f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f11740g;
+        public int f11882g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f11741h;
+        public boolean f11883h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f11742i;
+        public final /* synthetic */ e f11884i;
 
         public a(e eVar, int i2) {
             Interceptable interceptable = $ic;
@@ -59,17 +59,17 @@ public abstract class e<K, V> {
                     return;
                 }
             }
-            this.f11742i = eVar;
-            this.f11741h = false;
-            this.f11738e = i2;
-            this.f11739f = eVar.d();
+            this.f11884i = eVar;
+            this.f11883h = false;
+            this.f11880e = i2;
+            this.f11881f = eVar.d();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11740g < this.f11739f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11882g < this.f11881f : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
@@ -77,9 +77,9 @@ public abstract class e<K, V> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                T t = (T) this.f11742i.b(this.f11740g, this.f11738e);
-                this.f11740g++;
-                this.f11741h = true;
+                T t = (T) this.f11884i.b(this.f11882g, this.f11880e);
+                this.f11882g++;
+                this.f11883h = true;
                 return t;
             }
             return (T) invokeV.objValue;
@@ -89,12 +89,12 @@ public abstract class e<K, V> {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.f11741h) {
-                    int i2 = this.f11740g - 1;
-                    this.f11740g = i2;
-                    this.f11739f--;
-                    this.f11741h = false;
-                    this.f11742i.h(i2);
+                if (this.f11883h) {
+                    int i2 = this.f11882g - 1;
+                    this.f11882g = i2;
+                    this.f11881f--;
+                    this.f11883h = false;
+                    this.f11884i.h(i2);
                     return;
                 }
                 throw new IllegalStateException();
@@ -108,7 +108,7 @@ public abstract class e<K, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f11743e;
+        public final /* synthetic */ e f11885e;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public abstract class e<K, V> {
                     return;
                 }
             }
-            this.f11743e = eVar;
+            this.f11885e = eVar;
         }
 
         public boolean a(Map.Entry<K, V> entry) {
@@ -148,11 +148,11 @@ public abstract class e<K, V> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
-                int d2 = this.f11743e.d();
+                int d2 = this.f11885e.d();
                 for (Map.Entry<K, V> entry : collection) {
-                    this.f11743e.g(entry.getKey(), entry.getValue());
+                    this.f11885e.g(entry.getKey(), entry.getValue());
                 }
-                return d2 != this.f11743e.d();
+                return d2 != this.f11885e.d();
             }
             return invokeL.booleanValue;
         }
@@ -161,7 +161,7 @@ public abstract class e<K, V> {
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f11743e.a();
+                this.f11885e.a();
             }
         }
 
@@ -172,11 +172,11 @@ public abstract class e<K, V> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
                 if (obj instanceof Map.Entry) {
                     Map.Entry entry = (Map.Entry) obj;
-                    int e2 = this.f11743e.e(entry.getKey());
+                    int e2 = this.f11885e.e(entry.getKey());
                     if (e2 < 0) {
                         return false;
                     }
-                    return c.a.r0.r.a.c.b.b(this.f11743e.b(e2, 1), entry.getValue());
+                    return c.a.r0.r.a.c.b.b(this.f11885e.b(e2, 1), entry.getValue());
                 }
                 return false;
             }
@@ -212,9 +212,9 @@ public abstract class e<K, V> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 int i2 = 0;
-                for (int d2 = this.f11743e.d() - 1; d2 >= 0; d2--) {
-                    Object b2 = this.f11743e.b(d2, 0);
-                    Object b3 = this.f11743e.b(d2, 1);
+                for (int d2 = this.f11885e.d() - 1; d2 >= 0; d2--) {
+                    Object b2 = this.f11885e.b(d2, 0);
+                    Object b3 = this.f11885e.b(d2, 1);
                     i2 += (b2 == null ? 0 : b2.hashCode()) ^ (b3 == null ? 0 : b3.hashCode());
                 }
                 return i2;
@@ -226,14 +226,14 @@ public abstract class e<K, V> {
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f11743e.d() == 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f11885e.d() == 0 : invokeV.booleanValue;
         }
 
         @Override // java.util.Set, java.util.Collection, java.lang.Iterable
         public Iterator<Map.Entry<K, V>> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new d(this.f11743e) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new d(this.f11885e) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.Set, java.util.Collection
@@ -270,7 +270,7 @@ public abstract class e<K, V> {
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f11743e.d() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f11885e.d() : invokeV.intValue;
         }
 
         @Override // java.util.Set, java.util.Collection
@@ -300,7 +300,7 @@ public abstract class e<K, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f11744e;
+        public final /* synthetic */ e f11886e;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -317,7 +317,7 @@ public abstract class e<K, V> {
                     return;
                 }
             }
-            this.f11744e = eVar;
+            this.f11886e = eVar;
         }
 
         @Override // java.util.Set, java.util.Collection
@@ -344,7 +344,7 @@ public abstract class e<K, V> {
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f11744e.a();
+                this.f11886e.a();
             }
         }
 
@@ -352,14 +352,14 @@ public abstract class e<K, V> {
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.f11744e.e(obj) >= 0 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.f11886e.e(obj) >= 0 : invokeL.booleanValue;
         }
 
         @Override // java.util.Set, java.util.Collection
         public boolean containsAll(Collection<?> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) ? e.j(this.f11744e.c(), collection) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) ? e.j(this.f11886e.c(), collection) : invokeL.booleanValue;
         }
 
         @Override // java.util.Set, java.util.Collection
@@ -375,8 +375,8 @@ public abstract class e<K, V> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 int i2 = 0;
-                for (int d2 = this.f11744e.d() - 1; d2 >= 0; d2--) {
-                    Object b2 = this.f11744e.b(d2, 0);
+                for (int d2 = this.f11886e.d() - 1; d2 >= 0; d2--) {
+                    Object b2 = this.f11886e.b(d2, 0);
                     i2 += b2 == null ? 0 : b2.hashCode();
                 }
                 return i2;
@@ -388,14 +388,14 @@ public abstract class e<K, V> {
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f11744e.d() == 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f11886e.d() == 0 : invokeV.booleanValue;
         }
 
         @Override // java.util.Set, java.util.Collection, java.lang.Iterable
         public Iterator<K> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new a(this.f11744e, 0) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new a(this.f11886e, 0) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.Set, java.util.Collection
@@ -403,9 +403,9 @@ public abstract class e<K, V> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
-                int e2 = this.f11744e.e(obj);
+                int e2 = this.f11886e.e(obj);
                 if (e2 >= 0) {
-                    this.f11744e.h(e2);
+                    this.f11886e.h(e2);
                     return true;
                 }
                 return false;
@@ -417,35 +417,35 @@ public abstract class e<K, V> {
         public boolean removeAll(Collection<?> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, collection)) == null) ? e.o(this.f11744e.c(), collection) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, collection)) == null) ? e.o(this.f11886e.c(), collection) : invokeL.booleanValue;
         }
 
         @Override // java.util.Set, java.util.Collection
         public boolean retainAll(Collection<?> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, collection)) == null) ? e.p(this.f11744e.c(), collection) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, collection)) == null) ? e.p(this.f11886e.c(), collection) : invokeL.booleanValue;
         }
 
         @Override // java.util.Set, java.util.Collection
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f11744e.d() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f11886e.d() : invokeV.intValue;
         }
 
         @Override // java.util.Set, java.util.Collection
         public Object[] toArray() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f11744e.q(0) : (Object[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f11886e.q(0) : (Object[]) invokeV.objValue;
         }
 
         @Override // java.util.Set, java.util.Collection
         public <T> T[] toArray(T[] tArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, tArr)) == null) ? (T[]) this.f11744e.r(tArr, 0) : (T[]) ((Object[]) invokeL.objValue);
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, tArr)) == null) ? (T[]) this.f11886e.r(tArr, 0) : (T[]) ((Object[]) invokeL.objValue);
         }
     }
 
@@ -455,16 +455,16 @@ public abstract class e<K, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f11745e;
+        public int f11887e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f11746f;
+        public int f11888f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f11747g;
+        public boolean f11889g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f11748h;
+        public final /* synthetic */ e f11890h;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -481,18 +481,18 @@ public abstract class e<K, V> {
                     return;
                 }
             }
-            this.f11748h = eVar;
-            this.f11747g = false;
-            this.f11745e = eVar.d() - 1;
-            this.f11746f = -1;
+            this.f11890h = eVar;
+            this.f11889g = false;
+            this.f11887e = eVar.d() - 1;
+            this.f11888f = -1;
         }
 
         public Map.Entry<K, V> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f11746f++;
-                this.f11747g = true;
+                this.f11888f++;
+                this.f11889g = true;
                 return this;
             }
             return (Map.Entry) invokeV.objValue;
@@ -503,10 +503,10 @@ public abstract class e<K, V> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                if (this.f11747g) {
+                if (this.f11889g) {
                     if (obj instanceof Map.Entry) {
                         Map.Entry entry = (Map.Entry) obj;
-                        return c.a.r0.r.a.c.b.b(entry.getKey(), this.f11748h.b(this.f11746f, 0)) && c.a.r0.r.a.c.b.b(entry.getValue(), this.f11748h.b(this.f11746f, 1));
+                        return c.a.r0.r.a.c.b.b(entry.getKey(), this.f11890h.b(this.f11888f, 0)) && c.a.r0.r.a.c.b.b(entry.getValue(), this.f11890h.b(this.f11888f, 1));
                     }
                     return false;
                 }
@@ -520,8 +520,8 @@ public abstract class e<K, V> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.f11747g) {
-                    return (K) this.f11748h.b(this.f11746f, 0);
+                if (this.f11889g) {
+                    return (K) this.f11890h.b(this.f11888f, 0);
                 }
                 throw new IllegalStateException("This container does not support retaining Map.Entry objects");
             }
@@ -533,8 +533,8 @@ public abstract class e<K, V> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.f11747g) {
-                    return (V) this.f11748h.b(this.f11746f, 1);
+                if (this.f11889g) {
+                    return (V) this.f11890h.b(this.f11888f, 1);
                 }
                 throw new IllegalStateException("This container does not support retaining Map.Entry objects");
             }
@@ -545,7 +545,7 @@ public abstract class e<K, V> {
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11746f < this.f11745e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11888f < this.f11887e : invokeV.booleanValue;
         }
 
         @Override // java.util.Map.Entry
@@ -553,9 +553,9 @@ public abstract class e<K, V> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (this.f11747g) {
-                    Object b2 = this.f11748h.b(this.f11746f, 0);
-                    Object b3 = this.f11748h.b(this.f11746f, 1);
+                if (this.f11889g) {
+                    Object b2 = this.f11890h.b(this.f11888f, 0);
+                    Object b3 = this.f11890h.b(this.f11888f, 1);
                     return (b2 == null ? 0 : b2.hashCode()) ^ (b3 != null ? b3.hashCode() : 0);
                 }
                 throw new IllegalStateException("This container does not support retaining Map.Entry objects");
@@ -573,11 +573,11 @@ public abstract class e<K, V> {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                if (this.f11747g) {
-                    this.f11748h.h(this.f11746f);
-                    this.f11746f--;
-                    this.f11745e--;
-                    this.f11747g = false;
+                if (this.f11889g) {
+                    this.f11890h.h(this.f11888f);
+                    this.f11888f--;
+                    this.f11887e--;
+                    this.f11889g = false;
                     return;
                 }
                 throw new IllegalStateException();
@@ -589,8 +589,8 @@ public abstract class e<K, V> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v)) == null) {
-                if (this.f11747g) {
-                    return (V) this.f11748h.i(this.f11746f, v);
+                if (this.f11889g) {
+                    return (V) this.f11890h.i(this.f11888f, v);
                 }
                 throw new IllegalStateException("This container does not support retaining Map.Entry objects");
             }
@@ -609,14 +609,14 @@ public abstract class e<K, V> {
 
     /* renamed from: c.a.r0.r.a.c.e$e  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public final class C0804e implements Collection<V> {
+    public final class C0813e implements Collection<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f11749e;
+        public final /* synthetic */ e f11891e;
 
-        public C0804e(e eVar) {
+        public C0813e(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -631,7 +631,7 @@ public abstract class e<K, V> {
                     return;
                 }
             }
-            this.f11749e = eVar;
+            this.f11891e = eVar;
         }
 
         @Override // java.util.Collection
@@ -658,7 +658,7 @@ public abstract class e<K, V> {
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f11749e.a();
+                this.f11891e.a();
             }
         }
 
@@ -666,7 +666,7 @@ public abstract class e<K, V> {
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.f11749e.f(obj) >= 0 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.f11891e.f(obj) >= 0 : invokeL.booleanValue;
         }
 
         @Override // java.util.Collection
@@ -689,14 +689,14 @@ public abstract class e<K, V> {
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11749e.d() == 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11891e.d() == 0 : invokeV.booleanValue;
         }
 
         @Override // java.util.Collection, java.lang.Iterable
         public Iterator<V> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new a(this.f11749e, 1) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new a(this.f11891e, 1) : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.Collection
@@ -704,9 +704,9 @@ public abstract class e<K, V> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-                int f2 = this.f11749e.f(obj);
+                int f2 = this.f11891e.f(obj);
                 if (f2 >= 0) {
-                    this.f11749e.h(f2);
+                    this.f11891e.h(f2);
                     return true;
                 }
                 return false;
@@ -719,12 +719,12 @@ public abstract class e<K, V> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, collection)) == null) {
-                int d2 = this.f11749e.d();
+                int d2 = this.f11891e.d();
                 int i2 = 0;
                 boolean z = false;
                 while (i2 < d2) {
-                    if (collection.contains(this.f11749e.b(i2, 1))) {
-                        this.f11749e.h(i2);
+                    if (collection.contains(this.f11891e.b(i2, 1))) {
+                        this.f11891e.h(i2);
                         i2--;
                         d2--;
                         z = true;
@@ -741,12 +741,12 @@ public abstract class e<K, V> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, collection)) == null) {
-                int d2 = this.f11749e.d();
+                int d2 = this.f11891e.d();
                 int i2 = 0;
                 boolean z = false;
                 while (i2 < d2) {
-                    if (!collection.contains(this.f11749e.b(i2, 1))) {
-                        this.f11749e.h(i2);
+                    if (!collection.contains(this.f11891e.b(i2, 1))) {
+                        this.f11891e.h(i2);
                         i2--;
                         d2--;
                         z = true;
@@ -762,21 +762,21 @@ public abstract class e<K, V> {
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f11749e.d() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f11891e.d() : invokeV.intValue;
         }
 
         @Override // java.util.Collection
         public Object[] toArray() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f11749e.q(1) : (Object[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f11891e.q(1) : (Object[]) invokeV.objValue;
         }
 
         @Override // java.util.Collection
         public <T> T[] toArray(T[] tArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, tArr)) == null) ? (T[]) this.f11749e.r(tArr, 1) : (T[]) ((Object[]) invokeL.objValue);
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, tArr)) == null) ? (T[]) this.f11891e.r(tArr, 1) : (T[]) ((Object[]) invokeL.objValue);
         }
     }
 
@@ -897,10 +897,10 @@ public abstract class e<K, V> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f11736b == null) {
-                this.f11736b = new c(this);
+            if (this.f11878b == null) {
+                this.f11878b = new c(this);
             }
-            return this.f11736b;
+            return this.f11878b;
         }
         return (Set) invokeV.objValue;
     }
@@ -909,10 +909,10 @@ public abstract class e<K, V> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f11737c == null) {
-                this.f11737c = new C0804e(this);
+            if (this.f11879c == null) {
+                this.f11879c = new C0813e(this);
             }
-            return this.f11737c;
+            return this.f11879c;
         }
         return (Collection) invokeV.objValue;
     }

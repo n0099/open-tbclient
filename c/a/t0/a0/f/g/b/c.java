@@ -21,7 +21,7 @@ public class c extends c.a.d.n.e.a<g, ConcernTabRecommendTitleView.ViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), g.f14617g);
+        super(tbPageContext.getPageActivity(), g.f14757g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

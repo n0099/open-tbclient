@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.more.youngster.model;
 
 import c.a.d.a.f;
-import c.a.t0.m3.g;
+import c.a.t0.n3.g;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -25,13 +25,13 @@ public class YoungsterVerifyModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f47849e;
+    public b f47877e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f47850f;
+    public TbPageContext<?> f47878f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f47851g;
+    public HttpMessageListener f47879g;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -80,9 +80,9 @@ public class YoungsterVerifyModel extends BdBaseModel {
             errorData.setError_msg(str);
             YoungsterVerifyHttpResponsedMessage youngsterVerifyHttpResponsedMessage = httpResponsedMessage instanceof YoungsterVerifyHttpResponsedMessage ? (YoungsterVerifyHttpResponsedMessage) httpResponsedMessage : null;
             if (youngsterVerifyHttpResponsedMessage != null && youngsterVerifyHttpResponsedMessage.getData() != null && youngsterVerifyHttpResponsedMessage.getData().a) {
-                this.a.f47849e.onSuccess();
+                this.a.f47877e.onSuccess();
             } else {
-                this.a.f47849e.onError(errorData);
+                this.a.f47877e.onError(errorData);
             }
         }
     }
@@ -113,11 +113,11 @@ public class YoungsterVerifyModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
-        this.f47851g = aVar;
-        this.f47850f = tbPageContext;
+        this.f47879g = aVar;
+        this.f47878f = tbPageContext;
         aVar.setSelfListener(true);
-        registerListener(this.f47851g);
-        this.f47849e = bVar;
+        registerListener(this.f47879g);
+        this.f47877e = bVar;
     }
 
     public void B(String str) {
@@ -126,7 +126,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
             httpMessage.addParam(YoungsterVerifyActivityConfig.PARAMA_AUTH_ID, str);
             httpMessage.addParam("scene", YoungsterVerifyActivityConfig.PARAMA_TIEBA_AUTH);
-            this.f47850f.sendMessage(httpMessage);
+            this.f47878f.sendMessage(httpMessage);
         }
     }
 

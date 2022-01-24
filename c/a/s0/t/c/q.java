@@ -14,16 +14,16 @@ public class q {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13881b;
+    public String f14022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13882c;
+    public String f14023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13883d;
+    public String f14024d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13884e;
+    public int f14025e;
 
     public q() {
         Interceptable interceptable = $ic;
@@ -48,35 +48,35 @@ public class q {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13882c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14023c : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13881b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14022b : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13883d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14024d : (String) invokeV.objValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13884e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14025e : invokeV.intValue;
     }
 
     public void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
             this.a = jSONObject.optString("icon");
-            this.f13881b = jSONObject.optString("tab_code");
-            this.f13882c = jSONObject.optString("pop_text");
-            this.f13883d = jSONObject.optString("thread_id");
-            this.f13884e = jSONObject.optInt("version");
+            this.f14022b = jSONObject.optString("tab_code");
+            this.f14023c = jSONObject.optString("pop_text");
+            this.f14024d = jSONObject.optString("thread_id");
+            this.f14025e = jSONObject.optInt("version");
         }
     }
 }

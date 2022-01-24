@@ -18,7 +18,7 @@ public class a {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f10584b;
+    public static a f10726b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class a {
             }
         }
         a = AppRuntime.getAppContext().getCacheDir() + File.separator + "gamenowGuide" + File.separator + "configCache";
-        f10584b = new a();
+        f10726b = new a();
     }
 
     public a() {
@@ -55,7 +55,7 @@ public class a {
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f10584b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f10726b : (a) invokeV.objValue;
     }
 
     public synchronized void a(String str, String str2, long j2) {

@@ -13,10 +13,10 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8049b;
+    public long f8191b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f8050c;
+    public long f8192c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class a {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8050c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8192c : invokeV.longValue;
     }
 
     public String b() {
@@ -47,13 +47,13 @@ public class a {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8049b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8191b : invokeV.longValue;
     }
 
     public void d(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f8050c = j2;
+            this.f8192c = j2;
         }
     }
 
@@ -67,7 +67,7 @@ public class a {
     public void f(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.f8049b = j2;
+            this.f8191b = j2;
         }
     }
 }

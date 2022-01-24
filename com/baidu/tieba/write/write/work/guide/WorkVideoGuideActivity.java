@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.h0.b;
+import c.a.s0.s.i0.b;
 import c.a.s0.s.m.d;
 import c.a.t0.p4.e0.p.w.c;
 import c.a.t0.p4.e0.p.w.e;
@@ -60,12 +60,12 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             StatisticItem statisticItem = new StatisticItem("c14364");
             int i3 = this.mFrom;
-            if (i3 == d.f13241d) {
+            if (i3 == d.f13427d) {
                 i2 = 1;
-            } else if (i3 == d.f13243f) {
+            } else if (i3 == d.f13429f) {
                 i2 = 2;
             } else {
-                i2 = i3 == d.f13242e ? 3 : 0;
+                i2 = i3 == d.f13428e ? 3 : 0;
             }
             statisticItem.param("obj_source", i2);
             statisticItem.param("obj_type", this.mStatus);

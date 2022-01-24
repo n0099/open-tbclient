@@ -103,13 +103,13 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
                 return null;
             }
             if (gVar != null) {
-                gVar.f14352f = i2 + 1;
+                gVar.f14492f = i2 + 1;
             }
             gVar2.k(gVar);
             c.a.t0.a0.f.e.a.c().a(gVar.i(Z(), false));
             c0(gVar);
             if (i2 == this.r) {
-                gVar2.j().setAnimation(AnimationUtils.loadAnimation(this.f3258e, R.anim.list_anim));
+                gVar2.j().setAnimation(AnimationUtils.loadAnimation(this.f3360e, R.anim.list_anim));
             }
             return gVar2.j();
         }
@@ -118,16 +118,16 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
 
     public final void c0(c.a.t0.a0.f.a.g gVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) || gVar == null || gVar.f14351e == null || !TextUtils.equals("c12479", Z())) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) || gVar == null || gVar.f14491e == null || !TextUtils.equals("c12479", Z())) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c12461");
-        if (StringUtils.isNull(gVar.f14351e.Z0)) {
+        if (StringUtils.isNull(gVar.f14491e.Z0)) {
             statisticItem.param("obj_source", "0");
         } else {
             statisticItem.param("obj_source", "1");
         }
-        if (StringUtils.isNull(gVar.f14351e.b1)) {
+        if (StringUtils.isNull(gVar.f14491e.b1)) {
             statisticItem.param("obj_locate", "0");
         } else {
             statisticItem.param("obj_locate", "1");

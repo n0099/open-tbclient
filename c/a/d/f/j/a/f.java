@@ -24,22 +24,22 @@ public class f {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageTask.HTTP_METHOD f2805b;
+    public HttpMessageTask.HTTP_METHOD f2907b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f2806c;
+    public Map<String, String> f2908c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinkedList<BasicNameValuePair> f2807d;
+    public LinkedList<BasicNameValuePair> f2909d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, byte[]> f2808e;
+    public HashMap<String, byte[]> f2910e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f2809f;
+    public boolean f2911f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f2810g;
+    public boolean f2912g;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -55,17 +55,17 @@ public class f {
             }
         }
         this.a = "";
-        this.f2806c = new HashMap();
-        this.f2807d = new LinkedList<>();
-        this.f2808e = new HashMap<>();
-        this.f2809f = false;
-        this.f2810g = false;
+        this.f2908c = new HashMap();
+        this.f2909d = new LinkedList<>();
+        this.f2910e = new HashMap<>();
+        this.f2911f = false;
+        this.f2912g = false;
     }
 
     public void a(String str, String str2) {
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (map = this.f2806c) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (map = this.f2908c) == null) {
             return;
         }
         map.put(str, str2);
@@ -74,35 +74,35 @@ public class f {
     public void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            this.f2807d.add(new BasicNameValuePair(str, str2));
+            this.f2909d.add(new BasicNameValuePair(str, str2));
         }
     }
 
     public void c(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
-            this.f2808e.put(str, bArr);
+            this.f2910e.put(str, bArr);
         }
     }
 
     public void d(BasicNameValuePair basicNameValuePair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, basicNameValuePair) == null) {
-            this.f2807d.add(basicNameValuePair);
+            this.f2909d.add(basicNameValuePair);
         }
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2809f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2911f : invokeV.booleanValue;
     }
 
     public String f(d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, dVar)) == null) {
-            if (this.f2807d.size() == 0) {
+            if (this.f2909d.size() == 0) {
                 if (dVar != null) {
                     dVar.a = this.a.length();
                 }
@@ -115,13 +115,13 @@ public class f {
             } else if (!this.a.endsWith("?") && !this.a.endsWith("&")) {
                 sb.append("&");
             }
-            for (int i2 = 0; i2 < this.f2807d.size(); i2++) {
+            for (int i2 = 0; i2 < this.f2909d.size(); i2++) {
                 if (i2 != 0) {
                     sb.append("&");
                 }
-                sb.append(this.f2807d.get(i2).getName());
+                sb.append(this.f2909d.get(i2).getName());
                 sb.append("=");
-                sb.append(m.getUrlEncode(this.f2807d.get(i2).getValue()));
+                sb.append(m.getUrlEncode(this.f2909d.get(i2).getValue()));
             }
             if (dVar != null) {
                 dVar.a = sb.length();
@@ -135,7 +135,7 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            Map<String, String> map = this.f2806c;
+            Map<String, String> map = this.f2908c;
             if (map != null) {
                 return map.get(str);
             }
@@ -147,7 +147,7 @@ public class f {
     public HttpMessageTask.HTTP_METHOD h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2805b : (HttpMessageTask.HTTP_METHOD) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2907b : (HttpMessageTask.HTTP_METHOD) invokeV.objValue;
     }
 
     public String i() {
@@ -160,7 +160,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            HashMap<String, byte[]> hashMap = this.f2808e;
+            HashMap<String, byte[]> hashMap = this.f2910e;
             return hashMap != null && hashMap.size() > 0;
         }
         return invokeV.booleanValue;
@@ -169,7 +169,7 @@ public class f {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f2810g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f2912g : invokeV.booleanValue;
     }
 
     public final StringBuilder l() {
@@ -177,7 +177,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             StringBuilder sb = new StringBuilder(1024);
-            LinkedList<BasicNameValuePair> linkedList = this.f2807d;
+            LinkedList<BasicNameValuePair> linkedList = this.f2909d;
             if (linkedList != null) {
                 int i2 = 0;
                 Iterator<BasicNameValuePair> it = linkedList.iterator();
@@ -209,28 +209,28 @@ public class f {
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f2810g = z;
+            this.f2912g = z;
         }
     }
 
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f2809f = z;
+            this.f2911f = z;
         }
     }
 
     public void p(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, hashMap) == null) {
-            this.f2806c = hashMap;
+            this.f2908c = hashMap;
         }
     }
 
     public void q(HttpMessageTask.HTTP_METHOD http_method) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, http_method) == null) {
-            this.f2805b = http_method;
+            this.f2907b = http_method;
         }
     }
 
@@ -243,9 +243,9 @@ public class f {
             Object value = entry.getValue();
             if (value != null) {
                 if (value instanceof String) {
-                    this.f2807d.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
+                    this.f2909d.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
                 } else if (value instanceof byte[]) {
-                    this.f2808e.put(entry.getKey(), (byte[]) entry.getValue());
+                    this.f2910e.put(entry.getKey(), (byte[]) entry.getValue());
                 } else {
                     throw new UnsupportedOperationException("post type is not String and byte[]");
                 }
@@ -267,7 +267,7 @@ public class f {
     public void t(HttpURLConnection httpURLConnection) {
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, httpURLConnection) == null) || httpURLConnection == null || (map = this.f2806c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, httpURLConnection) == null) || httpURLConnection == null || (map = this.f2908c) == null) {
             return;
         }
         for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -308,8 +308,8 @@ public class f {
             if (httpURLConnection != null) {
                 DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                 try {
-                    if (this.f2807d != null) {
-                        Iterator<BasicNameValuePair> it = this.f2807d.iterator();
+                    if (this.f2909d != null) {
+                        Iterator<BasicNameValuePair> it = this.f2909d.iterator();
                         while (it.hasNext()) {
                             BasicNameValuePair next = it.next();
                             if (next != null) {
@@ -326,8 +326,8 @@ public class f {
                             }
                         }
                     }
-                    if (this.f2808e != null) {
-                        for (Map.Entry<String, byte[]> entry : this.f2808e.entrySet()) {
+                    if (this.f2910e != null) {
+                        for (Map.Entry<String, byte[]> entry : this.f2910e.entrySet()) {
                             String key = entry.getKey();
                             byte[] value2 = entry.getValue();
                             if (value2 != null) {

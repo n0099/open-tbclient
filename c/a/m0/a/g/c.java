@@ -12,10 +12,10 @@ public class c {
     public Bitmap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4428b;
+    public int f4569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f4429c;
+    public c f4570c;
 
     public c(Bitmap bitmap, int i2) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class c {
                 return;
             }
         }
-        this.f4429c = null;
+        this.f4570c = null;
         this.a = bitmap;
-        this.f4428b = i2;
+        this.f4569b = i2;
     }
 }

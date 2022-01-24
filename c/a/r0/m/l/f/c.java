@@ -32,20 +32,20 @@ public class c {
                 return null;
             }
             c.a.r0.a.i1.c.h.d dVar = bVar.a;
-            if (dVar != null && dVar.n != null && dVar.f7217f != null) {
+            if (dVar != null && dVar.n != null && dVar.f7359f != null) {
                 Paint paint = new Paint();
                 paint.setAntiAlias(true);
                 paint.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint.setColor(dVar.n.f7227f);
-                paint.setTextSize(dVar.n.f7228g);
+                paint.setColor(dVar.n.f7369f);
+                paint.setTextSize(dVar.n.f7370g);
                 d.c cVar2 = dVar.n;
-                float f2 = cVar2.f7230i;
+                float f2 = cVar2.f7372i;
                 float f3 = cVar2.n;
                 Paint paint2 = new Paint();
                 paint2.setAntiAlias(true);
                 paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint2.setColor(dVar.n.f7229h);
-                String str = dVar.n.f7226e;
+                paint2.setColor(dVar.n.f7371h);
+                String str = dVar.n.f7368e;
                 float f4 = f2 * 2.0f;
                 float measureText = paint.measureText(str) + f4;
                 float f5 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + f4;
@@ -72,12 +72,12 @@ public class c {
                     ImageView imageView = new ImageView(AppRuntime.getAppContext());
                     imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
                     d.c cVar3 = dVar.n;
-                    imageView.setPadding((int) cVar3.f7225j, (int) cVar3.k, 0, 0);
+                    imageView.setPadding((int) cVar3.f7367j, (int) cVar3.k, 0, 0);
                     imageView.setImageBitmap(createBitmap);
                     BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(imageView);
                     MarkerOptions markerOptions = new MarkerOptions();
-                    c.a.r0.a.i1.c.h.c cVar4 = dVar.f7217f;
-                    MarkerOptions zIndex = markerOptions.position(new LatLng(cVar4.f7214e, cVar4.f7215f)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
+                    c.a.r0.a.i1.c.h.c cVar4 = dVar.f7359f;
+                    MarkerOptions zIndex = markerOptions.position(new LatLng(cVar4.f7356e, cVar4.f7357f)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
                     c.a.r0.a.e0.d.i("map", "createLabel end");
                     return zIndex;
                 }

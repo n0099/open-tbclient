@@ -256,7 +256,7 @@ public class c extends c.a.r0.a.c0.b.b {
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !this.f5312j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !this.f5454j : invokeV.booleanValue;
     }
 
     @Override // c.a.r0.a.c0.b.b

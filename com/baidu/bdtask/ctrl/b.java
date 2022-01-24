@@ -34,10 +34,10 @@ public final class b implements c.a.j.d.b, c<b> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ReentrantLock f32953b;
+    public static final ReentrantLock f32981b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f32954c;
+    public static final a f32982c;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.bdtask.ctrl.model.a a;
 
@@ -63,7 +63,7 @@ public final class b implements c.a.j.d.b, c<b> {
         public final ReentrantLock a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f32953b : (ReentrantLock) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f32981b : (ReentrantLock) invokeV.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -84,8 +84,8 @@ public final class b implements c.a.j.d.b, c<b> {
                 return;
             }
         }
-        f32954c = new a(null);
-        f32953b = new ReentrantLock(true);
+        f32982c = new a(null);
+        f32981b = new ReentrantLock(true);
     }
 
     public b() {
@@ -117,7 +117,7 @@ public final class b implements c.a.j.d.b, c<b> {
     public void a(TaskInfo taskInfo, TaskStatus taskStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, taskInfo, taskStatus) == null) {
-            ReentrantLock a2 = f32954c.a();
+            ReentrantLock a2 = f32982c.a();
             a2.lock();
             try {
                 TaskInfo deepCopy = taskInfo.deepCopy();
@@ -145,7 +145,7 @@ public final class b implements c.a.j.d.b, c<b> {
         if (interceptable != null && interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i2, str) != null) {
             return;
         }
-        ReentrantLock a2 = f32954c.a();
+        ReentrantLock a2 = f32982c.a();
         a2.lock();
         try {
             try {
@@ -198,7 +198,7 @@ public final class b implements c.a.j.d.b, c<b> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ReentrantLock a2 = f32954c.a();
+            ReentrantLock a2 = f32982c.a();
             a2.lock();
             try {
                 com.baidu.bdtask.ctrl.model.a aVar = this.a;
@@ -229,7 +229,7 @@ public final class b implements c.a.j.d.b, c<b> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
-            ReentrantLock a2 = f32954c.a();
+            ReentrantLock a2 = f32982c.a();
             a2.lock();
             try {
                 HashMap hashMap = new HashMap();
@@ -266,7 +266,7 @@ public final class b implements c.a.j.d.b, c<b> {
     public final void i(TaskInfo taskInfo, c.a.j.d.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, taskInfo, bVar) == null) {
-            ReentrantLock a2 = f32954c.a();
+            ReentrantLock a2 = f32982c.a();
             a2.lock();
             try {
                 this.a.i(new SubTaskState(taskInfo, new TaskStatus(0, 0, null, 0, 0L, null, TaskProcess.Companion.a(taskInfo.getTaskRule()), 63, null), bVar));

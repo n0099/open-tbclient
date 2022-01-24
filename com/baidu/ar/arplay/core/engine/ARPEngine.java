@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.ARPContent;
 import com.baidu.ar.arplay.core.engine.ARPDataInteraction;
@@ -90,7 +89,7 @@ public class ARPEngine implements c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Float.valueOf(f2), str})) == null) {
-            com.baidu.ar.arplay.c.b.b(TAG, "createApp [width*height]: [" + i2 + ProxyConfig.MATCH_ALL_SCHEMES + i3 + PreferencesUtil.RIGHT_MOUNT);
+            com.baidu.ar.arplay.c.b.b(TAG, "createApp [width*height]: [" + i2 + "*" + i3 + PreferencesUtil.RIGHT_MOUNT);
             boolean nativeCreateApp = nativeCreateApp(i2, i3, i4, i5, f2, str);
             this.mIsEngineCreated = true;
             ARPContent aRPContent = this.mARPContent;

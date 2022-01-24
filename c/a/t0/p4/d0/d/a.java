@@ -14,7 +14,7 @@ public abstract class a extends d {
     public f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f21084b;
+    public View f21319b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(f fVar) {

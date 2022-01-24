@@ -79,7 +79,7 @@ public class r extends t0 {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4215j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4356j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
@@ -103,15 +103,15 @@ public class r extends t0 {
     }
 
     @Override // c.a.l.t0
-    public c.a.t0.z2.v.a p() {
+    public c.a.t0.a3.v.a p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            c.a.t0.z2.v.b bVar = new c.a.t0.z2.v.b(this.f4145f, this.m);
+            c.a.t0.a3.v.b bVar = new c.a.t0.a3.v.b(this.f4286f, this.m);
             bVar.setStageType("2003");
             return bVar;
         }
-        return (c.a.t0.z2.v.a) invokeV.objValue;
+        return (c.a.t0.a3.v.a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -125,7 +125,7 @@ public class r extends t0 {
                 return;
             }
             e2 threadData = aVar.getThreadData();
-            if (threadData.t1() != null) {
+            if (threadData.u1() != null) {
                 this.C.setVisibility(8);
                 this.m.setVisibility(0);
                 this.E.setVisibility(8);
@@ -144,13 +144,13 @@ public class r extends t0 {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            View inflate = LayoutInflater.from(this.f4145f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
-            this.f4215j = inflate;
+            View inflate = LayoutInflater.from(this.f4286f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
+            this.f4356j = inflate;
             this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
-            this.E = (TextView) this.f4215j.findViewById(R.id.video_seg_abstract);
-            this.m = (RoundCornerFrameLayout) this.f4215j.findViewById(R.id.frame_video);
-            this.C = (InterviewLiveLayout) this.f4215j.findViewById(R.id.frame_interview_no_video);
-            c.a.t0.z2.v.a p = p();
+            this.E = (TextView) this.f4356j.findViewById(R.id.video_seg_abstract);
+            this.m = (RoundCornerFrameLayout) this.f4356j.findViewById(R.id.frame_video);
+            this.C = (InterviewLiveLayout) this.f4356j.findViewById(R.id.frame_interview_no_video);
+            c.a.t0.a3.v.a p = p();
             this.n = p;
             p.getMainView().setBackgroundResource(R.color.transparent);
         }

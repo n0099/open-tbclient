@@ -1,7 +1,7 @@
 package com.baidu.tieba.imMessageCenter.mention.agree.message;
 
 import c.a.d.f.p.n;
-import c.a.s0.e1.b0;
+import c.a.s0.d1.b0;
 import c.a.s0.s.k;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;

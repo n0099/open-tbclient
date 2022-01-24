@@ -27,7 +27,7 @@ public class a {
     public static final String a = "utf-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33766b = "c82c403505338808201aad86f8194734";
+    public static final String f33794b = "c82c403505338808201aad86f8194734";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

@@ -229,7 +229,7 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                 iChannelPay2.payCancel();
             }
         } else {
-            string.equalsIgnoreCase(f.f30928j);
+            string.equalsIgnoreCase(f.f30956j);
         }
     }
 
@@ -246,13 +246,13 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
             public final /* synthetic */ int a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f31586b;
+            public final /* synthetic */ int f31614b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f31587c;
+            public final /* synthetic */ String f31615c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ PayChannelController f31588d;
+            public final /* synthetic */ PayChannelController f31616d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -269,17 +269,17 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                         return;
                     }
                 }
-                this.f31588d = this;
+                this.f31616d = this;
                 this.a = i2;
-                this.f31586b = i3;
-                this.f31587c = str;
+                this.f31614b = i3;
+                this.f31615c = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f31588d.handleFailure(this.a, this.f31586b, this.f31587c);
+                    this.f31616d.handleFailure(this.a, this.f31614b, this.f31615c);
                 }
             }
         });
@@ -298,13 +298,13 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
             public final /* synthetic */ int a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Object f31583b;
+            public final /* synthetic */ Object f31611b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f31584c;
+            public final /* synthetic */ String f31612c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ PayChannelController f31585d;
+            public final /* synthetic */ PayChannelController f31613d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -321,17 +321,17 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                         return;
                     }
                 }
-                this.f31585d = this;
+                this.f31613d = this;
                 this.a = i2;
-                this.f31583b = obj;
-                this.f31584c = str;
+                this.f31611b = obj;
+                this.f31612c = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f31585d.handlerResponse(this.a, this.f31583b, this.f31584c);
+                    this.f31613d.handlerResponse(this.a, this.f31611b, this.f31612c);
                 }
             }
         });

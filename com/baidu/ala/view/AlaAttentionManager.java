@@ -3,7 +3,7 @@ package com.baidu.ala.view;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.s0.s.h0.b;
+import c.a.s0.s.i0.b;
 import c.a.s0.s.s.a;
 import c.a.s0.t.d.d;
 import com.baidu.adp.BdUniqueId;
@@ -157,12 +157,12 @@ public class AlaAttentionManager {
                 if (this.mNetwork != null) {
                     UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
                     aVar.a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
-                    aVar.f40742b = this.mNetwork.getErrorString();
-                    aVar.f40744d = this.isAttention;
-                    aVar.f40743c = this.toUid;
-                    aVar.f40746f = this.isGod;
+                    aVar.f40770b = this.mNetwork.getErrorString();
+                    aVar.f40772d = this.isAttention;
+                    aVar.f40771c = this.toUid;
+                    aVar.f40774f = this.isGod;
                     aVar.b(str, this.showToastAfterAttentionSuc);
-                    aVar.f40747g = this.mNetwork.getNetContext().getResponse();
+                    aVar.f40775g = this.mNetwork.getNetContext().getResponse();
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
@@ -311,15 +311,15 @@ public class AlaAttentionManager {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, aVar, fVar, z)) == null) {
-            if (aVar != null && aVar.f40748h != null && aVar.f40747g != null && fVar != null && fVar.getPageActivity() != null) {
-                int i2 = aVar.f40747g.mServerErrorCode;
+            if (aVar != null && aVar.f40776h != null && aVar.f40775g != null && fVar != null && fVar.getPageActivity() != null) {
+                int i2 = aVar.f40775g.mServerErrorCode;
                 if (!(i2 == 3250001 || i2 == 3250002 || i2 == 3250003 || i2 == 3250004)) {
                     return false;
                 }
-                if (aVar.f40749i) {
+                if (aVar.f40777i) {
                     return true;
                 }
-                JSONObject optJSONObject = aVar.f40748h.optJSONObject("info");
+                JSONObject optJSONObject = aVar.f40776h.optJSONObject("info");
                 if (optJSONObject == null) {
                     return false;
                 }
@@ -328,7 +328,7 @@ public class AlaAttentionManager {
                 String optString3 = optJSONObject.optString("block_confirm");
                 String optString4 = optJSONObject.optString("block_cancel");
                 if (optString != null && optString2 != null && optString3 != null && optString4 != null) {
-                    aVar.f40749i = true;
+                    aVar.f40777i = true;
                     a aVar2 = new a(fVar.getPageActivity());
                     aVar2.setAutoNight(z);
                     aVar2.setMessage(optString);

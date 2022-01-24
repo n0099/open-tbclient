@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.depend;
 
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbsDownloadListener implements IDownloadListener {
     public static final String TAG = "AbsDownloadListener";
 

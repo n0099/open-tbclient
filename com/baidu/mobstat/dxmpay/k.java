@@ -558,7 +558,7 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            String a = c.a().a(str, c.a.f36839b);
+            String a = c.a().a(str, c.a.f36867b);
             return a == null ? "" : a;
         }
         return (String) invokeL.objValue;

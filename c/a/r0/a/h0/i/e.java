@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.r0.a.n2.n;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -81,7 +82,7 @@ public class e {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
             c.a.r0.a.n2.s.e eVar = new c.a.r0.a.n2.s.e();
             eVar.a = "swan";
-            eVar.f7977b = str;
+            eVar.f8119b = str;
             eVar.a("appid", c.a.r0.a.d2.d.J().getAppId());
             eVar.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
             if (!TextUtils.isEmpty(str3)) {
@@ -92,7 +93,7 @@ public class e {
                 eVar.a("error_duration", String.valueOf(j2));
             }
             eVar.a("jserror", c.a.r0.a.h0.i.g.a.c.d().c() ? "1" : "0");
-            eVar.a("isShow", d.b() ? "1" : "0");
+            eVar.a(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, d.b() ? "1" : "0");
             n.x("1619", eVar);
         }
     }

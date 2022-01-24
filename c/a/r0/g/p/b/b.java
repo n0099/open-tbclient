@@ -57,7 +57,7 @@ public final class b {
 
     /* renamed from: c.a.r0.g.p.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0687b {
+    public interface InterfaceC0696b {
         c.a.r0.q.m.b a();
 
         void b(boolean z, c.a.r0.a.h0.s.c cVar);
@@ -97,9 +97,9 @@ public final class b {
     }
 
     @Inject(force = false)
-    public static InterfaceC0687b b() {
+    public static InterfaceC0696b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a.t0.z.b.m.b.a() : (InterfaceC0687b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a.t0.z.b.m.b.a() : (InterfaceC0696b) invokeV.objValue;
     }
 }

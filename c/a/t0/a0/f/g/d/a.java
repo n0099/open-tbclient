@@ -25,23 +25,23 @@ public class a {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f14624b;
+    public BdUniqueId f14764b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f14625c;
+    public boolean f14765c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f14626d;
+    public HttpMessageListener f14766d;
 
     /* renamed from: c.a.t0.a0.f.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0931a extends HttpMessageListener {
+    public class C0941a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0931a(a aVar, int i2) {
+        public C0941a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -66,8 +66,8 @@ public class a {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.f14625c = false;
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021093 && (httpResponsedMessage instanceof SpecialLiveResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.f14624b) {
+                this.a.f14765c = false;
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021093 && (httpResponsedMessage instanceof SpecialLiveResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.f14764b) {
                     SpecialLiveResponseMessage specialLiveResponseMessage = (SpecialLiveResponseMessage) httpResponsedMessage;
                     if (!specialLiveResponseMessage.isSuccess() || specialLiveResponseMessage.getData() == null) {
                         if (this.a.a != null) {
@@ -103,9 +103,9 @@ public class a {
                 return;
             }
         }
-        this.f14626d = new C0931a(this, AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
+        this.f14766d = new C0941a(this, AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
         this.a = bVar;
-        this.f14624b = BdUniqueId.gen();
+        this.f14764b = BdUniqueId.gen();
         h();
         g();
     }
@@ -113,17 +113,17 @@ public class a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14625c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14765c : invokeV.booleanValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f14625c) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f14765c) {
             return;
         }
-        this.f14625c = true;
+        this.f14765c = true;
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
-        httpMessage.setTag(this.f14624b);
+        httpMessage.setTag(this.f14764b);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
@@ -131,14 +131,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
-            MessageManager.getInstance().unRegisterListener(this.f14626d);
+            MessageManager.getInstance().unRegisterListener(this.f14766d);
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(this.f14626d);
+            MessageManager.getInstance().registerListener(this.f14766d);
         }
     }
 

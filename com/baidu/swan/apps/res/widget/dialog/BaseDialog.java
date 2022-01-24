@@ -18,7 +18,7 @@ public class BaseDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f39256e;
+    public boolean f39284e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseDialog(@NonNull Context context) {
@@ -38,13 +38,13 @@ public class BaseDialog extends Dialog {
                 return;
             }
         }
-        this.f39256e = a.f5415b;
+        this.f39284e = a.f5557b;
     }
 
     public void setEnableImmersion(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f39256e = a.f5415b && z;
+            this.f39284e = a.f5557b && z;
         }
     }
 
@@ -52,7 +52,7 @@ public class BaseDialog extends Dialog {
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f39256e) {
+            if (this.f39284e) {
                 a.k(this);
             }
             boolean f2 = a.f(this);
@@ -85,7 +85,7 @@ public class BaseDialog extends Dialog {
                 return;
             }
         }
-        this.f39256e = a.f5415b;
+        this.f39284e = a.f5557b;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -107,6 +107,6 @@ public class BaseDialog extends Dialog {
                 return;
             }
         }
-        this.f39256e = a.f5415b;
+        this.f39284e = a.f5557b;
     }
 }

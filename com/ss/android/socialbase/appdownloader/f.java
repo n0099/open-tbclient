@@ -15,7 +15,7 @@ import com.ss.android.socialbase.downloader.downloader.s;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f {
     public boolean A;
     public int C;
@@ -44,25 +44,25 @@ public class f {
     public int[] af;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f59768b;
+    public Context f59813b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59769c;
+    public String f59814c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<String> f59770d;
+    public List<String> f59815d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59771e;
+    public String f59816e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f59772f;
+    public String f59817f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f59773g;
+    public String f59818g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<com.ss.android.socialbase.downloader.model.c> f59774h;
+    public List<com.ss.android.socialbase.downloader.model.c> f59819h;
     public IDownloadListener m;
     public IDownloadListener n;
     public String o;
@@ -78,10 +78,10 @@ public class f {
     public long z;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f59775i = true;
+    public boolean f59820i = true;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f59776j = false;
+    public boolean f59821j = false;
     public boolean k = true;
     public boolean l = false;
     public String p = "application/vnd.android.package-archive";
@@ -95,8 +95,8 @@ public class f {
     public boolean ad = true;
 
     public f(@NonNull Context context, @NonNull String str) {
-        this.f59768b = context.getApplicationContext();
-        this.f59769c = str;
+        this.f59813b = context.getApplicationContext();
+        this.f59814c = str;
     }
 
     public boolean A() {
@@ -144,7 +144,7 @@ public class f {
     }
 
     public String L() {
-        return this.f59772f;
+        return this.f59817f;
     }
 
     public x M() {
@@ -204,7 +204,7 @@ public class f {
     }
 
     public String a() {
-        return this.f59769c;
+        return this.f59814c;
     }
 
     public String aa() {
@@ -212,7 +212,7 @@ public class f {
     }
 
     public List<String> ab() {
-        return this.f59770d;
+        return this.f59815d;
     }
 
     public r ac() {
@@ -224,23 +224,23 @@ public class f {
     }
 
     public String b() {
-        return this.f59771e;
+        return this.f59816e;
     }
 
     public String c() {
-        return this.f59773g;
+        return this.f59818g;
     }
 
     public List<com.ss.android.socialbase.downloader.model.c> d() {
-        return this.f59774h;
+        return this.f59819h;
     }
 
     public boolean e() {
-        return this.f59775i;
+        return this.f59820i;
     }
 
     public boolean f() {
-        return this.f59776j;
+        return this.f59821j;
     }
 
     public boolean g() {
@@ -252,7 +252,7 @@ public class f {
     }
 
     public Context getContext() {
-        return this.f59768b;
+        return this.f59813b;
     }
 
     public boolean h() {
@@ -336,12 +336,12 @@ public class f {
     }
 
     public f b(String str) {
-        this.f59772f = str;
+        this.f59817f = str;
         return this;
     }
 
     public f c(@NonNull String str) {
-        this.f59773g = str;
+        this.f59818g = str;
         return this;
     }
 
@@ -411,12 +411,12 @@ public class f {
     }
 
     public f a(String str) {
-        this.f59771e = str;
+        this.f59816e = str;
         return this;
     }
 
     public f b(boolean z) {
-        this.f59776j = z;
+        this.f59821j = z;
         return this;
     }
 
@@ -461,7 +461,7 @@ public class f {
     }
 
     public f a(List<com.ss.android.socialbase.downloader.model.c> list) {
-        this.f59774h = list;
+        this.f59819h = list;
         return this;
     }
 
@@ -491,12 +491,12 @@ public class f {
     }
 
     public f a(boolean z) {
-        this.f59775i = z;
+        this.f59820i = z;
         return this;
     }
 
     public f b(List<String> list) {
-        this.f59770d = list;
+        this.f59815d = list;
         return this;
     }
 

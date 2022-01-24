@@ -18,6 +18,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -269,8 +270,8 @@ public class RetrieveFileJob extends IRetrieveJob {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, this, list, jSONObject, retrieveFileBean, context)) == null) {
-            String str3 = Constants.PATH_INTERNAL;
-            String str4 = Constants.PATH_EXTERNAL;
+            String str3 = "internal:";
+            String str4 = "external:";
             String str5 = null;
             try {
                 ArrayList arrayList = new ArrayList(list.size());
@@ -304,7 +305,7 @@ public class RetrieveFileJob extends IRetrieveJob {
                             }
                         }
                         LogUtils.d(TAG, "retrieve--> 回捞路径：" + replace);
-                        if (replace.contains(Constants.PATH_PARENT)) {
+                        if (replace.contains("../")) {
                             generateMetaInfo(replace, "4", replace + " error", null, null, true, jSONObject);
                         } else {
                             File file = new File(replace);
@@ -447,7 +448,7 @@ public class RetrieveFileJob extends IRetrieveJob {
         String jSONObject2 = jSONObject.toString();
         if (zipFile != null && zipFile.exists()) {
             String absolutePath = zipFile.getAbsolutePath();
-            genBosObjectUrl(context, absolutePath, "application/octet-stream", "zip", 0, 0, 0, new AnonymousClass2(this, context, retrieveFileBean, jSONObject2, zipFile, absolutePath));
+            genBosObjectUrl(context, absolutePath, "application/octet-stream", StatConstants.VALUE_TYPE_ZIP, 0, 0, 0, new AnonymousClass2(this, context, retrieveFileBean, jSONObject2, zipFile, absolutePath));
             return;
         }
         RetrieveReportImpl.getInstance(context).reportTaskDone(retrieveFileBean.mType, retrieveFileBean.mJobId, retrieveFileBean.mVersion, "1", "", jSONObject2, null, "");

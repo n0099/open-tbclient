@@ -115,39 +115,39 @@ public abstract class a {
     public static final int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f28642b;
+    public static final int f28670b;
     public static final int b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f28643c;
+    public static final int f28671c;
     public static final int c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f28644d;
+    public static final int f28672d;
     public static final int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f28645e;
+    public static final int f28673e;
     public static final int e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f28646f;
+    public static final int f28674f;
     public static final int f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f28647g;
+    public static final int f28675g;
     public static final int g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f28648h;
+    public static final int f28676h;
     public static final int h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f28649i;
+    public static final int f28677i;
     public static final int i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f28650j;
+    public static final int f28678j;
     public static final int j0;
     public static final int k;
     public static final int k0;
@@ -186,15 +186,15 @@ public abstract class a {
 
     /* renamed from: c.i.b.a.a0.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static final class C1651a extends a {
+    public static final class C1652a extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long P0;
         public final List<b> Q0;
-        public final List<C1651a> R0;
+        public final List<C1652a> R0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1651a(int i2, long j2) {
+        public C1652a(int i2, long j2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -216,10 +216,10 @@ public abstract class a {
             this.R0 = new ArrayList();
         }
 
-        public void d(C1651a c1651a) {
+        public void d(C1652a c1652a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c1651a) == null) {
-                this.R0.add(c1651a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, c1652a) == null) {
+                this.R0.add(c1652a);
             }
         }
 
@@ -230,20 +230,20 @@ public abstract class a {
             }
         }
 
-        public C1651a f(int i2) {
+        public C1652a f(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
                 int size = this.R0.size();
                 for (int i3 = 0; i3 < size; i3++) {
-                    C1651a c1651a = this.R0.get(i3);
-                    if (c1651a.a == i2) {
-                        return c1651a;
+                    C1652a c1652a = this.R0.get(i3);
+                    if (c1652a.a == i2) {
+                        return c1652a;
                     }
                 }
                 return null;
             }
-            return (C1651a) invokeI.objValue;
+            return (C1652a) invokeI.objValue;
         }
 
         public b g(int i2) {
@@ -314,15 +314,15 @@ public abstract class a {
                 return;
             }
         }
-        f28642b = v.q("ftyp");
-        f28643c = v.q(VisualSampleEntry.TYPE3);
-        f28644d = v.q(VisualSampleEntry.TYPE4);
-        f28645e = v.q("hvc1");
-        f28646f = v.q("hev1");
-        f28647g = v.q(VisualSampleEntry.TYPE2);
-        f28648h = v.q("d263");
-        f28649i = v.q(MediaDataBox.TYPE);
-        f28650j = v.q(AudioSampleEntry.TYPE3);
+        f28670b = v.q("ftyp");
+        f28671c = v.q(VisualSampleEntry.TYPE3);
+        f28672d = v.q(VisualSampleEntry.TYPE4);
+        f28673e = v.q("hvc1");
+        f28674f = v.q("hev1");
+        f28675g = v.q(VisualSampleEntry.TYPE2);
+        f28676h = v.q("d263");
+        f28677i = v.q(MediaDataBox.TYPE);
+        f28678j = v.q(AudioSampleEntry.TYPE3);
         k = v.q(EmotionResourceProvider.EMOTION_SOUND_SUFFIX);
         l = v.q(AppleWaveBox.TYPE);
         m = v.q("lpcm");

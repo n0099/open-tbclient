@@ -15,13 +15,13 @@ public class z implements TTNativeExpressAd.AdInteractionListener {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28237b;
+    public boolean f28265b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ TTNativeExpressAd f28238c;
+    public final /* synthetic */ TTNativeExpressAd f28266c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ y f28239d;
+    public final /* synthetic */ y f28267d;
 
     public z(y yVar, TTNativeExpressAd tTNativeExpressAd) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class z implements TTNativeExpressAd.AdInteractionListener {
                 return;
             }
         }
-        this.f28239d = yVar;
-        this.f28238c = tTNativeExpressAd;
+        this.f28267d = yVar;
+        this.f28266c = tTNativeExpressAd;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -47,8 +47,8 @@ public class z implements TTNativeExpressAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
             LogPrinter.d();
-            this.f28239d.onAdClicked(this.f28237b);
-            this.f28237b = true;
+            this.f28267d.onAdClicked(this.f28265b);
+            this.f28265b = true;
         }
     }
 
@@ -57,7 +57,7 @@ public class z implements TTNativeExpressAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            this.f28239d.onAdClose();
+            this.f28267d.onAdClose();
         }
     }
 
@@ -66,7 +66,7 @@ public class z implements TTNativeExpressAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) {
             LogPrinter.d();
-            this.f28239d.onAdShow(this.f28238c, this.a);
+            this.f28267d.onAdShow(this.f28266c, this.a);
             this.a = true;
         }
     }
@@ -76,7 +76,7 @@ public class z implements TTNativeExpressAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, view, str, i2) == null) {
             LogPrinter.e("onRenderFail message: " + str + ", code: " + i2, new Object[0]);
-            this.f28239d.onError(i2, str);
+            this.f28267d.onError(i2, str);
         }
     }
 
@@ -85,7 +85,7 @@ public class z implements TTNativeExpressAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             LogPrinter.d();
-            this.f28239d.onAdLoaded((y) this.f28238c);
+            this.f28267d.onAdLoaded((y) this.f28266c);
         }
     }
 }

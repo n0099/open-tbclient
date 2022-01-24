@@ -19,16 +19,16 @@ public class CirclePortraitView extends NetImageView {
     public final Paint a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Paint f32356b;
+    public final Paint f32384b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final RectF f32357c;
+    public final RectF f32385c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f32358d;
+    public float f32386d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f32359e;
+    public float f32387e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CirclePortraitView(Context context, AttributeSet attributeSet, int i2) {
@@ -50,8 +50,8 @@ public class CirclePortraitView extends NetImageView {
             }
         }
         this.a = new Paint();
-        this.f32356b = new Paint();
-        this.f32357c = new RectF();
+        this.f32384b = new Paint();
+        this.f32385c = new RectF();
         c();
     }
 
@@ -60,8 +60,8 @@ public class CirclePortraitView extends NetImageView {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             this.a.setAntiAlias(true);
             this.a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-            this.f32356b.setAntiAlias(true);
-            this.f32356b.setColor(-1);
+            this.f32384b.setAntiAlias(true);
+            this.f32384b.setColor(-1);
         }
     }
 
@@ -69,10 +69,10 @@ public class CirclePortraitView extends NetImageView {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.saveLayer(this.f32357c, this.f32356b, 31);
-            float f2 = this.f32358d;
-            canvas.drawCircle(f2 / 2.0f, this.f32359e / 2.0f, f2 / 2.0f, this.f32356b);
-            canvas.saveLayer(this.f32357c, this.a, 31);
+            canvas.saveLayer(this.f32385c, this.f32384b, 31);
+            float f2 = this.f32386d;
+            canvas.drawCircle(f2 / 2.0f, this.f32387e / 2.0f, f2 / 2.0f, this.f32384b);
+            canvas.saveLayer(this.f32385c, this.a, 31);
             super.draw(canvas);
             canvas.restore();
         }
@@ -83,10 +83,10 @@ public class CirclePortraitView extends NetImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            this.f32358d = getWidth();
+            this.f32386d = getWidth();
             float height = getHeight();
-            this.f32359e = height;
-            this.f32357c.set(0.0f, 0.0f, this.f32358d, height);
+            this.f32387e = height;
+            this.f32385c.set(0.0f, 0.0f, this.f32386d, height);
         }
     }
 
@@ -110,8 +110,8 @@ public class CirclePortraitView extends NetImageView {
             }
         }
         this.a = new Paint();
-        this.f32356b = new Paint();
-        this.f32357c = new RectF();
+        this.f32384b = new Paint();
+        this.f32385c = new RectF();
         c();
     }
 
@@ -134,8 +134,8 @@ public class CirclePortraitView extends NetImageView {
             }
         }
         this.a = new Paint();
-        this.f32356b = new Paint();
-        this.f32357c = new RectF();
+        this.f32384b = new Paint();
+        this.f32385c = new RectF();
         c();
     }
 }

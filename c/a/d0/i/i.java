@@ -19,7 +19,7 @@ public class i {
     public static Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<byte[]> f3427b;
+    public static WeakReference<byte[]> f3529b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public class i {
         monitor-enter(r11);
      */
     /* JADX WARN: Code restructure failed: missing block: B:51:0x0088, code lost:
-        c.a.d0.i.i.f3427b = r1;
+        c.a.d0.i.i.f3529b = r1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:52:0x008a, code lost:
         monitor-exit(r11);
@@ -90,10 +90,10 @@ public class i {
             return (Signature[]) invokeL.objValue;
         }
         synchronized (a) {
-            WeakReference<byte[]> weakReference = f3427b;
+            WeakReference<byte[]> weakReference = f3529b;
             jarFile = null;
             if (weakReference != null) {
-                f3427b = null;
+                f3529b = null;
                 bArr = weakReference.get();
             } else {
                 bArr = null;

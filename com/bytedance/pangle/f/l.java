@@ -25,13 +25,13 @@ public final class l implements k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FileDescriptor f53067b;
+    public final FileDescriptor f53112b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f53068c;
+    public final long f53113c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f53069d;
+    public final long f53114d;
 
     static {
         InterceptResult invokeClinit;
@@ -64,16 +64,16 @@ public final class l implements k {
                 return;
             }
         }
-        this.f53067b = fileDescriptor;
-        this.f53068c = j2;
-        this.f53069d = j3;
+        this.f53112b = fileDescriptor;
+        this.f53113c = j2;
+        this.f53114d = j3;
     }
 
     @Override // com.bytedance.pangle.f.k
     public final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53069d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53114d : invokeV.longValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:101:0x00cd A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -93,7 +93,7 @@ public final class l implements k {
         if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jVar, Long.valueOf(j2), Integer.valueOf(i2)}) != null) {
             return;
         }
-        long j3 = this.f53068c + j2;
+        long j3 = this.f53113c + j2;
         long j4 = a;
         long j5 = (j3 / j4) * j4;
         int i3 = (int) (j3 - j5);
@@ -111,12 +111,12 @@ public final class l implements k {
                             } catch (Exception e3) {
                                 e3.printStackTrace();
                             }
-                            mmap = Os.mmap(0L, j6, OsConstants.PROT_READ, OsConstants.MAP_SHARED | intValue, this.f53067b, j5);
+                            mmap = Os.mmap(0L, j6, OsConstants.PROT_READ, OsConstants.MAP_SHARED | intValue, this.f53112b, j5);
                             if (!(Build.VERSION.SDK_INT < 24 && Build.VERSION.SDK_INT <= 28)) {
                                 try {
                                     Constructor a2 = com.bytedance.pangle.a.a.a.a(Class.forName("java.nio.DirectByteBuffer"), Integer.TYPE, Long.TYPE, FileDescriptor.class, Runnable.class, Boolean.TYPE);
                                     if (a2 != null && a2.isAccessible()) {
-                                        byteBuffer = (ByteBuffer) a2.newInstance(Integer.valueOf(i2), Long.valueOf(i3 + mmap), this.f53067b, null, Boolean.TRUE);
+                                        byteBuffer = (ByteBuffer) a2.newInstance(Integer.valueOf(i2), Long.valueOf(i3 + mmap), this.f53112b, null, Boolean.TRUE);
                                     }
                                 } catch (ClassNotFoundException e4) {
                                     e4.printStackTrace();
@@ -175,7 +175,7 @@ public final class l implements k {
                         throw new IOException("Failed to mmap " + j6 + " bytes", e);
                     }
                     intValue = 0;
-                    mmap = Os.mmap(0L, j6, OsConstants.PROT_READ, OsConstants.MAP_SHARED | intValue, this.f53067b, j5);
+                    mmap = Os.mmap(0L, j6, OsConstants.PROT_READ, OsConstants.MAP_SHARED | intValue, this.f53112b, j5);
                 } catch (Throwable th) {
                     th = th;
                     if (0 != 0) {

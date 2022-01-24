@@ -2,8 +2,8 @@ package com.baidu.tieba.recapp.lego.view;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.t0.j3.i0.b.d;
-import c.a.t0.x1.o.k.a;
+import c.a.t0.k3.i0.b.d;
+import c.a.t0.y1.o.k.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -87,12 +87,12 @@ public class AdCardMultiPicView extends AdCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adCard) == null) {
             d dVar = adCard.picInfo;
-            List<String> list = dVar == null ? null : dVar.f18400c;
+            List<String> list = dVar == null ? null : dVar.f18877c;
             if (!a.e(list) && dVar != null) {
-                int k = a.k(dVar.f18400c);
+                int k = a.k(dVar.f18877c);
                 int dimensionPixelSize = (int) ((this.mMaxWidth - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002) * 2)) / 3.0f);
-                int i2 = dVar.f18402e;
-                int i3 = dVar.f18401d;
+                int i2 = dVar.f18879e;
+                int i3 = dVar.f18878d;
                 int max = (int) (dimensionPixelSize * Math.max(Math.min((i2 == 0 || i3 == 0) ? 1.0f : i2 / i3, 1.0f), 0.0f));
                 this.mAdvertAppImgLeft.setVisibility(4);
                 this.mAdvertAppImgCenter.setVisibility(4);

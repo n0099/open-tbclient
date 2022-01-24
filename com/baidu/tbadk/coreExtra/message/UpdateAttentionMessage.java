@@ -24,31 +24,31 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40742b;
+        public String f40770b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f40743c;
+        public String f40771c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f40744d;
+        public boolean f40772d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f40745e;
+        public boolean f40773e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f40746f;
+        public boolean f40774f;
 
         /* renamed from: g  reason: collision with root package name */
-        public HttpResponse f40747g;
+        public HttpResponse f40775g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f40748h;
+        public JSONObject f40776h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f40749i;
+        public boolean f40777i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f40750j;
+        public boolean f40778j;
         public String k;
         public BlockPopInfoData l;
         public int m;
@@ -66,8 +66,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f40745e = false;
-            this.f40746f = false;
+            this.f40773e = false;
+            this.f40774f = false;
             this.m = 0;
         }
 
@@ -98,7 +98,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f40748h = jSONObject;
+                this.f40776h = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
@@ -142,7 +142,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f40744d;
+            return getData().f40772d;
         }
         return invokeV.booleanValue;
     }
@@ -154,7 +154,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f40746f;
+            return getData().f40774f;
         }
         return invokeV.booleanValue;
     }

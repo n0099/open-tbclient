@@ -42,7 +42,7 @@ public abstract class b {
     public static boolean f34a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<Integer, String> f60876b;
+    public static final HashMap<Integer, String> f60921b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -106,7 +106,7 @@ public abstract class b {
         f31a = "XMPush-" + Process.myPid();
         f29a = new a();
         f32a = new HashMap<>();
-        f60876b = new HashMap<>();
+        f60921b = new HashMap<>();
         f30a = -1;
         f33a = new AtomicInteger(1);
     }
@@ -124,7 +124,7 @@ public abstract class b {
             if (a <= 1) {
                 Integer valueOf = Integer.valueOf(f33a.incrementAndGet());
                 f32a.put(valueOf, Long.valueOf(System.currentTimeMillis()));
-                f60876b.put(valueOf, str);
+                f60921b.put(valueOf, str);
                 LoggerInterface loggerInterface = f29a;
                 loggerInterface.log(str + " starts");
                 return valueOf;
@@ -209,7 +209,7 @@ public abstract class b {
         if ((interceptable == null || interceptable.invokeL(65548, null, num) == null) && a <= 1 && f32a.containsKey(num)) {
             long currentTimeMillis = System.currentTimeMillis() - f32a.remove(num).longValue();
             LoggerInterface loggerInterface = f29a;
-            loggerInterface.log(f60876b.remove(num) + " ends in " + currentTimeMillis + " ms");
+            loggerInterface.log(f60921b.remove(num) + " ends in " + currentTimeMillis + " ms");
         }
     }
 

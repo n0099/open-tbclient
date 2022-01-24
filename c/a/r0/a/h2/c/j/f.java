@@ -33,7 +33,7 @@ public class f extends h<d> {
     public static final boolean r;
     public transient /* synthetic */ FieldHolder $fh;
     public final Activity m;
-    public d.C0561d n;
+    public d.C0570d n;
     public c o;
     public Bundle p;
     public String q;
@@ -50,7 +50,7 @@ public class f extends h<d> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f7175g;
+        public final /* synthetic */ f f7317g;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class f extends h<d> {
                     return;
                 }
             }
-            this.f7175g = fVar;
+            this.f7317g = fVar;
         }
 
         @Override // c.a.r0.a.h2.c.e
@@ -75,14 +75,14 @@ public class f extends h<d> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.r0.a.m.b M = this.f7175g.M().M();
-                boolean e2 = M.e(this.f7175g.m);
+                c.a.r0.a.m.b M = this.f7317g.M().M();
+                boolean e2 = M.e(this.f7317g.m);
                 if (f.r) {
                     String str = "LoginPreparation isLogin : " + e2 + " call stack:" + Log.getStackTraceString(new Exception());
                 }
                 if (!e2) {
-                    n.T(this.f7175g.l, "passLogin");
-                    f fVar = this.f7175g;
+                    n.T(this.f7317g.l, "passLogin");
+                    f fVar = this.f7317g;
                     M.f(fVar.m, fVar.p, this);
                 }
                 return e2;
@@ -207,12 +207,12 @@ public class f extends h<d> {
         r = k.a;
     }
 
-    public f(Activity activity, d.C0561d c0561d, Bundle bundle) {
+    public f(Activity activity, d.C0570d c0570d, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, c0561d, bundle};
+            Object[] objArr = {activity, c0570d, bundle};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -223,7 +223,7 @@ public class f extends h<d> {
             }
         }
         this.m = activity;
-        this.n = c0561d;
+        this.n = c0570d;
         this.o = new c(Looper.getMainLooper(), this, null);
         if (bundle != null && bundle.containsKey("__plugin__")) {
             this.q = bundle.getString("__plugin__");

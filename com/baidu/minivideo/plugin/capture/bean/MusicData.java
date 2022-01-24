@@ -3,7 +3,6 @@ package com.baidu.minivideo.plugin.capture.bean;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -93,7 +92,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
                 musicData.icon = jSONObject.optString("music_icon");
                 musicData.url = jSONObject.optString("music_url");
                 musicData.localPath = jSONObject.optString("music_local_path");
-                musicData.sk = jSONObject.optString(ContentUtil.RESULT_KEY_SK);
+                musicData.sk = jSONObject.optString("sk");
                 musicData.ext = jSONObject.optString("ext");
                 musicData.startPosition = jSONObject.optInt("start_position");
                 musicData.localTransCodePath = jSONObject.optString("music_local_transcode_path");
@@ -226,7 +225,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
                 jSONObject.put("music_icon", musicData.icon);
                 jSONObject.put("music_url", musicData.url);
                 jSONObject.put("music_local_path", musicData.localPath);
-                jSONObject.put(ContentUtil.RESULT_KEY_SK, musicData.sk);
+                jSONObject.put("sk", musicData.sk);
                 jSONObject.put("ext", musicData.ext);
                 jSONObject.put("start_position", musicData.startPosition);
                 jSONObject.put("music_local_transcode_path", musicData.localTransCodePath);

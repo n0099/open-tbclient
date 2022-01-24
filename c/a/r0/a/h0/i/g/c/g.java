@@ -16,18 +16,18 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f6490e;
+    public static final boolean f6632e;
     public transient /* synthetic */ FieldHolder $fh;
     public final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6491b;
+    public boolean f6633b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f6492c;
+    public boolean f6634c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.a.h0.i.h.g.b f6493d;
+    public c.a.r0.a.h0.i.h.g.b f6635d;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -71,7 +71,7 @@ public final class g {
                 return;
             }
         }
-        f6490e = k.a;
+        f6632e = k.a;
     }
 
     public /* synthetic */ g(a aVar) {
@@ -87,13 +87,13 @@ public final class g {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (f6490e) {
-                c.a.r0.a.e0.d.i("WhitePageMonitor", Log.getStackTraceString(new Throwable(">>> check skeleton_dev, callback = " + this.f6493d)));
+            if (f6632e) {
+                c.a.r0.a.e0.d.i("WhitePageMonitor", Log.getStackTraceString(new Throwable(">>> check skeleton_dev, callback = " + this.f6635d)));
             }
-            c.a.r0.a.h0.i.h.g.b bVar = this.f6493d;
+            c.a.r0.a.h0.i.h.g.b bVar = this.f6635d;
             if (bVar != null) {
                 bVar.onCheck();
-                this.f6493d = null;
+                this.f6635d = null;
             }
         }
     }
@@ -101,13 +101,13 @@ public final class g {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6491b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6633b : invokeV.booleanValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6492c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6634c : invokeV.booleanValue;
     }
 
     public void e(long j2) {
@@ -121,14 +121,14 @@ public final class g {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f6491b = false;
+            this.f6633b = false;
         }
     }
 
     public void g(c.a.r0.a.h0.i.h.g.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f6493d = bVar;
+            this.f6635d = bVar;
         }
     }
 
@@ -142,17 +142,17 @@ public final class g {
     public void i(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            if (f6490e) {
+            if (f6632e) {
                 String str = ">> update first white screen timestamp, delay " + j2 + " ms";
             }
-            this.f6491b = j2 < 3000 && j2 > 0;
+            this.f6633b = j2 < 3000 && j2 > 0;
         }
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f6492c = z;
+            this.f6634c = z;
         }
     }
 

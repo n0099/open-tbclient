@@ -141,13 +141,13 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f54632e;
+        public int f54677e;
 
         /* renamed from: f  reason: collision with root package name */
-        public E f54633f;
+        public E f54678f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Iterator f54634g;
+        public final /* synthetic */ Iterator f54679g;
 
         public a(ImmutableMultiset immutableMultiset, Iterator it) {
             Interceptable interceptable = $ic;
@@ -164,14 +164,14 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
                     return;
                 }
             }
-            this.f54634g = it;
+            this.f54679g = it;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54632e > 0 || this.f54634g.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54677e > 0 || this.f54679g.hasNext() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
@@ -179,13 +179,13 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f54632e <= 0) {
-                    s0.a aVar = (s0.a) this.f54634g.next();
-                    this.f54633f = (E) aVar.getElement();
-                    this.f54632e = aVar.getCount();
+                if (this.f54677e <= 0) {
+                    s0.a aVar = (s0.a) this.f54679g.next();
+                    this.f54678f = (E) aVar.getElement();
+                    this.f54677e = aVar.getCount();
                 }
-                this.f54632e--;
-                return this.f54633f;
+                this.f54677e--;
+                return this.f54678f;
             }
             return (E) invokeV.objValue;
         }
@@ -198,10 +198,10 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
         public v0<E> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f54635b;
+        public boolean f54680b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f54636c;
+        public boolean f54681c;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public b() {
@@ -305,11 +305,11 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
                 if (i2 == 0) {
                     return this;
                 }
-                if (this.f54635b) {
+                if (this.f54680b) {
                     this.a = new v0<>((v0<? extends E>) this.a);
-                    this.f54636c = false;
+                    this.f54681c = false;
                 }
-                this.f54635b = false;
+                this.f54680b = false;
                 n.p(e2);
                 v0<E> v0Var = this.a;
                 v0Var.u(e2, i2 + v0Var.f(e2));
@@ -325,11 +325,11 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
                 if (this.a.C() == 0) {
                     return ImmutableMultiset.of();
                 }
-                if (this.f54636c) {
+                if (this.f54681c) {
                     this.a = new v0<>((v0<? extends E>) this.a);
-                    this.f54636c = false;
+                    this.f54681c = false;
                 }
-                this.f54635b = true;
+                this.f54680b = true;
                 return new RegularImmutableMultiset(this.a);
             }
             return (ImmutableMultiset) invokeV.objValue;
@@ -350,8 +350,8 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
                     return;
                 }
             }
-            this.f54635b = false;
-            this.f54636c = false;
+            this.f54680b = false;
+            this.f54681c = false;
             this.a = v0.c(i2);
         }
 
@@ -370,8 +370,8 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
                     return;
                 }
             }
-            this.f54635b = false;
-            this.f54636c = false;
+            this.f54680b = false;
+            this.f54681c = false;
             this.a = null;
         }
     }

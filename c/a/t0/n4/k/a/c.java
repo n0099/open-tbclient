@@ -13,10 +13,10 @@ public class c {
     public static final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.a.t0.j4.i.a f19915b;
+    public static final c.a.t0.j4.i.a f20016b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f19916c;
+    public static boolean f20017c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class c {
             }
         }
         a = TimeUnit.DAYS.toMillis(5L);
-        f19915b = new c.a.t0.j4.i.a("camera_last_api", 0, "camera_last_api_stamp");
-        f19916c = "Lenovo K520".equals(Build.MODEL);
+        f20016b = new c.a.t0.j4.i.a("camera_last_api", 0, "camera_last_api_stamp");
+        f20017c = "Lenovo K520".equals(Build.MODEL);
     }
 }

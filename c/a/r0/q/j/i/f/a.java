@@ -16,7 +16,7 @@ public class a implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Response f11517e;
+    public final Response f11659e;
 
     public a(@NonNull Response response) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class a implements e {
                 return;
             }
         }
-        this.f11517e = response;
+        this.f11659e = response;
     }
 
     @Override // c.a.r0.q.j.i.f.e
@@ -42,7 +42,7 @@ public class a implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ResponseBody body = this.f11517e.body();
+            ResponseBody body = this.f11659e.body();
             if (body == null) {
                 return null;
             }
@@ -55,7 +55,7 @@ public class a implements e {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f11517e.close();
+            this.f11659e.close();
         }
     }
 
@@ -63,6 +63,6 @@ public class a implements e {
     public int code() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11517e.code() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11659e.code() : invokeV.intValue;
     }
 }

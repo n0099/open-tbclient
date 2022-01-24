@@ -1,6 +1,7 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +12,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AsyncPublishStatData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +90,7 @@ public class AsyncPublishStatData implements Serializable {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("id", this.id);
             jSONObject.put("parentId", this.parentId);
-            jSONObject.put("startTime", this.startTime);
+            jSONObject.put(FetchLog.START_TIME, this.startTime);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
@@ -102,8 +103,8 @@ public class AsyncPublishStatData implements Serializable {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("id", this.id);
             jSONObject.put("parentId", this.parentId);
-            jSONObject.put("startTime", this.startTime);
-            jSONObject.put("endTime", this.endTime);
+            jSONObject.put(FetchLog.START_TIME, this.startTime);
+            jSONObject.put(FetchLog.END_TIME, this.endTime);
             jSONObject.put("errorCode", this.errorCode);
             jSONObject.put("errorMessage", this.errorMessage);
             jSONObject.put("sendThreadDuration", this.sendThreadDuration);

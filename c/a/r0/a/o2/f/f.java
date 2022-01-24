@@ -93,7 +93,7 @@ public class f implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();
-            return a0 == null ? "" : c.a.r0.a.o2.b.n(a0.f5537f, str, null);
+            return a0 == null ? "" : c.a.r0.a.o2.b.n(a0.f5679f, str, null);
         }
         return (String) invokeL.objValue;
     }
@@ -136,7 +136,7 @@ public class f implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();
-            return a0 == null ? "" : c.a.r0.a.o2.b.z(a0.f5537f);
+            return a0 == null ? "" : c.a.r0.a.o2.b.z(a0.f5679f);
         }
         return (String) invokeV.objValue;
     }
@@ -147,7 +147,7 @@ public class f implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();
-            return a0 == null ? str : c.a.r0.a.o2.b.I(str, a0.f5537f);
+            return a0 == null ? str : c.a.r0.a.o2.b.I(str, a0.f5679f);
         }
         return (String) invokeL.objValue;
     }
@@ -175,7 +175,7 @@ public class f implements d {
             if (a0 == null) {
                 return null;
             }
-            return c.a.r0.a.o2.b.M(str, a0.f5537f);
+            return c.a.r0.a.o2.b.M(str, a0.f5679f);
         }
         return (String) invokeL.objValue;
     }
@@ -203,7 +203,7 @@ public class f implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();
-            return a0 == null ? "" : c.a.r0.a.o2.b.x(a0.f5537f);
+            return a0 == null ? "" : c.a.r0.a.o2.b.x(a0.f5679f);
         }
         return (String) invokeV.objValue;
     }
@@ -229,12 +229,12 @@ public class f implements d {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int indexOf = str.indexOf(com.baidu.android.imsdk.retrieve.Constants.PATH_PARENT);
+            int indexOf = str.indexOf("../");
             if (indexOf != 0) {
                 return indexOf > 0;
             }
             String substring = str.substring(3);
-            return !TextUtils.isEmpty(substring) && substring.contains(com.baidu.android.imsdk.retrieve.Constants.PATH_PARENT);
+            return !TextUtils.isEmpty(substring) && substring.contains("../");
         }
         return invokeL.booleanValue;
     }

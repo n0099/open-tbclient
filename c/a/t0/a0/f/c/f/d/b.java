@@ -80,12 +80,12 @@ public class b extends c.a.t0.g0.b<c.a.t0.a0.f.g.c.e> {
     public void k(c.a.t0.a0.f.g.c.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            if (eVar.f14612e == 1) {
-                this.m.setText(this.f17767f.getResources().getString(R.string.live_sub_tab_no_attention_txt));
+            if (eVar.f14752e == 1) {
+                this.m.setText(this.f17589f.getResources().getString(R.string.live_sub_tab_no_attention_txt));
                 SkinManager.setImageResource(this.n, R.drawable.new_pic_emotion_07);
                 return;
             }
-            this.m.setText(this.f17767f.getResources().getString(R.string.live_sub_tab_empty_txt));
+            this.m.setText(this.f17589f.getResources().getString(R.string.live_sub_tab_empty_txt));
             SkinManager.setImageResource(this.n, R.drawable.new_pic_emotion_06);
         }
     }

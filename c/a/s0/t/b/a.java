@@ -16,12 +16,12 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f13785c;
+    public static volatile a f13930c;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13786b;
+    public int f13931b;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public class a {
             }
         }
         this.a = false;
-        this.f13786b = 0;
+        this.f13931b = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.setSdCard(true);
@@ -60,9 +60,9 @@ public class a {
             if (dVar.call()) {
                 String a = dVar.a();
                 if (a != null) {
-                    this.f13786b = Integer.parseInt(a);
+                    this.f13931b = Integer.parseInt(a);
                 }
-                if (this.f13786b == 1 || this.f13786b == 2) {
+                if (this.f13931b == 1 || this.f13931b == 2) {
                     this.a = true;
                 }
             }
@@ -75,14 +75,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f13785c == null) {
+            if (f13930c == null) {
                 synchronized (a.class) {
-                    if (f13785c == null) {
-                        f13785c = new a();
+                    if (f13930c == null) {
+                        f13930c = new a();
                     }
                 }
             }
-            return f13785c;
+            return f13930c;
         }
         return (a) invokeV.objValue;
     }
@@ -91,7 +91,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a ? "pub_env=" + this.f13786b + ";" : "";
+            return this.a ? "pub_env=" + this.f13931b + ";" : "";
         }
         return (String) invokeV.objValue;
     }
@@ -99,7 +99,7 @@ public class a {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13786b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13931b : invokeV.intValue;
     }
 
     public boolean d() {

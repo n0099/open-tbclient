@@ -10,7 +10,7 @@ public class t3 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ a4 f30464e;
+    public final /* synthetic */ a4 f30492e;
 
     public t3(a4 a4Var) {
         Interceptable interceptable = $ic;
@@ -27,18 +27,18 @@ public class t3 implements Runnable {
                 return;
             }
         }
-        this.f30464e = a4Var;
+        this.f30492e = a4Var;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            y2 a = c3.a(this.f30464e.a.f30314c.a);
-            a.e(new g3(this.f30464e.a.f30314c.f30281b.b()), 200, System.currentTimeMillis() - this.f30464e.a.a);
+            y2 a = c3.a(this.f30492e.a.f30342c.a);
+            a.e(new g3(this.f30492e.a.f30342c.f30309b.b()), 200, System.currentTimeMillis() - this.f30492e.a.a);
             a.m();
-            this.f30464e.a.f30314c.f30282c.onLoaded();
-            this.f30464e.a.f30314c.f30283d = true;
+            this.f30492e.a.f30342c.f30310c.onLoaded();
+            this.f30492e.a.f30342c.f30311d = true;
         }
     }
 }

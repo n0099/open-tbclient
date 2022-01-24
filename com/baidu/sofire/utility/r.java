@@ -193,7 +193,7 @@ public final class r {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                 String o = a2.o();
                 if (TextUtils.isEmpty(o)) {
-                    String string = a2.f38449c.getString("rpnewuid", "");
+                    String string = a2.f38477c.getString("rpnewuid", "");
                     if (TextUtils.isEmpty(string)) {
                         return "";
                     }
@@ -231,7 +231,7 @@ public final class r {
             } catch (Throwable unused) {
                 c.a();
             }
-            if (u.c(context) && b(context, com.kuaishou.weapon.un.s.f55248i)) {
+            if (u.c(context) && b(context, com.kuaishou.weapon.un.s.f55293i)) {
                 File file = new File(Environment.getExternalStorageDirectory(), ".zp/.icosc");
                 if (file.exists()) {
                     return a(file);

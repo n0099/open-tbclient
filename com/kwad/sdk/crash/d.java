@@ -10,10 +10,10 @@ public final class d {
     public com.kwad.sdk.crash.a.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f56538b;
+    public b f56583b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f56539c;
+    public long f56584c;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -22,7 +22,7 @@ public final class d {
 
     public d() {
         this.a = new com.kwad.sdk.crash.a.b();
-        this.f56538b = new b.a().a();
+        this.f56583b = new b.a().a();
     }
 
     public static d a() {
@@ -30,16 +30,16 @@ public final class d {
     }
 
     public void a(int i2, ExceptionMessage exceptionMessage) {
-        e a2 = this.f56538b.a();
+        e a2 = this.f56583b.a();
         if (a2 != null) {
             a2.a(i2, exceptionMessage);
         }
     }
 
     public void a(@NonNull b bVar) {
-        this.f56538b = bVar;
-        this.f56539c = SystemClock.elapsedRealtime();
-        this.a.a(bVar.f56505d, bVar.f56506e);
+        this.f56583b = bVar;
+        this.f56584c = SystemClock.elapsedRealtime();
+        this.a.a(bVar.f56550d, bVar.f56551e);
     }
 
     public String[] b() {
@@ -51,26 +51,26 @@ public final class d {
     }
 
     public String d() {
-        return this.f56538b.a.a;
+        return this.f56583b.a.a;
     }
 
     public String e() {
-        return this.f56538b.a.f56544b;
+        return this.f56583b.a.f56589b;
     }
 
     public Context f() {
-        return this.f56538b.f56508g;
+        return this.f56583b.f56553g;
     }
 
     public f g() {
-        return this.f56538b.f56504c;
+        return this.f56583b.f56549c;
     }
 
     public long h() {
-        return SystemClock.elapsedRealtime() - this.f56539c;
+        return SystemClock.elapsedRealtime() - this.f56584c;
     }
 
     public boolean i() {
-        return this.f56538b.b();
+        return this.f56583b.b();
     }
 }

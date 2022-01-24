@@ -7,7 +7,7 @@ import c.a.d.f.p.n;
 import c.a.s0.l0.c.b;
 import c.a.s0.s.s.g;
 import c.a.s0.s.s.j;
-import c.a.t0.u0.d.f;
+import c.a.t0.v0.d.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.PopupDialog;
@@ -38,7 +38,7 @@ public class ForumManagerDialog extends PopupDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumManagerDialog f42703e;
+        public final /* synthetic */ ForumManagerDialog f42724e;
 
         public a(ForumManagerDialog forumManagerDialog) {
             Interceptable interceptable = $ic;
@@ -55,20 +55,20 @@ public class ForumManagerDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f42703e = forumManagerDialog;
+            this.f42724e = forumManagerDialog;
         }
 
         @Override // c.a.s0.s.s.j.e
         public void onItemClick(j jVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                this.f42703e.dismiss();
+                this.f42724e.dismiss();
                 if (!l.z()) {
-                    n.M(this.f42703e.o, R.string.network_not_available);
+                    n.M(this.f42724e.o, R.string.network_not_available);
                 } else if (i2 == 2) {
-                    this.f42703e.p.dispatchMvcEvent(new b(4, this.f42703e.r, null, null));
+                    this.f42724e.p.dispatchMvcEvent(new b(4, this.f42724e.r, null, null));
                 } else if (i2 == 1) {
-                    this.f42703e.p.dispatchMvcEvent(new b(13, this.f42703e.r, null, null));
+                    this.f42724e.p.dispatchMvcEvent(new b(13, this.f42724e.r, null, null));
                 }
             }
         }

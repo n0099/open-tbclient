@@ -36,10 +36,10 @@ public class j implements Application.ActivityLifecycleCallbacks {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Stack<WeakReference<Activity>> f13059e;
+    public Stack<WeakReference<Activity>> f13243e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13060f;
+    public boolean f13244f;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class j implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f13059e = new Stack<>();
-        this.f13060f = true;
+        this.f13243e = new Stack<>();
+        this.f13244f = true;
     }
 
     public String a() {
@@ -63,12 +63,12 @@ public class j implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String str = null;
-            for (int size = this.f13059e.size() - 1; size >= 0; size--) {
-                WeakReference<Activity> weakReference = this.f13059e.get(size);
+            for (int size = this.f13243e.size() - 1; size >= 0; size--) {
+                WeakReference<Activity> weakReference = this.f13243e.get(size);
                 if (weakReference != null && weakReference.get() != null) {
                     Activity activity = weakReference.get();
-                    if (activity instanceof c.a.s0.s.c0.a) {
-                        str = ((c.a.s0.s.c0.a) activity).getLatestRelatedFid();
+                    if (activity instanceof c.a.s0.s.d0.a) {
+                        str = ((c.a.s0.s.d0.a) activity).getLatestRelatedFid();
                         if (!m.isEmpty(str)) {
                             break;
                         }
@@ -87,12 +87,12 @@ public class j implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String str = null;
-            for (int size = this.f13059e.size() - 1; size >= 0; size--) {
-                WeakReference<Activity> weakReference = this.f13059e.get(size);
+            for (int size = this.f13243e.size() - 1; size >= 0; size--) {
+                WeakReference<Activity> weakReference = this.f13243e.get(size);
                 if (weakReference != null && weakReference.get() != null) {
                     Activity activity = weakReference.get();
-                    if (activity instanceof c.a.s0.s.c0.a) {
-                        str = ((c.a.s0.s.c0.a) activity).getLatestRelatedTid();
+                    if (activity instanceof c.a.s0.s.d0.a) {
+                        str = ((c.a.s0.s.d0.a) activity).getLatestRelatedTid();
                         if (!m.isEmpty(str)) {
                             break;
                         }
@@ -133,19 +133,19 @@ public class j implements Application.ActivityLifecycleCallbacks {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, activity, bundle) == null) || activity == null) {
             return;
         }
-        if (c.a.s0.s.f0.a.q().u() && activity != null && TbadkCoreApplication.getInst().isMainProcess(false) && !activity.getClass().getSimpleName().equals("LogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba")) {
-            if (this.f13060f && c.a.s0.s.f0.a.q().o() >= c.a.s0.s.f0.a.q().r()) {
+        if (c.a.s0.s.g0.a.q().u() && activity != null && TbadkCoreApplication.getInst().isMainProcess(false) && !activity.getClass().getSimpleName().equals("LogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba")) {
+            if (this.f13244f && c.a.s0.s.g0.a.q().o() >= c.a.s0.s.g0.a.q().r()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(activity, activity.getIntent())));
                 activity.finish();
                 return;
             }
-            c.a.s0.s.f0.a.q().x();
+            c.a.s0.s.g0.a.q().x();
         }
         String name = activity.getClass().getName();
         if (!SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name)) {
             c.a.d.e.a.b().d();
         }
-        this.f13059e.push(new WeakReference<>(activity));
+        this.f13243e.push(new WeakReference<>(activity));
         if (!PermissionUtil.isAgreePrivacyPolicy() && activity != null && !activity.getClass().getSimpleName().equals("LogoActivity") && !activity.getClass().getSimpleName().equals("NewLogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba") && TbadkCoreApplication.getInst().isMainProcess(false) && !TbSingleton.getInstance().isBrowseMode()) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(activity, activity.getIntent())));
             activity.finish();
@@ -165,21 +165,21 @@ public class j implements Application.ActivityLifecycleCallbacks {
                 c.a.s0.j0.g.c.b().l(true);
             }
         }
-        this.f13060f = false;
+        this.f13244f = false;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityDestroyed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
-            int size = this.f13059e.size() - 1;
+            int size = this.f13243e.size() - 1;
             while (true) {
                 if (size < 0) {
                     break;
                 }
-                WeakReference<Activity> weakReference = this.f13059e.get(size);
+                WeakReference<Activity> weakReference = this.f13243e.get(size);
                 if (weakReference != null && weakReference.get() != null && weakReference.get() == activity) {
-                    this.f13059e.remove(weakReference);
+                    this.f13243e.remove(weakReference);
                     break;
                 }
                 size--;
@@ -244,8 +244,8 @@ public class j implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
             TbadkCoreApplication.getInst().setStartType(1);
-            if (TbadkCoreApplication.getInst().isMainProcess(false) && this.f13059e.size() == 1) {
-                c.a.s0.s.f0.a.q().g();
+            if (TbadkCoreApplication.getInst().isMainProcess(false) && this.f13243e.size() == 1) {
+                c.a.s0.s.g0.a.q().g();
             }
         }
     }

@@ -27,7 +27,7 @@ public class a implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58812b;
+    public String f58857b;
 
     public a() {
         this.a = 0;
@@ -36,7 +36,7 @@ public class a implements Parcelable {
     public a(Parcel parcel) {
         this.a = 0;
         this.a = parcel.readInt();
-        this.f58812b = parcel.readString();
+        this.f58857b = parcel.readString();
     }
 
     public static a a(MessageV3 messageV3) {
@@ -115,11 +115,11 @@ public class a implements Parcelable {
     }
 
     public void a(String str) {
-        this.f58812b = str;
+        this.f58857b = str;
     }
 
     public String b() {
-        return this.f58812b;
+        return this.f58857b;
     }
 
     @Override // android.os.Parcelable
@@ -128,12 +128,12 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "NotifyOption{notifyId=" + this.a + ", notifyKey='" + this.f58812b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "NotifyOption{notifyId=" + this.a + ", notifyKey='" + this.f58857b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.a);
-        parcel.writeString(this.f58812b);
+        parcel.writeString(this.f58857b);
     }
 }

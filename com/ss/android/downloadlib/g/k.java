@@ -1,7 +1,7 @@
 package com.ss.android.downloadlib.g;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class k {
     public static void a(String str, String str2, JSONObject jSONObject) {
         com.ss.android.download.api.config.j p = com.ss.android.downloadlib.addownload.j.p();

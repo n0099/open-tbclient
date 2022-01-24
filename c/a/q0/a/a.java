@@ -20,17 +20,17 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
 
     /* renamed from: c.a.q0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class RunnableC0231a implements Runnable {
+    public static final class RunnableC0240a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f4757e;
+        public final /* synthetic */ a f4899e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Callable f4758f;
+        public final /* synthetic */ Callable f4900f;
 
-        public RunnableC0231a(a aVar, Callable callable) {
+        public RunnableC0240a(a aVar, Callable callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,8 +45,8 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
                     return;
                 }
             }
-            this.f4757e = aVar;
-            this.f4758f = callable;
+            this.f4899e = aVar;
+            this.f4900f = callable;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: c.a.q0.a.a */
@@ -56,10 +56,10 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
             SharedPreferences sharedPreferences;
             Map<String, ?> all;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sharedPreferences = (SharedPreferences) this.f4758f.call()) == null || (all = sharedPreferences.getAll()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sharedPreferences = (SharedPreferences) this.f4900f.call()) == null || (all = sharedPreferences.getAll()) == null) {
                 return;
             }
-            this.f4757e.importFromMap(all, false);
+            this.f4899e.importFromMap(all, false);
         }
     }
 
@@ -124,7 +124,7 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
     public void d(Callable<SharedPreferences> callable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, callable) == null) {
-            new Thread(new RunnableC0231a(this, callable), "SharedPreferences-import").start();
+            new Thread(new RunnableC0240a(this, callable), "SharedPreferences-import").start();
         }
     }
 

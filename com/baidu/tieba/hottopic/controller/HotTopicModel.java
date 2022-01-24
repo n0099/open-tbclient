@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.controller;
 import c.a.d.a.f;
 import c.a.d.f.p.n;
 import c.a.s0.s.k;
-import c.a.t0.q1.l.e;
+import c.a.t0.r1.l.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -27,13 +27,13 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f44652e;
+    public BaseActivity<?> f44680e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f44653f;
+    public b f44681f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f44654g;
+    public c.a.d.c.g.a f44682g;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
@@ -75,9 +75,9 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
                     return;
                 }
                 if (!StringUtils.isNull(responsedMessage.getErrorString())) {
-                    this.a.f44652e.showToast(responsedMessage.getErrorString());
+                    this.a.f44680e.showToast(responsedMessage.getErrorString());
                 }
-                this.a.f44653f.hotTopicDataCallback(false, null);
+                this.a.f44681f.hotTopicDataCallback(false, null);
             }
         }
     }
@@ -105,10 +105,10 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
                 return;
             }
         }
-        this.f44653f = null;
+        this.f44681f = null;
         a aVar = new a(this, CmdConfigHttp.CMD_HOT_TOPIC, 303050);
-        this.f44654g = aVar;
-        this.f44652e = baseActivity;
+        this.f44682g = aVar;
+        this.f44680e = baseActivity;
         registerListener(aVar);
     }
 
@@ -133,7 +133,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
             eVar.s = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
         }
-        this.f44653f.hotTopicDataCallback(!responsedMessage.hasError(), eVar);
+        this.f44681f.hotTopicDataCallback(!responsedMessage.hasError(), eVar);
     }
 
     public final void B(long j2, String str, int i2, long j3, String str2, String str3, String str4, long j4) {
@@ -169,7 +169,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public void C(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f44653f = bVar;
+            this.f44681f = bVar;
         }
     }
 

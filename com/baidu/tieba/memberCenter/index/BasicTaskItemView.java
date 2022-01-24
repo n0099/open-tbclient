@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.a.j;
 import c.a.s0.x0.a;
-import c.a.t0.f2.c.k.o;
+import c.a.t0.g2.c.k.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -24,22 +24,22 @@ public class BasicTaskItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f45842e;
+    public Context f45870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f45843f;
+    public View f45871f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f45844g;
+    public TbImageView f45872g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f45845h;
+    public TextView f45873h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f45846i;
+    public TextView f45874i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f45847j;
+    public TextView f45875j;
     public View k;
     public View l;
     public View.OnClickListener m;
@@ -62,24 +62,24 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f45842e = context;
+        this.f45870e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f45842e).inflate(R.layout.index_task_item, this);
-            this.f45843f = inflate;
+            View inflate = LayoutInflater.from(this.f45870e).inflate(R.layout.index_task_item, this);
+            this.f45871f = inflate;
             this.l = inflate.findViewById(R.id.ly_desc);
-            this.f45844g = (TbImageView) this.f45843f.findViewById(R.id.task_icon);
-            this.f45845h = (TextView) this.f45843f.findViewById(R.id.txt_title);
-            this.f45846i = (TextView) this.f45843f.findViewById(R.id.txt_desc);
-            TextView textView = (TextView) this.f45843f.findViewById(R.id.txt_status);
-            this.f45847j = textView;
+            this.f45872g = (TbImageView) this.f45871f.findViewById(R.id.task_icon);
+            this.f45873h = (TextView) this.f45871f.findViewById(R.id.txt_title);
+            this.f45874i = (TextView) this.f45871f.findViewById(R.id.txt_desc);
+            TextView textView = (TextView) this.f45871f.findViewById(R.id.txt_status);
+            this.f45875j = textView;
             textView.setOnClickListener(this.m);
             this.l.setOnClickListener(this.m);
-            this.k = this.f45843f.findViewById(R.id.divider_line);
+            this.k = this.f45871f.findViewById(R.id.divider_line);
         }
     }
 
@@ -93,7 +93,7 @@ public class BasicTaskItemView extends LinearLayout {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a.a((TbPageContext) j.a(this.f45842e), this.f45843f);
+            a.a((TbPageContext) j.a(this.f45870e), this.f45871f);
         }
     }
 
@@ -103,19 +103,19 @@ public class BasicTaskItemView extends LinearLayout {
             return;
         }
         this.l.setTag(oVar);
-        this.f45847j.setTag(oVar);
-        this.f45844g.startLoad(oVar.b(), 10, false);
-        this.f45845h.setText(oVar.f());
-        this.f45846i.setText(oVar.a());
+        this.f45875j.setTag(oVar);
+        this.f45872g.startLoad(oVar.b(), 10, false);
+        this.f45873h.setText(oVar.f());
+        this.f45874i.setText(oVar.a());
         if (oVar.c()) {
-            this.f45847j.setText(this.f45842e.getString(R.string.index_task_finish), TextView.BufferType.EDITABLE);
-            this.f45847j.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            this.f45847j.setBackgroundDrawable(null);
+            this.f45875j.setText(this.f45870e.getString(R.string.index_task_finish), TextView.BufferType.EDITABLE);
+            this.f45875j.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            this.f45875j.setBackgroundDrawable(null);
             return;
         }
-        this.f45847j.setText(this.f45842e.getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
-        this.f45847j.setTextColor(SkinManager.getColor(R.color.member_center_task_btn_textcolor));
-        this.f45847j.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
+        this.f45875j.setText(this.f45870e.getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
+        this.f45875j.setTextColor(SkinManager.getColor(R.color.member_center_task_btn_textcolor));
+        this.f45875j.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
     }
 
     public void setOnCommenClickListener(View.OnClickListener onClickListener) {
@@ -143,7 +143,7 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f45842e = context;
+        this.f45870e = context;
         this.m = onClickListener;
         a();
     }
@@ -167,7 +167,7 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f45842e = context;
+        this.f45870e = context;
         a();
     }
 
@@ -190,7 +190,7 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f45842e = context;
+        this.f45870e = context;
         a();
     }
 }

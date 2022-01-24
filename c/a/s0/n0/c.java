@@ -20,27 +20,27 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static c f12926h;
+    public static c f13070h;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f12927b;
+    public final int f13071b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f12928c;
+    public boolean f13072c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f12929d;
+    public boolean f13073d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12930e;
+    public boolean f13074e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f12931f;
+    public boolean f13075f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12932g;
+    public boolean f13076g;
 
     static {
         InterceptResult invokeClinit;
@@ -70,27 +70,27 @@ public class c {
                 return;
             }
         }
-        this.f12928c = true;
-        this.f12929d = true;
-        this.f12930e = true;
-        this.f12931f = true;
-        this.f12932g = true;
+        this.f13072c = true;
+        this.f13073d = true;
+        this.f13074e = true;
+        this.f13075f = true;
+        this.f13076g = true;
         this.a = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds144);
-        this.f12927b = n.i(TbadkCoreApplication.getInst());
+        this.f13071b = n.i(TbadkCoreApplication.getInst());
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f12926h == null) {
+            if (f13070h == null) {
                 synchronized (c.class) {
-                    if (f12926h == null) {
-                        f12926h = new c();
+                    if (f13070h == null) {
+                        f13070h = new c();
                     }
                 }
             }
-            return f12926h;
+            return f13070h;
         }
         return (c) invokeV.objValue;
     }
@@ -105,7 +105,7 @@ public class c {
             int[] iArr = new int[2];
             view.getLocationOnScreen(iArr);
             int i2 = iArr[1];
-            return i2 > 0 && i2 < this.f12927b - this.a;
+            return i2 > 0 && i2 < this.f13071b - this.a;
         }
         return invokeL.booleanValue;
     }
@@ -117,58 +117,58 @@ public class c {
         }
         String valueOf = String.valueOf(jVar.h());
         if (b(view) && view.getVisibility() == 0) {
-            if (this.f12928c) {
-                this.f12928c = false;
+            if (this.f13072c) {
+                this.f13072c = false;
                 f.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, valueOf, str, str2);
             }
         } else {
-            this.f12928c = true;
+            this.f13072c = true;
         }
         if (b(novelInfoCardView)) {
-            if (this.f12929d) {
-                this.f12929d = false;
+            if (this.f13073d) {
+                this.f13073d = false;
                 f.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 4, valueOf, str, str2);
             }
         } else {
-            this.f12929d = true;
+            this.f13073d = true;
         }
         if (b(novelInfoCardView.getNovelCoverPage())) {
-            if (this.f12930e) {
-                this.f12930e = false;
+            if (this.f13074e) {
+                this.f13074e = false;
                 f.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 3, valueOf, str, str2);
             }
         } else {
-            this.f12930e = true;
+            this.f13074e = true;
         }
         if (jVar.i()) {
             if (b(novelInfoCardView.getNovelStateButton())) {
-                if (this.f12932g) {
-                    this.f12932g = false;
+                if (this.f13076g) {
+                    this.f13076g = false;
                     f.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 2, valueOf, str, str2);
                     return;
                 }
                 return;
             }
-            this.f12932g = true;
+            this.f13076g = true;
         } else if (b(novelInfoCardView.getNovelStateButton())) {
-            if (this.f12931f) {
-                this.f12931f = false;
+            if (this.f13075f) {
+                this.f13075f = false;
                 f.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 1, valueOf, str, str2);
             }
         } else {
-            this.f12931f = true;
+            this.f13075f = true;
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f12926h = null;
-            this.f12928c = true;
-            this.f12929d = true;
-            this.f12930e = true;
-            this.f12931f = true;
-            this.f12932g = true;
+            f13070h = null;
+            this.f13072c = true;
+            this.f13073d = true;
+            this.f13074e = true;
+            this.f13075f = true;
+            this.f13076g = true;
         }
     }
 }

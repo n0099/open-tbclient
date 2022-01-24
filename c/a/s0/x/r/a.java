@@ -12,7 +12,7 @@ public class a {
     public WriteImagesInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f14204b;
+    public boolean f14344b;
 
     public a(WriteImagesInfo writeImagesInfo, boolean z) {
         Interceptable interceptable = $ic;
@@ -30,6 +30,6 @@ public class a {
             }
         }
         this.a = writeImagesInfo;
-        this.f14204b = z;
+        this.f14344b = z;
     }
 }

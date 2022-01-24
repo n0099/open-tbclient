@@ -8,10 +8,10 @@ public class c implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f56363b;
+    public a f56408b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f56364c = new Handler(Looper.getMainLooper());
+    public Handler f56409c = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -20,7 +20,7 @@ public class c implements com.kwad.sdk.core.webview.kwai.a {
 
     public c(com.kwad.sdk.core.webview.a aVar, a aVar2) {
         this.a = aVar;
-        this.f56363b = aVar2;
+        this.f56408b = aVar2;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
@@ -31,10 +31,10 @@ public class c implements com.kwad.sdk.core.webview.kwai.a {
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        this.f56364c.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.c.1
+        this.f56409c.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.c.1
             @Override // java.lang.Runnable
             public void run() {
-                c.this.f56363b.a();
+                c.this.f56408b.a();
             }
         });
         cVar.a(null);
@@ -42,6 +42,6 @@ public class c implements com.kwad.sdk.core.webview.kwai.a {
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
-        this.f56364c.removeCallbacksAndMessages(null);
+        this.f56409c.removeCallbacksAndMessages(null);
     }
 }

@@ -31,7 +31,7 @@ public class SimpleAdInfoView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37393e;
+    public int f37421e;
     public p mAdInfoModel;
     public c mAfterClickListener;
     public TextView mAuthorNameView;
@@ -46,7 +46,7 @@ public class SimpleAdInfoView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SimpleAdInfoView f37394e;
+        public final /* synthetic */ SimpleAdInfoView f37422e;
 
         public a(SimpleAdInfoView simpleAdInfoView) {
             Interceptable interceptable = $ic;
@@ -63,20 +63,20 @@ public class SimpleAdInfoView extends FrameLayout {
                     return;
                 }
             }
-            this.f37394e = simpleAdInfoView;
+            this.f37422e = simpleAdInfoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             String str;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37394e.mAdInfoModel == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37422e.mAdInfoModel == null) {
                 return;
             }
             int id = view.getId();
             String str2 = "";
             if (id == m.nad_app_privacy) {
-                p.b bVar = this.f37394e.mAdInfoModel.f2271g;
+                p.b bVar = this.f37422e.mAdInfoModel.f2271g;
                 if (bVar != null) {
                     str2 = bVar.f2276b;
                     str = ClogBuilder.Area.APP_PRIVACY.type;
@@ -84,22 +84,22 @@ public class SimpleAdInfoView extends FrameLayout {
                 str = "";
             } else {
                 if (id == m.nad_app_permission) {
-                    p.a aVar = this.f37394e.mAdInfoModel.f2272h;
+                    p.a aVar = this.f37422e.mAdInfoModel.f2272h;
                     if (aVar != null) {
                         str2 = aVar.f2275b;
                         str = ClogBuilder.Area.APP_PERMISSION.type;
                     }
                 } else if (id == m.nad_full_author_name) {
-                    Toast.makeText(this.f37394e.getContext(), this.f37394e.mAdInfoModel.f2268d, 1).show();
+                    Toast.makeText(this.f37422e.getContext(), this.f37422e.mAdInfoModel.f2268d, 1).show();
                     return;
                 } else if (id == m.nad_app_version) {
-                    Toast.makeText(this.f37394e.getContext(), this.f37394e.mAdInfoModel.f2270f, 1).show();
+                    Toast.makeText(this.f37422e.getContext(), this.f37422e.mAdInfoModel.f2270f, 1).show();
                     return;
                 }
                 str = "";
             }
-            d.c(str2, this.f37394e.getContext());
-            c cVar = this.f37394e.mAfterClickListener;
+            d.c(str2, this.f37422e.getContext());
+            c cVar = this.f37422e.mAfterClickListener;
             if (cVar != null) {
                 cVar.a(str);
             }
@@ -112,13 +112,13 @@ public class SimpleAdInfoView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f37395e;
+        public final /* synthetic */ TextView f37423e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewTreeObserver f37396f;
+        public final /* synthetic */ ViewTreeObserver f37424f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SimpleAdInfoView f37397g;
+        public final /* synthetic */ SimpleAdInfoView f37425g;
 
         public b(SimpleAdInfoView simpleAdInfoView, TextView textView, ViewTreeObserver viewTreeObserver) {
             Interceptable interceptable = $ic;
@@ -135,9 +135,9 @@ public class SimpleAdInfoView extends FrameLayout {
                     return;
                 }
             }
-            this.f37397g = simpleAdInfoView;
-            this.f37395e = textView;
-            this.f37396f = viewTreeObserver;
+            this.f37425g = simpleAdInfoView;
+            this.f37423e = textView;
+            this.f37424f = viewTreeObserver;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -145,15 +145,15 @@ public class SimpleAdInfoView extends FrameLayout {
             int lineCount;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Layout layout = this.f37395e.getLayout();
+                Layout layout = this.f37423e.getLayout();
                 if (layout != null && (lineCount = layout.getLineCount()) > 0 && layout.getEllipsisCount(lineCount - 1) > 0) {
-                    this.f37395e.setOnClickListener(this.f37397g.mClickListener);
+                    this.f37423e.setOnClickListener(this.f37425g.mClickListener);
                 }
-                if (this.f37396f.isAlive()) {
-                    this.f37396f.removeOnGlobalLayoutListener(this);
+                if (this.f37424f.isAlive()) {
+                    this.f37424f.removeOnGlobalLayoutListener(this);
                     return;
                 }
-                ViewTreeObserver viewTreeObserver = this.f37395e.getViewTreeObserver();
+                ViewTreeObserver viewTreeObserver = this.f37423e.getViewTreeObserver();
                 if (viewTreeObserver == null || !viewTreeObserver.isAlive()) {
                     return;
                 }
@@ -186,7 +186,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
         }
         this.mClickListener = new a(this);
-        this.f37393e = n.nad_operate_app_info_layout;
+        this.f37421e = n.nad_operate_app_info_layout;
         init(null);
     }
 
@@ -196,7 +196,7 @@ public class SimpleAdInfoView extends FrameLayout {
             return;
         }
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, q.SimpleAdInfoView);
-        this.f37393e = obtainStyledAttributes.getResourceId(q.SimpleAdInfoView_layoutId, -1);
+        this.f37421e = obtainStyledAttributes.getResourceId(q.SimpleAdInfoView_layoutId, -1);
         obtainStyledAttributes.recycle();
     }
 
@@ -212,7 +212,7 @@ public class SimpleAdInfoView extends FrameLayout {
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37393e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37421e : invokeV.intValue;
     }
 
     public void init(AttributeSet attributeSet) {
@@ -313,7 +313,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
         }
         this.mClickListener = new a(this);
-        this.f37393e = n.nad_operate_app_info_layout;
+        this.f37421e = n.nad_operate_app_info_layout;
         init(attributeSet);
     }
 
@@ -337,7 +337,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
         }
         this.mClickListener = new a(this);
-        this.f37393e = n.nad_operate_app_info_layout;
+        this.f37421e = n.nad_operate_app_info_layout;
         init(attributeSet);
     }
 }

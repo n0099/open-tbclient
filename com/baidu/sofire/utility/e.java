@@ -10,7 +10,6 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.sofire.utility.l;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -119,7 +118,7 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                String string = a2.f38449c.getString("sgud", "");
+                String string = a2.f38477c.getString("sgud", "");
                 if (TextUtils.isEmpty(string)) {
                     if (Build.VERSION.SDK_INT > 25) {
                         return "";
@@ -137,8 +136,8 @@ public final class e {
                     if (TextUtils.isEmpty(a3)) {
                         return "";
                     }
-                    a2.f38450d.putString("sgud", a3);
-                    a2.f38450d.commit();
+                    a2.f38478d.putString("sgud", a3);
+                    a2.f38478d.commit();
                     return a3;
                 }
                 return string;
@@ -240,9 +239,9 @@ public final class e {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 defaultDisplay.getMetrics(displayMetrics);
                 if (displayMetrics.widthPixels < displayMetrics.heightPixels) {
-                    return displayMetrics.widthPixels + ProxyConfig.MATCH_ALL_SCHEMES + displayMetrics.heightPixels;
+                    return displayMetrics.widthPixels + "*" + displayMetrics.heightPixels;
                 }
-                return displayMetrics.heightPixels + ProxyConfig.MATCH_ALL_SCHEMES + displayMetrics.widthPixels;
+                return displayMetrics.heightPixels + "*" + displayMetrics.widthPixels;
             } catch (Exception unused) {
                 c.a();
                 return "";

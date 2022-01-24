@@ -229,7 +229,7 @@ public class F implements FI {
             if (context == null) {
                 return null;
             }
-            return a.a(context).f38449c;
+            return a.a(context).f38477c;
         }
         return (SharedPreferences) invokeL.objValue;
     }
@@ -240,7 +240,7 @@ public class F implements FI {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f38327d;
+                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f38355d;
                 if (aVar != null) {
                     return aVar.b();
                 }
@@ -385,12 +385,12 @@ public class F implements FI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f38327d;
+                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f38355d;
                 if (aVar != null) {
                     int i3 = z ? 1 : 0;
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("s", Integer.valueOf(i3));
-                    SQLiteDatabase sQLiteDatabase = aVar.f38329c;
+                    SQLiteDatabase sQLiteDatabase = aVar.f38357c;
                     sQLiteDatabase.update("pgn", contentValues, "k=" + i2 + " and n=1", null);
                 }
             } catch (Throwable unused) {
@@ -404,12 +404,12 @@ public class F implements FI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048595, this, str, z) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f38327d;
+                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f38355d;
                 if (aVar != null) {
                     int i2 = z ? 1 : 0;
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("s", Integer.valueOf(i2));
-                    aVar.f38329c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
+                    aVar.f38357c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
                 }
             } catch (Throwable unused) {
                 c.a();

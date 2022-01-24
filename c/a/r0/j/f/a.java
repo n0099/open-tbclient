@@ -15,7 +15,7 @@ public class a extends JSEvent {
 
     /* renamed from: c.a.r0.j.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0744a {
+    public static class C0753a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @V8JavascriptField
@@ -23,7 +23,7 @@ public class a extends JSEvent {
         @V8JavascriptField
         public String type;
 
-        public C0744a() {
+        public C0753a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,13 +63,13 @@ public class a extends JSEvent {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            C0744a c0744a = new C0744a();
+            C0753a c0753a = new C0753a();
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            c0744a.type = jSONObject.optString("type");
-            c0744a.cmd = jSONObject.optString("cmd");
-            return new a(c0744a);
+            c0753a.type = jSONObject.optString("type");
+            c0753a.cmd = jSONObject.optString("cmd");
+            return new a(c0753a);
         }
         return (a) invokeL.objValue;
     }

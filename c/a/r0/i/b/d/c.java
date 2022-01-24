@@ -81,12 +81,12 @@ public class c {
 
     /* renamed from: c.a.r0.i.b.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0716c implements DownloadManager.DownloadItemFilter {
+    public class C0725c implements DownloadManager.DownloadItemFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
 
-        public C0716c(c cVar) {
+        public C0725c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -247,7 +247,7 @@ public class c {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f10704b;
+        public final /* synthetic */ c f10846b;
 
         public h(c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -264,7 +264,7 @@ public class c {
                     return;
                 }
             }
-            this.f10704b = cVar;
+            this.f10846b = cVar;
             this.a = str;
         }
 
@@ -272,7 +272,7 @@ public class c {
         public boolean filter(Download download) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, download)) == null) ? (download == null || !TextUtils.equals(download.getUrl(), this.a) || this.f10704b.k(download)) ? false : true : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, download)) == null) ? (download == null || !TextUtils.equals(download.getUrl(), this.a) || this.f10846b.k(download)) ? false : true : invokeL.booleanValue;
         }
     }
 
@@ -502,7 +502,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                h(this.a.getDownloadListByFilter(new C0716c(this)));
+                h(this.a.getDownloadListByFilter(new C0725c(this)));
             }
         }
     }

@@ -75,16 +75,16 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f39621e;
+        public int f39649e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f39622f;
+        public int f39650f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Object f39623g;
+        public Object f39651g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f39624h;
+        public long f39652h;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
                     return;
                 }
             }
-            this.f39623g = "";
+            this.f39651g = "";
             maybeForceBuilderInitialization();
         }
 
@@ -161,17 +161,17 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                 Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(this, (c.a.r0.g.p.a.d.d.a.a) null);
-                int i2 = this.f39621e;
+                int i2 = this.f39649e;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                bimlog$LogResponse.errorCode_ = this.f39622f;
+                bimlog$LogResponse.errorCode_ = this.f39650f;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                bimlog$LogResponse.errorMsg_ = this.f39623g;
+                bimlog$LogResponse.errorMsg_ = this.f39651g;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                bimlog$LogResponse.pingIntervalMs_ = this.f39624h;
+                bimlog$LogResponse.pingIntervalMs_ = this.f39652h;
                 bimlog$LogResponse.bitField0_ = i3;
                 return bimlog$LogResponse;
             }
@@ -183,14 +183,14 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f39622f = 0;
-                int i2 = this.f39621e & (-2);
-                this.f39621e = i2;
-                this.f39623g = "";
+                this.f39650f = 0;
+                int i2 = this.f39649e & (-2);
+                this.f39649e = i2;
+                this.f39651g = "";
                 int i3 = i2 & (-3);
-                this.f39621e = i3;
-                this.f39624h = 0L;
-                this.f39621e = i3 & (-5);
+                this.f39649e = i3;
+                this.f39652h = 0L;
+                this.f39649e = i3 & (-5);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -230,8 +230,8 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
                     u(bimlog$LogResponse.getErrorCode());
                 }
                 if (bimlog$LogResponse.hasErrorMsg()) {
-                    this.f39621e |= 2;
-                    this.f39623g = bimlog$LogResponse.errorMsg_;
+                    this.f39649e |= 2;
+                    this.f39651g = bimlog$LogResponse.errorMsg_;
                 }
                 if (bimlog$LogResponse.hasPingIntervalMs()) {
                     v(bimlog$LogResponse.getPingIntervalMs());
@@ -284,8 +284,8 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-                this.f39621e |= 1;
-                this.f39622f = i2;
+                this.f39649e |= 1;
+                this.f39650f = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -295,8 +295,8 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048599, this, j2)) == null) {
-                this.f39621e |= 4;
-                this.f39624h = j2;
+                this.f39649e |= 4;
+                this.f39652h = j2;
                 return this;
             }
             return (b) invokeJ.objValue;

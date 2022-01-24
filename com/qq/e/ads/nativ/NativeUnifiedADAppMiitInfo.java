@@ -1,5 +1,5 @@
 package com.qq.e.ads.nativ;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface NativeUnifiedADAppMiitInfo {
     String getAppName();
 

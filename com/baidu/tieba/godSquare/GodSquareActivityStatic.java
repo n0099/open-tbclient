@@ -1,6 +1,6 @@
 package com.baidu.tieba.godSquare;
 
-import c.a.t0.w3.f0.a;
+import c.a.t0.x3.f0.a;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GodSquareActivityConfig;
@@ -32,7 +32,7 @@ public class GodSquareActivityStatic {
                 return;
             }
         }
-        a.b(2016446, c.a.t0.i1.c.c.a.class);
+        a.b(2016446, c.a.t0.j1.c.c.a.class);
         a.d(CmdConfigHttp.CMD_GET_HOT_GOD, 309315, TbConfig.GET_HOT_GOD, GodSquareHttpResponsedMsg.class, GodSquareSocketResponsedMsg.class);
         TbadkCoreApplication.getInst().RegisterIntent(GodSquareActivityConfig.class, GodSquareActivity.class);
     }

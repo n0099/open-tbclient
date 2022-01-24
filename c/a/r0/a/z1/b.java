@@ -23,16 +23,16 @@ import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f9845b;
+    public static final List<String> f9987b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<String> f9846c;
+    public static final List<String> f9988c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,8 +49,8 @@ public final class b {
             }
         }
         a = k.a;
-        f9845b = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"title", "image", ReplyEditorParams.MODULE_EMOJI, "video", "friends", "target"});
-        f9846c = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"image", ReplyEditorParams.MODULE_EMOJI});
+        f9987b = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"title", "image", ReplyEditorParams.MODULE_EMOJI, "video", "friends", "target"});
+        f9988c = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"image", ReplyEditorParams.MODULE_EMOJI});
     }
 
     public static final PublishParams a(JSONObject jSONObject) {
@@ -64,14 +64,14 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject != null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("moduleList");
-                ArrayList arrayList = new ArrayList(f9846c);
+                ArrayList arrayList = new ArrayList(f9988c);
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     arrayList.clear();
                     int length = optJSONArray.length();
                     for (int i6 = 0; i6 < length; i6++) {
                         try {
                             String string = optJSONArray.getString(i6);
-                            if (f9845b.contains(string)) {
+                            if (f9987b.contains(string)) {
                                 arrayList.add(string);
                             }
                         } catch (JSONException e2) {

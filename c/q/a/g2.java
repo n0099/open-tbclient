@@ -14,16 +14,16 @@ public class g2 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static g2 f30323b;
+    public static g2 f30351b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f30324c;
+    public static String f30352c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f30325d;
+    public static String f30353d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f30326e;
+    public static String f30354e;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -49,14 +49,14 @@ public class g2 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f30323b == null) {
+            if (f30351b == null) {
                 synchronized (g2.class) {
-                    if (f30323b == null) {
-                        f30323b = new g2(context);
+                    if (f30351b == null) {
+                        f30351b = new g2(context);
                     }
                 }
             }
-            return f30323b;
+            return f30351b;
         }
         return (g2) invokeL.objValue;
     }
@@ -64,14 +64,14 @@ public class g2 {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f30325d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f30353d : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(f30324c)) {
+            if (TextUtils.isEmpty(f30352c)) {
                 try {
                     return m2.E(this.a);
                 } catch (Exception e2) {
@@ -79,7 +79,7 @@ public class g2 {
                     return "";
                 }
             }
-            return f30324c;
+            return f30352c;
         }
         return (String) invokeV.objValue;
     }
@@ -87,7 +87,7 @@ public class g2 {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f30326e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f30354e : (String) invokeV.objValue;
     }
 
     public void e() {

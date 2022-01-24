@@ -2,7 +2,7 @@ package com.baidu.tbadk.core;
 
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.s1.h.i;
+import c.a.t0.t1.h.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -176,9 +176,9 @@ public class LaunchStatic {
         b();
         d();
         c();
-        c.a.t0.w3.o0.a.a();
-        c.a.t0.s1.y.b.a();
-        c.a.t0.s1.b.a();
+        c.a.t0.x3.o0.a.a();
+        c.a.t0.t1.y.b.a();
+        c.a.t0.t1.b.a();
         ImMemoryCacheRegister.j();
         i.i();
         c.a.s0.m.c.f();
@@ -240,8 +240,8 @@ public class LaunchStatic {
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
             c.a.s0.a0.b.d().f();
-            c.a.t0.w3.f0.a.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, c.a.t0.w3.f0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
+            c.a.t0.x3.f0.a.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, c.a.t0.x3.f0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

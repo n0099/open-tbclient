@@ -82,7 +82,7 @@ public class ContentUtil {
                 jSONObject2.put("type", str);
                 jSONObject2.put("timestamp", valueOf);
                 jSONObject2.put("sign", createSign(jSONObject2));
-                jSONObject.put(REQ_KEY_REQ, jSONObject2);
+                jSONObject.put("req", jSONObject2);
                 return jSONObject.toString();
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -193,7 +193,7 @@ public class ContentUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
-            STSInfo sTSInfo = new STSInfo(jSONObject.optString(RESULT_KEY_AK), jSONObject.optString(RESULT_KEY_SK), jSONObject.optString("token"), jSONObject.optLong(KEY_LOCAL_EXPIRED_AT), jSONObject.optString("expire"), jSONObject.optString(RESULT_KEY_BUCKET), jSONObject.optString(RESULT_KEY_ENDPOINT));
+            STSInfo sTSInfo = new STSInfo(jSONObject.optString(RESULT_KEY_AK), jSONObject.optString("sk"), jSONObject.optString("token"), jSONObject.optLong(KEY_LOCAL_EXPIRED_AT), jSONObject.optString("expire"), jSONObject.optString(RESULT_KEY_BUCKET), jSONObject.optString(RESULT_KEY_ENDPOINT));
             sTSInfo.setOrigin(jSONObject.toString());
             return sTSInfo;
         }

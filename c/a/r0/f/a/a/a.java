@@ -131,7 +131,7 @@ public class a implements c.a.r0.f.a.b.a {
                 return "";
             }
             Application c2 = c.a.r0.a.c1.a.c();
-            if (ContextCompat.checkSelfPermission(c2, s.f55242c) != 0) {
+            if (ContextCompat.checkSelfPermission(c2, s.f55287c) != 0) {
                 return "";
             }
             try {

@@ -3,7 +3,7 @@ package com.baidu.tieba.external.music.model;
 import android.text.TextUtils;
 import c.a.d.a.f;
 import c.a.d.f.p.l;
-import c.a.t0.w0.c.b;
+import c.a.t0.x0.c.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -33,13 +33,13 @@ public class SelectMusicModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f42704e;
+    public b f42725e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f42705f;
+    public TbPageContext f42726f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f42706g;
+    public final HttpMessageListener f42727g;
 
     /* loaded from: classes12.dex */
     public static class VideoSugMusicResponseMessage extends JsonHttpResponsedMessage {
@@ -131,7 +131,7 @@ public class SelectMusicModel extends BdBaseModel {
                 if (videoSugMusicResponseMessage.musicDatas == null) {
                     return;
                 }
-                this.a.f42704e.setMusicData(videoSugMusicResponseMessage.musicDatas);
+                this.a.f42725e.setMusicData(videoSugMusicResponseMessage.musicDatas);
             }
         }
     }
@@ -154,13 +154,13 @@ public class SelectMusicModel extends BdBaseModel {
                 return;
             }
         }
-        this.f42706g = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
-        this.f42705f = tbPageContext;
-        this.f42704e = bVar;
+        this.f42727g = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
+        this.f42726f = tbPageContext;
+        this.f42725e = bVar;
         y();
-        this.f42706g.setTag(getUniqueId());
-        this.f42706g.setSelfListener(true);
-        registerListener(this.f42706g);
+        this.f42727g.setTag(getUniqueId());
+        this.f42727g.setSelfListener(true);
+        registerListener(this.f42727g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -188,7 +188,7 @@ public class SelectMusicModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (!l.z()) {
-                this.f42705f.showToast(R.string.no_network);
+                this.f42726f.showToast(R.string.no_network);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC));
             }

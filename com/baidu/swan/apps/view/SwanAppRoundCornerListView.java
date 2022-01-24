@@ -26,24 +26,24 @@ public class SwanAppRoundCornerListView extends ListView {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f39443j;
+    public static final boolean f39471j;
     public static final float k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Path f39444e;
+    public final Path f39472e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f39445f;
+    public final Paint f39473f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final RectF f39446g;
+    public final RectF f39474g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float[] f39447h;
+    public float[] f39475h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PorterDuffXfermode f39448i;
+    public PorterDuffXfermode f39476i;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +58,7 @@ public class SwanAppRoundCornerListView extends ListView {
                 return;
             }
         }
-        f39443j = k.a;
+        f39471j = k.a;
         k = n0.h(11.0f);
     }
 
@@ -80,11 +80,11 @@ public class SwanAppRoundCornerListView extends ListView {
                 return;
             }
         }
-        this.f39444e = new Path();
-        this.f39445f = new Paint(1);
-        this.f39446g = new RectF();
+        this.f39472e = new Path();
+        this.f39473f = new Paint(1);
+        this.f39474g = new RectF();
         float f2 = k;
-        this.f39447h = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
+        this.f39475h = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
@@ -93,10 +93,10 @@ public class SwanAppRoundCornerListView extends ListView {
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
             canvas.save();
-            this.f39445f.setColor(-1);
-            this.f39445f.setXfermode(this.f39448i);
-            canvas.drawPath(this.f39444e, this.f39445f);
-            this.f39445f.setXfermode(null);
+            this.f39473f.setColor(-1);
+            this.f39473f.setXfermode(this.f39476i);
+            canvas.drawPath(this.f39472e, this.f39473f);
+            this.f39473f.setXfermode(null);
             canvas.restore();
         }
     }
@@ -106,10 +106,10 @@ public class SwanAppRoundCornerListView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f39446g.set(0.0f, 0.0f, i2, i3 + 1);
-            this.f39444e.reset();
-            this.f39444e.addRoundRect(this.f39446g, this.f39447h, Path.Direction.CW);
-            this.f39448i = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
+            this.f39474g.set(0.0f, 0.0f, i2, i3 + 1);
+            this.f39472e.reset();
+            this.f39472e.addRoundRect(this.f39474g, this.f39475h, Path.Direction.CW);
+            this.f39476i = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
         }
     }
 
@@ -125,14 +125,14 @@ public class SwanAppRoundCornerListView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fArr) == null) {
             if (fArr.length < 8) {
-                if (f39443j) {
+                if (f39471j) {
                     throw new IllegalStateException("radii[] needs 8 values");
                 }
                 return;
             }
-            this.f39447h = new float[8];
+            this.f39475h = new float[8];
             for (int i2 = 0; i2 < 8; i2++) {
-                this.f39447h[i2] = fArr[i2];
+                this.f39475h[i2] = fArr[i2];
             }
         }
     }
@@ -156,11 +156,11 @@ public class SwanAppRoundCornerListView extends ListView {
                 return;
             }
         }
-        this.f39444e = new Path();
-        this.f39445f = new Paint(1);
-        this.f39446g = new RectF();
+        this.f39472e = new Path();
+        this.f39473f = new Paint(1);
+        this.f39474g = new RectF();
         float f2 = k;
-        this.f39447h = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
+        this.f39475h = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -182,10 +182,10 @@ public class SwanAppRoundCornerListView extends ListView {
                 return;
             }
         }
-        this.f39444e = new Path();
-        this.f39445f = new Paint(1);
-        this.f39446g = new RectF();
+        this.f39472e = new Path();
+        this.f39473f = new Paint(1);
+        this.f39474g = new RectF();
         float f2 = k;
-        this.f39447h = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
+        this.f39475h = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
     }
 }

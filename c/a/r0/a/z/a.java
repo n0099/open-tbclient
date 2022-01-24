@@ -38,26 +38,26 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f9755c;
+    public static final boolean f9897c;
     public transient /* synthetic */ FieldHolder $fh;
     public Timer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.z.c.b f9756b;
+    public c.a.r0.a.z.c.b f9898b;
 
     /* renamed from: c.a.r0.a.z.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0640a extends TimerTask {
+    public class C0649a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.z.c.b f9757e;
+        public final /* synthetic */ c.a.r0.a.z.c.b f9899e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f9758f;
+        public final /* synthetic */ a f9900f;
 
-        public C0640a(a aVar, c.a.r0.a.z.c.b bVar) {
+        public C0649a(a aVar, c.a.r0.a.z.c.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,19 +72,19 @@ public class a {
                     return;
                 }
             }
-            this.f9758f = aVar;
-            this.f9757e = bVar;
+            this.f9900f = aVar;
+            this.f9899e = bVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.z.c.b bVar = this.f9757e;
+                c.a.r0.a.z.c.b bVar = this.f9899e;
                 if (bVar != null) {
                     bVar.a();
                 }
-                this.f9758f.j();
+                this.f9900f.j();
             }
         }
     }
@@ -125,10 +125,10 @@ public class a {
                 return;
             }
         }
-        f9755c = k.a;
+        f9897c = k.a;
     }
 
-    public /* synthetic */ a(C0640a c0640a) {
+    public /* synthetic */ a(C0649a c0649a) {
         this();
     }
 
@@ -141,7 +141,7 @@ public class a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.r0.a.z.c.b bVar = this.f9756b;
+            c.a.r0.a.z.c.b bVar = this.f9898b;
             if (bVar != null) {
                 bVar.cancel();
             }
@@ -183,7 +183,7 @@ public class a {
                 }
                 jSONObject.put("eType", str3);
             } catch (JSONException e2) {
-                if (f9755c) {
+                if (f9897c) {
                     e2.printStackTrace();
                 }
             }
@@ -197,7 +197,7 @@ public class a {
             try {
                 CameraPreview.releaseCamera();
             } catch (Exception e2) {
-                if (f9755c) {
+                if (f9897c) {
                     e2.printStackTrace();
                 }
             }
@@ -222,18 +222,18 @@ public class a {
                 File file = new File(str);
                 if (file.exists()) {
                     boolean delete = file.delete();
-                    if (f9755c) {
+                    if (f9897c) {
                         String str2 = "delete = " + delete;
                     }
                 }
                 if (file.getParentFile() != null) {
                     boolean mkdirs = file.getParentFile().mkdirs();
-                    if (f9755c) {
+                    if (f9897c) {
                         String str3 = "mkdirs = " + mkdirs;
                     }
                 }
                 boolean createNewFile = file.createNewFile();
-                if (f9755c) {
+                if (f9897c) {
                     String str4 = "createNewFile = " + createNewFile;
                 }
                 Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
@@ -254,13 +254,13 @@ public class a {
                 d.d(bufferedOutputStream);
                 return true;
             } catch (Exception e2) {
-                if (f9755c) {
+                if (f9897c) {
                     e2.printStackTrace();
                     return false;
                 }
                 return false;
             } catch (OutOfMemoryError e3) {
-                if (f9755c) {
+                if (f9897c) {
                     e3.printStackTrace();
                     return false;
                 }
@@ -273,17 +273,17 @@ public class a {
     public void i(int i2, c.a.r0.a.z.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i2, bVar) == null) {
-            this.f9756b = bVar;
+            this.f9898b = bVar;
             Timer timer = new Timer();
             this.a = timer;
-            timer.schedule(new C0640a(this, bVar), i2);
+            timer.schedule(new C0649a(this, bVar), i2);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f9756b = null;
+            this.f9898b = null;
             Timer timer = this.a;
             if (timer != null) {
                 timer.cancel();

@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import c.a.d.n.e.n;
 import c.a.s0.s.q.e2;
 import c.a.s0.s.q.p0;
-import c.a.t0.j3.j0.a;
-import c.a.t0.j3.l0.b;
+import c.a.t0.k3.j0.a;
+import c.a.t0.k3.l0.b;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -108,13 +108,13 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     ThreadInfo threadInfo = list2.get(i4);
                     e2 e2Var = new e2();
                     SpecHotTopicHelper.setSpecTopicIcon(j2, e2Var);
-                    e2Var.I4(this.userMap);
-                    e2Var.c3(threadInfo);
-                    e2Var.g3();
+                    e2Var.J4(this.userMap);
+                    e2Var.d3(threadInfo);
+                    e2Var.h3();
                     e2Var.K1 = z;
-                    if (!TextUtils.isEmpty(e2Var.z0())) {
+                    if (!TextUtils.isEmpty(e2Var.A0())) {
                         p0 p0Var = new p0();
-                        p0Var.k(e2Var.z0());
+                        p0Var.k(e2Var.A0());
                         this.threadList.add(p0Var);
                     } else {
                         this.threadList.add(e2Var);

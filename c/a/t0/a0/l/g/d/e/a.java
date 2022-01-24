@@ -28,44 +28,44 @@ public class a {
     public RelativeLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f15011b;
+    public TextView f15151b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f15012c;
+    public TextView f15152c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f15013d;
+    public TextView f15153d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f15014e;
+    public TextView f15154e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f15015f;
+    public TextView f15155f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f15016g;
+    public LinearLayout f15156g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f15017h;
+    public LinearLayout f15157h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f15018i;
+    public TextView f15158i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f15019j;
+    public b f15159j;
     public AlaEnterEffectData k;
     public Context l;
 
     /* renamed from: c.a.t0.a0.l.g.d.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class View$OnClickListenerC0954a implements View.OnClickListener {
+    public class View$OnClickListenerC0964a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f15020e;
+        public final /* synthetic */ a f15160e;
 
-        public View$OnClickListenerC0954a(a aVar) {
+        public View$OnClickListenerC0964a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,16 +80,16 @@ public class a {
                     return;
                 }
             }
-            this.f15020e = aVar;
+            this.f15160e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15020e.f15019j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15160e.f15159j == null) {
                 return;
             }
-            this.f15020e.f15019j.a();
+            this.f15160e.f15159j.a();
         }
     }
 
@@ -120,14 +120,14 @@ public class a {
         this.k = alaEnterEffectData;
         RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.ala_enter_effect_detail_view, (ViewGroup) null);
         this.a = relativeLayout;
-        this.f15011b = (TextView) relativeLayout.findViewById(R.id.effet_name_tv);
-        this.f15012c = (TextView) this.a.findViewById(R.id.left_time_tv);
-        this.f15013d = (TextView) this.a.findViewById(R.id.live_room_tv);
-        this.f15014e = (TextView) this.a.findViewById(R.id.confirm_button_tv);
-        this.f15015f = (TextView) this.a.findViewById(R.id.t_dou_price);
-        this.f15016g = (LinearLayout) this.a.findViewById(R.id.t_dou_price_layout);
-        this.f15017h = (LinearLayout) this.a.findViewById(R.id.cur_t_dou_layout);
-        this.f15018i = (TextView) this.a.findViewById(R.id.cur_t_dou);
+        this.f15151b = (TextView) relativeLayout.findViewById(R.id.effet_name_tv);
+        this.f15152c = (TextView) this.a.findViewById(R.id.left_time_tv);
+        this.f15153d = (TextView) this.a.findViewById(R.id.live_room_tv);
+        this.f15154e = (TextView) this.a.findViewById(R.id.confirm_button_tv);
+        this.f15155f = (TextView) this.a.findViewById(R.id.t_dou_price);
+        this.f15156g = (LinearLayout) this.a.findViewById(R.id.t_dou_price_layout);
+        this.f15157h = (LinearLayout) this.a.findViewById(R.id.cur_t_dou_layout);
+        this.f15158i = (TextView) this.a.findViewById(R.id.cur_t_dou);
         c(alaEnterEffectData);
     }
 
@@ -143,81 +143,81 @@ public class a {
             return;
         }
         this.k = alaEnterEffectData;
-        this.f15014e.setEnabled(true);
+        this.f15154e.setEnabled(true);
         int i2 = this.k.categoryType;
         if (3 != i2) {
             if (2 == i2) {
-                this.f15014e.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
-                this.f15014e.setTextColor(this.l.getResources().getColor(R.color.CAM_X0201));
-                this.f15016g.setVisibility(0);
-                this.f15015f.setText(AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price));
+                this.f15154e.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
+                this.f15154e.setTextColor(this.l.getResources().getColor(R.color.CAM_X0201));
+                this.f15156g.setVisibility(0);
+                this.f15155f.setText(AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price));
                 Drawable normalSkinMoneyIcon = CurrencySwitchUtil.getNormalSkinMoneyIcon();
                 int dimensionPixelSize = this.l.getResources().getDimensionPixelSize(R.dimen.ds36);
                 normalSkinMoneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-                this.f15015f.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.ds12));
-                this.f15015f.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
-                this.f15017h.setVisibility(0);
-                this.f15018i.setText(AlaStringHelper.formatLowercasekDou((float) TbadkCoreApplication.getInst().currentAccountTdouNum));
+                this.f15155f.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.ds12));
+                this.f15155f.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
+                this.f15157h.setVisibility(0);
+                this.f15158i.setText(AlaStringHelper.formatLowercasekDou((float) TbadkCoreApplication.getInst().currentAccountTdouNum));
                 Drawable normalSkinMoneyIcon2 = CurrencySwitchUtil.getNormalSkinMoneyIcon();
                 int dimensionPixelSize2 = this.l.getResources().getDimensionPixelSize(R.dimen.ds24);
                 normalSkinMoneyIcon2.setBounds(0, 0, dimensionPixelSize2, dimensionPixelSize2);
-                this.f15018i.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.ds4));
-                this.f15018i.setCompoundDrawables(normalSkinMoneyIcon2, null, null, null);
+                this.f15158i.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.ds4));
+                this.f15158i.setCompoundDrawables(normalSkinMoneyIcon2, null, null, null);
             } else {
-                this.f15013d.setVisibility(0);
-                this.f15014e.setBackgroundResource(R.drawable.mark_ops_btn_bg_wear_selector);
-                this.f15014e.setTextColor(this.l.getResources().getColorStateList(R.color.mark_ops_btn_txt_wear_color));
+                this.f15153d.setVisibility(0);
+                this.f15154e.setBackgroundResource(R.drawable.mark_ops_btn_bg_wear_selector);
+                this.f15154e.setTextColor(this.l.getResources().getColorStateList(R.color.mark_ops_btn_txt_wear_color));
             }
         }
         AlaEnterEffectData alaEnterEffectData2 = this.k;
         if (alaEnterEffectData2.isOwn) {
             if (alaEnterEffectData2.isUsing()) {
-                this.f15014e.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
-                this.f15014e.setTextColor(this.l.getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
-                this.f15014e.setText(R.string.ala_stop_use);
+                this.f15154e.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
+                this.f15154e.setTextColor(this.l.getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
+                this.f15154e.setText(R.string.ala_stop_use);
                 if (2 == this.k.categoryType) {
-                    this.f15017h.setVisibility(8);
+                    this.f15157h.setVisibility(8);
                 }
             } else {
-                this.f15014e.setText(R.string.ala_immediate_use);
+                this.f15154e.setText(R.string.ala_immediate_use);
             }
         } else {
             int i3 = alaEnterEffectData2.categoryType;
             if (3 == i3) {
-                this.f15014e.setText(R.string.ala_nobility_open);
-                this.f15012c.setText(this.l.getString(R.string.ala_enter_effect_nobility_open_tip, alaEnterEffectData.nobilityName));
+                this.f15154e.setText(R.string.ala_nobility_open);
+                this.f15152c.setText(this.l.getString(R.string.ala_enter_effect_nobility_open_tip, alaEnterEffectData.nobilityName));
             } else if (2 == i3) {
                 if (TbadkCoreApplication.getInst().currentAccountTdouNum >= this.k.price) {
-                    this.f15014e.setText(R.string.ala_enter_effect_tdou_buy);
+                    this.f15154e.setText(R.string.ala_enter_effect_tdou_buy);
                 } else {
-                    this.f15014e.setText(R.string.ala_enter_effect_get_t_dou);
+                    this.f15154e.setText(R.string.ala_enter_effect_get_t_dou);
                 }
             } else {
-                this.f15014e.setBackgroundDrawable(null);
-                this.f15014e.setTextColor(this.l.getResources().getColor(R.color.white_alpha60));
-                this.f15014e.setText(R.string.ala_enter_effect_not_own);
-                this.f15014e.setEnabled(false);
+                this.f15154e.setBackgroundDrawable(null);
+                this.f15154e.setTextColor(this.l.getResources().getColor(R.color.white_alpha60));
+                this.f15154e.setText(R.string.ala_enter_effect_not_own);
+                this.f15154e.setEnabled(false);
             }
         }
-        this.f15014e.setOnClickListener(new View$OnClickListenerC0954a(this));
+        this.f15154e.setOnClickListener(new View$OnClickListenerC0964a(this));
         if (!StringUtils.isNull(alaEnterEffectData.name)) {
-            this.f15011b.setText(alaEnterEffectData.name);
+            this.f15151b.setText(alaEnterEffectData.name);
         }
         long currentTimeMillis = (alaEnterEffectData.end_time * 1000) - System.currentTimeMillis();
         if (currentTimeMillis >= 0) {
-            this.f15012c.setText(this.l.getResources().getString(R.string.ala_left_time, StringHelper.formatDayOrHourTime(currentTimeMillis)));
+            this.f15152c.setText(this.l.getResources().getString(R.string.ala_left_time, StringHelper.formatDayOrHourTime(currentTimeMillis)));
         }
         if (StringUtils.isNull(alaEnterEffectData.effect_range_name)) {
             return;
         }
-        this.f15013d.setText(alaEnterEffectData.effect_range_name);
+        this.f15153d.setText(alaEnterEffectData.effect_range_name);
     }
 
     public void d(String str) {
         AlaEnterEffectData alaEnterEffectData;
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (alaEnterEffectData = this.k) == null || 2 != alaEnterEffectData.categoryType || (textView = this.f15014e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (alaEnterEffectData = this.k) == null || 2 != alaEnterEffectData.categoryType || (textView = this.f15154e) == null) {
             return;
         }
         textView.setText(str);
@@ -226,7 +226,7 @@ public class a {
     public void e(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f15019j = bVar;
+            this.f15159j = bVar;
         }
     }
 }

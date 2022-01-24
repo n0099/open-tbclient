@@ -22,10 +22,10 @@ public class a implements d {
     public c.a.x.b.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f26645b;
+    public final int f26673b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f26646c;
+    public boolean f26674c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class a implements d {
                 return;
             }
         }
-        this.f26645b = b.a().b();
+        this.f26673b = b.a().b();
     }
 
     @Override // c.a.x.d.b.d
@@ -125,13 +125,13 @@ public class a implements d {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{fragmentActivity, fragment, str, str2, str3, str4, Boolean.valueOf(z)})) == null) {
             j("onCreateView hostType:   page: " + str);
             if (this.a == null) {
-                int i2 = this.f26645b;
+                int i2 = this.f26673b;
                 if (fragment != null) {
                     supportFragmentManager = fragment.getChildFragmentManager();
                 } else {
                     supportFragmentManager = fragmentActivity.getSupportFragmentManager();
                 }
-                this.a = new c.a.x.b.a(fragmentActivity, i2, supportFragmentManager, str, str2, this.f26646c, str3, str4, z);
+                this.a = new c.a.x.b.a(fragmentActivity, i2, supportFragmentManager, str, str2, this.f26674c, str3, str4, z);
                 c.a.x.b.c.a.s(fragmentActivity, "", "zhibopindao");
             }
             return this.a.z();

@@ -46,11 +46,11 @@ public class b implements c.a.r0.a.g1.j.a {
 
     /* renamed from: c.a.r0.a.g1.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0344b implements c.a.r0.d.i.a<c.a.r0.a.p.e.d> {
+    public class C0353b implements c.a.r0.d.i.a<c.a.r0.a.p.e.d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0344b(b bVar) {
+        public C0353b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class b implements c.a.r0.a.g1.j.a {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(new C0344b(this));
+            a(new C0353b(this));
         }
     }
 }

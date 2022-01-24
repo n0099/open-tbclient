@@ -17,22 +17,22 @@ public class CountDownTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41819e;
+    public int f41839e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41820f;
+    public String f41840f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f41821g;
+    public b f41841g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f41822h;
+    public d f41842h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f41823i;
+    public Handler f41843i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Runnable f41824j;
+    public final Runnable f41844j;
     public boolean k;
 
     /* loaded from: classes12.dex */
@@ -52,7 +52,7 @@ public class CountDownTextView extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final WeakReference<CountDownTextView> f41825e;
+        public final WeakReference<CountDownTextView> f41845e;
 
         public /* synthetic */ c(CountDownTextView countDownTextView, a aVar) {
             this(countDownTextView);
@@ -62,7 +62,7 @@ public class CountDownTextView extends TextView {
         public void run() {
             CountDownTextView countDownTextView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (countDownTextView = this.f41825e.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (countDownTextView = this.f41845e.get()) == null) {
                 return;
             }
             countDownTextView.b(1);
@@ -83,7 +83,7 @@ public class CountDownTextView extends TextView {
                     return;
                 }
             }
-            this.f41825e = new WeakReference<>(countDownTextView);
+            this.f41845e = new WeakReference<>(countDownTextView);
         }
     }
 
@@ -110,58 +110,58 @@ public class CountDownTextView extends TextView {
                 return;
             }
         }
-        this.f41819e = 0;
-        this.f41820f = "";
-        this.f41821g = null;
-        this.f41822h = null;
-        this.f41823i = new Handler();
+        this.f41839e = 0;
+        this.f41840f = "";
+        this.f41841g = null;
+        this.f41842h = null;
+        this.f41843i = new Handler();
         this.k = false;
-        this.f41824j = new c(this, null);
+        this.f41844j = new c(this, null);
     }
 
     public final void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            int i3 = this.f41819e - i2;
-            this.f41819e = i3;
-            b bVar = this.f41821g;
+            int i3 = this.f41839e - i2;
+            this.f41839e = i3;
+            b bVar = this.f41841g;
             if (bVar != null && i2 != 0) {
                 bVar.a(i3);
             }
-            int i4 = this.f41819e;
+            int i4 = this.f41839e;
             if (i4 == 0) {
-                d dVar = this.f41822h;
+                d dVar = this.f41842h;
                 if (dVar != null) {
                     dVar.onTimeout(this);
                 }
-                this.f41823i.removeCallbacksAndMessages(null);
+                this.f41843i.removeCallbacksAndMessages(null);
                 return;
             }
             if (i4 > 0) {
                 if (this.k) {
-                    setText(String.format("%s 0%s", this.f41820f, Integer.valueOf(i4)));
+                    setText(String.format("%s 0%s", this.f41840f, Integer.valueOf(i4)));
                 } else {
-                    setText(String.format("%s %s", this.f41820f, Integer.valueOf(i4)));
+                    setText(String.format("%s %s", this.f41840f, Integer.valueOf(i4)));
                 }
             }
-            this.f41823i.removeCallbacks(this.f41824j);
-            this.f41823i.postDelayed(this.f41824j, 1000L);
+            this.f41843i.removeCallbacks(this.f41844j);
+            this.f41843i.postDelayed(this.f41844j, 1000L);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f41823i.removeCallbacksAndMessages(null);
+            this.f41843i.removeCallbacksAndMessages(null);
         }
     }
 
     public void init(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
-            this.f41820f = str;
+            this.f41840f = str;
             if (i2 > 0) {
-                this.f41819e = i2;
+                this.f41839e = i2;
             }
         }
     }
@@ -207,14 +207,14 @@ public class CountDownTextView extends TextView {
     public void setTimeoutListener(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
-            this.f41822h = dVar;
+            this.f41842h = dVar;
         }
     }
 
     public void setTimerChangedListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f41821g = bVar;
+            this.f41841g = bVar;
         }
     }
 }

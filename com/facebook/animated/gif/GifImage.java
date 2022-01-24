@@ -17,7 +17,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @DoNotStrip
 @ThreadSafe
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOOP_COUNT_FOREVER = 0;

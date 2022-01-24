@@ -1,12 +1,6 @@
 package c.a.t0.i1.b;
 
-import c.a.d.n.e.e;
-import c.a.t0.g0.g0.d;
-import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.godSquare.adapter.GodSquareHotGodAdapter;
-import com.baidu.tieba.godSquare.adapter.GodSquareRecGodAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,60 +8,64 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.GetGiftList.PresentCategoryList;
 /* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GodSquareRecGodAdapter f18156b;
+    public String f18325b;
 
     /* renamed from: c  reason: collision with root package name */
-    public GodSquareHotGodAdapter f18157c;
+    public ArrayList<Integer> f18326c;
 
-    /* renamed from: d  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f18158d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public BdTypeListView f18159e;
-
-    public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f18158d = new ArrayList();
-        this.f18159e = bdTypeListView;
-        this.a = new d(tbPageContext);
-        this.f18156b = new GodSquareRecGodAdapter(tbPageContext);
-        this.f18157c = new GodSquareHotGodAdapter(tbPageContext);
-        this.f18158d.add(this.a);
-        this.f18158d.add(this.f18156b);
-        this.f18158d.add(this.f18157c);
     }
 
-    public List<c.a.d.n.e.a> a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18158d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void b() {
-        BdTypeListView bdTypeListView;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f18159e) != null && (bdTypeListView.getAdapter2() instanceof e)) {
-            this.f18159e.getAdapter2().notifyDataSetChanged();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18325b : (String) invokeV.objValue;
+    }
+
+    public ArrayList<Integer> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18326c : (ArrayList) invokeV.objValue;
+    }
+
+    public void d(PresentCategoryList presentCategoryList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, presentCategoryList) == null) || presentCategoryList == null) {
+            return;
         }
+        this.a = presentCategoryList.category_id.intValue();
+        this.f18325b = presentCategoryList.category_name;
+        List<Integer> list = presentCategoryList.gift_ids;
+        if (list == null || list.size() <= 0) {
+            return;
+        }
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        this.f18326c = arrayList;
+        arrayList.addAll(presentCategoryList.gift_ids);
     }
 }

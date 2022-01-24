@@ -4,18 +4,15 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.e.a;
-import c.a.s0.s.h0.b;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.concurrent.AsyncTaskAssistant;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.searchbox.performance.speed.SpeedRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -26,7 +23,7 @@ public class LaunchTaskSchedule {
     public static LaunchTaskSchedule sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public final Set<Integer> historyLifecycle;
-    public final HashSet<String> mChangeToSyncTaskSet;
+    public HashSet<String> mChangeToSyncTaskSet;
     public int mProcessType;
     public BaseTaskPool mTaskPool;
 
@@ -79,7 +76,7 @@ public class LaunchTaskSchedule {
             return;
         }
         try {
-            if (TbadkCoreApplication.getInst().isMainProcess(false) && !this.mChangeToSyncTaskSet.isEmpty()) {
+            if (SpeedRuntime.getSpeedContext().isMainProcess() && !this.mChangeToSyncTaskSet.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
                 for (LaunchTask launchTask : taskList) {
                     if (launchTask.getName() != null && this.mChangeToSyncTaskSet.contains(launchTask.getName()) && (launchTask.getProcess() & this.mProcessType) != 0) {
@@ -157,19 +154,12 @@ public class LaunchTaskSchedule {
         }
     }
 
-    public void init(int i2, @NonNull BaseTaskPool baseTaskPool) {
-        String[] split;
+    public void init(int i2, @NonNull BaseTaskPool baseTaskPool, HashSet<String> hashSet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, baseTaskPool) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i2, baseTaskPool, hashSet) == null) {
             this.mProcessType = i2;
             this.mTaskPool = baseTaskPool;
-            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                String q = b.k().q("key_sync_task_switch", "");
-                if (StringUtils.isNull(q) || (split = q.split("_")) == null || split.length <= 0) {
-                    return;
-                }
-                Collections.addAll(this.mChangeToSyncTaskSet, split);
-            }
+            this.mChangeToSyncTaskSet = hashSet;
         }
     }
 

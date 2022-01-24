@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AdDownloadModel implements DownloadModel {
     public String mAppIcon;
     public String mAppName;
@@ -59,7 +59,7 @@ public class AdDownloadModel implements DownloadModel {
     public boolean mEnablePause = true;
     public int mFunnelType = 1;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         public AdDownloadModel model = new AdDownloadModel();
 

@@ -28,7 +28,7 @@ public class c {
     public ArrayList<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21108b;
+    public String f21343b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class c {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21108b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21343b : (String) invokeV.objValue;
     }
 
     public boolean f(Spannable spannable) {
@@ -207,7 +207,7 @@ public class c {
     public void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f21108b = str;
+            this.f21343b = str;
         }
     }
 }

@@ -27,7 +27,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public String forumName;
     public BfbInfoModel.b mCallback;
     public BfbInfoModel mModel;
-    public c.a.t0.m1.a mView;
+    public c.a.t0.n1.a mView;
 
     /* loaded from: classes12.dex */
     public class a implements BfbInfoModel.b {
@@ -78,10 +78,10 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f44063e;
+        public final /* synthetic */ c.a.s0.s.s.a f44091e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CreateBarGuideActivity f44064f;
+        public final /* synthetic */ CreateBarGuideActivity f44092f;
 
         public b(CreateBarGuideActivity createBarGuideActivity, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -98,16 +98,16 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                     return;
                 }
             }
-            this.f44064f = createBarGuideActivity;
-            this.f44063e = aVar;
+            this.f44092f = createBarGuideActivity;
+            this.f44091e = aVar;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f44063e.dismiss();
-                this.f44064f.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(this.f44064f.getPageContext().getPageActivity())));
+                this.f44091e.dismiss();
+                this.f44092f.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(this.f44092f.getPageContext().getPageActivity())));
             }
         }
     }
@@ -118,10 +118,10 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f44065e;
+        public final /* synthetic */ c.a.s0.s.s.a f44093e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CreateBarGuideActivity f44066f;
+        public final /* synthetic */ CreateBarGuideActivity f44094f;
 
         public c(CreateBarGuideActivity createBarGuideActivity, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -138,15 +138,15 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                     return;
                 }
             }
-            this.f44066f = createBarGuideActivity;
-            this.f44065e = aVar;
+            this.f44094f = createBarGuideActivity;
+            this.f44093e = aVar;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f44065e.dismiss();
+                this.f44093e.dismiss();
             }
         }
     }
@@ -188,7 +188,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.changeSkinType(i2);
-            c.a.t0.m1.a aVar = this.mView;
+            c.a.t0.n1.a aVar = this.mView;
             if (aVar != null) {
                 aVar.f();
             }
@@ -208,7 +208,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
             BfbInfoModel bfbInfoModel = new BfbInfoModel(this);
             this.mModel = bfbInfoModel;
             bfbInfoModel.A(this.mCallback);
-            c.a.t0.m1.a aVar = new c.a.t0.m1.a(this);
+            c.a.t0.n1.a aVar = new c.a.t0.n1.a(this);
             this.mView = aVar;
             aVar.e();
             showLoadingView(this.mView.d());

@@ -23,21 +23,21 @@ public interface b {
 
     /* renamed from: c.a.r0.a.n0.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0471b {
+    public static final class C0480b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Map<String, a> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f7824b;
+        public boolean f7966b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f7825c;
+        public int f7967c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f7826d;
+        public int f7968d;
 
-        public C0471b() {
+        public C0480b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,9 +51,9 @@ public interface b {
                 }
             }
             this.a = new HashMap();
-            this.f7824b = true;
-            this.f7825c = 0;
-            this.f7826d = 0;
+            this.f7966b = true;
+            this.f7967c = 0;
+            this.f7968d = 0;
         }
     }
 }

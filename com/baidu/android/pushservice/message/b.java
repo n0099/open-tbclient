@@ -45,7 +45,7 @@ public class b extends c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
             g gVar = new g();
             try {
-                jSONObject = new JSONObject(new String(eVar.f32293b));
+                jSONObject = new JSONObject(new String(eVar.f32321b));
             } catch (JSONException e2) {
                 new b.c(this.a).a(Log.getStackTraceString(e2)).a();
                 jSONObject = null;
@@ -55,7 +55,7 @@ public class b extends c {
                 com.baidu.android.pushservice.j.a(this.a).a(null, null, null, null);
                 m.c(this.a);
             }
-            new b.C1742b(this.a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
+            new b.C1743b(this.a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
             gVar.a(optInt);
             return gVar;
         }

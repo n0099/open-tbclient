@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LaunchStatsUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD = "ad";
-    public static int COLD_LAUNCH_TYPE = 0;
+    public static final int COLD_LAUNCH_TYPE = 0;
     public static final boolean DEBUG;
     public static final String EXTERNAL_LAUNCH = "external";
-    public static int HOT_LAUNCH_TYPE = 0;
+    public static final int HOT_LAUNCH_TYPE = 1;
     public static final long INVALID_LONG = -1;
     public static final String NEW_INSTALL_LAUNCH = "newInstall";
     public static final String NORMAL_LAUNCH = "normal";
@@ -43,8 +43,6 @@ public class LaunchStatsUtils {
             }
         }
         DEBUG = AppConfig.isDebug();
-        COLD_LAUNCH_TYPE = 0;
-        HOT_LAUNCH_TYPE = 1;
         sAppCreateTimeStamp = -1L;
         sHomePageFirstRenderEndTimeStamp = -1L;
         sLaunchType = 0;

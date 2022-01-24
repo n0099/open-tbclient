@@ -23,16 +23,16 @@ public class b {
     public static final String a = "b";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f58444b = new Object();
+    public static final Object f58489b = new Object();
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f58445c;
+    public static b f58490c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f58446d;
+    public Context f58491d;
 
     public b(Context context) {
-        this.f58446d = context;
+        this.f58491d = context;
         try {
             System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
         } catch (Exception e2) {
@@ -42,14 +42,14 @@ public class b {
     }
 
     public static b a(Context context) {
-        if (f58445c == null) {
-            synchronized (f58444b) {
-                if (f58445c == null) {
-                    f58445c = new b(context);
+        if (f58490c == null) {
+            synchronized (f58489b) {
+                if (f58490c == null) {
+                    f58490c = new b(context);
                 }
             }
         }
-        return f58445c;
+        return f58490c;
     }
 
     private Map<String, String> a(Map<String, String> map) {

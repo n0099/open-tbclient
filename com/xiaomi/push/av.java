@@ -24,13 +24,13 @@ public class av implements ar {
     public Method f141a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f60920b;
+    public Method f60965b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f60921c;
+    public Method f60966c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f60922d;
+    public Method f60967d;
 
     public av(Context context) {
         Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class av implements ar {
             }
         }
         this.f141a = null;
-        this.f60920b = null;
-        this.f60921c = null;
-        this.f60922d = null;
+        this.f60965b = null;
+        this.f60966c = null;
+        this.f60967d = null;
         this.a = context;
         a(context);
     }
@@ -85,9 +85,9 @@ public class av implements ar {
                 this.f139a = a;
                 this.f140a = a.newInstance();
                 this.f141a = this.f139a.getMethod("getUDID", Context.class);
-                this.f60920b = this.f139a.getMethod("getOAID", Context.class);
-                this.f60921c = this.f139a.getMethod("getVAID", Context.class);
-                this.f60922d = this.f139a.getMethod("getAAID", Context.class);
+                this.f60965b = this.f139a.getMethod("getOAID", Context.class);
+                this.f60966c = this.f139a.getMethod("getVAID", Context.class);
+                this.f60967d = this.f139a.getMethod("getAAID", Context.class);
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a("miui load class error", e2);
             }
@@ -123,20 +123,20 @@ public class av implements ar {
     public String mo213b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(this.a, this.f60920b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(this.a, this.f60965b) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(this.a, this.f60921c) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(this.a, this.f60966c) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a(this.a, this.f60922d) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a(this.a, this.f60967d) : (String) invokeV.objValue;
     }
 }

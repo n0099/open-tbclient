@@ -3,9 +3,9 @@ package com.baidu.tieba.im.chat;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.e1.t;
-import c.a.t0.s1.f.c;
-import c.a.t0.s1.f.h;
+import c.a.s0.d1.t;
+import c.a.t0.t1.f.c;
+import c.a.t0.t1.f.h;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.model.MsglistModel;
@@ -90,7 +90,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // c.a.t0.s1.f.c
+    @Override // c.a.t0.t1.f.c
     public void onFirstHistoryPageLoaded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {

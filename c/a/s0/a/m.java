@@ -12,7 +12,7 @@ public class m extends i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile long f12143e;
+    public volatile long f12285e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(c cVar) {
@@ -32,7 +32,7 @@ public class m extends i {
                 return;
             }
         }
-        this.f12143e = System.currentTimeMillis();
+        this.f12285e = System.currentTimeMillis();
     }
 
     public synchronized long i() {
@@ -41,8 +41,8 @@ public class m extends i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                this.f12143e = System.currentTimeMillis() + 60000;
-                j2 = this.f12143e;
+                this.f12285e = System.currentTimeMillis() + 60000;
+                j2 = this.f12285e;
             }
             return j2;
         }
@@ -52,6 +52,6 @@ public class m extends i {
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? System.currentTimeMillis() - this.f12143e >= 60000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? System.currentTimeMillis() - this.f12285e >= 60000 : invokeV.booleanValue;
     }
 }

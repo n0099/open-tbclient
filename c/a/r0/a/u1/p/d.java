@@ -13,15 +13,15 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile d f9434d;
+    public static volatile d f9576d;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, e> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, e> f9435b;
+    public HashMap<String, e> f9577b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, e> f9436c;
+    public HashMap<String, e> f9578c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f9434d == null) {
+            if (f9576d == null) {
                 synchronized (d.class) {
-                    if (f9434d == null) {
-                        f9434d = new d();
+                    if (f9576d == null) {
+                        f9576d = new d();
                     }
                 }
             }
-            return f9434d;
+            return f9576d;
         }
         return (d) invokeV.objValue;
     }
@@ -59,9 +59,9 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             synchronized (d.class) {
-                if (f9434d != null) {
-                    f9434d.e();
-                    f9434d = null;
+                if (f9576d != null) {
+                    f9576d.e();
+                    f9576d = null;
                 }
             }
         }
@@ -86,12 +86,12 @@ public final class d {
             c2 = 0;
         }
         if (c2 == 0) {
-            c.a.r0.a.u2.d.f9455d.update((c.a.r0.a.u2.c<Long>) Long.valueOf(j2));
+            c.a.r0.a.u2.d.f9597d.update((c.a.r0.a.u2.c<Long>) Long.valueOf(j2));
         } else if (c2 == 1) {
-            c.a.r0.a.u2.d.f9456e.update((c.a.r0.a.u2.c<Long>) Long.valueOf(j2));
+            c.a.r0.a.u2.d.f9598e.update((c.a.r0.a.u2.c<Long>) Long.valueOf(j2));
         } else if (c2 != 2) {
         } else {
-            c.a.r0.a.u2.d.f9457f.update((c.a.r0.a.u2.c<Long>) Long.valueOf(j2));
+            c.a.r0.a.u2.d.f9599f.update((c.a.r0.a.u2.c<Long>) Long.valueOf(j2));
         }
     }
 
@@ -101,11 +101,11 @@ public final class d {
             if (this.a == null) {
                 this.a = new HashMap<>();
             }
-            if (this.f9435b == null) {
-                this.f9435b = new HashMap<>();
+            if (this.f9577b == null) {
+                this.f9577b = new HashMap<>();
             }
-            if (this.f9436c == null) {
-                this.f9436c = new HashMap<>();
+            if (this.f9578c == null) {
+                this.f9578c = new HashMap<>();
             }
         }
     }
@@ -169,11 +169,11 @@ public final class d {
             if (hashMap != null) {
                 hashMap.clear();
             }
-            HashMap<String, e> hashMap2 = this.f9435b;
+            HashMap<String, e> hashMap2 = this.f9577b;
             if (hashMap2 != null) {
                 hashMap2.clear();
             }
-            HashMap<String, e> hashMap3 = this.f9436c;
+            HashMap<String, e> hashMap3 = this.f9578c;
             if (hashMap3 != null) {
                 hashMap3.clear();
             }
@@ -202,9 +202,9 @@ public final class d {
         if (c2 == 0) {
             eVar = this.a.remove(str);
         } else if (c2 == 1) {
-            eVar = this.f9435b.remove(str);
+            eVar = this.f9577b.remove(str);
         } else if (c2 == 2) {
-            eVar = this.f9436c.remove(str);
+            eVar = this.f9578c.remove(str);
         }
         if (eVar == null) {
             return;
@@ -239,14 +239,14 @@ public final class d {
                 this.a.put(str, eVar);
             }
         } else if (c2 == 1) {
-            eVar = this.f9435b.get(str);
+            eVar = this.f9577b.get(str);
             if (eVar == null) {
                 eVar = new a();
-                this.f9435b.put(str, eVar);
+                this.f9577b.put(str, eVar);
             }
-        } else if (c2 == 2 && (eVar = this.f9436c.get(str)) == null) {
+        } else if (c2 == 2 && (eVar = this.f9578c.get(str)) == null) {
             eVar = new c();
-            this.f9436c.put(str, eVar);
+            this.f9578c.put(str, eVar);
         }
         if (eVar != null) {
             eVar.c(j2);

@@ -25,28 +25,28 @@ public class m {
     public ArrayList<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21250b;
+    public String f21486b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f21251c;
+    public int f21487c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f21252d;
+    public int f21488d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21253e;
+    public int f21489e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21254f;
+    public int f21490f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21255g;
+    public int f21491g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f21256h;
+    public boolean f21492h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f21257i;
+    public boolean f21493i;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -61,9 +61,9 @@ public class m {
                 return;
             }
         }
-        this.f21255g = -1;
-        this.f21256h = false;
-        this.f21257i = false;
+        this.f21491g = -1;
+        this.f21492h = false;
+        this.f21493i = false;
     }
 
     public ArrayList<String> a() {
@@ -75,25 +75,25 @@ public class m {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21255g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21491g : invokeV.intValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21250b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21486b : (String) invokeV.objValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21256h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21492h : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21257i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21493i : invokeV.booleanValue;
     }
 
     public SpannableStringBuilder f(Editable editable) {
@@ -105,8 +105,8 @@ public class m {
             }
             String obj = editable.toString();
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-            boolean z = this.f21255g >= 0;
-            this.f21255g = -1;
+            boolean z = this.f21491g >= 0;
+            this.f21491g = -1;
             Iterator<String> it = this.a.iterator();
             while (it.hasNext()) {
                 String next = it.next();
@@ -114,7 +114,7 @@ public class m {
                     m(spannableStringBuilder, obj, next);
                 }
             }
-            if (this.f21255g >= 0 || z) {
+            if (this.f21491g >= 0 || z) {
                 ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
                 if (imageSpanArr != null) {
                     for (ImageSpan imageSpan : imageSpanArr) {
@@ -133,13 +133,13 @@ public class m {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int i2 = this.f21251c;
+            int i2 = this.f21487c;
             if (i2 != 0) {
-                this.f21253e = SkinManager.getColor(i2);
+                this.f21489e = SkinManager.getColor(i2);
             }
-            int i3 = this.f21252d;
+            int i3 = this.f21488d;
             if (i3 != 0) {
-                this.f21254f = SkinManager.getColor(i3);
+                this.f21490f = SkinManager.getColor(i3);
             }
         }
     }
@@ -147,8 +147,8 @@ public class m {
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f21252d = i2;
-            this.f21254f = SkinManager.getColor(i2);
+            this.f21488d = i2;
+            this.f21490f = SkinManager.getColor(i2);
         }
     }
 
@@ -162,22 +162,22 @@ public class m {
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f21251c = i2;
-            this.f21253e = SkinManager.getColor(i2);
+            this.f21487c = i2;
+            this.f21489e = SkinManager.getColor(i2);
         }
     }
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f21256h = z;
+            this.f21492h = z;
         }
     }
 
     public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f21257i = z;
+            this.f21493i = z;
         }
     }
 
@@ -186,28 +186,28 @@ public class m {
         if (!(interceptable == null || interceptable.invokeLLL(1048588, this, spannableStringBuilder, str, str2) == null) || spannableStringBuilder == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (this.f21253e == 0 && this.f21254f == 0) {
+        if (this.f21489e == 0 && this.f21490f == 0) {
             return;
         }
         int indexOf = str.indexOf(str2);
         int length = str2.length();
         if (indexOf >= 0) {
-            int i2 = this.f21255g;
+            int i2 = this.f21491g;
             if (i2 == -1) {
-                this.f21255g = indexOf + length;
+                this.f21491g = indexOf + length;
             } else {
                 int i3 = indexOf + length;
                 if (i3 < i2) {
-                    this.f21255g = i3;
+                    this.f21491g = i3;
                 }
             }
         }
         while (indexOf >= 0) {
-            if (this.f21253e != 0) {
-                spannableStringBuilder.setSpan(new ForegroundColorSpan(this.f21253e), indexOf, indexOf + length, 33);
+            if (this.f21489e != 0) {
+                spannableStringBuilder.setSpan(new ForegroundColorSpan(this.f21489e), indexOf, indexOf + length, 33);
             }
-            if (this.f21254f != 0) {
-                spannableStringBuilder.setSpan(new BackgroundColorSpan(this.f21254f), indexOf, indexOf + length, 33);
+            if (this.f21490f != 0) {
+                spannableStringBuilder.setSpan(new BackgroundColorSpan(this.f21490f), indexOf, indexOf + length, 33);
             }
             indexOf = str.indexOf(str2, indexOf + 1);
         }
@@ -216,7 +216,7 @@ public class m {
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f21250b = str;
+            this.f21486b = str;
         }
     }
 }

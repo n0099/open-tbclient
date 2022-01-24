@@ -101,11 +101,11 @@ public class b extends c.a.t0.n4.k.a.a {
 
         /* renamed from: c.a.t0.n4.k.a.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC1248a implements Runnable {
+        public class RunnableC1243a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC1248a(a aVar) {
+            public RunnableC1243a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -162,18 +162,18 @@ public class b extends c.a.t0.n4.k.a.a {
                 this.a.u = cameraCaptureSession;
                 this.a.T = (CameraConstrainedHighSpeedCaptureSession) cameraCaptureSession;
                 this.a.N();
-                u.a().post(new RunnableC1248a(this));
+                u.a().post(new RunnableC1243a(this));
             }
         }
     }
 
     /* renamed from: c.a.t0.n4.k.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class RunnableC1249b implements Runnable {
+    public class RunnableC1244b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC1249b(b bVar) {
+        public RunnableC1244b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -280,10 +280,10 @@ public class b extends c.a.t0.n4.k.a.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f19912e;
+            public final /* synthetic */ boolean f20013e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d f19913f;
+            public final /* synthetic */ d f20014f;
 
             public a(d dVar, boolean z) {
                 Interceptable interceptable = $ic;
@@ -300,30 +300,30 @@ public class b extends c.a.t0.n4.k.a.a {
                         return;
                     }
                 }
-                this.f19913f = dVar;
-                this.f19912e = z;
+                this.f20014f = dVar;
+                this.f20013e = z;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f19912e || this.f19913f.a.I == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f20013e || this.f20014f.a.I == null) {
                     return;
                 }
-                this.f19913f.a.I.a("CameraCaptureSession.StateCallback onConfigured fail");
+                this.f20014f.a.I.a("CameraCaptureSession.StateCallback onConfigured fail");
             }
         }
 
         /* renamed from: c.a.t0.n4.k.a.b$d$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC1250b implements Runnable {
+        public class RunnableC1245b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f19914e;
+            public final /* synthetic */ d f20015e;
 
-            public RunnableC1250b(d dVar) {
+            public RunnableC1245b(d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -338,16 +338,16 @@ public class b extends c.a.t0.n4.k.a.a {
                         return;
                     }
                 }
-                this.f19914e = dVar;
+                this.f20015e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f19914e.a.I == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f20015e.a.I == null) {
                     return;
                 }
-                this.f19914e.a.I.a("CameraCaptureSession.StateCallback onConfigureFailed");
+                this.f20015e.a.I.a("CameraCaptureSession.StateCallback onConfigureFailed");
             }
         }
 
@@ -373,7 +373,7 @@ public class b extends c.a.t0.n4.k.a.a {
         public void onConfigureFailed(@NonNull CameraCaptureSession cameraCaptureSession) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cameraCaptureSession) == null) {
-                u.a().post(new RunnableC1250b(this));
+                u.a().post(new RunnableC1245b(this));
             }
         }
 
@@ -621,7 +621,7 @@ public class b extends c.a.t0.n4.k.a.a {
             }
             this.H = true;
             try {
-                c.a.t0.n4.k.a.c.f19915b.k(2);
+                c.a.t0.n4.k.a.c.f20016b.k(2);
                 return true;
             } catch (Exception e2) {
                 e = e2;
@@ -706,10 +706,10 @@ public class b extends c.a.t0.n4.k.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f19903b && c.a.t0.n4.k.a.a.o) {
+            if (this.f20004b && c.a.t0.n4.k.a.a.o) {
                 return 0;
             }
-            return (this.f19903b || !c.a.t0.n4.k.a.a.p) ? -1 : 1;
+            return (this.f20004b || !c.a.t0.n4.k.a.a.p) ? -1 : 1;
         }
         return invokeV.intValue;
     }
@@ -950,7 +950,7 @@ public class b extends c.a.t0.n4.k.a.a {
         if (Z == null && Y == null) {
             return;
         }
-        u.a().postDelayed(new RunnableC1249b(this), 2000L);
+        u.a().postDelayed(new RunnableC1244b(this), 2000L);
     }
 
     @Override // c.a.a1.p.b.InterfaceC0019b
@@ -1059,9 +1059,9 @@ public class b extends c.a.t0.n4.k.a.a {
     public void g(int i2, int i3, int i4, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)}) == null) {
-            this.f19907f = Math.max(i2, i3);
-            this.f19908g = Math.min(i2, i3);
-            this.f19904c = i2 > i3;
+            this.f20008f = Math.max(i2, i3);
+            this.f20009g = Math.min(i2, i3);
+            this.f20005c = i2 > i3;
             this.k = i4;
             i(z);
         }
@@ -1070,12 +1070,12 @@ public class b extends c.a.t0.n4.k.a.a {
     public final void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            if ((this.f19904c && this.f19905d < this.f19906e) || (!this.f19904c && this.f19905d > this.f19906e)) {
-                this.f19909h = this.f19906e;
-                this.f19910i = this.f19905d;
+            if ((this.f20005c && this.f20006d < this.f20007e) || (!this.f20005c && this.f20006d > this.f20007e)) {
+                this.f20010h = this.f20007e;
+                this.f20011i = this.f20006d;
             } else {
-                this.f19909h = this.f19905d;
-                this.f19910i = this.f19906e;
+                this.f20010h = this.f20006d;
+                this.f20011i = this.f20007e;
             }
             j0();
         }
@@ -1094,7 +1094,7 @@ public class b extends c.a.t0.n4.k.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             int R = R();
-            this.f19911j = R;
+            this.f20012j = R;
             String S = S(R);
             if (S != null) {
                 try {
@@ -1106,7 +1106,7 @@ public class b extends c.a.t0.n4.k.a.a {
                             b0(cameraCharacteristics);
                             this.B = null;
                             if (this.S) {
-                                g T = T(this.f19911j);
+                                g T = T(this.f20012j);
                                 this.B = T;
                                 if (T != null) {
                                     k0(T);
@@ -1116,11 +1116,11 @@ public class b extends c.a.t0.n4.k.a.a {
                             if (this.B == null) {
                                 this.S = false;
                                 J((Range[]) cameraCharacteristics.get(CameraCharacteristics.CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES));
-                                Size V = V(streamConfigurationMap.getOutputSizes(SurfaceTexture.class), this.f19907f, this.f19908g);
+                                Size V = V(streamConfigurationMap.getOutputSizes(SurfaceTexture.class), this.f20008f, this.f20009g);
                                 this.B = new g(V.getWidth(), V.getHeight(), this.C.getUpper().intValue());
                             }
-                            this.f19905d = this.B.e();
-                            this.f19906e = this.B.d();
+                            this.f20006d = this.B.e();
+                            this.f20007e = this.B.d();
                             g0();
                             this.s.openCamera(S, this.V, this.y);
                             return true;
@@ -1141,7 +1141,7 @@ public class b extends c.a.t0.n4.k.a.a {
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
-            this.f19903b = (z && x()) || !(z || w());
+            this.f20004b = (z && x()) || !(z || w());
         }
     }
 
@@ -1156,7 +1156,7 @@ public class b extends c.a.t0.n4.k.a.a {
     public final void j0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            this.Q = new f(this.z, new RectF(new Rect(0, 0, this.f19905d, this.f19906e)));
+            this.Q = new f(this.z, new RectF(new Rect(0, 0, this.f20006d, this.f20007e)));
         }
     }
 
@@ -1311,7 +1311,7 @@ public class b extends c.a.t0.n4.k.a.a {
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.f19903b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.f20004b : invokeV.booleanValue;
     }
 
     public final void o0(int i2) {

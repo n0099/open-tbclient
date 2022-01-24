@@ -17,11 +17,11 @@ public class f extends c.a.r0.q.j.d<c.a.r0.q.j.l.f> {
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public i f11547h;
+    public i f11689h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public i f11548i;
+    public i f11690i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(i iVar, h hVar, @Nullable i iVar2, @Nullable i iVar3) {
@@ -42,8 +42,8 @@ public class f extends c.a.r0.q.j.d<c.a.r0.q.j.l.f> {
                 return;
             }
         }
-        this.f11547h = iVar2;
-        this.f11548i = iVar3;
+        this.f11689h = iVar2;
+        this.f11690i = iVar3;
     }
 
     @Override // c.a.r0.q.j.d
@@ -69,13 +69,13 @@ public class f extends c.a.r0.q.j.d<c.a.r0.q.j.l.f> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, fVar)) == null) {
-            this.f11505e.F();
-            c.a.r0.q.o.a.e(this.f11506f.a(), fVar.a);
-            i iVar = this.f11505e;
-            if (iVar == this.f11547h || iVar == this.f11548i) {
+            this.f11647e.F();
+            c.a.r0.q.o.a.e(this.f11648f.a(), fVar.a);
+            i iVar = this.f11647e;
+            if (iVar == this.f11689h || iVar == this.f11690i) {
                 iVar = null;
             }
-            c.a.r0.q.k.f.c(fVar.f11563b, iVar, this.f11547h, this.f11548i);
+            c.a.r0.q.k.f.c(fVar.f11705b, iVar, this.f11689h, this.f11690i);
             return null;
         }
         return (c.a.r0.q.i.b) invokeL.objValue;

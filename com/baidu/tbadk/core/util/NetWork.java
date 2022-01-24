@@ -139,7 +139,7 @@ public class NetWork {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, this, str, str2, z)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 try {
-                    c.a.s0.s.b0.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                    c.a.s0.s.c0.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                     TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                     StringBuilder sb = new StringBuilder(32);
                     sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -179,7 +179,7 @@ public class NetWork {
                             }
                             c.g(accountData);
                             TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-                            c.a.s0.s.b0.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                            c.a.s0.s.c0.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                             return s0Var;
                         }
@@ -344,7 +344,7 @@ public class NetWork {
     public long getNetDataSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.netContext.getStat().stat.f2793b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.netContext.getStat().stat.f2895b : invokeV.longValue;
     }
 
     public int getNetErrorCode() {
@@ -581,7 +581,7 @@ public class NetWork {
                         return null;
                     }
                 }
-                c.a.t0.k1.a.b(this);
+                c.a.t0.l1.a.b(this);
                 return netString;
             }
         }

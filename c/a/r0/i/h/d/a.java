@@ -29,15 +29,15 @@ public class a {
 
     /* renamed from: c.a.r0.i.h.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0723a implements c.a.r0.i.g.b<List<ReservationGameInfo>> {
+    public class C0732a implements c.a.r0.i.g.b<List<ReservationGameInfo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f10758b;
+        public final /* synthetic */ a f10900b;
 
-        public C0723a(a aVar, String[] strArr) {
+        public C0732a(a aVar, String[] strArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public class a {
                     return;
                 }
             }
-            this.f10758b = aVar;
+            this.f10900b = aVar;
             this.a = strArr;
         }
 
@@ -76,14 +76,14 @@ public class a {
                     String str2 = reservationGameInfo.download_url;
                     String str3 = reservationGameInfo.package_id;
                     if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
-                        this.f10758b.e(str2, str3, str);
+                        this.f10900b.e(str2, str3, str);
                         c.a.r0.i.g.a.b().c(str);
                         if (arrayList2.remove(str)) {
-                            this.f10758b.f(arrayList2);
+                            this.f10900b.f(arrayList2);
                         }
                     }
                 } else if (arrayList2.remove(str)) {
-                    this.f10758b.f(arrayList2);
+                    this.f10900b.f(arrayList2);
                 }
             }
         }
@@ -179,7 +179,7 @@ public class a {
             if (split.length == 0) {
                 return;
             }
-            c.a.r0.i.g.a.b().d(new C0723a(this, split));
+            c.a.r0.i.g.a.b().d(new C0732a(this, split));
         }
     }
 

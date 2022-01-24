@@ -29,7 +29,7 @@ public class ClogBuilder extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final JSONObject f37110c;
+    public final JSONObject f37138c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -435,7 +435,7 @@ public class ClogBuilder extends c {
                 return;
             }
         }
-        this.f37110c = b.b(null);
+        this.f37138c = b.b(null);
         c("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
@@ -458,7 +458,7 @@ public class ClogBuilder extends c {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            b.e(this.f37110c, str, obj);
+            b.e(this.f37138c, str, obj);
             return this;
         }
         return (T) invokeLL.objValue;
@@ -509,7 +509,7 @@ public class ClogBuilder extends c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (TextUtils.isEmpty(this.f37110c.optString("da_type"))) {
+            if (TextUtils.isEmpty(this.f37138c.optString("da_type"))) {
                 return false;
             }
             return super.isValid();
@@ -629,14 +629,14 @@ public class ClogBuilder extends c {
             }
             try {
                 JSONArray jSONArray = new JSONArray();
-                jSONArray.put(this.f37110c);
+                jSONArray.put(this.f37138c);
                 String encode = URLEncoder.encode(jSONArray.toString(), "utf-8");
                 if (this.a.length() > 0) {
                     this.a.append(Typography.amp);
                 }
                 StringBuilder sb = this.a;
                 sb.append("ad");
-                sb.append(a.f30865h);
+                sb.append(a.f30893h);
                 sb.append(encode);
                 return sb.toString();
             } catch (Exception unused) {

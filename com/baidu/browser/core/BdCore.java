@@ -15,12 +15,12 @@ public final class BdCore {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static BdCore f33018c;
+    public static BdCore f33046c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f33019b;
+    public boolean f33047b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -102,7 +102,7 @@ public final class BdCore {
             }
         }
         EditTextType editTextType = EditTextType.DEFAULT;
-        this.f33019b = false;
+        this.f33047b = false;
     }
 
     public static synchronized BdCore a() {
@@ -111,10 +111,10 @@ public final class BdCore {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (BdCore.class) {
-                if (f33018c == null) {
-                    f33018c = new BdCore();
+                if (f33046c == null) {
+                    f33046c = new BdCore();
                 }
-                bdCore = f33018c;
+                bdCore = f33046c;
             }
             return bdCore;
         }
@@ -123,12 +123,12 @@ public final class BdCore {
 
     public void b(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) || this.f33019b) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) || this.f33047b) {
             return;
         }
         BdLog.f(z);
         this.a = context.getApplicationContext();
-        this.f33019b = true;
+        this.f33047b = true;
     }
 
     public Context getContext() {

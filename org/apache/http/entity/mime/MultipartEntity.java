@@ -18,7 +18,7 @@ import java.util.Random;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.content.ContentBody;
 import org.apache.http.message.BasicHeader;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MultipartEntity implements HttpEntity {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] MULTIPART_CHARS;

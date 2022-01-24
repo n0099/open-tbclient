@@ -3,6 +3,8 @@ package com.baidu.searchbox.http.statistics;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +21,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NetworkStatRecord {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FROM_ID = 0;
@@ -260,7 +262,7 @@ public class NetworkStatRecord {
                     jSONObject.put("netType", this.netType);
                 }
                 if (this.startTs != -1) {
-                    jSONObject.put("startTime", this.startTs);
+                    jSONObject.put(FetchLog.START_TIME, this.startTs);
                 }
                 if (this.connTs != -1) {
                     jSONObject.put("connectedTime", this.connTs);
@@ -294,7 +296,7 @@ public class NetworkStatRecord {
                     jSONObject.put("failTime", this.failTs);
                 }
                 if (!TextUtils.isEmpty(getStackTraceString(this.exception))) {
-                    jSONObject.put("errMsg", getStackTraceString(this.exception));
+                    jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, getStackTraceString(this.exception));
                 }
                 if (this.statusCode != -1) {
                     jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, this.statusCode);

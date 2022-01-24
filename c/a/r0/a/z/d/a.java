@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.z.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0643a implements Camera.AutoFocusCallback {
+    /* loaded from: classes6.dex */
+    public static class C0652a implements Camera.AutoFocusCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
-        public C0643a(String str) {
+        public C0652a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,6 +109,6 @@ public class a {
         String focusMode = parameters.getFocusMode();
         parameters.setFocusMode(c(parameters));
         camera.setParameters(parameters);
-        camera.autoFocus(new C0643a(focusMode));
+        camera.autoFocus(new C0652a(focusMode));
     }
 }

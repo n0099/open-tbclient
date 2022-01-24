@@ -14,10 +14,10 @@ public class f {
     public final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f7588b;
+    public final boolean f7730b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f7589c;
+    public final boolean f7731c;
 
     public f(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class f {
             }
         }
         this.a = true;
-        this.f7588b = z;
-        this.f7589c = z2;
+        this.f7730b = z;
+        this.f7731c = z2;
     }
 
     public static f c(boolean z) {
@@ -60,13 +60,13 @@ public class f {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.a && this.f7588b) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.a && this.f7730b) ? false : true : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a ? this.f7588b && this.f7589c : this.f7589c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a ? this.f7730b && this.f7731c : this.f7731c : invokeV.booleanValue;
     }
 
     public f(boolean z) {
@@ -85,7 +85,7 @@ public class f {
             }
         }
         this.a = false;
-        this.f7588b = true;
-        this.f7589c = z;
+        this.f7730b = true;
+        this.f7731c = z;
     }
 }

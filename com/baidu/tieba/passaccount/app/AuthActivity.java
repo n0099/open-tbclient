@@ -223,13 +223,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(65539, this, z, str) == null) {
             int i2 = this.type;
             if (i2 == 0) {
-                c.a.t0.q2.d.b.f().b(z, str);
+                c.a.t0.r2.d.b.f().b(z, str);
             } else if (i2 == 1) {
-                c.a.t0.q2.d.b.f().e(z);
+                c.a.t0.r2.d.b.f().e(z);
             } else if (i2 == 2) {
-                c.a.t0.q2.d.b.f().c(z);
+                c.a.t0.r2.d.b.f().c(z);
             } else {
-                c.a.t0.q2.d.b.f().a(null);
+                c.a.t0.r2.d.b.f().a(null);
             }
             finish();
         }

@@ -234,8 +234,8 @@ public class SwanAudioPlayer {
         }
         c.a.r0.o.a.a aVar = new c.a.r0.o.a.a();
         aVar.a = bArr;
-        aVar.f11447b = j2;
-        aVar.f11448c = System.nanoTime();
+        aVar.f11589b = j2;
+        aVar.f11590c = System.nanoTime();
         this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, aVar));
     }
 

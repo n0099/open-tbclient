@@ -5,7 +5,6 @@ import android.media.MediaFormat;
 import android.os.SystemClock;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +23,7 @@ import org.webrtc.EncodedImage;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoDecoder;
 import org.webrtc.VideoFrame;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEQUEUE_INPUT_TIMEOUT_US = 500000;
@@ -71,7 +70,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     public SurfaceTextureHelper surfaceTextureHelper;
     public int width;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class DecodedTextureMetadata {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +97,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class FrameInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -378,7 +377,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
             }
             synchronized (this.dimensionLock) {
                 if (this.hasDecodedFirstFrame && (this.width != integer || this.height != integer2)) {
-                    stopOnOutputThread(new RuntimeException("Unexpected size change. Configured " + this.width + ProxyConfig.MATCH_ALL_SCHEMES + this.height + ". New " + integer + ProxyConfig.MATCH_ALL_SCHEMES + integer2));
+                    stopOnOutputThread(new RuntimeException("Unexpected size change. Configured " + this.width + "*" + this.height + ". New " + integer + "*" + integer2));
                     return;
                 }
                 this.width = integer;

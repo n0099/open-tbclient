@@ -12,6 +12,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,27 +30,27 @@ public class d implements com.kwai.filedownloader.a.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f58150b;
+    public static boolean f58195b;
     public transient /* synthetic */ FieldHolder $fh;
     public SQLiteDatabase a;
 
     /* loaded from: classes3.dex */
-    public class a implements a.InterfaceC2155a {
+    public class a implements a.InterfaceC2161a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final SparseArray<com.kwai.filedownloader.c.c> f58151b;
+        public final SparseArray<com.kwai.filedownloader.c.c> f58196b;
 
         /* renamed from: c  reason: collision with root package name */
-        public b f58152c;
+        public b f58197c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final SparseArray<com.kwai.filedownloader.c.c> f58153d;
+        public final SparseArray<com.kwai.filedownloader.c.c> f58198d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final SparseArray<List<com.kwai.filedownloader.c.a>> f58154e;
+        public final SparseArray<List<com.kwai.filedownloader.c.a>> f58199e;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a(d dVar) {
@@ -88,23 +89,23 @@ public class d implements com.kwai.filedownloader.a.a {
                 }
             }
             this.a = dVar;
-            this.f58151b = new SparseArray<>();
-            this.f58153d = sparseArray;
-            this.f58154e = sparseArray2;
+            this.f58196b = new SparseArray<>();
+            this.f58198d = sparseArray;
+            this.f58199e = sparseArray2;
         }
 
-        @Override // com.kwai.filedownloader.a.a.InterfaceC2155a
+        @Override // com.kwai.filedownloader.a.a.InterfaceC2161a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b bVar = this.f58152c;
+                b bVar = this.f58197c;
                 if (bVar != null) {
                     bVar.b();
                 }
                 if (this.a.a == null) {
                     return;
                 }
-                int size = this.f58151b.size();
+                int size = this.f58196b.size();
                 try {
                     try {
                         if (size < 0) {
@@ -113,8 +114,8 @@ public class d implements com.kwai.filedownloader.a.a {
                         try {
                             this.a.a.beginTransaction();
                             for (int i2 = 0; i2 < size; i2++) {
-                                int keyAt = this.f58151b.keyAt(i2);
-                                com.kwai.filedownloader.c.c cVar = this.f58151b.get(keyAt);
+                                int keyAt = this.f58196b.keyAt(i2);
+                                com.kwai.filedownloader.c.c cVar = this.f58196b.get(keyAt);
                                 this.a.a.delete("ksad_file_download", "_id = ?", new String[]{String.valueOf(keyAt)});
                                 this.a.a.insert("ksad_file_download", null, cVar.p());
                                 if (cVar.n() > 1) {
@@ -128,15 +129,15 @@ public class d implements com.kwai.filedownloader.a.a {
                                     }
                                 }
                             }
-                            if (this.f58153d != null && this.f58154e != null) {
-                                synchronized (this.f58153d) {
-                                    int size2 = this.f58153d.size();
+                            if (this.f58198d != null && this.f58199e != null) {
+                                synchronized (this.f58198d) {
+                                    int size2 = this.f58198d.size();
                                     for (int i3 = 0; i3 < size2; i3++) {
-                                        int a = this.f58153d.valueAt(i3).a();
+                                        int a = this.f58198d.valueAt(i3).a();
                                         List<com.kwai.filedownloader.c.a> c3 = this.a.c(a);
                                         if (c3 != null && c3.size() > 0) {
-                                            synchronized (this.f58154e) {
-                                                this.f58154e.put(a, c3);
+                                            synchronized (this.f58199e) {
+                                                this.f58199e.put(a, c3);
                                             }
                                         }
                                     }
@@ -173,30 +174,30 @@ public class d implements com.kwai.filedownloader.a.a {
             }
         }
 
-        @Override // com.kwai.filedownloader.a.a.InterfaceC2155a
+        @Override // com.kwai.filedownloader.a.a.InterfaceC2161a
         public void a(int i2, com.kwai.filedownloader.c.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, cVar) == null) {
-                this.f58151b.put(i2, cVar);
+                this.f58196b.put(i2, cVar);
             }
         }
 
-        @Override // com.kwai.filedownloader.a.a.InterfaceC2155a
+        @Override // com.kwai.filedownloader.a.a.InterfaceC2161a
         public void a(com.kwai.filedownloader.c.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             }
         }
 
-        @Override // com.kwai.filedownloader.a.a.InterfaceC2155a
+        @Override // com.kwai.filedownloader.a.a.InterfaceC2161a
         public void b(com.kwai.filedownloader.c.c cVar) {
             SparseArray<com.kwai.filedownloader.c.c> sparseArray;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) || (sparseArray = this.f58153d) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) || (sparseArray = this.f58198d) == null) {
                 return;
             }
             synchronized (sparseArray) {
-                this.f58153d.put(cVar.a(), cVar);
+                this.f58198d.put(cVar.a(), cVar);
             }
         }
 
@@ -206,7 +207,7 @@ public class d implements com.kwai.filedownloader.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 b bVar = new b(this.a);
-                this.f58152c = bVar;
+                this.f58197c = bVar;
                 return bVar;
             }
             return (Iterator) invokeV.objValue;
@@ -220,13 +221,13 @@ public class d implements com.kwai.filedownloader.a.a {
         public final /* synthetic */ d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Cursor f58155b;
+        public Cursor f58200b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<Integer> f58156c;
+        public final List<Integer> f58201c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f58157d;
+        public int f58202d;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -244,10 +245,10 @@ public class d implements com.kwai.filedownloader.a.a {
                 }
             }
             this.a = dVar;
-            this.f58156c = new ArrayList();
+            this.f58201c = new ArrayList();
             if (dVar.a != null) {
                 try {
-                    this.f58155b = dVar.a.rawQuery("SELECT * FROM ksad_file_download", null);
+                    this.f58200b = dVar.a.rawQuery("SELECT * FROM ksad_file_download", null);
                 } catch (SQLiteException e2) {
                     dVar.a(e2);
                 } catch (Exception e3) {
@@ -263,8 +264,8 @@ public class d implements com.kwai.filedownloader.a.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                com.kwai.filedownloader.c.c b2 = d.b(this.f58155b);
-                this.f58157d = b2.a();
+                com.kwai.filedownloader.c.c b2 = d.b(this.f58200b);
+                this.f58202d = b2.a();
                 return b2;
             }
             return (com.kwai.filedownloader.c.c) invokeV.objValue;
@@ -273,14 +274,14 @@ public class d implements com.kwai.filedownloader.a.a {
         public void b() {
             Cursor cursor;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.a == null || (cursor = this.f58155b) == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.a == null || (cursor = this.f58200b) == null) {
                 return;
             }
             cursor.close();
-            if (this.f58156c.isEmpty()) {
+            if (this.f58201c.isEmpty()) {
                 return;
             }
-            String join = TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, this.f58156c);
+            String join = TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, this.f58201c);
             if (com.kwai.filedownloader.e.d.a) {
                 com.kwai.filedownloader.e.d.c(this, "delete %s", join);
             }
@@ -299,7 +300,7 @@ public class d implements com.kwai.filedownloader.a.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                Cursor cursor = this.f58155b;
+                Cursor cursor = this.f58200b;
                 if (cursor != null) {
                     return cursor.moveToNext();
                 }
@@ -312,7 +313,7 @@ public class d implements com.kwai.filedownloader.a.a {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f58156c.add(Integer.valueOf(this.f58157d));
+                this.f58201c.add(Integer.valueOf(this.f58202d));
             }
         }
     }
@@ -378,8 +379,8 @@ public class d implements com.kwai.filedownloader.a.a {
                 e(i2);
                 d(i2);
             }
-            a(sQLiteException, !f58150b);
-            f58150b = true;
+            a(sQLiteException, !f58195b);
+            f58195b = true;
         }
     }
 
@@ -413,7 +414,7 @@ public class d implements com.kwai.filedownloader.a.a {
             cVar.a((byte) cursor.getShort(cursor.getColumnIndex("status")));
             cVar.a(cursor.getLong(cursor.getColumnIndex("sofar")));
             cVar.c(cursor.getLong(cursor.getColumnIndex("total")));
-            cVar.c(cursor.getString(cursor.getColumnIndex("errMsg")));
+            cVar.c(cursor.getString(cursor.getColumnIndex(StatConstants.KEY_EXT_ERR_MSG)));
             cVar.b(cursor.getString(cursor.getColumnIndex("etag")));
             cVar.d(cursor.getString(cursor.getColumnIndex(BreakpointSQLiteKey.FILENAME)));
             cVar.b(cursor.getInt(cursor.getColumnIndex("connectionCount")));
@@ -429,10 +430,10 @@ public class d implements com.kwai.filedownloader.a.a {
         }
     }
 
-    public a.InterfaceC2155a a(SparseArray<com.kwai.filedownloader.c.c> sparseArray, SparseArray<List<com.kwai.filedownloader.c.a>> sparseArray2) {
+    public a.InterfaceC2161a a(SparseArray<com.kwai.filedownloader.c.c> sparseArray, SparseArray<List<com.kwai.filedownloader.c.a>> sparseArray2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sparseArray, sparseArray2)) == null) ? new a(this, sparseArray, sparseArray2) : (a.InterfaceC2155a) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sparseArray, sparseArray2)) == null) ? new a(this, sparseArray, sparseArray2) : (a.InterfaceC2161a) invokeLL.objValue;
     }
 
     @Override // com.kwai.filedownloader.a.a
@@ -537,7 +538,7 @@ public class d implements com.kwai.filedownloader.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, th) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("errMsg", th.toString());
+            contentValues.put(StatConstants.KEY_EXT_ERR_MSG, th.toString());
             contentValues.put("status", (Byte) (byte) 5);
             a(i2, contentValues);
         }
@@ -548,7 +549,7 @@ public class d implements com.kwai.filedownloader.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), th, Long.valueOf(j2)}) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("errMsg", th.toString());
+            contentValues.put(StatConstants.KEY_EXT_ERR_MSG, th.toString());
             contentValues.put("status", (Byte) (byte) -1);
             contentValues.put("sofar", Long.valueOf(j2));
             a(i2, contentValues);
@@ -595,10 +596,10 @@ public class d implements com.kwai.filedownloader.a.a {
     }
 
     @Override // com.kwai.filedownloader.a.a
-    public a.InterfaceC2155a b() {
+    public a.InterfaceC2161a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new a(this) : (a.InterfaceC2155a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new a(this) : (a.InterfaceC2161a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0040 */

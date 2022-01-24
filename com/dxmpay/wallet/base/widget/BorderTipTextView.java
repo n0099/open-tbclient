@@ -10,28 +10,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.ResUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BorderTipTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53756e;
+    public int f53801e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53757f;
+    public int f53802f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f53758g;
+    public int f53803g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f53759h;
+    public int f53804h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ColorStateList f53760i;
+    public ColorStateList f53805i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Drawable f53761j;
+    public Drawable f53806j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BorderTipTextView(Context context, AttributeSet attributeSet) {
@@ -52,12 +52,12 @@ public class BorderTipTextView extends TextView {
                 return;
             }
         }
-        this.f53756e = getPaddingLeft();
-        this.f53757f = getPaddingRight();
-        this.f53758g = getPaddingTop();
-        this.f53759h = getPaddingBottom();
-        this.f53760i = getTextColors();
-        this.f53761j = getBackground();
+        this.f53801e = getPaddingLeft();
+        this.f53802f = getPaddingRight();
+        this.f53803g = getPaddingTop();
+        this.f53804h = getPaddingBottom();
+        this.f53805i = getTextColors();
+        this.f53806j = getBackground();
     }
 
     public void setText(CharSequence charSequence, boolean z) {
@@ -70,10 +70,10 @@ public class BorderTipTextView extends TextView {
                 setPadding(6, 0, 6, 2);
                 return;
             }
-            setBackgroundDrawable(this.f53761j);
-            setTextColor(this.f53760i);
+            setBackgroundDrawable(this.f53806j);
+            setTextColor(this.f53805i);
             setText(charSequence);
-            setPadding(this.f53756e, this.f53758g, this.f53757f, this.f53759h);
+            setPadding(this.f53801e, this.f53803g, this.f53802f, this.f53804h);
         }
     }
 }

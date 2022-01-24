@@ -97,7 +97,7 @@ public class COSPushHelper {
     public static void registerCOSAssemblePush(Context context) {
         AbstractPushManager a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || (a2 = f.a(context).a(e.f60899c)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || (a2 = f.a(context).a(e.f60944c)) == null) {
             return;
         }
         com.xiaomi.channel.commonutils.logger.b.m134a("ASSEMBLE_PUSH :  register cos when network change!");
@@ -116,7 +116,7 @@ public class COSPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) {
-            i.a(context, e.f60899c, str);
+            i.a(context, e.f60944c, str);
         }
     }
 }

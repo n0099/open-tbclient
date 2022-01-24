@@ -64,7 +64,7 @@ public class a implements m {
             c.a.r0.g.p.a.d.b.d().g(hashMap, jSONArray.toString().getBytes(), null, cVar);
             if (a) {
                 String str2 = "errorCode : " + cVar.a;
-                String str3 = "errorMsg : " + cVar.f10350b;
+                String str3 = "errorMsg : " + cVar.f10492b;
             }
             int i2 = cVar.a;
             if (i2 == 1 || i2 == 2 || i2 == 4) {

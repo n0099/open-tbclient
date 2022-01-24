@@ -20,16 +20,16 @@ public class e {
     public final MediaMuxer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f18862b;
+    public int f19095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f18863c;
+    public boolean f19096c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f18864d;
+    public volatile boolean f19097d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f18865e;
+    public volatile boolean f19098e;
 
     public e(String str) throws IOException {
         Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public class e {
                 return;
             }
         }
-        this.f18862b = 2;
-        this.f18863c = false;
+        this.f19095b = 2;
+        this.f19096c = false;
         this.a = new MediaMuxer(str, 0);
     }
 
@@ -57,7 +57,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
             synchronized (this) {
-                if (!this.f18863c) {
+                if (!this.f19096c) {
                     addTrack = this.a.addTrack(mediaFormat);
                 } else {
                     throw new IllegalStateException("muxer already started");
@@ -74,7 +74,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                z = this.f18863c;
+                z = this.f19096c;
             }
             return z;
         }
@@ -84,14 +84,14 @@ public class e {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f18865e = true;
+            this.f19098e = true;
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f18864d = true;
+            this.f19097d = true;
         }
     }
 
@@ -100,13 +100,13 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                if (this.f18865e && this.f18864d) {
-                    if (this.f18862b > 0 && this.f18865e && this.f18864d) {
+                if (this.f19098e && this.f19097d) {
+                    if (this.f19095b > 0 && this.f19098e && this.f19097d) {
                         this.a.start();
-                        this.f18863c = true;
+                        this.f19096c = true;
                         notifyAll();
                     }
-                    return this.f18863c;
+                    return this.f19096c;
                 }
                 return false;
             }
@@ -118,14 +118,14 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
-                if (this.f18862b > 0) {
+                if (this.f19095b > 0) {
                     try {
                         this.a.stop();
                         this.a.release();
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
-                    this.f18863c = false;
+                    this.f19096c = false;
                 }
             }
         }
@@ -135,7 +135,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048582, this, i2, byteBuffer, bufferInfo) == null) {
             synchronized (this) {
-                if (this.f18863c) {
+                if (this.f19096c) {
                     this.a.writeSampleData(i2, byteBuffer, bufferInfo);
                 }
             }

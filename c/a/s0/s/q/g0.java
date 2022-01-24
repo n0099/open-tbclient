@@ -19,28 +19,28 @@ public class g0 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13386b;
+    public String f13572b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13387c;
+    public String f13573c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13388d;
+    public int f13574d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13389e;
+    public String f13575e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13390f;
+    public String f13576f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13391g;
+    public String f13577g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f13392h;
+    public float f13578h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13393i;
+    public boolean f13579i;
 
     public g0() {
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class g0 {
                 return;
             }
         }
-        this.f13393i = true;
+        this.f13579i = true;
     }
 
     public int a() {
@@ -67,31 +67,31 @@ public class g0 {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13386b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13572b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13390f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13576f : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13387c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13573c : (String) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (StringUtils.isNull(this.f13387c)) {
+            if (StringUtils.isNull(this.f13573c)) {
                 return false;
             }
-            int i2 = this.f13388d;
+            int i2 = this.f13574d;
             if (i2 != 1) {
-                return i2 == 2 && !StringUtils.isNull(this.f13389e);
+                return i2 == 2 && !StringUtils.isNull(this.f13575e);
             }
             int i3 = this.a;
             return i3 == 1 || i3 == 4 || i3 == 2 || i3 == 3;
@@ -112,7 +112,7 @@ public class g0 {
             int e2 = c.a.d.f.m.b.e(split[0], 1);
             int e3 = c.a.d.f.m.b.e(split[1], 1);
             if (e3 != 0) {
-                this.f13392h = e2 / e3;
+                this.f13578h = e2 / e3;
             }
         } catch (Exception e4) {
             BdLog.e(e4.getMessage());
@@ -126,14 +126,14 @@ public class g0 {
         }
         try {
             this.a = jSONObject.optInt("bannerType");
-            this.f13386b = jSONObject.optString("bannerUrl");
-            this.f13387c = jSONObject.optString("value");
-            this.f13388d = jSONObject.optInt("type");
-            this.f13389e = jSONObject.optString("desc");
+            this.f13572b = jSONObject.optString("bannerUrl");
+            this.f13573c = jSONObject.optString("value");
+            this.f13574d = jSONObject.optInt("type");
+            this.f13575e = jSONObject.optString("desc");
             jSONObject.optInt("template_id");
-            this.f13390f = jSONObject.optString("obj_id");
+            this.f13576f = jSONObject.optString("obj_id");
             jSONObject.optString("tag_name");
-            this.f13391g = jSONObject.optString("tag_name_url");
+            this.f13577g = jSONObject.optString("tag_name_url");
             f(jSONObject.optString("tag_name_wh"));
         } catch (Exception e2) {
             BdLog.e(e2.toString());
@@ -143,7 +143,7 @@ public class g0 {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13388d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13574d : invokeV.intValue;
     }
 
     public void h(Banner banner) {
@@ -152,14 +152,14 @@ public class g0 {
             return;
         }
         this.a = banner.banner_type.intValue();
-        this.f13386b = banner.banner_url;
-        this.f13387c = banner.value;
-        this.f13388d = banner.type.intValue();
-        this.f13389e = banner.desc;
+        this.f13572b = banner.banner_url;
+        this.f13573c = banner.value;
+        this.f13574d = banner.type.intValue();
+        this.f13575e = banner.desc;
         banner.template_id.intValue();
-        this.f13390f = banner.obj_id;
+        this.f13576f = banner.obj_id;
         String str = banner.tag_name;
-        this.f13391g = banner.tag_name_url;
+        this.f13577g = banner.tag_name_url;
         f(banner.tag_name_wh);
     }
 }

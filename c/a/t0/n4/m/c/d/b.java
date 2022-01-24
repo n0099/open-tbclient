@@ -18,10 +18,10 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f19973b;
+    public Handler f20074b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HandlerThread f19974c;
+    public final HandlerThread f20075c;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class b {
         }
         this.a = str;
         HandlerThread handlerThread = new HandlerThread("VideoFrameDiskCacheSaveTask");
-        this.f19974c = handlerThread;
+        this.f20075c = handlerThread;
         handlerThread.start();
     }
 
@@ -73,10 +73,10 @@ public class b {
     public void c(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) {
-            if (this.f19973b == null) {
-                this.f19973b = new Handler(this.f19974c.getLooper());
+            if (this.f20074b == null) {
+                this.f20074b = new Handler(this.f20075c.getLooper());
             }
-            this.f19973b.post(new j(this.a, str, bitmap));
+            this.f20074b.post(new j(this.a, str, bitmap));
         }
     }
 

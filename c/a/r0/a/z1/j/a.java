@@ -79,7 +79,7 @@ public class a {
                         if (v0) {
                             J = n.Z(next.getAbsolutePath());
                         } else {
-                            J = c.a.r0.a.o2.b.J(next.getAbsolutePath(), eVar.f5537f);
+                            J = c.a.r0.a.o2.b.J(next.getAbsolutePath(), eVar.f5679f);
                         }
                         if (a) {
                             String str = "isSwanGame: " + v0 + "; path: " + J;

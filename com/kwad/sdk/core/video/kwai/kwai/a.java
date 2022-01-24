@@ -8,7 +8,7 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
     public static a a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f56234b = false;
+    public static volatile boolean f56279b = false;
 
     public static void a(final String str, final String str2) {
         a.a(new g<c>() { // from class: com.kwad.sdk.core.video.kwai.kwai.a.1
@@ -27,11 +27,11 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
 
     @Override // com.kwad.sdk.core.report.b
     public void a(Context context) {
-        if (f56234b) {
+        if (f56279b) {
             return;
         }
         super.a(context);
-        f56234b = true;
+        f56279b = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

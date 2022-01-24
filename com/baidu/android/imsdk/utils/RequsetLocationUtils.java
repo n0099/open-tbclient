@@ -33,7 +33,7 @@ public class RequsetLocationUtils extends BaseUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission(s.f55246g) == 0) {
+            if (context.checkCallingOrSelfPermission(s.f55291g) == 0) {
                 LocationManager locationManager = (LocationManager) context.getSystemService("location");
                 List<String> providers = locationManager.getProviders(true);
                 String str = "gps";

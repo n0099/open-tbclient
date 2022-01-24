@@ -7,9 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.t0.w3.s0.b;
-import c.a.t0.w3.s0.c;
-import c.a.t0.w3.s0.d;
+import c.a.t0.x3.s0.b;
+import c.a.t0.x3.s0.c;
+import c.a.t0.x3.s0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -76,6 +76,7 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String PRIVATE_THREAD = "private_thread";
     public static final int PROFESSION_ZONE_TYPE_DEFAULT = -1;
     public static final String REPLY_SUB_PB = "reply_sub_pb";
+    public static final String RICH_MODE_ENABLE = "rich_mode_enable";
     public static final String STAR_COUNT = "star_count";
     public static final String SUB_USER_NAME = "sub_user_name";
     public static final String THREAD_ID = "thread_id";
@@ -123,7 +124,7 @@ public class WriteActivityConfig extends IntentConfig {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d.f25022g = new Intent(getIntent());
+            d.f25281g = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -497,10 +498,20 @@ public class WriteActivityConfig extends IntentConfig {
         return (WriteActivityConfig) invokeI.objValue;
     }
 
+    public WriteActivityConfig setRichModeEnable(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048609, this, z)) == null) {
+            getIntent().putExtra(RICH_MODE_ENABLE, z);
+            return this;
+        }
+        return (WriteActivityConfig) invokeZ.objValue;
+    }
+
     public WriteActivityConfig setScoreItemInfo(SerializableItemInfo serializableItemInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, serializableItemInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, serializableItemInfo)) == null) {
             getIntent().putExtra("item_info", serializableItemInfo);
             return this;
         }
@@ -510,7 +521,7 @@ public class WriteActivityConfig extends IntentConfig {
     public WriteActivityConfig setShowHomepageTestBtn(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048610, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048611, this, z)) == null) {
             getIntent().putExtra(KEY_SHOW_HOMEPAGE_TEST_BTN, z);
             return this;
         }
@@ -520,7 +531,7 @@ public class WriteActivityConfig extends IntentConfig {
     public WriteActivityConfig setShowVoteData(WriteVoteData writeVoteData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, writeVoteData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, writeVoteData)) == null) {
             getIntent().putExtra(IntentConfig.WRITE_VOTE_DATA, writeVoteData);
             return this;
         }
@@ -530,7 +541,7 @@ public class WriteActivityConfig extends IntentConfig {
     public WriteActivityConfig setStarCount(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) {
             getIntent().putExtra(STAR_COUNT, i2);
             return this;
         }
@@ -540,7 +551,7 @@ public class WriteActivityConfig extends IntentConfig {
     public WriteActivityConfig setStatisticFrom(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i2)) == null) {
             getIntent().putExtra(KEY_STATISTIS_FROM, i2);
             return this;
         }
@@ -550,7 +561,7 @@ public class WriteActivityConfig extends IntentConfig {
     public WriteActivityConfig setSubUserName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, str)) == null) {
             getIntent().putExtra(SUB_USER_NAME, str);
             return this;
         }
@@ -560,7 +571,7 @@ public class WriteActivityConfig extends IntentConfig {
     public WriteActivityConfig setThreadId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, str)) == null) {
             getIntent().putExtra("thread_id", str);
             return this;
         }
@@ -570,7 +581,7 @@ public class WriteActivityConfig extends IntentConfig {
     public WriteActivityConfig setTitle(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, str)) == null) {
             getIntent().putExtra("write_title", str);
             return this;
         }
@@ -580,7 +591,7 @@ public class WriteActivityConfig extends IntentConfig {
     public WriteActivityConfig setTopicId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, str)) == null) {
             getIntent().putExtra(HOT_TOPIC_ID, str);
             return this;
         }
@@ -590,7 +601,7 @@ public class WriteActivityConfig extends IntentConfig {
     public WriteActivityConfig setType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048618, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048619, this, i2)) == null) {
             getIntent().putExtra("type", i2);
             return this;
         }
@@ -600,7 +611,7 @@ public class WriteActivityConfig extends IntentConfig {
     public WriteActivityConfig setVideoInfo(VideoInfo videoInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, videoInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, videoInfo)) == null) {
             getIntent().putExtra(VIDEO_INFO, videoInfo);
             return this;
         }
@@ -610,7 +621,7 @@ public class WriteActivityConfig extends IntentConfig {
     public WriteActivityConfig setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, writeImagesInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, writeImagesInfo)) == null) {
             if (writeImagesInfo != null) {
                 getIntent().putExtra("KEY_WRITE_IMAGES_INFO_STRING", writeImagesInfo.toJsonString());
             }

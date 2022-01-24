@@ -18,15 +18,15 @@ public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static q f12153d;
+    public static q f12295d;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f12154b;
+    public CustomMessageListener f12296b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f12155c;
+    public CustomMessageListener f12297c;
 
     /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
@@ -63,7 +63,7 @@ public class q {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof c.a.t0.w3.s0.f) && ((c.a.t0.w3.s0.f) data).f25029b) {
+            if ((data instanceof c.a.t0.x3.s0.f) && ((c.a.t0.x3.s0.f) data).f25288b) {
                 this.a.e();
             }
         }
@@ -116,22 +116,22 @@ public class q {
                 return;
             }
         }
-        this.f12154b = new a(this, 2001437);
-        this.f12155c = new b(this, 2005016);
+        this.f12296b = new a(this, 2001437);
+        this.f12297c = new b(this, 2005016);
     }
 
     public static q c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f12153d == null) {
+            if (f12295d == null) {
                 synchronized (q.class) {
-                    if (f12153d == null) {
-                        f12153d = new q();
+                    if (f12295d == null) {
+                        f12295d = new q();
                     }
                 }
             }
-            return f12153d;
+            return f12295d;
         }
         return (q) invokeV.objValue;
     }
@@ -139,10 +139,10 @@ public class q {
     public void d(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
-            this.f12154b.setTag(bdUniqueId);
-            this.f12155c.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.f12154b);
-            MessageManager.getInstance().registerListener(this.f12155c);
+            this.f12296b.setTag(bdUniqueId);
+            this.f12297c.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.f12296b);
+            MessageManager.getInstance().registerListener(this.f12297c);
         }
     }
 

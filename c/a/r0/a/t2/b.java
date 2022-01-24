@@ -15,16 +15,16 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8880b;
+    public int f9022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f8881c;
+    public View f9023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f8882d;
+    public int f9024d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.a.t2.a f8883e;
+    public c.a.r0.a.t2.a f9025e;
 
     /* loaded from: classes.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
@@ -32,10 +32,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8884e;
+        public final /* synthetic */ String f9026e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f8885f;
+        public final /* synthetic */ b f9027f;
 
         public a(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -52,34 +52,34 @@ public class b {
                     return;
                 }
             }
-            this.f8885f = bVar;
-            this.f8884e = str;
+            this.f9027f = bVar;
+            this.f9026e = str;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f8885f.f8883e != null) {
-                    this.f8885f.f8883e.c(this.f8884e);
+                if (this.f9027f.f9025e != null) {
+                    this.f9027f.f9025e.c(this.f9026e);
                 }
                 Rect rect = new Rect();
-                this.f8885f.f8881c.getWindowVisibleDisplayFrame(rect);
+                this.f9027f.f9023c.getWindowVisibleDisplayFrame(rect);
                 int height = rect.height();
-                if (this.f8885f.f8882d == this.f8885f.a) {
-                    this.f8885f.f8882d = height;
-                } else if (this.f8885f.f8882d == height) {
+                if (this.f9027f.f9024d == this.f9027f.a) {
+                    this.f9027f.f9024d = height;
+                } else if (this.f9027f.f9024d == height) {
                 } else {
-                    if (this.f8885f.f8882d - height > this.f8885f.f8880b) {
-                        if (this.f8885f.f8883e != null) {
-                            this.f8885f.f8883e.b(this.f8884e, this.f8885f.f8882d - height);
+                    if (this.f9027f.f9024d - height > this.f9027f.f9022b) {
+                        if (this.f9027f.f9025e != null) {
+                            this.f9027f.f9025e.b(this.f9026e, this.f9027f.f9024d - height);
                         }
-                        this.f8885f.f8882d = height;
-                    } else if (height - this.f8885f.f8882d > this.f8885f.f8880b) {
-                        if (this.f8885f.f8883e != null) {
-                            this.f8885f.f8883e.a(this.f8884e, height - this.f8885f.f8882d);
+                        this.f9027f.f9024d = height;
+                    } else if (height - this.f9027f.f9024d > this.f9027f.f9022b) {
+                        if (this.f9027f.f9025e != null) {
+                            this.f9027f.f9025e.a(this.f9026e, height - this.f9027f.f9024d);
                         }
-                        this.f8885f.f8882d = height;
+                        this.f9027f.f9024d = height;
                     }
                 }
             }
@@ -102,9 +102,9 @@ public class b {
             }
         }
         this.a = 0;
-        this.f8880b = 200;
+        this.f9022b = 200;
         View decorView = activity.getWindow().getDecorView();
-        this.f8881c = decorView;
+        this.f9023c = decorView;
         decorView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, str));
     }
 
@@ -118,7 +118,7 @@ public class b {
     public final void h(c.a.r0.a.t2.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f8883e = aVar;
+            this.f9025e = aVar;
         }
     }
 }

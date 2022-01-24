@@ -18,19 +18,19 @@ public class c0 implements TTNativeExpressAd.ExpressAdInteractionListener {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28165b;
+    public boolean f28193b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ ExpressAdListenerWrapper f28166c;
+    public final /* synthetic */ ExpressAdListenerWrapper f28194c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f28167d;
+    public final /* synthetic */ String f28195d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ TTNativeExpressAd f28168e;
+    public final /* synthetic */ TTNativeExpressAd f28196e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ b0 f28169f;
+    public final /* synthetic */ b0 f28197f;
 
     public c0(b0 b0Var, ExpressAdListenerWrapper expressAdListenerWrapper, String str, TTNativeExpressAd tTNativeExpressAd) {
         Interceptable interceptable = $ic;
@@ -47,10 +47,10 @@ public class c0 implements TTNativeExpressAd.ExpressAdInteractionListener {
                 return;
             }
         }
-        this.f28169f = b0Var;
-        this.f28166c = expressAdListenerWrapper;
-        this.f28167d = str;
-        this.f28168e = tTNativeExpressAd;
+        this.f28197f = b0Var;
+        this.f28194c = expressAdListenerWrapper;
+        this.f28195d = str;
+        this.f28196e = tTNativeExpressAd;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -60,14 +60,14 @@ public class c0 implements TTNativeExpressAd.ExpressAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
             LogPrinter.e("CSJNativeExpressAd onAdClicked type: " + i2, new Object[0]);
-            this.f28169f.onAdClicked(this.f28165b);
-            this.f28165b = true;
-            FunAdInteractionListener funAdInteractionListener = this.f28166c.funListener;
+            this.f28197f.onAdClicked(this.f28193b);
+            this.f28193b = true;
+            FunAdInteractionListener funAdInteractionListener = this.f28194c.funListener;
             if (funAdInteractionListener != null) {
-                String str = this.f28167d;
-                pid = this.f28169f.mPid;
+                String str = this.f28195d;
+                pid = this.f28197f.mPid;
                 String str2 = pid.ssp.type;
-                pid2 = this.f28169f.mPid;
+                pid2 = this.f28197f.mPid;
                 funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
             }
         }
@@ -80,14 +80,14 @@ public class c0 implements TTNativeExpressAd.ExpressAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
             LogPrinter.e("CSJNativeExpressAd onAdShow type: " + i2, new Object[0]);
-            this.f28169f.onAdShow(this.f28168e, this.a);
+            this.f28197f.onAdShow(this.f28196e, this.a);
             this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.f28166c.funListener;
+            FunAdInteractionListener funAdInteractionListener = this.f28194c.funListener;
             if (funAdInteractionListener != null) {
-                String str = this.f28167d;
-                pid = this.f28169f.mPid;
+                String str = this.f28195d;
+                pid = this.f28197f.mPid;
                 String str2 = pid.ssp.type;
-                pid2 = this.f28169f.mPid;
+                pid2 = this.f28197f.mPid;
                 funAdInteractionListener.onAdShow(str, str2, pid2.pid);
             }
         }
@@ -98,7 +98,7 @@ public class c0 implements TTNativeExpressAd.ExpressAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view, str, i2) == null) {
             LogPrinter.e("CSJNativeExpressAd onRenderFail message: " + str + ", code:" + i2, new Object[0]);
-            this.f28169f.onError(i2, str);
+            this.f28197f.onError(i2, str);
         }
     }
 
@@ -107,8 +107,8 @@ public class c0 implements TTNativeExpressAd.ExpressAdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             LogPrinter.e("CSJNativeExpressAd onRenderSuccess width: " + f2 + ", height:" + f3, new Object[0]);
-            this.f28169f.f28163i.put(this.f28168e, this.f28166c);
-            this.f28169f.onAdLoaded((b0) this.f28168e);
+            this.f28197f.f28191i.put(this.f28196e, this.f28194c);
+            this.f28197f.onAdLoaded((b0) this.f28196e);
         }
     }
 }

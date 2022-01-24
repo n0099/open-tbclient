@@ -62,13 +62,13 @@ public class MPDParser {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) ? !isMPD(uri) ? uri : getDefaultUrlFromMPDURL(uri) : (Uri) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x006d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x006e, code lost:
         r1 = android.net.Uri.parse(r6.getString("url"));
         r3 = java.lang.Boolean.TRUE;
         com.baidu.cyberplayer.sdk.CyberLog.d("sdk_MPDParser", "mpd parsed uri is => " + r1);
         r9 = r1;
      */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00bc  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x00bd  */
     /* JADX WARN: Removed duplicated region for block: B:45:? A[RETURN, SYNTHETIC] */
     @Keep
     /*

@@ -122,7 +122,7 @@ public final class ProxyConfig {
         public Builder addDirect() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? addDirect(ProxyConfig.MATCH_ALL_SCHEMES) : (Builder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? addDirect("*") : (Builder) invokeV.objValue;
         }
 
         @NonNull
@@ -240,7 +240,7 @@ public final class ProxyConfig {
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         @RestrictTo({RestrictTo.Scope.LIBRARY})
         public ProxyRule(@NonNull String str) {
-            this(ProxyConfig.MATCH_ALL_SCHEMES, str);
+            this("*", str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

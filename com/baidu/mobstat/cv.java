@@ -1,6 +1,5 @@
 package com.baidu.mobstat;
 
-import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +25,7 @@ public class cv extends cy implements ct {
                 return;
             }
         }
-        this.a = ProxyConfig.MATCH_ALL_SCHEMES;
+        this.a = "*";
     }
 
     @Override // com.baidu.mobstat.ct

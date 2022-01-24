@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.t0.d1.c1;
-import c.a.t0.d1.d1;
-import c.a.t0.d1.e1;
-import c.a.t0.d1.f1;
-import c.a.t0.d1.g1;
-import c.a.t0.d1.i1;
+import c.a.t0.e1.c1;
+import c.a.t0.e1.d1;
+import c.a.t0.e1.e1;
+import c.a.t0.e1.f1;
+import c.a.t0.e1.g1;
+import c.a.t0.e1.i1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -33,22 +33,22 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f43520e;
+    public TbImageView f43542e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f43521f;
+    public TextView f43543f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f43522g;
+    public TextView f43544g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f43523h;
+    public View f43545h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f43524i;
+    public View f43546i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f43525j;
+    public String f43547j;
     public TbPageContext k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -94,7 +94,7 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     public void hideTitle() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f43523h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f43545h) == null) {
             return;
         }
         view.setVisibility(8);
@@ -104,19 +104,19 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(g1.frs_header_banner, (ViewGroup) this, true);
-            this.f43523h = inflate.findViewById(f1.frs_header_title_container);
-            this.f43520e = (TbImageView) inflate.findViewById(f1.frs_head_image);
-            this.f43521f = (TextView) inflate.findViewById(f1.frs_header_title);
-            this.f43522g = (TextView) inflate.findViewById(f1.frs_header_title_lable);
-            this.f43524i = inflate.findViewById(f1.frs_image_header_contianer);
-            this.f43520e.setOnClickListener(this);
-            this.f43523h.setOnClickListener(this);
-            this.f43524i.setOnClickListener(this);
-            this.f43520e.setDefaultResource(0);
-            this.f43520e.setRadius(n.f(getContext(), d1.tbds20));
-            this.f43520e.setConrers(15);
-            this.f43520e.setPlaceHolder(2);
-            this.f43522g.setText(getContext().getString(i1.frs_header_image_lable));
+            this.f43545h = inflate.findViewById(f1.frs_header_title_container);
+            this.f43542e = (TbImageView) inflate.findViewById(f1.frs_head_image);
+            this.f43543f = (TextView) inflate.findViewById(f1.frs_header_title);
+            this.f43544g = (TextView) inflate.findViewById(f1.frs_header_title_lable);
+            this.f43546i = inflate.findViewById(f1.frs_image_header_contianer);
+            this.f43542e.setOnClickListener(this);
+            this.f43545h.setOnClickListener(this);
+            this.f43546i.setOnClickListener(this);
+            this.f43542e.setDefaultResource(0);
+            this.f43542e.setRadius(n.f(getContext(), d1.tbds20));
+            this.f43542e.setConrers(15);
+            this.f43542e.setPlaceHolder(2);
+            this.f43544g.setText(getContext().getString(i1.frs_header_image_lable));
             this.k = getTbPageContext();
         }
     }
@@ -124,12 +124,12 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            TextView textView = this.f43522g;
+            TextView textView = this.f43544g;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, c1.CAM_X0107, i2);
-                SkinManager.setBackgroundResource(this.f43522g, e1.frs_header_text_bg, i2);
+                SkinManager.setBackgroundResource(this.f43544g, e1.frs_header_text_bg, i2);
             }
-            TextView textView2 = this.f43521f;
+            TextView textView2 = this.f43543f;
             if (textView2 != null) {
                 SkinManager.setViewTextColor(textView2, c1.CAM_X0101, i2);
             }
@@ -141,39 +141,39 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             TbPageContext<?> tbPageContext = getTbPageContext();
-            if (TextUtils.isEmpty(this.f43525j) || tbPageContext == null) {
+            if (TextUtils.isEmpty(this.f43547j) || tbPageContext == null) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f43525j}, true);
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f43547j}, true);
         }
     }
 
     public void setSchemaUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f43525j = str;
+            this.f43547j = str;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f43521f == null || this.f43522g == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f43543f == null || this.f43544g == null) {
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f43521f.setText(str);
-            this.f43522g.setVisibility(0);
-            this.f43521f.setVisibility(0);
+            this.f43543f.setText(str);
+            this.f43544g.setVisibility(0);
+            this.f43543f.setVisibility(0);
             return;
         }
-        this.f43522g.setVisibility(8);
-        this.f43521f.setVisibility(8);
+        this.f43544g.setVisibility(8);
+        this.f43543f.setVisibility(8);
     }
 
     public void startLoad(String str) {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (tbImageView = this.f43520e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (tbImageView = this.f43542e) == null) {
             return;
         }
         tbImageView.startLoad(str, 33, false);

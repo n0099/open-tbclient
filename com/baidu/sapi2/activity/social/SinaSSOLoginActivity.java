@@ -63,12 +63,12 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SinaSSOLoginActivity sinaSSOLoginActivity = this.a;
-                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38048f) {
+                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38076f) {
                     sinaSSOLoginActivity.b(3001);
                     this.a.finish();
                     return;
                 }
-                sinaSSOLoginActivity.a(((BaseSSOLoginActivity) sinaSSOLoginActivity).f38049g);
+                sinaSSOLoginActivity.a(((BaseSSOLoginActivity) sinaSSOLoginActivity).f38077g);
             }
         }
 
@@ -78,7 +78,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wbConnectErrorMessage) == null) {
                 Toast.makeText(this.a, wbConnectErrorMessage.getErrorMessage(), 0).show();
                 SinaSSOLoginActivity sinaSSOLoginActivity = this.a;
-                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38048f) {
+                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38076f) {
                     sinaSSOLoginActivity.b(3001);
                     this.a.finish();
                 }
@@ -93,7 +93,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
                 String uid = oauth2AccessToken.getUid();
                 String urlBind = ParamsUtil.getUrlBind(this.a.configuration, SocialType.SINA_WEIBO_SSO, token, uid, this.a.configuration.sinaAppId);
                 SinaSSOLoginActivity sinaSSOLoginActivity = this.a;
-                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38048f) {
+                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38076f) {
                     Intent intent = new Intent();
                     intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, token);
                     intent.putExtra("userId", uid);

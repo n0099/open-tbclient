@@ -3,7 +3,7 @@ package com.baidu.tieba.interestlabel.activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import c.a.d.f.p.l;
-import c.a.t0.v1.b.b;
+import c.a.t0.w1.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes12.dex */
-public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements c.a.t0.v1.c.a {
+public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements c.a.t0.w1.c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LabelSettingModel mLabelSettingModel;
@@ -72,14 +72,14 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         }
     }
 
-    @Override // c.a.t0.v1.c.a
+    @Override // c.a.t0.w1.c.a
     public void callback(LabelRequestEnum labelRequestEnum, b bVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, bVar, i2) == null) {
             int i3 = a.a[labelRequestEnum.ordinal()];
             if (i3 != 1) {
                 if (i3 == 2 && i2 == 0) {
-                    c.a.s0.s.h0.b.k().u("set_recommend_label", true);
+                    c.a.s0.s.i0.b.k().u("set_recommend_label", true);
                     finish();
                     return;
                 }
@@ -95,7 +95,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         }
     }
 
-    @Override // c.a.t0.v1.c.a
+    @Override // c.a.t0.w1.c.a
     public void getLabel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -147,7 +147,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         return invokeIL.booleanValue;
     }
 
-    @Override // c.a.t0.v1.c.a
+    @Override // c.a.t0.w1.c.a
     public void subLabel(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {

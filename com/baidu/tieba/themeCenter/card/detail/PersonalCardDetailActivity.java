@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
     public SetPersonalCardModel mSetCardModel;
     public c.a.t0.c4.g.b.a mView;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements PersonalCardDetailModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements SetPersonalCardModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,13 +120,13 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonalCardDetailActivity f48471e;
+        public final /* synthetic */ PersonalCardDetailActivity f48481e;
 
         public c(PersonalCardDetailActivity personalCardDetailActivity) {
             Interceptable interceptable = $ic;
@@ -143,26 +143,26 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
                     return;
                 }
             }
-            this.f48471e = personalCardDetailActivity;
+            this.f48481e = personalCardDetailActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view != null && view == this.f48471e.mView.d()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view != null && view == this.f48481e.mView.d()) {
                 if (TbadkCoreApplication.isLogin()) {
-                    if (this.f48471e.mSetCardModel == null) {
-                        this.f48471e.mSetCardModel = new SetPersonalCardModel();
+                    if (this.f48481e.mSetCardModel == null) {
+                        this.f48481e.mSetCardModel = new SetPersonalCardModel();
                     }
-                    if (this.f48471e.cardData.g() == 1) {
-                        this.f48471e.mSetCardModel.C(this.f48471e.mCardId, 2);
+                    if (this.f48481e.cardData.g() == 1) {
+                        this.f48481e.mSetCardModel.C(this.f48481e.mCardId, 2);
                         return;
                     } else {
-                        this.f48471e.mSetCardModel.C(this.f48471e.mCardId, 1);
+                        this.f48481e.mSetCardModel.C(this.f48481e.mCardId, 1);
                         return;
                     }
                 }
-                ViewHelper.skipToLoginActivity(this.f48471e.getPageContext().getPageActivity());
+                ViewHelper.skipToLoginActivity(this.f48481e.getPageContext().getPageActivity());
             }
         }
     }
@@ -200,7 +200,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
-                pageStayDurationItem.f12960i = String.valueOf(this.mCardId);
+                pageStayDurationItem.f13104i = String.valueOf(this.mCardId);
             }
             return pageStayDurationItem;
         }
@@ -288,7 +288,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         }
         if (i2 == c.a.t0.c4.c.a) {
             c.a.t0.c4.b.d(getPageContext(), 6, str, i3, MemberPayStatistic.REFER_PAGE_CARDS_TRY, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-        } else if (i2 == c.a.t0.c4.c.f15485b) {
+        } else if (i2 == c.a.t0.c4.c.f15633b) {
             c.a.t0.c4.b.c(getPageContext(), 6, str, i3);
         }
     }

@@ -9,15 +9,15 @@ import org.json.JSONObject;
 public class a extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56485b;
+    public String f56530b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56486c;
+    public String f56531c;
 
     public a(String str, String str2, String str3) {
         JSONObject jSONObject;
-        this.f56485b = str;
-        this.f56486c = str2;
+        this.f56530b = str;
+        this.f56531c = str2;
         try {
             jSONObject = new JSONObject(str3);
         } catch (JSONException e2) {
@@ -36,6 +36,6 @@ public class a extends d {
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public String a() {
-        return com.kwad.sdk.d.a() + this.f56485b;
+        return com.kwad.sdk.d.a() + this.f56530b;
     }
 }

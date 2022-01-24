@@ -38,22 +38,22 @@ public class c implements c.a.t0.l0.b.a {
     public List<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f19087b;
+    public d f19320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a.InterfaceC1188a f19088c;
+    public a.InterfaceC1195a f19321c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbPageContext f19089d;
+    public TbPageContext f19322d;
 
     /* renamed from: e  reason: collision with root package name */
-    public VideoMuxer f19090e;
+    public VideoMuxer f19323e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f19091f;
+    public CustomMessageListener f19324f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f19092g;
+    public Runnable f19325g;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -99,7 +99,7 @@ public class c implements c.a.t0.l0.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f19093e;
+        public final /* synthetic */ c f19326e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -116,21 +116,21 @@ public class c implements c.a.t0.l0.b.a {
                     return;
                 }
             }
-            this.f19093e = cVar;
+            this.f19326e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().unRegisterListener(this.f19093e.f19091f);
+                MessageManager.getInstance().unRegisterListener(this.f19326e.f19324f);
             }
         }
     }
 
     /* renamed from: c.a.t0.l0.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1189c implements c.a.a1.e.b {
+    public class C1196c implements c.a.a1.e.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
@@ -142,14 +142,14 @@ public class c implements c.a.t0.l0.b.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f19094e;
+            public final /* synthetic */ CustomResponsedMessage f19327e;
 
-            public a(C1189c c1189c, CustomResponsedMessage customResponsedMessage) {
+            public a(C1196c c1196c, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1189c, customResponsedMessage};
+                    Object[] objArr = {c1196c, customResponsedMessage};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -159,19 +159,19 @@ public class c implements c.a.t0.l0.b.a {
                         return;
                     }
                 }
-                this.f19094e = customResponsedMessage;
+                this.f19327e = customResponsedMessage;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(this.f19094e);
+                    MessageManager.getInstance().dispatchResponsedMessage(this.f19327e);
                 }
             }
         }
 
-        public C1189c(c cVar) {
+        public C1196c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,9 +208,9 @@ public class c implements c.a.t0.l0.b.a {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                u.a().post(this.a.f19092g);
-                if (this.a.f19088c != null) {
-                    this.a.f19088c.a();
+                u.a().post(this.a.f19325g);
+                if (this.a.f19321c != null) {
+                    this.a.f19321c.a();
                 }
             }
         }
@@ -219,9 +219,9 @@ public class c implements c.a.t0.l0.b.a {
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                u.a().post(this.a.f19092g);
-                if (this.a.f19088c != null) {
-                    this.a.f19088c.c(str);
+                u.a().post(this.a.f19325g);
+                if (this.a.f19321c != null) {
+                    this.a.f19321c.c(str);
                 }
             }
         }
@@ -230,9 +230,9 @@ public class c implements c.a.t0.l0.b.a {
         public void e(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                u.a().post(this.a.f19092g);
-                if (this.a.f19088c != null) {
-                    this.a.f19088c.a();
+                u.a().post(this.a.f19325g);
+                if (this.a.f19321c != null) {
+                    this.a.f19321c.a();
                 }
             }
         }
@@ -240,10 +240,10 @@ public class c implements c.a.t0.l0.b.a {
         @Override // c.a.a1.e.b
         public void f() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.a.f19088c == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.a.f19321c == null) {
                 return;
             }
-            this.a.f19088c.b();
+            this.a.f19321c.b();
         }
     }
 
@@ -254,10 +254,10 @@ public class c implements c.a.t0.l0.b.a {
         public List<String> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.a1.p.a f19095b;
+        public c.a.a1.p.a f19328b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f19096c;
+        public final /* synthetic */ c f19329c;
 
         /* loaded from: classes7.dex */
         public class a implements c.a.a1.p.a {
@@ -317,12 +317,12 @@ public class c implements c.a.t0.l0.b.a {
                     return;
                 }
             }
-            this.f19096c = cVar;
-            this.f19095b = new a(this);
+            this.f19329c = cVar;
+            this.f19328b = new a(this);
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:48:0x010e, code lost:
-            if (c.a.a1.t.x.h(r6, r7[0], r1, r5.f19095b) != false) goto L18;
+            if (c.a.a1.t.x.h(r6, r7[0], r1, r5.f19328b) != false) goto L18;
          */
         /* JADX WARN: Removed duplicated region for block: B:40:0x00bf  */
         /* JADX WARN: Removed duplicated region for block: B:54:0x011e A[LOOP:0: B:52:0x0118->B:54:0x011e, LOOP_END] */
@@ -346,7 +346,7 @@ public class c implements c.a.t0.l0.b.a {
                 }
                 return null;
             }
-            String str = c.a.t0.k4.c.f18799f + "rec_tmp_" + System.currentTimeMillis() + ".mp4";
+            String str = c.a.t0.k4.c.f19032f + "rec_tmp_" + System.currentTimeMillis() + ".mp4";
             if (!StringUtils.isNull(str)) {
                 File file = new File(str);
                 if (!file.getParentFile().exists()) {
@@ -357,7 +357,7 @@ public class c implements c.a.t0.l0.b.a {
             try {
                 if (listArr[0].size() == 1) {
                     try {
-                        z = c.a.t0.j4.c.b(listArr[0].get(0), str, this.f19095b);
+                        z = c.a.t0.j4.c.b(listArr[0].get(0), str, this.f19328b);
                     } catch (IOException e2) {
                         e2.printStackTrace();
                         if (sb != null) {
@@ -406,7 +406,7 @@ public class c implements c.a.t0.l0.b.a {
                         z2 = false;
                     }
                     for (String str2 : listArr[0]) {
-                        this.f19096c.a.add(str2);
+                        this.f19329c.a.add(str2);
                     }
                     return z2 ? str : "";
                 }
@@ -423,8 +423,8 @@ public class c implements c.a.t0.l0.b.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 cancel(true);
-                if (this.f19096c.f19088c != null) {
-                    this.f19096c.f19088c.a();
+                if (this.f19329c.f19321c != null) {
+                    this.f19329c.f19321c.a();
                 }
             }
         }
@@ -441,8 +441,8 @@ public class c implements c.a.t0.l0.b.a {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                if (this.f19096c.f19088c != null) {
-                    this.f19096c.f19088c.b();
+                if (this.f19329c.f19321c != null) {
+                    this.f19329c.f19321c.b();
                 }
                 super.onPreExecute();
             }
@@ -479,12 +479,12 @@ public class c implements c.a.t0.l0.b.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
                 super.onPostExecute((d) str);
-                c.a.a1.p.a aVar = this.f19095b;
+                c.a.a1.p.a aVar = this.f19328b;
                 if (aVar != null) {
                     aVar.a();
                 }
-                if (this.f19096c.f19088c != null) {
-                    this.f19096c.f19088c.c(str);
+                if (this.f19329c.f19321c != null) {
+                    this.f19329c.f19321c.c(str);
                 }
             }
         }
@@ -494,12 +494,12 @@ public class c implements c.a.t0.l0.b.a {
         }
     }
 
-    public c(TbPageContext tbPageContext, a.InterfaceC1188a interfaceC1188a) {
+    public c(TbPageContext tbPageContext, a.InterfaceC1195a interfaceC1195a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, interfaceC1188a};
+            Object[] objArr = {tbPageContext, interfaceC1195a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -510,10 +510,10 @@ public class c implements c.a.t0.l0.b.a {
             }
         }
         this.a = new ArrayList();
-        this.f19091f = new a(this, 2921585);
-        this.f19092g = new b(this);
-        this.f19089d = tbPageContext;
-        this.f19088c = interfaceC1188a;
+        this.f19324f = new a(this, 2921585);
+        this.f19325g = new b(this);
+        this.f19322d = tbPageContext;
+        this.f19321c = interfaceC1195a;
     }
 
     @Override // c.a.t0.l0.b.a
@@ -563,15 +563,15 @@ public class c implements c.a.t0.l0.b.a {
                 videoMuxerData.setAudioPlayTrackDataList(arrayList2);
             }
             videoMuxerData.setComposeNecessary(true);
-            VideoMuxer videoMuxer = this.f19090e;
+            VideoMuxer videoMuxer = this.f19323e;
             if (videoMuxer != null) {
                 videoMuxer.interruptProcess();
             }
             VideoMuxer videoMuxer2 = new VideoMuxer();
-            this.f19090e = videoMuxer2;
-            videoMuxer2.setListener(new C1189c(this));
-            MessageManager.getInstance().registerListener(this.f19091f);
-            this.f19090e.startMuxer(videoMuxerData);
+            this.f19323e = videoMuxer2;
+            videoMuxer2.setListener(new C1196c(this));
+            MessageManager.getInstance().registerListener(this.f19324f);
+            this.f19323e.startMuxer(videoMuxerData);
             return true;
         }
         return invokeL.booleanValue;
@@ -586,19 +586,19 @@ public class c implements c.a.t0.l0.b.a {
                 return false;
             }
             if (FileHelper.getAvailableSize() < 52428800) {
-                BdToast.c(this.f19089d.getPageActivity(), this.f19089d.getResources().getString(R.string.low_memory)).q();
+                BdToast.c(this.f19322d.getPageActivity(), this.f19322d.getResources().getString(R.string.low_memory)).q();
                 return false;
             }
-            d dVar = this.f19087b;
+            d dVar = this.f19320b;
             if (dVar != null) {
                 dVar.cancel();
             }
             if (h(list)) {
                 d dVar2 = new d(this, null);
-                this.f19087b = dVar2;
+                this.f19320b = dVar2;
                 dVar2.execute(list);
             } else {
-                BdToast.c(this.f19089d.getPageActivity(), this.f19089d.getResources().getString(R.string.low_record_time_tips)).q();
+                BdToast.c(this.f19322d.getPageActivity(), this.f19322d.getResources().getString(R.string.low_record_time_tips)).q();
             }
             return false;
         }
@@ -608,11 +608,11 @@ public class c implements c.a.t0.l0.b.a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d dVar = this.f19087b;
+            d dVar = this.f19320b;
             if (dVar != null) {
                 dVar.cancel();
             }
-            VideoMuxer videoMuxer = this.f19090e;
+            VideoMuxer videoMuxer = this.f19323e;
             if (videoMuxer != null) {
                 videoMuxer.interruptProcess();
             }

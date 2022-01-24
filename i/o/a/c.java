@@ -11,10 +11,10 @@ public final class c<T> extends i.j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final i.j<? super T> f61820i;
+    public final i.j<? super T> f61865i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final OnSubscribeAmb$Selection<T> f61821j;
+    public final OnSubscribeAmb$Selection<T> f61866j;
     public boolean k;
 
     public final boolean g() {
@@ -24,15 +24,15 @@ public final class c<T> extends i.j<T> {
             if (this.k) {
                 return true;
             }
-            if (this.f61821j.get() == this) {
+            if (this.f61866j.get() == this) {
                 this.k = true;
                 return true;
-            } else if (this.f61821j.compareAndSet(null, this)) {
-                this.f61821j.unsubscribeOthers(this);
+            } else if (this.f61866j.compareAndSet(null, this)) {
+                this.f61866j.unsubscribeOthers(this);
                 this.k = true;
                 return true;
             } else {
-                this.f61821j.unsubscribeLosers();
+                this.f61866j.unsubscribeLosers();
                 return false;
             }
         }
@@ -43,7 +43,7 @@ public final class c<T> extends i.j<T> {
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g()) {
-            this.f61820i.onCompleted();
+            this.f61865i.onCompleted();
         }
     }
 
@@ -51,7 +51,7 @@ public final class c<T> extends i.j<T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && g()) {
-            this.f61820i.onError(th);
+            this.f61865i.onError(th);
         }
     }
 
@@ -59,7 +59,7 @@ public final class c<T> extends i.j<T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && g()) {
-            this.f61820i.onNext(t);
+            this.f61865i.onNext(t);
         }
     }
 }

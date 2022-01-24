@@ -1,5 +1,6 @@
 package c.a.t0;
 
+import android.content.res.Configuration;
 import androidx.annotation.NonNull;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -15,6 +16,7 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.AdToMainTabActivitySwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,10 +28,10 @@ public class j {
     public final BaseFragmentActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.k0.e f18182b;
+    public c.a.t0.k0.e f18465b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f18183c;
+    public final long f18466c;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -85,7 +87,7 @@ public class j {
             }
         }
         this.a = baseFragmentActivity;
-        this.f18183c = j2;
+        this.f18466c = j2;
         c();
     }
 
@@ -95,7 +97,7 @@ public class j {
             MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a).createNormalCfg(i2);
             if (z) {
                 createNormalCfg.getIntent().putExtra(MainTabActivityConfig.SHOW_AD_FRAGMENT, true);
-                createNormalCfg.getIntent().putExtra("splash_unique_id", this.f18183c);
+                createNormalCfg.getIntent().putExtra("splash_unique_id", this.f18466c);
             }
             if (TbSingleton.getInstance().getFirstOpenScheme() != null) {
                 createNormalCfg.getIntent().setData(TbSingleton.getInstance().getFirstOpenScheme());
@@ -113,40 +115,66 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.registerListener(new a(this, 2921639));
-            this.f18182b = new c.a.t0.k0.e(this.a);
+            this.f18465b = new c.a.t0.k0.e(this.a);
         }
     }
 
-    public void d() {
+    public void d(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
+            c.a.t0.k0.d.a().b(configuration);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c.a.t0.k0.d.a().c();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            c.a.t0.k0.d.a().d();
+        }
+    }
+
+    public void g() {
         c.a.t0.k0.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (eVar = this.f18182b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eVar = this.f18465b) == null) {
             return;
         }
         eVar.i();
     }
 
-    public final void e() {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.t0.k0.d.b(this.a).a(this.f18183c);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            c.a.t0.k0.d.a().e(this.a, this.f18466c);
             LogoActivityConfig.mFromSpacial = false;
         }
     }
 
-    public void f(boolean z) {
+    public void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                this.f18182b.j();
-            } else if (!c.a.t0.r3.b.d.a(this.a.getIntent()) && !c.a.t0.r3.b.d.b(this.a.getIntent())) {
+                this.f18465b.j();
+            } else if (!c.a.t0.s3.b.d.a(this.a.getIntent()) && !c.a.t0.s3.b.d.b(this.a.getIntent())) {
                 if (this.a.isTaskRoot()) {
-                    b(2, true);
-                } else {
-                    this.a.finish();
+                    if (AdToMainTabActivitySwitch.getIsOn()) {
+                        b(2, true);
+                        return;
+                    } else {
+                        h();
+                        return;
+                    }
                 }
+                this.a.finish();
             } else {
-                e();
+                h();
             }
         }
     }

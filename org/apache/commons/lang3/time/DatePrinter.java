@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface DatePrinter {
     <B extends Appendable> B format(long j2, B b2);
 

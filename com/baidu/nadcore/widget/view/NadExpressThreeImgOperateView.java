@@ -28,13 +28,13 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37402h;
+    public int f37430h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f37403i;
+    public int f37431i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f37404j;
+    public int f37432j;
     public int k;
     @Nullable
     public AdImageView l;
@@ -77,9 +77,9 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
                 }
                 o.a aVar = oVar.f2259h;
                 if (aVar != null) {
-                    this.f37402h = aVar.a;
-                    this.f37403i = aVar.f2261b;
-                    this.f37404j = aVar.f2262c;
+                    this.f37430h = aVar.a;
+                    this.f37431i = aVar.f2261b;
+                    this.f37432j = aVar.f2262c;
                     this.k = aVar.f2263d;
                 }
             }
@@ -95,7 +95,7 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
             this.m = (AdImageView) findViewById(e.nad_feed_template_tripe_image_two_id);
             this.n = (AdImageView) findViewById(e.nad_feed_template_tripe_image_three_id);
             Resources resources = context.getResources();
-            this.o = (((((f.c.e(context) - f.c.a(getContext(), this.f37402h)) - f.c.a(getContext(), this.f37403i)) - f.c.a(getContext(), this.f37404j)) - f.c.a(getContext(), this.k)) - (resources.getDimensionPixelSize(c.NAD_F_M_W_X024) * 2)) / 3;
+            this.o = (((((f.c.e(context) - f.c.a(getContext(), this.f37430h)) - f.c.a(getContext(), this.f37431i)) - f.c.a(getContext(), this.f37432j)) - f.c.a(getContext(), this.k)) - (resources.getDimensionPixelSize(c.NAD_F_M_W_X024) * 2)) / 3;
             this.p = Math.round((this.o / ((int) resources.getDimension(c.nad_template_p1_w))) * ((int) resources.getDimension(c.nad_template_p1_h)));
             AdImageView adImageView = this.l;
             if (adImageView != null) {
@@ -135,7 +135,7 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
         AdImageView adImageView3;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) && (adBaseModel instanceof j)) {
-            List<d> list = ((j) adBaseModel).f37016d.f2239h;
+            List<d> list = ((j) adBaseModel).f37044d.f2239h;
             if (a.g(list) || a.k(list) < 3) {
                 return;
             }
@@ -216,9 +216,9 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
                 return;
             }
         }
-        this.f37402h = 15;
-        this.f37403i = 15;
-        this.f37404j = 0;
+        this.f37430h = 15;
+        this.f37431i = 15;
+        this.f37432j = 0;
         this.k = 0;
     }
 }

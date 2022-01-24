@@ -51,29 +51,29 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f5822b;
+    public static boolean f5964b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f5823c;
+    public static final long f5965c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.f1.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0315a implements c.a.r0.a.y1.c.f.a {
+    public static class C0324a implements c.a.r0.a.y1.c.f.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Set f5824b;
+        public final /* synthetic */ Set f5966b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f5825c;
+        public final /* synthetic */ String f5967c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f5826d;
+        public final /* synthetic */ String f5968d;
 
-        public C0315a(int i2, Set set, String str, String str2) {
+        public C0324a(int i2, Set set, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,17 +89,17 @@ public class a {
                 }
             }
             this.a = i2;
-            this.f5824b = set;
-            this.f5825c = str;
-            this.f5826d = str2;
+            this.f5966b = set;
+            this.f5967c = str;
+            this.f5968d = str2;
         }
 
         @Override // c.a.r0.a.y1.c.f.a
         public void a(String str, c.a.r0.a.y1.c.f.c cVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) && cVar.f9731f.index == this.a && this.f5824b.contains(str)) {
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) && cVar.f9873f.index == this.a && this.f5966b.contains(str)) {
                 e.k().h(this);
-                a.i(this.f5825c, this.f5826d);
+                a.i(this.f5967c, this.f5968d);
             }
         }
 
@@ -107,7 +107,7 @@ public class a {
         public void timeout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                a.i(this.f5825c, this.f5826d);
+                a.i(this.f5967c, this.f5968d);
             }
         }
     }
@@ -135,7 +135,7 @@ public class a {
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                boolean unused = a.f5822b = false;
+                boolean unused = a.f5964b = false;
             }
         }
     }
@@ -147,14 +147,14 @@ public class a {
 
         /* renamed from: c.a.r0.a.f1.d.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0316a implements Runnable {
+        public class RunnableC0325a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bundle f5827e;
+            public final /* synthetic */ Bundle f5969e;
 
-            public RunnableC0316a(c cVar, Bundle bundle) {
+            public RunnableC0325a(c cVar, Bundle bundle) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,14 +169,14 @@ public class a {
                         return;
                     }
                 }
-                this.f5827e = bundle;
+                this.f5969e = bundle;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a.j(this.f5827e.getString("arg_title"), this.f5827e.getString("arg_message"), this.f5827e.getInt("arg_match_target_down", SwanAppProcessInfo.UNKNOWN.index));
+                    a.j(this.f5969e.getString("arg_title"), this.f5969e.getString("arg_message"), this.f5969e.getInt("arg_match_target_down", SwanAppProcessInfo.UNKNOWN.index));
                 }
             }
         }
@@ -201,7 +201,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
                 if (bundle != null) {
-                    q0.e0(new RunnableC0316a(this, bundle));
+                    q0.e0(new RunnableC0325a(this, bundle));
                     return null;
                 }
                 return null;
@@ -224,8 +224,8 @@ public class a {
             }
         }
         a = k.a;
-        f5822b = false;
-        f5823c = TimeUnit.SECONDS.toMillis(1L);
+        f5964b = false;
+        f5965c = TimeUnit.SECONDS.toMillis(1L);
     }
 
     public static String d(@NonNull Context context, String str, long j2) {
@@ -316,7 +316,7 @@ public class a {
 
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || f5822b) {
+        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || f5964b) {
             return;
         }
         BaseActivityDialog.e newBuilder = SwanAppErrorDialog.newBuilder();
@@ -325,7 +325,7 @@ public class a {
         newBuilder.v(str2);
         newBuilder.z(c.a.r0.a.h.aiapps_confirm_text, null);
         newBuilder.D();
-        f5822b = true;
+        f5964b = true;
     }
 
     public static void j(String str, String str2, int i2) {
@@ -343,13 +343,13 @@ public class a {
                 return;
             }
             if (a) {
-                String str3 = "show normal err dialog, isShowing=" + f5822b;
+                String str3 = "show normal err dialog, isShowing=" + f5964b;
             }
             if (!SwanAppProcessInfo.checkProcessId(i2)) {
                 i(str, str2);
                 return;
             }
-            e.k().c(new C0315a(i2, Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline"), str, str2), f5823c);
+            e.k().c(new C0324a(i2, Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline"), str, str2), f5965c);
         }
     }
 

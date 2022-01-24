@@ -3,7 +3,7 @@ package com.baidu.yunjiasu.tornadosdk;
 import android.os.Handler;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c1.a.a;
+import c.a.e1.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -45,7 +45,7 @@ public final class Pinger {
             }
         }
         INSTANCE = new Pinger();
-        pingHandler = new Handler(a.f2563e);
+        pingHandler = new Handler(a.f3616e);
     }
 
     public Pinger() {

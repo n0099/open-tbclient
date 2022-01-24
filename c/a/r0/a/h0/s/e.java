@@ -15,15 +15,15 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6877c;
+    public static final boolean f7019c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f6878d;
+    public static final boolean f7020d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6879b;
+    public boolean f7021b;
 
     static {
         InterceptResult invokeClinit;
@@ -38,9 +38,9 @@ public class e {
                 return;
             }
         }
-        f6877c = k.a;
+        f7019c = k.a;
         c.a.r0.a.c1.a.g0().getSwitch("swan_sailor_init_delay", false);
-        f6878d = false;
+        f7020d = false;
     }
 
     public e() {
@@ -56,17 +56,17 @@ public class e {
                 return;
             }
         }
-        this.f6879b = false;
+        this.f7021b = false;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f6877c) {
-                String str = "isSailorOptABSwitchOn:" + f6878d;
+            if (f7019c) {
+                String str = "isSailorOptABSwitchOn:" + f7020d;
             }
-            return f6878d;
+            return f7020d;
         }
         return invokeV.booleanValue;
     }

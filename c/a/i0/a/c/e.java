@@ -27,7 +27,7 @@ public final class e {
         public final /* synthetic */ File a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f3738b;
+        public final /* synthetic */ b f3879b;
 
         public a(File file, b bVar) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public final class e {
                 }
             }
             this.a = file;
-            this.f3738b = bVar;
+            this.f3879b = bVar;
         }
 
         @Override // c.a.c0.u.p.a
@@ -61,8 +61,8 @@ public final class e {
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i2) == null) {
                 try {
                     e.c(inputStream, this.a);
-                    if (this.f3738b != null) {
-                        this.f3738b.a();
+                    if (this.f3879b != null) {
+                        this.f3879b.a();
                     }
                 } catch (IOException e2) {
                     e2.printStackTrace();

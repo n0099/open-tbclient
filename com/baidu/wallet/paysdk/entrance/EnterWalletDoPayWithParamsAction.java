@@ -14,7 +14,7 @@ import com.baidu.wallet.router.RouterCallback;
 import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import com.dxmpay.wallet.utils.BdWalletUtils;
 import java.util.HashMap;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class EnterWalletDoPayWithParamsAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,10 +44,10 @@ public class EnterWalletDoPayWithParamsAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f51976b;
+                public final /* synthetic */ boolean f52021b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletDoPayWithParamsAction f51977c;
+                public final /* synthetic */ EnterWalletDoPayWithParamsAction f52022c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -64,16 +64,16 @@ public class EnterWalletDoPayWithParamsAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f51977c = this;
+                    this.f52022c = this;
                     this.a = routerCallback;
-                    this.f51976b = z;
+                    this.f52021b = z;
                 }
 
                 @Override // com.baidu.android.pay.PayCallBack
                 public boolean isHideLoadingDialog() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f51976b : invokeV.booleanValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f52021b : invokeV.booleanValue;
                 }
 
                 @Override // com.baidu.android.pay.PayCallBack

@@ -21,7 +21,7 @@ public abstract class SmartLaunchTask implements Runnable, Comparable<SmartLaunc
     public static final int LOWEST_PRIORITY = 0;
     public static final int LOW_PRIORITY = 1;
     public static final int NORM_PRIORITY = 2;
-    public static String TAG = "SmartLaunchTask";
+    public static final String TAG = "SmartLaunchTask";
     public transient /* synthetic */ FieldHolder $fh;
     public long endTime;
     public String id;

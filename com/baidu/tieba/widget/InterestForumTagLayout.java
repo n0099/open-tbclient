@@ -14,9 +14,9 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
 import c.a.l.q;
 import c.a.s0.s.u.c;
-import c.a.t0.y2.b;
-import c.a.t0.y2.d;
-import c.a.t0.y2.g;
+import c.a.t0.z2.b;
+import c.a.t0.z2.d;
+import c.a.t0.z2.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -38,22 +38,22 @@ public class InterestForumTagLayout extends LinearLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final float f49553e;
+    public final float f49572e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f49554f;
+    public TbPageContext f49573f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49555g;
+    public TextView f49574g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f49556h;
+    public LinearLayout f49575h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EMTextView f49557i;
+    public EMTextView f49576i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f49558j;
+    public ImageView f49577j;
     public boolean k;
     public List<SelectForumData> l;
     public InterestForumTagView.b m;
@@ -85,12 +85,12 @@ public class InterestForumTagLayout extends LinearLayout implements q {
         @Override // com.baidu.tieba.widget.InterestForumTagView.b
         public void a(SelectForumData selectForumData) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, selectForumData) == null) || ListUtils.isEmpty(this.a.l) || selectForumData == null || this.a.f49556h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, selectForumData) == null) || ListUtils.isEmpty(this.a.l) || selectForumData == null || this.a.f49575h == null) {
                 return;
             }
             int indexOf = this.a.l.indexOf(selectForumData);
-            if (indexOf != -1 && this.a.f49556h.getChildCount() > indexOf) {
-                this.a.f49556h.removeViewAt(indexOf);
+            if (indexOf != -1 && this.a.f49575h.getChildCount() > indexOf) {
+                this.a.f49575h.removeViewAt(indexOf);
                 this.a.l.remove(selectForumData);
             }
             if (ListUtils.isEmpty(this.a.l)) {
@@ -132,7 +132,7 @@ public class InterestForumTagLayout extends LinearLayout implements q {
     public void bindForums(List<SelectForumData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            bindForums(this.f49554f, list, this.k);
+            bindForums(this.f49573f, list, this.k);
         }
     }
 
@@ -155,19 +155,19 @@ public class InterestForumTagLayout extends LinearLayout implements q {
     public final void f() {
         String string;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f49556h == null || getContext() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f49575h == null || getContext() == null) {
             return;
         }
         if (this.k) {
-            string = this.f49554f.getString(g.interest_forum_empty_concern_hint);
+            string = this.f49573f.getString(g.interest_forum_empty_concern_hint);
         } else {
-            string = this.f49554f.getString(g.interest_forum_choose_hint);
+            string = this.f49573f.getString(g.interest_forum_choose_hint);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         EMTextView eMTextView = new EMTextView(getContext());
-        this.f49557i = eMTextView;
+        this.f49576i = eMTextView;
         eMTextView.setText(string);
-        this.f49556h.addView(this.f49557i, layoutParams);
+        this.f49575h.addView(this.f49576i, layoutParams);
         h();
     }
 
@@ -177,24 +177,24 @@ public class InterestForumTagLayout extends LinearLayout implements q {
             return;
         }
         InterestForumTagView interestForumTagView = new InterestForumTagView(getContext());
-        interestForumTagView.onChangeSkinType(this.f49554f, TbadkCoreApplication.getInst().getSkinType());
+        interestForumTagView.onChangeSkinType(this.f49573f, TbadkCoreApplication.getInst().getSkinType());
         interestForumTagView.bindForum(selectForumData);
         interestForumTagView.setCloseListener(getCloseListener());
-        float f2 = this.f49553e;
+        float f2 = this.f49572e;
         if (interestForumTagView.getInitialMeasuredWidth() > f2) {
             interestForumTagView.resetNameWithMaxWidth(f2);
         }
-        this.f49556h.addView(interestForumTagView, layoutParams);
+        this.f49575h.addView(interestForumTagView, layoutParams);
     }
 
     public final void h() {
         EMTextView eMTextView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eMTextView = this.f49557i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eMTextView = this.f49576i) == null) {
             return;
         }
         c d2 = c.d(eMTextView);
-        d2.v(c.a.t0.y2.a.CAM_X0110);
+        d2.v(c.a.t0.z2.a.CAM_X0110);
         d2.z(b.T_X06);
     }
 
@@ -204,30 +204,30 @@ public class InterestForumTagLayout extends LinearLayout implements q {
             setPadding(n.f(getContext(), b.ds40), n.f(getContext(), b.tbds36), n.f(getContext(), b.ds40), n.f(getContext(), b.tbds36));
             setOrientation(1);
             TextView textView = new TextView(getContext());
-            this.f49555g = textView;
+            this.f49574g = textView;
             textView.setText(getContext().getString(g.interest_forum_tag_title));
-            addView(this.f49555g, new LinearLayout.LayoutParams(-2, -2));
+            addView(this.f49574g, new LinearLayout.LayoutParams(-2, -2));
             RelativeLayout relativeLayout = new RelativeLayout(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.setMargins(0, n.f(getContext(), b.tbds18), 0, 0);
             addView(relativeLayout, layoutParams);
             ImageView imageView = new ImageView(getContext());
-            this.f49558j = imageView;
+            this.f49577j = imageView;
             imageView.setId(d.interest_forum_tag_arrow_id);
             int f2 = n.f(getContext(), b.tbds42);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(f2, f2);
             layoutParams2.addRule(11, -1);
             layoutParams2.addRule(15, -1);
-            relativeLayout.addView(this.f49558j, layoutParams2);
+            relativeLayout.addView(this.f49577j, layoutParams2);
             LinearLayout linearLayout = new LinearLayout(getContext());
-            this.f49556h = linearLayout;
+            this.f49575h = linearLayout;
             linearLayout.setGravity(16);
-            this.f49556h.setMinimumHeight(n.f(getContext(), b.tbds68));
+            this.f49575h.setMinimumHeight(n.f(getContext(), b.tbds68));
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams3.addRule(15, -1);
             layoutParams3.addRule(0, d.interest_forum_tag_arrow_id);
-            relativeLayout.addView(this.f49556h, layoutParams3);
-            onChangeSkinType(this.f49554f, TbadkCoreApplication.getInst().getSkinType());
+            relativeLayout.addView(this.f49575h, layoutParams3);
+            onChangeSkinType(this.f49573f, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -235,25 +235,25 @@ public class InterestForumTagLayout extends LinearLayout implements q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i2) == null) {
-            TextView textView = this.f49555g;
+            TextView textView = this.f49574g;
             if (textView != null) {
                 c d2 = c.d(textView);
-                d2.v(c.a.t0.y2.a.CAM_X0109);
+                d2.v(c.a.t0.z2.a.CAM_X0109);
                 d2.z(b.T_X06);
             }
-            LinearLayout linearLayout = this.f49556h;
+            LinearLayout linearLayout = this.f49575h;
             if (linearLayout != null) {
                 int childCount = linearLayout.getChildCount();
                 for (int i3 = 0; i3 < childCount; i3++) {
-                    View childAt = this.f49556h.getChildAt(i3);
+                    View childAt = this.f49575h.getChildAt(i3);
                     if (childAt instanceof q) {
                         ((q) childAt).onChangeSkinType(tbPageContext, i2);
                     }
                 }
             }
-            ImageView imageView = this.f49558j;
+            ImageView imageView = this.f49577j;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, c.a.t0.y2.c.icon_common_arrow16_right_n, c.a.t0.y2.a.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(imageView, c.a.t0.z2.c.icon_common_arrow16_right_n, c.a.t0.z2.a.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             }
             h();
         }
@@ -269,14 +269,14 @@ public class InterestForumTagLayout extends LinearLayout implements q {
     public void setMustFill(boolean z) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (textView = this.f49555g) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (textView = this.f49574g) == null) {
             return;
         }
         if (z) {
-            Drawable pureDrawable = WebPManager.getPureDrawable(c.a.t0.y2.c.icon_pure_mustfill, SkinManager.getColor(c.a.t0.y2.a.CAM_X0301), null);
+            Drawable pureDrawable = WebPManager.getPureDrawable(c.a.t0.z2.c.icon_pure_mustfill, SkinManager.getColor(c.a.t0.z2.a.CAM_X0301), null);
             if (pureDrawable != null) {
-                this.f49555g.setCompoundDrawablePadding(n.f(getContext(), b.M_W_X002));
-                this.f49555g.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, pureDrawable, (Drawable) null);
+                this.f49574g.setCompoundDrawablePadding(n.f(getContext(), b.M_W_X002));
+                this.f49574g.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, pureDrawable, (Drawable) null);
                 return;
             }
             return;
@@ -308,14 +308,14 @@ public class InterestForumTagLayout extends LinearLayout implements q {
     public void bindForums(TbPageContext tbPageContext, List<SelectForumData> list, boolean z) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, tbPageContext, list, z) == null) || tbPageContext == null || (linearLayout = this.f49556h) == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, tbPageContext, list, z) == null) || tbPageContext == null || (linearLayout = this.f49575h) == null) {
             return;
         }
         this.l = list;
-        this.f49554f = tbPageContext;
+        this.f49573f = tbPageContext;
         this.k = z;
         linearLayout.removeAllViews();
-        this.f49557i = null;
+        this.f49576i = null;
         if (ListUtils.isEmpty(list)) {
             f();
         } else {
@@ -364,7 +364,7 @@ public class InterestForumTagLayout extends LinearLayout implements q {
                 return;
             }
         }
-        this.f49553e = ((((((n.k(getContext()) - n.f(getContext(), b.ds40)) - n.f(getContext(), b.ds40)) - n.f(getContext(), b.tbds42)) - n.f(getContext(), b.M_W_X008)) - (n.f(getContext(), b.M_W_X004) * 2)) * 1.0f) / 2.0f;
+        this.f49572e = ((((((n.k(getContext()) - n.f(getContext(), b.ds40)) - n.f(getContext(), b.ds40)) - n.f(getContext(), b.tbds42)) - n.f(getContext(), b.M_W_X008)) - (n.f(getContext(), b.M_W_X004) * 2)) * 1.0f) / 2.0f;
         i();
     }
 }

@@ -17,10 +17,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f4556b;
+    public static volatile c f4698b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f4557c;
+    public static boolean f4699c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -30,7 +30,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f4558f;
+        public final /* synthetic */ c f4700f;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class c {
                     return;
                 }
             }
-            this.f4558f = cVar;
+            this.f4700f = cVar;
         }
 
         @Override // c.a.p0.k.c
@@ -55,13 +55,13 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    String b2 = new c.a.p0.f.d(this.f4558f.a, null).b();
+                    String b2 = new c.a.p0.f.d(this.f4700f.a, null).b();
                     if (TextUtils.isEmpty(b2)) {
                         return;
                     }
                     JSONObject jSONObject = new JSONObject(b2);
                     if (jSONObject.optInt("0") == 0) {
-                        c.f4557c = jSONObject.optInt("1") == 2;
+                        c.f4699c = jSONObject.optInt("1") == 2;
                     }
                 } catch (Throwable th) {
                     c.a.p0.l.c.d(th);
@@ -92,14 +92,14 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f4556b == null) {
+            if (f4698b == null) {
                 synchronized (c.class) {
-                    if (f4556b == null) {
-                        f4556b = new c(context);
+                    if (f4698b == null) {
+                        f4698b = new c(context);
                     }
                 }
             }
-            return f4556b;
+            return f4698b;
         }
         return (c) invokeL.objValue;
     }
@@ -224,7 +224,7 @@ public class c {
                         String optString5 = optJSONObject4.optString("app_id");
                         String optString6 = optJSONObject4.optString("app_key");
                         if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6)) {
-                            i.j(k.f33808b, optString5, optString6);
+                            i.j(k.f33836b, optString5, optString6);
                         }
                         int optInt4 = optJSONObject4.optInt("status", -1);
                         if (optInt4 == 1) {
@@ -239,8 +239,8 @@ public class c {
                         String optString7 = optJSONObject5.optString("app_key", "");
                         String optString8 = optJSONObject5.optString("secret_key", "");
                         if (!TextUtils.isEmpty(optString7) && !TextUtils.isEmpty(optString8)) {
-                            c.a.p0.a.f4539b = optString7;
-                            c.a.p0.a.f4540c = optString8;
+                            c.a.p0.a.f4681b = optString7;
+                            c.a.p0.a.f4682c = optString8;
                             c.a.p0.b.a.h(this.a).C(optString7, optString8);
                         }
                     }
@@ -305,7 +305,7 @@ public class c {
                 if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
                     return true;
                 }
-                i.j(k.f33808b, optString, optString2);
+                i.j(k.f33836b, optString, optString2);
                 return true;
             } catch (Throwable th) {
                 c.a.p0.l.c.d(th);

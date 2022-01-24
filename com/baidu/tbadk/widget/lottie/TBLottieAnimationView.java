@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.h;
 import c.a.d.f.p.m;
-import c.a.s0.g1.k.b;
+import c.a.s0.f1.k.b;
 import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.LottieCompositionFactory;
@@ -33,22 +33,22 @@ public class TBLottieAnimationView extends LottieAnimationView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.g1.k.b f41361e;
+    public c.a.s0.f1.k.b f41389e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41362f;
+    public String f41390f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f41363g;
+    public boolean f41391g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f41364h;
+    public boolean f41392h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f41365i;
+    public boolean f41393i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b.a f41366j;
+    public b.a f41394j;
 
     /* loaded from: classes11.dex */
     public class a implements b.a {
@@ -74,7 +74,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
             this.a = tBLottieAnimationView;
         }
 
-        @Override // c.a.s0.g1.k.b.a
+        @Override // c.a.s0.f1.k.b.a
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !m.isEmpty(str)) {
@@ -90,7 +90,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         public final /* synthetic */ boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TBLottieAnimationView f41367b;
+        public final /* synthetic */ TBLottieAnimationView f41395b;
 
         public b(TBLottieAnimationView tBLottieAnimationView, boolean z) {
             Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
                     return;
                 }
             }
-            this.f41367b = tBLottieAnimationView;
+            this.f41395b = tBLottieAnimationView;
             this.a = z;
         }
 
@@ -119,9 +119,9 @@ public class TBLottieAnimationView extends LottieAnimationView {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) || lottieComposition == null) {
                 return;
             }
-            this.f41367b.setComposition(lottieComposition);
+            this.f41395b.setComposition(lottieComposition);
             if (this.a) {
-                this.f41367b.playAnimation();
+                this.f41395b.playAnimation();
             }
         }
     }
@@ -160,10 +160,10 @@ public class TBLottieAnimationView extends LottieAnimationView {
                 return;
             }
         }
-        this.f41363g = false;
-        this.f41364h = false;
-        this.f41365i = false;
-        this.f41366j = new a(this);
+        this.f41391g = false;
+        this.f41392h = false;
+        this.f41393i = false;
+        this.f41394j = new a(this);
     }
 
     public static boolean checkInternalTempDir(String str) {
@@ -219,7 +219,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || m.isEmpty(str)) {
             return;
         }
-        c.a.s0.g1.k.a aVar = new c.a.s0.g1.k.a();
+        c.a.s0.f1.k.a aVar = new c.a.s0.f1.k.a();
         aVar.d(str);
         aVar.c(getFristLoadInternal());
         setImageAssetDelegate(aVar);
@@ -230,7 +230,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || m.isEmpty(str)) {
             return;
         }
-        boolean z = this.f41363g;
+        boolean z = this.f41391g;
         cancelAnimation();
         InputStream animationInputStream = getAnimationInputStream(str, JSON_FILE);
         if (animationInputStream == null) {
@@ -244,31 +244,31 @@ public class TBLottieAnimationView extends LottieAnimationView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.cancelAnimation();
-            this.f41363g = false;
+            this.f41391g = false;
         }
     }
 
     public void disableRestoreInstanceStateJustOnce() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f41365i = true;
+            this.f41393i = true;
         }
     }
 
     public boolean getFristLoadInternal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41364h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41392h : invokeV.booleanValue;
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView, android.view.View
     public void onRestoreInstanceState(Parcelable parcelable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, parcelable) == null) {
-            if (!this.f41365i) {
+            if (!this.f41393i) {
                 super.onRestoreInstanceState(parcelable);
             }
-            this.f41365i = false;
+            this.f41393i = false;
         }
     }
 
@@ -277,7 +277,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.pauseAnimation();
-            this.f41363g = false;
+            this.f41391g = false;
         }
     }
 
@@ -286,7 +286,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.playAnimation();
-            this.f41363g = true;
+            this.f41391g = true;
         }
     }
 
@@ -295,7 +295,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.resumeAnimation();
-            this.f41363g = true;
+            this.f41391g = true;
         }
     }
 
@@ -310,12 +310,12 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public void setAnimationUrl(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || m.isEmpty(str) || str.equals(this.f41362f)) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || m.isEmpty(str) || str.equals(this.f41390f)) {
             return;
         }
-        this.f41362f = str;
-        c.a.s0.g1.k.b bVar = new c.a.s0.g1.k.b(getAnimationPath(), str, this.f41366j);
-        this.f41361e = bVar;
+        this.f41390f = str;
+        c.a.s0.f1.k.b bVar = new c.a.s0.f1.k.b(getAnimationPath(), str, this.f41394j);
+        this.f41389e = bVar;
         bVar.execute(new Void[0]);
     }
 
@@ -328,7 +328,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            if (this.f41363g) {
+            if (this.f41391g) {
                 playAnimation();
             }
         }
@@ -337,7 +337,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
     public void setFirstLoadInternal(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f41364h = z;
+            this.f41392h = z;
         }
     }
 
@@ -360,10 +360,10 @@ public class TBLottieAnimationView extends LottieAnimationView {
                 return;
             }
         }
-        this.f41363g = false;
-        this.f41364h = false;
-        this.f41365i = false;
-        this.f41366j = new a(this);
+        this.f41391g = false;
+        this.f41392h = false;
+        this.f41393i = false;
+        this.f41394j = new a(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -385,9 +385,9 @@ public class TBLottieAnimationView extends LottieAnimationView {
                 return;
             }
         }
-        this.f41363g = false;
-        this.f41364h = false;
-        this.f41365i = false;
-        this.f41366j = new a(this);
+        this.f41391g = false;
+        this.f41392h = false;
+        this.f41393i = false;
+        this.f41394j = new a(this);
     }
 }

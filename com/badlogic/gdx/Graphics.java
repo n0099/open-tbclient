@@ -87,13 +87,13 @@ public interface Graphics {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f31040b;
+        public final int f31068b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f31041c;
+        public final int f31069c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f31042d;
+        public final int f31070d;
 
         public a(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -111,16 +111,16 @@ public interface Graphics {
                 }
             }
             this.a = i2;
-            this.f31040b = i3;
-            this.f31041c = i4;
-            this.f31042d = i5;
+            this.f31068b = i3;
+            this.f31069c = i4;
+            this.f31070d = i5;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a + "x" + this.f31040b + ", bpp: " + this.f31042d + ", hz: " + this.f31041c;
+                return this.a + "x" + this.f31068b + ", bpp: " + this.f31070d + ", hz: " + this.f31069c;
             }
             return (String) invokeV.objValue;
         }

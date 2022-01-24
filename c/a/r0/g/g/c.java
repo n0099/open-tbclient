@@ -49,7 +49,7 @@ public class c extends z {
         public final /* synthetic */ o a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f10336b;
+        public final /* synthetic */ c f10478b;
 
         public a(c cVar, o oVar) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class c extends z {
                     return;
                 }
             }
-            this.f10336b = cVar;
+            this.f10478b = cVar;
             this.a = oVar;
         }
 
@@ -74,7 +74,7 @@ public class c extends z {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f10336b.v();
+                this.f10478b.v();
             }
         }
 
@@ -90,7 +90,7 @@ public class c extends z {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f10336b.x(response, this.a);
+                this.f10478b.x(response, this.a);
                 return response;
             }
             return invokeLI.objValue;
@@ -218,9 +218,9 @@ public class c extends z {
         w.f(jSONObject, "params", jSONObject2);
         String I = c.a.r0.a.c1.a.o().I();
         c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(I, new Request.Builder().url(I).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().body(), new a(this, oVar));
-        aVar.f11453f = true;
-        aVar.f11454g = false;
-        aVar.f11455h = true;
+        aVar.f11595f = true;
+        aVar.f11596g = false;
+        aVar.f11597h = true;
         c.a.r0.p.e.a.g().e(aVar);
     }
 
@@ -241,7 +241,7 @@ public class c extends z {
             w.f(jSONObject, "iconUrl", f0.iconUrl);
             w.f(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, f0.appKey);
             w.f(jSONObject, com.alipay.sdk.cons.b.k, f0.paNumber);
-            w.f(jSONObject, "isBaiduSeries", Boolean.valueOf(SwanAppAllianceLoginHelper.f38633d.h()));
+            w.f(jSONObject, "isBaiduSeries", Boolean.valueOf(SwanAppAllianceLoginHelper.f38661d.h()));
             w.f(jSONObject, "isOpenCustomerService", Boolean.valueOf(q0.Q()));
             return jSONObject;
         }

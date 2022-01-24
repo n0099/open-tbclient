@@ -14,10 +14,10 @@ public class DrawDownloadProgressBar extends FrameLayout {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextProgressBar f56744b;
+    public TextProgressBar f56789b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f56745c;
+    public View f56790c;
 
     public DrawDownloadProgressBar(@NonNull Context context) {
         super(context);
@@ -37,9 +37,9 @@ public class DrawDownloadProgressBar extends FrameLayout {
     private void a(Context context) {
         this.a = context;
         FrameLayout.inflate(context, R.layout.ksad_draw_download_bar, this);
-        this.f56744b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
+        this.f56789b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
         View findViewById = findViewById(R.id.ksad_download_progress_cover);
-        this.f56745c = findViewById;
+        this.f56790c = findViewById;
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.draw.view.DrawDownloadProgressBar.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -52,25 +52,25 @@ public class DrawDownloadProgressBar extends FrameLayout {
         View view;
         int i3;
         if (i2 == 0 || i2 == getMax()) {
-            view = this.f56745c;
+            view = this.f56790c;
             i3 = 0;
         } else {
-            view = this.f56745c;
+            view = this.f56790c;
             i3 = 8;
         }
         view.setVisibility(i3);
-        this.f56744b.a(str, i2);
+        this.f56789b.a(str, i2);
     }
 
     public int getMax() {
-        return this.f56744b.getMax();
+        return this.f56789b.getMax();
     }
 
     public void setTextColor(int i2) {
-        this.f56744b.setTextColor(i2);
+        this.f56789b.setTextColor(i2);
     }
 
     public void setTextSize(int i2) {
-        this.f56744b.setTextDimen(a.a(getContext(), i2));
+        this.f56789b.setTextDimen(a.a(getContext(), i2));
     }
 }

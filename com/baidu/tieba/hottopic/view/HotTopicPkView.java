@@ -9,10 +9,10 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.q1.b;
-import c.a.t0.q1.c;
-import c.a.t0.q1.d;
-import c.a.t0.q1.l.i;
+import c.a.t0.r1.b;
+import c.a.t0.r1.c;
+import c.a.t0.r1.d;
+import c.a.t0.r1.l.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -29,22 +29,22 @@ public class HotTopicPkView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44686e;
+    public int f44714e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f44687f;
+    public int f44715f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44688g;
+    public int f44716g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f44689h;
+    public int f44717h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f44690i;
+    public int f44718i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f44691j;
+    public int f44719j;
     public Drawable k;
     public Drawable l;
     public Drawable m;
@@ -66,7 +66,7 @@ public class HotTopicPkView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicPkView f44692e;
+        public final /* synthetic */ HotTopicPkView f44720e;
 
         public a(HotTopicPkView hotTopicPkView) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class HotTopicPkView extends View {
                     return;
                 }
             }
-            this.f44692e = hotTopicPkView;
+            this.f44720e = hotTopicPkView;
         }
 
         @Override // java.lang.Runnable
@@ -91,14 +91,14 @@ public class HotTopicPkView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 for (int i2 = 0; i2 < 4; i2++) {
-                    this.f44692e.postInvalidate();
+                    this.f44720e.postInvalidate();
                     try {
                         Thread.sleep(100L);
                     } catch (InterruptedException unused) {
                     }
                 }
-                this.f44692e.w = false;
-                this.f44692e.postInvalidate();
+                this.f44720e.w = false;
+                this.f44720e.postInvalidate();
             }
         }
     }
@@ -133,25 +133,25 @@ public class HotTopicPkView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             i iVar = this.u;
-            if (iVar.f21554h == 0 && iVar.f21556j == 0) {
-                this.f44690i = (int) ((this.f44689h * 0.5d) + this.n + 50.0d);
+            if (iVar.f21868h == 0 && iVar.f21870j == 0) {
+                this.f44718i = (int) ((this.f44717h * 0.5d) + this.n + 50.0d);
             } else {
                 i iVar2 = this.u;
-                long j2 = iVar2.f21554h;
-                this.f44690i = (int) (((((float) j2) / ((float) (j2 + iVar2.f21556j))) * this.f44689h) + this.n + 50.0f);
+                long j2 = iVar2.f21868h;
+                this.f44718i = (int) (((((float) j2) / ((float) (j2 + iVar2.f21870j))) * this.f44717h) + this.n + 50.0f);
             }
             if (this.u.k == 2) {
                 this.t.setColor(SkinManager.getColor(b.topic_pk_agree_disable));
             } else {
                 this.t.setColor(SkinManager.getColor(b.CAM_X0308));
             }
-            canvas.drawRect(this.n / 2.0f, this.f44691j, this.f44690i, this.f44686e - i2, this.t);
+            canvas.drawRect(this.n / 2.0f, this.f44719j, this.f44718i, this.f44714e - i2, this.t);
             if (this.u.k == 1) {
                 this.t.setColor(SkinManager.getColor(b.topic_pk_oppose_disable));
             } else {
                 this.t.setColor(SkinManager.getColor(b.CAM_X0302));
             }
-            canvas.drawRect(this.f44690i, this.f44691j, this.f44688g - (this.n / 2.0f), this.f44686e - i3, this.t);
+            canvas.drawRect(this.f44718i, this.f44719j, this.f44716g - (this.n / 2.0f), this.f44714e - i3, this.t);
         }
     }
 
@@ -162,24 +162,24 @@ public class HotTopicPkView extends View {
             this.m = drawable;
             if (this.w) {
                 if (this.x) {
-                    int i2 = this.f44690i;
+                    int i2 = this.f44718i;
                     int i3 = this.p;
-                    int i4 = this.f44691j;
+                    int i4 = this.f44719j;
                     drawable.setBounds((i2 - (i3 / 2)) - 3, i4, ((i2 - (i3 / 2)) - 3) + i3, this.q + i4);
                     this.m.draw(canvas);
                 } else {
-                    int i5 = this.f44690i;
+                    int i5 = this.f44718i;
                     int i6 = this.p;
-                    int i7 = this.f44691j;
+                    int i7 = this.f44719j;
                     drawable.setBounds((i5 - (i6 / 2)) + 3, i7, (i5 - (i6 / 2)) + 3 + i6, this.q + i7);
                     this.m.draw(canvas);
                 }
                 this.x = !this.x;
                 return;
             }
-            int i8 = this.f44690i;
+            int i8 = this.f44718i;
             int i9 = this.p;
-            int i10 = this.f44691j;
+            int i10 = this.f44719j;
             drawable.setBounds(i8 - (i9 / 2), i10, (i8 - (i9 / 2)) + i9, this.q + i10);
             this.m.draw(canvas);
         }
@@ -192,7 +192,7 @@ public class HotTopicPkView extends View {
             this.k.setBounds(0, 0, this.n, this.o);
             this.k.draw(canvas);
             Drawable drawable = this.l;
-            int i2 = this.f44688g;
+            int i2 = this.f44716g;
             drawable.setBounds(i2 - this.n, 0, i2, this.o);
             this.l.draw(canvas);
         }
@@ -208,13 +208,13 @@ public class HotTopicPkView extends View {
             } else {
                 this.t.setColor(SkinManager.getColor(b.CAM_X0308));
             }
-            canvas.drawText(StringHelper.numberUniformFormat(this.u.f21554h), this.n, this.f44686e + dimensionPixelSize, this.t);
+            canvas.drawText(StringHelper.numberUniformFormat(this.u.f21868h), this.n, this.f44714e + dimensionPixelSize, this.t);
             if (this.u.k == 1) {
                 this.t.setColor(SkinManager.getColor(b.topic_pk_oppose_disable));
             } else {
                 this.t.setColor(SkinManager.getColor(b.CAM_X0302));
             }
-            canvas.drawText(StringHelper.numberUniformFormat(this.u.f21556j), (this.f44688g - this.n) - ((int) this.t.measureText(StringHelper.numberUniformFormat(this.u.f21556j))), this.f44686e + dimensionPixelSize, this.t);
+            canvas.drawText(StringHelper.numberUniformFormat(this.u.f21870j), (this.f44716g - this.n) - ((int) this.t.measureText(StringHelper.numberUniformFormat(this.u.f21870j))), this.f44714e + dimensionPixelSize, this.t);
         }
     }
 
@@ -226,7 +226,7 @@ public class HotTopicPkView extends View {
             paint.setAntiAlias(true);
             this.t.setDither(true);
             this.t.setFilterBitmap(true);
-            this.f44687f = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(c.ds30);
+            this.f44715f = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(c.ds30);
             g();
             this.m = SkinManager.getDrawable(d.icon_pic_vs);
             this.n = this.k.getIntrinsicWidth();
@@ -234,7 +234,7 @@ public class HotTopicPkView extends View {
             this.p = this.m.getIntrinsicWidth();
             this.q = this.m.getIntrinsicHeight();
             this.r = new RectF(0.0f, 0.0f, this.n, this.o);
-            this.f44691j = (this.o - this.q) / 2;
+            this.f44719j = (this.o - this.q) / 2;
         }
     }
 
@@ -278,14 +278,14 @@ public class HotTopicPkView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            this.f44686e = this.o;
+            this.f44714e = this.o;
             int size = View.MeasureSpec.getSize(i2);
-            this.f44688g = size;
-            setMeasuredDimension(size, this.f44686e + this.f44687f);
-            this.f44689h = (this.f44688g - (this.n * 2)) - 100;
+            this.f44716g = size;
+            setMeasuredDimension(size, this.f44714e + this.f44715f);
+            this.f44717h = (this.f44716g - (this.n * 2)) - 100;
             if (this.s == null) {
-                int i4 = this.f44688g;
-                this.s = new RectF(i4 - this.n, 0.0f, i4, this.f44686e);
+                int i4 = this.f44716g;
+                this.s = new RectF(i4 - this.n, 0.0f, i4, this.f44714e);
             }
         }
     }
@@ -303,17 +303,17 @@ public class HotTopicPkView extends View {
             }
             if (this.r.contains(motionEvent.getX(), motionEvent.getY())) {
                 i iVar = this.u;
-                iVar.f21554h++;
+                iVar.f21868h++;
                 iVar.k = 1;
             } else if (this.s.contains(motionEvent.getX(), motionEvent.getY())) {
                 i iVar2 = this.u;
-                iVar2.f21556j++;
+                iVar2.f21870j++;
                 iVar2.k = 2;
             }
             g();
             i iVar3 = this.u;
             if (iVar3.k != 0) {
-                if (iVar3.f21554h + iVar3.f21556j > 50) {
+                if (iVar3.f21868h + iVar3.f21870j > 50) {
                     this.w = true;
                     new Thread(new a(this)).start();
                 } else {

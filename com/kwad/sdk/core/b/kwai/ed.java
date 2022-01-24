@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.kwad.sdk.core.request.model.TaskStat;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -11,7 +12,7 @@ public class ed implements com.kwad.sdk.core.d<TaskStat> {
             return;
         }
         taskStat.adStyle = jSONObject.optInt("adStyle");
-        taskStat.taskType = jSONObject.optInt("taskType");
+        taskStat.taskType = jSONObject.optInt(StatConstants.KEY_EXT_TASK_TYPE);
         taskStat.count = jSONObject.optInt("count");
     }
 
@@ -22,7 +23,7 @@ public class ed implements com.kwad.sdk.core.d<TaskStat> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "adStyle", taskStat.adStyle);
-        com.kwad.sdk.utils.t.a(jSONObject, "taskType", taskStat.taskType);
+        com.kwad.sdk.utils.t.a(jSONObject, StatConstants.KEY_EXT_TASK_TYPE, taskStat.taskType);
         com.kwad.sdk.utils.t.a(jSONObject, "count", taskStat.count);
         return jSONObject;
     }

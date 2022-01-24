@@ -11,10 +11,10 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5169b;
+    public int f5311b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f5170c;
+    public byte[] f5312c;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -23,10 +23,10 @@ public class b {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f5171b;
+        public int f5313b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f5172c;
+        public String f5314c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -56,6 +56,6 @@ public class b {
                 return;
             }
         }
-        this.f5170c = new byte[48];
+        this.f5312c = new byte[48];
     }
 }

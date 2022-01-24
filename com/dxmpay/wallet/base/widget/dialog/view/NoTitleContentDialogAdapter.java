@@ -13,13 +13,13 @@ import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.base.widget.dialog.WalletDialog;
 import com.dxmpay.wallet.base.widget.dialog.binding.NoTitleContentDialogBinding;
 import com.dxmpay.wallet.base.widget.dialog.model.ContentDialogModel;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NoTitleContentDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ContentDialogModel a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -18,7 +18,7 @@ public class u extends l implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f52933j;
+    public Context f52978j;
     public String k;
     public ServiceConnection l;
     public IDeviceIdService m;
@@ -38,9 +38,9 @@ public class u extends l implements ServiceConnection {
                 return;
             }
         }
-        this.f52933j = context;
+        this.f52978j = context;
         Context a = a(context);
-        this.f52933j = a;
+        this.f52978j = a;
         this.k = a != null ? a.getPackageName() : "";
     }
 
@@ -48,20 +48,20 @@ public class u extends l implements ServiceConnection {
     public void doStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f52933j = a(this.f52933j);
+            this.f52978j = a(this.f52978j);
             try {
                 Intent intent = new Intent();
                 intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
                 c();
-                if (this.f52933j.bindService(intent, this, 1)) {
+                if (this.f52978j.bindService(intent, this, 1)) {
                     b();
                 } else {
                     a();
-                    a(this.f52907c, this.f52908d, this.f52909e, this.f52910f, this.f52911g);
+                    a(this.f52952c, this.f52953d, this.f52954e, this.f52955f, this.f52956g);
                 }
             } catch (Exception unused) {
                 a();
-                a(this.f52907c, this.f52908d, this.f52909e, this.f52910f, this.f52911g);
+                a(this.f52952c, this.f52953d, this.f52954e, this.f52955f, this.f52956g);
             }
         }
     }
@@ -86,28 +86,28 @@ public class u extends l implements ServiceConnection {
         this.m = asInterface;
         if (asInterface != null) {
             try {
-                this.f52910f = true;
+                this.f52955f = true;
                 String oaid = this.m.getOAID();
                 String vaid = this.m.getVAID(this.k);
                 String aaid = this.m.getAAID(this.k);
                 if (oaid == null) {
                     oaid = "";
                 }
-                this.f52907c = oaid;
+                this.f52952c = oaid;
                 if (vaid == null) {
                     vaid = "";
                 }
-                this.f52908d = vaid;
+                this.f52953d = vaid;
                 if (aaid == null) {
                     aaid = "";
                 }
-                this.f52909e = aaid;
-                this.f52911g = false;
+                this.f52954e = aaid;
+                this.f52956g = false;
             } catch (Exception unused) {
                 a();
             }
         }
-        a(this.f52907c, this.f52908d, this.f52909e, this.f52910f, this.f52911g);
+        a(this.f52952c, this.f52953d, this.f52954e, this.f52955f, this.f52956g);
     }
 
     @Override // android.content.ServiceConnection
@@ -123,7 +123,7 @@ public class u extends l implements ServiceConnection {
         ServiceConnection serviceConnection;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (serviceConnection = this.l) == null || (context = this.f52933j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (serviceConnection = this.l) == null || (context = this.f52978j) == null) {
             return;
         }
         context.unbindService(serviceConnection);

@@ -16,7 +16,7 @@ public class Segment implements Serializable {
     public final Vector3 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Vector3 f31130b;
+    public final Vector3 f31158b;
 
     public Segment(Vector3 vector3, Vector3 vector32) {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class Segment implements Serializable {
             }
         }
         this.a = new Vector3();
-        this.f31130b = new Vector3();
+        this.f31158b = new Vector3();
         this.a.set(vector3);
-        this.f31130b.set(vector32);
+        this.f31158b.set(vector32);
     }
 
     public boolean equals(Object obj) {
@@ -50,7 +50,7 @@ public class Segment implements Serializable {
                 return false;
             }
             Segment segment = (Segment) obj;
-            return this.a.equals(segment.a) && this.f31130b.equals(segment.f31130b);
+            return this.a.equals(segment.a) && this.f31158b.equals(segment.f31158b);
         }
         return invokeL.booleanValue;
     }
@@ -58,19 +58,19 @@ public class Segment implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.a.hashCode() + 71) * 71) + this.f31130b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.a.hashCode() + 71) * 71) + this.f31158b.hashCode() : invokeV.intValue;
     }
 
     public float len() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.dst(this.f31130b) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.dst(this.f31158b) : invokeV.floatValue;
     }
 
     public float len2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.dst2(this.f31130b) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.dst2(this.f31158b) : invokeV.floatValue;
     }
 
     public Segment(float f2, float f3, float f4, float f5, float f6, float f7) {
@@ -89,8 +89,8 @@ public class Segment implements Serializable {
             }
         }
         this.a = new Vector3();
-        this.f31130b = new Vector3();
+        this.f31158b = new Vector3();
         this.a.set(f2, f3, f4);
-        this.f31130b.set(f5, f6, f7);
+        this.f31158b.set(f5, f6, f7);
     }
 }

@@ -6,31 +6,31 @@ public class f {
     public static f a = new f(-1, "请求超事件");
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f55892b = new f(-2, "请求异常");
+    public static f f55937b = new f(-2, "请求异常");
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f55893c = new f(40001, "网络错误");
+    public static f f55938c = new f(40001, "网络错误");
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f55894d = new f(40002, "数据解析错误");
+    public static f f55939d = new f(40002, "数据解析错误");
 
     /* renamed from: e  reason: collision with root package name */
-    public static f f55895e = new f(40003, "广告数据为空");
+    public static f f55940e = new f(40003, "广告数据为空");
 
     /* renamed from: f  reason: collision with root package name */
-    public static f f55896f = new f(40004, "视频资源缓存失败");
+    public static f f55941f = new f(40004, "视频资源缓存失败");
 
     /* renamed from: g  reason: collision with root package name */
-    public static f f55897g = new f(40005, "网络超时");
+    public static f f55942g = new f(40005, "网络超时");
 
     /* renamed from: h  reason: collision with root package name */
-    public static f f55898h = new f(40007, "图片下载失败");
+    public static f f55943h = new f(40007, "图片下载失败");
 
     /* renamed from: i  reason: collision with root package name */
-    public static f f55899i = new f(CustomerServiceMenu.WITHDRAW_SERVICE, "更多视频请前往快手App查看");
+    public static f f55944i = new f(CustomerServiceMenu.WITHDRAW_SERVICE, "更多视频请前往快手App查看");
 
     /* renamed from: j  reason: collision with root package name */
-    public static f f55900j = new f(100007, "复制链接失败，请稍后重试");
+    public static f f55945j = new f(100007, "复制链接失败，请稍后重试");
     public static f k = new f(100008, "内容有点敏感，不可以发送哦");
     public static f l = new f(130001, "数据不存在");
     public static f m = new f(0, "网络超时");

@@ -12,7 +12,7 @@ public final class l2 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Context f30369e;
+    public final /* synthetic */ Context f30397e;
 
     public l2(Context context) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class l2 implements Runnable {
                 return;
             }
         }
-        this.f30369e = context;
+        this.f30397e = context;
     }
 
     @Override // java.lang.Runnable
@@ -37,7 +37,7 @@ public final class l2 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                File file = new File(r0.I(this.f30369e));
+                File file = new File(r0.I(this.f30397e));
                 if (file.exists() && file.isDirectory() && r0.v(file) > 104857600) {
                     r0.q(file);
                 }

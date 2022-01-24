@@ -24,25 +24,25 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
     public Map<Integer, Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f36129b;
+    public final Object f36157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36130c;
+    public int f36158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaTranscoder f36131d;
+    public MediaTranscoder f36159d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f36132e;
+    public b f36160e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<String> f36133f;
+    public ArrayList<String> f36161f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<String> f36134g;
+    public ArrayList<String> f36162g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<String> f36135h;
+    public ArrayList<String> f36163h;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -51,31 +51,31 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f36136b;
+        public static final a f36164b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f36137c;
+        public static final a f36165c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f36138d;
+        public static final a f36166d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f36139e;
+        public static final a f36167e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f36140f;
+        public static final a f36168f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f36141g;
+        public static final a f36169g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final a f36142h;
+        public static final a f36170h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final a f36143i;
+        public static final a f36171i;
 
         /* renamed from: j  reason: collision with root package name */
-        public static final a f36144j;
+        public static final a f36172j;
         public static final /* synthetic */ a[] k;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -93,17 +93,17 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
                 }
             }
             a = new a("ultrafast", 0);
-            f36136b = new a("superfast", 1);
-            f36137c = new a("veryfast", 2);
-            f36138d = new a("faster", 3);
-            f36139e = new a(LoginConstants.FAST_LOGIN, 4);
-            f36140f = new a("medium", 5);
-            f36141g = new a("slow", 6);
-            f36142h = new a("slower", 7);
-            f36143i = new a("veryslow", 8);
+            f36164b = new a("superfast", 1);
+            f36165c = new a("veryfast", 2);
+            f36166d = new a("faster", 3);
+            f36167e = new a(LoginConstants.FAST_LOGIN, 4);
+            f36168f = new a("medium", 5);
+            f36169g = new a("slow", 6);
+            f36170h = new a("slower", 7);
+            f36171i = new a("veryslow", 8);
             a aVar = new a("placebo", 9);
-            f36144j = aVar;
-            k = new a[]{a, f36136b, f36137c, f36138d, f36139e, f36140f, f36141g, f36142h, f36143i, aVar};
+            f36172j = aVar;
+            k = new a[]{a, f36164b, f36165c, f36166d, f36167e, f36168f, f36169g, f36170h, f36171i, aVar};
         }
 
         public a(String str, int i2) {
@@ -175,9 +175,9 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
                 return;
             }
         }
-        this.f36129b = new Object();
-        this.f36130c = 4;
-        this.f36132e = null;
+        this.f36157b = new Object();
+        this.f36158c = 4;
+        this.f36160e = null;
         HashMap hashMap = new HashMap();
         this.a = hashMap;
         hashMap.put(2, 128);
@@ -187,18 +187,18 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
         this.a.put(32, 194);
         this.a.put(64, 162);
         this.a.put(128, 28);
-        this.f36133f = new ArrayList<>();
-        this.f36134g = new ArrayList<>();
-        this.f36135h = new ArrayList<>();
+        this.f36161f = new ArrayList<>();
+        this.f36162g = new ArrayList<>();
+        this.f36163h = new ArrayList<>();
         try {
             MediaTranscoder mediaTranscoder = new MediaTranscoder();
-            this.f36131d = mediaTranscoder;
+            this.f36159d = mediaTranscoder;
             mediaTranscoder.setOnPreparedListener(this);
-            this.f36131d.setOnInfoListener(this);
-            this.f36131d.setOnErrorListener(this);
-            this.f36131d.setOnCompletionListener(this);
-            this.f36131d.setOnTerminalListener(this);
-            this.f36130c = 8;
+            this.f36159d.setOnInfoListener(this);
+            this.f36159d.setOnErrorListener(this);
+            this.f36159d.setOnCompletionListener(this);
+            this.f36159d.setOnTerminalListener(this);
+            this.f36158c = 8;
         } catch (Error e2) {
             e2.printStackTrace();
         } catch (Exception e3) {
@@ -217,7 +217,7 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
     public void b(c.a.a0.a.b bVar) {
         b bVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || (bVar2 = this.f36132e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || (bVar2 = this.f36160e) == null) {
             return;
         }
         bVar2.onCompletion();
@@ -227,16 +227,16 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
     public void c(c.a.a0.a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            synchronized (this.f36129b) {
+            synchronized (this.f36157b) {
                 f(32);
             }
-            b bVar2 = this.f36132e;
+            b bVar2 = this.f36160e;
             if (bVar2 != null) {
                 bVar2.onInfo(1002, 0, null);
             }
-            synchronized (this.f36129b) {
-                if (f(64) > 0 && this.f36131d != null) {
-                    this.f36131d.start();
+            synchronized (this.f36157b) {
+                if (f(64) > 0 && this.f36159d != null) {
+                    this.f36159d.start();
                 }
             }
         }
@@ -247,10 +247,10 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bVar, i2, i3)) == null) {
-            synchronized (this.f36129b) {
+            synchronized (this.f36157b) {
                 f(2);
             }
-            b bVar2 = this.f36132e;
+            b bVar2 = this.f36160e;
             if (bVar2 != null) {
                 return bVar2.onError(i2, i3, null);
             }
@@ -264,7 +264,7 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{bVar, Integer.valueOf(i2), Integer.valueOf(i3), obj})) == null) {
-            b bVar2 = this.f36132e;
+            b bVar2 = this.f36160e;
             if (bVar2 != null) {
                 return bVar2.onInfo(i2, i3, obj);
             }
@@ -277,14 +277,14 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            int i3 = this.f36130c;
+            int i3 = this.f36158c;
             if (i3 == i2) {
                 return 0;
             }
             if (i2 != (this.a.get(Integer.valueOf(i3)).intValue() & i2)) {
                 return -1;
             }
-            this.f36130c = i2;
+            this.f36158c = i2;
             return 1;
         }
         return invokeI.intValue;
@@ -294,11 +294,11 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             k();
-            synchronized (this.f36129b) {
+            synchronized (this.f36157b) {
                 f(4);
-                if (this.f36131d != null) {
-                    this.f36131d.release();
-                    this.f36131d = null;
+                if (this.f36159d != null) {
+                    this.f36159d.release();
+                    this.f36159d = null;
                 }
             }
         }
@@ -308,7 +308,7 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
             synchronized (this) {
-                this.f36132e = bVar;
+                this.f36160e = bVar;
             }
         }
     }
@@ -316,11 +316,11 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
     public void i(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
-            synchronized (this.f36129b) {
-                if (this.f36130c != 8) {
-                    e.e("FFmpegCmdExecutor", "setSource() called on an error status:" + this.f36130c);
+            synchronized (this.f36157b) {
+                if (this.f36158c != 8) {
+                    e.e("FFmpegCmdExecutor", "setSource() called on an error status:" + this.f36158c);
                 } else if (arrayList != null && arrayList.size() > 0) {
-                    this.f36131d.a(arrayList);
+                    this.f36159d.a(arrayList);
                 }
             }
         }
@@ -329,20 +329,20 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            synchronized (this.f36129b) {
+            synchronized (this.f36157b) {
                 if (f(16) <= 0) {
-                    e.e("FFmpegCmdExecutor", "start() called on an error status:" + this.f36130c);
-                } else if (this.f36131d != null) {
-                    for (int i2 = 0; i2 < this.f36133f.size(); i2++) {
-                        this.f36131d.setDataSource(this.f36133f.get(i2));
+                    e.e("FFmpegCmdExecutor", "start() called on an error status:" + this.f36158c);
+                } else if (this.f36159d != null) {
+                    for (int i2 = 0; i2 < this.f36161f.size(); i2++) {
+                        this.f36159d.setDataSource(this.f36161f.get(i2));
                     }
-                    for (int i3 = 0; i3 < this.f36134g.size(); i3++) {
-                        this.f36131d.setOutputFile(this.f36134g.get(i3));
+                    for (int i3 = 0; i3 < this.f36162g.size(); i3++) {
+                        this.f36159d.setOutputFile(this.f36162g.get(i3));
                     }
-                    for (int i4 = 0; i4 < this.f36135h.size(); i4 += 2) {
-                        this.f36131d.setOption(this.f36135h.get(i4), this.f36135h.get(i4 + 1));
+                    for (int i4 = 0; i4 < this.f36163h.size(); i4 += 2) {
+                        this.f36159d.setOption(this.f36163h.get(i4), this.f36163h.get(i4 + 1));
                     }
-                    this.f36131d.prepareAsync();
+                    this.f36159d.prepareAsync();
                 }
             }
         }
@@ -351,10 +351,10 @@ public class FFmpegCmdExecutor implements b.a, b.InterfaceC0009b, b.c, b.d, b.e 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this.f36129b) {
-                if (f(128) > 0 && this.f36131d != null) {
+            synchronized (this.f36157b) {
+                if (f(128) > 0 && this.f36159d != null) {
                     e.c("FFmpegCmdExecutor", "stop in");
-                    this.f36131d.stop();
+                    this.f36159d.stop();
                     e.c("FFmpegCmdExecutor", "stop out");
                 }
             }

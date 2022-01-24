@@ -22,19 +22,19 @@ public final class c {
     public final Message a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<SwanAppProcessInfo> f9711b;
+    public final Set<SwanAppProcessInfo> f9853b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<String> f9712c;
+    public final Set<String> f9854c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9713d;
+    public boolean f9855d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f9714e;
+    public boolean f9856e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f9715f;
+    public long f9857f;
 
     public c(Message message) {
         Interceptable interceptable = $ic;
@@ -51,11 +51,11 @@ public final class c {
                 return;
             }
         }
-        this.f9711b = new HashSet();
-        this.f9712c = new HashSet();
-        this.f9713d = false;
-        this.f9714e = false;
-        this.f9715f = 0L;
+        this.f9853b = new HashSet();
+        this.f9854c = new HashSet();
+        this.f9855d = false;
+        this.f9856e = false;
+        this.f9857f = 0L;
         this.a = message == null ? Message.obtain() : message;
     }
 
@@ -80,7 +80,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppProcessInfoArr)) == null) {
             if (swanAppProcessInfoArr != null) {
-                this.f9711b.addAll(Arrays.asList(swanAppProcessInfoArr));
+                this.f9853b.addAll(Arrays.asList(swanAppProcessInfoArr));
             }
             return this;
         }
@@ -92,7 +92,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
             if (strArr != null) {
-                this.f9712c.addAll(Arrays.asList(strArr));
+                this.f9854c.addAll(Arrays.asList(strArr));
             }
             return this;
         }
@@ -133,7 +133,7 @@ public final class c {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            this.f9713d = z;
+            this.f9855d = z;
             return this;
         }
         return (c) invokeZ.objValue;
@@ -172,7 +172,7 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            long j2 = this.f9715f;
+            long j2 = this.f9857f;
             if (j2 < 0) {
                 return 0L;
             }
@@ -188,7 +188,7 @@ public final class c {
             if (j2 < 0) {
                 j2 = 0;
             }
-            this.f9715f = j2;
+            this.f9857f = j2;
             return this;
         }
         return (c) invokeJ.objValue;
@@ -197,25 +197,25 @@ public final class c {
     public Set<String> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new HashSet(this.f9712c) : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new HashSet(this.f9854c) : (Set) invokeV.objValue;
     }
 
     public Set<SwanAppProcessInfo> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new HashSet(this.f9711b) : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new HashSet(this.f9853b) : (Set) invokeV.objValue;
     }
 
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f9713d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f9855d : invokeV.booleanValue;
     }
 
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f9714e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f9856e : invokeV.booleanValue;
     }
 
     public c o(Object obj) {
@@ -232,7 +232,7 @@ public final class c {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-            this.f9714e = z;
+            this.f9856e = z;
             return this;
         }
         return (c) invokeZ.objValue;

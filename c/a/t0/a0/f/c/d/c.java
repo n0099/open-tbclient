@@ -23,7 +23,7 @@ public class c extends c.a.d.n.e.a<f, StageLiveViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), f.f14432f);
+        super(tbPageContext.getPageActivity(), f.f14572f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

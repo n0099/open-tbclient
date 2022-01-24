@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.math.NumberUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MutableLong extends Number implements Comparable<MutableLong>, Mutable<Number> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 62986528375L;

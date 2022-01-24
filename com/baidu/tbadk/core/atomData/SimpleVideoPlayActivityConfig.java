@@ -29,7 +29,7 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40127b;
+        public String f40155b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f40127b = str;
+                this.f40155b = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -99,6 +99,6 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
             return;
         }
         intent.putExtra("video_url", bVar.a);
-        intent.putExtra("thumb_url", bVar.f40127b);
+        intent.putExtra("thumb_url", bVar.f40155b);
     }
 }

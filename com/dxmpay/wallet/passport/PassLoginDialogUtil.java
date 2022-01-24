@@ -17,27 +17,27 @@ import com.dxmpay.wallet.api.WalletLoginHelper;
 import com.dxmpay.wallet.base.widget.dialog.PromptDialog;
 import com.dxmpay.wallet.core.NoProguard;
 import com.dxmpay.wallet.core.utils.LogUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PassLoginDialogUtil implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PromptDialog f53994e;
+        public final /* synthetic */ PromptDialog f54039e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ILoginBackListener f53995f;
+        public final /* synthetic */ ILoginBackListener f54040f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f53996g;
+        public final /* synthetic */ int f54041g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f53997h;
+        public final /* synthetic */ String f54042h;
 
         public a(PassLoginDialogUtil passLoginDialogUtil, PromptDialog promptDialog, ILoginBackListener iLoginBackListener, int i2, String str) {
             Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public class PassLoginDialogUtil implements NoProguard {
                     return;
                 }
             }
-            this.f53994e = promptDialog;
-            this.f53995f = iLoginBackListener;
-            this.f53996g = i2;
-            this.f53997h = str;
+            this.f54039e = promptDialog;
+            this.f54040f = iLoginBackListener;
+            this.f54041g = i2;
+            this.f54042h = str;
         }
 
         @Override // android.view.View.OnClickListener
@@ -65,29 +65,29 @@ public class PassLoginDialogUtil implements NoProguard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 try {
-                    this.f53994e.dismiss();
+                    this.f54039e.dismiss();
                 } catch (Exception e2) {
                     LogUtil.e("PassLoginDialog", "dialog Exception", e2);
                 }
-                ILoginBackListener iLoginBackListener = this.f53995f;
+                ILoginBackListener iLoginBackListener = this.f54040f;
                 if (!(iLoginBackListener instanceof LoginBackListenerProxy) || ((LoginBackListenerProxy) iLoginBackListener).getLoginBackListener() == null) {
                     return;
                 }
-                ((LoginBackListenerProxy) this.f53995f).getLoginBackListener().onFail(this.f53996g, this.f53997h);
+                ((LoginBackListenerProxy) this.f54040f).getLoginBackListener().onFail(this.f54041g, this.f54042h);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PromptDialog f53998e;
+        public final /* synthetic */ PromptDialog f54043e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ILoginBackListener f53999f;
+        public final /* synthetic */ ILoginBackListener f54044f;
 
         public b(PassLoginDialogUtil passLoginDialogUtil, PromptDialog promptDialog, ILoginBackListener iLoginBackListener) {
             Interceptable interceptable = $ic;
@@ -104,8 +104,8 @@ public class PassLoginDialogUtil implements NoProguard {
                     return;
                 }
             }
-            this.f53998e = promptDialog;
-            this.f53999f = iLoginBackListener;
+            this.f54043e = promptDialog;
+            this.f54044f = iLoginBackListener;
         }
 
         @Override // android.view.View.OnClickListener
@@ -113,16 +113,16 @@ public class PassLoginDialogUtil implements NoProguard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 try {
-                    this.f53998e.dismiss();
+                    this.f54043e.dismiss();
                 } catch (Exception e2) {
                     LogUtil.e("PassLoginDialog", "dialog Exception", e2);
                 }
-                WalletLoginHelper.getInstance().onlyLogin(this.f53999f);
+                WalletLoginHelper.getInstance().onlyLogin(this.f54044f);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static PassLoginDialogUtil a;

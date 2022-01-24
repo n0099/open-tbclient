@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class DownAPPConfirmPolicy {
     public static /* synthetic */ Interceptable $ic;
     public static final DownAPPConfirmPolicy Default;
     public static final DownAPPConfirmPolicy NOConfirm;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ DownAPPConfirmPolicy[] f58948b;
+    public static final /* synthetic */ DownAPPConfirmPolicy[] f58993b;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
@@ -35,7 +35,7 @@ public final class DownAPPConfirmPolicy {
         Default = new DownAPPConfirmPolicy("Default", 0, 0);
         DownAPPConfirmPolicy downAPPConfirmPolicy = new DownAPPConfirmPolicy("NOConfirm", 1, 2);
         NOConfirm = downAPPConfirmPolicy;
-        f58948b = new DownAPPConfirmPolicy[]{Default, downAPPConfirmPolicy};
+        f58993b = new DownAPPConfirmPolicy[]{Default, downAPPConfirmPolicy};
     }
 
     public DownAPPConfirmPolicy(String str, int i2, int i3) {
@@ -68,7 +68,7 @@ public final class DownAPPConfirmPolicy {
     public static DownAPPConfirmPolicy[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DownAPPConfirmPolicy[]) f58948b.clone() : (DownAPPConfirmPolicy[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DownAPPConfirmPolicy[]) f58993b.clone() : (DownAPPConfirmPolicy[]) invokeV.objValue;
     }
 
     public int value() {

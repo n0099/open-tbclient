@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
 import c.a.s0.e.c;
-import c.a.t0.s2.u.f.h1.d;
+import c.a.t0.t2.u.f.i1.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;

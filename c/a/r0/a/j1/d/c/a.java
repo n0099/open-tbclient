@@ -16,17 +16,17 @@ public class a extends Scroller {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Interpolator f7421b;
+    public static final Interpolator f7563b;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: c.a.r0.a.j1.d.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class animation.InterpolatorC0441a implements Interpolator {
+    public static class animation.InterpolatorC0450a implements Interpolator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public animation.InterpolatorC0441a() {
+        public animation.InterpolatorC0450a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,12 +65,12 @@ public class a extends Scroller {
                 return;
             }
         }
-        f7421b = new animation.InterpolatorC0441a();
+        f7563b = new animation.InterpolatorC0450a();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
-        this(context, f7421b);
+        this(context, f7563b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

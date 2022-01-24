@@ -25,13 +25,13 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<InterestFrsData.Card> f15053e;
+    public List<InterestFrsData.Card> f15322e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f15054f;
+    public Context f15323f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f15055g;
+    public View.OnClickListener f15324g;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -41,24 +41,24 @@ public class b extends BaseAdapter {
 
     /* renamed from: c.a.t0.a4.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0964b {
+    public class C0970b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public FrameLayout a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f15056b;
+        public TbImageView f15325b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f15057c;
+        public ImageView f15326c;
 
         /* renamed from: d  reason: collision with root package name */
-        public RelativeLayout f15058d;
+        public RelativeLayout f15327d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f15059e;
+        public TextView f15328e;
 
-        public C0964b(b bVar) {
+        public C0970b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +74,7 @@ public class b extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ C0964b(b bVar, a aVar) {
+        public /* synthetic */ C0970b(b bVar, a aVar) {
             this(bVar);
         }
     }
@@ -94,13 +94,13 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f15054f = context;
+        this.f15323f = context;
     }
 
     public void a(List<InterestFrsData.Card> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f15053e = list;
+            this.f15322e = list;
             notifyDataSetChanged();
         }
     }
@@ -109,9 +109,9 @@ public class b extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, z) == null) {
             if (!z) {
-                imageView.setBackgroundDrawable(this.f15054f.getResources().getDrawable(R.drawable.icon_startpage2_add_pic_n));
+                imageView.setBackgroundDrawable(this.f15323f.getResources().getDrawable(R.drawable.icon_startpage2_add_pic_n));
             } else {
-                imageView.setBackgroundDrawable(this.f15054f.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
+                imageView.setBackgroundDrawable(this.f15323f.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
             }
         }
     }
@@ -119,7 +119,7 @@ public class b extends BaseAdapter {
     public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f15055g = onClickListener;
+            this.f15324g = onClickListener;
         }
     }
 
@@ -128,7 +128,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<InterestFrsData.Card> list = this.f15053e;
+            List<InterestFrsData.Card> list = this.f15322e;
             if (list != null) {
                 return list.size();
             }
@@ -142,11 +142,11 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            List<InterestFrsData.Card> list = this.f15053e;
+            List<InterestFrsData.Card> list = this.f15322e;
             if (list == null || i2 < 0 || i2 >= list.size()) {
                 return null;
             }
-            return this.f15053e.get(i2);
+            return this.f15322e.get(i2);
         }
         return invokeI.objValue;
     }
@@ -161,36 +161,36 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C0964b c0964b;
+        C0970b c0970b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f15054f).inflate(R.layout.new_user_img_item, viewGroup, false);
-                c0964b = new C0964b(this, null);
-                c0964b.f15056b = (TbImageView) view.findViewById(R.id.pic);
-                c0964b.f15057c = (ImageView) view.findViewById(R.id.select_icon);
-                c0964b.f15058d = (RelativeLayout) view.findViewById(R.id.lay_select);
-                c0964b.f15059e = (TextView) view.findViewById(R.id.tv_fname);
+                view = LayoutInflater.from(this.f15323f).inflate(R.layout.new_user_img_item, viewGroup, false);
+                c0970b = new C0970b(this, null);
+                c0970b.f15325b = (TbImageView) view.findViewById(R.id.pic);
+                c0970b.f15326c = (ImageView) view.findViewById(R.id.select_icon);
+                c0970b.f15327d = (RelativeLayout) view.findViewById(R.id.lay_select);
+                c0970b.f15328e = (TextView) view.findViewById(R.id.tv_fname);
                 FrameLayout frameLayout = (FrameLayout) view.findViewById(R.id.pic_layout);
-                c0964b.a = frameLayout;
-                frameLayout.setOnClickListener(this.f15055g);
-                view.setTag(c0964b);
+                c0970b.a = frameLayout;
+                frameLayout.setOnClickListener(this.f15324g);
+                view.setTag(c0970b);
             } else {
-                c0964b = (C0964b) view.getTag();
+                c0970b = (C0970b) view.getTag();
             }
-            c0964b.f15056b.setTag(null);
-            c0964b.f15058d.setTag(null);
-            c0964b.f15059e.setText("");
-            c0964b.a.setTag(null);
+            c0970b.f15325b.setTag(null);
+            c0970b.f15327d.setTag(null);
+            c0970b.f15328e.setText("");
+            c0970b.a.setTag(null);
             Object item = getItem(i2);
             if (item != null && (item instanceof InterestFrsData.Card)) {
                 InterestFrsData.Card card = (InterestFrsData.Card) item;
-                b(c0964b.f15057c, card.getIs_like() == 1);
-                c0964b.f15058d.setTag(card);
-                c0964b.a.setTag(card);
-                c0964b.f15056b.setTag(card.getIcon_url());
-                c0964b.f15056b.startLoad(card.getIcon_url(), 21, false);
-                c0964b.f15059e.setText(card.getFname());
+                b(c0970b.f15326c, card.getIs_like() == 1);
+                c0970b.f15327d.setTag(card);
+                c0970b.a.setTag(card);
+                c0970b.f15325b.setTag(card.getIcon_url());
+                c0970b.f15325b.startLoad(card.getIcon_url(), 21, false);
+                c0970b.f15328e.setText(card.getFname());
             }
             return view;
         }

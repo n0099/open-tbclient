@@ -56,23 +56,23 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f4566c;
+    public static final String f4708c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f4567d;
+    public static int f4709d;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PublicKey f4568b;
+    public PublicKey f4710b;
 
     /* renamed from: c.a.p0.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0223a implements Comparator<d> {
+    public class C0232a implements Comparator<d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0223a(a aVar) {
+        public C0232a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,17 +95,17 @@ public final class a {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dVar, dVar2)) == null) {
-                int i2 = dVar2.f4570c - dVar.f4570c;
+                int i2 = dVar2.f4712c - dVar.f4712c;
                 if (i2 != 0) {
                     return i2;
                 }
-                if (dVar.f4569b && dVar2.f4569b) {
+                if (dVar.f4711b && dVar2.f4711b) {
                     return 0;
                 }
-                if (dVar.f4569b) {
+                if (dVar.f4711b) {
                     return -1;
                 }
-                if (dVar2.f4569b) {
+                if (dVar2.f4711b) {
                     return 1;
                 }
                 return i2;
@@ -242,15 +242,15 @@ public final class a {
         public ApplicationInfo a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f4569b;
+        public boolean f4711b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f4570c;
+        public int f4712c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f4571d;
+        public boolean f4713d;
 
-        public /* synthetic */ d(C0223a c0223a) {
+        public /* synthetic */ d(C0232a c0232a) {
             this();
         }
 
@@ -267,9 +267,9 @@ public final class a {
                     return;
                 }
             }
-            this.f4570c = 0;
-            this.f4571d = false;
-            this.f4569b = false;
+            this.f4712c = 0;
+            this.f4713d = false;
+            this.f4711b = false;
         }
     }
 
@@ -280,10 +280,10 @@ public final class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f4572b;
+        public String f4714b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f4573c;
+        public int f4715c;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -298,7 +298,7 @@ public final class a {
                     return;
                 }
             }
-            this.f4573c = 0;
+            this.f4715c = 0;
         }
 
         public static e a(String str) {
@@ -325,14 +325,14 @@ public final class a {
                     if (!TextUtils.isEmpty(string)) {
                         e eVar = new e();
                         eVar.a = string;
-                        eVar.f4573c = length;
+                        eVar.f4715c = length;
                         if (length >= 14) {
                             return eVar;
                         }
                         if (!TextUtils.isEmpty(str3)) {
                             str2 = str3;
                         }
-                        eVar.f4572b = str2;
+                        eVar.f4714b = str2;
                         return eVar;
                     }
                 } catch (Exception e2) {
@@ -359,14 +359,14 @@ public final class a {
                 e eVar = new e();
                 eVar.a = str;
                 int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-                eVar.f4573c = length;
+                eVar.f4715c = length;
                 if (length >= 14) {
                     return eVar;
                 }
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "0";
                 }
-                eVar.f4572b = str2;
+                eVar.f4714b = str2;
                 return eVar;
             }
             return (e) invokeLL.objValue;
@@ -382,7 +382,7 @@ public final class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String str = this.f4572b;
+                String str = this.f4714b;
                 if (TextUtils.isEmpty(str)) {
                     str = "0";
                 }
@@ -394,13 +394,13 @@ public final class a {
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d(this.f4573c) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d(this.f4715c) : invokeV.booleanValue;
         }
 
         public boolean h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g(this.f4572b) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g(this.f4714b) : invokeV.booleanValue;
         }
     }
 
@@ -450,7 +450,7 @@ public final class a {
             }
         }
         String str = new String(c.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
-        f4566c = str + new String(c.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
+        f4708c = str + new String(c.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
     }
 
     public a(Context context) {
@@ -591,7 +591,7 @@ public final class a {
                 return null;
             }
             try {
-                return new String(b.a(f4566c, f4566c, c.a(str.getBytes())));
+                return new String(b.a(f4708c, f4708c, c.a(str.getBytes())));
             } catch (Exception e2) {
                 m(e2);
                 return "";
@@ -613,21 +613,21 @@ public final class a {
             List<d> f2 = f(new Intent("com.baidu.intent.action.GALAXY").setPackage(this.a.getPackageName()), true);
             boolean z = false;
             if (f2 != null && f2.size() != 0) {
-                z = f2.get(0).f4571d;
+                z = f2.get(0).f4713d;
             }
             File file = new File(this.a.getFilesDir(), "libcuid.so");
             e a = file.exists() ? e.a(p(c(file))) : null;
             if (a == null) {
-                f4567d |= 16;
+                f4709d |= 16;
                 List<d> f3 = f(new Intent("com.baidu.intent.action.GALAXY"), z);
                 if (f3 != null) {
-                    String str = com.baidu.fsg.face.base.b.c.f34001g;
+                    String str = com.baidu.fsg.face.base.b.c.f34029g;
                     File filesDir = this.a.getFilesDir();
-                    if (!com.baidu.fsg.face.base.b.c.f34001g.equals(filesDir.getName())) {
+                    if (!com.baidu.fsg.face.base.b.c.f34029g.equals(filesDir.getName())) {
                         str = filesDir.getName();
                     }
                     for (d dVar : f3) {
-                        if (!dVar.f4569b) {
+                        if (!dVar.f4711b) {
                             File file2 = new File(new File(dVar.a.dataDir, str), "libcuid.so");
                             if (file2.exists() && (a = e.a(p(c(file2)))) != null) {
                                 break;
@@ -639,17 +639,17 @@ public final class a {
             if (a == null) {
                 a = e.a(p(u("com.baidu.deviceid.v2")));
             }
-            boolean n = n(s.f55248i);
+            boolean n = n(s.f55293i);
             if (a == null && n) {
-                f4567d |= 2;
+                f4709d |= 2;
                 a = o();
             }
             if (a == null) {
-                f4567d |= 8;
+                f4709d |= 8;
                 a = l();
             }
             if (a == null && n) {
-                f4567d |= 1;
+                f4709d |= 1;
                 a = s(q());
             }
             h(a);
@@ -677,10 +677,10 @@ public final class a {
                                     byte[] a = c.a(string.getBytes("utf-8"));
                                     JSONObject jSONObject = new JSONObject(new String(a));
                                     d dVar = new d(null);
-                                    dVar.f4570c = jSONObject.getInt("priority");
+                                    dVar.f4712c = jSONObject.getInt("priority");
                                     dVar.a = resolveInfo.activityInfo.applicationInfo;
                                     if (this.a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                        dVar.f4569b = true;
+                                        dVar.f4711b = true;
                                     }
                                     if (z) {
                                         String string2 = bundle.getString("galaxy_sf");
@@ -693,9 +693,9 @@ public final class a {
                                                 strArr[i2] = jSONArray.getString(i2);
                                             }
                                             if (i(strArr, k(packageInfo.signatures))) {
-                                                byte[] j2 = j(c.a(string2.getBytes()), this.f4568b);
+                                                byte[] j2 = j(c.a(string2.getBytes()), this.f4710b);
                                                 if (j2 != null && Arrays.equals(j2, g.a(a))) {
-                                                    dVar.f4571d = true;
+                                                    dVar.f4713d = true;
                                                 }
                                             }
                                         }
@@ -709,7 +709,7 @@ public final class a {
                     }
                 }
             }
-            Collections.sort(arrayList, new C0223a(this));
+            Collections.sort(arrayList, new C0232a(this));
             return arrayList;
         }
         return (List) invokeLZ.objValue;
@@ -723,10 +723,10 @@ public final class a {
                 return false;
             }
             if (eVar.f()) {
-                eVar.f4572b = "O";
+                eVar.f4714b = "O";
                 return true;
             } else if (eVar.h()) {
-                eVar.f4572b = "0";
+                eVar.f4714b = "0";
                 return true;
             } else {
                 return false;
@@ -792,7 +792,7 @@ public final class a {
                     return null;
                 }
                 try {
-                    return e.a(new String(b.a(f4566c, f4566c, c.a(c2.getBytes()))));
+                    return e.a(new String(b.a(f4708c, f4708c, c.a(c2.getBytes()))));
                 } catch (Exception e2) {
                     m(e2);
                     return null;
@@ -831,7 +831,7 @@ public final class a {
                     sb.append("\r\n");
                 }
                 bufferedReader.close();
-                String[] split = new String(b.a(f4566c, f4566c, c.a(sb.toString().getBytes()))).split("=");
+                String[] split = new String(b.a(f4708c, f4708c, c.a(sb.toString().getBytes()))).split("=");
                 if (split == null || split.length != 2) {
                     str2 = "";
                 } else {
@@ -868,7 +868,7 @@ public final class a {
                     try {
                         byteArrayInputStream = new ByteArrayInputStream(f.a());
                         try {
-                            this.f4568b = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+                            this.f4710b = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
                             byteArrayInputStream.close();
                         } catch (Exception e3) {
                             e2 = e3;

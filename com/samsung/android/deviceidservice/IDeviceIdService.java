@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IDeviceIdService extends IInterface {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Default implements IDeviceIdService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public interface IDeviceIdService extends IInterface {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Stub extends Binder implements IDeviceIdService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.samsung.android.deviceidservice.IDeviceIdService";
@@ -82,7 +82,7 @@ public interface IDeviceIdService extends IInterface {
         public static final int TRANSACTION_getVAID = 2;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class Proxy implements IDeviceIdService {
             public static /* synthetic */ Interceptable $ic;
             public static IDeviceIdService sDefaultImpl;

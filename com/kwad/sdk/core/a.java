@@ -12,21 +12,21 @@ public class a {
     public ConcurrentHashMap<String, DownloadParams> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, AdTemplate> f55602b;
+    public ConcurrentHashMap<String, AdTemplate> f55647b;
 
     /* renamed from: com.kwad.sdk.core.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class C2097a {
+    public static final class C2103a {
         public static final a a = new a();
     }
 
     public a() {
         this.a = new ConcurrentHashMap<>();
-        this.f55602b = new ConcurrentHashMap<>();
+        this.f55647b = new ConcurrentHashMap<>();
     }
 
     public static a a() {
-        return C2097a.a;
+        return C2103a.a;
     }
 
     public DownloadParams a(String str) {
@@ -62,7 +62,7 @@ public class a {
         if (KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        this.f55602b.put(str, adTemplate);
+        this.f55647b.put(str, adTemplate);
         KsAdSDKImpl.get().getContext().getSharedPreferences("ksadsdk_notification_download_complete", 0).edit().putString(str, adTemplate.toJson().toString()).apply();
     }
 
@@ -78,7 +78,7 @@ public class a {
         if (KsAdSDKImpl.get().getContext() == null) {
             return null;
         }
-        AdTemplate adTemplate = this.f55602b.get(str);
+        AdTemplate adTemplate = this.f55647b.get(str);
         if (adTemplate != null) {
             return adTemplate;
         }
@@ -99,7 +99,7 @@ public class a {
         if (KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        this.f55602b.remove(str);
+        this.f55647b.remove(str);
         KsAdSDKImpl.get().getContext().getSharedPreferences("ksadsdk_notification_download_complete", 0).edit().remove(str).apply();
     }
 }

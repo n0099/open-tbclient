@@ -19,6 +19,7 @@ import com.baidu.android.imsdk.upload.action.track.Request;
 import com.baidu.android.imsdk.upload.action.track.Ui;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -142,7 +143,7 @@ public class IMTrackDatabase {
                 }
             }
             connectionId = new ConnectionEnum("connectionId", 0);
-            startTime = new ConnectionEnum("startTime", 1);
+            startTime = new ConnectionEnum(FetchLog.START_TIME, 1);
             stopTime = new ConnectionEnum("stopTime", 2);
             reason = new ConnectionEnum("reason", 3);
             retryTime = new ConnectionEnum("retryTime", 4);
@@ -288,8 +289,8 @@ public class IMTrackDatabase {
             className = new DbEnum(PushClientConstants.TAG_CLASS_NAME, 2);
             method = new DbEnum("method", 3);
             action = new DbEnum("action", 4);
-            startTime = new DbEnum("startTime", 5);
-            endTime = new DbEnum("endTime", 6);
+            startTime = new DbEnum(FetchLog.START_TIME, 5);
+            endTime = new DbEnum(FetchLog.END_TIME, 6);
             duration = new DbEnum("duration", 7);
             ext = new DbEnum("ext", 8);
             DbEnum dbEnum = new DbEnum("aliasId", 9);
@@ -676,8 +677,8 @@ public class IMTrackDatabase {
             uiId = new UiEnum("uiId", 0);
             category = new UiEnum("category", 1);
             page = new UiEnum("page", 2);
-            startTime = new UiEnum("startTime", 3);
-            endTime = new UiEnum("endTime", 4);
+            startTime = new UiEnum(FetchLog.START_TIME, 3);
+            endTime = new UiEnum(FetchLog.END_TIME, 4);
             duration = new UiEnum("duration", 5);
             ext = new UiEnum("ext", 6);
             UiEnum uiEnum = new UiEnum("aliasId", 7);

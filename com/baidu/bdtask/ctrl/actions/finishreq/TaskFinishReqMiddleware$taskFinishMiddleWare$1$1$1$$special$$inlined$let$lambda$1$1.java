@@ -16,10 +16,10 @@ import kotlin.jvm.internal.Lambda;
 public final class TaskFinishReqMiddleware$taskFinishMiddleWare$1$1$1$$special$$inlined$let$lambda$1$1 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ TaskFinishReqMiddleware$taskFinishMiddleWare$1.AnonymousClass1.C17791.a this$0;
+    public final /* synthetic */ TaskFinishReqMiddleware$taskFinishMiddleWare$1.AnonymousClass1.C17801.a this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TaskFinishReqMiddleware$taskFinishMiddleWare$1$1$1$$special$$inlined$let$lambda$1$1(TaskFinishReqMiddleware$taskFinishMiddleWare$1.AnonymousClass1.C17791.a aVar) {
+    public TaskFinishReqMiddleware$taskFinishMiddleWare$1$1$1$$special$$inlined$let$lambda$1$1(TaskFinishReqMiddleware$taskFinishMiddleWare$1.AnonymousClass1.C17801.a aVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -47,7 +47,7 @@ public final class TaskFinishReqMiddleware$taskFinishMiddleWare$1$1$1$$special$$
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("get need merged taskInfo:");
-            TaskInfo taskInfo = (TaskInfo) this.this$0.f32949b.element;
+            TaskInfo taskInfo = (TaskInfo) this.this$0.f32977b.element;
             sb.append(taskInfo != null ? taskInfo.toJson() : null);
             return sb.toString();
         }

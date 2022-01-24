@@ -112,7 +112,7 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
         e2 e2Var;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (e2Var = cVar.f14756e) == null || (aVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (e2Var = cVar.f14896e) == null || (aVar = this.n) == null) {
             return;
         }
         aVar.d(e2Var);

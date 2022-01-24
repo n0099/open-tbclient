@@ -57,13 +57,13 @@ public class h<V extends TypeAdapter.ViewHolder> extends a<g, V> {
             if (aVar == null) {
                 return null;
             }
-            if (this.f3261h == aVar.y()) {
+            if (this.f3363h == aVar.y()) {
                 M = this.m.L(viewGroup, gVar.g());
-            } else if (this.f3261h == this.m.w()) {
+            } else if (this.f3363h == this.m.w()) {
                 M = this.m.J(viewGroup, gVar.g());
-            } else if (this.f3261h == this.m.x()) {
+            } else if (this.f3363h == this.m.x()) {
                 M = this.m.K(viewGroup, gVar.g());
-            } else if (this.f3261h == this.m.v()) {
+            } else if (this.f3363h == this.m.v()) {
                 M = this.m.I(viewGroup, gVar.g());
             } else {
                 M = this.m.M(viewGroup);
@@ -88,16 +88,16 @@ public class h<V extends TypeAdapter.ViewHolder> extends a<g, V> {
             if (aVar == null) {
                 return null;
             }
-            if (this.f3261h == aVar.y()) {
+            if (this.f3363h == aVar.y()) {
                 return this.m.R(i2, view, viewGroup, gVar.g(), v);
             }
-            if (this.f3261h == this.m.w()) {
+            if (this.f3363h == this.m.w()) {
                 return this.m.P(i2, view, viewGroup, gVar.g(), v);
             }
-            if (this.f3261h == this.m.x()) {
+            if (this.f3363h == this.m.x()) {
                 return this.m.Q(i2, view, viewGroup, gVar.g(), v);
             }
-            if (this.f3261h == this.m.v()) {
+            if (this.f3363h == this.m.v()) {
                 return this.m.O(i2, view, viewGroup, gVar.g(), v);
             }
             return this.m.S(i2, view, viewGroup, gVar.g(), v);

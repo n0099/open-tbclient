@@ -16,7 +16,7 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String q = c.a.s0.s.h0.b.k().q("scheme_white_list", null);
+            String q = c.a.s0.s.i0.b.k().q("scheme_white_list", null);
             if (StringUtils.isNull(q)) {
                 return null;
             }
@@ -53,9 +53,9 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, jSONArray) == null) {
             if (jSONArray == null) {
-                c.a.s0.s.h0.b.k().y("scheme_white_list", "");
+                c.a.s0.s.i0.b.k().y("scheme_white_list", "");
             } else {
-                c.a.s0.s.h0.b.k().y("scheme_white_list", jSONArray.toString());
+                c.a.s0.s.i0.b.k().y("scheme_white_list", jSONArray.toString());
             }
         }
     }

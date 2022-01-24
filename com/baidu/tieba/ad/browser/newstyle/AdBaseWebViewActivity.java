@@ -15,9 +15,9 @@ import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.s0.e1.v0;
+import c.a.s0.d1.v0;
 import c.a.s0.s.l.a;
-import c.a.t0.j3.z;
+import c.a.t0.k3.z;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -129,7 +129,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdBaseWebViewActivity f41686e;
+        public final /* synthetic */ AdBaseWebViewActivity f41706e;
 
         public a(AdBaseWebViewActivity adBaseWebViewActivity) {
             Interceptable interceptable = $ic;
@@ -146,14 +146,14 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
                     return;
                 }
             }
-            this.f41686e = adBaseWebViewActivity;
+            this.f41706e = adBaseWebViewActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f41686e.refresh();
+                this.f41706e.refresh();
             }
         }
     }
@@ -164,7 +164,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdBaseWebViewActivity f41687e;
+        public final /* synthetic */ AdBaseWebViewActivity f41707e;
 
         public b(AdBaseWebViewActivity adBaseWebViewActivity) {
             Interceptable interceptable = $ic;
@@ -181,17 +181,17 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
                     return;
                 }
             }
-            this.f41687e = adBaseWebViewActivity;
+            this.f41707e = adBaseWebViewActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ShareItem createShareContent;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (createShareContent = this.f41687e.createShareContent(null, null, null, null)) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (createShareContent = this.f41707e.createShareContent(null, null, null, null)) == null) {
                 return;
             }
-            this.f41687e.mView.G(createShareContent);
+            this.f41707e.mView.G(createShareContent);
         }
     }
 
@@ -201,7 +201,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdBaseWebViewActivity f41688e;
+        public final /* synthetic */ AdBaseWebViewActivity f41708e;
 
         public c(AdBaseWebViewActivity adBaseWebViewActivity) {
             Interceptable interceptable = $ic;
@@ -218,7 +218,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
                     return;
                 }
             }
-            this.f41688e = adBaseWebViewActivity;
+            this.f41708e = adBaseWebViewActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -226,11 +226,11 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (!l.z()) {
-                    this.f41688e.showToast(R.string.neterror);
+                    this.f41708e.showToast(R.string.neterror);
                     return;
                 }
-                this.f41688e.mView.h();
-                this.f41688e.refresh();
+                this.f41708e.mView.h();
+                this.f41708e.refresh();
             }
         }
     }
@@ -241,7 +241,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdBaseWebViewActivity f41689e;
+        public final /* synthetic */ AdBaseWebViewActivity f41709e;
 
         public d(AdBaseWebViewActivity adBaseWebViewActivity) {
             Interceptable interceptable = $ic;
@@ -258,7 +258,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
                     return;
                 }
             }
-            this.f41689e = adBaseWebViewActivity;
+            this.f41709e = adBaseWebViewActivity;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -267,10 +267,10 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Message message = new Message();
                 message.what = 555;
-                this.f41689e.mHandler.sendMessage(message);
-                if (this.f41689e.mTimer != null) {
-                    this.f41689e.mTimer.cancel();
-                    this.f41689e.mTimer.purge();
+                this.f41709e.mHandler.sendMessage(message);
+                if (this.f41709e.mTimer != null) {
+                    this.f41709e.mTimer.cancel();
+                    this.f41709e.mTimer.purge();
                 }
             }
         }
@@ -403,7 +403,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
                 if (str3 == null) {
                     str3 = "";
                 }
-                str = c2.f13222b;
+                str = c2.f13380b;
                 if (str == null) {
                     str = "";
                 }

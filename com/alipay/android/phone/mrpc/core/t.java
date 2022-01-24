@@ -13,7 +13,7 @@ public abstract class t {
     public ac a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f30688b;
+    public boolean f30716b;
 
     public t() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public abstract class t {
                 return;
             }
         }
-        this.f30688b = false;
+        this.f30716b = false;
     }
 
     public final ac f() {
@@ -40,13 +40,13 @@ public abstract class t {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f30688b = true;
+            this.f30716b = true;
         }
     }
 
     public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30688b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30716b : invokeV.booleanValue;
     }
 }

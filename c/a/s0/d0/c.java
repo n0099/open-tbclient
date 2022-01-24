@@ -14,22 +14,22 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12305b;
+    public int f12450b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12306c;
+    public int f12451c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12307d;
+    public String f12452d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12308e;
+    public String f12453e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12309f;
+    public String f12454f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12310g;
+    public String f12455g;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -52,11 +52,11 @@ public class c {
             try {
                 c cVar = new c();
                 cVar.a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
-                cVar.f12305b = jSONObject.optInt("width");
-                cVar.f12306c = jSONObject.optInt("height");
-                cVar.f12307d = jSONObject.optString("pic_url");
-                cVar.f12308e = jSONObject.optString("thumbnail");
-                cVar.f12310g = jSONObject.optString("origin_url");
+                cVar.f12450b = jSONObject.optInt("width");
+                cVar.f12451c = jSONObject.optInt("height");
+                cVar.f12452d = jSONObject.optString("pic_url");
+                cVar.f12453e = jSONObject.optString("thumbnail");
+                cVar.f12455g = jSONObject.optString("origin_url");
                 return cVar;
             } catch (Exception unused) {
                 return null;

@@ -1,6 +1,6 @@
 package c.a.n.b;
 
-import c.a.t0.p3.f;
+import c.a.t0.q3.f;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,11 +16,11 @@ public class a {
 
     /* renamed from: c.a.n.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0215a implements c {
+    public static class C0224a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0215a() {
+        public C0224a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,6 +56,6 @@ public class a {
     public static c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new C0215a() : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new C0224a() : (c) invokeV.objValue;
     }
 }

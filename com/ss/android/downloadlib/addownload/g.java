@@ -24,23 +24,23 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g implements m.a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.ss.android.downloadlib.addownload.b.e f59549b;
+    public com.ss.android.downloadlib.addownload.b.e f59594b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f59550c = false;
+    public boolean f59595c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f59551d;
+    public e f59596d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f59552e;
+    public b f59597e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends com.ss.android.socialbase.downloader.depend.a {
         public m a;
 
@@ -97,13 +97,13 @@ public class g implements m.a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(DownloadInfo downloadInfo);
     }
 
     public g(e eVar) {
-        this.f59551d = eVar;
+        this.f59596d = eVar;
     }
 
     private boolean c() {
@@ -111,16 +111,16 @@ public class g implements m.a {
     }
 
     private boolean d() {
-        DownloadModel downloadModel = this.f59549b.f59464b;
-        return (downloadModel == null || TextUtils.isEmpty(downloadModel.getPackageName()) || TextUtils.isEmpty(this.f59549b.f59464b.getDownloadUrl())) ? false : true;
+        DownloadModel downloadModel = this.f59594b.f59509b;
+        return (downloadModel == null || TextUtils.isEmpty(downloadModel.getPackageName()) || TextUtils.isEmpty(this.f59594b.f59509b.getDownloadUrl())) ? false : true;
     }
 
     private boolean e() {
-        return this.f59549b.f59466d.isAddToDownloadManage();
+        return this.f59594b.f59511d.isAddToDownloadManage();
     }
 
     private boolean f() {
-        return com.ss.android.downloadlib.g.l.a(this.f59549b.f59464b) && h.a(this.f59549b.f59466d.getLinkMode());
+        return com.ss.android.downloadlib.g.l.a(this.f59594b.f59509b) && h.a(this.f59594b.f59511d.getLinkMode());
     }
 
     @Override // com.ss.android.downloadlib.g.m.a
@@ -128,7 +128,7 @@ public class g implements m.a {
     }
 
     private boolean e(DownloadInfo downloadInfo) {
-        return !com.ss.android.downloadlib.g.l.a(this.f59549b.f59464b) && f(downloadInfo);
+        return !com.ss.android.downloadlib.g.l.a(this.f59594b.f59509b) && f(downloadInfo);
     }
 
     private boolean f(DownloadInfo downloadInfo) {
@@ -138,26 +138,26 @@ public class g implements m.a {
     public void a(long j2) {
         this.a = j2;
         com.ss.android.downloadlib.addownload.b.e e2 = com.ss.android.downloadlib.addownload.b.f.a().e(j2);
-        this.f59549b = e2;
+        this.f59594b = e2;
         if (e2.x()) {
             com.ss.android.downloadlib.e.c.a().a("setAdId ModelBox notValid");
         }
     }
 
     public void b(@Nullable DownloadInfo downloadInfo) {
-        b bVar = this.f59552e;
+        b bVar = this.f59597e;
         if (bVar != null) {
             bVar.a(downloadInfo);
-            this.f59552e = null;
+            this.f59597e = null;
         }
     }
 
     public void c(DownloadInfo downloadInfo) {
-        if (!h.a(this.f59549b.f59464b) || this.f59550c) {
+        if (!h.a(this.f59594b.f59509b) || this.f59595c) {
             return;
         }
-        com.ss.android.downloadlib.d.a.a().a("file_status", (downloadInfo == null || !com.ss.android.downloadlib.g.l.b(downloadInfo.getTargetFilePath())) ? 2 : 1, this.f59549b);
-        this.f59550c = true;
+        com.ss.android.downloadlib.d.a.a().a("file_status", (downloadInfo == null || !com.ss.android.downloadlib.g.l.b(downloadInfo.getTargetFilePath())) ? 2 : 1, this.f59594b);
+        this.f59595c = true;
     }
 
     public boolean d(DownloadInfo downloadInfo) {
@@ -189,22 +189,22 @@ public class g implements m.a {
     }
 
     public void a(DownloadInfo downloadInfo) {
-        this.f59550c = false;
+        this.f59595c = false;
         b(downloadInfo);
     }
 
     public boolean a(Context context, int i2, boolean z) {
-        if (com.ss.android.downloadlib.g.l.a(this.f59549b.f59464b)) {
-            com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(this.f59549b.a);
+        if (com.ss.android.downloadlib.g.l.a(this.f59594b.f59509b)) {
+            com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(this.f59594b.a);
             if (d2 != null) {
                 com.ss.android.socialbase.downloader.notification.b.a().f(d2.s());
             }
-            return com.ss.android.downloadlib.b.a.a(this.f59549b);
-        } else if (a(i2) && !TextUtils.isEmpty(this.f59549b.f59464b.getPackageName()) && j.i().optInt("disable_market") != 1) {
-            return com.ss.android.downloadlib.b.a.a(this.f59549b, i2);
+            return com.ss.android.downloadlib.b.a.a(this.f59594b);
+        } else if (a(i2) && !TextUtils.isEmpty(this.f59594b.f59509b.getPackageName()) && j.i().optInt("disable_market") != 1) {
+            return com.ss.android.downloadlib.b.a.a(this.f59594b, i2);
         } else {
-            if (z && this.f59549b.f59466d.getDownloadMode() == 4 && !this.f59551d.e()) {
-                this.f59551d.c(true);
+            if (z && this.f59594b.f59511d.getDownloadMode() == 4 && !this.f59596d.e()) {
+                this.f59596d.c(true);
                 return true;
             }
             return false;
@@ -245,19 +245,19 @@ public class g implements m.a {
     }
 
     private boolean a(int i2) {
-        if (this.f59549b.f59466d.getDownloadMode() == 2 && i2 == 2) {
+        if (this.f59594b.f59511d.getDownloadMode() == 2 && i2 == 2) {
             return true;
         }
-        return this.f59549b.f59466d.getDownloadMode() == 2 && i2 == 1 && j.i().optInt("disable_lp_if_market", 0) == 1;
+        return this.f59594b.f59511d.getDownloadMode() == 2 && i2 == 1 && j.i().optInt("disable_lp_if_market", 0) == 1;
     }
 
     public boolean a(boolean z) {
-        return !z && this.f59549b.f59466d.getDownloadMode() == 1;
+        return !z && this.f59594b.f59511d.getDownloadMode() == 1;
     }
 
     public void a(@NonNull final s sVar) {
-        if (!TextUtils.isEmpty(this.f59549b.f59464b.getFilePath())) {
-            String filePath = this.f59549b.f59464b.getFilePath();
+        if (!TextUtils.isEmpty(this.f59594b.f59509b.getFilePath())) {
+            String filePath = this.f59594b.f59509b.getFilePath();
             if (filePath.startsWith(Environment.getDataDirectory().getAbsolutePath())) {
                 sVar.a();
                 return;
@@ -278,7 +278,7 @@ public class g implements m.a {
 
             @Override // com.ss.android.download.api.config.s
             public void a(String str) {
-                j.c().a(1, j.getContext(), g.this.f59549b.f59464b, "您已禁止使用存储权限，请授权后再下载", null, 1);
+                j.c().a(1, j.getContext(), g.this.f59594b.f59509b, "您已禁止使用存储权限，请授权后再下载", null, 1);
                 com.ss.android.downloadlib.d.a.a().b(g.this.a, 1);
                 sVar.a(str);
             }
@@ -295,8 +295,8 @@ public class g implements m.a {
         if (i2 != 1 && i2 != 6 && i2 == 2) {
             if (downloadInfo.getIsFirstDownload()) {
                 com.ss.android.downloadlib.f a2 = com.ss.android.downloadlib.f.a();
-                com.ss.android.downloadlib.addownload.b.e eVar = this.f59549b;
-                a2.a(eVar.f59464b, eVar.f59466d, eVar.f59465c);
+                com.ss.android.downloadlib.addownload.b.e eVar = this.f59594b;
+                a2.a(eVar.f59509b, eVar.f59511d, eVar.f59510c);
                 downloadInfo.setFirstDownload(false);
             }
             com.ss.android.downloadlib.d.a.a().a(downloadInfo);
@@ -307,9 +307,9 @@ public class g implements m.a {
         long totalBytes = downloadInfo.getTotalBytes();
         int i3 = (totalBytes > 0L ? 1 : (totalBytes == 0L ? 0 : -1));
         int curBytes = i3 > 0 ? (int) ((downloadInfo.getCurBytes() * 100) / totalBytes) : 0;
-        if ((i3 > 0 || com.ss.android.socialbase.downloader.g.a.c().a("fix_click_start")) && (bVar = this.f59552e) != null) {
+        if ((i3 > 0 || com.ss.android.socialbase.downloader.g.a.c().a("fix_click_start")) && (bVar = this.f59597e) != null) {
             bVar.a(downloadInfo);
-            this.f59552e = null;
+            this.f59597e = null;
         }
         for (DownloadStatusChangeListener downloadStatusChangeListener : a(map)) {
             if (a3 != 1) {
@@ -321,7 +321,7 @@ public class g implements m.a {
                     } else if (downloadInfo.getStatus() == -1) {
                         downloadStatusChangeListener.onDownloadFailed(downloadShortInfo);
                     } else if (downloadInfo.getStatus() == -3) {
-                        if (com.ss.android.downloadlib.g.l.a(this.f59549b.f59464b)) {
+                        if (com.ss.android.downloadlib.g.l.a(this.f59594b.f59509b)) {
                             downloadStatusChangeListener.onInstalled(downloadShortInfo);
                         } else {
                             downloadStatusChangeListener.onDownloadFinished(downloadShortInfo);
@@ -339,8 +339,8 @@ public class g implements m.a {
     }
 
     public void a() {
-        if (this.f59552e == null) {
-            this.f59552e = new b() { // from class: com.ss.android.downloadlib.addownload.g.3
+        if (this.f59597e == null) {
+            this.f59597e = new b() { // from class: com.ss.android.downloadlib.addownload.g.3
                 @Override // com.ss.android.downloadlib.addownload.g.b
                 public void a(DownloadInfo downloadInfo) {
                     com.ss.android.downloadlib.d.a.a().a(g.this.a, 2, downloadInfo);
@@ -353,7 +353,7 @@ public class g implements m.a {
         if (context == null) {
             return 0;
         }
-        Map<String, String> headers = this.f59549b.f59464b.getHeaders();
+        Map<String, String> headers = this.f59594b.f59509b.getHeaders();
         ArrayList arrayList = new ArrayList();
         if (headers != null) {
             for (Map.Entry<String, String> entry : headers.entrySet()) {
@@ -362,23 +362,23 @@ public class g implements m.a {
                 }
             }
         }
-        String a2 = com.ss.android.downloadlib.g.d.a(String.valueOf(this.f59549b.f59464b.getId()), this.f59549b.f59464b.getNotificationJumpUrl(), this.f59549b.f59464b.isShowToast(), String.valueOf(this.f59549b.f59464b.getModelType()));
-        com.ss.android.socialbase.downloader.g.a b2 = com.ss.android.downloadlib.g.e.b(this.f59549b.f59464b);
-        JSONObject a3 = com.ss.android.downloadlib.g.e.a(this.f59549b.f59464b);
-        if (!this.f59549b.f59466d.enableAH()) {
+        String a2 = com.ss.android.downloadlib.g.d.a(String.valueOf(this.f59594b.f59509b.getId()), this.f59594b.f59509b.getNotificationJumpUrl(), this.f59594b.f59509b.isShowToast(), String.valueOf(this.f59594b.f59509b.getModelType()));
+        com.ss.android.socialbase.downloader.g.a b2 = com.ss.android.downloadlib.g.e.b(this.f59594b.f59509b);
+        JSONObject a3 = com.ss.android.downloadlib.g.e.a(this.f59594b.f59509b);
+        if (!this.f59594b.f59511d.enableAH()) {
             a3 = com.ss.android.downloadlib.g.l.a(a3);
             com.ss.android.downloadlib.g.l.a(a3, "ah_plans", new JSONArray());
         }
-        this.f59549b.f59464b.getExecutorGroup();
-        int i2 = (this.f59549b.f59464b.isAd() || h.b(this.f59549b.f59464b)) ? 4 : 4;
+        this.f59594b.f59509b.getExecutorGroup();
+        int i2 = (this.f59594b.f59509b.isAd() || h.b(this.f59594b.f59509b)) ? 4 : 4;
         String a4 = a(b2);
-        DownloadInfo downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(com.ss.android.socialbase.downloader.downloader.c.a(this.f59549b.f59464b.getDownloadUrl(), a4));
-        if (downloadInfo != null && 3 == this.f59549b.f59464b.getModelType()) {
+        DownloadInfo downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(com.ss.android.socialbase.downloader.downloader.c.a(this.f59594b.f59509b.getDownloadUrl(), a4));
+        if (downloadInfo != null && 3 == this.f59594b.f59509b.getModelType()) {
             downloadInfo.setFirstDownload(true);
         }
-        com.ss.android.socialbase.appdownloader.f o = new com.ss.android.socialbase.appdownloader.f(context, this.f59549b.f59464b.getDownloadUrl()).b(this.f59549b.f59464b.getBackupUrls()).a(this.f59549b.f59464b.getName()).d(a2).a(arrayList).a(this.f59549b.f59464b.isShowNotification()).c(this.f59549b.f59464b.isNeedWifi()).b(this.f59549b.f59464b.getFileName()).c(a4).j(this.f59549b.f59464b.getAppIcon()).g(this.f59549b.f59464b.getMd5()).i(this.f59549b.f59464b.getSdkMonitorScene()).a(this.f59549b.f59464b.getExpectFileLength()).a(iDownloadListener).l(this.f59549b.f59464b.needIndependentProcess() || b2.a("need_independent_process", 0) == 1).a(this.f59549b.f59464b.getDownloadFileUriProvider()).b(this.f59549b.f59464b.autoInstallWithoutNotification()).f(this.f59549b.f59464b.getPackageName()).d(1000).e(100).a(a3).i(true).j(true).b(b2.a("retry_count", 5)).c(b2.a("backup_url_retry_count", 0)).j(true).m(b2.a("need_head_connection", 0) == 1).d(b2.a("need_https_to_http_retry", 0) == 1).h(b2.a("need_chunk_downgrade_retry", 1) == 1).g(b2.a("need_retry_delay", 0) == 1).h(b2.c("retry_delay_time_array")).k(b2.a("need_reuse_runnable", 0) == 1).f(i2).p(this.f59549b.f59464b.isAutoInstall()).o(this.f59549b.f59464b.distinctDir());
-        if (!TextUtils.isEmpty(this.f59549b.f59464b.getMimeType())) {
-            o.e(this.f59549b.f59464b.getMimeType());
+        com.ss.android.socialbase.appdownloader.f o = new com.ss.android.socialbase.appdownloader.f(context, this.f59594b.f59509b.getDownloadUrl()).b(this.f59594b.f59509b.getBackupUrls()).a(this.f59594b.f59509b.getName()).d(a2).a(arrayList).a(this.f59594b.f59509b.isShowNotification()).c(this.f59594b.f59509b.isNeedWifi()).b(this.f59594b.f59509b.getFileName()).c(a4).j(this.f59594b.f59509b.getAppIcon()).g(this.f59594b.f59509b.getMd5()).i(this.f59594b.f59509b.getSdkMonitorScene()).a(this.f59594b.f59509b.getExpectFileLength()).a(iDownloadListener).l(this.f59594b.f59509b.needIndependentProcess() || b2.a("need_independent_process", 0) == 1).a(this.f59594b.f59509b.getDownloadFileUriProvider()).b(this.f59594b.f59509b.autoInstallWithoutNotification()).f(this.f59594b.f59509b.getPackageName()).d(1000).e(100).a(a3).i(true).j(true).b(b2.a("retry_count", 5)).c(b2.a("backup_url_retry_count", 0)).j(true).m(b2.a("need_head_connection", 0) == 1).d(b2.a("need_https_to_http_retry", 0) == 1).h(b2.a("need_chunk_downgrade_retry", 1) == 1).g(b2.a("need_retry_delay", 0) == 1).h(b2.c("retry_delay_time_array")).k(b2.a("need_reuse_runnable", 0) == 1).f(i2).p(this.f59594b.f59509b.isAutoInstall()).o(this.f59594b.f59509b.distinctDir());
+        if (!TextUtils.isEmpty(this.f59594b.f59509b.getMimeType())) {
+            o.e(this.f59594b.f59509b.getMimeType());
         } else {
             o.e("application/vnd.android.package-archive");
         }
@@ -391,7 +391,7 @@ public class g implements m.a {
             aVar = new com.ss.android.downloadlib.addownload.c.a();
             o.a(aVar);
         }
-        int a5 = h.a(this.f59549b, c(), o);
+        int a5 = h.a(this.f59594b, c(), o);
         if (aVar != null) {
             aVar.a(a5);
         }
@@ -399,10 +399,10 @@ public class g implements m.a {
     }
 
     private String a(com.ss.android.socialbase.downloader.g.a aVar) {
-        if (!TextUtils.isEmpty(this.f59549b.f59464b.getFilePath())) {
-            return this.f59549b.f59464b.getFilePath();
+        if (!TextUtils.isEmpty(this.f59594b.f59509b.getFilePath())) {
+            return this.f59594b.f59509b.getFilePath();
         }
-        DownloadInfo a2 = com.ss.android.socialbase.appdownloader.d.j().a(j.getContext(), this.f59549b.f59464b.getDownloadUrl());
+        DownloadInfo a2 = com.ss.android.socialbase.appdownloader.d.j().a(j.getContext(), this.f59594b.f59509b.getDownloadUrl());
         boolean b2 = com.ss.android.downloadlib.g.j.b("android.permission.WRITE_EXTERNAL_STORAGE");
         String b3 = b();
         if (a2 != null && !TextUtils.isEmpty(a2.getSavePath())) {
@@ -427,7 +427,7 @@ public class g implements m.a {
         } catch (JSONException e3) {
             e3.printStackTrace();
         }
-        com.ss.android.downloadlib.d.a.a().a("label_external_permission", jSONObject, this.f59549b);
+        com.ss.android.downloadlib.d.a.a().a("label_external_permission", jSONObject, this.f59594b);
         String str = null;
         try {
             str = com.ss.android.socialbase.appdownloader.c.b();
@@ -453,12 +453,12 @@ public class g implements m.a {
     }
 
     public void a(DownloadInfo downloadInfo, boolean z) {
-        if (this.f59549b.f59464b == null || downloadInfo == null || downloadInfo.getId() == 0) {
+        if (this.f59594b.f59509b == null || downloadInfo == null || downloadInfo.getId() == 0) {
             return;
         }
         int status = downloadInfo.getStatus();
         if (status != -1 && status != -4) {
-            if (h.a(this.f59549b.f59464b)) {
+            if (h.a(this.f59594b.f59509b)) {
                 com.ss.android.downloadlib.d.a.a().a(this.a, 2);
             } else if (z && com.ss.android.downloadlib.d.c.a().c() && (status == -2 || status == -3)) {
                 com.ss.android.downloadlib.d.a.a().a(this.a, 2);
@@ -471,23 +471,23 @@ public class g implements m.a {
             case -1:
                 a();
                 com.ss.android.downloadlib.addownload.b.f a2 = com.ss.android.downloadlib.addownload.b.f.a();
-                com.ss.android.downloadlib.addownload.b.e eVar = this.f59549b;
-                a2.a(new com.ss.android.downloadad.api.a.b(eVar.f59464b, eVar.f59465c, eVar.f59466d, downloadInfo.getId()));
+                com.ss.android.downloadlib.addownload.b.e eVar = this.f59594b;
+                a2.a(new com.ss.android.downloadad.api.a.b(eVar.f59509b, eVar.f59510c, eVar.f59511d, downloadInfo.getId()));
                 return;
             case -3:
-                if (com.ss.android.downloadlib.g.l.a(this.f59549b.f59464b)) {
+                if (com.ss.android.downloadlib.g.l.a(this.f59594b.f59509b)) {
                     com.ss.android.downloadlib.e.c.a().b("SUCCESSED isInstalledApp");
                     return;
                 }
                 com.ss.android.downloadlib.d.a.a().a(this.a, 5, downloadInfo);
-                if (z && com.ss.android.downloadlib.d.c.a().b() && !com.ss.android.downloadlib.d.c.a().b(this.a, this.f59549b.f59464b.getLogExtra())) {
+                if (z && com.ss.android.downloadlib.d.c.a().b() && !com.ss.android.downloadlib.d.c.a().b(this.a, this.f59594b.f59509b.getLogExtra())) {
                     com.ss.android.downloadlib.d.a.a().a(this.a, 2);
                     return;
                 }
                 return;
             case -2:
                 com.ss.android.downloadlib.d.a.a().a(this.a, 4, downloadInfo);
-                if (z && com.ss.android.downloadlib.d.c.a().b() && !com.ss.android.downloadlib.d.c.a().b(this.a, this.f59549b.f59464b.getLogExtra())) {
+                if (z && com.ss.android.downloadlib.d.c.a().b() && !com.ss.android.downloadlib.d.c.a().b(this.a, this.f59594b.f59509b.getLogExtra())) {
                     com.ss.android.downloadlib.d.a.a().a(this.a, 2);
                     return;
                 }
@@ -532,7 +532,7 @@ public class g implements m.a {
                     switch (downloadInfo.getStatus()) {
                         case -4:
                         case 0:
-                            if (com.ss.android.downloadlib.g.l.a(this.f59549b.f59464b)) {
+                            if (com.ss.android.downloadlib.g.l.a(this.f59594b.f59509b)) {
                                 downloadShortInfo.status = -3;
                                 downloadStatusChangeListener.onInstalled(downloadShortInfo);
                                 break;
@@ -541,7 +541,7 @@ public class g implements m.a {
                                 break;
                             }
                         case -3:
-                            if (com.ss.android.downloadlib.g.l.a(this.f59549b.f59464b)) {
+                            if (com.ss.android.downloadlib.g.l.a(this.f59594b.f59509b)) {
                                 downloadStatusChangeListener.onInstalled(downloadShortInfo);
                                 break;
                             } else {

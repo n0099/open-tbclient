@@ -17,34 +17,34 @@ import java.util.concurrent.ExecutorService;
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.C0250a a;
+    public a.C0259a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C0251a f4974b;
+    public C0260a f5116b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4975c;
+    public String f5117c;
 
     /* renamed from: c.a.r.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0251a {
+    public static class C0260a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.r.h.d.a f4976b;
+        public c.a.r.h.d.a f5118b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TrustSubjectManager.d f4977c;
+        public TrustSubjectManager.d f5119c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ExecutorService f4978d;
+        public ExecutorService f5120d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ExecutorService f4979e;
+        public ExecutorService f5121e;
 
-        public C0251a() {
+        public C0260a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,10 +95,10 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f4980e;
+        public final /* synthetic */ c f5122e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4981f;
+        public final /* synthetic */ String f5123f;
 
         public d(a aVar, c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -115,15 +115,15 @@ public abstract class a {
                     return;
                 }
             }
-            this.f4980e = cVar;
-            this.f4981f = str;
+            this.f5122e = cVar;
+            this.f5123f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4980e.onResult(this.f4981f, null);
+                this.f5122e.onResult(this.f5123f, null);
             }
         }
     }
@@ -143,7 +143,7 @@ public abstract class a {
                 return;
             }
         }
-        this.f4975c = str;
+        this.f5117c = str;
     }
 
     public static String b(String str, String str2) {
@@ -165,11 +165,11 @@ public abstract class a {
         return (String) invokeLL.objValue;
     }
 
-    public final void a(C0251a c0251a) {
+    public final void a(C0260a c0260a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c0251a) == null) {
-            this.f4974b = c0251a;
-            this.a = c0251a.f4976b.d().f("ids");
+        if (interceptable == null || interceptable.invokeL(1048576, this, c0260a) == null) {
+            this.f5116b = c0260a;
+            this.a = c0260a.f5118b.d().f("ids");
         }
     }
 
@@ -187,7 +187,7 @@ public abstract class a {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4975c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5117c : (String) invokeV.objValue;
     }
 
     public abstract void f(b bVar);
@@ -195,7 +195,7 @@ public abstract class a {
     public void g(c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f4974b.f4978d.submit(new d(this, cVar, c()));
+            this.f5116b.f5120d.submit(new d(this, cVar, c()));
         }
     }
 }

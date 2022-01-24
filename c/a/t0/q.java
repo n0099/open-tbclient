@@ -36,22 +36,22 @@ public class q implements c.a.t0.f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f21419e;
+    public TbPageContext f21655e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f21420f;
+    public LinearLayout f21656f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NavigationBar f21421g;
+    public NavigationBar f21657g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f21422h;
+    public RelativeLayout f21658h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f21423i;
+    public TextView f21659i;
 
     /* renamed from: j  reason: collision with root package name */
-    public EMTextView f21424j;
+    public EMTextView f21660j;
     public AttentionView k;
     public h l;
     @Nullable
@@ -64,7 +64,7 @@ public class q implements c.a.t0.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ q f21425e;
+        public final /* synthetic */ q f21661e;
 
         public a(q qVar) {
             Interceptable interceptable = $ic;
@@ -81,16 +81,16 @@ public class q implements c.a.t0.f {
                     return;
                 }
             }
-            this.f21425e = qVar;
+            this.f21661e = qVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21425e.m == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21661e.m == null) {
                 return;
             }
-            this.f21425e.m.a(this.f21425e.n);
+            this.f21661e.m.a(this.f21661e.n);
         }
     }
 
@@ -100,7 +100,7 @@ public class q implements c.a.t0.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ q f21426e;
+        public final /* synthetic */ q f21662e;
 
         public b(q qVar) {
             Interceptable interceptable = $ic;
@@ -117,17 +117,17 @@ public class q implements c.a.t0.f {
                     return;
                 }
             }
-            this.f21426e = qVar;
+            this.f21662e = qVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21426e.k == null || this.f21426e.f21419e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21662e.k == null || this.f21662e.f21655e == null) {
                 return;
             }
-            this.f21426e.j();
-            new ForumSquareActivityConfig(this.f21426e.f21419e.getPageActivity()).start();
+            this.f21662e.j();
+            new ForumSquareActivityConfig(this.f21662e.f21655e.getPageActivity()).start();
         }
     }
 
@@ -195,7 +195,7 @@ public class q implements c.a.t0.f {
                 return;
             }
             if (this.a.n.size() == 2 && !selectForumData.isInterestForumSelected) {
-                c.a.d.f.p.n.N(this.a.f21419e.getPageActivity(), this.a.f21419e.getString(R.string.activity_select_interest_forum_limit));
+                c.a.d.f.p.n.N(this.a.f21655e.getPageActivity(), this.a.f21655e.getString(R.string.activity_select_interest_forum_limit));
                 return;
             }
             boolean z = !selectForumData.isInterestForumSelected;
@@ -239,9 +239,9 @@ public class q implements c.a.t0.f {
         }
         ArrayList<SelectForumData> arrayList2 = new ArrayList<>();
         this.n = arrayList2;
-        this.f21419e = tbPageContext;
-        this.f21420f = linearLayout;
-        this.f21421g = navigationBar;
+        this.f21655e = tbPageContext;
+        this.f21656f = linearLayout;
+        this.f21657g = navigationBar;
         this.m = fVar;
         if (arrayList != null) {
             arrayList2.addAll(arrayList);
@@ -304,7 +304,7 @@ public class q implements c.a.t0.f {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            EMTextView eMTextView = this.f21424j;
+            EMTextView eMTextView = this.f21660j;
             if (eMTextView != null) {
                 eMTextView.setVisibility(0);
             }
@@ -316,17 +316,17 @@ public class q implements c.a.t0.f {
             if (hVar == null || !hVar.isViewAttached()) {
                 return;
             }
-            this.l.dettachView(this.f21422h);
+            this.l.dettachView(this.f21658h);
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            LayoutInflater.from(this.f21419e.getPageActivity()).inflate(R.layout.layout_select_interest_forum, (ViewGroup) this.f21420f, true);
-            this.f21422h = (RelativeLayout) this.f21420f.findViewById(R.id.select_interest_forum_root);
-            this.f21424j = (EMTextView) this.f21420f.findViewById(R.id.select_interest_forum_title_hint);
-            AttentionView attentionView = (AttentionView) this.f21420f.findViewById(R.id.select_interest_forum_attention_page);
+            LayoutInflater.from(this.f21655e.getPageActivity()).inflate(R.layout.layout_select_interest_forum, (ViewGroup) this.f21656f, true);
+            this.f21658h = (RelativeLayout) this.f21656f.findViewById(R.id.select_interest_forum_root);
+            this.f21660j = (EMTextView) this.f21656f.findViewById(R.id.select_interest_forum_title_hint);
+            AttentionView attentionView = (AttentionView) this.f21656f.findViewById(R.id.select_interest_forum_attention_page);
             this.k = attentionView;
             if (attentionView != null) {
                 attentionView.setForumSelectStateChangedListener(k());
@@ -340,9 +340,9 @@ public class q implements c.a.t0.f {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f21421g.setCenterTextTitle(this.f21419e.getString(R.string.activity_select_interest_forum_title));
-            TextView addTextButton = this.f21421g.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f21419e.getString(R.string.activity_select_interest_forum_save));
-            this.f21423i = addTextButton;
+            this.f21657g.setCenterTextTitle(this.f21655e.getString(R.string.activity_select_interest_forum_title));
+            TextView addTextButton = this.f21657g.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f21655e.getString(R.string.activity_select_interest_forum_save));
+            this.f21659i = addTextButton;
             if (addTextButton != null) {
                 addTextButton.setOnClickListener(new a(this));
             }
@@ -379,11 +379,11 @@ public class q implements c.a.t0.f {
     public void onViewChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            EMTextView eMTextView = this.f21424j;
+            EMTextView eMTextView = this.f21660j;
             if (eMTextView != null) {
                 SkinManager.setViewTextColor(eMTextView, R.color.CAM_X0108);
             }
-            TextView textView = this.f21423i;
+            TextView textView = this.f21659i;
             if (textView != null) {
                 textView.setTextColor(SkinManager.getColorStateListWithClickAndDisableState(R.color.CAM_X0302, i2));
             }
@@ -401,7 +401,7 @@ public class q implements c.a.t0.f {
     public final void p() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (textView = this.f21423i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (textView = this.f21659i) == null) {
             return;
         }
         textView.setEnabled(!this.n.isEmpty());
@@ -434,21 +434,21 @@ public class q implements c.a.t0.f {
 
     public final void s() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f21419e == null || this.f21422h == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f21655e == null || this.f21658h == null) {
             return;
         }
         h hVar = this.l;
         if (hVar == null || !hVar.isViewAttached()) {
-            h hVar2 = new h(this.f21419e.getPageActivity(), new b(this));
+            h hVar2 = new h(this.f21655e.getPageActivity(), new b(this));
             this.l = hVar2;
             hVar2.j(true);
-            this.l.m(this.f21419e.getString(R.string.activity_select_interest_forum_empty_forum_subtitle));
-            this.l.o(this.f21419e.getString(R.string.activity_select_interest_forum_empty_forum_title));
-            this.l.g(this.f21419e.getString(R.string.activity_select_interest_forum_empty_btn));
+            this.l.m(this.f21655e.getString(R.string.activity_select_interest_forum_empty_forum_subtitle));
+            this.l.o(this.f21655e.getString(R.string.activity_select_interest_forum_empty_forum_title));
+            this.l.g(this.f21655e.getString(R.string.activity_select_interest_forum_empty_btn));
             this.l.i(R.drawable.new_pic_emotion_07);
             this.l.p();
-            this.l.attachView(this.f21422h);
-            EMTextView eMTextView = this.f21424j;
+            this.l.attachView(this.f21658h);
+            EMTextView eMTextView = this.f21660j;
             if (eMTextView != null) {
                 eMTextView.setVisibility(8);
             }

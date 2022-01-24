@@ -20,32 +20,32 @@ public class KSCouponLabelTextView extends TextView implements b {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f57991b;
+    public float f58036b;
     @ColorInt
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57992c;
+    public int f58037c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f57993d;
+    public float f58038d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Paint f57994e;
+    public final Paint f58039e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Rect f57995f;
+    public final Rect f58040f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final RectF f57996g;
+    public final RectF f58041g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final RectF f57997h;
+    public final RectF f58042h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final RectF f57998i;
+    public final RectF f58043i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Path f57999j;
+    public final Path f58044j;
     public Path k;
     public Path l;
     public final RectF m;
@@ -53,12 +53,12 @@ public class KSCouponLabelTextView extends TextView implements b {
 
     public KSCouponLabelTextView(Context context) {
         super(context);
-        this.f57994e = new Paint();
-        this.f57995f = new Rect();
-        this.f57996g = new RectF();
-        this.f57997h = new RectF();
-        this.f57998i = new RectF();
-        this.f57999j = new Path();
+        this.f58039e = new Paint();
+        this.f58040f = new Rect();
+        this.f58041g = new RectF();
+        this.f58042h = new RectF();
+        this.f58043i = new RectF();
+        this.f58044j = new Path();
         this.m = new RectF();
         this.n = true;
         a(context, null, 0);
@@ -66,12 +66,12 @@ public class KSCouponLabelTextView extends TextView implements b {
 
     public KSCouponLabelTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f57994e = new Paint();
-        this.f57995f = new Rect();
-        this.f57996g = new RectF();
-        this.f57997h = new RectF();
-        this.f57998i = new RectF();
-        this.f57999j = new Path();
+        this.f58039e = new Paint();
+        this.f58040f = new Rect();
+        this.f58041g = new RectF();
+        this.f58042h = new RectF();
+        this.f58043i = new RectF();
+        this.f58044j = new Path();
         this.m = new RectF();
         this.n = true;
         a(context, attributeSet, 0);
@@ -79,22 +79,22 @@ public class KSCouponLabelTextView extends TextView implements b {
 
     public KSCouponLabelTextView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f57994e = new Paint();
-        this.f57995f = new Rect();
-        this.f57996g = new RectF();
-        this.f57997h = new RectF();
-        this.f57998i = new RectF();
-        this.f57999j = new Path();
+        this.f58039e = new Paint();
+        this.f58040f = new Rect();
+        this.f58041g = new RectF();
+        this.f58042h = new RectF();
+        this.f58043i = new RectF();
+        this.f58044j = new Path();
         this.m = new RectF();
         this.n = true;
         a(context, attributeSet, i2);
     }
 
     private void a() {
-        this.f57994e.setColor(this.f57992c);
-        this.f57994e.setStrokeWidth(this.f57991b);
-        this.f57994e.setStyle(Paint.Style.STROKE);
-        this.f57994e.setAntiAlias(true);
+        this.f58039e.setColor(this.f58037c);
+        this.f58039e.setStrokeWidth(this.f58036b);
+        this.f58039e.setStyle(Paint.Style.STROKE);
+        this.f58039e.setAntiAlias(true);
     }
 
     @SuppressLint({"CustomViewStyleable"})
@@ -102,9 +102,9 @@ public class KSCouponLabelTextView extends TextView implements b {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KSCouponLabelTextView, i2, 0);
         int color = context.getResources().getColor(R.color.ksad_reward_main_color);
         this.a = obtainStyledAttributes.getDimension(R.styleable.ksad_KSCouponLabelTextView_ksad_labelRadius, 8.0f);
-        this.f57991b = obtainStyledAttributes.getDimension(R.styleable.ksad_KSCouponLabelTextView_ksad_strokeSize, 2.0f);
-        this.f57992c = obtainStyledAttributes.getColor(R.styleable.ksad_KSCouponLabelTextView_ksad_strokeColor, color);
-        this.f57993d = obtainStyledAttributes.getDimension(R.styleable.ksad_KSCouponLabelTextView_ksad_sideRadius, 16.0f);
+        this.f58036b = obtainStyledAttributes.getDimension(R.styleable.ksad_KSCouponLabelTextView_ksad_strokeSize, 2.0f);
+        this.f58037c = obtainStyledAttributes.getColor(R.styleable.ksad_KSCouponLabelTextView_ksad_strokeColor, color);
+        this.f58038d = obtainStyledAttributes.getDimension(R.styleable.ksad_KSCouponLabelTextView_ksad_sideRadius, 16.0f);
         obtainStyledAttributes.recycle();
         a();
     }
@@ -164,12 +164,12 @@ public class KSCouponLabelTextView extends TextView implements b {
     private void a(RectF rectF, RectF rectF2) {
         rectF2.set(rectF);
         float f2 = rectF2.left;
-        float f3 = this.f57993d;
+        float f3 = this.f58038d;
         float f4 = f2 - f3;
         rectF2.left = f4;
         rectF2.right = f4 + (f3 * 2.0f);
         float height = rectF.height();
-        float f5 = this.f57993d;
+        float f5 = this.f58038d;
         float f6 = rectF2.top + ((height - (f5 * 2.0f)) / 2.0f);
         rectF2.top = f6;
         rectF2.bottom = f6 + (f5 * 2.0f);
@@ -178,12 +178,12 @@ public class KSCouponLabelTextView extends TextView implements b {
     private void b(RectF rectF, RectF rectF2) {
         rectF2.set(rectF);
         float f2 = rectF2.right;
-        float f3 = this.f57993d;
+        float f3 = this.f58038d;
         float f4 = f2 + f3;
         rectF2.right = f4;
         rectF2.left = f4 - (f3 * 2.0f);
         float height = rectF.height();
-        float f5 = this.f57993d;
+        float f5 = this.f58038d;
         float f6 = rectF2.top + ((height - (f5 * 2.0f)) / 2.0f);
         rectF2.top = f6;
         rectF2.bottom = f6 + (f5 * 2.0f);
@@ -192,7 +192,7 @@ public class KSCouponLabelTextView extends TextView implements b {
     @Override // com.kwad.sdk.widget.b
     public void a(c cVar) {
         int color = getResources().getColor(com.kwad.sdk.core.config.b.aM() ? R.color.ksad_reward_main_color : R.color.ksad_reward_main_color_orange);
-        this.f57992c = color;
+        this.f58037c = color;
         setTextColor(color);
         a();
         invalidate();
@@ -201,17 +201,17 @@ public class KSCouponLabelTextView extends TextView implements b {
     @Override // android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.f57995f.setEmpty();
-        getDrawingRect(this.f57995f);
-        float f2 = this.f57991b / 2.0f;
-        this.f57996g.set(this.f57995f);
-        RectF rectF = this.f57996g;
+        this.f58040f.setEmpty();
+        getDrawingRect(this.f58040f);
+        float f2 = this.f58036b / 2.0f;
+        this.f58041g.set(this.f58040f);
+        RectF rectF = this.f58041g;
         rectF.left += f2;
         rectF.top += f2;
         rectF.right -= f2;
         rectF.bottom -= f2;
-        a(rectF, this.f57997h);
-        b(this.f57996g, this.f57998i);
+        a(rectF, this.f58042h);
+        b(this.f58041g, this.f58043i);
         if (Build.VERSION.SDK_INT >= 19) {
             Path path = this.k;
             if (path == null) {
@@ -225,11 +225,11 @@ public class KSCouponLabelTextView extends TextView implements b {
             } else {
                 path2.reset();
             }
-            a(this.f57999j, this.k, this.l, this.f57996g, this.f57997h, this.f57998i);
+            a(this.f58044j, this.k, this.l, this.f58041g, this.f58042h, this.f58043i);
         } else {
-            a(this.f57999j, this.f57996g, this.f57997h, this.f57998i);
+            a(this.f58044j, this.f58041g, this.f58042h, this.f58043i);
         }
-        canvas.drawPath(this.f57999j, this.f57994e);
+        canvas.drawPath(this.f58044j, this.f58039e);
     }
 
     @Override // android.widget.TextView, android.view.View

@@ -36,16 +36,16 @@ public class b {
         public final /* synthetic */ WebView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f38119b;
+        public final /* synthetic */ View f38147b;
 
         /* renamed from: com.baidu.sapi2.utils.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public class RunnableC1849a implements Runnable {
+        public class RunnableC1850a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC1849a(a aVar) {
+            public RunnableC1850a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +67,7 @@ public class b {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.f38119b.setVisibility(4);
+                    this.a.f38147b.setVisibility(4);
                     this.a.a.reload();
                 }
             }
@@ -89,14 +89,14 @@ public class b {
                 }
             }
             this.a = webView;
-            this.f38119b = view;
+            this.f38147b = view;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.a.post(new RunnableC1849a(this));
+                this.a.post(new RunnableC1850a(this));
             }
         }
     }

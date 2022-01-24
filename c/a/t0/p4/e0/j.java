@@ -39,31 +39,31 @@ public class j {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.s0.s.s.a f21150b;
+    public c.a.s0.s.s.a f21386b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.p4.d0.d.c f21151c;
+    public c.a.t0.p4.d0.d.c f21387c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.t0.p4.d0.d.b f21152d;
+    public c.a.t0.p4.d0.d.b f21388d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdBaseViewPager f21153e;
+    public BdBaseViewPager f21389e;
 
     /* renamed from: f  reason: collision with root package name */
-    public StickerLayout f21154f;
+    public StickerLayout f21390f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f21155g;
+    public TextView f21391g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FragmentTabWidget f21156h;
+    public FragmentTabWidget f21392h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext<WriteMultiImgsActivity> f21157i;
+    public TbPageContext<WriteMultiImgsActivity> f21393i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f21158j;
+    public int f21394j;
     public LinearLayout k;
     public List<String> l;
     public WriteImagesInfo m;
@@ -77,7 +77,7 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f21159e;
+        public final /* synthetic */ j f21395e;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -94,17 +94,17 @@ public class j {
                     return;
                 }
             }
-            this.f21159e = jVar;
+            this.f21395e = jVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21159e.f21157i == null || this.f21159e.f21157i.getPageActivity() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21395e.f21393i == null || this.f21395e.f21393i.getPageActivity() == null) {
                 return;
             }
-            this.f21159e.f21157i.getPageActivity().setResult(0);
-            this.f21159e.f21157i.getPageActivity().finish();
+            this.f21395e.f21393i.getPageActivity().setResult(0);
+            this.f21395e.f21393i.getPageActivity().finish();
         }
     }
 
@@ -149,7 +149,7 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f21160e;
+        public final /* synthetic */ j f21396e;
 
         public c(j jVar) {
             Interceptable interceptable = $ic;
@@ -166,46 +166,46 @@ public class j {
                     return;
                 }
             }
-            this.f21160e = jVar;
+            this.f21396e = jVar;
         }
 
         @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.b
         public void onTabSelectionChanged(int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                j jVar = this.f21160e;
-                if (i2 == jVar.f21158j) {
+                j jVar = this.f21396e;
+                if (i2 == jVar.f21394j) {
                     return;
                 }
                 if (i2 == 0) {
-                    jVar.f21151c.d().setVisibility(0);
-                    this.f21160e.f21152d.d().setVisibility(8);
-                    if (ListUtils.isEmpty(this.f21160e.l)) {
-                        if (this.f21160e.n != null) {
-                            this.f21160e.n.b();
+                    jVar.f21387c.d().setVisibility(0);
+                    this.f21396e.f21388d.d().setVisibility(8);
+                    if (ListUtils.isEmpty(this.f21396e.l)) {
+                        if (this.f21396e.n != null) {
+                            this.f21396e.n.b();
                         }
                     } else {
-                        j jVar2 = this.f21160e;
-                        jVar2.f21151c.f(jVar2.l);
+                        j jVar2 = this.f21396e;
+                        jVar2.f21387c.f(jVar2.l);
                     }
                 } else if (i2 == 1) {
-                    StickerLayout stickerLayout = jVar.f21154f;
+                    StickerLayout stickerLayout = jVar.f21390f;
                     if (stickerLayout != null) {
                         stickerLayout.redraw();
                     }
-                    this.f21160e.f21151c.d().setVisibility(8);
-                    this.f21160e.f21152d.d().setVisibility(0);
+                    this.f21396e.f21387c.d().setVisibility(8);
+                    this.f21396e.f21388d.d().setVisibility(0);
                 } else if (i2 == 2) {
-                    StickerLayout stickerLayout2 = jVar.f21154f;
+                    StickerLayout stickerLayout2 = jVar.f21390f;
                     if (stickerLayout2 != null) {
                         stickerLayout2.redraw();
                     }
-                    this.f21160e.f21151c.d().setVisibility(8);
-                    this.f21160e.f21152d.d().setVisibility(0);
+                    this.f21396e.f21387c.d().setVisibility(8);
+                    this.f21396e.f21388d.d().setVisibility(0);
                 }
-                j jVar3 = this.f21160e;
-                jVar3.f21158j = i2;
-                jVar3.f21156h.setCurrentTab(this.f21160e.f21158j, true, true);
+                j jVar3 = this.f21396e;
+                jVar3.f21394j = i2;
+                jVar3.f21392h.setCurrentTab(this.f21396e.f21394j, true, true);
             }
         }
     }
@@ -216,7 +216,7 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f21161e;
+        public final /* synthetic */ j f21397e;
 
         public d(j jVar) {
             Interceptable interceptable = $ic;
@@ -233,17 +233,17 @@ public class j {
                     return;
                 }
             }
-            this.f21161e = jVar;
+            this.f21397e = jVar;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (this.f21161e.f21150b != null) {
-                    this.f21161e.f21150b.dismiss();
+                if (this.f21397e.f21386b != null) {
+                    this.f21397e.f21386b.dismiss();
                 }
-                this.f21161e.j(true);
+                this.f21397e.j(true);
             }
         }
     }
@@ -254,7 +254,7 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f21162e;
+        public final /* synthetic */ j f21398e;
 
         public e(j jVar) {
             Interceptable interceptable = $ic;
@@ -271,17 +271,17 @@ public class j {
                     return;
                 }
             }
-            this.f21162e = jVar;
+            this.f21398e = jVar;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (this.f21162e.f21150b != null) {
-                    this.f21162e.f21150b.dismiss();
+                if (this.f21398e.f21386b != null) {
+                    this.f21398e.f21386b.dismiss();
                 }
-                this.f21162e.j(false);
+                this.f21398e.j(false);
             }
         }
     }
@@ -302,11 +302,11 @@ public class j {
             }
         }
         this.a = 3;
-        this.f21153e = null;
-        this.f21155g = null;
-        this.f21158j = 0;
+        this.f21389e = null;
+        this.f21391g = null;
+        this.f21394j = 0;
         this.p = new ArrayList<>();
-        this.f21157i = tbPageContext;
+        this.f21393i = tbPageContext;
         this.n = cVar;
         this.k = (LinearLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(c.a.t0.p4.h.write_multi_imgs_activity, (ViewGroup) null);
         m();
@@ -316,7 +316,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             this.l = list;
-            this.f21151c.f(list);
+            this.f21387c.f(list);
         }
     }
 
@@ -328,11 +328,11 @@ public class j {
         this.a = i2;
         SkinManager.setBackgroundResource(this.k, c.a.t0.p4.d.CAM_X0205);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.o.getBackImageView(), c.a.t0.p4.f.ic_icon_pure_topbar_return40_svg, c.a.t0.p4.d.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        this.o.onChangeSkinType(this.f21157i, i2);
-        SkinManager.setNavbarTitleColor(this.f21155g, c.a.t0.p4.d.CAM_X0302, c.a.t0.p4.d.s_navbar_title_color);
-        this.f21154f.setRemoveRes(c.a.t0.p4.f.icon_sticker_delete);
-        this.f21151c.g();
-        this.f21152d.e();
+        this.o.onChangeSkinType(this.f21393i, i2);
+        SkinManager.setNavbarTitleColor(this.f21391g, c.a.t0.p4.d.CAM_X0302, c.a.t0.p4.d.s_navbar_title_color);
+        this.f21390f.setRemoveRes(c.a.t0.p4.f.icon_sticker_delete);
+        this.f21387c.g();
+        this.f21388d.e();
         Iterator<FragmentTabIndicator> it = this.p.iterator();
         while (it.hasNext()) {
             FragmentTabIndicator next = it.next();
@@ -340,13 +340,13 @@ public class j {
                 next.onChangeSkin(i2);
             }
         }
-        this.f21156h.setDiverColor(SkinManager.getColor(c.a.t0.p4.d.CAM_X0107));
+        this.f21392h.setDiverColor(SkinManager.getColor(c.a.t0.p4.d.CAM_X0107));
     }
 
     public void i(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-            this.f21154f.setVisibility(0);
+            this.f21390f.setVisibility(0);
             try {
                 Matrix matrix = new Matrix();
                 matrix.postScale(0.6f, 0.6f);
@@ -355,75 +355,75 @@ public class j {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
                 th.printStackTrace();
             }
-            this.f21154f.addSticker(bitmap, this.n);
+            this.f21390f.addSticker(bitmap, this.n);
         }
     }
 
     public final void j(boolean z) {
         TbPageContext<WriteMultiImgsActivity> tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (tbPageContext = this.f21157i) == null || tbPageContext.getOrignalPage() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (tbPageContext = this.f21393i) == null || tbPageContext.getOrignalPage() == null) {
             return;
         }
-        this.f21157i.getOrignalPage().finishActivity(z, this.m);
+        this.f21393i.getOrignalPage().finishActivity(z, this.m);
     }
 
     public void k(boolean z, WriteImagesInfo writeImagesInfo) {
         TbPageContext<WriteMultiImgsActivity> tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048580, this, z, writeImagesInfo) == null) || (tbPageContext = this.f21157i) == null || tbPageContext.getOrignalPage() == null) {
+        if (!(interceptable == null || interceptable.invokeZL(1048580, this, z, writeImagesInfo) == null) || (tbPageContext = this.f21393i) == null || tbPageContext.getOrignalPage() == null) {
             return;
         }
-        this.f21157i.getOrignalPage().finishActivity(z, writeImagesInfo);
+        this.f21393i.getOrignalPage().finishActivity(z, writeImagesInfo);
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f21156h = (FragmentTabWidget) this.k.findViewById(c.a.t0.p4.g.tab_widget);
-            Resources resources = this.f21157i.getResources();
+            this.f21392h = (FragmentTabWidget) this.k.findViewById(c.a.t0.p4.g.tab_widget);
+            Resources resources = this.f21393i.getResources();
             String[] stringArray = resources.getStringArray(c.a.t0.p4.c.edit_pic_no_fliter_tab);
             this.p.clear();
             for (int i2 = 0; i2 < stringArray.length; i2++) {
-                FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.f21157i.getContext());
+                FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.f21393i.getContext());
                 fragmentTabIndicator.setText(stringArray[i2]);
                 fragmentTabIndicator.setTextColorResId(c.a.t0.p4.d.edit_pic_tab_title_color);
                 fragmentTabIndicator.setTextSize(0, resources.getDimension(c.a.t0.p4.e.fontsize34));
                 fragmentTabIndicator.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-                this.f21156h.addView(fragmentTabIndicator, i2);
+                this.f21392h.addView(fragmentTabIndicator, i2);
                 this.p.add(fragmentTabIndicator);
             }
-            this.f21156h.setDiverColor(SkinManager.getColor(c.a.t0.p4.d.CAM_X0107));
-            this.f21156h.setCurrentTab(this.f21158j, true, false);
-            this.f21156h.setDviderRectWidth(n.f(this.f21157i.getContext(), c.a.t0.p4.e.ds64));
-            this.f21156h.setTabSelectionListener(new c(this));
+            this.f21392h.setDiverColor(SkinManager.getColor(c.a.t0.p4.d.CAM_X0107));
+            this.f21392h.setCurrentTab(this.f21394j, true, false);
+            this.f21392h.setDviderRectWidth(n.f(this.f21393i.getContext(), c.a.t0.p4.e.ds64));
+            this.f21392h.setTabSelectionListener(new c(this));
         }
     }
 
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f21153e = (BdBaseViewPager) this.k.findViewById(c.a.t0.p4.g.write_multi_imgs_viewpager);
-            this.f21154f = (StickerLayout) this.k.findViewById(c.a.t0.p4.g.stickers_container);
-            Resources resources = this.f21157i.getResources() == null ? TbadkCoreApplication.getInst().getResources() : this.f21157i.getResources();
+            this.f21389e = (BdBaseViewPager) this.k.findViewById(c.a.t0.p4.g.write_multi_imgs_viewpager);
+            this.f21390f = (StickerLayout) this.k.findViewById(c.a.t0.p4.g.stickers_container);
+            Resources resources = this.f21393i.getResources() == null ? TbadkCoreApplication.getInst().getResources() : this.f21393i.getResources();
             NavigationBar navigationBar = (NavigationBar) this.k.findViewById(c.a.t0.p4.g.write_multi_imgs_navibar);
             this.o = navigationBar;
             navigationBar.setCenterTextTitle(resources.getString(c.a.t0.p4.j.pic_navigation_title));
             this.o.showBottomLine();
-            this.f21155g = this.o.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, resources.getString(c.a.t0.p4.j.done));
+            this.f21391g = this.o.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, resources.getString(c.a.t0.p4.j.done));
             this.o.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             FrameLayout frameLayout = (FrameLayout) this.k.findViewById(c.a.t0.p4.g.edit_container);
-            c.a.t0.p4.d0.d.c cVar = new c.a.t0.p4.d0.d.c(this.f21157i);
-            this.f21151c = cVar;
+            c.a.t0.p4.d0.d.c cVar = new c.a.t0.p4.d0.d.c(this.f21393i);
+            this.f21387c = cVar;
             cVar.h(new b(this));
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) frameLayout.getLayoutParams();
-            layoutParams.setMargins(0, n.f(this.f21157i.getContext(), c.a.t0.p4.e.ds36), 0, 0);
-            this.f21151c.d().setLayoutParams(layoutParams);
-            frameLayout.addView(this.f21151c.d());
-            c.a.t0.p4.d0.d.b bVar = new c.a.t0.p4.d0.d.b(this.f21157i);
-            this.f21152d = bVar;
+            layoutParams.setMargins(0, n.f(this.f21393i.getContext(), c.a.t0.p4.e.ds36), 0, 0);
+            this.f21387c.d().setLayoutParams(layoutParams);
+            frameLayout.addView(this.f21387c.d());
+            c.a.t0.p4.d0.d.b bVar = new c.a.t0.p4.d0.d.b(this.f21393i);
+            this.f21388d = bVar;
             frameLayout.addView(bVar.d());
-            this.f21152d.d().setVisibility(8);
+            this.f21388d.d().setVisibility(8);
             l();
         }
     }
@@ -431,14 +431,14 @@ public class j {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f21151c.e();
+            this.f21387c.e();
         }
     }
 
     public void o() {
         StickerLayout stickerLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (stickerLayout = this.f21154f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (stickerLayout = this.f21390f) == null) {
             return;
         }
         stickerLayout.removeAllSticker(null);
@@ -454,15 +454,15 @@ public class j {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.f21150b == null) {
-                c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.f21157i.getPageActivity());
-                this.f21150b = aVar;
+            if (this.f21386b == null) {
+                c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.f21393i.getPageActivity());
+                this.f21386b = aVar;
                 aVar.setMessageId(c.a.t0.p4.j.orginal_conflict_tip);
-                this.f21150b.setPositiveButton(c.a.t0.p4.j.alert_yes_button, new d(this));
-                this.f21150b.setNegativeButton(c.a.t0.p4.j.cancel, new e(this));
-                this.f21150b.create(this.f21157i);
+                this.f21386b.setPositiveButton(c.a.t0.p4.j.alert_yes_button, new d(this));
+                this.f21386b.setNegativeButton(c.a.t0.p4.j.cancel, new e(this));
+                this.f21386b.create(this.f21393i);
             }
-            this.f21150b.show();
+            this.f21386b.show();
         }
     }
 }

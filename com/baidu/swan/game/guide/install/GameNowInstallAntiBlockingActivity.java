@@ -41,7 +41,7 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameNowInstallAntiBlockingActivity f39717e;
+        public final /* synthetic */ GameNowInstallAntiBlockingActivity f39745e;
 
         public a(GameNowInstallAntiBlockingActivity gameNowInstallAntiBlockingActivity) {
             Interceptable interceptable = $ic;
@@ -58,15 +58,15 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
                     return;
                 }
             }
-            this.f39717e = gameNowInstallAntiBlockingActivity;
+            this.f39745e = gameNowInstallAntiBlockingActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TextUtils.equals(this.f39717e.mType, "authorize");
-                this.f39717e.finish();
+                TextUtils.equals(this.f39745e.mType, "authorize");
+                this.f39745e.finish();
             }
         }
     }

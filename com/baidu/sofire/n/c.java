@@ -17,13 +17,13 @@ public final class c implements com.baidu.sofire.k.b {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38494b;
+    public String f38522b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f38495c;
+    public Context f38523c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f38496d;
+    public a f38524d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public final class c implements com.baidu.sofire.k.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, cVar) == null) {
             this.a = new b(context);
-            this.f38495c = context;
+            this.f38523c = context;
             if ("1".equals(com.baidu.sofire.p.a.a(IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0"))) {
-                this.f38496d = new a(this);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f38496d);
+                this.f38524d = new a(this);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f38524d);
             }
         }
     }
@@ -57,10 +57,10 @@ public final class c implements com.baidu.sofire.k.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.f38494b)) {
-                this.f38494b = this.a.a();
+            if (TextUtils.isEmpty(this.f38522b)) {
+                this.f38522b = this.a.a();
             }
-            return this.f38494b;
+            return this.f38522b;
         }
         return (String) invokeV.objValue;
     }

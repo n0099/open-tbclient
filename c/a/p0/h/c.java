@@ -17,16 +17,16 @@ public class c {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4683b;
+    public static String f4825b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4684c;
+    public static String f4826c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f4685d;
+    public static String f4827d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f4686e;
+    public static String f4828e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -73,7 +73,7 @@ public class c {
                 jSONObject.put("5", str);
                 jSONObject.put("6", System.currentTimeMillis());
                 jSONObject.put("7", "0");
-                jSONObject.put("8", c.a.p0.a.f4539b);
+                jSONObject.put("8", c.a.p0.a.f4681b);
                 jSONObject.put("9", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
                 jSONObject.put("10", "1.0.7");
                 jSONObject.put("14", c.a.p0.l.c.j(context));
@@ -94,10 +94,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                if (TextUtils.isEmpty(f4683b)) {
-                    f4683b = c.a.p0.l.c.h(context);
+                if (TextUtils.isEmpty(f4825b)) {
+                    f4825b = c.a.p0.l.c.h(context);
                 }
-                return TextUtils.isEmpty(f4683b) ? "" : f4683b;
+                return TextUtils.isEmpty(f4825b) ? "" : f4825b;
             } catch (Throwable th) {
                 c.a.p0.l.c.d(th);
                 return "";
@@ -111,11 +111,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
-                if (!TextUtils.isEmpty(f4686e)) {
-                    return f4686e;
+                if (!TextUtils.isEmpty(f4828e)) {
+                    return f4828e;
                 }
                 String b2 = c.a.p0.g.a.b(context, true, false);
-                f4686e = b2;
+                f4828e = b2;
                 return b2;
             } catch (Throwable unused) {
                 return "";
@@ -129,10 +129,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
-                if (TextUtils.isEmpty(f4684c)) {
-                    f4684c = context.getPackageName();
+                if (TextUtils.isEmpty(f4826c)) {
+                    f4826c = context.getPackageName();
                 }
-                return TextUtils.isEmpty(f4684c) ? "" : f4684c;
+                return TextUtils.isEmpty(f4826c) ? "" : f4826c;
             } catch (Throwable th) {
                 c.a.p0.l.c.d(th);
                 return "";
@@ -146,11 +146,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             try {
-                if (!TextUtils.isEmpty(f4685d)) {
-                    return f4685d;
+                if (!TextUtils.isEmpty(f4827d)) {
+                    return f4827d;
                 }
                 String j2 = c.a.p0.l.d.j(context);
-                f4685d = j2;
+                f4827d = j2;
                 return j2;
             } catch (Throwable unused) {
                 return "";

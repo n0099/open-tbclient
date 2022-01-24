@@ -108,9 +108,9 @@ public class LiveTabConcernTitleView extends b<g> {
     public void k(g gVar) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f14619f) || (viewHolder = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f14759f) || (viewHolder = this.m) == null) {
             return;
         }
-        viewHolder.mTitle.setText(gVar.f14619f);
+        viewHolder.mTitle.setText(gVar.f14759f);
     }
 }

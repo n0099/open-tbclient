@@ -299,7 +299,7 @@ public class MzSystemUtils {
 
     public static boolean isInternational() {
         if (com.meizu.cloud.pushsdk.base.a.a().a) {
-            return com.meizu.cloud.pushsdk.base.a.a().f58634b.booleanValue();
+            return com.meizu.cloud.pushsdk.base.a.a().f58679b.booleanValue();
         }
         return false;
     }

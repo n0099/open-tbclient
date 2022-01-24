@@ -1,6 +1,6 @@
 package com.baidu.tieba.personExtra;
 
-import c.a.t0.x2.e.q;
+import c.a.t0.y2.e.q;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

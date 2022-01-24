@@ -22,7 +22,7 @@ public class b {
 
     /* renamed from: c.a.r0.a.e0.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0297b extends g {
+    public static class C0306b extends g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +30,7 @@ public class b {
         /* loaded from: classes.dex */
         public static final class a {
             public static /* synthetic */ Interceptable $ic;
-            public static final C0297b a;
+            public static final C0306b a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -46,22 +46,22 @@ public class b {
                         return;
                     }
                 }
-                a = new C0297b(null);
+                a = new C0306b(null);
             }
         }
 
-        public /* synthetic */ C0297b(a aVar) {
+        public /* synthetic */ C0306b(a aVar) {
             this();
         }
 
-        public static C0297b d() {
+        public static C0306b d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (C0297b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (C0306b) invokeV.objValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0297b() {
+        public C0306b() {
             super("searchbox_sconsole_sp");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -91,7 +91,7 @@ public class b {
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && C0297b.d().getBoolean(a(str), false) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && C0306b.d().getBoolean(a(str), false) : invokeL.booleanValue;
     }
 
     public static void c(boolean z) {
@@ -100,6 +100,6 @@ public class b {
         if (!(interceptable == null || interceptable.invokeZ(65538, null, z) == null) || (L = c.a.r0.a.d2.e.L()) == null) {
             return;
         }
-        C0297b.d().putBoolean(a(L.N()), z);
+        C0306b.d().putBoolean(a(L.N()), z);
     }
 }

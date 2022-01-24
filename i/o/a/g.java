@@ -13,10 +13,10 @@ public final class g<T, R> implements d.a<R> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.d<T> f61830e;
+    public final i.d<T> f61875e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.n.f<? super T, ? extends R> f61831f;
+    public final i.n.f<? super T, ? extends R> f61876f;
 
     /* loaded from: classes4.dex */
     public static final class a<T, R> extends i.j<T> {
@@ -24,10 +24,10 @@ public final class g<T, R> implements d.a<R> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final i.j<? super R> f61832i;
+        public final i.j<? super R> f61877i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final i.n.f<? super T, ? extends R> f61833j;
+        public final i.n.f<? super T, ? extends R> f61878j;
         public boolean k;
 
         public a(i.j<? super R> jVar, i.n.f<? super T, ? extends R> fVar) {
@@ -45,15 +45,15 @@ public final class g<T, R> implements d.a<R> {
                     return;
                 }
             }
-            this.f61832i = jVar;
-            this.f61833j = fVar;
+            this.f61877i = jVar;
+            this.f61878j = fVar;
         }
 
         @Override // i.j
         public void f(i.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                this.f61832i.f(fVar);
+                this.f61877i.f(fVar);
             }
         }
 
@@ -63,7 +63,7 @@ public final class g<T, R> implements d.a<R> {
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.k) {
                 return;
             }
-            this.f61832i.onCompleted();
+            this.f61877i.onCompleted();
         }
 
         @Override // i.e
@@ -75,7 +75,7 @@ public final class g<T, R> implements d.a<R> {
                     return;
                 }
                 this.k = true;
-                this.f61832i.onError(th);
+                this.f61877i.onError(th);
             }
         }
 
@@ -84,7 +84,7 @@ public final class g<T, R> implements d.a<R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
                 try {
-                    this.f61832i.onNext(this.f61833j.call(t));
+                    this.f61877i.onNext(this.f61878j.call(t));
                 } catch (Throwable th) {
                     i.m.a.e(th);
                     unsubscribe();
@@ -109,8 +109,8 @@ public final class g<T, R> implements d.a<R> {
                 return;
             }
         }
-        this.f61830e = dVar;
-        this.f61831f = fVar;
+        this.f61875e = dVar;
+        this.f61876f = fVar;
     }
 
     @Override // i.d.a, i.n.b
@@ -121,9 +121,9 @@ public final class g<T, R> implements d.a<R> {
     public void call(i.j<? super R> jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-            a aVar = new a(jVar, this.f61831f);
+            a aVar = new a(jVar, this.f61876f);
             jVar.b(aVar);
-            this.f61830e.D(aVar);
+            this.f61875e.D(aVar);
         }
     }
 }

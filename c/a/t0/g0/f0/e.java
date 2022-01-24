@@ -47,20 +47,20 @@ public class e extends k {
                 return;
             }
         }
-        this.f17778e = e2Var;
+        this.f17600e = e2Var;
     }
 
     public static boolean Y(e2 e2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, e2Var)) == null) ? e2Var != null && e2Var.getType() == e2.y3 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, e2Var)) == null) ? e2Var != null && e2Var.getType() == e2.z3 : invokeL.booleanValue;
     }
 
     @Override // c.a.t0.g0.f0.k, c.a.t0.g0.f0.b, c.a.s0.s.q.a
     public e2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17778e : (e2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17600e : (e2) invokeV.objValue;
     }
 
     @Override // c.a.t0.g0.f0.k, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n

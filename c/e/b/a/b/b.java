@@ -22,13 +22,13 @@ public class b {
     public final WebView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f28052b;
+    public final String f28080b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f28053c;
+    public final String f28081c;
 
     /* renamed from: d  reason: collision with root package name */
-    public URL f28054d;
+    public URL f28082d;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
@@ -36,7 +36,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f28055e;
+        public final /* synthetic */ b f28083e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class b {
                     return;
                 }
             }
-            this.f28055e = bVar;
+            this.f28083e = bVar;
         }
 
         @Override // java.lang.Runnable
@@ -61,10 +61,10 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f28055e.a == null) {
+                    if (this.f28083e.a == null) {
                         return;
                     }
-                    this.f28055e.f28054d = new URL(this.f28055e.a.getUrl());
+                    this.f28083e.f28082d = new URL(this.f28083e.a.getUrl());
                 } catch (MalformedURLException unused) {
                 }
             }
@@ -73,17 +73,17 @@ public class b {
 
     /* renamed from: c.e.b.a.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class RunnableC1631b implements Runnable {
+    public class RunnableC1632b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f28056e;
+        public final /* synthetic */ String f28084e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f28057f;
+        public final /* synthetic */ b f28085f;
 
-        public RunnableC1631b(b bVar, String str) {
+        public RunnableC1632b(b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,8 +98,8 @@ public class b {
                     return;
                 }
             }
-            this.f28057f = bVar;
-            this.f28056e = str;
+            this.f28085f = bVar;
+            this.f28084e = str;
         }
 
         @Override // java.lang.Runnable
@@ -107,31 +107,31 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    URL url = new URL(this.f28057f.a.getUrl());
-                    if (this.f28057f.f28054d != null && !url.sameFile(this.f28057f.f28054d)) {
+                    URL url = new URL(this.f28085f.a.getUrl());
+                    if (this.f28085f.f28082d != null && !url.sameFile(this.f28085f.f28082d)) {
                         HashSet hashSet = new HashSet();
                         hashSet.add(url.toString());
-                        hashSet.add(this.f28057f.f28054d.toString());
+                        hashSet.add(this.f28085f.f28082d.toString());
                         return;
                     }
                 } catch (MalformedURLException unused) {
                 }
-                String str = this.f28057f.f28052b;
-                if (!TextUtils.isEmpty(this.f28056e)) {
-                    str = str + "(" + this.f28056e + SmallTailInfo.EMOTION_SUFFIX;
+                String str = this.f28085f.f28080b;
+                if (!TextUtils.isEmpty(this.f28084e)) {
+                    str = str + "(" + this.f28084e + SmallTailInfo.EMOTION_SUFFIX;
                 }
                 if (LogUtil.DEBUG) {
                     LogUtil.logd("loadUrl=" + str);
                 }
                 try {
-                    if (this.f28057f.a == null) {
+                    if (this.f28085f.a == null) {
                         return;
                     }
                     if (Build.VERSION.SDK_INT >= 19) {
-                        this.f28057f.a.evaluateJavascript(str, null);
+                        this.f28085f.a.evaluateJavascript(str, null);
                         return;
                     }
-                    this.f28057f.a.loadUrl("javascript:" + str);
+                    this.f28085f.a.loadUrl("javascript:" + str);
                 } catch (Throwable unused2) {
                 }
             }
@@ -144,10 +144,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f28058e;
+        public final /* synthetic */ String f28086e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f28059f;
+        public final /* synthetic */ b f28087f;
 
         public c(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -164,8 +164,8 @@ public class b {
                     return;
                 }
             }
-            this.f28059f = bVar;
-            this.f28058e = str;
+            this.f28087f = bVar;
+            this.f28086e = str;
         }
 
         @Override // java.lang.Runnable
@@ -173,31 +173,31 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    URL url = new URL(this.f28059f.a.getUrl());
-                    if (this.f28059f.f28054d != null && !url.sameFile(this.f28059f.f28054d)) {
+                    URL url = new URL(this.f28087f.a.getUrl());
+                    if (this.f28087f.f28082d != null && !url.sameFile(this.f28087f.f28082d)) {
                         HashSet hashSet = new HashSet();
                         hashSet.add(url.toString());
-                        hashSet.add(this.f28059f.f28054d.toString());
+                        hashSet.add(this.f28087f.f28082d.toString());
                         return;
                     }
                 } catch (MalformedURLException unused) {
                 }
-                String str = this.f28059f.f28053c;
-                if (!TextUtils.isEmpty(this.f28058e)) {
-                    str = str + "(" + this.f28058e + SmallTailInfo.EMOTION_SUFFIX;
+                String str = this.f28087f.f28081c;
+                if (!TextUtils.isEmpty(this.f28086e)) {
+                    str = str + "(" + this.f28086e + SmallTailInfo.EMOTION_SUFFIX;
                 }
                 if (LogUtil.DEBUG) {
                     LogUtil.logd("loadUrl=" + str);
                 }
                 try {
-                    if (this.f28059f.a == null) {
+                    if (this.f28087f.a == null) {
                         return;
                     }
                     if (Build.VERSION.SDK_INT >= 19) {
-                        this.f28059f.a.evaluateJavascript(str, null);
+                        this.f28087f.a.evaluateJavascript(str, null);
                         return;
                     }
-                    this.f28059f.a.loadUrl("javascript:" + str);
+                    this.f28087f.a.loadUrl("javascript:" + str);
                 } catch (Throwable unused2) {
                 }
             }
@@ -220,8 +220,8 @@ public class b {
             }
         }
         this.a = webView;
-        this.f28052b = str;
-        this.f28053c = str2;
+        this.f28080b = str;
+        this.f28081c = str2;
         if (webView != null) {
             c(new a(this));
         }
@@ -243,18 +243,18 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             if (LogUtil.DEBUG) {
-                LogUtil.logd("sucessJsCallback=" + str + "#" + this.f28052b);
+                LogUtil.logd("sucessJsCallback=" + str + "#" + this.f28080b);
             }
-            if (TextUtils.isEmpty(this.f28052b) || this.a == null) {
+            if (TextUtils.isEmpty(this.f28080b) || this.a == null) {
                 return;
             }
-            c(new RunnableC1631b(this, str));
+            c(new RunnableC1632b(this, str));
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(this.f28053c) || this.a == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(this.f28081c) || this.a == null) {
             return;
         }
         c(new c(this, str));

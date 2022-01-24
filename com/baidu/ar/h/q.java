@@ -356,7 +356,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f55319c).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f55364c).start().getInputStream();
                 String str2 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str2 = str2 + new String(bArr, "utf-8");
@@ -384,7 +384,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f55318b).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f55363b).start().getInputStream();
                 String str2 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str2 = str2 + new String(bArr, "utf-8");

@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UserTropicGiftBagActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +39,13 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public TextView mTropicGreetings;
     public TbImageView mVipPic;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserTropicGiftBagActivity f48495e;
+        public final /* synthetic */ UserTropicGiftBagActivity f48505e;
 
         public a(UserTropicGiftBagActivity userTropicGiftBagActivity) {
             Interceptable interceptable = $ic;
@@ -62,21 +62,21 @@ public class UserTropicGiftBagActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f48495e = userTropicGiftBagActivity;
+            this.f48505e = userTropicGiftBagActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TbPageContext<?> pageContext = this.f48495e.getPageContext();
-                if (view.getId() == this.f48495e.mKnow.getId()) {
+                TbPageContext<?> pageContext = this.f48505e.getPageContext();
+                if (view.getId() == this.f48505e.mKnow.getId()) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    this.f48495e.sendStatisticLog(2);
-                    this.f48495e.finish();
+                    this.f48505e.sendStatisticLog(2);
+                    this.f48505e.finish();
                 }
-                if (view.getId() == this.f48495e.mClose.getId()) {
-                    this.f48495e.finish();
+                if (view.getId() == this.f48505e.mClose.getId()) {
+                    this.f48505e.finish();
                 }
             }
         }

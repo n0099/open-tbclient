@@ -22,10 +22,10 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
     public static final jg f503a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f61200b;
+    public static final iy f61245b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f61201c;
+    public static final iy f61246c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -55,8 +55,8 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
         }
         f503a = new jg("DataCollectionItem");
         a = new iy("", (byte) 10, (short) 1);
-        f61200b = new iy("", (byte) 8, (short) 2);
-        f61201c = new iy("", (byte) 11, (short) 3);
+        f61245b = new iy("", (byte) 8, (short) 2);
+        f61246c = new iy("", (byte) 11, (short) 3);
     }
 
     public hn() {
@@ -256,12 +256,12 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
             jbVar.a(this.f504a);
             jbVar.b();
             if (this.f505a != null) {
-                jbVar.a(f61200b);
+                jbVar.a(f61245b);
                 jbVar.a(this.f505a.a());
                 jbVar.b();
             }
             if (this.f506a != null) {
-                jbVar.a(f61201c);
+                jbVar.a(f61246c);
                 jbVar.a(this.f506a);
                 jbVar.b();
             }

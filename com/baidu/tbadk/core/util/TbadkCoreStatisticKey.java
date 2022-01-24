@@ -88,6 +88,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_COPY_CLIENT_NUMBER_CLICK = "c14146";
     public static final String KEY_DARK_MODE_FOLLOW_SYSTEM = "c13577";
     public static final String KEY_DELETE_THREAD_REASON = "c13123";
+    public static final String KEY_DRAG_TO_PERSONAL_CENTER = "c14536";
     public static final String KEY_DYNAMIC_CARD_CLICK = "c13564";
     public static final String KEY_DYNAMIC_CARD_SHOW = "c13578";
     public static final String KEY_ENTER_VIDEO_PAGE = "c12664";
@@ -171,6 +172,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_VIDEO_ACCOUNT_EXPOSURE = "c14198";
     public static final String KEY_VIDEO_ACCOUNT_PROGRESS_CLICK = "c14184";
     public static final String KEY_VIDEO_FROM_OUTSIDE = "c14304";
+    public static final String KEY_VIDEO_HORIZONTAL_PLAY = "c14499";
     public static final String KEY_VIDEO_SHARE_SUCCESS = "c14181";
     public static final String KEY_VIDEO_SPLASH_SKIP = "c12946";
     public static final String KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK = "c14302";

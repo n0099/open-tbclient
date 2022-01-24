@@ -12,7 +12,7 @@ public class g3 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Info f30327b;
+    public Info f30355b;
 
     public g3(Info info) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class g3 {
                 return;
             }
         }
-        this.f30327b = info;
+        this.f30355b = info;
         if (info != null) {
             this.a = info.getPid();
         }

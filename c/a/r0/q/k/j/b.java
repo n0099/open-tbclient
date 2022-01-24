@@ -23,12 +23,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f11628c;
+    public static volatile b f11770c;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f11629b;
+    public volatile boolean f11771b;
 
     /* loaded from: classes6.dex */
     public static class a extends j {
@@ -67,7 +67,7 @@ public class b {
                 return;
             }
         }
-        this.f11629b = false;
+        this.f11771b = false;
         this.a = new a();
     }
 
@@ -75,14 +75,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f11628c == null) {
+            if (f11770c == null) {
                 synchronized (b.class) {
-                    if (f11628c == null) {
-                        f11628c = new b();
+                    if (f11770c == null) {
+                        f11770c = new b();
                     }
                 }
             }
-            return f11628c;
+            return f11770c;
         }
         return (b) invokeV.objValue;
     }
@@ -142,7 +142,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                if (this.f11629b) {
+                if (this.f11771b) {
                     return true;
                 }
                 String D = c.a.r0.w.d.D(AppRuntime.getAppContext(), "config/union-cfg.json");
@@ -182,7 +182,7 @@ public class b {
                         j2 = optLong;
                     }
                     h(new c.a.r0.q.k.j.a(null, optInt2, optInt3, optString, optString3, optString4, String.valueOf(optInt), hashSet2, optString2, Long.valueOf(j2)));
-                    this.f11629b = true;
+                    this.f11771b = true;
                     return true;
                 } catch (JSONException unused) {
                     return false;
@@ -204,15 +204,15 @@ public class b {
 
     public final void h(c.a.r0.q.k.j.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null || TextUtils.isEmpty(aVar.f11621d) || TextUtils.isEmpty(aVar.f11626i) || TextUtils.isEmpty(aVar.f11624g)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null || TextUtils.isEmpty(aVar.f11763d) || TextUtils.isEmpty(aVar.f11768i) || TextUtils.isEmpty(aVar.f11766g)) {
             return;
         }
-        SharedPreferences.Editor putString = this.a.edit().putString("hostName", aVar.f11621d).putString("schemeHead", aVar.f11626i).putString("shareCallbackUrl", aVar.f11622e).putString("failureUrl", aVar.f11623f).putString("version", aVar.f11624g);
-        Set<String> set = aVar.f11625h;
+        SharedPreferences.Editor putString = this.a.edit().putString("hostName", aVar.f11763d).putString("schemeHead", aVar.f11768i).putString("shareCallbackUrl", aVar.f11764e).putString("failureUrl", aVar.f11765f).putString("version", aVar.f11766g);
+        Set<String> set = aVar.f11767h;
         if (set != null && !set.isEmpty()) {
-            putString.putStringSet(SocialOperation.GAME_SIGNATURE, aVar.f11625h);
+            putString.putStringSet(SocialOperation.GAME_SIGNATURE, aVar.f11767h);
         }
-        Long l = aVar.f11627j;
+        Long l = aVar.f11769j;
         if (l != null) {
             putString.putLong("identity", l.longValue());
         }
@@ -224,10 +224,10 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) || aVar == null) {
             return;
         }
-        SharedPreferences.Editor putString = this.a.edit().putString("hostName", aVar.f11621d).putString("schemeHead", aVar.f11626i).putString("shareCallbackUrl", aVar.f11622e).putString("failureUrl", aVar.f11623f).putString("contentType", aVar.a).putInt("containerNo", aVar.f11620c).putInt("officialNo", aVar.f11619b).putString("version", aVar.f11624g);
-        Set<String> set = aVar.f11625h;
+        SharedPreferences.Editor putString = this.a.edit().putString("hostName", aVar.f11763d).putString("schemeHead", aVar.f11768i).putString("shareCallbackUrl", aVar.f11764e).putString("failureUrl", aVar.f11765f).putString("contentType", aVar.a).putInt("containerNo", aVar.f11762c).putInt("officialNo", aVar.f11761b).putString("version", aVar.f11766g);
+        Set<String> set = aVar.f11767h;
         if (set != null && !set.isEmpty()) {
-            putString.putStringSet(SocialOperation.GAME_SIGNATURE, aVar.f11625h);
+            putString.putStringSet(SocialOperation.GAME_SIGNATURE, aVar.f11767h);
         }
         putString.apply();
     }

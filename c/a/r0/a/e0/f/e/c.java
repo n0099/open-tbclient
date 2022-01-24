@@ -20,18 +20,18 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f5664e;
+    public static final boolean f5806e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f5665b;
+    public JSONArray f5807b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5666c;
+    public String f5808c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5667d;
+    public String f5809d;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class c {
                 return;
             }
         }
-        f5664e = k.a;
+        f5806e = k.a;
     }
 
     public c() {
@@ -69,14 +69,14 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
             c cVar = new c();
             try {
-                cVar.f5665b = jSONObject.getJSONArray("host");
+                cVar.f5807b = jSONObject.getJSONArray("host");
                 cVar.a = jSONObject.getString("appKey");
                 jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                cVar.f5666c = jSONObject.getString(ClientCookie.PORT_ATTR);
-                cVar.f5667d = Uri.decode(jSONObject.optString("url"));
+                cVar.f5808c = jSONObject.getString(ClientCookie.PORT_ATTR);
+                cVar.f5809d = Uri.decode(jSONObject.optString("url"));
                 return cVar;
             } catch (JSONException unused) {
-                boolean z = f5664e;
+                boolean z = f5806e;
                 return null;
             }
         }
@@ -87,7 +87,7 @@ public class c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            JSONArray jSONArray = this.f5665b;
+            JSONArray jSONArray = this.f5807b;
             if (jSONArray == null) {
                 return "";
             }
@@ -95,7 +95,7 @@ public class c {
             if (TextUtils.isEmpty(optString)) {
                 return "";
             }
-            return "http://" + optString + ":" + this.f5666c;
+            return "http://" + optString + ":" + this.f5808c;
         }
         return (String) invokeI.objValue;
     }

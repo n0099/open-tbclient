@@ -26,31 +26,31 @@ public class b {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public PbContent f12810b;
+    public PbContent f12954b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f12811c;
+    public boolean f12955c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12812d;
+    public int f12956d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12813e;
+    public int f12957e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public PostData f12814f;
+    public PostData f12958f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public HotTopicStat.Locate f12815g;
+    public HotTopicStat.Locate f12959g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12816h;
+    public String f12960h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f12817i;
+    public boolean f12961i;
 
     public b(@NonNull e2 e2Var, @NonNull PbContent pbContent) {
         Interceptable interceptable = $ic;
@@ -67,10 +67,10 @@ public class b {
                 return;
             }
         }
-        this.f12815g = HotTopicStat.Locate.UNDEFINED;
+        this.f12959g = HotTopicStat.Locate.UNDEFINED;
         this.a = e2Var;
-        this.f12810b = pbContent;
-        this.f12811c = TextUtils.equals(UrlUtils.getParamValue(pbContent.link, "is_video_topic"), "1");
+        this.f12954b = pbContent;
+        this.f12955c = TextUtils.equals(UrlUtils.getParamValue(pbContent.link, "is_video_topic"), "1");
     }
 
     @NonNull
@@ -85,7 +85,7 @@ public class b {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.f12817i = z;
+            this.f12961i = z;
             return this;
         }
         return (b) invokeZ.objValue;
@@ -96,7 +96,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
-            this.f12815g = locate;
+            this.f12959g = locate;
             return this;
         }
         return (b) invokeL.objValue;
@@ -107,7 +107,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postData)) == null) {
-            this.f12814f = postData;
+            this.f12958f = postData;
             return this;
         }
         return (b) invokeL.objValue;
@@ -118,7 +118,7 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            this.f12812d = i2;
+            this.f12956d = i2;
             return this;
         }
         return (b) invokeI.objValue;
@@ -129,7 +129,7 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            this.f12813e = i2;
+            this.f12957e = i2;
             return this;
         }
         return (b) invokeI.objValue;
@@ -147,10 +147,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f12816h == null) {
-                this.f12816h = UrlUtils.appendParam(this.f12810b.link, "locate", i().toString());
+            if (this.f12960h == null) {
+                this.f12960h = UrlUtils.appendParam(this.f12954b.link, "locate", i().toString());
             }
-            return this.f12816h;
+            return this.f12960h;
         }
         return (String) invokeV.objValue;
     }
@@ -159,14 +159,14 @@ public class b {
     public HotTopicStat.Locate i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12815g : (HotTopicStat.Locate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12959g : (HotTopicStat.Locate) invokeV.objValue;
     }
 
     @NonNull
     public PbContent j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f12810b : (PbContent) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f12954b : (PbContent) invokeV.objValue;
     }
 
     @Nullable
@@ -174,7 +174,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            PostData postData = this.f12814f;
+            PostData postData = this.f12958f;
             if (postData == null) {
                 return null;
             }
@@ -198,12 +198,12 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             int i3 = R.color.CAM_X0304;
             if (o()) {
-                i2 = this.f12813e;
+                i2 = this.f12957e;
                 if (i2 == 0) {
                     return i3;
                 }
             } else {
-                i2 = this.f12812d;
+                i2 = this.f12956d;
                 if (i2 == 0) {
                     return i3;
                 }
@@ -216,19 +216,19 @@ public class b {
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f12817i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f12961i : invokeV.booleanValue;
     }
 
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f12811c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f12955c : invokeV.booleanValue;
     }
 
     public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f12811c = z;
+            this.f12955c = z;
         }
     }
 }

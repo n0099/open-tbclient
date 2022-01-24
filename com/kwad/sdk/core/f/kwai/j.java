@@ -12,15 +12,15 @@ public class j {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f55839b = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue<IBinder> f55884b = new LinkedBlockingQueue<>(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f55840c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.j.1
+    public ServiceConnection f55885c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.j.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 com.kwad.sdk.core.d.a.c("ZTEDeviceIDHelper", "onServiceConnected");
-                j.this.f55839b.put(iBinder);
+                j.this.f55884b.put(iBinder);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -44,18 +44,18 @@ public class j {
             intent.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
             intent.setAction("com.bun.msa.action.bindto.service");
             intent.putExtra("com.bun.msa.param.pkgname", this.a.getPackageName());
-            boolean bindService = this.a.bindService(intent, this.f55840c, 1);
+            boolean bindService = this.a.bindService(intent, this.f55885c, 1);
             com.kwad.sdk.core.d.a.c("ZTEDeviceIDHelper", "getOAID isBind=" + bindService);
             if (bindService) {
                 try {
-                    str = new f.a(this.f55839b.take()).a();
+                    str = new f.a(this.f55884b.take()).a();
                     com.kwad.sdk.core.d.a.c("ZTEDeviceIDHelper", "getOAID oaid:" + str);
                     context = this.a;
-                    serviceConnection = this.f55840c;
+                    serviceConnection = this.f55885c;
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
                     context = this.a;
-                    serviceConnection = this.f55840c;
+                    serviceConnection = this.f55885c;
                 }
                 context.unbindService(serviceConnection);
             }

@@ -31,22 +31,22 @@ public class j extends c.a.r0.a.u.e.p.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ArrayMap f9289e;
+        public final /* synthetic */ ArrayMap f9431e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f9290f;
+        public final /* synthetic */ JSONArray f9432f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f9291g;
+        public final /* synthetic */ JSONArray f9433g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f9292h;
+        public final /* synthetic */ JSONArray f9434h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f9293i;
+        public final /* synthetic */ JSONObject f9435i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ j f9294j;
+        public final /* synthetic */ j f9436j;
 
         public a(j jVar, ArrayMap arrayMap, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -63,12 +63,12 @@ public class j extends c.a.r0.a.u.e.p.a {
                     return;
                 }
             }
-            this.f9294j = jVar;
-            this.f9289e = arrayMap;
-            this.f9290f = jSONArray;
-            this.f9291g = jSONArray2;
-            this.f9292h = jSONArray3;
-            this.f9293i = jSONObject;
+            this.f9436j = jVar;
+            this.f9431e = arrayMap;
+            this.f9432f = jSONArray;
+            this.f9433g = jSONArray2;
+            this.f9434h = jSONArray3;
+            this.f9435i = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -92,23 +92,23 @@ public class j extends c.a.r0.a.u.e.p.a {
                 String optString = optJSONObject.optString("fileID");
                 String optString2 = optJSONObject.optString("tempFileURL");
                 if (optJSONObject.optString("status").equals("0") && !TextUtils.isEmpty(optString2)) {
-                    this.f9289e.put(optString, optString2);
+                    this.f9431e.put(optString, optString2);
                 }
             }
-            this.f9294j.G(this.f9289e, this.f9290f, "images");
-            this.f9294j.G(this.f9289e, this.f9291g, "urls");
-            this.f9294j.G(this.f9289e, this.f9292h, "url");
+            this.f9436j.G(this.f9431e, this.f9432f, "images");
+            this.f9436j.G(this.f9431e, this.f9433g, "urls");
+            this.f9436j.G(this.f9431e, this.f9434h, "url");
             try {
-                this.f9293i.put("images", this.f9290f);
-                this.f9293i.put("urls", this.f9291g);
-                this.f9293i.put("url", this.f9292h);
+                this.f9435i.put("images", this.f9432f);
+                this.f9435i.put("urls", this.f9433g);
+                this.f9435i.put("url", this.f9434h);
             } catch (JSONException unused2) {
             }
             SwanAppActivity activity = c.a.r0.a.g1.f.U().getActivity();
             if (activity == null) {
-                c.a.r0.a.c1.a.C().b(this.f9294j.getContext(), this.f9293i);
+                c.a.r0.a.c1.a.C().b(this.f9436j.getContext(), this.f9435i);
             } else {
-                c.a.r0.a.c1.a.C().b(activity, this.f9293i);
+                c.a.r0.a.c1.a.C().b(activity, this.f9435i);
             }
         }
     }
@@ -232,13 +232,13 @@ public class j extends c.a.r0.a.u.e.p.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
             int length = jSONArray.length();
-            if (jSONArray != null && length > 0 && (L = c.a.r0.a.d2.e.L()) != null && !TextUtils.isEmpty(L.f5537f) && !TextUtils.isEmpty(L.j0())) {
+            if (jSONArray != null && length > 0 && (L = c.a.r0.a.d2.e.L()) != null && !TextUtils.isEmpty(L.f5679f) && !TextUtils.isEmpty(L.j0())) {
                 for (int i2 = 0; i2 < length; i2++) {
                     try {
                         String optString = jSONArray.optString(i2);
                         PathType s = c.a.r0.a.o2.b.s(optString);
                         if (s == PathType.BD_FILE) {
-                            optString = c.a.r0.a.o2.b.M(optString, L.f5537f);
+                            optString = c.a.r0.a.o2.b.M(optString, L.f5679f);
                         } else if (s == PathType.RELATIVE) {
                             optString = c.a.r0.a.o2.b.L(optString, L, L.j0());
                         }

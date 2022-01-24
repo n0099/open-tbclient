@@ -14,16 +14,16 @@ public final class ac implements Runnable {
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ List f60660b;
+    public final /* synthetic */ List f60705b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ List f60661c;
+    public final /* synthetic */ List f60706c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f60662d;
+    public final /* synthetic */ String f60707d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ aa f60663e;
+    public final /* synthetic */ aa f60708e;
 
     public ac(aa aaVar, int i2, List list, List list2, String str) {
         Interceptable interceptable = $ic;
@@ -40,11 +40,11 @@ public final class ac implements Runnable {
                 return;
             }
         }
-        this.f60663e = aaVar;
+        this.f60708e = aaVar;
         this.a = i2;
-        this.f60660b = list;
-        this.f60661c = list2;
-        this.f60662d = str;
+        this.f60705b = list;
+        this.f60706c = list2;
+        this.f60707d = str;
     }
 
     @Override // java.lang.Runnable
@@ -52,10 +52,10 @@ public final class ac implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            aa aaVar = this.f60663e;
-            PushMessageCallback pushMessageCallback = ((z) aaVar).f60684b;
+            aa aaVar = this.f60708e;
+            PushMessageCallback pushMessageCallback = ((z) aaVar).f60729b;
             context = aaVar.a;
-            pushMessageCallback.onSetAlias(context, this.a, this.f60660b, this.f60661c, this.f60662d);
+            pushMessageCallback.onSetAlias(context, this.a, this.f60705b, this.f60706c, this.f60707d);
         }
     }
 }

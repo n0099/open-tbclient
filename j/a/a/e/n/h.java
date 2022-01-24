@@ -14,10 +14,10 @@ public class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62350b;
+    public String f62395b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62351c;
+    public String f62396c;
 
     public h(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -35,15 +35,15 @@ public class h {
             }
         }
         this.a = str;
-        this.f62350b = str2;
-        this.f62351c = str3;
+        this.f62395b = str2;
+        this.f62396c = str3;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TopUiParams{title='" + this.a + ExtendedMessageFormat.QUOTE + ", rightTitle='" + this.f62350b + ExtendedMessageFormat.QUOTE + ", rightUrl='" + p.a(this.f62351c) + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "TopUiParams{title='" + this.a + ExtendedMessageFormat.QUOTE + ", rightTitle='" + this.f62395b + ExtendedMessageFormat.QUOTE + ", rightUrl='" + p.a(this.f62396c) + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

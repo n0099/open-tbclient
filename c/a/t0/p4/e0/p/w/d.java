@@ -22,13 +22,13 @@ public class d {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f21225b;
+    public ImageView f21461b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EMTextView f21226c;
+    public EMTextView f21462c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f21227d;
+    public View f21463d;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -51,10 +51,10 @@ public class d {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f21227d == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f21463d == null) {
             return;
         }
-        c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f21226c);
+        c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.f21462c);
         d2.w(c.a.t0.p4.e.M_T_X001);
         d2.z(c.a.t0.p4.e.T_X05);
     }
@@ -62,16 +62,16 @@ public class d {
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21227d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21463d : (View) invokeV.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(h.work_video_guide_item, (ViewGroup) null);
-            this.f21227d = inflate;
-            this.f21225b = (ImageView) inflate.findViewById(g.item_icon);
-            this.f21226c = (EMTextView) this.f21227d.findViewById(g.item_title);
+            this.f21463d = inflate;
+            this.f21461b = (ImageView) inflate.findViewById(g.item_icon);
+            this.f21462c = (EMTextView) this.f21463d.findViewById(g.item_title);
             a();
         }
     }
@@ -79,7 +79,7 @@ public class d {
     public void d(int i2) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (imageView = this.f21225b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (imageView = this.f21461b) == null) {
             return;
         }
         imageView.setImageDrawable(WebPManager.getMaskDrawable(i2, false));
@@ -88,7 +88,7 @@ public class d {
     public void e(String str) {
         EMTextView eMTextView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (eMTextView = this.f21226c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (eMTextView = this.f21462c) == null) {
             return;
         }
         eMTextView.setText(str);

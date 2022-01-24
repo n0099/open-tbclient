@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.e1.o0;
+import c.a.s0.d1.o0;
 import c.a.s0.s.q.e2;
 import c.a.t0.g0.s;
 import com.baidu.adp.framework.MessageManager;
@@ -151,7 +151,7 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ t f17874e;
+        public final /* synthetic */ t f17696e;
 
         public b(t tVar) {
             Interceptable interceptable = $ic;
@@ -168,16 +168,16 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                     return;
                 }
             }
-            this.f17874e = tVar;
+            this.f17696e = tVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17874e.g() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17696e.g() == null) {
                 return;
             }
-            this.f17874e.g().a(view, this.f17874e.q);
+            this.f17696e.g().a(view, this.f17696e.q);
         }
     }
 
@@ -187,10 +187,10 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardPersonDynamicThreadData f17875e;
+        public final /* synthetic */ CardPersonDynamicThreadData f17697e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ t f17876f;
+        public final /* synthetic */ t f17698f;
 
         public c(t tVar, CardPersonDynamicThreadData cardPersonDynamicThreadData) {
             Interceptable interceptable = $ic;
@@ -207,38 +207,38 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                     return;
                 }
             }
-            this.f17876f = tVar;
-            this.f17875e = cardPersonDynamicThreadData;
+            this.f17698f = tVar;
+            this.f17697e = cardPersonDynamicThreadData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17876f.r == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17698f.r == null) {
                 return;
             }
-            if (this.f17876f.z == null) {
-                t tVar = this.f17876f;
+            if (this.f17698f.z == null) {
+                t tVar = this.f17698f;
                 tVar.z = new s(tVar.r);
-                this.f17876f.z.o();
-                this.f17876f.z.s(this.f17876f.Z);
+                this.f17698f.z.o();
+                this.f17698f.z.s(this.f17698f.Z);
             }
-            this.f17876f.z.n(this.f17876f.q, this.f17875e.L == 1);
-            this.f17876f.z.u();
+            this.f17698f.z.n(this.f17698f.q, this.f17697e.L == 1);
+            this.f17698f.z.u();
         }
     }
 
     /* loaded from: classes7.dex */
-    public class d implements c.a.s0.g1.j.d {
+    public class d implements c.a.s0.f1.j.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkedList a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e2 f17877b;
+        public final /* synthetic */ e2 f17699b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ t f17878c;
+        public final /* synthetic */ t f17700c;
 
         public d(t tVar, LinkedList linkedList, e2 e2Var) {
             Interceptable interceptable = $ic;
@@ -255,19 +255,19 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                     return;
                 }
             }
-            this.f17878c = tVar;
+            this.f17700c = tVar;
             this.a = linkedList;
-            this.f17877b = e2Var;
+            this.f17699b = e2Var;
         }
 
-        @Override // c.a.s0.g1.j.d
+        @Override // c.a.s0.f1.j.d
         public void a(View view, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
                 if (z) {
-                    this.f17878c.I();
+                    this.f17700c.I();
                 } else {
-                    this.f17878c.Q(view, this.a, i2, this.f17877b);
+                    this.f17700c.Q(view, this.a, i2, this.f17699b);
                 }
             }
         }
@@ -279,7 +279,7 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ t f17879f;
+        public final /* synthetic */ t f17701f;
 
         public e(t tVar) {
             Interceptable interceptable = $ic;
@@ -296,7 +296,7 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                     return;
                 }
             }
-            this.f17879f = tVar;
+            this.f17701f = tVar;
         }
 
         @Override // c.a.t0.n4.f
@@ -305,9 +305,9 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, textPaint, z) == null) {
                 if (z) {
-                    color = this.f17879f.f17768g.getResources().getColor(c.a.t0.y2.a.CAM_X0304);
+                    color = this.f17701f.f17590g.getResources().getColor(c.a.t0.z2.a.CAM_X0304);
                 } else {
-                    color = this.f17879f.f17768g.getResources().getColor(c.a.t0.y2.a.CAM_X0302);
+                    color = this.f17701f.f17590g.getResources().getColor(c.a.t0.z2.a.CAM_X0302);
                 }
                 textPaint.setColor(color);
             }
@@ -316,10 +316,10 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f17879f.q == null || StringUtils.isNull(this.f17879f.q.l)) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f17701f.q == null || StringUtils.isNull(this.f17701f.q.l)) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17879f.f17768g).createNormalCfg(this.f17879f.q.l, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17701f.f17590g).createNormalCfg(this.f17701f.q.l, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
         }
     }
 
@@ -329,7 +329,7 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ t f17880e;
+        public final /* synthetic */ t f17702e;
 
         public f(t tVar) {
             Interceptable interceptable = $ic;
@@ -346,30 +346,30 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                     return;
                 }
             }
-            this.f17880e = tVar;
+            this.f17702e = tVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f17880e.g() != null) {
-                    this.f17880e.g().a(view, this.f17880e.q);
+                if (this.f17702e.g() != null) {
+                    this.f17702e.g().a(view, this.f17702e.q);
                 }
-                if (this.f17880e.q.o != 60) {
-                    if ((this.f17880e.q.o != 40 || this.f17880e.q.r != 2) && !this.f17880e.W) {
-                        this.f17880e.I();
+                if (this.f17702e.q.o != 60) {
+                    if ((this.f17702e.q.o != 40 || this.f17702e.q.r != 2) && !this.f17702e.W) {
+                        this.f17702e.I();
                         return;
                     } else {
-                        BdToast.i(this.f17880e.getContext(), this.f17880e.getContext().getString(c.a.t0.y2.g.video_check_click_msg), c.a.t0.y2.c.icon_pure_toast_mistake40_svg, true).q();
+                        BdToast.i(this.f17702e.getContext(), this.f17702e.getContext().getString(c.a.t0.z2.g.video_check_click_msg), c.a.t0.z2.c.icon_pure_toast_mistake40_svg, true).q();
                         return;
                     }
                 }
                 TiebaStatic.log(TbadkCoreStatisticKey.MY_THREAD_SHARE_LIVE);
-                if (this.f17880e.q.t.o1().live_status != 1) {
-                    this.f17880e.J();
+                if (this.f17702e.q.t.p1().live_status != 1) {
+                    this.f17702e.J();
                 } else {
-                    this.f17880e.G();
+                    this.f17702e.G();
                 }
             }
         }
@@ -406,11 +406,11 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || this.a.q == null || this.a.q.f42362f == null || this.a.A == null || this.a.B == null || !((String) customResponsedMessage.getData()).equals(this.a.q.f42362f) || this.a.F()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || this.a.q == null || this.a.q.f42383f == null || this.a.A == null || this.a.B == null || !((String) customResponsedMessage.getData()).equals(this.a.q.f42383f) || this.a.F()) {
                 return;
             }
-            m.l(this.a.A, this.a.q.f42362f, c.a.t0.y2.a.CAM_X0105, c.a.t0.y2.a.CAM_X0109);
-            m.l(this.a.B, this.a.q.f42362f, c.a.t0.y2.a.CAM_X0107, c.a.t0.y2.a.CAM_X0109);
+            m.l(this.a.A, this.a.q.f42383f, c.a.t0.z2.a.CAM_X0105, c.a.t0.z2.a.CAM_X0109);
+            m.l(this.a.B, this.a.q.f42383f, c.a.t0.z2.a.CAM_X0107, c.a.t0.z2.a.CAM_X0109);
         }
     }
 
@@ -453,7 +453,7 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ t f17881e;
+        public final /* synthetic */ t f17703e;
 
         public i(t tVar) {
             Interceptable interceptable = $ic;
@@ -470,19 +470,19 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                     return;
                 }
             }
-            this.f17881e = tVar;
+            this.f17703e = tVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                d0<CardPersonDynamicThreadData> g2 = this.f17881e.g();
+                d0<CardPersonDynamicThreadData> g2 = this.f17703e.g();
                 if (g2 != null) {
                     view.setTag("1");
-                    g2.a(view, this.f17881e.q);
+                    g2.a(view, this.f17703e.q);
                 }
-                this.f17881e.I();
+                this.f17703e.I();
             }
         }
     }
@@ -493,7 +493,7 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ t f17882e;
+        public final /* synthetic */ t f17704e;
 
         public j(t tVar) {
             Interceptable interceptable = $ic;
@@ -510,18 +510,18 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                     return;
                 }
             }
-            this.f17882e = tVar;
+            this.f17704e = tVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d0<CardPersonDynamicThreadData> g2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f17882e.g()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f17704e.g()) == null) {
                 return;
             }
             view.setTag("2");
-            g2.a(view, this.f17882e.q);
+            g2.a(view, this.f17704e.q);
         }
     }
 
@@ -555,49 +555,49 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         View j2 = j();
         this.o = j2;
         this.r = tbPageContext;
-        this.s = (TextView) j2.findViewById(c.a.t0.y2.d.year_num);
-        this.t = (LinearLayout) this.o.findViewById(c.a.t0.y2.d.left_time_view);
-        this.u = (TextView) this.o.findViewById(c.a.t0.y2.d.month_num);
-        this.v = (TextView) this.o.findViewById(c.a.t0.y2.d.day_num);
-        this.w = (TextView) this.o.findViewById(c.a.t0.y2.d.source_bar);
-        this.Q = (TextView) this.o.findViewById(c.a.t0.y2.d.video_under_review);
-        this.x = (TextView) this.o.findViewById(c.a.t0.y2.d.tv_privacy_status);
-        this.y = (ImageView) this.o.findViewById(c.a.t0.y2.d.iv_more);
-        this.A = (TextView) this.o.findViewById(c.a.t0.y2.d.thread_title);
-        PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) this.o.findViewById(c.a.t0.y2.d.card_dynamic_thread_abstract_voice);
+        this.s = (TextView) j2.findViewById(c.a.t0.z2.d.year_num);
+        this.t = (LinearLayout) this.o.findViewById(c.a.t0.z2.d.left_time_view);
+        this.u = (TextView) this.o.findViewById(c.a.t0.z2.d.month_num);
+        this.v = (TextView) this.o.findViewById(c.a.t0.z2.d.day_num);
+        this.w = (TextView) this.o.findViewById(c.a.t0.z2.d.source_bar);
+        this.Q = (TextView) this.o.findViewById(c.a.t0.z2.d.video_under_review);
+        this.x = (TextView) this.o.findViewById(c.a.t0.z2.d.tv_privacy_status);
+        this.y = (ImageView) this.o.findViewById(c.a.t0.z2.d.iv_more);
+        this.A = (TextView) this.o.findViewById(c.a.t0.z2.d.thread_title);
+        PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) this.o.findViewById(c.a.t0.z2.d.card_dynamic_thread_abstract_voice);
         this.m = playVoiceBntNew;
         playVoiceBntNew.setAfterClickListener(this.b0);
-        TextView textView = (TextView) this.o.findViewById(c.a.t0.y2.d.thread_content);
+        TextView textView = (TextView) this.o.findViewById(c.a.t0.z2.d.thread_content);
         this.B = textView;
         textView.setVisibility(8);
-        this.C = (ConstrainImageGroup) this.o.findViewById(c.a.t0.y2.d.card_dynamic_thread_img_layout);
-        this.C.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.t0.y2.b.tbds20));
+        this.C = (ConstrainImageGroup) this.o.findViewById(c.a.t0.z2.d.card_dynamic_thread_img_layout);
+        this.C.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.t0.z2.b.tbds20));
         this.C.setChildClickListener(this.a0);
-        c.a.s0.g1.j.a aVar = new c.a.s0.g1.j.a(3);
+        c.a.s0.f1.j.a aVar = new c.a.s0.f1.j.a(3);
         aVar.d(1.0d);
         this.C.setImageProcessor(aVar);
-        this.E = this.o.findViewById(c.a.t0.y2.d.thread_view_img_container);
-        this.F = (TbImageView) this.o.findViewById(c.a.t0.y2.d.thread_video_thumbnail);
-        this.G = (ImageView) this.o.findViewById(c.a.t0.y2.d.thread_img_pause_play);
-        this.n = (ThreadViewAndCommentInfoLayout) this.o.findViewById(c.a.t0.y2.d.card_dynamic_thread_info_layout);
-        this.K = (LinearLayout) this.o.findViewById(c.a.t0.y2.d.duration_container);
-        this.L = (TextView) this.o.findViewById(c.a.t0.y2.d.video_duration);
-        this.M = (TextView) this.o.findViewById(c.a.t0.y2.d.video_play_count);
-        this.N = (TextView) this.o.findViewById(c.a.t0.y2.d.audience_count);
-        TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.o.findViewById(c.a.t0.y2.d.ala_play);
+        this.E = this.o.findViewById(c.a.t0.z2.d.thread_view_img_container);
+        this.F = (TbImageView) this.o.findViewById(c.a.t0.z2.d.thread_video_thumbnail);
+        this.G = (ImageView) this.o.findViewById(c.a.t0.z2.d.thread_img_pause_play);
+        this.n = (ThreadViewAndCommentInfoLayout) this.o.findViewById(c.a.t0.z2.d.card_dynamic_thread_info_layout);
+        this.K = (LinearLayout) this.o.findViewById(c.a.t0.z2.d.duration_container);
+        this.L = (TextView) this.o.findViewById(c.a.t0.z2.d.video_duration);
+        this.M = (TextView) this.o.findViewById(c.a.t0.z2.d.video_play_count);
+        this.N = (TextView) this.o.findViewById(c.a.t0.z2.d.audience_count);
+        TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.o.findViewById(c.a.t0.z2.d.ala_play);
         this.O = tBLottieAnimationView;
         tBLottieAnimationView.loop(true);
-        SkinManager.setLottieAnimation(this.O, c.a.t0.y2.f.ala_play);
-        this.P = (TextView) this.o.findViewById(c.a.t0.y2.d.fake_video_state);
-        this.H = (LinearLayout) this.o.findViewById(c.a.t0.y2.d.shared_ala_live_layout);
-        this.I = (TextView) this.o.findViewById(c.a.t0.y2.d.shared_ala_live_room_title);
-        LinearLayout linearLayout = (LinearLayout) this.o.findViewById(c.a.t0.y2.d.llAlaLivingLogLayout);
+        SkinManager.setLottieAnimation(this.O, c.a.t0.z2.f.ala_play);
+        this.P = (TextView) this.o.findViewById(c.a.t0.z2.d.fake_video_state);
+        this.H = (LinearLayout) this.o.findViewById(c.a.t0.z2.d.shared_ala_live_layout);
+        this.I = (TextView) this.o.findViewById(c.a.t0.z2.d.shared_ala_live_room_title);
+        LinearLayout linearLayout = (LinearLayout) this.o.findViewById(c.a.t0.z2.d.llAlaLivingLogLayout);
         this.J = linearLayout;
         linearLayout.setVisibility(8);
-        this.R = (OriginalThreadCardView) this.o.findViewById(c.a.t0.y2.d.original_thread_info);
-        this.S = this.o.findViewById(c.a.t0.y2.d.divider_line_thick);
-        this.T = this.o.findViewById(c.a.t0.y2.d.divider_line_thin);
-        ThreadCardBottomOpSegmentLayout threadCardBottomOpSegmentLayout = (ThreadCardBottomOpSegmentLayout) this.o.findViewById(c.a.t0.y2.d.card_thread_info_layout);
+        this.R = (OriginalThreadCardView) this.o.findViewById(c.a.t0.z2.d.original_thread_info);
+        this.S = this.o.findViewById(c.a.t0.z2.d.divider_line_thick);
+        this.T = this.o.findViewById(c.a.t0.z2.d.divider_line_thin);
+        ThreadCardBottomOpSegmentLayout threadCardBottomOpSegmentLayout = (ThreadCardBottomOpSegmentLayout) this.o.findViewById(c.a.t0.z2.d.card_thread_info_layout);
         this.U = threadCardBottomOpSegmentLayout;
         threadCardBottomOpSegmentLayout.hideDisagree();
         if (this.U.getLayoutParams() instanceof LinearLayout.LayoutParams) {
@@ -614,13 +614,13 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         this.U.setIsBarViewVisible(false);
         this.U.setFrom(13);
         c.a.s0.s.q.f fVar = new c.a.s0.s.q.f();
-        fVar.f13371b = 8;
-        fVar.f13377h = 3;
+        fVar.f13557b = 8;
+        fVar.f13563h = 3;
         this.U.setAgreeStatisticData(fVar);
         this.U.setShareReportFrom(6);
         this.U.setStType("person_page");
         this.U.setForumAfterClickListener(new b(this));
-        this.X = (EMTextView) this.o.findViewById(c.a.t0.y2.d.tv_ueg_view);
+        this.X = (EMTextView) this.o.findViewById(c.a.t0.z2.d.tv_ueg_view);
     }
 
     public final void E(CardPersonDynamicThreadData cardPersonDynamicThreadData) {
@@ -666,20 +666,20 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         CardPersonDynamicThreadData cardPersonDynamicThreadData;
         e2 e2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cardPersonDynamicThreadData = this.q) == null || (e2Var = cardPersonDynamicThreadData.t) == null || e2Var.o1() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cardPersonDynamicThreadData = this.q) == null || (e2Var = cardPersonDynamicThreadData.t) == null || e2Var.p1() == null) {
             return;
         }
         if (!c.a.d.f.p.l.z()) {
-            c.a.d.f.p.n.M(this.r.getPageActivity(), c.a.t0.y2.g.no_network_guide);
+            c.a.d.f.p.n.M(this.r.getPageActivity(), c.a.t0.z2.g.no_network_guide);
             return;
         }
         if (!F()) {
-            m.a(this.q.f42362f);
+            m.a(this.q.f42383f);
         }
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(this.q.t.o1());
-        if (this.q.t.o1().user_info != null) {
-            alaLiveInfoCoreData.userName = this.q.t.o1().user_info.user_name;
+        alaLiveInfoCoreData.fillWithInfoData(this.q.t.p1());
+        if (this.q.t.p1().user_info != null) {
+            alaLiveInfoCoreData.userName = this.q.t.p1().user_info.user_name;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.r.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY, "", false, "")));
     }
@@ -692,11 +692,11 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (cardPersonDynamicThreadData = this.q) == null || (e2Var = cardPersonDynamicThreadData.t) == null || (originalThreadInfo = e2Var.z1) == null) {
             return;
         }
-        PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(this.r.getPageActivity()).createCfgForPersonCenter(originalThreadInfo.f40132f, null, "person_page", 18005);
+        PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(this.r.getPageActivity()).createCfgForPersonCenter(originalThreadInfo.f40160f, null, "person_page", 18005);
         createCfgForPersonCenter.setStartFrom(this.l);
         createCfgForPersonCenter.setBjhData(originalThreadInfo.p);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createCfgForPersonCenter));
-        TiebaStatic.log(new StatisticItem("c12943").param("obj_type", "3").param("tid", this.q.f42362f).param("obj_param1", this.q.J ? 1 : 2));
+        TiebaStatic.log(new StatisticItem("c12943").param("obj_type", "3").param("tid", this.q.f42383f).param("obj_param1", this.q.J ? 1 : 2));
     }
 
     public final void I() {
@@ -705,9 +705,9 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
             return;
         }
         if (!F()) {
-            m.a(this.q.f42362f);
-            m.l(this.A, this.q.f42362f, c.a.t0.y2.a.CAM_X0105, c.a.t0.y2.a.CAM_X0109);
-            m.l(this.B, this.q.f42362f, c.a.t0.y2.a.CAM_X0107, c.a.t0.y2.a.CAM_X0109);
+            m.a(this.q.f42383f);
+            m.l(this.A, this.q.f42383f, c.a.t0.z2.a.CAM_X0105, c.a.t0.z2.a.CAM_X0109);
+            m.l(this.B, this.q.f42383f, c.a.t0.z2.a.CAM_X0107, c.a.t0.z2.a.CAM_X0109);
         }
         PbActivityConfig pbActivityConfig = new PbActivityConfig(this.r.getPageActivity());
         if (this.q.o == 40) {
@@ -715,7 +715,7 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         }
         pbActivityConfig.createFromThreadCfg(this.q.t, null, "person_page", 18005, true, false, false);
         pbActivityConfig.setForumId(String.valueOf(this.q.t.U()));
-        pbActivityConfig.setForumName(this.q.t.a0());
+        pbActivityConfig.setForumName(this.q.t.b0());
         pbActivityConfig.setStartFrom(this.l);
         pbActivityConfig.setIsShareThread(this.q.t.A1);
         pbActivityConfig.setThreadData(this.q.t);
@@ -725,24 +725,24 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         if (e2Var == null || !e2Var.A1) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c12943").param("obj_type", "2").param("tid", this.q.f42362f).param("obj_param1", this.q.J ? 1 : 2));
+        TiebaStatic.log(new StatisticItem("c12943").param("obj_type", "2").param("tid", this.q.f42383f).param("obj_param1", this.q.J ? 1 : 2));
     }
 
     public final void J() {
         CardPersonDynamicThreadData cardPersonDynamicThreadData;
         e2 e2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (cardPersonDynamicThreadData = this.q) == null || (e2Var = cardPersonDynamicThreadData.t) == null || e2Var.o1() == null || this.q.t.o1().share_info == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (cardPersonDynamicThreadData = this.q) == null || (e2Var = cardPersonDynamicThreadData.t) == null || e2Var.p1() == null || this.q.t.p1().share_info == null) {
             return;
         }
         if (!F()) {
-            m.a(this.q.f42362f);
+            m.a(this.q.f42383f);
         }
-        if (this.q.t.o1().share_info.record_tid <= 0) {
+        if (this.q.t.p1().share_info.record_tid <= 0) {
             G();
             return;
         }
-        String valueOf = String.valueOf(this.q.t.o1().share_info.record_tid);
+        String valueOf = String.valueOf(this.q.t.p1().share_info.record_tid);
         PbActivityConfig pbActivityConfig = new PbActivityConfig(this.r.getPageActivity());
         pbActivityConfig.setVideo_source("profile");
         pbActivityConfig.setStartFrom(this.l);
@@ -801,8 +801,8 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                     sb.append(StringHelper.cutChineseAndEnglishWithSuffix(multipleForumArr2[i2].forum_name, 14, "..."));
                     if (i2 < cardPersonDynamicThreadData.F.length - 1) {
                         sb.append("吧、");
-                    } else if (sb.lastIndexOf(this.f17768g.getString(c.a.t0.y2.g.forum)) != sb.length() - 1) {
-                        sb.append(this.f17768g.getString(c.a.t0.y2.g.forum));
+                    } else if (sb.lastIndexOf(this.f17590g.getString(c.a.t0.z2.g.forum)) != sb.length() - 1) {
+                        sb.append(this.f17590g.getString(c.a.t0.z2.g.forum));
                     }
                     i2++;
                 }
@@ -811,10 +811,10 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                     this.w.setText(sb2);
                     this.w.setVisibility(0);
                 } else {
-                    this.w.setText(c.a.t0.y2.g.person_homepage);
+                    this.w.setText(c.a.t0.z2.g.person_homepage);
                 }
             } else {
-                this.w.setText(c.a.t0.y2.g.person_homepage);
+                this.w.setText(c.a.t0.z2.g.person_homepage);
             }
             this.X.setVisibility(8);
             if (cardPersonDynamicThreadData.J) {
@@ -852,7 +852,7 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                 R(false);
             }
             MediaData[] mediaDataArr = cardPersonDynamicThreadData.B;
-            SkinManager.setBackgroundResource(this.H, c.a.t0.y2.a.transparent);
+            SkinManager.setBackgroundResource(this.H, c.a.t0.z2.a.transparent);
             this.I.setVisibility(8);
             this.J.setVisibility(8);
             this.H.setVisibility(0);
@@ -893,12 +893,12 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                             this.H.setVisibility(8);
                         } else {
                             this.C.setVisibility(8);
-                            if (this.q.t.o1() != null && this.q.t.o1().user_info != null) {
+                            if (this.q.t.p1() != null && this.q.t.p1().user_info != null) {
                                 CardPersonDynamicThreadData cardPersonDynamicThreadData2 = this.q;
                                 if (cardPersonDynamicThreadData2.o == 60) {
-                                    String str = cardPersonDynamicThreadData2.t.o1().user_info.user_name;
+                                    String str = cardPersonDynamicThreadData2.t.p1().user_info.user_name;
                                     if (o0.d(str) > 14) {
-                                        str = o0.m(str, 14) + "...";
+                                        str = o0.n(str, 14) + "...";
                                     }
                                     this.I.setText(m.d(str + ":", this.q.t.getTitle()));
                                     this.I.setVisibility(0);
@@ -906,21 +906,21 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                                         this.E.setVisibility(0);
                                         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.E.getLayoutParams();
                                         int width = this.E.getWidth();
-                                        if (width == 0 || width > c.a.d.f.p.n.k(this.f17768g)) {
-                                            width = (int) getContext().getResources().getDimension(c.a.t0.y2.b.ds560);
+                                        if (width == 0 || width > c.a.d.f.p.n.k(this.f17590g)) {
+                                            width = (int) getContext().getResources().getDimension(c.a.t0.z2.b.ds560);
                                         }
                                         layoutParams.height = (width * 9) / 16;
                                         this.E.setLayoutParams(layoutParams);
-                                        if (this.q.t.o1() != null) {
+                                        if (this.q.t.p1() != null) {
                                             this.F.setPlaceHolder(3);
                                             this.F.setEvent(this.c0);
-                                            this.F.startLoad(cardPersonDynamicThreadData.t.o1().cover, 10, false);
+                                            this.F.startLoad(cardPersonDynamicThreadData.t.p1().cover, 10, false);
                                             this.G.setVisibility(8);
                                             this.O.setVisibility(0);
                                             this.O.playAnimation();
-                                            SkinManager.setBackgroundResource(this.H, c.a.t0.y2.a.CAM_X0205);
+                                            SkinManager.setBackgroundResource(this.H, c.a.t0.z2.a.CAM_X0205);
                                             this.N.setVisibility(0);
-                                            this.N.setText(String.format(this.f17768g.getResources().getString(c.a.t0.y2.g.ala_audience_count_prefix), StringHelper.numFormatOverWan(this.q.t.o1().audience_count)));
+                                            this.N.setText(String.format(this.f17590g.getResources().getString(c.a.t0.z2.g.ala_audience_count_prefix), StringHelper.numFormatOverWan(this.q.t.p1().audience_count)));
                                             this.U.getCommentContainer().setOnClickListener(this.Y);
                                         } else {
                                             this.U.getCommentContainer().setOnClickListener(this.U);
@@ -938,11 +938,11 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                 if (c.a.s0.s.k.c().g()) {
                     this.E.setVisibility(0);
                     this.G.setVisibility(0);
-                    this.G.setImageResource(c.a.t0.y2.c.icon_play_video);
+                    this.G.setImageResource(c.a.t0.z2.c.icon_play_video);
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.E.getLayoutParams();
                     int width2 = this.E.getWidth();
-                    if (width2 == 0 || width2 > c.a.d.f.p.n.k(this.f17768g)) {
-                        width2 = (int) getContext().getResources().getDimension(c.a.t0.y2.b.ds672);
+                    if (width2 == 0 || width2 > c.a.d.f.p.n.k(this.f17590g)) {
+                        width2 = (int) getContext().getResources().getDimension(c.a.t0.z2.b.ds672);
                     }
                     layoutParams2.height = (int) (width2 * 0.5625d);
                     this.E.setLayoutParams(layoutParams2);
@@ -952,11 +952,11 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                         this.F.startLoad(this.q.C.thumbnail_url, 17, false);
                         if (this.V) {
                             this.P.setVisibility(0);
-                            this.P.setText(String.format(this.f17768g.getResources().getString(c.a.t0.y2.g.video_review_state), new Object[0]));
+                            this.P.setText(String.format(this.f17590g.getResources().getString(c.a.t0.z2.g.video_review_state), new Object[0]));
                         } else {
                             this.K.setVisibility(0);
                             this.L.setText(StringHelper.stringForVideoTime(this.q.C.video_duration.intValue() * 1000));
-                            this.M.setText(String.format(this.f17768g.getResources().getString(c.a.t0.y2.g.play_count), StringHelper.numFormatOverWan(this.q.C.play_count.intValue())));
+                            this.M.setText(String.format(this.f17590g.getResources().getString(c.a.t0.z2.g.play_count), StringHelper.numFormatOverWan(this.q.C.play_count.intValue())));
                         }
                     }
                 }
@@ -1022,14 +1022,14 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
             return;
         }
         if (z) {
-            textView.setText(c.a.t0.y2.g.privacy);
-            Drawable drawable = SkinManager.getDrawable(c.a.t0.y2.c.icon_card_privacy);
+            textView.setText(c.a.t0.z2.g.privacy);
+            Drawable drawable = SkinManager.getDrawable(c.a.t0.z2.c.icon_card_privacy);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             this.x.setCompoundDrawables(drawable, null, null, null);
             return;
         }
-        textView.setText(c.a.t0.y2.g.public_open);
-        Drawable drawable2 = SkinManager.getDrawable(c.a.t0.y2.c.icon_card_open);
+        textView.setText(c.a.t0.z2.g.public_open);
+        Drawable drawable2 = SkinManager.getDrawable(c.a.t0.z2.c.icon_card_open);
         drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         this.x.setCompoundDrawables(drawable2, null, null, null);
     }
@@ -1042,13 +1042,13 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
             if (cardPersonDynamicThreadData == null || (e2Var = cardPersonDynamicThreadData.t) == null) {
                 return false;
             }
-            SpannableStringBuilder Y2 = e2Var.Y2(false, true, this.V);
-            if (Y2 != null && !StringUtils.isNull(Y2.toString())) {
+            SpannableStringBuilder Z2 = e2Var.Z2(false, true, this.V);
+            if (Z2 != null && !StringUtils.isNull(Z2.toString())) {
                 this.A.setVisibility(0);
-                this.A.setOnTouchListener(new c.a.t0.n4.h(Y2));
-                this.A.setText(Y2);
+                this.A.setOnTouchListener(new c.a.t0.n4.h(Z2));
+                this.A.setText(Z2);
                 if (!F()) {
-                    m.l(this.A, cardPersonDynamicThreadData.f42362f, c.a.t0.y2.a.CAM_X0105, c.a.t0.y2.a.CAM_X0109);
+                    m.l(this.A, cardPersonDynamicThreadData.f42383f, c.a.t0.z2.a.CAM_X0105, c.a.t0.z2.a.CAM_X0109);
                 }
             } else {
                 this.A.setVisibility(8);
@@ -1062,7 +1062,7 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048588, this, view, list, i2, e2Var) == null) {
             if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                c.a.d.f.p.n.M(this.r.getPageActivity(), c.a.t0.y2.g.plugin_image_viewer_install_error_tips);
+                c.a.d.f.p.n.M(this.r.getPageActivity(), c.a.t0.z2.g.plugin_image_viewer_install_error_tips);
                 return;
             }
             ArrayList<String> arrayList = new ArrayList<>();
@@ -1077,7 +1077,7 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
                     imageUrlData.originalSize = mediaData.getOriginalSize();
                     imageUrlData.isLongPic = mediaData.isLongPic();
                     imageUrlData.mIsShowOrigonButton = mediaData.isShowOriginBtn();
-                    imageUrlData.threadId = c.a.d.f.m.b.g(e2Var.v1(), -1L);
+                    imageUrlData.threadId = c.a.d.f.m.b.g(e2Var.w1(), -1L);
                     imageUrlData.postId = mediaData.getPostId();
                     concurrentHashMap.put(mediaData.getPicUrl(), imageUrlData);
                 }
@@ -1087,9 +1087,9 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
             ImageViewerConfig.b bVar = new ImageViewerConfig.b();
             bVar.x(arrayList);
             bVar.B(i2);
-            bVar.z(e2Var.a0());
+            bVar.z(e2Var.b0());
             bVar.y(String.valueOf(e2Var.U()));
-            bVar.O(e2Var.v1());
+            bVar.O(e2Var.w1());
             bVar.C(this.D);
             bVar.J(arrayList.size() > 0 ? arrayList.get(0) : "");
             bVar.F(true);
@@ -1111,9 +1111,9 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         }
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) constrainImageGroup.getLayoutParams();
         if (z) {
-            layoutParams.topMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.t0.y2.b.tbds37);
+            layoutParams.topMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.t0.z2.b.tbds37);
         } else {
-            layoutParams.topMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.t0.y2.b.tbds20);
+            layoutParams.topMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.t0.z2.b.tbds20);
         }
         this.C.setLayoutParams(layoutParams);
     }
@@ -1122,7 +1122,7 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? c.a.t0.y2.e.card_person_dynamic_thread : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? c.a.t0.z2.e.card_person_dynamic_thread : invokeV.intValue;
     }
 
     @Override // c.a.t0.g0.b
@@ -1130,36 +1130,36 @@ public class t extends c.a.t0.g0.b<CardPersonDynamicThreadData> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048592, this, tbPageContext, i2) == null) {
             if (this.p != i2) {
-                SkinManager.setLottieAnimation(this.O, c.a.t0.y2.f.ala_play);
-                SkinManager.setBackgroundColor(j(), c.a.t0.y2.a.CAM_X0201);
-                SkinManager.setViewTextColor(this.s, c.a.t0.y2.a.CAM_X0105);
-                SkinManager.setViewTextColor(this.u, c.a.t0.y2.a.CAM_X0107);
-                SkinManager.setViewTextColor(this.v, c.a.t0.y2.a.CAM_X0105);
-                SkinManager.setViewTextColor(this.w, c.a.t0.y2.a.CAM_X0109);
-                SkinManager.setViewTextColor(this.Q, c.a.t0.y2.a.CAM_X0109);
-                SkinManager.setViewTextColor(this.x, c.a.t0.y2.a.CAM_X0109);
+                SkinManager.setLottieAnimation(this.O, c.a.t0.z2.f.ala_play);
+                SkinManager.setBackgroundColor(j(), c.a.t0.z2.a.CAM_X0201);
+                SkinManager.setViewTextColor(this.s, c.a.t0.z2.a.CAM_X0105);
+                SkinManager.setViewTextColor(this.u, c.a.t0.z2.a.CAM_X0107);
+                SkinManager.setViewTextColor(this.v, c.a.t0.z2.a.CAM_X0105);
+                SkinManager.setViewTextColor(this.w, c.a.t0.z2.a.CAM_X0109);
+                SkinManager.setViewTextColor(this.Q, c.a.t0.z2.a.CAM_X0109);
+                SkinManager.setViewTextColor(this.x, c.a.t0.z2.a.CAM_X0109);
                 if (this.y != null) {
-                    this.y.setImageDrawable(SvgManager.getInstance().getPureDrawable(c.a.t0.y2.c.icon_pure_personalba_more24_svg, c.a.t0.y2.a.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS));
+                    this.y.setImageDrawable(SvgManager.getInstance().getPureDrawable(c.a.t0.z2.c.icon_pure_personalba_more24_svg, c.a.t0.z2.a.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS));
                 }
-                SkinManager.setViewTextColor(this.A, c.a.t0.y2.a.CAM_X0105);
-                SkinManager.setViewTextColor(this.B, c.a.t0.y2.a.CAM_X0106);
-                SkinManager.setViewTextColor(this.I, c.a.t0.y2.a.CAM_X0106);
+                SkinManager.setViewTextColor(this.A, c.a.t0.z2.a.CAM_X0105);
+                SkinManager.setViewTextColor(this.B, c.a.t0.z2.a.CAM_X0106);
+                SkinManager.setViewTextColor(this.I, c.a.t0.z2.a.CAM_X0106);
                 s sVar = this.z;
                 if (sVar != null) {
                     sVar.r();
                 }
                 this.n.onChangeSkinType();
                 this.U.onChangeSkinType();
-                SkinManager.setBackgroundColor(this.S, c.a.t0.y2.a.CAM_X0204);
-                SkinManager.setBackgroundColor(this.T, c.a.t0.y2.a.CAM_X0205);
-                SkinManager.setBackgroundColor(this.I, c.a.t0.y2.a.CAM_X0205);
+                SkinManager.setBackgroundColor(this.S, c.a.t0.z2.a.CAM_X0204);
+                SkinManager.setBackgroundColor(this.T, c.a.t0.z2.a.CAM_X0205);
+                SkinManager.setBackgroundColor(this.I, c.a.t0.z2.a.CAM_X0205);
                 OriginalThreadCardView originalThreadCardView = this.R;
                 if (originalThreadCardView != null) {
                     originalThreadCardView.onChangeSkinType();
                 }
                 c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.X);
-                d2.v(c.a.t0.y2.a.CAM_X0109);
-                d2.A(c.a.t0.y2.g.F_X01);
+                d2.v(c.a.t0.z2.a.CAM_X0109);
+                d2.A(c.a.t0.z2.g.F_X01);
             }
             this.p = i2;
         }

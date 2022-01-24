@@ -17,13 +17,13 @@ public class c implements c.a.p0.n.a {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4751b;
+    public String f4893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f4752c;
+    public Context f4894c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f4753d;
+    public a f4895d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public class c implements c.a.p0.n.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f4751b)) {
-                this.f4751b = this.a.a(0, null);
+            if (TextUtils.isEmpty(this.f4893b)) {
+                this.f4893b = this.a.a(0, null);
             }
-            return this.f4751b;
+            return this.f4893b;
         }
         return (String) invokeV.objValue;
     }
@@ -57,10 +57,10 @@ public class c implements c.a.p0.n.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
             this.a = new b(context);
-            this.f4752c = context;
+            this.f4894c = context;
             if (b()) {
-                this.f4753d = new a(this);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f4753d);
+                this.f4895d = new a(this);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f4895d);
             }
             if (bVar != null) {
                 bVar.a();

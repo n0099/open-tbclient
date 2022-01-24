@@ -108,33 +108,33 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
     public static final String PAGE_TYPE = "pageType";
 
     /* renamed from: e  reason: collision with root package name */
-    public static r f51079e = null;
+    public static r f51124e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f51080f = "";
+    public static String f51125f = "";
     public transient /* synthetic */ FieldHolder $fh;
     public ListView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ak f51081b;
+    public ak f51126b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f51082c;
+    public LinearLayout f51127c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NHFooterView f51083d;
+    public NHFooterView f51128d;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f51084g;
+    public final String f51129g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f51085h;
+    public String f51130h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HomeCfgResponse f51086i;
+    public HomeCfgResponse f51131i;
 
     /* renamed from: j  reason: collision with root package name */
-    public WalletHomeActionBar f51087j;
+    public WalletHomeActionBar f51132j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -170,7 +170,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -214,7 +214,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -258,7 +258,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -302,7 +302,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -346,7 +346,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -434,7 +434,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -478,7 +478,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -522,7 +522,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -566,7 +566,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -610,7 +610,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -634,7 +634,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f51089b;
+        public Handler f51134b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ak(Context context) {
@@ -655,7 +655,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
                 }
             }
             this.a = 0;
-            this.f51089b = new Handler();
+            this.f51134b = new Handler();
         }
 
         public ViewGroup a() {
@@ -667,7 +667,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f51089b.post(new Runnable(this) { // from class: com.baidu.wallet.home.WalletNewHomeActivity.ak.1
+                this.f51134b.post(new Runnable(this) { // from class: com.baidu.wallet.home.WalletNewHomeActivity.ak.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ak a;
@@ -1211,7 +1211,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1255,7 +1255,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1299,7 +1299,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1343,7 +1343,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1387,7 +1387,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1431,7 +1431,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1475,7 +1475,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1519,7 +1519,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1563,7 +1563,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1607,7 +1607,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1694,7 +1694,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1738,7 +1738,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1782,7 +1782,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1826,7 +1826,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1870,7 +1870,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -1894,19 +1894,19 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public ak a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HomeCfgResponse f51090b;
+        public HomeCfgResponse f51135b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f51091c;
+        public Context f51136c;
 
         /* renamed from: d  reason: collision with root package name */
-        public WeakReference<Activity> f51092d;
+        public WeakReference<Activity> f51137d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f51093e;
+        public String f51138e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f51094f;
+        public boolean f51139f;
 
         public r(Activity activity, ak akVar, String str) {
             Interceptable interceptable = $ic;
@@ -1923,54 +1923,54 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
                     return;
                 }
             }
-            this.f51094f = false;
-            this.f51093e = str;
-            this.f51091c = DxmApplicationContextImpl.getApplicationContext(activity);
-            this.f51092d = new WeakReference<>(activity);
+            this.f51139f = false;
+            this.f51138e = str;
+            this.f51136c = DxmApplicationContextImpl.getApplicationContext(activity);
+            this.f51137d = new WeakReference<>(activity);
             this.a = akVar;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51094f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51139f : invokeV.booleanValue;
         }
 
         @Override // com.baidu.wallet.home.ui.widget.b
         public String getAndroidPrefix() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TextUtils.isEmpty(this.f51090b.android_prefix) ? "" : this.f51090b.android_prefix : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TextUtils.isEmpty(this.f51135b.android_prefix) ? "" : this.f51135b.android_prefix : (String) invokeV.objValue;
         }
 
         @Override // com.baidu.wallet.home.ui.widget.b
         public String getPageType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51093e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51138e : (String) invokeV.objValue;
         }
 
         @Override // com.baidu.wallet.home.ui.widget.b
         public boolean isLoginData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f51090b.isLogin() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f51135b.isLogin() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.wallet.home.ui.widget.b
         public void jump(String str, String str2, String str3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
-                WeakReference<Activity> weakReference = this.f51092d;
-                Context context = (weakReference == null || weakReference.get() == null) ? this.f51091c : this.f51092d.get();
+                WeakReference<Activity> weakReference = this.f51137d;
+                Context context = (weakReference == null || weakReference.get() == null) ? this.f51136c : this.f51137d.get();
                 if ("3".equals(str2)) {
-                    this.f51094f = BaiduWalletServiceController.getInstance().isDxmPayService(Long.parseLong(str3));
+                    this.f51139f = BaiduWalletServiceController.getInstance().isDxmPayService(Long.parseLong(str3));
                 } else if ("1".equals(str2)) {
-                    this.f51094f = false;
+                    this.f51139f = false;
                 } else {
-                    this.f51094f = true;
+                    this.f51139f = true;
                 }
-                com.baidu.wallet.home.a.a().a(context, str, str2, str3, z, this.f51093e);
+                com.baidu.wallet.home.a.a().a(context, str, str2, str3, z, this.f51138e);
             }
         }
 
@@ -1979,7 +1979,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 WalletLoginHelper.getInstance().setIntervalDuration(0L);
-                WalletLoginHelper.getInstance().onlyLogin(new LoginBackListenerProxy(this.f51091c, new ILoginBackListener(this) { // from class: com.baidu.wallet.home.WalletNewHomeActivity.r.1
+                WalletLoginHelper.getInstance().onlyLogin(new LoginBackListenerProxy(this.f51136c, new ILoginBackListener(this) { // from class: com.baidu.wallet.home.WalletNewHomeActivity.r.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ r a;
@@ -2024,8 +2024,8 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void onEyeMaskBtnClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                boolean z = !com.baidu.wallet.home.storage.a.a(this.f51091c);
-                com.baidu.wallet.home.storage.a.a(this.f51091c, z);
+                boolean z = !com.baidu.wallet.home.storage.a.a(this.f51136c);
+                com.baidu.wallet.home.storage.a.a(this.f51136c, z);
                 String str = com.baidu.wallet.home.a.a.a;
                 String[] strArr = new String[1];
                 strArr[0] = z ? "true" : "false";
@@ -2053,8 +2053,8 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void a(HomeCfgResponse homeCfgResponse) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, homeCfgResponse) == null) {
-                this.f51090b = homeCfgResponse;
-                com.baidu.wallet.home.a.a().a(this.f51090b.abtype);
+                this.f51135b = homeCfgResponse;
+                com.baidu.wallet.home.a.a().a(this.f51135b.abtype);
             }
         }
     }
@@ -2086,7 +2086,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -2130,7 +2130,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -2174,7 +2174,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -2218,7 +2218,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -2262,7 +2262,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -2306,7 +2306,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -2350,7 +2350,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -2394,7 +2394,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         public void setView(HomeCfgResponse.ConfigData configData, int i2, Context context, BaseListAdapter<HomeCfgResponse.ConfigData> baseListAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, configData, i2, context, baseListAdapter) == null) {
-                this.a.setConfigData(configData, WalletNewHomeActivity.f51079e);
+                this.a.setConfigData(configData, WalletNewHomeActivity.f51124e);
             }
         }
 
@@ -2439,8 +2439,8 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
                 return;
             }
         }
-        this.f51084g = toString() + hashCode();
-        this.f51085h = HomeCfgBean.PAGE_HOME;
+        this.f51129g = toString() + hashCode();
+        this.f51130h = HomeCfgBean.PAGE_HOME;
         this.k = false;
         this.l = false;
         this.m = false;
@@ -2561,11 +2561,11 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
             }
             HomeCfgResponse homeCfgResponse = (HomeCfgResponse) obj;
             if (homeCfgResponse.doCheckValidity()) {
-                this.f51086i = homeCfgResponse;
+                this.f51131i = homeCfgResponse;
                 if (!homeCfgResponse.isLogin()) {
                     AccountManager.getInstance(getActivity()).logout();
                 }
-                this.f51086i.doStoreResponse(this.mAct, this.f51085h);
+                this.f51131i.doStoreResponse(this.mAct, this.f51130h);
                 c();
                 this.l = true;
             }
@@ -2575,13 +2575,13 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
     public void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f51082c = (LinearLayout) findViewById(ResUtils.id(this, "homerootview"));
+            this.f51127c = (LinearLayout) findViewById(ResUtils.id(this, "homerootview"));
             this.a = (ListView) findViewById(ResUtils.id(this, "listview"));
             ak akVar = new ak(this);
-            this.f51081b = akVar;
+            this.f51126b = akVar;
             this.a.setAdapter((ListAdapter) akVar);
-            f51080f = this.f51084g;
-            f51079e = new r(getActivity(), this.f51081b, this.f51085h);
+            f51125f = this.f51129g;
+            f51124e = new r(getActivity(), this.f51126b, this.f51130h);
             a();
             this.o = findViewById(ResUtils.id(this, "wallet_home_floating_billboard_container"));
             this.p = (ImageView) findViewById(ResUtils.id(this, "wallet_home_floating_billboard"));
@@ -2640,11 +2640,11 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
             if (view.getId() == this.p.getId()) {
-                if (this.f51086i == null) {
+                if (this.f51131i == null) {
                     return;
                 }
-                com.baidu.wallet.home.a.a().a(this, this.f51086i.getBillboard().name, this.f51086i.getBillboard().type, this.f51086i.getBillboard().link_addr, false, this.f51085h);
-            } else if (view.getId() != this.q.getId() || (homeCfgResponse = this.f51086i) == null) {
+                com.baidu.wallet.home.a.a().a(this, this.f51131i.getBillboard().name, this.f51131i.getBillboard().type, this.f51131i.getBillboard().link_addr, false, this.f51130h);
+            } else if (view.getId() != this.q.getId() || (homeCfgResponse = this.f51131i) == null) {
             } else {
                 homeCfgResponse.closeBillboard(this);
                 this.o.setVisibility(8);
@@ -2662,7 +2662,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
             this.n = true;
             String string = getIntent().getExtras().getString("pageType");
             if (!TextUtils.isEmpty(string)) {
-                this.f51085h = string;
+                this.f51130h = string;
             }
             getActivity().getWindow().setSoftInputMode(3);
             setContentView(ResUtils.layout(this.mAct, "wallet_home_main_new"));
@@ -2676,9 +2676,9 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            BeanManager.getInstance().removeAllBeans(this.f51084g);
-            if (f51080f.equals(this.f51084g)) {
-                f51079e = null;
+            BeanManager.getInstance().removeAllBeans(this.f51129g);
+            if (f51125f.equals(this.f51129g)) {
+                f51124e = null;
             }
         }
     }
@@ -2690,7 +2690,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
             super.onNewIntent(intent);
             String string = intent.getExtras().getString("pageType");
             if (!TextUtils.isEmpty(string)) {
-                this.f51085h = string;
+                this.f51130h = string;
             }
             this.l = false;
             this.m = false;
@@ -2706,7 +2706,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
             super.onResume();
             if (this.n) {
                 this.n = false;
-            } else if (f51079e.a()) {
+            } else if (f51124e.a()) {
                 LogUtil.d("Home onResume getOpenbduss");
                 WalletLoginHelper.getInstance().getOpenBduss(true, new LoginBackListenerProxy(this, new ILoginBackListener(this) { // from class: com.baidu.wallet.home.WalletNewHomeActivity.2
                     public static /* synthetic */ Interceptable $ic;
@@ -2798,9 +2798,9 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             initHomeActionBar("dxm_finance_brand");
-            this.f51087j = (WalletHomeActionBar) findViewById(ResUtils.id(this.mAct, "bdactionbar"));
-            if (HomeCfgBean.PAGE_CREDIT.equals(this.f51085h)) {
-                this.f51087j.setRightImgZone1Visibility(4);
+            this.f51132j = (WalletHomeActionBar) findViewById(ResUtils.id(this.mAct, "bdactionbar"));
+            if (HomeCfgBean.PAGE_CREDIT.equals(this.f51130h)) {
+                this.f51132j.setRightImgZone1Visibility(4);
             }
         }
     }
@@ -2809,9 +2809,9 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             this.m = false;
-            HomeCfgResponse responseFromCache = HomeDataCacheManager.getInstance().getResponseFromCache(this.mAct, this.f51085h);
+            HomeCfgResponse responseFromCache = HomeDataCacheManager.getInstance().getResponseFromCache(this.mAct, this.f51130h);
             if (responseFromCache != null && responseFromCache.doCheckValidity()) {
-                this.f51086i = responseFromCache;
+                this.f51131i = responseFromCache;
                 this.m = true;
                 c();
                 d();
@@ -2831,30 +2831,30 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
                     return;
                 }
             }
-            HomeCfgResponse homeCfgResponse = this.f51086i;
+            HomeCfgResponse homeCfgResponse = this.f51131i;
             if (homeCfgResponse == null || !homeCfgResponse.doCheckValidity()) {
-                this.f51086i = HomeDataCacheManager.getInstance().getResponseFromAsset(this.mAct, this.f51085h);
+                this.f51131i = HomeDataCacheManager.getInstance().getResponseFromAsset(this.mAct, this.f51130h);
             }
-            HomeCfgResponse homeCfgResponse2 = this.f51086i;
+            HomeCfgResponse homeCfgResponse2 = this.f51131i;
             if (homeCfgResponse2 == null || !homeCfgResponse2.doCheckValidity()) {
                 return;
             }
-            r rVar = f51079e;
+            r rVar = f51124e;
             if (rVar != null) {
-                rVar.a(this.f51086i);
+                rVar.a(this.f51131i);
             }
-            this.f51082c.setBackgroundColor(ResUtils.getColor(this, "5".equals(this.f51086i.version) ? "wallet_home_nh_whiteColor_bg" : "wallet_extend_home_nh_separate_bright"));
-            WalletHomeActionBar walletHomeActionBar = this.f51087j;
+            this.f51127c.setBackgroundColor(ResUtils.getColor(this, "5".equals(this.f51131i.version) ? "wallet_home_nh_whiteColor_bg" : "wallet_extend_home_nh_separate_bright"));
+            WalletHomeActionBar walletHomeActionBar = this.f51132j;
             BeanActivity beanActivity = this.mAct;
-            HomeCfgResponse homeCfgResponse3 = this.f51086i;
-            walletHomeActionBar.toRefreshTitleBar(beanActivity, homeCfgResponse3.android_prefix, homeCfgResponse3.layout_title, this.f51085h);
-            HomeCfgResponse.ConfigData[] a2 = com.baidu.wallet.home.ui.widget.newhome.a.a(this.f51086i);
-            this.f51081b.initList(Arrays.asList(a2));
-            a(this.f51086i, a2);
-            if (!this.f51086i.hasBillboard() || this.f51086i.isBillboardClosed(this)) {
+            HomeCfgResponse homeCfgResponse3 = this.f51131i;
+            walletHomeActionBar.toRefreshTitleBar(beanActivity, homeCfgResponse3.android_prefix, homeCfgResponse3.layout_title, this.f51130h);
+            HomeCfgResponse.ConfigData[] a2 = com.baidu.wallet.home.ui.widget.newhome.a.a(this.f51131i);
+            this.f51126b.initList(Arrays.asList(a2));
+            a(this.f51131i, a2);
+            if (!this.f51131i.hasBillboard() || this.f51131i.isBillboardClosed(this)) {
                 return;
             }
-            a(this.f51086i);
+            a(this.f51131i);
         }
     }
 
@@ -2863,35 +2863,35 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             this.l = false;
-            HomeCfgBean homeCfgBean = (HomeCfgBean) WalletHomeBeanFactory.getInstance().getBean((Context) this.mAct, WalletHomeBeanFactory.BEAN_ID_HOME_CFG, this.f51084g);
+            HomeCfgBean homeCfgBean = (HomeCfgBean) WalletHomeBeanFactory.getInstance().getBean((Context) this.mAct, WalletHomeBeanFactory.BEAN_ID_HOME_CFG, this.f51129g);
             homeCfgBean.setAbtypeHomePage(true);
-            HomeCfgResponse homeCfgResponse = this.f51086i;
+            HomeCfgResponse homeCfgResponse = this.f51131i;
             if (homeCfgResponse != null) {
                 HomeCfgResponse.AllConfig allConfig = homeCfgResponse.layout_content;
                 if (allConfig != null && !TextUtils.isEmpty(allConfig.fingerprint)) {
-                    homeCfgBean.setAllFingerPrint(this.f51086i.layout_content.fingerprint);
+                    homeCfgBean.setAllFingerPrint(this.f51131i.layout_content.fingerprint);
                 } else {
                     homeCfgBean.setAllFingerPrint(null);
                 }
-                HomeCfgResponse.TitleConfig titleConfig = this.f51086i.layout_title;
+                HomeCfgResponse.TitleConfig titleConfig = this.f51131i.layout_title;
                 if (titleConfig != null && !TextUtils.isEmpty(titleConfig.fingerprint)) {
-                    homeCfgBean.setTitleFingerPrint(this.f51086i.layout_title.fingerprint);
+                    homeCfgBean.setTitleFingerPrint(this.f51131i.layout_title.fingerprint);
                 } else {
                     homeCfgBean.setTitleFingerPrint(null);
                 }
-                HomeCfgResponse.FooterConfig footerConfig = this.f51086i.layout_footer;
+                HomeCfgResponse.FooterConfig footerConfig = this.f51131i.layout_footer;
                 if (footerConfig != null && !TextUtils.isEmpty(footerConfig.fingerprint)) {
-                    homeCfgBean.setFooterFingerPrint(this.f51086i.layout_footer.fingerprint);
+                    homeCfgBean.setFooterFingerPrint(this.f51131i.layout_footer.fingerprint);
                 } else {
                     homeCfgBean.setFooterFingerPrint(null);
                 }
-                if (this.f51086i.doCheckValidity() && !TextUtils.isEmpty(this.f51086i.changedSign)) {
-                    homeCfgBean.setChangeSign(this.f51086i.changedSign);
+                if (this.f51131i.doCheckValidity() && !TextUtils.isEmpty(this.f51131i.changedSign)) {
+                    homeCfgBean.setChangeSign(this.f51131i.changedSign);
                 } else {
                     homeCfgBean.setChangeSign(null);
                 }
             }
-            homeCfgBean.setPageId(TextUtils.isEmpty(this.f51085h) ? HomeCfgBean.PAGE_HOME : this.f51085h);
+            homeCfgBean.setPageId(TextUtils.isEmpty(this.f51130h) ? HomeCfgBean.PAGE_HOME : this.f51130h);
             homeCfgBean.setResponseCallback(this);
             homeCfgBean.execBean();
         }
@@ -2900,13 +2900,13 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
     private void a(HomeCfgResponse homeCfgResponse) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, homeCfgResponse) == null) || f51079e == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, homeCfgResponse) == null) || f51124e == null) {
             return;
         }
         if (URLUtil.isNetworkUrl(homeCfgResponse.getBillboard().logo)) {
             str = homeCfgResponse.getBillboard().logo;
         } else {
-            str = f51079e.getAndroidPrefix() + homeCfgResponse.getBillboard().logo;
+            str = f51124e.getAndroidPrefix() + homeCfgResponse.getBillboard().logo;
         }
         if (URLUtil.isNetworkUrl(str)) {
             Glide.with((FragmentActivity) this).load(str).listener(new RequestListener<Drawable>(this, homeCfgResponse) { // from class: com.baidu.wallet.home.WalletNewHomeActivity.1
@@ -2915,7 +2915,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
                 public final /* synthetic */ HomeCfgResponse a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ WalletNewHomeActivity f51088b;
+                public final /* synthetic */ WalletNewHomeActivity f51133b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2932,7 +2932,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
                             return;
                         }
                     }
-                    this.f51088b = this;
+                    this.f51133b = this;
                     this.a = homeCfgResponse;
                 }
 
@@ -2944,11 +2944,11 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{drawable, obj, target, dataSource, Boolean.valueOf(z2)})) == null) {
                         if (this.a.billboardCloseable()) {
-                            this.f51088b.q.setOnClickListener(this.f51088b);
-                            this.f51088b.q.setVisibility(0);
+                            this.f51133b.q.setOnClickListener(this.f51133b);
+                            this.f51133b.q.setVisibility(0);
                         }
-                        this.f51088b.p.setOnClickListener(this.f51088b);
-                        this.f51088b.o.setVisibility(0);
+                        this.f51133b.p.setOnClickListener(this.f51133b);
+                        this.f51133b.o.setVisibility(0);
                         return false;
                     }
                     return invokeCommon.booleanValue;
@@ -2959,7 +2959,7 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{glideException, obj, target, Boolean.valueOf(z2)})) == null) {
-                        this.f51088b.o.setVisibility(8);
+                        this.f51133b.o.setVisibility(8);
                         return false;
                     }
                     return invokeCommon.booleanValue;
@@ -2971,14 +2971,14 @@ public class WalletNewHomeActivity extends BeanActivity implements View.OnClickL
     private void a(HomeCfgResponse homeCfgResponse, HomeCfgResponse.ConfigData[] configDataArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, homeCfgResponse, configDataArr) == null) {
-            if (homeCfgResponse.layout_footer != null && this.f51083d == null) {
+            if (homeCfgResponse.layout_footer != null && this.f51128d == null) {
                 NHFooterView nHFooterView = new NHFooterView(this);
-                this.f51083d = nHFooterView;
+                this.f51128d = nHFooterView;
                 this.a.addFooterView(nHFooterView);
             }
-            if (this.f51083d != null) {
-                r rVar = f51079e;
-                this.f51083d.setData(homeCfgResponse, f51079e, rVar == null ? 0 : measureHomeLayout(this, configDataArr, rVar));
+            if (this.f51128d != null) {
+                r rVar = f51124e;
+                this.f51128d.setData(homeCfgResponse, f51124e, rVar == null ? 0 : measureHomeLayout(this, configDataArr, rVar));
             }
         }
     }

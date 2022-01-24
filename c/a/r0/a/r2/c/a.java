@@ -17,15 +17,15 @@ public class a {
 
     /* renamed from: c.a.r0.a.r2.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0531a {
+    public static class C0540a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f8620b;
+        public boolean f8762b;
 
-        public C0531a() {
+        public C0540a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,7 +41,7 @@ public class a {
     }
 
     @Nullable
-    public static C0531a a(@NonNull Context context) {
+    public static C0540a a(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
@@ -49,11 +49,11 @@ public class a {
             if (registerReceiver == null) {
                 return null;
             }
-            C0531a c0531a = new C0531a();
-            c0531a.a = registerReceiver.getIntExtra("level", -1);
-            c0531a.f8620b = registerReceiver.getIntExtra("plugged", 0) != 0;
-            return c0531a;
+            C0540a c0540a = new C0540a();
+            c0540a.a = registerReceiver.getIntExtra("level", -1);
+            c0540a.f8762b = registerReceiver.getIntExtra("plugged", 0) != 0;
+            return c0540a;
         }
-        return (C0531a) invokeL.objValue;
+        return (C0540a) invokeL.objValue;
     }
 }

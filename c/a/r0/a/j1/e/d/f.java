@@ -28,12 +28,12 @@ public class f implements d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7458c;
+    public static final boolean f7600c;
     public transient /* synthetic */ FieldHolder $fh;
     public BitmapRegionDecoder a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f7459b;
+    public final Object f7601b;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class f implements d {
                 return;
             }
         }
-        f7458c = k.a;
+        f7600c = k.a;
     }
 
     public f() {
@@ -64,7 +64,7 @@ public class f implements d {
                 return;
             }
         }
-        this.f7459b = new Object();
+        this.f7601b = new Object();
     }
 
     @Override // c.a.r0.a.j1.e.d.d
@@ -117,13 +117,13 @@ public class f implements d {
         Bitmap decodeRegion;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, rect, i2)) == null) {
-            synchronized (this.f7459b) {
+            synchronized (this.f7601b) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inSampleSize = i2;
                 options.inPreferredConfig = Bitmap.Config.RGB_565;
                 decodeRegion = this.a.decodeRegion(rect, options);
                 if (decodeRegion == null) {
-                    if (!f7458c) {
+                    if (!f7600c) {
                         c.a.r0.a.e0.d.k("SkiaImageRegionDecoder", "bitmap is null");
                     } else {
                         throw new RuntimeException("Skia image decoder returned null bitmap - image format may not be supported");

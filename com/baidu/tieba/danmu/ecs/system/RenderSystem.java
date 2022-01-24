@@ -46,10 +46,10 @@ public final class RenderSystem extends c.a.t0.m0.f.c.b implements Handler.Callb
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Lazy f42422i;
+    public final Lazy f42443i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final a f42423j;
+    public final a f42444j;
     public List<b> k;
     public int l;
     public b m;
@@ -95,7 +95,7 @@ public final class RenderSystem extends c.a.t0.m0.f.c.b implements Handler.Callb
         public c.a.t0.m0.i.b d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new c.a.t0.m0.i.b(c.a.t0.m0.e.a.m.a(), c.a.t0.m0.c.a.f19183f.a(), f.a.b(), f.a.c(), new Matrix()) : (c.a.t0.m0.i.b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new c.a.t0.m0.i.b(c.a.t0.m0.e.a.m.a(), c.a.t0.m0.c.a.f19446f.a(), f.a.b(), f.a.c(), new Matrix()) : (c.a.t0.m0.i.b) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -106,11 +106,11 @@ public final class RenderSystem extends c.a.t0.m0.f.c.b implements Handler.Callb
             if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || bVar == null) {
                 return;
             }
-            if (!Intrinsics.areEqual(bVar.b(), c.a.t0.m0.c.a.f19183f.a())) {
+            if (!Intrinsics.areEqual(bVar.b(), c.a.t0.m0.c.a.f19446f.a())) {
                 bVar.b().d();
             }
             bVar.k(c.a.t0.m0.e.a.m.a());
-            bVar.i(c.a.t0.m0.c.a.f19183f.a());
+            bVar.i(c.a.t0.m0.c.a.f19446f.a());
             bVar.f().setEmpty();
             bVar.e().set(0.0f, 0.0f);
             bVar.g().reset();
@@ -126,10 +126,10 @@ public final class RenderSystem extends c.a.t0.m0.f.c.b implements Handler.Callb
         public final List<c.a.t0.m0.i.b> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f42424b;
+        public final int f42445b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f42425c;
+        public final int f42446c;
 
         public b(List<c.a.t0.m0.i.b> renderObjects, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -148,14 +148,14 @@ public final class RenderSystem extends c.a.t0.m0.f.c.b implements Handler.Callb
             }
             Intrinsics.checkNotNullParameter(renderObjects, "renderObjects");
             this.a = renderObjects;
-            this.f42424b = i2;
-            this.f42425c = i3;
+            this.f42445b = i2;
+            this.f42446c = i3;
         }
 
         public final int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42424b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42445b : invokeV.intValue;
         }
 
         public final List<c.a.t0.m0.i.b> b() {
@@ -167,7 +167,7 @@ public final class RenderSystem extends c.a.t0.m0.f.c.b implements Handler.Callb
         public final int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42425c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42446c : invokeV.intValue;
         }
     }
 
@@ -205,11 +205,11 @@ public final class RenderSystem extends c.a.t0.m0.f.c.b implements Handler.Callb
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.f42422i = LazyKt__LazyJVMKt.lazy(new RenderSystem$entities$2(this));
+        this.f42443i = LazyKt__LazyJVMKt.lazy(new RenderSystem$entities$2(this));
         a aVar = new a(this, 200, 500);
         aVar.b(200);
         Unit unit = Unit.INSTANCE;
-        this.f42423j = aVar;
+        this.f42444j = aVar;
         this.k = new ArrayList();
         Paint paint = new Paint();
         paint.setAntiAlias(true);
@@ -333,7 +333,7 @@ public final class RenderSystem extends c.a.t0.m0.f.c.b implements Handler.Callb
         Bitmap c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, canvas, bVar, bVar2, aVar)) == null) {
-            if (Intrinsics.areEqual(bVar.b(), c.a.t0.m0.c.a.f19183f.a()) || bVar.b().g() == null || bVar.d().f().b() != aVar.h() || bVar.d().i().compareTo(ItemState.Rendered) < 0 || (g2 = bVar.b().g()) == null || (c2 = g2.c()) == null || c2.isRecycled()) {
+            if (Intrinsics.areEqual(bVar.b(), c.a.t0.m0.c.a.f19446f.a()) || bVar.b().g() == null || bVar.d().f().b() != aVar.h() || bVar.d().i().compareTo(ItemState.Rendered) < 0 || (g2 = bVar.b().g()) == null || (c2 = g2.c()) == null || c2.isRecycled()) {
                 return false;
             }
             canvas.drawBitmap(c2, bVar.g(), this.n);
@@ -365,7 +365,7 @@ public final class RenderSystem extends c.a.t0.m0.f.c.b implements Handler.Callb
     public final c.b.a.c.b<d> o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (c.b.a.c.b) this.f42422i.getValue() : (c.b.a.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (c.b.a.c.b) this.f42443i.getValue() : (c.b.a.c.b) invokeV.objValue;
     }
 
     public final c p() {
@@ -384,7 +384,7 @@ public final class RenderSystem extends c.a.t0.m0.f.c.b implements Handler.Callb
             }
             for (b bVar : list) {
                 List<c.a.t0.m0.i.b> b2 = bVar.b();
-                a aVar = this.f42423j;
+                a aVar = this.f42444j;
                 for (c.a.t0.m0.i.b bVar2 : b2) {
                     aVar.c(bVar2);
                 }
@@ -453,7 +453,7 @@ public final class RenderSystem extends c.a.t0.m0.f.c.b implements Handler.Callb
                         a3.n(c2.m());
                         this.o.obtainMessage(1, a3).sendToTarget();
                     }
-                    e2 = this.f42423j.e();
+                    e2 = this.f42444j.e();
                     c3.m();
                     e2.k(a3);
                     e2.i(c3);

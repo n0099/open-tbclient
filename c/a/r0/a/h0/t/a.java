@@ -28,19 +28,19 @@ public final class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static LinkedList<e> f6880b;
+    public static LinkedList<e> f7022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, c.a.r0.a.p.e.b> f6881c;
+    public static Map<String, c.a.r0.a.p.e.b> f7023c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.h0.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0407a implements Runnable {
+    public static class RunnableC0416a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC0407a() {
+        public RunnableC0416a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +72,7 @@ public final class a {
         public final /* synthetic */ e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f6882b;
+        public final /* synthetic */ boolean f7024b;
 
         public b(e eVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public final class a {
                 }
             }
             this.a = eVar;
-            this.f6882b = z;
+            this.f7024b = z;
         }
 
         @Override // c.a.r0.a.h0.b
@@ -101,9 +101,9 @@ public final class a {
                     String str2 = "onPageFinished slaveId: " + this.a.a.c() + " url: " + str;
                 }
                 if (!c.a.r0.a.x1.a.a.D() || !g.U().q0()) {
-                    a.l(this.a, this.f6882b);
+                    a.l(this.a, this.f7024b);
                 } else {
-                    a.m(this.a, this.f6882b);
+                    a.m(this.a, this.f7024b);
                 }
             }
         }
@@ -116,7 +116,7 @@ public final class a {
         public final /* synthetic */ e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f6883b;
+        public final /* synthetic */ boolean f7025b;
 
         public c(e eVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public final class a {
                 }
             }
             this.a = eVar;
-            this.f6883b = z;
+            this.f7025b = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -146,7 +146,7 @@ public final class a {
                 if (a.a) {
                     String str2 = "slave onReceiveValue: " + str;
                 }
-                a.l(this.a, this.f6883b);
+                a.l(this.a, this.f7025b);
             }
         }
     }
@@ -191,19 +191,19 @@ public final class a {
         public c.a.r0.a.p.e.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f6884b;
+        public boolean f7026b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final ArrayList<f> f6885c;
+        public final ArrayList<f> f7027c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f6886d;
+        public long f7028d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f6887e;
+        public long f7029e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f6888f;
+        public boolean f7030f;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -218,8 +218,8 @@ public final class a {
                     return;
                 }
             }
-            this.f6885c = new ArrayList<>();
-            this.f6888f = true;
+            this.f7027c = new ArrayList<>();
+            this.f7030f = true;
         }
     }
 
@@ -242,15 +242,15 @@ public final class a {
             }
         }
         a = k.a;
-        f6880b = new LinkedList<>();
-        f6881c = new TreeMap();
+        f7022b = new LinkedList<>();
+        f7023c = new TreeMap();
     }
 
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            f6880b.clear();
-            f6881c.clear();
+            f7022b.clear();
+            f7023c.clear();
         }
     }
 
@@ -262,8 +262,8 @@ public final class a {
                 i2 = 0;
             }
             e eVar = new e();
-            eVar.f6886d = System.currentTimeMillis();
-            eVar.f6884b = false;
+            eVar.f7028d = System.currentTimeMillis();
+            eVar.f7026b = false;
             eVar.a = g.U().K0(context, i2, new b(eVar, z));
             return eVar;
         }
@@ -292,7 +292,7 @@ public final class a {
                 i2 = 0;
             }
             e eVar = null;
-            Iterator<e> it = f6880b.iterator();
+            Iterator<e> it = f7022b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -306,7 +306,7 @@ public final class a {
             if (eVar == null) {
                 return e(k(activity), i2, false);
             }
-            f6880b.remove(eVar);
+            f7022b.remove(eVar);
             c.a.r0.a.p.e.b bVar = eVar.a;
             if (bVar != null && activity != null) {
                 bVar.f(activity);
@@ -317,7 +317,7 @@ public final class a {
                 if (g2 <= 0) {
                     g2 = 600;
                 }
-                q0.b0(new RunnableC0407a(), g2);
+                q0.b0(new RunnableC0416a(), g2);
             }
             return eVar;
         }
@@ -328,9 +328,9 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            c.a.r0.a.p.e.b bVar = f6881c.get(str != null ? str : "");
+            c.a.r0.a.p.e.b bVar = f7023c.get(str != null ? str : "");
             if (bVar != null) {
-                f6881c.remove(str);
+                f7023c.remove(str);
             }
             return bVar;
         }
@@ -354,8 +354,8 @@ public final class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) {
-            for (int i3 = 0; i3 < f6880b.size(); i3++) {
-                if (f6880b.get(i3).a.S() == i2) {
+            for (int i3 = 0; i3 < f7022b.size(); i3++) {
+                if (f7022b.get(i3).a.S() == i2) {
                     return true;
                 }
             }
@@ -379,22 +379,22 @@ public final class a {
     public static void l(@NonNull e eVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65548, null, eVar, z) == null) {
-            if (z && eVar.f6888f) {
+            if (z && eVar.f7030f) {
                 c.a.r0.a.h0.t.g.a.j(eVar.a);
             }
-            eVar.f6887e = System.currentTimeMillis();
-            eVar.f6884b = true;
-            if (eVar.f6885c.isEmpty()) {
+            eVar.f7029e = System.currentTimeMillis();
+            eVar.f7026b = true;
+            if (eVar.f7027c.isEmpty()) {
                 return;
             }
-            Iterator<f> it = eVar.f6885c.iterator();
+            Iterator<f> it = eVar.f7027c.iterator();
             while (it.hasNext()) {
                 f next = it.next();
                 if (next != null) {
                     next.onReady();
                 }
             }
-            eVar.f6885c.clear();
+            eVar.f7027c.clear();
         }
     }
 
@@ -409,10 +409,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
             if (!j(0)) {
-                f6880b.add(e(k(context), 0, true));
+                f7022b.add(e(k(context), 0, true));
             }
             if (!j(1) && c.a.r0.a.h0.t.f.a.d() && i()) {
-                f6880b.add(e(k(context), 1, true));
+                f7022b.add(e(k(context), 1, true));
             }
         }
     }
@@ -420,7 +420,7 @@ public final class a {
     public static void o(@NonNull String str, c.a.r0.a.p.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, null, str, bVar) == null) {
-            Map<String, c.a.r0.a.p.e.b> map = f6881c;
+            Map<String, c.a.r0.a.p.e.b> map = f7023c;
             if (str == null) {
                 str = "";
             }
@@ -441,10 +441,10 @@ public final class a {
                 }
             }
             e eVar = new e();
-            eVar.f6886d = System.currentTimeMillis();
-            eVar.f6884b = false;
+            eVar.f7028d = System.currentTimeMillis();
+            eVar.f7026b = false;
             eVar.a = bVar;
-            f6880b.add(eVar);
+            f7022b.add(eVar);
             if (c.a.r0.a.x1.a.a.D() && g.U().q0()) {
                 m(eVar, true);
             } else {
@@ -458,11 +458,11 @@ public final class a {
         if (!(interceptable == null || interceptable.invokeLL(65553, null, eVar, fVar) == null) || fVar == null) {
             return;
         }
-        if (eVar.f6884b) {
+        if (eVar.f7026b) {
             fVar.onReady();
             return;
         }
-        eVar.f6885c.add(fVar);
-        eVar.f6888f = false;
+        eVar.f7027c.add(fVar);
+        eVar.f7030f = false;
     }
 }

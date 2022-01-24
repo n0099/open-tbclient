@@ -40,7 +40,7 @@ public class a implements b<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && c.a.r0.x.d.c.a(this.a, s.f55248i)) {
+            if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && c.a.r0.x.d.c.a(this.a, s.f55293i)) {
                 return !new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid").exists();
             }
             return true;
@@ -61,7 +61,7 @@ public class a implements b<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && c.a.r0.x.d.c.a(this.a, s.f55248i)) {
+            if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && c.a.r0.x.d.c.a(this.a, s.f55293i)) {
                 File file = new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid");
                 if (file.exists()) {
                     return c.a.r0.x.d.a.c(file);

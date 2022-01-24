@@ -239,10 +239,10 @@ public class PbVideoActivityConfig extends IntentConfig {
                 return this;
             }
             Intent intent = getIntent();
-            intent.putExtra("thread_id", e2Var.v1());
-            intent.putExtra("is_good", e2Var.r0());
-            intent.putExtra("is_top", e2Var.s0());
-            intent.putExtra("thread_time", e2Var.w0());
+            intent.putExtra("thread_id", e2Var.w1());
+            intent.putExtra("is_good", e2Var.s0());
+            intent.putExtra("is_top", e2Var.t0());
+            intent.putExtra("thread_time", e2Var.x0());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -252,7 +252,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra("request_code", i2);
             intent.putExtra("is_from_thread_config", true);
-            long num = e2Var.M0() == null ? 0L : e2Var.M0().getNum();
+            long num = e2Var.N0() == null ? 0L : e2Var.N0().getNum();
             intent.putExtra("extra_pb_cache_key", "zan=" + num);
             if (e2Var.J() != null && e2Var.J().getGodUserData().getId() != null) {
                 intent.putExtra("extra_pb_funs_count_key", e2Var.J().getFansNum());

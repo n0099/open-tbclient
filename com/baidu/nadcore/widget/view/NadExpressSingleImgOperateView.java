@@ -23,13 +23,13 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37399h;
+    public int f37427h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f37400i;
+    public int f37428i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f37401j;
+    public int f37429j;
     public int k;
     @Nullable
     public AdImageView l;
@@ -70,9 +70,9 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
                 }
                 o.a aVar = oVar.f2259h;
                 if (aVar != null) {
-                    this.f37399h = aVar.a;
-                    this.f37400i = aVar.f2261b;
-                    this.f37401j = aVar.f2262c;
+                    this.f37427h = aVar.a;
+                    this.f37428i = aVar.f2261b;
+                    this.f37429j = aVar.f2262c;
                     this.k = aVar.f2263d;
                 }
             }
@@ -89,7 +89,7 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
             if (adImageView == null) {
                 return;
             }
-            int e2 = (((((f.c.e(context) - f.c.a(getContext(), this.f37399h)) - f.c.a(getContext(), this.f37400i)) - f.c.a(getContext(), this.f37401j)) - f.c.a(getContext(), this.k)) - (f.c.a(getContext(), 6.0f) * 2)) / 3;
+            int e2 = (((((f.c.e(context) - f.c.a(getContext(), this.f37427h)) - f.c.a(getContext(), this.f37428i)) - f.c.a(getContext(), this.f37429j)) - f.c.a(getContext(), this.k)) - (f.c.a(getContext(), 6.0f) * 2)) / 3;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.l.getLayoutParams();
             layoutParams.width = e2;
             layoutParams.height = Math.round((e2 / getResources().getInteger(c.a.c0.d.f.nad_list_small_image_width)) * getResources().getInteger(c.a.c0.d.f.nad_list_small_image_height));
@@ -178,9 +178,9 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
                 return;
             }
         }
-        this.f37399h = 15;
-        this.f37400i = 15;
-        this.f37401j = 0;
+        this.f37427h = 15;
+        this.f37428i = 15;
+        this.f37429j = 0;
         this.k = 0;
     }
 }

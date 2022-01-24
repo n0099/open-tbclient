@@ -12,13 +12,13 @@ public class c implements Runnable {
     public final /* synthetic */ d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SearchResult f37708b;
+    public final /* synthetic */ SearchResult f37736b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Object f37709c;
+    public final /* synthetic */ Object f37737c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ a f37710d;
+    public final /* synthetic */ a f37738d;
 
     public c(a aVar, d dVar, SearchResult searchResult, Object obj) {
         Interceptable interceptable = $ic;
@@ -35,10 +35,10 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f37710d = aVar;
+        this.f37738d = aVar;
         this.a = dVar;
-        this.f37708b = searchResult;
-        this.f37709c = obj;
+        this.f37736b = searchResult;
+        this.f37737c = obj;
     }
 
     @Override // java.lang.Runnable
@@ -47,11 +47,11 @@ public class c implements Runnable {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
-        this.f37710d.a.lock();
+        this.f37738d.a.lock();
         try {
-            this.a.a(this.f37708b, this.f37709c);
+            this.a.a(this.f37736b, this.f37737c);
         } finally {
-            this.f37710d.a.unlock();
+            this.f37738d.a.unlock();
         }
     }
 }

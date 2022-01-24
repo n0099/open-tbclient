@@ -14,19 +14,19 @@ public class o {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f20014b;
+    public int f20115b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f20015c;
+    public int f20116c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20016d;
+    public int f20117d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<MediaSegment> f20017e;
+    public List<MediaSegment> f20118e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<MultiMediaData> f20018f;
+    public List<MultiMediaData> f20119f;
 
     public o() {
         Interceptable interceptable = $ic;

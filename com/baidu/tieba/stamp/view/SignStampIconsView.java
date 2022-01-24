@@ -20,7 +20,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.l.c;
 import c.a.d.f.l.d;
 import c.a.s0.s.q.z1;
-import c.a.t0.t3.h.b;
+import c.a.t0.u3.h.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -38,18 +38,18 @@ import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SignStampIconsView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f48091h;
+    public static final int f48107h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f48092i;
+    public static final int f48108i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f48093j;
+    public static final int f48109j;
     public static final int k;
     public static final int l;
     public static final int m;
@@ -60,22 +60,22 @@ public class SignStampIconsView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f48094e;
+    public Context f48110e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f48095f;
+    public b f48111f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<ImageView> f48096g;
+    public List<ImageView> f48112g;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends c<c.a.d.n.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SignStampIconsView f48097b;
+        public final /* synthetic */ SignStampIconsView f48113b;
 
         public a(SignStampIconsView signStampIconsView, TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class SignStampIconsView extends LinearLayout {
                     return;
                 }
             }
-            this.f48097b = signStampIconsView;
+            this.f48113b = signStampIconsView;
             this.a = tbImageView;
         }
 
@@ -102,7 +102,7 @@ public class SignStampIconsView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((a) aVar, str, i2);
-                this.f48097b.f(aVar, this.a);
+                this.f48113b.f(aVar, this.a);
             }
         }
     }
@@ -120,9 +120,9 @@ public class SignStampIconsView extends LinearLayout {
                 return;
             }
         }
-        f48091h = UtilHelper.getDimenPixelSize(R.dimen.tbds62);
-        f48092i = UtilHelper.getDimenPixelSize(R.dimen.tbds5);
-        f48093j = UtilHelper.getDimenPixelSize(R.dimen.M_W_X012);
+        f48107h = UtilHelper.getDimenPixelSize(R.dimen.tbds62);
+        f48108i = UtilHelper.getDimenPixelSize(R.dimen.tbds5);
+        f48109j = UtilHelper.getDimenPixelSize(R.dimen.M_W_X012);
         k = R.string.J_X01;
         l = UtilHelper.getDimenPixelSize(R.dimen.tbds94);
         m = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
@@ -158,9 +158,9 @@ public class SignStampIconsView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            View view = new View(this.f48094e);
-            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(f48091h, f48092i);
-            int i2 = f48093j;
+            View view = new View(this.f48110e);
+            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(f48107h, f48108i);
+            int i2 = f48109j;
             int i3 = q;
             marginLayoutParams.leftMargin = i2 - i3;
             marginLayoutParams.rightMargin = i2 - i3;
@@ -193,16 +193,17 @@ public class SignStampIconsView extends LinearLayout {
             if (aVar == null) {
                 return null;
             }
-            TbImageView tbImageView = new TbImageView(this.f48094e);
+            TbImageView tbImageView = new TbImageView(this.f48110e);
             int i2 = l;
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(i2, i2);
             int i3 = q;
             marginLayoutParams.topMargin = i3;
             marginLayoutParams.leftMargin = i3;
             marginLayoutParams.rightMargin = i3;
+            tbImageView.setPlaceHolder(0);
             tbImageView.setLayoutParams(marginLayoutParams);
             g(aVar, tbImageView);
-            TextView textView = new TextView(this.f48094e);
+            TextView textView = new TextView(this.f48110e);
             ViewGroup.MarginLayoutParams marginLayoutParams2 = new ViewGroup.MarginLayoutParams(-2, -2);
             marginLayoutParams2.topMargin = m;
             textView.setLayoutParams(marginLayoutParams2);
@@ -213,12 +214,12 @@ public class SignStampIconsView extends LinearLayout {
                 c.a.s0.s.u.c.d(textView).v(o);
             }
             c.a.s0.s.u.c.d(textView).z(p);
-            LinearLayout linearLayout = new LinearLayout(this.f48094e);
+            LinearLayout linearLayout = new LinearLayout(this.f48110e);
             linearLayout.setOrientation(1);
             linearLayout.setGravity(1);
             linearLayout.addView(tbImageView);
             linearLayout.addView(textView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: c.a.t0.t3.j.c
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: c.a.t0.u3.j.c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -230,7 +231,7 @@ public class SignStampIconsView extends LinearLayout {
                     }
                 }
             });
-            this.f48096g.add(tbImageView);
+            this.f48112g.add(tbImageView);
             return linearLayout;
         }
         return (View) invokeL.objValue;
@@ -254,7 +255,7 @@ public class SignStampIconsView extends LinearLayout {
                 h(linearLayout.getChildAt(0), 1.44f, 1.44f, 70L);
             }
         }
-        b bVar = this.f48095f;
+        b bVar = this.f48111f;
         if (bVar != null) {
             bVar.a(aVar);
         }
@@ -300,7 +301,7 @@ public class SignStampIconsView extends LinearLayout {
     public final void i() {
         List<ImageView> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (list = this.f48096g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (list = this.f48112g) == null) {
             return;
         }
         for (ImageView imageView : list) {
@@ -327,7 +328,7 @@ public class SignStampIconsView extends LinearLayout {
                 for (int i6 = 0; i6 < childCount - 1; i6++) {
                     View childAt2 = getChildAt(i6);
                     if ("crossLine".equals(childAt2.getTag())) {
-                        childAt2.layout(childAt2.getLeft(), top - (f48092i / 2), childAt2.getRight(), (f48092i / 2) + top);
+                        childAt2.layout(childAt2.getLeft(), top - (f48108i / 2), childAt2.getRight(), (f48108i / 2) + top);
                     }
                 }
             }
@@ -337,7 +338,7 @@ public class SignStampIconsView extends LinearLayout {
     public void setSignStampIconClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.f48095f = bVar;
+            this.f48111f = bVar;
         }
     }
 
@@ -414,8 +415,8 @@ public class SignStampIconsView extends LinearLayout {
                 return;
             }
         }
-        this.f48094e = context;
-        this.f48096g = new ArrayList();
+        this.f48110e = context;
+        this.f48112g = new ArrayList();
         d();
     }
 }

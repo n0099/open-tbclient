@@ -14,38 +14,38 @@ public final class z {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f57963b;
+        public int f58008b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f57964c;
+        public int f58009c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f57965d;
+        public int f58010d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f57966e;
+        public int f58011e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f57967f;
+        public int f58012f;
 
         public a() {
             this.a = -1;
-            this.f57963b = -1;
-            this.f57964c = -1;
-            this.f57965d = -1;
-            this.f57966e = -1;
-            this.f57967f = -1;
+            this.f58008b = -1;
+            this.f58009c = -1;
+            this.f58010d = -1;
+            this.f58011e = -1;
+            this.f58012f = -1;
         }
 
         public a(int i2, int i3) {
             this.a = -1;
-            this.f57963b = -1;
-            this.f57964c = -1;
-            this.f57965d = -1;
-            this.f57966e = -1;
-            this.f57967f = -1;
+            this.f58008b = -1;
+            this.f58009c = -1;
+            this.f58010d = -1;
+            this.f58011e = -1;
+            this.f58012f = -1;
             this.a = i2;
-            this.f57963b = i3;
+            this.f58008b = i3;
         }
 
         public int a() {
@@ -53,43 +53,43 @@ public final class z {
         }
 
         public void a(float f2, float f3) {
-            this.f57964c = (int) f2;
-            this.f57965d = (int) f3;
+            this.f58009c = (int) f2;
+            this.f58010d = (int) f3;
         }
 
         public void a(int i2, int i3) {
             this.a = i2;
-            this.f57963b = i3;
+            this.f58008b = i3;
         }
 
         public int b() {
-            return this.f57963b;
+            return this.f58008b;
         }
 
         public void b(float f2, float f3) {
-            this.f57966e = (int) f2;
-            this.f57967f = (int) f3;
+            this.f58011e = (int) f2;
+            this.f58012f = (int) f3;
         }
 
         public int c() {
-            return this.f57964c;
+            return this.f58009c;
         }
 
         public int d() {
-            return this.f57965d;
+            return this.f58010d;
         }
 
         public int e() {
-            return this.f57966e;
+            return this.f58011e;
         }
 
         public int f() {
-            return this.f57967f;
+            return this.f58012f;
         }
 
         @NonNull
         public String toString() {
-            return PreferencesUtil.LEFT_MOUNT + this.a + "," + this.f57963b + "," + this.f57964c + "," + this.f57965d + "," + this.f57966e + "," + this.f57967f + PreferencesUtil.RIGHT_MOUNT;
+            return PreferencesUtil.LEFT_MOUNT + this.a + "," + this.f58008b + "," + this.f58009c + "," + this.f58010d + "," + this.f58011e + "," + this.f58012f + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 

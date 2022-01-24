@@ -24,7 +24,7 @@ public class j0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j0 f4172e;
+        public final /* synthetic */ j0 f4313e;
 
         public a(j0 j0Var) {
             Interceptable interceptable = $ic;
@@ -41,16 +41,16 @@ public class j0 extends h {
                     return;
                 }
             }
-            this.f4172e = j0Var;
+            this.f4313e = j0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4172e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4313e.c() == null) {
                 return;
             }
-            this.f4172e.c().a(view, this.f4172e.m);
+            this.f4313e.c().a(view, this.f4313e.m);
         }
     }
 

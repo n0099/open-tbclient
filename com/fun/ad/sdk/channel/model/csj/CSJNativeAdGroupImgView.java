@@ -22,16 +22,16 @@ public final class CSJNativeAdGroupImgView extends e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f54081f;
+    public LinearLayout f54126f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f54082g;
+    public ImageView f54127g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f54083h;
+    public ImageView f54128h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f54084i;
+    public ImageView f54129i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdGroupImgView(Context context) {
@@ -106,17 +106,17 @@ public final class CSJNativeAdGroupImgView extends e0 {
             }
             TTImage tTImage = imageList.get(0);
             if (tTImage != null && tTImage.isValid()) {
-                GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f54082g);
+                GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f54127g);
             }
             TTImage tTImage2 = imageList.get(1);
             if (tTImage2 != null && tTImage2.isValid()) {
-                GlideHelper.get().load(getContext(), tTImage2.getImageUrl(), this.f54083h);
+                GlideHelper.get().load(getContext(), tTImage2.getImageUrl(), this.f54128h);
             }
             TTImage tTImage3 = imageList.get(2);
             if (tTImage3 == null || !tTImage3.isValid()) {
                 return;
             }
-            GlideHelper.get().load(getContext(), tTImage3.getImageUrl(), this.f54084i);
+            GlideHelper.get().load(getContext(), tTImage3.getImageUrl(), this.f54129i);
         }
     }
 
@@ -125,10 +125,10 @@ public final class CSJNativeAdGroupImgView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f54081f = (LinearLayout) findViewById(R.id.ad_img_container);
-            this.f54082g = (ImageView) findViewById(R.id.ad_img_1);
-            this.f54083h = (ImageView) findViewById(R.id.ad_img_2);
-            this.f54084i = (ImageView) findViewById(R.id.ad_img_3);
+            this.f54126f = (LinearLayout) findViewById(R.id.ad_img_container);
+            this.f54127g = (ImageView) findViewById(R.id.ad_img_1);
+            this.f54128h = (ImageView) findViewById(R.id.ad_img_2);
+            this.f54129i = (ImageView) findViewById(R.id.ad_img_3);
         }
     }
 
@@ -137,14 +137,14 @@ public final class CSJNativeAdGroupImgView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f54081f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f54126f.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f54082g.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f54083h.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f54084i.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f54127g.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f54128h.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f54129i.getLayoutParams();
             layoutParams.width = i6;
             layoutParams.height = (int) (((((((i6 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.52f);
-            this.f54081f.setLayoutParams(layoutParams);
+            this.f54126f.setLayoutParams(layoutParams);
         }
     }
 }

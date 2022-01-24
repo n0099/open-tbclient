@@ -25,7 +25,7 @@ public class a {
     public static volatile String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile int f4135b;
+    public static volatile int f4276b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -194,12 +194,12 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int i2 = f4135b;
+            int i2 = f4276b;
             if (i2 == 0) {
                 String b2 = b();
                 String packageName = e.a().getPackageName();
                 i2 = (TextUtils.equals(b2, packageName) || (b2.startsWith(packageName) && !b2.contains(":"))) ? i2 | 1 | 2 : i2 | 4;
-                f4135b = i2;
+                f4276b = i2;
             }
             return i2;
         }

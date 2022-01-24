@@ -19,10 +19,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f11037b;
+    public static final boolean f11179b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f11038c;
+    public static volatile a f11180c;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.j.d0.a.a a;
 
@@ -39,7 +39,7 @@ public class a {
                 return;
             }
         }
-        f11037b = k.a;
+        f11179b = k.a;
     }
 
     public a() {
@@ -60,14 +60,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f11038c == null) {
+            if (f11180c == null) {
                 synchronized (a.class) {
-                    if (f11038c == null) {
-                        f11038c = new a();
+                    if (f11180c == null) {
+                        f11180c = new a();
                     }
                 }
             }
-            return f11038c;
+            return f11180c;
         }
         return (a) invokeV.objValue;
     }
@@ -80,7 +80,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String c2 = c(str, 1);
-            if (TextUtils.isEmpty(c2) || (aVar = this.a) == null || (cVar = aVar.f10939d) == null || (hashMap = cVar.a) == null) {
+            if (TextUtils.isEmpty(c2) || (aVar = this.a) == null || (cVar = aVar.f11081d) == null || (hashMap = cVar.a) == null) {
                 return null;
             }
             return hashMap.get(c2);
@@ -96,25 +96,25 @@ public class a {
         InterceptResult invokeLI;
         c.a.r0.j.d0.a.a aVar;
         a.b bVar;
-        List<a.C0741a> list;
+        List<a.C0750a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
-            if (!TextUtils.isEmpty(str) && (aVar = this.a) != null && (bVar = aVar.f10938c) != null && (list = bVar.a) != null) {
-                for (a.C0741a c0741a : list) {
-                    if (TextUtils.equals(c0741a.a, str) || TextUtils.equals(c0741a.f10943b, str)) {
+            if (!TextUtils.isEmpty(str) && (aVar = this.a) != null && (bVar = aVar.f11080c) != null && (list = bVar.a) != null) {
+                for (a.C0750a c0750a : list) {
+                    if (TextUtils.equals(c0750a.a, str) || TextUtils.equals(c0750a.f11085b, str)) {
                         if (i2 != 0) {
                             if (i2 != 1) {
                                 if (i2 != 2) {
                                     if (i2 != 3) {
-                                        return c0741a.f10943b;
+                                        return c0750a.f11085b;
                                     }
-                                    return c0741a.f10945d;
+                                    return c0750a.f11087d;
                                 }
-                                return c0741a.f10944c;
+                                return c0750a.f11086c;
                             }
-                            return c0741a.f10943b;
+                            return c0750a.f11085b;
                         }
-                        return c0741a.a;
+                        return c0750a.a;
                     }
                     while (r0.hasNext()) {
                     }
@@ -136,11 +136,11 @@ public class a {
                 return false;
             }
             c.a.r0.j.d0.a.a aVar = this.a;
-            if (aVar != null && (bVar = aVar.f10938c) != null && (hashMap = bVar.f10946b) != null && hashMap.containsKey(c2)) {
-                boolean z = f11037b;
-                return this.a.f10938c.f10946b.get(c2).booleanValue();
+            if (aVar != null && (bVar = aVar.f11080c) != null && (hashMap = bVar.f11088b) != null && hashMap.containsKey(c2)) {
+                boolean z = f11179b;
+                return this.a.f11080c.f11088b.get(c2).booleanValue();
             }
-            boolean z2 = f11037b;
+            boolean z2 = f11179b;
             String f0 = e.f0();
             if (e.L() == null) {
                 return false;
@@ -169,12 +169,12 @@ public class a {
         c.a.r0.j.d0.a.a aVar;
         a.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) || TextUtils.isEmpty(str) || (aVar = this.a) == null || (bVar = aVar.f10938c) == null || bVar.f10946b == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) || TextUtils.isEmpty(str) || (aVar = this.a) == null || (bVar = aVar.f11080c) == null || bVar.f11088b == null) {
             return;
         }
-        if (f11037b) {
+        if (f11179b) {
             String str2 = "更新内存缓存信息: " + str + ": " + z;
         }
-        this.a.f10938c.f10946b.put(str, Boolean.valueOf(z));
+        this.a.f11080c.f11088b.put(str, Boolean.valueOf(z));
     }
 }

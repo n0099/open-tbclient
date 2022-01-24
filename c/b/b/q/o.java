@@ -27,31 +27,31 @@ public class o {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27454b;
+    public boolean f27482b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27455c;
+    public boolean f27483c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f27456d;
+    public boolean f27484d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f27457e;
+    public boolean f27485e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27458f;
+    public boolean f27486f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f27459g;
+    public d f27487g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final w<Class, y<String, a>> f27460h;
+    public final w<Class, y<String, a>> f27488h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final w<String, Class> f27461i;
+    public final w<String, Class> f27489i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final w<Class, String> f27462j;
+    public final w<Class, String> f27490j;
     public final w<Class, d> k;
     public final Object[] l;
     public final Object[] m;
@@ -63,10 +63,10 @@ public class o {
         public final c.b.b.q.p0.d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Class f27463b;
+        public Class f27491b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f27464c;
+        public boolean f27492c;
 
         public a(c.b.b.q.p0.d dVar) {
             Interceptable interceptable = $ic;
@@ -84,8 +84,8 @@ public class o {
                 }
             }
             this.a = dVar;
-            this.f27463b = dVar.c((c.b.b.q.p0.b.f(w.class, dVar.getType()) || c.b.b.q.p0.b.f(Map.class, dVar.getType())) ? 1 : 0);
-            this.f27464c = dVar.f(Deprecated.class);
+            this.f27491b = dVar.c((c.b.b.q.p0.b.f(w.class, dVar.getType()) || c.b.b.q.p0.b.f(Map.class, dVar.getType())) ? 1 : 0);
+            this.f27492c = dVar.f(Deprecated.class);
         }
     }
 
@@ -133,10 +133,10 @@ public class o {
             }
         }
         this.a = DealIntentService.KEY_CLASS;
-        this.f27457e = true;
-        this.f27460h = new w<>();
-        this.f27461i = new w<>();
-        this.f27462j = new w<>();
+        this.f27485e = true;
+        this.f27488h = new w<>();
+        this.f27489i = new w<>();
+        this.f27490j = new w<>();
         this.k = new w<>();
         new w();
         this.l = new Object[]{null};
@@ -147,15 +147,15 @@ public class o {
     public void a(String str, Class cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, cls) == null) {
-            this.f27461i.i(str, cls);
-            this.f27462j.i(cls, str);
+            this.f27489i.i(str, cls);
+            this.f27490j.i(cls, str);
         }
     }
 
     public final String b(Enum r5) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5)) == null) ? this.f27457e ? r5.name() : r5.toString() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5)) == null) ? this.f27485e ? r5.name() : r5.toString() : (String) invokeL.objValue;
     }
 
     public void c(Object obj, Object obj2) {
@@ -166,7 +166,7 @@ public class o {
             while (it.hasNext()) {
                 w.b next = it.next();
                 a c2 = f2.c(next.a);
-                c.b.b.q.p0.d dVar = ((a) next.f27524b).a;
+                c.b.b.q.p0.d dVar = ((a) next.f27552b).a;
                 if (c2 != null) {
                     try {
                         c2.a.j(obj2, dVar.a(obj));
@@ -196,14 +196,14 @@ public class o {
     public Class e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f27461i.c(str) : (Class) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f27489i.c(str) : (Class) invokeL.objValue;
     }
 
     public final y<String, a> f(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
-            y<String, a> c2 = this.f27460h.c(cls);
+            y<String, a> c2 = this.f27488h.c(cls);
             if (c2 != null) {
                 return c2;
             }
@@ -212,7 +212,7 @@ public class o {
                 aVar.a(cls2);
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = aVar.f27361f - 1; i2 >= 0; i2--) {
+            for (int i2 = aVar.f27389f - 1; i2 >= 0; i2--) {
                 Collections.addAll(arrayList, c.b.b.q.p0.b.d((Class) aVar.get(i2)));
             }
             y<String, a> yVar = new y<>(arrayList.size());
@@ -229,10 +229,10 @@ public class o {
                     yVar.i(dVar.d(), new a(dVar));
                 }
             }
-            if (this.f27458f) {
+            if (this.f27486f) {
                 yVar.s.l();
             }
-            this.f27460h.i(cls, yVar);
+            this.f27488h.i(cls, yVar);
             return yVar;
         }
         return (y) invokeL.objValue;
@@ -289,18 +289,18 @@ public class o {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, jsonValue) == null) {
             Class<?> cls = obj.getClass();
             y<String, a> f2 = f(cls);
-            for (JsonValue jsonValue2 = jsonValue.f31137j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
+            for (JsonValue jsonValue2 = jsonValue.f31165j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
                 a c2 = f2.c(jsonValue2.H().replace(" ", "_"));
                 if (c2 == null) {
-                    if (!jsonValue2.f31136i.equals(this.a) && !this.f27454b && !g(cls, jsonValue2.f31136i)) {
-                        SerializationException serializationException = new SerializationException("Field not found: " + jsonValue2.f31136i + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
+                    if (!jsonValue2.f31164i.equals(this.a) && !this.f27482b && !g(cls, jsonValue2.f31164i)) {
+                        SerializationException serializationException = new SerializationException("Field not found: " + jsonValue2.f31164i + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
                         serializationException.addTrace(jsonValue2.R());
                         throw serializationException;
                     }
-                } else if (!this.f27455c || this.f27456d || !c2.f27464c) {
+                } else if (!this.f27483c || this.f27484d || !c2.f27492c) {
                     c.b.b.q.p0.d dVar = c2.a;
                     try {
-                        dVar.j(obj, k(dVar.getType(), c2.f27463b, jsonValue2));
+                        dVar.j(obj, k(dVar.getType(), c2.f27491b, jsonValue2));
                     } catch (SerializationException e2) {
                         e2.addTrace(dVar.d() + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
                         throw e2;
@@ -388,7 +388,7 @@ public class o {
                     cls5 = cls;
                 }
                 if (cls5 == null) {
-                    ?? r0 = this.f27459g;
+                    ?? r0 = this.f27487g;
                     return r0 != 0 ? (T) r0.a(this, r2, cls5) : r2;
                 } else if (this.a != null && c.b.b.q.p0.b.f(Collection.class, cls5)) {
                     ?? r22 = (T) r2.m("items");
@@ -407,20 +407,20 @@ public class o {
                                 return t;
                             } else if (t instanceof w) {
                                 ?? r3 = (T) ((w) t);
-                                for (JsonValue jsonValue4 = r2.f31137j; jsonValue4 != null; jsonValue4 = jsonValue4.l) {
-                                    r3.i(jsonValue4.f31136i, k(cls6, null, jsonValue4));
+                                for (JsonValue jsonValue4 = r2.f31165j; jsonValue4 != null; jsonValue4 = jsonValue4.l) {
+                                    r3.i(jsonValue4.f31164i, k(cls6, null, jsonValue4));
                                 }
                                 return r3;
                             } else if (t instanceof v) {
                                 ?? r32 = (T) ((v) t);
-                                for (JsonValue jsonValue5 = r2.f31137j; jsonValue5 != null; jsonValue5 = jsonValue5.l) {
-                                    r32.h(jsonValue5.f31136i, ((Integer) k(Integer.class, null, jsonValue5)).intValue());
+                                for (JsonValue jsonValue5 = r2.f31165j; jsonValue5 != null; jsonValue5 = jsonValue5.l) {
+                                    r32.h(jsonValue5.f31164i, ((Integer) k(Integer.class, null, jsonValue5)).intValue());
                                 }
                                 return r32;
                             } else if (t instanceof u) {
                                 ?? r33 = (T) ((u) t);
-                                for (JsonValue jsonValue6 = r2.f31137j; jsonValue6 != null; jsonValue6 = jsonValue6.l) {
-                                    r33.g(jsonValue6.f31136i, ((Float) k(Float.class, null, jsonValue6)).floatValue());
+                                for (JsonValue jsonValue6 = r2.f31165j; jsonValue6 != null; jsonValue6 = jsonValue6.l) {
+                                    r33.g(jsonValue6.f31164i, ((Float) k(Float.class, null, jsonValue6)).floatValue());
                                 }
                                 return r33;
                             } else if (t instanceof x) {
@@ -431,14 +431,14 @@ public class o {
                                 return r34;
                             } else if (t instanceof m) {
                                 ?? r35 = (T) ((m) t);
-                                for (JsonValue jsonValue7 = r2.f31137j; jsonValue7 != null; jsonValue7 = jsonValue7.l) {
-                                    r35.f(Integer.parseInt(jsonValue7.f31136i), k(cls6, null, jsonValue7));
+                                for (JsonValue jsonValue7 = r2.f31165j; jsonValue7 != null; jsonValue7 = jsonValue7.l) {
+                                    r35.f(Integer.parseInt(jsonValue7.f31164i), k(cls6, null, jsonValue7));
                                 }
                                 return r35;
                             } else if (t instanceof s) {
                                 ?? r36 = (T) ((s) t);
-                                for (JsonValue jsonValue8 = r2.f31137j; jsonValue8 != null; jsonValue8 = jsonValue8.l) {
-                                    r36.g(Long.parseLong(jsonValue8.f31136i), k(cls6, null, jsonValue8));
+                                for (JsonValue jsonValue8 = r2.f31165j; jsonValue8 != null; jsonValue8 = jsonValue8.l) {
+                                    r36.g(Long.parseLong(jsonValue8.f31164i), k(cls6, null, jsonValue8));
                                 }
                                 return r36;
                             } else if (t instanceof n) {
@@ -449,15 +449,15 @@ public class o {
                                 return r37;
                             } else if (t instanceof c.b.b.q.b) {
                                 ?? r38 = (T) ((c.b.b.q.b) t);
-                                for (JsonValue jsonValue9 = r2.f31137j; jsonValue9 != null; jsonValue9 = jsonValue9.l) {
-                                    r38.f(jsonValue9.f31136i, k(cls6, null, jsonValue9));
+                                for (JsonValue jsonValue9 = r2.f31165j; jsonValue9 != null; jsonValue9 = jsonValue9.l) {
+                                    r38.f(jsonValue9.f31164i, k(cls6, null, jsonValue9));
                                 }
                                 return r38;
                             } else if (t instanceof Map) {
                                 ?? r39 = (T) ((Map) t);
-                                for (JsonValue jsonValue10 = r2.f31137j; jsonValue10 != null; jsonValue10 = jsonValue10.l) {
-                                    if (!jsonValue10.f31136i.equals(this.a)) {
-                                        r39.put(jsonValue10.f31136i, k(cls6, null, jsonValue10));
+                                for (JsonValue jsonValue10 = r2.f31165j; jsonValue10 != null; jsonValue10 = jsonValue10.l) {
+                                    if (!jsonValue10.f31164i.equals(this.a)) {
+                                        r39.put(jsonValue10.f31164i, k(cls6, null, jsonValue10));
                                     }
                                 }
                                 return r39;
@@ -490,19 +490,19 @@ public class o {
                 Class cls7 = cls3 != null ? cls3 : c.b.b.q.a.class;
                 if (c.b.b.q.p0.b.f(c.b.b.q.a.class, cls7)) {
                     T t3 = cls7 == c.b.b.q.a.class ? (T) new c.b.b.q.a() : (T) ((c.b.b.q.a) h(cls7));
-                    for (JsonValue jsonValue11 = jsonValue2.f31137j; jsonValue11 != null; jsonValue11 = jsonValue11.l) {
+                    for (JsonValue jsonValue11 = jsonValue2.f31165j; jsonValue11 != null; jsonValue11 = jsonValue11.l) {
                         ((c.b.b.q.a) t3).a(k(cls6, null, jsonValue11));
                     }
                     return t3;
                 } else if (c.b.b.q.p0.b.f(c0.class, cls7)) {
                     T t4 = cls7 == c0.class ? (T) new c0() : (T) ((c0) h(cls7));
-                    for (JsonValue jsonValue12 = jsonValue2.f31137j; jsonValue12 != null; jsonValue12 = jsonValue12.l) {
+                    for (JsonValue jsonValue12 = jsonValue2.f31165j; jsonValue12 != null; jsonValue12 = jsonValue12.l) {
                         ((c0) t4).addLast(k(cls6, null, jsonValue12));
                     }
                     return t4;
                 } else if (c.b.b.q.p0.b.f(Collection.class, cls7)) {
                     T t5 = cls7.isInterface() ? (T) new ArrayList() : (T) ((Collection) h(cls7));
-                    for (JsonValue jsonValue13 = jsonValue2.f31137j; jsonValue13 != null; jsonValue13 = jsonValue13.l) {
+                    for (JsonValue jsonValue13 = jsonValue2.f31165j; jsonValue13 != null; jsonValue13 = jsonValue13.l) {
                         ((Collection) t5).add(k(cls6, null, jsonValue13));
                     }
                     return t5;
@@ -513,7 +513,7 @@ public class o {
                         cls8 = componentType;
                     }
                     T t6 = (T) c.b.b.q.p0.a.a(componentType, jsonValue2.n);
-                    JsonValue jsonValue14 = jsonValue2.f31137j;
+                    JsonValue jsonValue14 = jsonValue2.f31165j;
                     while (jsonValue14 != null) {
                         c.b.b.q.p0.a.b(t6, i2, k(cls8, null, jsonValue14));
                         jsonValue14 = jsonValue14.l;

@@ -25,31 +25,31 @@ public class m0 {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4194b;
+    public int f4335b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4195c;
+    public int f4336c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4196d;
+    public int f4337d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4197e;
+    public int f4338e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4198f;
+    public int f4339f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4199g;
+    public int f4340g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4200h;
+    public int f4341h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f4201i;
+    public int f4342i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f4202j;
+    public boolean f4343j;
 
     static {
         InterceptResult invokeClinit;
@@ -87,75 +87,75 @@ public class m0 {
             }
         }
         this.a = false;
-        this.f4194b = n;
-        this.f4195c = p;
-        this.f4196d = k;
-        this.f4197e = 0;
-        this.f4198f = l;
-        this.f4199g = m;
-        this.f4200h = R.color.CAM_X0205;
-        this.f4201i = q;
+        this.f4335b = n;
+        this.f4336c = p;
+        this.f4337d = k;
+        this.f4338e = 0;
+        this.f4339f = l;
+        this.f4340g = m;
+        this.f4341h = R.color.CAM_X0205;
+        this.f4342i = q;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4202j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4343j : invokeV.booleanValue;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f4200h = i2;
+            this.f4341h = i2;
         }
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f4197e = i2;
+            this.f4338e = i2;
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f4201i = i2;
+            this.f4342i = i2;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f4198f = i2;
+            this.f4339f = i2;
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f4199g = i2;
+            this.f4340g = i2;
         }
     }
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f4194b = i2;
+            this.f4335b = i2;
         }
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f4196d = i2;
+            this.f4337d = i2;
         }
     }
 
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f4202j = z;
+            this.f4343j = z;
         }
     }
 }

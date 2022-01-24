@@ -11,10 +11,10 @@ public class f {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12262b;
+    public int f12407b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12263c;
+    public String f12408c;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class f {
                 return;
             }
         }
-        this.f12262b = 0;
-        this.f12263c = null;
+        this.f12407b = 0;
+        this.f12408c = null;
     }
 }

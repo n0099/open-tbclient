@@ -29,7 +29,7 @@ public class d extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f4669c;
+    public e f4811c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context, Handler handler) {
@@ -50,8 +50,8 @@ public class d extends a {
                 return;
             }
         }
-        this.f4659b = context;
-        this.f4669c = e.a(context);
+        this.f4801b = context;
+        this.f4811c = e.a(context);
     }
 
     public String b() {
@@ -60,11 +60,11 @@ public class d extends a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("0", c.a.p0.l.d.j(this.f4659b));
-                jSONObject.put("1", c.a.p0.l.c.h(this.f4659b));
-                jSONObject.put("2", c.a.p0.g.b.a(this.f4659b, true, false));
-                jSONObject.put("3", c.a.p0.g.a.c(this.f4659b));
-                return c("q/1/qr", c.a.p0.l.c.c(this.f4659b, e(f(true, false), jSONObject), "1077101"));
+                jSONObject.put("0", c.a.p0.l.d.j(this.f4801b));
+                jSONObject.put("1", c.a.p0.l.c.h(this.f4801b));
+                jSONObject.put("2", c.a.p0.g.b.a(this.f4801b, true, false));
+                jSONObject.put("3", c.a.p0.g.a.c(this.f4801b));
+                return c("q/1/qr", c.a.p0.l.c.c(this.f4801b, e(f(true, false), jSONObject), "1077101"));
             } catch (Throwable th) {
                 c.a.p0.l.c.d(th);
                 return "";
@@ -79,18 +79,18 @@ public class d extends a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject)) == null) {
             try {
                 byte[] f2 = c.a.p0.l.c.f();
-                String b2 = this.f4669c.b(str, URLEncoder.encode(Base64.encodeToString(c.a.p0.l.e.h(f2, g.b(c.a.p0.l.d.f(this.f4659b)).getBytes()), 0)));
+                String b2 = this.f4811c.b(str, URLEncoder.encode(Base64.encodeToString(c.a.p0.l.e.h(f2, g.b(c.a.p0.l.d.f(this.f4801b)).getBytes()), 0)));
                 if (TextUtils.isEmpty(b2)) {
                     return "";
                 }
-                String a = a(b2, this.f4669c.e(f2, jSONObject.toString()));
+                String a = a(b2, this.f4811c.e(f2, jSONObject.toString()));
                 if (TextUtils.isEmpty(a)) {
                     return "";
                 }
                 JSONObject jSONObject2 = new JSONObject(a);
                 jSONObject2.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
                 String optString = jSONObject2.optString("skey");
-                return new String(c.a.p0.l.e.e(Base64.decode(jSONObject2.optString("data").getBytes(), 0), c.a.p0.l.e.g(Base64.decode(optString.getBytes(), 0), g.b(c.a.p0.l.d.f(this.f4659b)).getBytes())));
+                return new String(c.a.p0.l.e.e(Base64.decode(jSONObject2.optString("data").getBytes(), 0), c.a.p0.l.e.g(Base64.decode(optString.getBytes(), 0), g.b(c.a.p0.l.d.f(this.f4801b)).getBytes())));
             } catch (Throwable th) {
                 c.a.p0.l.c.d(th);
                 return "";
@@ -104,7 +104,7 @@ public class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, jSONObject, j2)) == null) {
             try {
-                return c("q/1/qmini", c.a.p0.l.c.c(this.f4659b, e(f(true, false), jSONObject), "1077102"));
+                return c("q/1/qmini", c.a.p0.l.c.c(this.f4801b, e(f(true, false), jSONObject), "1077102"));
             } catch (Throwable th) {
                 c.a.p0.l.c.d(th);
                 return "";
@@ -146,13 +146,13 @@ public class d extends a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                g(jSONObject, "21", c.a.p0.g.b.a(this.f4659b, z, z2));
-                g(jSONObject, "22", c.a.p0.l.d.b(this.f4659b, z, z2));
-                g(jSONObject, "23", c.a.p0.g.b.c(this.f4659b, z, z2));
-                g(jSONObject, "24", c.a.p0.g.b.b(this.f4659b, z, z2));
-                g(jSONObject, "40", c.a.p0.g.a.d(this.f4659b, z, z2));
-                g(jSONObject, "41", c.a.p0.g.a.a(this.f4659b));
-                g(jSONObject, RoomMasterTable.DEFAULT_ID, c.a.p0.g.a.b(this.f4659b, z, z2));
+                g(jSONObject, "21", c.a.p0.g.b.a(this.f4801b, z, z2));
+                g(jSONObject, "22", c.a.p0.l.d.b(this.f4801b, z, z2));
+                g(jSONObject, "23", c.a.p0.g.b.c(this.f4801b, z, z2));
+                g(jSONObject, "24", c.a.p0.g.b.b(this.f4801b, z, z2));
+                g(jSONObject, "40", c.a.p0.g.a.d(this.f4801b, z, z2));
+                g(jSONObject, "41", c.a.p0.g.a.a(this.f4801b));
+                g(jSONObject, RoomMasterTable.DEFAULT_ID, c.a.p0.g.a.b(this.f4801b, z, z2));
             } catch (Throwable th) {
                 c.a.p0.l.c.d(th);
             }
@@ -188,9 +188,9 @@ public class d extends a {
                 f2.put(com.tencent.connect.common.Constants.VIA_ACT_TYPE_TWENTY_EIGHT, Build.MODEL);
                 f2.put(BaseUtils.METHOD_SENDMESSAGE, String.valueOf(Build.VERSION.SDK_INT));
                 f2.put("56", Build.VERSION.RELEASE);
-                f2.put("50", k.a(this.f4659b));
-                f2.put("60", k.f(this.f4659b));
-                Pair<Integer, String[]> e2 = k.e(this.f4659b);
+                f2.put("50", k.a(this.f4801b));
+                f2.put("60", k.f(this.f4801b));
+                Pair<Integer, String[]> e2 = k.e(this.f4801b);
                 if (e2 != null) {
                     f2.put(UVEventType.PAY_WALLET_BANNER_SHOW, e2.first);
                     String[] strArr = (String[]) e2.second;
@@ -204,7 +204,7 @@ public class d extends a {
             } catch (Throwable th) {
                 c.a.p0.l.c.d(th);
             }
-            return new JSONObject(c("q/1/qpre", c.a.p0.l.c.c(this.f4659b, e(f2, jSONObject), "1077104"))).optInt("0", 0) == 0;
+            return new JSONObject(c("q/1/qpre", c.a.p0.l.c.c(this.f4801b, e(f2, jSONObject), "1077104"))).optInt("0", 0) == 0;
         }
         return invokeL.booleanValue;
     }
@@ -215,10 +215,10 @@ public class d extends a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("0", this.f4659b.getPackageName());
-                jSONObject.put("6", c.a.p0.l.c.l(this.f4659b));
-                jSONObject.put("7", j.a(this.f4659b));
-                return c("q/1/qc", c.a.p0.l.c.c(this.f4659b, jSONObject, ""));
+                jSONObject.put("0", this.f4801b.getPackageName());
+                jSONObject.put("6", c.a.p0.l.c.l(this.f4801b));
+                jSONObject.put("7", j.a(this.f4801b));
+                return c("q/1/qc", c.a.p0.l.c.c(this.f4801b, jSONObject, ""));
             } catch (Throwable th) {
                 c.a.p0.l.c.d(th);
                 return "";
@@ -232,7 +232,7 @@ public class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, j2)) == null) {
             try {
-                return c("q/1/qv", c.a.p0.l.c.c(this.f4659b, e(f(true, false), jSONObject), ""));
+                return c("q/1/qv", c.a.p0.l.c.c(this.f4801b, e(f(true, false), jSONObject), ""));
             } catch (Throwable th) {
                 c.a.p0.l.c.d(th);
                 return "";

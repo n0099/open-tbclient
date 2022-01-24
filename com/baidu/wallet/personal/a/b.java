@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.personal.a.a;
 import com.baidu.wallet.personal.datamodel.CouponList;
 import com.baidu.wallet.personal.ui.view.d;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class b extends a<CouponList.Coupon> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f52549c;
+    public Context f52594c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(ListView listView, Context context) {
@@ -39,14 +39,14 @@ public class b extends a<CouponList.Coupon> {
                 return;
             }
         }
-        this.f52549c = context;
+        this.f52594c = context;
     }
 
     @Override // com.baidu.wallet.personal.a.a
     public int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? ResUtils.layout(this.f52549c, "wallet_personal_coupon_group_item") : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? ResUtils.layout(this.f52594c, "wallet_personal_coupon_group_item") : invokeI.intValue;
     }
 
     @Override // com.baidu.wallet.personal.a.a

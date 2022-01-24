@@ -73,8 +73,8 @@ public class PayStatic {
                     try {
                         a aVar = new a();
                         aVar.a = activity;
-                        aVar.f12338b = str;
-                        aVar.f12339c = false;
+                        aVar.f12582b = str;
+                        aVar.f12583c = false;
                         iAlipayProxyCallback.onSuccess((String) MessageManager.getInstance().runTask(2921539, String.class, aVar).getData());
                     } catch (Exception e2) {
                         iAlipayProxyCallback.onFail(e2.getMessage());

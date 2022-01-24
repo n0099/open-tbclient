@@ -117,13 +117,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adBaseModel)) == null) {
             a aVar = new a();
-            if (adBaseModel != null && (cVar = adBaseModel.f37021i) != null && cVar.f2223d) {
+            if (adBaseModel != null && (cVar = adBaseModel.f37049i) != null && cVar.f2223d) {
                 aVar.f1955g = cVar.f2221b;
                 aVar.g(cVar.f2222c);
-                aVar.f1952d = adBaseModel.f37021i.a;
-                AdOperator adOperator = adBaseModel.f37018f;
-                aVar.f1954f = adOperator == null ? null : adOperator.f37025d;
-                aVar.n.a = adBaseModel.f37016d.f2233b;
+                aVar.f1952d = adBaseModel.f37049i.a;
+                AdOperator adOperator = adBaseModel.f37046f;
+                aVar.f1954f = adOperator == null ? null : adOperator.f37053d;
+                aVar.n.a = adBaseModel.f37044d.f2233b;
             }
             return aVar;
         }

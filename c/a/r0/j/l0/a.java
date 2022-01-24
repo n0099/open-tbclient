@@ -2,6 +2,7 @@ package c.a.r0.j.l0;
 
 import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,10 +16,10 @@ public final class a extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f11051e;
+    public g f11193e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f11052f;
+    public volatile boolean f11194f;
 
     @SuppressLint({"MobilebdThread"})
     public a() {
@@ -38,20 +39,20 @@ public final class a extends Thread {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11052f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11194f : invokeV.booleanValue;
     }
 
     public final void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f11052f = z;
+            this.f11194f = z;
         }
     }
 
     public final void c(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
-            this.f11051e = gVar;
+            this.f11193e = gVar;
         }
     }
 
@@ -60,23 +61,23 @@ public final class a extends Thread {
         DatagramSocket C;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            while (this.f11052f) {
+            while (this.f11194f) {
                 try {
                     DatagramPacket datagramPacket = new DatagramPacket(new byte[4096], 4096);
-                    g gVar = this.f11051e;
+                    g gVar = this.f11193e;
                     if (gVar != null && (C = gVar.C()) != null) {
                         C.receive(datagramPacket);
                     }
-                    g gVar2 = this.f11051e;
+                    g gVar2 = this.f11193e;
                     if (gVar2 != null) {
                         gVar2.z(datagramPacket);
                     }
                 } catch (InterruptedException unused) {
                     return;
                 } catch (Throwable unused2) {
-                    g gVar3 = this.f11051e;
+                    g gVar3 = this.f11193e;
                     if (gVar3 != null) {
-                        gVar3.D("receive", "receive failed");
+                        gVar3.D(StatConstants.VALUE_TYPE_RECEIVE, "receive failed");
                     }
                 }
             }

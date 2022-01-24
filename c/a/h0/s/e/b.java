@@ -50,10 +50,10 @@ public class b {
         public void a(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                a.C0149a c0149a = new a.C0149a();
-                c0149a.a = 2;
-                c0149a.f3668b = l.a().getResources().getString(i.calculate_price_default_error);
-                this.a.a(c0149a);
+                a.C0158a c0158a = new a.C0158a();
+                c0158a.a = 2;
+                c0158a.f3809b = l.a().getResources().getString(i.calculate_price_default_error);
+                this.a.a(c0158a);
             }
         }
 
@@ -63,38 +63,38 @@ public class b {
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                a.C0149a c0149a = new a.C0149a();
+                a.C0158a c0158a = new a.C0158a();
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     if (jSONObject.optInt("errno") == 0) {
-                        c0149a.a = 0;
-                        c0149a.f3668b = jSONObject.optString("msg");
+                        c0158a.a = 0;
+                        c0158a.f3809b = jSONObject.optString("msg");
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                        c0149a.f3669c = optJSONObject.optLong("totalAmount");
-                        c0149a.f3670d = optJSONObject.optLong("userPayAmount");
-                        c0149a.f3672f = optJSONObject.optString("usedHostMarketingDetail");
-                        c0149a.f3674h = a.C0149a.C0150a.c(optJSONObject.optJSONArray("promotionStatus"));
+                        c0158a.f3810c = optJSONObject.optLong("totalAmount");
+                        c0158a.f3811d = optJSONObject.optLong("userPayAmount");
+                        c0158a.f3813f = optJSONObject.optString("usedHostMarketingDetail");
+                        c0158a.f3815h = a.C0158a.C0159a.c(optJSONObject.optJSONArray("promotionStatus"));
                     } else {
-                        c0149a.a = jSONObject.optInt("errorLevel", 2);
-                        c0149a.f3668b = jSONObject.optString("msg");
+                        c0158a.a = jSONObject.optInt("errorLevel", 2);
+                        c0158a.f3809b = jSONObject.optString("msg");
                     }
                 } catch (Exception unused) {
-                    c0149a.a = 2;
-                    c0149a.f3668b = l.a().getResources().getString(i.calculate_price_default_error);
+                    c0158a.a = 2;
+                    c0158a.f3809b = l.a().getResources().getString(i.calculate_price_default_error);
                 }
-                this.a.a(c0149a);
+                this.a.a(c0158a);
             }
         }
     }
 
     /* renamed from: c.a.h0.s.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0151b extends c.a.h0.l.a<String> {
+    public static class C0160b extends c.a.h0.l.a<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.h0.s.e.a a;
 
-        public C0151b(c.a.h0.s.e.a aVar) {
+        public C0160b(c.a.h0.s.e.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,10 +116,10 @@ public class b {
         public void a(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                a.C0149a c0149a = new a.C0149a();
-                c0149a.a = 2;
-                c0149a.f3668b = l.a().getResources().getString(i.calculate_price_default_error);
-                this.a.a(c0149a);
+                a.C0158a c0158a = new a.C0158a();
+                c0158a.a = 2;
+                c0158a.f3809b = l.a().getResources().getString(i.calculate_price_default_error);
+                this.a.a(c0158a);
             }
         }
 
@@ -129,28 +129,28 @@ public class b {
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                a.C0149a c0149a = new a.C0149a();
+                a.C0158a c0158a = new a.C0158a();
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     if (jSONObject.optInt("errno") == 0) {
-                        c0149a.a = 0;
-                        c0149a.f3668b = jSONObject.optString("msg");
+                        c0158a.a = 0;
+                        c0158a.f3809b = jSONObject.optString("msg");
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                        c0149a.f3669c = optJSONObject.optLong("totalAmount");
-                        c0149a.f3670d = optJSONObject.optLong("userPayAmount");
-                        c0149a.f3671e = optJSONObject.optLong("reduceAmount");
-                        c0149a.f3673g = optJSONObject.optInt("overdueStatus");
-                        c0149a.f3672f = optJSONObject.optString("usedHostMarketingDetail");
-                        c0149a.f3674h = a.C0149a.C0150a.c(optJSONObject.optJSONArray("promotionStatus"));
+                        c0158a.f3810c = optJSONObject.optLong("totalAmount");
+                        c0158a.f3811d = optJSONObject.optLong("userPayAmount");
+                        c0158a.f3812e = optJSONObject.optLong("reduceAmount");
+                        c0158a.f3814g = optJSONObject.optInt("overdueStatus");
+                        c0158a.f3813f = optJSONObject.optString("usedHostMarketingDetail");
+                        c0158a.f3815h = a.C0158a.C0159a.c(optJSONObject.optJSONArray("promotionStatus"));
                     } else {
-                        c0149a.a = jSONObject.optInt("errorLevel", 2);
-                        c0149a.f3668b = jSONObject.optString("msg");
+                        c0158a.a = jSONObject.optInt("errorLevel", 2);
+                        c0158a.f3809b = jSONObject.optString("msg");
                     }
                 } catch (Exception unused) {
-                    c0149a.a = 2;
-                    c0149a.f3668b = l.a().getResources().getString(i.calculate_price_default_error);
+                    c0158a.a = 2;
+                    c0158a.f3809b = l.a().getResources().getString(i.calculate_price_default_error);
                 }
-                this.a.a(c0149a);
+                this.a.a(c0158a);
             }
         }
     }
@@ -173,7 +173,7 @@ public class b {
             bVar.d("appKey", bundle.get("appKey").toString());
             bVar.d("totalAmount", bundle.get("totalAmount").toString());
             bVar.d("hostMarketingDetail", bundle.get("hostMarketingDetail").toString());
-            new g().a(d.b(), cVar, bVar, new C0151b(aVar));
+            new g().a(d.b(), cVar, bVar, new C0160b(aVar));
         }
     }
 

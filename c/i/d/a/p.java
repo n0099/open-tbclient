@@ -18,13 +18,13 @@ public final class p {
     public final t a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f30023b;
+    public boolean f30051b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f30024c;
+    public long f30052c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f30025d;
+    public long f30053d;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -173,22 +173,22 @@ public final class p {
     public final long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30023b ? (this.a.a() - this.f30025d) + this.f30024c : this.f30024c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30051b ? (this.a.a() - this.f30053d) + this.f30052c : this.f30052c : invokeV.longValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30023b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30051b : invokeV.booleanValue;
     }
 
     public p h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            n.x(!this.f30023b, "This stopwatch is already running.");
-            this.f30023b = true;
-            this.f30025d = this.a.a();
+            n.x(!this.f30051b, "This stopwatch is already running.");
+            this.f30051b = true;
+            this.f30053d = this.a.a();
             return this;
         }
         return (p) invokeV.objValue;
@@ -199,9 +199,9 @@ public final class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             long a2 = this.a.a();
-            n.x(this.f30023b, "This stopwatch is already stopped.");
-            this.f30023b = false;
-            this.f30024c += a2 - this.f30025d;
+            n.x(this.f30051b, "This stopwatch is already stopped.");
+            this.f30051b = false;
+            this.f30052c += a2 - this.f30053d;
             return this;
         }
         return (p) invokeV.objValue;

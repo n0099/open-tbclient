@@ -23,28 +23,28 @@ public class im implements iq<im, Object>, Serializable, Cloneable {
     public static final jg f774a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f61360b;
+    public static final iy f61405b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f61361c;
+    public static final iy f61406c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f61362d;
+    public static final iy f61407d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f61363e;
+    public static final iy f61408e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f61364f;
+    public static final iy f61409f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f61365g;
+    public static final iy f61410g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f61366h;
+    public static final iy f61411h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f61367i;
+    public static final iy f61412i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -92,14 +92,14 @@ public class im implements iq<im, Object>, Serializable, Cloneable {
         }
         f774a = new jg("XmPushActionUnRegistrationResult");
         a = new iy("", (byte) 11, (short) 1);
-        f61360b = new iy("", StandardMessageCodec.LIST, (short) 2);
-        f61361c = new iy("", (byte) 11, (short) 3);
-        f61362d = new iy("", (byte) 11, (short) 4);
-        f61363e = new iy("", (byte) 10, (short) 6);
-        f61364f = new iy("", (byte) 11, (short) 7);
-        f61365g = new iy("", (byte) 11, (short) 8);
-        f61366h = new iy("", (byte) 10, (short) 9);
-        f61367i = new iy("", (byte) 10, (short) 10);
+        f61405b = new iy("", StandardMessageCodec.LIST, (short) 2);
+        f61406c = new iy("", (byte) 11, (short) 3);
+        f61407d = new iy("", (byte) 11, (short) 4);
+        f61408e = new iy("", (byte) 10, (short) 6);
+        f61409f = new iy("", (byte) 11, (short) 7);
+        f61410g = new iy("", (byte) 11, (short) 8);
+        f61411h = new iy("", (byte) 10, (short) 9);
+        f61412i = new iy("", (byte) 10, (short) 10);
     }
 
     public im() {
@@ -396,40 +396,40 @@ public class im implements iq<im, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f776a != null && b()) {
-                jbVar.a(f61360b);
+                jbVar.a(f61405b);
                 this.f776a.b(jbVar);
                 jbVar.b();
             }
             if (this.f780b != null) {
-                jbVar.a(f61361c);
+                jbVar.a(f61406c);
                 jbVar.a(this.f780b);
                 jbVar.b();
             }
             if (this.f782c != null) {
-                jbVar.a(f61362d);
+                jbVar.a(f61407d);
                 jbVar.a(this.f782c);
                 jbVar.b();
             }
-            jbVar.a(f61363e);
+            jbVar.a(f61408e);
             jbVar.a(this.f775a);
             jbVar.b();
             if (this.f783d != null && f()) {
-                jbVar.a(f61364f);
+                jbVar.a(f61409f);
                 jbVar.a(this.f783d);
                 jbVar.b();
             }
             if (this.f784e != null && g()) {
-                jbVar.a(f61365g);
+                jbVar.a(f61410g);
                 jbVar.a(this.f784e);
                 jbVar.b();
             }
             if (h()) {
-                jbVar.a(f61366h);
+                jbVar.a(f61411h);
                 jbVar.a(this.f779b);
                 jbVar.b();
             }
             if (i()) {
-                jbVar.a(f61367i);
+                jbVar.a(f61412i);
                 jbVar.a(this.f781c);
                 jbVar.b();
             }

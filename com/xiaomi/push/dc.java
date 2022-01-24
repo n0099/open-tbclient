@@ -30,7 +30,7 @@ public class dc extends db.b {
     public final /* synthetic */ boolean f233a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f60972b;
+    public final /* synthetic */ String f61017b;
 
     /* renamed from: b  reason: collision with other field name */
     public final /* synthetic */ Date f234b;
@@ -58,7 +58,7 @@ public class dc extends db.b {
         this.f232a = date;
         this.f234b = date2;
         this.f231a = str;
-        this.f60972b = str2;
+        this.f61017b = str2;
         this.f233a = z;
     }
 
@@ -86,7 +86,7 @@ public class dc extends db.b {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             File file = this.f230a;
             if (file != null && file.exists()) {
-                this.f229a.f223a.add(new db.c(this.f229a, this.f231a, this.f60972b, this.f230a, this.f233a));
+                this.f229a.f223a.add(new db.c(this.f229a, this.f231a, this.f61017b, this.f230a, this.f233a));
             }
             this.f229a.a(0L);
         }

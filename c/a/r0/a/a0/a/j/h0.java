@@ -37,7 +37,7 @@ public class h0 extends a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (align = this.a) == null) {
             return;
         }
-        bVar.f5074i.setTextAlign(align);
+        bVar.f5216i.setTextAlign(align);
     }
 
     @Override // c.a.r0.a.a0.a.j.a

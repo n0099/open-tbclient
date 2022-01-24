@@ -23,22 +23,22 @@ public class f {
     public static final ArrayList<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f12830b;
+    public static String f12974b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f12831c;
+    public static String f12975c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f12832d;
+    public static boolean f12976d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f12833e;
+    public static String f12977e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f12834f;
+    public static String f12978f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f12835g;
+    public static String f12979g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,17 +55,17 @@ public class f {
             }
         }
         a = new ArrayList<>();
-        f12832d = false;
+        f12976d = false;
     }
 
     public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!f12832d) {
+            if (!f12976d) {
                 r(context);
             }
-            return f12832d;
+            return f12976d;
         }
         return invokeL.booleanValue;
     }
@@ -73,17 +73,17 @@ public class f {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f12833e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f12977e : (String) invokeV.objValue;
     }
 
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f12830b == null) {
-                f12830b = d(TbadkCoreApplication.getInst().getApp());
+            if (f12974b == null) {
+                f12974b = d(TbadkCoreApplication.getInst().getApp());
             }
-            return f12830b;
+            return f12974b;
         }
         return (String) invokeV.objValue;
     }
@@ -111,13 +111,13 @@ public class f {
     public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f12834f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f12978f : (String) invokeV.objValue;
     }
 
     public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f12835g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f12979g : (String) invokeV.objValue;
     }
 
     public static void g() {
@@ -125,7 +125,7 @@ public class f {
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             String packageName = TbadkCoreApplication.getInst().getPackageName();
             String str = packageName + ":swan";
-            f12831c = str;
+            f12975c = str;
             a.clear();
             a.add(packageName);
             a.add(packageName + ":remote");
@@ -173,7 +173,7 @@ public class f {
             }
             Iterator<String> it = a.iterator();
             while (it.hasNext()) {
-                if (str.equalsIgnoreCase(it.next()) || str.toLowerCase().startsWith(f12831c)) {
+                if (str.equalsIgnoreCase(it.next()) || str.toLowerCase().startsWith(f12975c)) {
                     return true;
                 }
                 while (it.hasNext()) {
@@ -187,7 +187,7 @@ public class f {
     public static boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f12832d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f12976d : invokeV.booleanValue;
     }
 
     public static boolean l() {
@@ -205,28 +205,28 @@ public class f {
     public static void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
-            f12833e = str;
+            f12977e = str;
         }
     }
 
     public static void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
-            f12832d = z;
+            f12976d = z;
         }
     }
 
     public static void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            f12834f = str;
+            f12978f = str;
         }
     }
 
     public static void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
-            f12835g = str;
+            f12979g = str;
         }
     }
 

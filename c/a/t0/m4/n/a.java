@@ -20,20 +20,20 @@ public class a implements View.OnClickListener, Animator.AnimatorListener, Value
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f19529h;
+    public static boolean f19639h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f19530i;
+    public static boolean f19640i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TBLottieAnimationView f19531e;
+    public final TBLottieAnimationView f19641e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final VerticalViewPager f19532f;
+    public final VerticalViewPager f19642f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f19533g;
+    public boolean f19643g;
 
     static {
         InterceptResult invokeClinit;
@@ -48,8 +48,8 @@ public class a implements View.OnClickListener, Animator.AnimatorListener, Value
                 return;
             }
         }
-        f19529h = c.a.s0.s.h0.b.k().h("key_video_guide_up_slide_animated", false);
-        f19530i = c.a.s0.s.h0.b.k().h("key_video_guide_left_slide_animated", false);
+        f19639h = c.a.s0.s.i0.b.k().h("key_video_guide_up_slide_animated", false);
+        f19640i = c.a.s0.s.i0.b.k().h("key_video_guide_left_slide_animated", false);
     }
 
     public a(TBLottieAnimationView tBLottieAnimationView, VerticalViewPager verticalViewPager) {
@@ -67,16 +67,16 @@ public class a implements View.OnClickListener, Animator.AnimatorListener, Value
                 return;
             }
         }
-        this.f19533g = false;
-        this.f19531e = tBLottieAnimationView;
-        this.f19532f = verticalViewPager;
+        this.f19643g = false;
+        this.f19641e = tBLottieAnimationView;
+        this.f19642f = verticalViewPager;
         f();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            f19530i = true;
+            f19640i = true;
         }
     }
 
@@ -90,62 +90,62 @@ public class a implements View.OnClickListener, Animator.AnimatorListener, Value
     public void c() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tBLottieAnimationView = this.f19531e) == null || this.f19532f == null || this.f19533g || !f19529h || f19530i || tBLottieAnimationView.isAnimating()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tBLottieAnimationView = this.f19641e) == null || this.f19642f == null || this.f19643g || !f19639h || f19640i || tBLottieAnimationView.isAnimating()) {
             return;
         }
-        this.f19531e.setImageAssetsFolder("lottie_video_guide_left");
+        this.f19641e.setImageAssetsFolder("lottie_video_guide_left");
         k(h.lottie_video_guide_left);
-        f19530i = true;
-        this.f19533g = true;
-        c.a.s0.s.h0.b.k().u("key_video_guide_left_slide_animated", true);
+        f19640i = true;
+        this.f19643g = true;
+        c.a.s0.s.i0.b.k().u("key_video_guide_left_slide_animated", true);
     }
 
     public void d() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tBLottieAnimationView = this.f19531e) == null || this.f19532f == null || this.f19533g || f19529h || tBLottieAnimationView.isAnimating()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tBLottieAnimationView = this.f19641e) == null || this.f19642f == null || this.f19643g || f19639h || tBLottieAnimationView.isAnimating()) {
             return;
         }
-        this.f19531e.setImageAssetsFolder("lottie_video_guide_up");
+        this.f19641e.setImageAssetsFolder("lottie_video_guide_up");
         k(h.lottie_video_guide_up);
-        f19529h = true;
-        this.f19533g = true;
-        c.a.s0.s.h0.b.k().u("key_video_guide_up_slide_animated", true);
+        f19639h = true;
+        this.f19643g = true;
+        c.a.s0.s.i0.b.k().u("key_video_guide_up_slide_animated", true);
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f19531e.isAnimating()) {
-                this.f19531e.pauseAnimation();
+            if (this.f19641e.isAnimating()) {
+                this.f19641e.pauseAnimation();
             }
-            this.f19531e.setVisibility(8);
+            this.f19641e.setVisibility(8);
         }
     }
 
     public final void f() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (tBLottieAnimationView = this.f19531e) == null || this.f19532f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (tBLottieAnimationView = this.f19641e) == null || this.f19642f == null) {
             return;
         }
         tBLottieAnimationView.setOnClickListener(this);
-        this.f19531e.addAnimatorUpdateListener(this);
-        this.f19531e.addAnimatorListener(this);
-        this.f19531e.setRepeatCount(2);
-        this.f19531e.setRepeatMode(1);
+        this.f19641e.addAnimatorUpdateListener(this);
+        this.f19641e.addAnimatorListener(this);
+        this.f19641e.setRepeatCount(2);
+        this.f19641e.setRepeatMode(1);
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f19533g = false;
+            this.f19643g = false;
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f19531e == null || this.f19532f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f19641e == null || this.f19642f == null) {
             return;
         }
         e();
@@ -154,22 +154,22 @@ public class a implements View.OnClickListener, Animator.AnimatorListener, Value
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f19531e.setVisibility(0);
-            this.f19531e.playAnimation();
+            this.f19641e.setVisibility(0);
+            this.f19641e.playAnimation();
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            b(this.f19532f);
+            b(this.f19642f);
         }
     }
 
     public final void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f19531e.setAnimation(i2);
+            this.f19641e.setAnimation(i2);
             i();
         }
     }
@@ -184,7 +184,7 @@ public class a implements View.OnClickListener, Animator.AnimatorListener, Value
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, animator) == null) || this.f19531e == null || this.f19532f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, animator) == null) || this.f19641e == null || this.f19642f == null) {
             return;
         }
         e();
@@ -208,7 +208,7 @@ public class a implements View.OnClickListener, Animator.AnimatorListener, Value
     public void onAnimationUpdate(ValueAnimator valueAnimator) {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, valueAnimator) == null) || (tBLottieAnimationView = this.f19531e) == null || this.f19532f == null || !tBLottieAnimationView.isAnimating() || f19530i || !f19529h) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, valueAnimator) == null) || (tBLottieAnimationView = this.f19641e) == null || this.f19642f == null || !tBLottieAnimationView.isAnimating() || f19640i || !f19639h) {
             return;
         }
         valueAnimator.getAnimatedFraction();

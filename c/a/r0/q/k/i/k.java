@@ -18,7 +18,7 @@ public class k {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<String> f11609b;
+    public final Set<String> f11751b;
 
     public k(String str, Set<String> set) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class k {
             }
         }
         this.a = str;
-        this.f11609b = set;
+        this.f11751b = set;
     }
 
     public static k a(JSONObject jSONObject) {
@@ -65,7 +65,7 @@ public class k {
     public Set<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11609b : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11751b : (Set) invokeV.objValue;
     }
 
     public String c() {

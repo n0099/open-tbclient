@@ -15,7 +15,7 @@ public class k extends l implements IConnect {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f52906j;
+    public Context f52951j;
     public String k;
     public FreemeIdsSupplier l;
 
@@ -34,7 +34,7 @@ public class k extends l implements IConnect {
                 return;
             }
         }
-        this.f52906j = context;
+        this.f52951j = context;
     }
 
     @Override // com.android.msasdk.IConnect
@@ -48,9 +48,9 @@ public class k extends l implements IConnect {
         try {
             try {
                 if (z) {
-                    this.f52910f = this.l.isSupported();
+                    this.f52955f = this.l.isSupported();
                     String str3 = null;
-                    if (this.f52910f) {
+                    if (this.f52955f) {
                         String aaid = this.l.getAAID(this.k);
                         String oaid = this.l.getOAID();
                         str2 = this.l.getVAID(this.k);
@@ -63,15 +63,15 @@ public class k extends l implements IConnect {
                     if (str3 == null) {
                         str3 = "";
                     }
-                    this.f52907c = str3;
+                    this.f52952c = str3;
                     if (str2 == null) {
                         str2 = "";
                     }
-                    this.f52908d = str2;
+                    this.f52953d = str2;
                     if (str == null) {
                         str = "";
                     }
-                    this.f52909e = str;
+                    this.f52954e = str;
                 } else {
                     e0.b("FreemeProvider", "connectSuccess: false");
                     a();
@@ -81,10 +81,10 @@ public class k extends l implements IConnect {
                 a();
             }
             shutDown();
-            a(this.f52907c, this.f52908d, this.f52909e, this.f52910f, this.f52911g);
+            a(this.f52952c, this.f52953d, this.f52954e, this.f52955f, this.f52956g);
         } catch (Throwable th) {
             shutDown();
-            a(this.f52907c, this.f52908d, this.f52909e, this.f52910f, this.f52911g);
+            a(this.f52952c, this.f52953d, this.f52954e, this.f52955f, this.f52956g);
             throw th;
         }
     }
@@ -93,10 +93,10 @@ public class k extends l implements IConnect {
     public void doStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Context a = a(this.f52906j);
-            this.f52906j = a;
+            Context a = a(this.f52951j);
+            this.f52951j = a;
             this.k = a.getPackageName();
-            this.l = new FreemeIds(this.f52906j);
+            this.l = new FreemeIds(this.f52951j);
             try {
                 c();
                 this.l.connect(this);
@@ -104,7 +104,7 @@ public class k extends l implements IConnect {
             } catch (Exception e2) {
                 e0.b("FreemeProvider", "doStart: Exception: " + e2.getMessage());
                 a();
-                a(this.f52907c, this.f52908d, this.f52909e, this.f52910f, this.f52911g);
+                a(this.f52952c, this.f52953d, this.f52954e, this.f52955f, this.f52956g);
             }
         }
     }

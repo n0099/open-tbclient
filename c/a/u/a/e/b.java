@@ -15,7 +15,7 @@ public class b {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f26272b;
+    public d f26300b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class b {
             }
         }
         this.a = new c();
-        this.f26272b = new d();
+        this.f26300b = new d();
     }
 
     public c.a.u.a.c.b a(c.a.u.a.c.b bVar, boolean z) {
@@ -53,6 +53,6 @@ public class b {
     public c.a.u.a.c.b c(InputStream inputStream) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) ? this.f26272b.b(inputStream) : (c.a.u.a.c.b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) ? this.f26300b.b(inputStream) : (c.a.u.a.c.b) invokeL.objValue;
     }
 }

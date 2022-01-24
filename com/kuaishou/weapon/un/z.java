@@ -20,10 +20,10 @@ public class z {
     public static final String a = "/proc/cpuinfo";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f55318b = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq";
+    public static final String f55363b = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f55319c = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq";
+    public static final String f55364c = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq";
     public transient /* synthetic */ FieldHolder $fh;
 
     public z() {
@@ -164,7 +164,7 @@ public class z {
             return invokeV.intValue;
         }
         try {
-            fileReader = new FileReader(f55318b);
+            fileReader = new FileReader(f55363b);
             try {
                 bufferedReader = new BufferedReader(fileReader);
                 try {
@@ -227,7 +227,7 @@ public class z {
             return invokeV.intValue;
         }
         try {
-            fileReader = new FileReader(f55319c);
+            fileReader = new FileReader(f55364c);
             try {
                 bufferedReader = new BufferedReader(fileReader);
                 try {

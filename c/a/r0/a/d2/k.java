@@ -47,20 +47,20 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f5544f;
+    public boolean f5686f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5545g;
+    public boolean f5687g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f5546h;
+    public boolean f5688h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f5547i;
+    public boolean f5689i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f5548j;
-    public Set<a.C0796a> k;
+    public boolean f5690j;
+    public Set<a.C0805a> k;
     public int l;
     public boolean m;
     public final c.a.r0.a.d2.e n;
@@ -104,10 +104,10 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.f1.e.b f5549e;
+        public final /* synthetic */ c.a.r0.a.f1.e.b f5691e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f5550f;
+        public final /* synthetic */ int f5692f;
 
         public b(k kVar, c.a.r0.a.f1.e.b bVar, int i2) {
             Interceptable interceptable = $ic;
@@ -124,15 +124,15 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                     return;
                 }
             }
-            this.f5549e = bVar;
-            this.f5550f = i2;
+            this.f5691e = bVar;
+            this.f5692f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5549e.u0(this.f5550f);
+                this.f5691e.u0(this.f5692f);
             }
         }
     }
@@ -143,10 +143,10 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HybridUbcFlow f5551e;
+        public final /* synthetic */ HybridUbcFlow f5693e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k f5552f;
+        public final /* synthetic */ k f5694f;
 
         public c(k kVar, HybridUbcFlow hybridUbcFlow) {
             Interceptable interceptable = $ic;
@@ -163,19 +163,19 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                     return;
                 }
             }
-            this.f5552f = kVar;
-            this.f5551e = hybridUbcFlow;
+            this.f5694f = kVar;
+            this.f5693e = hybridUbcFlow;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                HybridUbcFlow hybridUbcFlow = this.f5551e;
+                HybridUbcFlow hybridUbcFlow = this.f5693e;
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("postExec-run");
                 ubcFlowEvent.a(true);
                 hybridUbcFlow.F(ubcFlowEvent);
-                this.f5552f.c0();
+                this.f5694f.c0();
             }
         }
     }
@@ -186,10 +186,10 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Bundle f5553e;
+        public final /* synthetic */ Bundle f5695e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k f5554f;
+        public final /* synthetic */ k f5696f;
 
         public d(k kVar, Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -206,8 +206,8 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                     return;
                 }
             }
-            this.f5554f = kVar;
-            this.f5553e = bundle;
+            this.f5696f = kVar;
+            this.f5695e = bundle;
         }
 
         @Override // java.lang.Runnable
@@ -215,12 +215,12 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Bundle bundle = new Bundle();
-                Bundle bundle2 = this.f5553e;
+                Bundle bundle2 = this.f5695e;
                 if (bundle2 != null) {
                     bundle.putAll(bundle2);
                 }
-                bundle.putInt("appFrameType", this.f5554f.i0().G());
-                bundle.putString("mAppId", this.f5554f.getAppId());
+                bundle.putInt("appFrameType", this.f5696f.i0().G());
+                bundle.putString("mAppId", this.f5696f.getAppId());
                 if (k.r) {
                     k.o0("updateLocalPkgWithAsyncUpdatePkg: swanAsyncUpdate -> 发送异步升级消息");
                 }
@@ -319,10 +319,10 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.f1.e.b f5555c;
+        public final /* synthetic */ c.a.r0.a.f1.e.b f5697c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ k f5556d;
+        public final /* synthetic */ k f5698d;
 
         public f(k kVar, c.a.r0.a.f1.e.b bVar) {
             Interceptable interceptable = $ic;
@@ -339,8 +339,8 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                     return;
                 }
             }
-            this.f5556d = kVar;
-            this.f5555c = bVar;
+            this.f5698d = kVar;
+            this.f5697c = bVar;
         }
 
         @Override // c.a.r0.a.y1.a.b.c.b, c.a.r0.a.y1.a.b.c.a
@@ -359,7 +359,7 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
                 Bundle a = bVar.a();
-                k.n0(this.f5555c, this.f5556d.q, true, a != null ? a.getBoolean("isDownloading", false) : false);
+                k.n0(this.f5697c, this.f5698d.q, true, a != null ? a.getBoolean("isDownloading", false) : false);
             }
         }
     }
@@ -392,7 +392,7 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         public void H(c.a.r0.q.p.g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) {
-                this.l.f5545g = true;
+                this.l.f5687g = true;
                 c.a.r0.a.d2.d.J().q("event_pkg_download_start");
                 super.H(gVar);
             }
@@ -412,7 +412,7 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         public void S() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.l.f5545g = false;
+                this.l.f5687g = false;
                 k.n0(this.l.i0(), this.l.q, false, false);
                 k kVar = this.l;
                 kVar.l = kVar.m ? 3 : 4;
@@ -426,7 +426,7 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.l.f5545g = false;
+                this.l.f5687g = false;
                 c.a.r0.a.d2.d.J().q("event_pkg_download_finish");
                 super.b();
             }
@@ -440,13 +440,13 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         public final /* synthetic */ boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.q.j.m.d f5557b;
+        public final /* synthetic */ c.a.r0.q.j.m.d f5699b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ HybridUbcFlow f5558c;
+        public final /* synthetic */ HybridUbcFlow f5700c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ k f5559d;
+        public final /* synthetic */ k f5701d;
 
         public h(k kVar, boolean z, c.a.r0.q.j.m.d dVar, HybridUbcFlow hybridUbcFlow) {
             Interceptable interceptable = $ic;
@@ -463,10 +463,10 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                     return;
                 }
             }
-            this.f5559d = kVar;
+            this.f5701d = kVar;
             this.a = z;
-            this.f5557b = dVar;
-            this.f5558c = hybridUbcFlow;
+            this.f5699b = dVar;
+            this.f5700c = hybridUbcFlow;
         }
 
         @Override // c.a.r0.a.h0.m.p.a
@@ -478,26 +478,26 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                 if (this.a) {
                     n.L("pkg_retry_fail", String.valueOf(a));
                 }
-                if (this.f5559d.Z(this.f5557b, aVar)) {
+                if (this.f5701d.Z(this.f5699b, aVar)) {
                     return;
                 }
-                this.f5559d.f5545g = false;
+                this.f5701d.f5687g = false;
                 c.a.r0.a.d2.d.J().q("event_pkg_download_finish");
-                HybridUbcFlow hybridUbcFlow = this.f5558c;
+                HybridUbcFlow hybridUbcFlow = this.f5700c;
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalFailedStart");
                 ubcFlowEvent.a(true);
                 hybridUbcFlow.F(ubcFlowEvent);
                 c.a.r0.a.u2.e.a().f(aVar);
                 if (z) {
-                    k kVar = this.f5559d;
+                    k kVar = this.f5701d;
                     kVar.l = kVar.m ? 3 : 4;
-                    k kVar2 = this.f5559d;
+                    k kVar2 = this.f5701d;
                     kVar2.a0("KEY_PKG_STATE", "event_pms_check_finish", kVar2.l);
-                    this.f5559d.G0(aVar);
+                    this.f5701d.G0(aVar);
                 } else if (aVar != null && aVar.h() == 1020) {
-                    this.f5559d.z0(aVar);
+                    this.f5701d.z0(aVar);
                 }
-                HybridUbcFlow hybridUbcFlow2 = this.f5558c;
+                HybridUbcFlow hybridUbcFlow2 = this.f5700c;
                 UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalFailedEnd");
                 ubcFlowEvent2.a(true);
                 hybridUbcFlow2.F(ubcFlowEvent2);
@@ -519,20 +519,20 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                 if (this.a) {
                     n.L("pkg_retry_success", "");
                 }
-                this.f5559d.f5545g = false;
-                k kVar = this.f5559d;
-                kVar.l = kVar.f5547i ? 2 : 0;
-                k kVar2 = this.f5559d;
-                kVar2.l = kVar2.m ? 1 : this.f5559d.l;
-                k kVar3 = this.f5559d;
+                this.f5701d.f5687g = false;
+                k kVar = this.f5701d;
+                kVar.l = kVar.f5689i ? 2 : 0;
+                k kVar2 = this.f5701d;
+                kVar2.l = kVar2.m ? 1 : this.f5701d.l;
+                k kVar3 = this.f5701d;
                 kVar3.a0("KEY_PKG_STATE", "event_pms_check_finish", kVar3.l);
-                HybridUbcFlow hybridUbcFlow = this.f5558c;
+                HybridUbcFlow hybridUbcFlow = this.f5700c;
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalCompleteStart");
                 ubcFlowEvent.a(true);
                 hybridUbcFlow.F(ubcFlowEvent);
-                this.f5559d.L0(pMSAppInfo);
-                this.f5559d.E0(null);
-                HybridUbcFlow hybridUbcFlow2 = this.f5558c;
+                this.f5701d.L0(pMSAppInfo);
+                this.f5701d.E0(null);
+                HybridUbcFlow hybridUbcFlow2 = this.f5700c;
                 UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onFinalCompleteEnd");
                 ubcFlowEvent2.a(true);
                 hybridUbcFlow2.F(ubcFlowEvent2);
@@ -546,10 +546,10 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HybridUbcFlow f5560e;
+        public final /* synthetic */ HybridUbcFlow f5702e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k f5561f;
+        public final /* synthetic */ k f5703f;
 
         public i(k kVar, HybridUbcFlow hybridUbcFlow) {
             Interceptable interceptable = $ic;
@@ -566,8 +566,8 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                     return;
                 }
             }
-            this.f5561f = kVar;
-            this.f5560e = hybridUbcFlow;
+            this.f5703f = kVar;
+            this.f5702e = hybridUbcFlow;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -576,16 +576,16 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         public void onCallback(PMSAppInfo pMSAppInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pMSAppInfo) == null) {
-                HybridUbcFlow hybridUbcFlow = this.f5560e;
+                HybridUbcFlow hybridUbcFlow = this.f5702e;
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onAppInfoReceivedStart");
                 ubcFlowEvent.a(true);
                 hybridUbcFlow.F(ubcFlowEvent);
                 if (k.r) {
                     k.o0("onAppInfoReceived appInfo=" + pMSAppInfo);
                 }
-                this.f5561f.L0(pMSAppInfo);
-                this.f5561f.b0(pMSAppInfo);
-                HybridUbcFlow hybridUbcFlow2 = this.f5560e;
+                this.f5703f.L0(pMSAppInfo);
+                this.f5703f.b0(pMSAppInfo);
+                HybridUbcFlow hybridUbcFlow2 = this.f5702e;
                 UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("updatePkgOnPresetUnavailableRequest#onAppInfoReceivedEnd");
                 ubcFlowEvent2.a(true);
                 hybridUbcFlow2.F(ubcFlowEvent2);
@@ -627,7 +627,7 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) {
                 c.a.r0.a.e0.d.k("SwanPkgMaintainer", "mFlagDownloading set onPrepareDownload isRetry = " + this.K);
-                this.L.f5545g = true;
+                this.L.f5687g = true;
                 c.a.r0.a.d2.d.J().q("event_pkg_download_start");
                 super.H(gVar);
             }
@@ -638,7 +638,7 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 c.a.r0.a.e0.d.k("SwanPkgMaintainer", "mFlagDownloading reset onTotalPkgDownloadFinish isRetry = " + this.K);
-                this.L.f5545g = false;
+                this.L.f5687g = false;
                 c.a.r0.a.d2.d.J().q("event_pkg_download_finish");
                 super.b();
             }
@@ -647,20 +647,20 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
 
     /* renamed from: c.a.r0.a.d2.k$k  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0294k implements Runnable {
+    public static class RunnableC0303k implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.f f5562e;
+        public final /* synthetic */ c.a.r0.a.n2.s.f f5704e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5563f;
+        public final /* synthetic */ String f5705f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f5564g;
+        public final /* synthetic */ String f5706g;
 
-        public RunnableC0294k(c.a.r0.a.n2.s.f fVar, String str, String str2) {
+        public RunnableC0303k(c.a.r0.a.n2.s.f fVar, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -675,16 +675,16 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                     return;
                 }
             }
-            this.f5562e = fVar;
-            this.f5563f = str;
-            this.f5564g = str2;
+            this.f5704e = fVar;
+            this.f5705f = str;
+            this.f5706g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                k.m0(this.f5562e, this.f5563f, this.f5564g);
+                k.m0(this.f5704e, this.f5705f, this.f5706g);
             }
         }
     }
@@ -715,16 +715,16 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                 String string = bundle.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
                 boolean z = false;
                 if (TextUtils.isEmpty(string)) {
-                    this.f9685d.putBoolean("isDownloading", false);
+                    this.f9827d.putBoolean("isDownloading", false);
                     c();
                     return;
                 }
                 boolean j2 = c.a.r0.q.b.j(string);
                 boolean k = c.a.r0.q.b.k(string);
-                if (c.a.r0.a.y1.a.a.a.f9682e) {
+                if (c.a.r0.a.y1.a.a.a.f9824e) {
                     String str = "isDownloading: " + j2 + ", isInQueue: " + k;
                 }
-                this.f9685d.putBoolean("isDownloading", (j2 || k) ? true : true);
+                this.f9827d.putBoolean("isDownloading", (j2 || k) ? true : true);
                 c();
             }
         }
@@ -764,11 +764,11 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                 return;
             }
         }
-        this.f5544f = false;
-        this.f5545g = false;
-        this.f5546h = false;
-        this.f5547i = false;
-        this.f5548j = false;
+        this.f5686f = false;
+        this.f5687g = false;
+        this.f5688h = false;
+        this.f5689i = false;
+        this.f5690j = false;
         this.l = -1;
         this.m = false;
         this.o = "";
@@ -811,12 +811,12 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
             c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
             fVar.a = n.n(eVar.G());
             fVar.h(eVar);
-            fVar.f7977b = "launch";
+            fVar.f8119b = "launch";
             fVar.o = z ? "1" : "0";
             if (pMSAppInfo != null) {
                 fVar.l = String.valueOf(pMSAppInfo.versionCode);
             }
-            c.a.r0.a.u1.k.i.c.e().d(new RunnableC0294k(fVar, eVar.W(), eVar.s0().getString(UBCCloudControlProcessor.UBC_KEY)), "launchStatistic", true);
+            c.a.r0.a.u1.k.i.c.e().d(new RunnableC0303k(fVar, eVar.W(), eVar.s0().getString(UBCCloudControlProcessor.UBC_KEY)), "launchStatistic", true);
         }
     }
 
@@ -837,8 +837,8 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         c.a.r0.a.f1.d.a.l(context, z ? SwanAppErrorActivity.TYPE_PATH_FORBIDDEN : SwanAppErrorActivity.TYPE_APP_FORBIDDEN, aVar, forbiddenInfo, bVar.D());
         c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
         fVar.a = n.n(bVar.G());
-        fVar.f7977b = "launch";
-        fVar.f7980e = "success";
+        fVar.f8119b = "launch";
+        fVar.f8122e = "success";
         fVar.i(bVar);
         fVar.a("status", "2");
         fVar.d(bVar.s0().getString(UBCCloudControlProcessor.UBC_KEY));
@@ -848,7 +848,7 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
     public boolean A0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5545g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5687g : invokeV.booleanValue;
     }
 
     public final void B0() {
@@ -918,10 +918,10 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                     c.a.r0.a.c1.a.p0().flush(false);
                     return -1;
                 }
-                if (!this.f5548j) {
-                    Set<a.C0796a> i2 = c.a.r0.a.w1.c.a.i(this.q);
+                if (!this.f5690j) {
+                    Set<a.C0805a> i2 = c.a.r0.a.w1.c.a.i(this.q);
                     boolean z = i2 == null || i2.isEmpty();
-                    this.f5548j = z;
+                    this.f5690j = z;
                     if (!z) {
                         c.a.r0.a.u2.a aVar2 = new c.a.r0.a.u2.a();
                         aVar2.k(17L);
@@ -1055,12 +1055,12 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         }
     }
 
-    public void I0(Set<a.C0796a> set) {
+    public void I0(Set<a.C0805a> set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, set) == null) {
             this.k = set;
             if (set == null || set.isEmpty()) {
-                this.f5548j = true;
+                this.f5690j = true;
             }
         }
     }
@@ -1083,16 +1083,16 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                 String str = "updatePkgOnPresetUnavailable: isNeedFetchPkg " + q0;
             }
             if (!q0) {
-                if (!this.f5548j) {
-                    Set<a.C0796a> set = this.k;
+                if (!this.f5690j) {
+                    Set<a.C0805a> set = this.k;
                     if (set == null || set.isEmpty()) {
                         this.k = c.a.r0.a.w1.c.a.i(this.q);
                     }
-                    Set<a.C0796a> set2 = this.k;
+                    Set<a.C0805a> set2 = this.k;
                     if (set2 != null && !set2.isEmpty()) {
                         z = false;
                     }
-                    this.f5548j = z;
+                    this.f5690j = z;
                     if (!z) {
                         f0(this.k);
                         this.k = null;
@@ -1153,7 +1153,7 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
             c.a.r0.a.h0.r.c c2 = c.a.r0.a.h0.r.f.b().c(getAppId());
             PMSAppInfo pMSAppInfo = this.q;
             long j2 = pMSAppInfo == null ? -1L : pMSAppInfo.versionCode;
-            long j3 = c2 != null ? c2.f11496i : -1L;
+            long j3 = c2 != null ? c2.f11638i : -1L;
             boolean z = j3 > j2;
             if (r) {
                 o0(String.format(Locale.getDefault(), "尝试加载预制包，命中预制包=%b  currentVersion/presetVersion = %d/%d", Boolean.valueOf(z), Long.valueOf(j2), Long.valueOf(j3)));
@@ -1303,7 +1303,7 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                     p.F(new UbcFlowEvent("na_query_db"));
                     boolean e2 = c.a.r0.a.f1.h.a.e(f0);
                     this.p = e2;
-                    this.f5547i = (f0 == null || e2) ? false : true;
+                    this.f5689i = (f0 == null || e2) ? false : true;
                     UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("has_local_file");
                     ubcFlowEvent.a(true);
                     p.F(ubcFlowEvent);
@@ -1357,7 +1357,7 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         }
     }
 
-    public final void f0(Set<a.C0796a> set) {
+    public final void f0(Set<a.C0805a> set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, set) == null) {
             c.a.r0.q.j.m.a aVar = new c.a.r0.q.j.m.a(set);
@@ -1418,7 +1418,7 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             synchronized (this) {
-                z = this.f5544f;
+                z = this.f5686f;
             }
             return z;
         }
@@ -1431,7 +1431,7 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             synchronized (this) {
-                z = this.f5546h;
+                z = this.f5688h;
             }
             return z;
         }
@@ -1442,9 +1442,9 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             synchronized (this) {
-                if (SwanAppProcessInfo.current().isSwanAppProcess() && this.n.f5538g && !k0() && !l0()) {
+                if (SwanAppProcessInfo.current().isSwanAppProcess() && this.n.f5680g && !k0() && !l0()) {
                     boolean z = true;
-                    this.f5544f = true;
+                    this.f5686f = true;
                     HybridUbcFlow p = c.a.r0.a.u1.h.p(NodeJS.STARTUP_SCRIPT_NAME);
                     UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("maintain_start");
                     ubcFlowEvent.a(true);
@@ -1478,13 +1478,13 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                 return true;
             } else if (pMSAppInfo.appStatus != 0) {
                 boolean z2 = r;
-                this.f5547i = true;
+                this.f5689i = true;
                 p.D("launch_state", String.valueOf(2));
                 a0("KEY_PMS_UPDATE_TYPE", "event_pms_check_start", 2);
                 return true;
             } else if (pMSAppInfo.hasPendingErrCode()) {
                 boolean z3 = r;
-                this.f5547i = true;
+                this.f5689i = true;
                 p.D("launch_state", String.valueOf(2));
                 a0("KEY_PMS_UPDATE_TYPE", "event_pms_check_start", 2);
                 return true;
@@ -1524,8 +1524,8 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
             synchronized (this) {
-                this.f5544f = false;
-                this.f5546h = z;
+                this.f5686f = false;
+                this.f5688h = z;
                 this.q = null;
                 if (k.b.a()) {
                     this.n.I0(true);
@@ -1534,7 +1534,7 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
                     o0("notifyMaintainFinish: " + z);
                 }
                 if (r() == c.a.r0.a.d2.d.J().r()) {
-                    A((i.a) new i.a("event_on_pkg_maintain_finish").z("mAppId", this.n.f5537f));
+                    A((i.a) new i.a("event_on_pkg_maintain_finish").z("mAppId", this.n.f5679f));
                 }
                 if (r) {
                     c.a.r0.a.f1.g.a.d(this.o).h();
@@ -1557,13 +1557,13 @@ public final class k extends m implements c.a.r0.a.n0.l.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048607, this, z, str) == null) {
             synchronized (this) {
-                this.f5544f = false;
-                this.f5546h = true;
+                this.f5686f = false;
+                this.f5688h = true;
                 this.q = null;
                 if (this.n != null) {
                     this.n.I0(true);
                     c.a.r0.a.e0.d.i("SwanPkgMaintainer", "swan/web, notifyWebModeStart: true");
-                    i.a aVar = (i.a) new i.a("event_on_web_mode_launched").z("mAppId", this.n.f5537f);
+                    i.a aVar = (i.a) new i.a("event_on_web_mode_launched").z("mAppId", this.n.f5679f);
                     if (!TextUtils.isEmpty(str)) {
                         aVar.z("property_launch_url", str);
                     }

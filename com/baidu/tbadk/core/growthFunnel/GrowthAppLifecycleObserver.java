@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.growthFunnel;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
-import c.a.s0.s.y.a;
+import c.a.s0.s.z.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,10 +18,10 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f40248e = true;
+    public static boolean f40276e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f40249f;
+    public static long f40277f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -66,14 +66,14 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onStart() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            if (f40248e) {
-                f40248e = false;
+            if (f40276e) {
+                f40276e = false;
                 a.j("lifecycle-1st-create", false);
                 a.o();
                 return;
             }
-            a.f13676b = true;
-            long currentTimeMillis = System.currentTimeMillis() - f40249f;
+            a.f13863b = true;
+            long currentTimeMillis = System.currentTimeMillis() - f40277f;
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = -1;
             }
@@ -88,8 +88,8 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             a.n(null, true);
-            f40249f = System.currentTimeMillis();
-            a.f13676b = false;
+            f40277f = System.currentTimeMillis();
+            a.f13863b = false;
         }
     }
 }

@@ -32,31 +32,31 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WifiManager f8689b;
+    public WifiManager f8831b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanWifiBroadcastReceiver f8690c;
+    public SwanWifiBroadcastReceiver f8832c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.r0.a.r2.l.c.c f8691d;
+    public final c.a.r0.a.r2.l.c.c f8833d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f8692e;
+    public boolean f8834e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile List<c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<c.a.r0.a.r2.l.d.b>>> f8693f;
+    public volatile List<c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<c.a.r0.a.r2.l.d.b>>> f8835f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.a.r0.a.r2.l.b.b f8694g;
+    public final c.a.r0.a.r2.l.b.b f8836g;
 
     /* renamed from: c.a.r0.a.r2.l.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0544a implements c.a.r0.a.r2.l.b.b {
+    public class C0553a implements c.a.r0.a.r2.l.b.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0544a(a aVar) {
+        public C0553a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, wifiInfo) == null) {
                 if (wifiInfo == null) {
-                    wifiInfo = this.a.f8689b.getConnectionInfo();
+                    wifiInfo = this.a.f8831b.getConnectionInfo();
                 }
                 this.a.m(wifiInfo);
             }
@@ -92,10 +92,10 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.z2.g1.c f8695e;
+        public final /* synthetic */ c.a.r0.a.z2.g1.c f8837e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f8696f;
+        public final /* synthetic */ a f8838f;
 
         public b(a aVar, c.a.r0.a.z2.g1.c cVar) {
             Interceptable interceptable = $ic;
@@ -112,8 +112,8 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
                     return;
                 }
             }
-            this.f8696f = aVar;
-            this.f8695e = cVar;
+            this.f8838f = aVar;
+            this.f8837e = cVar;
         }
 
         @Override // java.lang.Runnable
@@ -121,21 +121,21 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 WifiInfo wifiInfo = null;
-                if (!this.f8696f.f8692e) {
-                    this.f8696f.g(w0.X3, "not init", null, this.f8695e);
-                } else if (!this.f8696f.f8689b.isWifiEnabled()) {
-                    this.f8696f.g(12005, "wifi is not on", null, this.f8695e);
-                } else if (!q0.K(this.f8696f.a)) {
-                    this.f8696f.g(12006, "LBS is not on", null, this.f8695e);
-                } else if (ContextCompat.checkSelfPermission(this.f8696f.a, s.f55246g) != 0) {
-                    this.f8696f.g(12012, "no location permission", null, this.f8695e);
+                if (!this.f8838f.f8834e) {
+                    this.f8838f.g(w0.X3, "not init", null, this.f8837e);
+                } else if (!this.f8838f.f8831b.isWifiEnabled()) {
+                    this.f8838f.g(12005, "wifi is not on", null, this.f8837e);
+                } else if (!q0.K(this.f8838f.a)) {
+                    this.f8838f.g(12006, "LBS is not on", null, this.f8837e);
+                } else if (ContextCompat.checkSelfPermission(this.f8838f.a, s.f55291g) != 0) {
+                    this.f8838f.g(12012, "no location permission", null, this.f8837e);
                 } else {
-                    WifiInfo connectionInfo = this.f8696f.f8689b.getConnectionInfo();
+                    WifiInfo connectionInfo = this.f8838f.f8831b.getConnectionInfo();
                     if (connectionInfo == null || connectionInfo.getSupplicantState() == SupplicantState.COMPLETED) {
                         wifiInfo = connectionInfo;
                     }
-                    a aVar = this.f8696f;
-                    aVar.g(0, "success", new c.a.r0.a.r2.l.d.b(wifiInfo, c.a.r0.a.r2.l.e.b.a(c.a.r0.a.r2.l.e.a.b(aVar.a, aVar.f8689b, wifiInfo))), this.f8695e);
+                    a aVar = this.f8838f;
+                    aVar.g(0, "success", new c.a.r0.a.r2.l.d.b(wifiInfo, c.a.r0.a.r2.l.e.b.a(c.a.r0.a.r2.l.e.a.b(aVar.a, aVar.f8831b, wifiInfo))), this.f8837e);
                 }
             }
         }
@@ -148,39 +148,39 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
         public volatile List<c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<List<c.a.r0.a.r2.l.d.b>>>> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f8697b;
+        public boolean f8839b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<Void>>> f8698c;
+        public List<c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<Void>>> f8840c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Lock f8699d;
+        public Lock f8841d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Handler f8700e;
+        public Handler f8842e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<ScanResult> f8701f;
+        public List<ScanResult> f8843f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Runnable f8702g;
+        public Runnable f8844g;
 
         /* renamed from: h  reason: collision with root package name */
-        public c.a.r0.a.r2.l.b.c f8703h;
+        public c.a.r0.a.r2.l.b.c f8845h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f8704i;
+        public final /* synthetic */ a f8846i;
 
         /* renamed from: c.a.r0.a.r2.l.c.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0545a implements Runnable {
+        public class RunnableC0554a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f8705e;
+            public final /* synthetic */ c f8847e;
 
-            public RunnableC0545a(c cVar) {
+            public RunnableC0554a(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,21 +195,21 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
                         return;
                     }
                 }
-                this.f8705e = cVar;
+                this.f8847e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f8705e.f8699d.lock();
+                    this.f8847e.f8841d.lock();
                     try {
-                        if (this.f8705e.f8697b) {
-                            this.f8705e.m(this.f8705e.f8701f);
-                            this.f8705e.f8697b = false;
+                        if (this.f8847e.f8839b) {
+                            this.f8847e.m(this.f8847e.f8843f);
+                            this.f8847e.f8839b = false;
                         }
                     } finally {
-                        this.f8705e.f8699d.unlock();
+                        this.f8847e.f8841d.unlock();
                     }
                 }
             }
@@ -243,16 +243,16 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
             public void a(List<ScanResult> list) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                    this.a.f8701f = list;
-                    this.a.f8699d.lock();
+                    this.a.f8843f = list;
+                    this.a.f8841d.lock();
                     try {
-                        if (this.a.f8697b) {
-                            this.a.f8700e.removeCallbacks(this.a.f8702g);
+                        if (this.a.f8839b) {
+                            this.a.f8842e.removeCallbacks(this.a.f8844g);
                             this.a.m(list);
-                            this.a.f8697b = false;
+                            this.a.f8839b = false;
                         }
                     } finally {
-                        this.a.f8699d.unlock();
+                        this.a.f8841d.unlock();
                     }
                 }
             }
@@ -260,17 +260,17 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
 
         /* renamed from: c.a.r0.a.r2.l.c.a$c$c  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0546c implements Runnable {
+        public class RunnableC0555c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.z2.g1.c f8706e;
+            public final /* synthetic */ c.a.r0.a.z2.g1.c f8848e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f8707f;
+            public final /* synthetic */ c f8849f;
 
-            public RunnableC0546c(c cVar, c.a.r0.a.z2.g1.c cVar2) {
+            public RunnableC0555c(c cVar, c.a.r0.a.z2.g1.c cVar2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -285,37 +285,37 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
                         return;
                     }
                 }
-                this.f8707f = cVar;
-                this.f8706e = cVar2;
+                this.f8849f = cVar;
+                this.f8848e = cVar2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (!this.f8707f.f8704i.f8692e) {
-                        this.f8707f.f8704i.g(w0.X3, "not init", null, this.f8706e);
-                    } else if (!this.f8707f.f8704i.f8689b.isWifiEnabled()) {
-                        this.f8707f.f8704i.g(12005, "wifi is not on", null, this.f8706e);
-                    } else if (!q0.K(this.f8707f.f8704i.a)) {
-                        this.f8707f.f8704i.g(12006, "LBS is not on", null, this.f8706e);
-                    } else if (ContextCompat.checkSelfPermission(this.f8707f.f8704i.a, s.f55246g) == 0) {
-                        this.f8707f.f8699d.lock();
+                    if (!this.f8849f.f8846i.f8834e) {
+                        this.f8849f.f8846i.g(w0.X3, "not init", null, this.f8848e);
+                    } else if (!this.f8849f.f8846i.f8831b.isWifiEnabled()) {
+                        this.f8849f.f8846i.g(12005, "wifi is not on", null, this.f8848e);
+                    } else if (!q0.K(this.f8849f.f8846i.a)) {
+                        this.f8849f.f8846i.g(12006, "LBS is not on", null, this.f8848e);
+                    } else if (ContextCompat.checkSelfPermission(this.f8849f.f8846i.a, s.f55291g) == 0) {
+                        this.f8849f.f8841d.lock();
                         try {
-                            if (this.f8707f.f8697b) {
-                                this.f8707f.f8698c.add(this.f8706e);
+                            if (this.f8849f.f8839b) {
+                                this.f8849f.f8840c.add(this.f8848e);
                                 return;
                             }
-                            this.f8707f.f8697b = true;
-                            this.f8707f.f8699d.unlock();
-                            this.f8707f.f8700e.postDelayed(this.f8707f.f8702g, 6000L);
-                            this.f8707f.f8704i.f8689b.startScan();
-                            this.f8707f.f8704i.g(0, "success", null, this.f8706e);
+                            this.f8849f.f8839b = true;
+                            this.f8849f.f8841d.unlock();
+                            this.f8849f.f8842e.postDelayed(this.f8849f.f8844g, 6000L);
+                            this.f8849f.f8846i.f8831b.startScan();
+                            this.f8849f.f8846i.g(0, "success", null, this.f8848e);
                         } finally {
-                            this.f8707f.f8699d.unlock();
+                            this.f8849f.f8841d.unlock();
                         }
                     } else {
-                        this.f8707f.f8704i.g(12012, "no location permission", null, this.f8706e);
+                        this.f8849f.f8846i.g(12012, "no location permission", null, this.f8848e);
                     }
                 }
             }
@@ -336,16 +336,16 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
                     return;
                 }
             }
-            this.f8704i = aVar;
+            this.f8846i = aVar;
             this.a = new CopyOnWriteArrayList();
-            this.f8697b = false;
-            this.f8698c = new CopyOnWriteArrayList();
-            this.f8699d = new ReentrantLock();
-            this.f8700e = new Handler(Looper.getMainLooper());
-            this.f8702g = new RunnableC0545a(this);
+            this.f8839b = false;
+            this.f8840c = new CopyOnWriteArrayList();
+            this.f8841d = new ReentrantLock();
+            this.f8842e = new Handler(Looper.getMainLooper());
+            this.f8844g = new RunnableC0554a(this);
             b bVar = new b(this);
-            this.f8703h = bVar;
-            aVar.f8690c.setScanListener(bVar);
+            this.f8845h = bVar;
+            aVar.f8832c.setScanListener(bVar);
         }
 
         @Override // c.a.r0.a.r2.l.c.c
@@ -371,7 +371,7 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || cVar == null) {
                 return;
             }
-            q.k(new RunnableC0546c(this, cVar), "wifiScan");
+            q.k(new RunnableC0555c(this, cVar), "wifiScan");
         }
 
         @Override // c.a.r0.a.r2.l.c.c
@@ -402,14 +402,14 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
                 }
                 List<c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<List<c.a.r0.a.r2.l.d.b>>>> list2 = this.a;
                 for (c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<List<c.a.r0.a.r2.l.d.b>>> cVar : list2) {
-                    this.f8704i.g(0, "success", arrayList, cVar);
+                    this.f8846i.g(0, "success", arrayList, cVar);
                 }
-                List<c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<Void>>> list3 = this.f8698c;
-                this.f8698c = new CopyOnWriteArrayList();
+                List<c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<Void>>> list3 = this.f8840c;
+                this.f8840c = new CopyOnWriteArrayList();
                 for (c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<Void>> cVar2 : list3) {
-                    this.f8704i.g(0, "success", null, cVar2);
+                    this.f8846i.g(0, "success", null, cVar2);
                     for (c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<List<c.a.r0.a.r2.l.d.b>>> cVar3 : list2) {
-                        this.f8704i.g(0, "success", arrayList, cVar3);
+                        this.f8846i.g(0, "success", arrayList, cVar3);
                     }
                 }
             }
@@ -438,29 +438,29 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
                 return;
             }
         }
-        this.f8692e = false;
-        this.f8693f = new CopyOnWriteArrayList();
-        this.f8694g = new C0544a(this);
+        this.f8834e = false;
+        this.f8835f = new CopyOnWriteArrayList();
+        this.f8836g = new C0553a(this);
         this.a = context;
-        this.f8689b = (WifiManager) context.getApplicationContext().getSystemService("wifi");
-        SwanWifiBroadcastReceiver swanWifiBroadcastReceiver = new SwanWifiBroadcastReceiver(this.f8689b);
-        this.f8690c = swanWifiBroadcastReceiver;
-        swanWifiBroadcastReceiver.setConnectSuccessListener(this.f8694g);
-        this.f8691d = new c(this);
+        this.f8831b = (WifiManager) context.getApplicationContext().getSystemService("wifi");
+        SwanWifiBroadcastReceiver swanWifiBroadcastReceiver = new SwanWifiBroadcastReceiver(this.f8831b);
+        this.f8832c = swanWifiBroadcastReceiver;
+        swanWifiBroadcastReceiver.setConnectSuccessListener(this.f8836g);
+        this.f8833d = new c(this);
     }
 
     @Override // c.a.r0.a.r2.l.c.c
     public boolean b(c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<List<c.a.r0.a.r2.l.d.b>>> cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? this.f8691d.b(cVar) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? this.f8833d.b(cVar) : invokeL.booleanValue;
     }
 
     @Override // c.a.r0.a.r2.l.c.c
     public void c(c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<Void>> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f8691d.c(cVar);
+            this.f8833d.c(cVar);
         }
     }
 
@@ -468,7 +468,7 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
     public boolean d(c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<List<c.a.r0.a.r2.l.d.b>>> cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f8691d.d(cVar) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f8833d.d(cVar) : invokeL.booleanValue;
     }
 
     public <ResultType> void g(int i2, String str, ResultType resulttype, c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<ResultType>> cVar) {
@@ -478,17 +478,17 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
         }
         c.a.r0.a.r2.l.d.c<ResultType> cVar2 = new c.a.r0.a.r2.l.d.c<>();
         cVar2.a = i2;
-        cVar2.f8729b = str;
-        cVar2.f8730c = resulttype;
+        cVar2.f8871b = str;
+        cVar2.f8872c = resulttype;
         cVar.onCallback(cVar2);
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f8690c.unregisterSelf(this.a);
-            this.f8693f = new CopyOnWriteArrayList();
-            ((c) this.f8691d).n();
+            this.f8832c.unregisterSelf(this.a);
+            this.f8835f = new CopyOnWriteArrayList();
+            ((c) this.f8833d).n();
             o(false);
         }
     }
@@ -496,7 +496,7 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f8690c.unregisterSelf(this.a);
+            this.f8832c.unregisterSelf(this.a);
             o(false);
         }
     }
@@ -512,7 +512,7 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f8690c.registerSelf(this.a);
+            this.f8832c.registerSelf(this.a);
             o(true);
         }
     }
@@ -520,14 +520,14 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f8692e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f8834e : invokeV.booleanValue;
     }
 
     public final void m(WifiInfo wifiInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, wifiInfo) == null) {
-            for (c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<c.a.r0.a.r2.l.d.b>> cVar : this.f8693f) {
-                g(0, "success", new c.a.r0.a.r2.l.d.b(wifiInfo, c.a.r0.a.r2.l.e.b.a(c.a.r0.a.r2.l.e.a.b(this.a, this.f8689b, wifiInfo))), cVar);
+            for (c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<c.a.r0.a.r2.l.d.b>> cVar : this.f8835f) {
+                g(0, "success", new c.a.r0.a.r2.l.d.b(wifiInfo, c.a.r0.a.r2.l.e.b.a(c.a.r0.a.r2.l.e.a.b(this.a, this.f8831b, wifiInfo))), cVar);
             }
         }
     }
@@ -539,7 +539,7 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
             if (cVar == null) {
                 return false;
             }
-            List<c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<c.a.r0.a.r2.l.d.b>>> list = this.f8693f;
+            List<c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<c.a.r0.a.r2.l.d.b>>> list = this.f8835f;
             if (list.contains(cVar)) {
                 return true;
             }
@@ -551,14 +551,14 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f8692e = z;
+            this.f8834e = z;
         }
     }
 
     public void p(c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<Void>> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            if (this.f8692e) {
+            if (this.f8834e) {
                 g(0, "success", null, cVar);
                 return;
             }
@@ -570,7 +570,7 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
     public void q(c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<Void>> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, cVar) == null) {
-            if (!this.f8692e) {
+            if (!this.f8834e) {
                 g(0, "success", null, cVar);
                 return;
             }
@@ -586,7 +586,7 @@ public abstract class a implements c.a.r0.a.r2.l.c.b, c.a.r0.a.r2.l.c.c {
             if (cVar == null) {
                 return false;
             }
-            List<c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<c.a.r0.a.r2.l.d.b>>> list = this.f8693f;
+            List<c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<c.a.r0.a.r2.l.d.b>>> list = this.f8835f;
             if (list.contains(cVar)) {
                 return list.remove(cVar);
             }

@@ -54,7 +54,7 @@ public class h3 extends Handler {
                 str = (String) message.obj;
                 y2 a = c3.a(this.a.a);
                 try {
-                    a.f30529b = c3.d("ps", new g3(this.a.f30403b));
+                    a.f30557b = c3.d("ps", new g3(this.a.f30431b));
                     a.k("co", 2002);
                     a.l("msg", str);
                 } catch (JSONException unused) {

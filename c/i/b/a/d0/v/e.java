@@ -34,7 +34,7 @@ public final class e implements d {
     public long a(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? this.a.f28546d[i2] : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? this.a.f28574d[i2] : invokeCommon.longValue;
     }
 
     @Override // c.i.b.a.d0.v.d
@@ -67,7 +67,7 @@ public final class e implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             c.i.b.a.a0.a aVar = this.a;
-            return new c.i.b.a.d0.v.g.f(null, aVar.f28545c[i2], aVar.f28544b[i2]);
+            return new c.i.b.a.d0.v.g.f(null, aVar.f28573c[i2], aVar.f28572b[i2]);
         }
         return (c.i.b.a.d0.v.g.f) invokeI.objValue;
     }
@@ -76,7 +76,7 @@ public final class e implements d {
     public long f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.a.f28547e[i2] : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.a.f28575e[i2] : invokeI.longValue;
     }
 
     @Override // c.i.b.a.d0.v.d

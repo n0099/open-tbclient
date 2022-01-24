@@ -19,29 +19,29 @@ public class e {
     public static int a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f55779b = 1;
+    public static int f55824b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f55780c;
+    public static e f55825c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InstallTipsViewHelper f55781d;
+    public InstallTipsViewHelper f55826d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, Integer> f55782e = new HashMap();
+    public Map<String, Integer> f55827e = new HashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, Integer> f55783f = new HashMap();
+    public Map<String, Integer> f55828f = new HashMap();
 
     public static e a() {
-        if (f55780c == null) {
+        if (f55825c == null) {
             synchronized (e.class) {
-                if (f55780c == null) {
-                    f55780c = new e();
+                if (f55825c == null) {
+                    f55825c = new e();
                 }
             }
         }
-        return f55780c;
+        return f55825c;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -49,14 +49,14 @@ public class e {
         ax.a(new Runnable() { // from class: com.kwad.sdk.core.download.e.3
             @Override // java.lang.Runnable
             public void run() {
-                if (e.this.f55781d != null) {
+                if (e.this.f55826d != null) {
                     ax.a(new Runnable() { // from class: com.kwad.sdk.core.download.e.3.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (e.this.f55781d != null) {
-                                e.this.f55781d.b();
-                                e.this.f55781d.c();
-                                e.this.f55781d = null;
+                            if (e.this.f55826d != null) {
+                                e.this.f55826d.b();
+                                e.this.f55826d.c();
+                                e.this.f55826d = null;
                             }
                             AnonymousClass3 anonymousClass3 = AnonymousClass3.this;
                             e.this.b(adInfo, adTemplate, z);
@@ -85,23 +85,23 @@ public class e {
                 installTipsViewHelper.a((FrameLayout) findViewById);
                 String valueOf = String.valueOf(adInfo.adBaseInfo.creativeId);
                 if (z) {
-                    a(this.f55782e, valueOf);
+                    a(this.f55827e, valueOf);
                     com.kwad.sdk.core.report.a.c(adTemplate, 92, null);
                 } else {
                     com.kwad.sdk.core.report.a.d(adTemplate, 93, null);
-                    a(this.f55783f, valueOf);
+                    a(this.f55828f, valueOf);
                 }
-                this.f55781d = installTipsViewHelper;
+                this.f55826d = installTipsViewHelper;
             }
         }
     }
 
     public void a(InstallTipsViewHelper installTipsViewHelper) {
         InstallTipsViewHelper installTipsViewHelper2;
-        if (installTipsViewHelper == null || (installTipsViewHelper2 = this.f55781d) == null || !installTipsViewHelper.equals(installTipsViewHelper2)) {
+        if (installTipsViewHelper == null || (installTipsViewHelper2 = this.f55826d) == null || !installTipsViewHelper.equals(installTipsViewHelper2)) {
             return;
         }
-        this.f55781d = null;
+        this.f55826d = null;
     }
 
     public void a(final AdInfo adInfo, final AdTemplate adTemplate) {
@@ -112,9 +112,9 @@ public class e {
         }
         String valueOf = String.valueOf(adInfo.adBaseInfo.creativeId);
         int i2 = 0;
-        if (this.f55782e.containsKey(valueOf)) {
-            i2 = this.f55782e.get(valueOf).intValue();
-            this.f55782e.put(valueOf, Integer.valueOf(i2));
+        if (this.f55827e.containsKey(valueOf)) {
+            i2 = this.f55827e.get(valueOf).intValue();
+            this.f55827e.put(valueOf, Integer.valueOf(i2));
         }
         if (i2 >= a) {
             return;
@@ -140,11 +140,11 @@ public class e {
         }
         String valueOf = String.valueOf(adInfo.adBaseInfo.creativeId);
         int i2 = 0;
-        if (this.f55783f.containsKey(valueOf)) {
-            i2 = this.f55783f.get(valueOf).intValue();
-            this.f55783f.put(valueOf, Integer.valueOf(i2));
+        if (this.f55828f.containsKey(valueOf)) {
+            i2 = this.f55828f.get(valueOf).intValue();
+            this.f55828f.put(valueOf, Integer.valueOf(i2));
         }
-        if (i2 >= f55779b) {
+        if (i2 >= f55824b) {
             return;
         }
         i.a(new Runnable() { // from class: com.kwad.sdk.core.download.e.2

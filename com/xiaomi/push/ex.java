@@ -22,31 +22,31 @@ public class ex implements iq<ex, Object>, Serializable, Cloneable {
     public static final jg f348a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f61059b;
+    public static final iy f61104b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f61060c;
+    public static final iy f61105c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f61061d;
+    public static final iy f61106d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f61062e;
+    public static final iy f61107e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f61063f;
+    public static final iy f61108f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f61064g;
+    public static final iy f61109g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f61065h;
+    public static final iy f61110h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f61066i;
+    public static final iy f61111i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final iy f61067j;
+    public static final iy f61112j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -97,15 +97,15 @@ public class ex implements iq<ex, Object>, Serializable, Cloneable {
         }
         f348a = new jg("StatsEvent");
         a = new iy("", (byte) 3, (short) 1);
-        f61059b = new iy("", (byte) 8, (short) 2);
-        f61060c = new iy("", (byte) 8, (short) 3);
-        f61061d = new iy("", (byte) 11, (short) 4);
-        f61062e = new iy("", (byte) 11, (short) 5);
-        f61063f = new iy("", (byte) 8, (short) 6);
-        f61064g = new iy("", (byte) 11, (short) 7);
-        f61065h = new iy("", (byte) 11, (short) 8);
-        f61066i = new iy("", (byte) 8, (short) 9);
-        f61067j = new iy("", (byte) 8, (short) 10);
+        f61104b = new iy("", (byte) 8, (short) 2);
+        f61105c = new iy("", (byte) 8, (short) 3);
+        f61106d = new iy("", (byte) 11, (short) 4);
+        f61107e = new iy("", (byte) 11, (short) 5);
+        f61108f = new iy("", (byte) 8, (short) 6);
+        f61109g = new iy("", (byte) 11, (short) 7);
+        f61110h = new iy("", (byte) 11, (short) 8);
+        f61111i = new iy("", (byte) 8, (short) 9);
+        f61112j = new iy("", (byte) 8, (short) 10);
     }
 
     public ex() {
@@ -456,44 +456,44 @@ public class ex implements iq<ex, Object>, Serializable, Cloneable {
             jbVar.a(a);
             jbVar.a(this.f349a);
             jbVar.b();
-            jbVar.a(f61059b);
+            jbVar.a(f61104b);
             jbVar.a(this.f350a);
             jbVar.b();
-            jbVar.a(f61060c);
+            jbVar.a(f61105c);
             jbVar.a(this.f353b);
             jbVar.b();
             if (this.f351a != null) {
-                jbVar.a(f61061d);
+                jbVar.a(f61106d);
                 jbVar.a(this.f351a);
                 jbVar.b();
             }
             if (this.f354b != null && e()) {
-                jbVar.a(f61062e);
+                jbVar.a(f61107e);
                 jbVar.a(this.f354b);
                 jbVar.b();
             }
             if (f()) {
-                jbVar.a(f61063f);
+                jbVar.a(f61108f);
                 jbVar.a(this.f355c);
                 jbVar.b();
             }
             if (this.f356c != null && g()) {
-                jbVar.a(f61064g);
+                jbVar.a(f61109g);
                 jbVar.a(this.f356c);
                 jbVar.b();
             }
             if (this.f358d != null && h()) {
-                jbVar.a(f61065h);
+                jbVar.a(f61110h);
                 jbVar.a(this.f358d);
                 jbVar.b();
             }
             if (i()) {
-                jbVar.a(f61066i);
+                jbVar.a(f61111i);
                 jbVar.a(this.f357d);
                 jbVar.b();
             }
             if (j()) {
-                jbVar.a(f61067j);
+                jbVar.a(f61112j);
                 jbVar.a(this.f359e);
                 jbVar.b();
             }

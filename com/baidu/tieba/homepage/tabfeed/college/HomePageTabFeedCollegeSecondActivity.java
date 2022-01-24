@@ -43,7 +43,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         public final /* synthetic */ List a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f44389b;
+        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f44417b;
 
         public a(HomePageTabFeedCollegeSecondActivity homePageTabFeedCollegeSecondActivity, List list) {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f44389b = homePageTabFeedCollegeSecondActivity;
+            this.f44417b = homePageTabFeedCollegeSecondActivity;
             this.a = list;
         }
 
@@ -78,7 +78,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f44390e;
+        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f44418e;
 
         public b(HomePageTabFeedCollegeSecondActivity homePageTabFeedCollegeSecondActivity) {
             Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f44390e = homePageTabFeedCollegeSecondActivity;
+            this.f44418e = homePageTabFeedCollegeSecondActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -120,13 +120,13 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                 if (i3 == 3) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     alaLiveInfoCoreData.liveID = specialColumnItemData.liveId;
-                    this.f44390e.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f44390e, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
+                    this.f44418e.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f44418e, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
                     return;
                 } else if (i3 != 4) {
                     return;
                 }
             }
-            this.f44390e.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f44390e).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
+            this.f44418e.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f44418e).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
         }
     }
 

@@ -121,7 +121,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameWebViewManager f39870e;
+        public final /* synthetic */ GameWebViewManager f39898e;
 
         public a(GameWebViewManager gameWebViewManager) {
             Interceptable interceptable = $ic;
@@ -138,16 +138,16 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
                     return;
                 }
             }
-            this.f39870e = gameWebViewManager;
+            this.f39898e = gameWebViewManager;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f39870e.B == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f39898e.B == null) {
                 return;
             }
-            this.f39870e.B.onClick(view);
+            this.f39898e.B.onClick(view);
         }
     }
 
@@ -157,7 +157,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameWebViewManager f39871e;
+        public final /* synthetic */ GameWebViewManager f39899e;
 
         public b(GameWebViewManager gameWebViewManager) {
             Interceptable interceptable = $ic;
@@ -174,15 +174,15 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
                     return;
                 }
             }
-            this.f39871e = gameWebViewManager;
+            this.f39899e = gameWebViewManager;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && SwanAppNetworkUtils.i(this.f39871e.f38735e) && c.a.r0.a.e2.a.b.h(this.f39871e.t().getUrl())) {
-                this.f39871e.t().reload();
-                this.f39871e.C.setVisibility(8);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && SwanAppNetworkUtils.i(this.f39899e.f38763e) && c.a.r0.a.e2.a.b.h(this.f39899e.t().getUrl())) {
+                this.f39899e.t().reload();
+                this.f39899e.C.setVisibility(8);
             }
         }
     }
@@ -384,8 +384,8 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
     public final void m1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.E == null) {
-            this.E = new ImageView(this.f38735e.getBaseContext());
-            Resources resources = this.f38735e.getResources();
+            this.E = new ImageView(this.f38763e.getBaseContext());
+            Resources resources = this.f38763e.getResources();
             int dimension = (int) resources.getDimension(c.a.r0.h.c.swangame_webview_button_size);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimension, dimension);
             layoutParams.topMargin = (int) resources.getDimension(c.a.r0.h.c.swangame_webview_button_top_margin);
@@ -402,9 +402,9 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
     public final void n1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            NetworkErrorView networkErrorView = new NetworkErrorView(this.f38735e.getBaseContext());
+            NetworkErrorView networkErrorView = new NetworkErrorView(this.f38763e.getBaseContext());
             this.C = networkErrorView;
-            networkErrorView.setBackgroundColor(this.f38735e.getResources().getColor(c.a.r0.h.b.aiapps_game_white));
+            networkErrorView.setBackgroundColor(this.f38763e.getResources().getColor(c.a.r0.h.b.aiapps_game_white));
             t().addView(this.C, -1, -1);
             this.C.setVisibility(8);
             b bVar = new b(this);
@@ -416,8 +416,8 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
     public final void o1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.D = new ImageView(this.f38735e.getBaseContext());
-            int dimension = (int) this.f38735e.getResources().getDimension(c.a.r0.h.c.swangame_webview_loading_size);
+            this.D = new ImageView(this.f38763e.getBaseContext());
+            int dimension = (int) this.f38763e.getResources().getDimension(c.a.r0.h.c.swangame_webview_loading_size);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimension, dimension);
             layoutParams.gravity = 17;
             this.D.setScaleType(ImageView.ScaleType.FIT_CENTER);
@@ -438,7 +438,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
     public final void p1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f38735e.getBaseContext());
+            FrameLayout frameLayout = new FrameLayout(this.f38763e.getBaseContext());
             this.A = frameLayout;
             frameLayout.addView(t(), -1, -1);
             m1();
@@ -457,7 +457,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
     public final void r1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.f38735e, c.a.r0.h.a.swangame_webview_loading);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f38763e, c.a.r0.h.a.swangame_webview_loading);
             this.D.setVisibility(0);
             this.D.startAnimation(loadAnimation);
         }

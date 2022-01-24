@@ -125,14 +125,14 @@ public class AckHandlerThread extends HandlerThread {
     /* JADX INFO: Access modifiers changed from: private */
     public void retryAck(Context context, NewAckMessage newAckMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, this, context, newAckMessage) == null) && a.f14302e && newAckMessage != null) {
+        if ((interceptable == null || interceptable.invokeLL(65543, this, context, newAckMessage) == null) && a.f14442e && newAckMessage != null) {
             BLCPRequest bLCPRequest = new BLCPRequest();
             bLCPRequest.a = 2L;
-            bLCPRequest.f34621b = 95L;
-            bLCPRequest.f34622c = newAckMessage.getBody().getBytes();
-            bLCPRequest.f34623d = System.nanoTime();
+            bLCPRequest.f34649b = 95L;
+            bLCPRequest.f34650c = newAckMessage.getBody().getBytes();
+            bLCPRequest.f34651d = System.nanoTime();
             String str = TAG;
-            LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f34623d);
+            LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f34651d);
             c.a.u.a.b.a.c(bLCPRequest, new b(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

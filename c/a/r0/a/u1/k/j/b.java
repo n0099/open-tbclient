@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,8 +62,8 @@ public class b implements c {
         if (!(interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, list, i2) == null) || jSONObject == null || jSONObject.length() <= 0) {
             return;
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("startTime");
-        JSONArray optJSONArray2 = jSONObject.optJSONArray("endTime");
+        JSONArray optJSONArray = jSONObject.optJSONArray(FetchLog.START_TIME);
+        JSONArray optJSONArray2 = jSONObject.optJSONArray(FetchLog.END_TIME);
         if (optJSONArray == null || optJSONArray2 == null) {
             return;
         }

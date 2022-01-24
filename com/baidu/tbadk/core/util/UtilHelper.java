@@ -61,14 +61,14 @@ import c.a.d.f.p.n;
 import c.a.d.f.p.o;
 import c.a.d.f.p.t;
 import c.a.s0.c0.c;
-import c.a.s0.e1.q;
-import c.a.s0.e1.s0;
+import c.a.s0.d1.q;
+import c.a.s0.d1.s0;
 import c.a.s0.m.a;
 import c.a.s0.r0.e;
-import c.a.s0.s.d0.b;
+import c.a.s0.s.e0.b;
 import c.a.s0.s.q.z0;
 import c.a.s0.s.s.a;
-import c.a.t0.j3.z;
+import c.a.t0.k3.z;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -1612,7 +1612,7 @@ public class UtilHelper {
             if (bitmap != null) {
                 bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
             }
-            c.a.s0.s.j0.j jVar = new c.a.s0.s.j0.j(bitmapDrawable);
+            c.a.s0.s.k0.j jVar = new c.a.s0.s.k0.j(bitmapDrawable);
             jVar.b(n.f(context, R.dimen.ds4));
             int length = spannableStringBuilder.length();
             spannableStringBuilder.append((CharSequence) " ");
@@ -1643,7 +1643,7 @@ public class UtilHelper {
             if (bitmap != null) {
                 bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
             }
-            c.a.s0.s.j0.m mVar = new c.a.s0.s.j0.m(bitmapDrawable);
+            c.a.s0.s.k0.m mVar = new c.a.s0.s.k0.m(bitmapDrawable);
             int length = spannableStringBuilder.length();
             spannableStringBuilder.append((CharSequence) " ");
             if (z) {
@@ -1764,16 +1764,16 @@ public class UtilHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(65607, null)) == null) {
             try {
                 String versionName = TbadkCoreApplication.getInst().getVersionName();
-                String q = c.a.s0.s.h0.b.k().q("version_name", "");
+                String q = c.a.s0.s.i0.b.k().q("version_name", "");
                 if (TextUtils.isEmpty(versionName)) {
                     return null;
                 }
                 if (versionName.equals(q)) {
-                    return c.a.s0.s.h0.b.k().q("apk_md5", "");
+                    return c.a.s0.s.i0.b.k().q("apk_md5", "");
                 }
-                c.a.s0.s.h0.b.k().y("version_name", versionName);
+                c.a.s0.s.i0.b.k().y("version_name", versionName);
                 String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getPackageName(), 0));
-                c.a.s0.s.h0.b.k().y("apk_md5", aPKMd5);
+                c.a.s0.s.i0.b.k().y("apk_md5", aPKMd5);
                 return aPKMd5;
             } catch (PackageManager.NameNotFoundException e2) {
                 BdLog.detailException(e2);
@@ -2656,7 +2656,7 @@ public class UtilHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65657, null)) == null) {
-            return g.f55061i.equalsIgnoreCase(Build.BRAND) && "ONEPLUS A6000".equalsIgnoreCase(Build.MODEL);
+            return g.f55106i.equalsIgnoreCase(Build.BRAND) && "ONEPLUS A6000".equalsIgnoreCase(Build.MODEL);
         }
         return invokeV.booleanValue;
     }
@@ -3462,12 +3462,12 @@ public class UtilHelper {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65713, null, activity, z)) == null) {
-            if (Build.VERSION.SDK_INT < 19 || activity == null || !c.a.s0.s.h0.b.k().h("switch_immersive_sticky_status", true) || !TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
+            if (Build.VERSION.SDK_INT < 19 || activity == null || !c.a.s0.s.i0.b.k().h("switch_immersive_sticky_status", true) || !TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
                 return false;
             }
             for (AccessibilityServiceInfo accessibilityServiceInfo : ((AccessibilityManager) activity.getSystemService("accessibility")).getEnabledAccessibilityServiceList(1)) {
                 if (!StringUtils.isNull(accessibilityServiceInfo.getSettingsActivityName()) && accessibilityServiceInfo.getSettingsActivityName().contains("talkback")) {
-                    c.a.s0.s.h0.b.k().u("switch_immersive_sticky_status", false);
+                    c.a.s0.s.i0.b.k().u("switch_immersive_sticky_status", false);
                     TbadkCoreApplication.getInst().resetIsImmersiveStickyPrefHasRead(false);
                     return false;
                 }
@@ -3478,7 +3478,7 @@ public class UtilHelper {
                 StatusBarUtil.from(activity).setTransparentStatusbar(z2).setLightStatusBar(z2).process();
                 return true;
             } else if (!StatusBarUtil.from(activity).setTransparentStatusbar(z2).setLightStatusBar(z2).process()) {
-                c.a.s0.s.h0.b.k().u("switch_immersive_sticky_status", false);
+                c.a.s0.s.i0.b.k().u("switch_immersive_sticky_status", false);
                 TbadkCoreApplication.getInst().resetIsImmersiveStickyPrefHasRead(false);
                 return false;
             } else if (Build.VERSION.SDK_INT < 21) {

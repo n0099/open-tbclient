@@ -35,31 +35,31 @@ public class h extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10159e;
+        public final /* synthetic */ CallbackHandler f10301e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f10160f;
+        public final /* synthetic */ String f10302f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f10161g;
+        public final /* synthetic */ Context f10303g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f10162h;
+        public final /* synthetic */ String f10304h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f10163i;
+        public final /* synthetic */ c.a.r0.a.d2.e f10305i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ d.C0561d f10164j;
+        public final /* synthetic */ d.C0570d f10306j;
         public final /* synthetic */ Bundle k;
         public final /* synthetic */ h l;
 
-        public a(h hVar, CallbackHandler callbackHandler, String str, Context context, String str2, c.a.r0.a.d2.e eVar, d.C0561d c0561d, Bundle bundle) {
+        public a(h hVar, CallbackHandler callbackHandler, String str, Context context, String str2, c.a.r0.a.d2.e eVar, d.C0570d c0570d, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hVar, callbackHandler, str, context, str2, eVar, c0561d, bundle};
+                Object[] objArr = {hVar, callbackHandler, str, context, str2, eVar, c0570d, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -70,12 +70,12 @@ public class h extends z {
                 }
             }
             this.l = hVar;
-            this.f10159e = callbackHandler;
-            this.f10160f = str;
-            this.f10161g = context;
-            this.f10162h = str2;
-            this.f10163i = eVar;
-            this.f10164j = c0561d;
+            this.f10301e = callbackHandler;
+            this.f10302f = str;
+            this.f10303g = context;
+            this.f10304h = str2;
+            this.f10305i = eVar;
+            this.f10306j = c0570d;
             this.k = bundle;
         }
 
@@ -86,15 +86,15 @@ public class h extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    if (this.l.o(this.f10161g, this.f10162h)) {
-                        this.l.m(this.f10163i, (Activity) this.f10161g, this.f10164j, this.f10159e, this.f10160f, this.k);
+                    if (this.l.o(this.f10303g, this.f10304h)) {
+                        this.l.m(this.f10305i, (Activity) this.f10303g, this.f10306j, this.f10301e, this.f10302f, this.k);
                         return;
                     } else {
-                        this.f10159e.handleSchemeDispatchCallback(this.f10160f, UnitedSchemeUtility.wrapCallbackParams(10008, "app not installed").toString());
+                        this.f10301e.handleSchemeDispatchCallback(this.f10302f, UnitedSchemeUtility.wrapCallbackParams(10008, "app not installed").toString());
                         return;
                     }
                 }
-                c.a.r0.a.h2.c.d.q(iVar, this.f10159e, this.f10160f);
+                c.a.r0.a.h2.c.d.q(iVar, this.f10301e, this.f10302f);
             }
         }
     }
@@ -105,20 +105,20 @@ public class h extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.C0561d f10165e;
+        public final /* synthetic */ d.C0570d f10307e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10166f;
+        public final /* synthetic */ CallbackHandler f10308f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10167g;
+        public final /* synthetic */ String f10309g;
 
-        public b(h hVar, d.C0561d c0561d, CallbackHandler callbackHandler, String str) {
+        public b(h hVar, d.C0570d c0570d, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hVar, c0561d, callbackHandler, str};
+                Object[] objArr = {hVar, c0570d, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -128,9 +128,9 @@ public class h extends z {
                     return;
                 }
             }
-            this.f10165e = c0561d;
-            this.f10166f = callbackHandler;
-            this.f10167g = str;
+            this.f10307e = c0570d;
+            this.f10308f = callbackHandler;
+            this.f10309g = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -140,25 +140,25 @@ public class h extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!iVar.c()) {
-                    c.a.r0.a.e0.d.o("ThirdPartyLoginAction", iVar.b() + " " + this.f10165e.toString());
+                    c.a.r0.a.e0.d.o("ThirdPartyLoginAction", iVar.b() + " " + this.f10307e.toString());
                     String f2 = c.a.r0.a.h2.c.d.f(iVar.b());
                     if (!TextUtils.isEmpty(f2)) {
-                        this.f10166f.handleSchemeDispatchCallback(this.f10167g, UnitedSchemeUtility.wrapCallbackParams(iVar.b(), f2).toString());
+                        this.f10308f.handleSchemeDispatchCallback(this.f10309g, UnitedSchemeUtility.wrapCallbackParams(iVar.b(), f2).toString());
                     } else {
-                        this.f10166f.handleSchemeDispatchCallback(this.f10167g, UnitedSchemeUtility.wrapCallbackParams(iVar.b()).toString());
+                        this.f10308f.handleSchemeDispatchCallback(this.f10309g, UnitedSchemeUtility.wrapCallbackParams(iVar.b()).toString());
                     }
                 } else if (TextUtils.isEmpty(iVar.a.a)) {
-                    this.f10166f.handleSchemeDispatchCallback(this.f10167g, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
+                    this.f10308f.handleSchemeDispatchCallback(this.f10309g, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
                 } else {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("code", iVar.a.a);
-                        this.f10166f.handleSchemeDispatchCallback(this.f10167g, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
+                        this.f10308f.handleSchemeDispatchCallback(this.f10309g, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
                     } catch (JSONException e2) {
-                        if (z.f6201b) {
+                        if (z.f6343b) {
                             e2.printStackTrace();
                         }
-                        this.f10166f.handleSchemeDispatchCallback(this.f10167g, UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage()).toString());
+                        this.f10308f.handleSchemeDispatchCallback(this.f10309g, UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage()).toString());
                     }
                 }
             }
@@ -207,20 +207,20 @@ public class h extends z {
             }
             String optString2 = optParamsAsJo.optString("type", "");
             int n = n(optString2);
-            d.C0561d c0561d = new d.C0561d(optParamsAsJo);
+            d.C0570d c0570d = new d.C0570d(optParamsAsJo);
             Bundle bundle = new Bundle();
             bundle.putInt("key_login_mode", n);
-            eVar.d0().g(context, "mapp_i_login", new a(this, callbackHandler, optString, context, optString2, eVar, c0561d, bundle));
+            eVar.d0().g(context, "mapp_i_login", new a(this, callbackHandler, optString, context, optString2, eVar, c0570d, bundle));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void m(c.a.r0.a.d2.e eVar, Activity activity, d.C0561d c0561d, CallbackHandler callbackHandler, String str, Bundle bundle) {
+    public final void m(c.a.r0.a.d2.e eVar, Activity activity, d.C0570d c0570d, CallbackHandler callbackHandler, String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{eVar, activity, c0561d, callbackHandler, str, bundle}) == null) {
-            eVar.d0().r(activity, c0561d, bundle, new b(this, c0561d, callbackHandler, str), "SwanThirdPartLogin");
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{eVar, activity, c0570d, callbackHandler, str, bundle}) == null) {
+            eVar.d0().r(activity, c0570d, bundle, new b(this, c0570d, callbackHandler, str), "SwanThirdPartLogin");
         }
     }
 
